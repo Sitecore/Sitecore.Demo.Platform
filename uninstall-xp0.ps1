@@ -6,6 +6,10 @@
 $ErrorActionPreference = "Stop"
 . $PSScriptRoot\settings.ps1
 
+if (Test-Path $PSScriptRoot\settings.user.ps1){
+	. $PSScriptRoot\settings.user.ps1
+}
+
 Write-Host "*******************************************************" -ForegroundColor Green
 Write-Host " UN Installing Sitecore $SitecoreVersion" -ForegroundColor Green
 Write-Host " Sitecore: $SitecoreSiteName" -ForegroundColor Green

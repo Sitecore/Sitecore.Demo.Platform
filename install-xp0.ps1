@@ -13,7 +13,6 @@ Write-Host " Installing Sitecore $SitecoreVersion" -ForegroundColor Green
 Write-Host " Sitecore: $SitecoreSiteName" -ForegroundColor Green
 Write-Host " xConnect: $XConnectSiteName" -ForegroundColor Green
 Write-Host "*******************************************************" -ForegroundColor Green
-
 function Install-Prerequisites {
     #Verify SQL version
     $SqlRequiredVersion = "13.0.4001"
