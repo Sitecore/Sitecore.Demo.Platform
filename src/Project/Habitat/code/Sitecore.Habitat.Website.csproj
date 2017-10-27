@@ -64,6 +64,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Config\Include\Project\Habitat.Website.config" />
+    <Content Include="App_Config\Include\Project\Habitat.Website.Serialization.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -73,6 +75,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="App_Config\Include\Project\z.Habitat.Website.DevSettings.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.config" />

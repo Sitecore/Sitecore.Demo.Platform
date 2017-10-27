@@ -31,6 +31,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Habitat.Website", "src\Project\Habitat\code\Sitecore.Habitat.Website.csproj", "{73A57FBE-7088-4344-87DC-23B01B504EC9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serialization", "{58F6B798-8C7C-4AAA-BE66-4CF562167F2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.Serialization", "src\Foundation\Serialization\code\Sitecore.Foundation.Serialization.csproj", "{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,10 @@ Global
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +64,8 @@ Global
 		{EA348692-4DA3-4388-9E0C-EF8C548EB579} = {37394D96-A276-41B7-BFC0-E0897AFE4690}
 		{473A0B1B-347B-413D-83A4-F9D166C9E8AA} = {52A24683-6714-4380-A38B-1BD657A8D604}
 		{73A57FBE-7088-4344-87DC-23B01B504EC9} = {85186717-7A62-48A7-869B-C47DF85B6273}
+		{58F6B798-8C7C-4AAA-BE66-4CF562167F2E} = {78EA0067-9C56-4E62-B428-A84F35EDB7BF}
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6} = {58F6B798-8C7C-4AAA-BE66-4CF562167F2E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
