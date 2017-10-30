@@ -1,11 +1,16 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Habitat and the tools and processes in it is a Sitecore solution example built using Sitecore Experience Accelerator (SXA) following the Helix architecture principles.
+The architecture and methodology focuses on:
+
+Simplicity - A consistent and discoverable architecture
+Flexibility - Change and add quickly and without worry
+Extensibility - Simply add new features without steep learning curve
 
 # Getting Started
 Installation:
-* Sitecore 9.0.0 rev. 171002
-* Sitecore PowerShell Extensions-4.7 for Sitecore 8.zip
-* Sitecore Experience Accelerator 1.5 rev. 171010 for 9.0.zip
+* Sitecore 9.0.0 rev. 171002 https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/90/Sitecore_Experience_Platform_90_Initial_Release.aspx (Select Packages for XP Single under "Deployment options for On Premises deployment")
+* Sitecore PowerShell Extensions-4.7 for Sitecore 8.zip (https://marketplace.sitecore.net/Modules/S/Sitecore_PowerShell_console.aspx)
+* Sitecore Experience Accelerator 1.5 rev. 171010 for 9.0.zip (https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/15/Sitecore_Experience_Accelerator_15_Initial_Release.aspx)
 
 
 # Build and Test
