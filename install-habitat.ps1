@@ -16,7 +16,7 @@ function Copy-Packages {
     if (!(Test-Path $AssetsRoot\Packages)) {
         throw "Packages folder not found"
     }
-    $packageSource = "$AssetsRoot\Packages\*"
+    $packageSource = "$AssetsRoot\Packages"
     $tempFolderFullPath = "$webroot\$SitecoreSiteName\temp\Packages"
 
     #Check for existence of packages
@@ -27,8 +27,10 @@ function Copy-Packages {
     }
     else {
         # Install all packages in numerical order
-        Copy-Item $packageSource -Destination $tempFolderFullPath -Force -Verbose
+            Copy-Item -Path $packageSource -Filter *.zip -Destination $tempFolderFullPath -Verbose -Recurse
     }
+         
+    
 }
 
 function Install-Script {
@@ -70,8 +72,8 @@ function Deploy-Habitat {
     npm install
     .\node_modules\.bin\gulp
 }
-
+. .\install-xp0.ps1
 Copy-Packages
 Install-Script
-#Install-Packages
+Install-Packages
 Deploy-Habitat
