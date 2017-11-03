@@ -26,7 +26,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 		gulp-config.js = gulp-config.js
 		gulpfile.js = gulpfile.js
 		nuget.config = nuget.config
+		package.json = package.json
 		README.md = README.md
+		TdsGlobal.config = TdsGlobal.config
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Habitat.Website", "src\Project\Habitat\code\Sitecore.Habitat.Website.csproj", "{73A57FBE-7088-4344-87DC-23B01B504EC9}"
@@ -35,24 +37,58 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serializat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.Serialization", "src\Foundation\Serialization\code\Sitecore.Foundation.Serialization.csproj", "{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}"
 EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Common.Website.Master", "src\Project\Common\tds\Sitecore.Common.Website.Master\Sitecore.Common.Website.Master.scproj", "{321A2547-DED0-4F12-BD2B-D80CECB7396F}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Habitat.Website.Master", "src\Project\Habitat\tds\Sitecore.Habitat.Website.Master\Sitecore.Habitat.Website.Master.scproj", "{D259EF27-FA71-4D70-A2E4-C6D854CC849F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{0554FDB3-149E-4B59-BC22-27A0CB3854A7}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Demo.Deployment", "build\TDS\Sitecore.Demo.Deployment\Sitecore.Demo.Deployment.scproj", "{22CDAA26-110F-46DF-88E5-19445B8F48AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		TDS|Any CPU = TDS|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{473A0B1B-347B-413D-83A4-F9D166C9E8AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{473A0B1B-347B-413D-83A4-F9D166C9E8AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{473A0B1B-347B-413D-83A4-F9D166C9E8AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{473A0B1B-347B-413D-83A4-F9D166C9E8AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{473A0B1B-347B-413D-83A4-F9D166C9E8AA}.TDS|Any CPU.ActiveCfg = TDS|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73A57FBE-7088-4344-87DC-23B01B504EC9}.TDS|Any CPU.ActiveCfg = TDS|Any CPU
 		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.TDS|Any CPU.ActiveCfg = TDS|Any CPU
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F}.TDS|Any CPU.ActiveCfg = TDS|Any CPU
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F}.TDS|Any CPU.Build.0 = TDS|Any CPU
+		{D259EF27-FA71-4D70-A2E4-C6D854CC849F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D259EF27-FA71-4D70-A2E4-C6D854CC849F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D259EF27-FA71-4D70-A2E4-C6D854CC849F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D259EF27-FA71-4D70-A2E4-C6D854CC849F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D259EF27-FA71-4D70-A2E4-C6D854CC849F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D259EF27-FA71-4D70-A2E4-C6D854CC849F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D259EF27-FA71-4D70-A2E4-C6D854CC849F}.TDS|Any CPU.ActiveCfg = TDS|Any CPU
+		{D259EF27-FA71-4D70-A2E4-C6D854CC849F}.TDS|Any CPU.Build.0 = TDS|Any CPU
+		{22CDAA26-110F-46DF-88E5-19445B8F48AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22CDAA26-110F-46DF-88E5-19445B8F48AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22CDAA26-110F-46DF-88E5-19445B8F48AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22CDAA26-110F-46DF-88E5-19445B8F48AB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{22CDAA26-110F-46DF-88E5-19445B8F48AB}.TDS|Any CPU.ActiveCfg = TDS|Any CPU
+		{22CDAA26-110F-46DF-88E5-19445B8F48AB}.TDS|Any CPU.Build.0 = TDS|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +102,10 @@ Global
 		{73A57FBE-7088-4344-87DC-23B01B504EC9} = {85186717-7A62-48A7-869B-C47DF85B6273}
 		{58F6B798-8C7C-4AAA-BE66-4CF562167F2E} = {78EA0067-9C56-4E62-B428-A84F35EDB7BF}
 		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6} = {58F6B798-8C7C-4AAA-BE66-4CF562167F2E}
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F} = {52A24683-6714-4380-A38B-1BD657A8D604}
+		{D259EF27-FA71-4D70-A2E4-C6D854CC849F} = {85186717-7A62-48A7-869B-C47DF85B6273}
+		{0554FDB3-149E-4B59-BC22-27A0CB3854A7} = {25781A7E-9FF0-4FF5-9BD1-0E25BF8C2AF6}
+		{22CDAA26-110F-46DF-88E5-19445B8F48AB} = {0554FDB3-149E-4B59-BC22-27A0CB3854A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
