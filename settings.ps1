@@ -2,7 +2,7 @@
 $SolutionPrefix = "habitat"
 $SitePostFix = "dev.local"
 $webroot = "C:\inetpub\wwwroot"
-
+$hostName = "$SolutionPrefix.$SitePostFix"
 $SitecoreVersion = "9.0.0 rev. 171002"
 $InstallerVersion = "1.0.2"
 
