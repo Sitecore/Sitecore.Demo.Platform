@@ -1,0 +1,66 @@
+----item----
+version: 1
+id: {84497BE9-45B0-4E9A-B018-D6E42372C3F2}
+database: master
+path: /sitecore/content/Habitat Sites/Habitat/Settings/Facets/Distance
+parent: {1DA62E20-EF01-4F67-A515-D734C368BDC3}
+name: Distance
+master: {110E35F3-FB41-4BEC-BCB3-02B7A9CEBB15}
+template: {BB3E6DC9-97AA-47FA-A5EA-7D833A9C4CFC}
+templatekey: DistanceFacet
+created: 20171030T210107Z
+
+----field----
+field: {2C054663-0478-41FF-8F50-5D5D69CBA936}
+name: Unit
+key: unit
+content-length: 10
+
+Kilometers
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{3D31398F-C8FC-46A5-B97A-4B3898752D44}
+----version----
+language: en
+version: 1
+revision: 5867b598-cdc0-4024-9ae2-15b3bfb24107
+
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20171027T152259Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+5867b598-cdc0-4024-9ae2-15b3bfb24107
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20171030T210107Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

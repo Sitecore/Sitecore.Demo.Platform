@@ -1,0 +1,94 @@
+----item----
+version: 1
+id: {5DDD2229-A9E9-4833-8646-D78D442501CB}
+database: master
+path: /sitecore/content/Habitat Sites/Habitat/Settings/Creative Exchange Storages/Folder on server
+parent: {3AF73A80-4539-4B3F-B4D1-D309C2566966}
+name: Folder on server
+master: {AAB15F53-CC56-44E0-BFC6-1ED18FF81FFB}
+template: {BCA27DE4-A869-4282-B3FB-4FBD7BA1B87B}
+templatekey: Creative Exchange File Storage
+created: 20171030T210107Z
+
+----field----
+field: {18EE0052-ACCD-42AD-8D80-D60CB88D9950}
+name: Name
+key: name
+content-length: 16
+
+Folder on server
+----field----
+field: {52E8DE18-7F21-4036-A6DA-2B6C71EEA601}
+name: ExportType
+key: exporttype
+content-length: 106
+
+Sitecore.XA.Feature.CreativeExchange.Storage.Export.FileExportStorage,Sitecore.XA.Feature.CreativeExchange
+----field----
+field: {15D142E5-E484-458D-8A66-317BAAFEE28F}
+name: ImportType
+key: importtype
+content-length: 106
+
+Sitecore.XA.Feature.CreativeExchange.Storage.Import.FileImportStorage,Sitecore.XA.Feature.CreativeExchange
+----field----
+field: {5F32188E-D73C-47B8-97D4-7097070D8F46}
+name: Destination Path
+key: destination path
+content-length: 45
+
+$(creativeExchangeFolder)/FileStorage/Habitat
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{A2F805C7-0D57-47F0-B67E-D9FA8AE3E664}
+----version----
+language: en
+version: 1
+revision: a2598dc8-8819-4f84-990a-f9b385d05df3
+
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 16
+
+Folder on server
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20171027T151650Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+a2598dc8-8819-4f84-990a-f9b385d05df3
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20171031T140220Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn
