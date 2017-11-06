@@ -7,9 +7,14 @@
 if (Test-Path $PSScriptRoot\settings.user.ps1){
 	. $PSScriptRoot\settings.user.ps1
 }
+Write-Host "Installing latest version of Carbon" -ForegroundColor Green
+Install-Module -Name Carbon -Repository PSGallery -AllowClobber -Verbose
+Import-Module Carbon
+
+
 Write-Host ""
 Write-Host "*******************************************************" -ForegroundColor Green
-Write-Host " Installing Habitat Home Demo on Sitecore $SitecoreVersion" -ForegroundColor Green
+Write-Host " Installing Habitat Demo on Sitecore $SitecoreVersion" -ForegroundColor Green
 Write-Host " Sitecore: $SitecoreSiteName" -ForegroundColor Green
 Write-Host "*******************************************************" -ForegroundColor Green
 function Copy-Packages {
@@ -72,8 +77,19 @@ function Deploy-Habitat {
     npm install
     .\node_modules\.bin\gulp
 }
+
+function Set-HostName {
+    Write-Host "Adding host entry for $hostName" -ForegroundColor Green
+    Set-HostsEntry -IPAddress 127.0.0.1 -HostName $hostName
+}
+
+
+
 . .\install-xp0.ps1
 Copy-Packages
 Install-Script
 Install-Packages
 Deploy-Habitat
+Set-HostName
+
+Write-Host "Installation Complete" -ForegroundColor Green
