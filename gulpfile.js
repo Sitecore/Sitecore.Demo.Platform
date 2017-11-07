@@ -27,13 +27,26 @@ gulp.task("default",
             "Copy-Sitecore-License",
             "Copy-Sitecore-Lib",
             "Nuget-Restore",
-            
+            "Publish-All-Projects",
+            "Apply-Xml-Transform",
+            "Publish-Transforms",
+            callback);
+    });
+
+gulp.task("deploy-unicorn",
+    function (callback) {
+        config.runCleanBuilds = true;
+        return runSequence(
+            "Copy-Sitecore-License",
+            "Copy-Sitecore-Lib",
+            "Nuget-Restore",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
             "Sync-Unicorn",
             "Publish-Transforms",
             callback);
     });
+
 
 /*****************************
   Initial setup

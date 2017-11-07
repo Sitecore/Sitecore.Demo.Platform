@@ -44,6 +44,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{0554FDB3-149E-4B59-BC22-27A0CB3854A7}"
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Demo.Deployment", "build\TDS\Sitecore.Demo.Deployment\Sitecore.Demo.Deployment.scproj", "{22CDAA26-110F-46DF-88E5-19445B8F48AB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D259EF27-FA71-4D70-A2E4-C6D854CC849F} = {D259EF27-FA71-4D70-A2E4-C6D854CC849F}
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F} = {321A2547-DED0-4F12-BD2B-D80CECB7396F}
+	EndProjectSection
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Feature.Demo.Master", "src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj", "{3E21FC58-E2B6-4DE9-94C3-FF38C7CF0402}"
 EndProject
