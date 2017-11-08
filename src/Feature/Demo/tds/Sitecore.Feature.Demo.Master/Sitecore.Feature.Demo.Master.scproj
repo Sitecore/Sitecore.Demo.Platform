@@ -19,9 +19,8 @@
     <ManageRoles>False</ManageRoles>
     <SitecoreDatabase>master</SitecoreDatabase>
     <AssemblyStatus>Include</AssemblyStatus>
-    <SourceWebVirtualPath>/Sitecore.Feature.Demo.csproj</SourceWebVirtualPath>
-    <SourceWebProject>{b4848a62-92aa-4670-b519-12efc204409e}|src\Feature\Demo\code\Sitecore.Feature.Demo\Sitecore.Feature.Demo.csproj</SourceWebProject>
-    <SourceWebPhysicalPath>..\..\code\Sitecore.Feature.Demo</SourceWebPhysicalPath>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,7 +41,19 @@
     </AssemblyAttributes>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\code\Sitecore.Feature.Demo\Sitecore.Feature.Demo.csproj">
+    <SourceWebProjects Include="{b4848a62-92aa-4670-b519-12efc204409e}|src\Feature\Demo\code\Sitecore.Feature.Demo.csproj">
+      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
+      <SourceWebVirtualPath>/Sitecore.Feature.Demo.csproj</SourceWebVirtualPath>
+      <SourceWebProjectId>b4848a62-92aa-4670-b519-12efc204409e</SourceWebProjectId>
+    </SourceWebProjects>
+    <SourceWebProjects Include="{b4848a62-92aa-4670-b519-12efc204409e}|src\Feature\Demo\code\Sitecore.Feature.Demo\Sitecore.Feature.Demo.csproj">
+      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
+      <SourceWebVirtualPath>/Sitecore.Feature.Demo.csproj</SourceWebVirtualPath>
+      <SourceWebProjectId>b4848a62-92aa-4670-b519-12efc204409e</SourceWebProjectId>
+    </SourceWebProjects>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\code\Sitecore.Feature.Demo.csproj">
       <Project>{b4848a62-92aa-4670-b519-12efc204409e}</Project>
       <Name>Sitecore.Feature.Demo</Name>
     </ProjectReference>
@@ -50,5 +61,32 @@
   <ItemGroup>
     <ExcludedAssemblies Include="Sitecore.Feature.Demo.%2a" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <SitecoreItem Include="sitecore\templates.item">
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\Habitat Sites.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Feature\Habitat Sites\Demo.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
+  <Import Project="..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets'))" />
+  </Target>
 </Project>
