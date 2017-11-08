@@ -4109,6 +4109,7 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Project\Habitat Sites\Habitat.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
   </ItemGroup>
   <ItemGroup>
