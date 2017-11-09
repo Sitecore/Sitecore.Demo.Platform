@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Layout Service
 parent: {D670F2B3-0631-44EE-8DC1-2D269BA23F54}
 name: Layout Service
-master: {B002C2A2-6DED-4FCB-BE63-DFC310D6BCF3}
+master: {00000000-0000-0000-0000-000000000000}
 template: {FA0B4154-BB8A-4670-B378-E27EBC41445B}
 templatekey: Layout Service Variants
-created: 20171030T210053Z
+created: 20171027T152010Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,8 +20,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 804d69f5-a724-409a-ae6c-a8dd53047bea
+revision: 69489c85-858d-462e-8e3b-5a51ff8ee3af
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-804d69f5-a724-409a-ae6c-a8dd53047bea
+69489c85-858d-462e-8e3b-5a51ff8ee3af
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210053Z
+20171027T152012Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

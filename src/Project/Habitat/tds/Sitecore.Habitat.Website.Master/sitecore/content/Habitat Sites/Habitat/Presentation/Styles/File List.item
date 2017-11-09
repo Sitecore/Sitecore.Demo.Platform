@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Styles/File List
 parent: {57DA9AFA-5DC5-40DF-A38C-0A089EC2C1BD}
 name: File List
-master: {5EDF676A-2FDD-418A-8C56-CB465EE16E20}
+master: {00000000-0000-0000-0000-000000000000}
 template: {C6DC7393-15BB-4CD7-B798-AB63E77EBAC4}
 templatekey: Styles
-created: 20171030T210101Z
+created: 20171027T151723Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,8 +20,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 5ca2198b-cc85-49a8-9744-2f7d33fef90a
+revision: 1173555b-6c9e-4fd4-ac66-a91928c1d35f
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5ca2198b-cc85-49a8-9744-2f7d33fef90a
+1173555b-6c9e-4fd4-ac66-a91928c1d35f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210101Z
+20171027T151809Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

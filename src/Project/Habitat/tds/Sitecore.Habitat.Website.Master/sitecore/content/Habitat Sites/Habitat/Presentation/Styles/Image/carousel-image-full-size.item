@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Styles/Image/carousel-image-full-size
 parent: {FBE70450-20EA-471A-AB79-9D0D476B78CC}
 name: carousel-image-full-size
-master: {5EDF676A-2FDD-418A-8C56-CB465EE16E20}
+master: {00000000-0000-0000-0000-000000000000}
 template: {6B8AABEF-D650-46E0-97D0-C0B04F7F016B}
 templatekey: Style
-created: 20171030T210114Z
+created: 20171027T151730Z
 
 ----field----
 field: {09147FB2-EBFB-4949-8C8E-26A424409D5E}
@@ -48,7 +48,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: d2122c4b-33f5-41f4-9405-7a5e3f21b361
+revision: 141e709c-d931-4eb6-bc23-e9d5e4bca8fa
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -57,6 +57,13 @@ key: __display name
 content-length: 16
 
 Full width image
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -77,18 +84,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d2122c4b-33f5-41f4-9405-7a5e3f21b361
+141e709c-d931-4eb6-bc23-e9d5e4bca8fa
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210114Z
+20171027T151814Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

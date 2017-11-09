@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Data/Search/Page Selector
 parent: {EFEBCDF9-A90A-4FD7-8767-BE959CE1875D}
 name: Page Selector
-master: {957565A0-BF0D-4F8B-BF2C-4A8F40EC9080}
+master: {00000000-0000-0000-0000-000000000000}
 template: {3CB0D374-029B-4EEB-BA8B-ED75B0C25188}
 templatekey: Page Selector Folder
-created: 20171030T210110Z
+created: 20171027T152359Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,8 +20,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 0f0afcb1-7992-4d6a-a76b-a36660716114
+revision: 138914a0-45bb-403f-a947-b2a3663241db
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-0f0afcb1-7992-4d6a-a76b-a36660716114
+138914a0-45bb-403f-a947-b2a3663241db
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210110Z
+20171027T152428Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

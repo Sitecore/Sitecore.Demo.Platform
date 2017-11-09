@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Styles/Layout/cover-background
 parent: {F55BB5AB-15D8-4D2F-A2C7-D3DC1D483794}
 name: cover-background
-master: {5EDF676A-2FDD-418A-8C56-CB465EE16E20}
+master: {00000000-0000-0000-0000-000000000000}
 template: {6B8AABEF-D650-46E0-97D0-C0B04F7F016B}
 templatekey: Style
-created: 20171030T210116Z
+created: 20171027T151737Z
 
 ----field----
 field: {09147FB2-EBFB-4949-8C8E-26A424409D5E}
@@ -41,7 +41,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 7a4f099d-e2a1-4db3-a96a-1734abeec1e4
+revision: 72f428ef-8cf3-4cea-b265-eab6405ef059
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -50,6 +50,13 @@ key: __display name
 content-length: 16
 
 Cover background
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -70,18 +77,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-7a4f099d-e2a1-4db3-a96a-1734abeec1e4
+72f428ef-8cf3-4cea-b265-eab6405ef059
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210116Z
+20171027T151816Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

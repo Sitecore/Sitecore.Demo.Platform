@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Data/POIs
 parent: {E60365D2-D2EE-4BA9-AAF1-6C6ACCA0B614}
 name: POIs
-master: {58A9B55E-88B8-49A3-918B-99F3B6534C95}
+master: {00000000-0000-0000-0000-000000000000}
 template: {8CA8B80D-A1AD-4B45-9F08-8839357E71D4}
 templatekey: POIs
-created: 20171030T210056Z
+created: 20171027T151921Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,8 +20,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 5069781f-037f-4767-85bf-44e1954de425
+revision: 18ef3f4c-cc64-42b9-a180-6d0d5cf5cdf7
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5069781f-037f-4767-85bf-44e1954de425
+18ef3f4c-cc64-42b9-a180-6d0d5cf5cdf7
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210056Z
+20171027T151924Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

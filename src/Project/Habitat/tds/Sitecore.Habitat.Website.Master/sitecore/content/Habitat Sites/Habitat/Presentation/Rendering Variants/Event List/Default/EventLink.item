@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Event List/Default/EventLink
 parent: {57DE473E-03CE-4F3B-87A6-913D66621B4C}
 name: EventLink
-master: {34C38EC6-D380-4BB0-93AB-52F08AECFBFA}
+master: {00000000-0000-0000-0000-000000000000}
 template: {FCD285DA-9AB2-4C8D-B185-5A7487A9BA1B}
 templatekey: VariantField
-created: 20171030T210126Z
+created: 20171027T151858Z
 
 ----field----
 field: {4753764C-C05A-4623-841B-97F85135241C}
@@ -48,8 +48,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 95a3be5a-292b-452d-8025-74a39b9c30d9
+revision: 10eb1683-2299-4e10-b947-0aa4664b3dab
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -70,18 +77,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-95a3be5a-292b-452d-8025-74a39b9c30d9
+10eb1683-2299-4e10-b947-0aa4664b3dab
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210126Z
+20171027T151903Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

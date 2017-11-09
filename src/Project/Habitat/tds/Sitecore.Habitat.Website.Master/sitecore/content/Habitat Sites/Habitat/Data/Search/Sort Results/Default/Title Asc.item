@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Data/Search/Sort Results/Default/Title Asc
 parent: {67C1122D-9FAF-4396-B02E-D252823B21AD}
 name: Title Asc
-master: {957565A0-BF0D-4F8B-BF2C-4A8F40EC9080}
+master: {00000000-0000-0000-0000-000000000000}
 template: {3E53AC1B-65E8-4AE2-8C5B-8BAF9C3D655E}
 templatekey: Sorting
-created: 20171030T210130Z
+created: 20171027T152423Z
 
 ----field----
 field: {C95B7BAD-FA93-41F0-82DE-C2C2BF0A0E89}
@@ -34,7 +34,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 5da2de2a-c03a-43ae-94c3-e5680b9a7f17
+revision: 3cb810c0-ca9f-4f80-9d5c-93fd0fc074c0
 
 ----field----
 field: {F3B01C7D-BD46-4972-AB13-4C9C95C4F23D}
@@ -43,6 +43,13 @@ key: title
 content-length: 9
 
 Title Asc
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -63,18 +70,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5da2de2a-c03a-43ae-94c3-e5680b9a7f17
+3cb810c0-ca9f-4f80-9d5c-93fd0fc074c0
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T140222Z
+20171027T152454Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 22
 
-sitecore\unicorn
+sitecore\virtualssuser

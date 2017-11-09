@@ -8,12 +8,12 @@ name: Download-Habitat-Now
 master: {00000000-0000-0000-0000-000000000000}
 template: {324733CF-AFEC-4281-9A18-03B6CFC4E535}
 templatekey: Promo
-created: 20171031T165625Z
+created: 20171031T160408Z
 
 ----version----
 language: en
 version: 1
-revision: cca04abd-f38f-41c5-9da7-960d077e76ae
+revision: 2a20a62e-4e39-4455-b8b5-f4b5fbbaa9d9
 
 ----field----
 field: {14023DD5-30E7-4E3C-BF31-D835F3A87410}
@@ -37,6 +37,13 @@ content-length: 85
 
 Habitat is available as a Sitecore Package and the sourcecode is available on Github.
 ----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -56,18 +63,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-cca04abd-f38f-41c5-9da7-960d077e76ae
+2a20a62e-4e39-4455-b8b5-f4b5fbbaa9d9
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165625Z
+20171031T160733Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin
+----field----
+field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
+name: __Lock
+key: __lock
+content-length: 5
+
+<r />

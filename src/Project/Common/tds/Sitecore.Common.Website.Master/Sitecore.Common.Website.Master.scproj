@@ -129,6 +129,7 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library\Themes\Habitat Sites.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>

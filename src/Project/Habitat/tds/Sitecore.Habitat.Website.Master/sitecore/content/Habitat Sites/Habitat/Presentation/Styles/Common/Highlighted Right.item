@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Styles/Common/Highlighted Right
 parent: {6426E09F-C817-4B90-ABA9-A9D165F80B18}
 name: Highlighted Right
-master: {5EDF676A-2FDD-418A-8C56-CB465EE16E20}
+master: {00000000-0000-0000-0000-000000000000}
 template: {6B8AABEF-D650-46E0-97D0-C0B04F7F016B}
 templatekey: Style
-created: 20171030T210116Z
+created: 20171027T151710Z
 
 ----field----
 field: {09147FB2-EBFB-4949-8C8E-26A424409D5E}
@@ -48,8 +48,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 68906248-a562-4cac-954c-2311e2a01dbd
+revision: c9193e44-35d5-4d14-b541-e2073c651f29
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -70,18 +77,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-68906248-a562-4cac-954c-2311e2a01dbd
+c9193e44-35d5-4d14-b541-e2073c651f29
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210116Z
+20171027T151800Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

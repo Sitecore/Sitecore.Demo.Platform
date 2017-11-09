@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/POI Types
 parent: {D670F2B3-0631-44EE-8DC1-2D269BA23F54}
 name: POI Types
-master: {F4371CD2-FD6D-4C4E-910D-8E1095C67B25}
+master: {00000000-0000-0000-0000-000000000000}
 template: {3A1DDE20-0A86-492A-81EE-5F56C827FA94}
 templatekey: PoiTypes
-created: 20171030T210052Z
+created: 20171027T151912Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,8 +20,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: fa27a15e-171d-4133-87fe-087aa2cf8ee0
+revision: 8584e41c-f5c5-4652-9b8f-48d81e34301b
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-fa27a15e-171d-4133-87fe-087aa2cf8ee0
+8584e41c-f5c5-4652-9b8f-48d81e34301b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210052Z
+20171027T151917Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser
