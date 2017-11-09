@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Settings/Site Grouping/Habitat
 parent: {9A5C3950-CECA-4E5C-AEDB-D2E53A1DB7D8}
 name: Habitat
-master: {B90549B5-C997-4D6B-B102-C9AB82528974}
+master: {00000000-0000-0000-0000-000000000000}
 template: {EDA823FC-BC7E-4EF6-B498-CD09EC6FDAEF}
 templatekey: Site
-created: 20171030T210108Z
+created: 20171027T151258Z
 
 ----field----
 field: {CB4E9E2E-2B66-43DC-AD3F-9CAF363D28D3}
@@ -28,9 +28,9 @@ content-length: 1
 field: {8E0DD914-9AFB-4D45-BF8B-7FF5D6E5337E}
 name: HostName
 key: hostname
-content-length: 35
+content-length: 17
 
-habitat.dev.local|habitat.dev.azure
+habitat.dev.local
 ----field----
 field: {1EE576AF-BA8E-4312-9FBD-2CCF8395BAA1}
 name: StartItem
@@ -62,8 +62,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 89c3c9d1-a232-4827-a195-6d1ed22df6d0
+revision: da41c7de-b1d1-4417-99c4-69fe971a77b3
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -84,14 +91,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-89c3c9d1-a232-4827-a195-6d1ed22df6d0
+da41c7de-b1d1-4417-99c4-69fe971a77b3
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171108T152849Z
+20171031T181715Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

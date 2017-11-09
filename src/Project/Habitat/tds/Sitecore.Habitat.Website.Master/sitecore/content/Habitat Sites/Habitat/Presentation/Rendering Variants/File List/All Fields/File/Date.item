@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/File List/All Fields/File/Date
 parent: {25A74AF6-CD3A-430C-9C5E-224C95E80F06}
 name: Date
-master: {83BECF6F-0518-4128-A395-8906981B7CB1}
+master: {00000000-0000-0000-0000-000000000000}
 template: {DC4EBC23-A470-4B5D-8DF8-4A55FA823BB4}
 templatekey: VariantDateField
-created: 20171030T210132Z
+created: 20171027T152039Z
 
 ----field----
 field: {4753764C-C05A-4623-841B-97F85135241C}
@@ -34,7 +34,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: f0192a14-582d-4d4a-bde7-ff0bdc8c7f94
+revision: 7d532eae-18d6-4534-96f4-f78b0f9bbea3
 
 ----field----
 field: {FD5230D8-E68D-4E17-9D85-EA676F27AC3A}
@@ -50,6 +50,13 @@ key: suffix
 content-length: 1
 
 )
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -70,18 +77,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-f0192a14-582d-4d4a-bde7-ff0bdc8c7f94
+7d532eae-18d6-4534-96f4-f78b0f9bbea3
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210132Z
+20171027T152041Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

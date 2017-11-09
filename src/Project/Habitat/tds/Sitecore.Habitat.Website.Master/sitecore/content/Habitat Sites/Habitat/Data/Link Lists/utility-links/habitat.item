@@ -8,12 +8,12 @@ name: habitat
 master: {00000000-0000-0000-0000-000000000000}
 template: {E24E0789-A058-48BF-ABB6-C69C0E60B6B7}
 templatekey: Link
-created: 20171031T165627Z
+created: 20171031T142708Z
 
 ----version----
 language: en
 version: 1
-revision: 3df71280-5174-4bcc-9c89-f593264c5308
+revision: 8a826924-ee0a-4882-83b7-9e66d20edd34
 
 ----field----
 field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
@@ -22,6 +22,13 @@ key: link
 content-length: 112
 
 <link linktype="external" text="Habitat" url="https://github.com/Sitecore/Habitat/" anchor="" target="_blank" />
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-3df71280-5174-4bcc-9c89-f593264c5308
+8a826924-ee0a-4882-83b7-9e66d20edd34
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165627Z
+20171031T143515Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin
+----field----
+field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
+name: __Lock
+key: __lock
+content-length: 5
+
+<r />

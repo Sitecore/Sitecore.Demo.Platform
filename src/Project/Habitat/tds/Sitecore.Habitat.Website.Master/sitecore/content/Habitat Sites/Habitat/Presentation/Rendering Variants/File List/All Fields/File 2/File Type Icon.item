@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/File List/All Fields/File 2/File Type Icon
 parent: {039621D1-CDDF-4A14-BE72-00CF93B27EDE}
 name: File Type Icon
-master: {83BECF6F-0518-4128-A395-8906981B7CB1}
+master: {00000000-0000-0000-0000-000000000000}
 template: {6ECA12E9-F4D5-4F6E-9C3C-6DF716BC593B}
 templatekey: VariantToken
-created: 20171030T210132Z
+created: 20171027T152034Z
 
 ----field----
 field: {3A4DD4DF-8D32-405F-831A-39F87A550085}
@@ -41,8 +41,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 2467d833-4bf6-44ea-a1f9-511c1568ec18
+revision: 59984d48-018a-454c-bda2-8f2a55762ad4
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -63,18 +70,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-2467d833-4bf6-44ea-a1f9-511c1568ec18
+59984d48-018a-454c-bda2-8f2a55762ad4
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210132Z
+20171027T152040Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser
