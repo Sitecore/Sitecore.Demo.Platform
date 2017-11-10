@@ -1,19 +1,26 @@
 ----item----
 version: 1
-id: {936350E1-6057-4250-986B-72BE51833410}
+id: {90224634-CAB5-4D8E-9F71-2DBAC989C6F8}
 database: master
-path: /sitecore/templates/Feature/Habitat Sites/Demo
-parent: {8A3283A7-2209-4F06-8EAE-31F12EEC322C}
-name: Demo
+path: /sitecore/templates/Feature/Habitat Sites/Demo/_DemoContent
+parent: {936350E1-6057-4250-986B-72BE51833410}
+name: _DemoContent
 master: {00000000-0000-0000-0000-000000000000}
-template: {0437FEE2-44C9-46A6-ABE9-28858D9FEE8C}
-templatekey: Template Folder
-created: 20171108T132710Z
+template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
+templatekey: Template
+created: 20171108T132803Z
 
+----field----
+field: {12C33F3F-86C5-43A5-AEB4-5598CEC45116}
+name: __Base template
+key: __base template
+content-length: 38
+
+{1930BBEB-7805-471A-A3BE-4858AC7CF696}
 ----version----
 language: en
 version: 1
-revision: 8278d309-7d69-4aee-8430-c49f607f3861
+revision: ecf140e7-fd48-4bad-982b-25b962a54893
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -21,7 +28,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171108T132710Z
+20171108T132804Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -35,14 +42,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-8278d309-7d69-4aee-8430-c49f607f3861
+ecf140e7-fd48-4bad-982b-25b962a54893
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171108T132710Z
+20171108T132804Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

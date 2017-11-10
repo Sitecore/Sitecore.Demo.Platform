@@ -1,27 +1,41 @@
 ----item----
 version: 1
-id: {936350E1-6057-4250-986B-72BE51833410}
+id: {CADF0E36-1136-4863-9020-73856C23D241}
 database: master
-path: /sitecore/templates/Feature/Habitat Sites/Demo
-parent: {8A3283A7-2209-4F06-8EAE-31F12EEC322C}
-name: Demo
+path: /sitecore/content/Habitat Sites/Habitat/Presentation/Page Designs/Bing Home Theater
+parent: {C6B4C00C-B083-4F00-AC4D-10742397158F}
+name: Bing Home Theater
 master: {00000000-0000-0000-0000-000000000000}
-template: {0437FEE2-44C9-46A6-ABE9-28858D9FEE8C}
-templatekey: Template Folder
-created: 20171108T132710Z
+template: {26336120-B85F-4BF2-A988-290C7B3328FC}
+templatekey: Page Design
+created: 20171110T093158Z
 
+----field----
+field: {7B487159-E180-4846-BE49-E196E4C3A2B3}
+name: Page Design Theme
+key: page design theme
+content-length: 38
+
+{3F46272C-F3B8-4913-8C00-3816B436A4D3}
 ----version----
 language: en
 version: 1
-revision: 8278d309-7d69-4aee-8430-c49f607f3861
+revision: 7ee5bc84-b832-401f-90b1-85103a998c9f
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20171108T132710Z
+20171110T093158Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -35,14 +49,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-8278d309-7d69-4aee-8430-c49f607f3861
+7ee5bc84-b832-401f-90b1-85103a998c9f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171108T132710Z
+20171110T093301Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
