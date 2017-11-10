@@ -1,13 +1,13 @@
-﻿namespace Sitecore.Foundation.DependencyInjection
-{
-    using System;
+﻿using System;            
 
+namespace Sitecore.Foundation.DependencyInjection
+{
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class ServiceAttribute : Attribute
     {
         public ServiceAttribute()
         {
-
+            
         }
 
         public ServiceAttribute(Type serviceType)
