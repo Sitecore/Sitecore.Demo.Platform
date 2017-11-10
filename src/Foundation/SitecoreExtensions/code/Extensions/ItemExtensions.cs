@@ -27,16 +27,7 @@
             return !item.Paths.IsMediaItem ? LinkManager.GetItemUrl(item) : MediaManager.GetMediaUrl(item);
         }
 
-        public static string ImageUrl(this Item item, ID imageFieldId, MediaUrlOptions options = null)
-        {
-            if (item == null)
-            {
-                throw new ArgumentNullException(nameof(item));
-            }
 
-            var imageField = (ImageField)item.Fields[imageFieldId];
-            return imageField?.MediaItem == null ? string.Empty : imageField.ImageUrl(options);
-        }
 
         public static string ImageUrl(this MediaItem mediaItem, int width, int height)
         {

@@ -1,4 +1,6 @@
-﻿namespace Sitecore.Feature.Demo.Pipelines
+﻿using Sitecore.Analytics.Model;
+
+namespace Sitecore.Feature.Demo.Pipelines
 {
     using Sitecore.Analytics;
     using Sitecore.Analytics.Pipelines.ParseReferrer;
