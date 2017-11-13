@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Settings/Browser Title
 parent: {292489A6-8F39-42A6-BEB6-595A141AB4A7}
 name: Browser Title
-master: {CDD7E389-D931-4F1E-96CA-ACB4DEB8A64A}
+master: {00000000-0000-0000-0000-000000000000}
 template: {5A6BF1D1-836B-425A-A6E6-32CEAA8FF3A5}
 templatekey: Browser Title Definition
-created: 20171030T210053Z
+created: 20171027T152310Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,8 +20,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: ff93bf4e-f838-4f89-91a3-16f8d65126fd
+revision: df11fbab-b72a-47de-a951-261b7e8a25ab
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ff93bf4e-f838-4f89-91a3-16f8d65126fd
+df11fbab-b72a-47de-a951-261b7e8a25ab
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210053Z
+20171027T152312Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

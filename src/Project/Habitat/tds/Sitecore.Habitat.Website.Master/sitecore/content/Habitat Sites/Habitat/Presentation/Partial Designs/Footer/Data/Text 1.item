@@ -8,23 +8,30 @@ name: Text 1
 master: {00000000-0000-0000-0000-000000000000}
 template: {B8F5894C-B493-4016-BF78-4090B0A2FD16}
 templatekey: Text
-created: 20171031T165628Z
+created: 20171031T153346Z
 
 ----version----
 language: en
 version: 1
-revision: 8b1270e8-d29f-4f1c-b5e1-a13f7c61cb88
+revision: f4fc82b1-b514-4a3c-98c6-0308c73cb39e
 
 ----field----
 field: {B3635965-6786-457C-9DEE-28DE73C0A331}
 name: Text
 key: text
-content-length: 332
+content-length: 329
 
 <small class="copyright">
 © Copyright 2017, <a href="http://sitecore.net" target="_blank" title="Opens in a new window">Sitecore</a>. All Rights Reserved<br />
 “Habitat” as used here is for demonstration purposes only and to represent the software and services provided by Sitecore further described at www.sitecore.net.
 </small>
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -45,18 +52,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-8b1270e8-d29f-4f1c-b5e1-a13f7c61cb88
+f4fc82b1-b514-4a3c-98c6-0308c73cb39e
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165628Z
+20171031T153710Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin

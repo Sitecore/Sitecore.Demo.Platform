@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Promo
 parent: {7DD2718E-FF03-4CF5-ABF9-367CE3C8F494}
 name: Promo
-master: {A19FC87D-262D-42CF-B595-41B4262733F4}
+master: {00000000-0000-0000-0000-000000000000}
 template: {E1A3B30C-77BC-4F6C-A008-D01B3371235D}
 templatekey: Variants
-created: 20171030T210058Z
+created: 20171027T152228Z
 
 ----field----
 field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
@@ -27,8 +27,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: bb8b5679-d904-4c62-b3a1-da97a74d5433
+revision: ee7ab5ed-a5d1-48f0-b016-7282208c907b
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -49,18 +56,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-bb8b5679-d904-4c62-b3a1-da97a74d5433
+ee7ab5ed-a5d1-48f0-b016-7282208c907b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T140220Z
+20171027T152240Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 22
 
-sitecore\unicorn
+sitecore\virtualssuser

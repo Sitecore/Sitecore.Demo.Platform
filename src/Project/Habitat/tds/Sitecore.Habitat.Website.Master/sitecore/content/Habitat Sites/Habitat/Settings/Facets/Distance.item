@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Settings/Facets/Distance
 parent: {1DA62E20-EF01-4F67-A515-D734C368BDC3}
 name: Distance
-master: {110E35F3-FB41-4BEC-BCB3-02B7A9CEBB15}
+master: {00000000-0000-0000-0000-000000000000}
 template: {BB3E6DC9-97AA-47FA-A5EA-7D833A9C4CFC}
 templatekey: DistanceFacet
-created: 20171030T210107Z
+created: 20171027T152256Z
 
 ----field----
 field: {2C054663-0478-41FF-8F50-5D5D69CBA936}
@@ -27,8 +27,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 5867b598-cdc0-4024-9ae2-15b3bfb24107
+revision: 83d159a6-940b-42b8-96e3-53d1cda796a7
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -49,18 +56,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5867b598-cdc0-4024-9ae2-15b3bfb24107
+83d159a6-940b-42b8-96e3-53d1cda796a7
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210107Z
+20171027T152259Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 22
 
-sitecore\unicorn
+sitecore\virtualssuser

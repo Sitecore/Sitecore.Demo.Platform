@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Styles/Common/Indent Top
 parent: {6426E09F-C817-4B90-ABA9-A9D165F80B18}
 name: Indent Top
-master: {5EDF676A-2FDD-418A-8C56-CB465EE16E20}
+master: {00000000-0000-0000-0000-000000000000}
 template: {6B8AABEF-D650-46E0-97D0-C0B04F7F016B}
 templatekey: Style
-created: 20171030T210117Z
+created: 20171027T151706Z
 
 ----field----
 field: {09147FB2-EBFB-4949-8C8E-26A424409D5E}
@@ -41,8 +41,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: ac5c4721-e56c-4a8a-832f-befa72a3a0f4
+revision: 8993788f-67fd-4800-a9d9-2456f85fe04c
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -63,18 +70,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ac5c4721-e56c-4a8a-832f-befa72a3a0f4
+8993788f-67fd-4800-a9d9-2456f85fe04c
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210117Z
+20171027T151758Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser
