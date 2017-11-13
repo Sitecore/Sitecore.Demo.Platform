@@ -1,5 +1,5 @@
 module.exports = function () {
-    var instanceRoot = "E:\\Sites\\sc9demo.local";
+    var instanceRoot = "C:\\inetpub\\wwwroot\\habitat.dev.local";
     var config = {
         websiteRoot: instanceRoot + "\\",
         sitecoreLibraries: instanceRoot + "\\bin",

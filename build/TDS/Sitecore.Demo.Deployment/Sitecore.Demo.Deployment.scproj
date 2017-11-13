@@ -67,6 +67,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <BundledProject Include="..\..\..\src\Feature\Articles\tds\Sitecore.Feature.Articles.Master\Sitecore.Feature.Articles.Master.scproj">
+      <ProjectId>{50558914-27e0-4903-82c1-907605daf8a8}</ProjectId>
+    </BundledProject>
     <BundledProject Include="..\..\..\src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj">
       <ProjectId>{3e21fc58-e2b6-4de9-94c3-ff38c7cf0402}</ProjectId>
     </BundledProject>
@@ -78,6 +81,9 @@
     </BundledProject>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Feature\Articles\tds\Sitecore.Feature.Articles.Master\Sitecore.Feature.Articles.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
