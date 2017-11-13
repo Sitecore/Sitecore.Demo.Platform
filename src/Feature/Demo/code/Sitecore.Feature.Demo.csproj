@@ -103,6 +103,18 @@
     <Reference Include="Sitecore.Mvc.Analytics, Version=11.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Mvc.Analytics.NoReferences.9.0.171002\lib\NET462\Sitecore.Mvc.Analytics.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.XA.Foundation.IoC">
+      <HintPath>..\..\..\..\..\Sites\sc9demo.local\bin\Sitecore.XA.Foundation.IoC.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.XA.Foundation.MarkupDecorator">
+      <HintPath>..\..\..\..\..\Sites\sc9demo.local\bin\Sitecore.XA.Foundation.MarkupDecorator.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.XA.Foundation.Mvc">
+      <HintPath>..\..\..\..\..\Sites\sc9demo.local\bin\Sitecore.XA.Foundation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.XA.Foundation.SitecoreExtensions">
+      <HintPath>..\..\..\..\..\Sites\sc9demo.local\bin\Sitecore.XA.Foundation.SitecoreExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.XConnect, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.XConnect.NoReferences.9.0.171002\lib\NET462\Sitecore.XConnect.dll</HintPath>
     </Reference>
@@ -163,6 +175,7 @@
     <Content Include="App_Config\Include\Feature\Feature.Demo.config" />
     <Content Include="App_Config\Include\Feature\Feature.Demo.Serialization.config" />
     <None Include="packages.config" />
+    <Content Include="Views\Sidebar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -174,9 +187,13 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SidebarController.cs" />
     <Compile Include="Models\DemoContent.cs" />
+    <Compile Include="Models\SidebarModel.cs" />
     <Compile Include="Pipelines\FakeTrackerData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ISidebarRepository.cs" />
+    <Compile Include="Repositories\SidebarRepository.cs" />
     <Compile Include="Services\DemoStateService.cs" />
     <Compile Include="Templates.cs" />
   </ItemGroup>
@@ -189,6 +206,10 @@
       <Project>{1c7b40c7-aea6-4038-9d45-0f5440908929}</Project>
       <Name>Sitecore.Foundation.SitecoreExtensions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -29,6 +29,16 @@
             }
         }
 
+        public struct SidebarContent
+        {
+            public static readonly ID ID = new ID("{3E2F8AF4-3304-4BFA-856A-7B9EB51A9FA2}");
+
+            public struct Fields
+            {
+                public static readonly ID HtmlContent = new ID("{2F8FDA17-8721-4D2E-8C07-8248A883605B}");
+            }
+        }
+
         public struct Token
         {
             public static readonly ID ID = new ID("{4E24E58B-2CD5-499D-9BC7-2F8645510BB3}");

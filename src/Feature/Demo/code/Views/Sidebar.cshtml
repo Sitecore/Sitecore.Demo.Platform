@@ -1,0 +1,15 @@
+﻿@using Sitecore.Feature.Demo
+@using Sitecore.Mvc
+@using Sitecore.XA.Foundation.MarkupDecorator.Extensions
+@using Sitecore.XA.Foundation.SitecoreExtensions.Extensions
+@model Sitecore.Feature.Demo.Models.SidebarModel
+
+<div @Html.Sxa().Component("simple-component")>
+@*<div class="component sidebar @Model.CssClasses">*@
+    <div class="component-content">
+        <h1>You are on @Model.HtmlContent page</h1>
+        @Html.Sitecore().Field("HTML Content");
+        <h2>second</h2>
+        @Model.HtmlContent
+    </div>
+</div>
