@@ -41,30 +41,28 @@
     </AssemblyAttributes>
   </ItemGroup>
   <ItemGroup>
-    <SourceWebProjects Include="{b4848a62-92aa-4670-b519-12efc204409e}|src\Feature\Demo\code\Sitecore.Feature.Demo.csproj">
-      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
-      <SourceWebVirtualPath>/Sitecore.Feature.Demo.csproj</SourceWebVirtualPath>
-      <SourceWebProjectId>b4848a62-92aa-4670-b519-12efc204409e</SourceWebProjectId>
-    </SourceWebProjects>
-    <SourceWebProjects Include="{b4848a62-92aa-4670-b519-12efc204409e}|src\Feature\Demo\code\Sitecore.Feature.Demo\Sitecore.Feature.Demo.csproj">
-      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
-      <SourceWebVirtualPath>/Sitecore.Feature.Demo.csproj</SourceWebVirtualPath>
-      <SourceWebProjectId>b4848a62-92aa-4670-b519-12efc204409e</SourceWebProjectId>
-    </SourceWebProjects>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\code\Sitecore.Feature.Demo.csproj">
-      <Project>{b4848a62-92aa-4670-b519-12efc204409e}</Project>
-      <Name>Sitecore.Feature.Demo</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ExcludedAssemblies Include="Sitecore.Feature.Demo.%2a" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <SitecoreItem Include="sitecore\layout.item">
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\layout\Layouts.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\layout\Layouts\Feature.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\layout\Layouts\Feature\Demo.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\layout\Layouts\Feature\Demo\EmptyLayout.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
     <SitecoreItem Include="sitecore\templates.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -161,6 +159,27 @@
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
     </SitecoreItem>
+  </ItemGroup>
+  <ItemGroup>
+    <SourceWebProjects Include="{b4848a62-92aa-4670-b519-12efc204409e}|src\Feature\Demo\code\Sitecore.Feature.Demo.csproj">
+      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
+      <SourceWebVirtualPath>/Sitecore.Feature.Demo.csproj</SourceWebVirtualPath>
+      <SourceWebProjectId>b4848a62-92aa-4670-b519-12efc204409e</SourceWebProjectId>
+    </SourceWebProjects>
+    <SourceWebProjects Include="{b4848a62-92aa-4670-b519-12efc204409e}|src\Feature\Demo\code\Sitecore.Feature.Demo\Sitecore.Feature.Demo.csproj">
+      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
+      <SourceWebVirtualPath>/Sitecore.Feature.Demo.csproj</SourceWebVirtualPath>
+      <SourceWebProjectId>b4848a62-92aa-4670-b519-12efc204409e</SourceWebProjectId>
+    </SourceWebProjects>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\code\Sitecore.Feature.Demo.csproj">
+      <Project>{b4848a62-92aa-4670-b519-12efc204409e}</Project>
+      <Name>Sitecore.Feature.Demo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ExcludedAssemblies Include="Sitecore.Feature.Demo.%2a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Import Project="..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
