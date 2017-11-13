@@ -64,6 +64,12 @@
     </AssemblyAttributes>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundledProject Include="..\..\..\src\Feature\Articles\tds\Sitecore.Feature.Articles.Master\Sitecore.Feature.Articles.Master.scproj">
+      <ProjectId>{50558914-27e0-4903-82c1-907605daf8a8}</ProjectId>
+    </BundledProject>
     <BundledProject Include="..\..\..\src\Project\Common\tds\Sitecore.Common.Website.Master\Sitecore.Common.Website.Master.scproj">
       <ProjectId>{321a2547-ded0-4f12-bd2b-d80cecb7396f}</ProjectId>
     </BundledProject>
@@ -72,15 +78,15 @@
     </BundledProject>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Feature\Articles\tds\Sitecore.Feature.Articles.Master\Sitecore.Feature.Articles.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\src\Project\Common\tds\Sitecore.Common.Website.Master\Sitecore.Common.Website.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Project\Habitat\tds\Sitecore.Habitat.Website.Master\Sitecore.Habitat.Website.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Import Project="..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />

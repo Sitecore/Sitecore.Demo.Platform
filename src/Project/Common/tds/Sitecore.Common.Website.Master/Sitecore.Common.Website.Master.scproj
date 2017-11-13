@@ -129,6 +129,7 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library\Themes\Habitat Sites.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
@@ -185,6 +186,13 @@
     <SitecoreItem Include="sitecore\templates\Project\Habitat Sites.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Project\Habitat Sites\Article Page.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Project\Habitat Sites\Article Page\__Standard Values.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Project\Habitat Sites\Home.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
