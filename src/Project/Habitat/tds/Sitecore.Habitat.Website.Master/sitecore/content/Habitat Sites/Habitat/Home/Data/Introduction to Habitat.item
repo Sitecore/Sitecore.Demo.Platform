@@ -8,12 +8,12 @@ name: Introduction to Habitat
 master: {00000000-0000-0000-0000-000000000000}
 template: {324733CF-AFEC-4281-9A18-03B6CFC4E535}
 templatekey: Promo
-created: 20171031T165626Z
+created: 20171031T155422Z
 
 ----version----
 language: en
 version: 1
-revision: ab588eb7-cecc-4784-8330-52d7572ea29c
+revision: 43906868-4bf3-42d5-b7ab-725254f29079
 
 ----field----
 field: {14023DD5-30E7-4E3C-BF31-D835F3A87410}
@@ -37,6 +37,13 @@ content-length: 273
 
 <div>Sitecore Habitat is a range of sites demonstrating the capabilities of the Sitecore Experience Platform.</div><div><br /></div><div>The solution is built on the Sitecore Helix guidelines, which focuses on increasing productivity and quality in Sitecore projects.</div>
 ----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -56,18 +63,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ab588eb7-cecc-4784-8330-52d7572ea29c
+43906868-4bf3-42d5-b7ab-725254f29079
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165626Z
+20171031T160107Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin
+----field----
+field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
+name: __Lock
+key: __lock
+content-length: 5
+
+<r />

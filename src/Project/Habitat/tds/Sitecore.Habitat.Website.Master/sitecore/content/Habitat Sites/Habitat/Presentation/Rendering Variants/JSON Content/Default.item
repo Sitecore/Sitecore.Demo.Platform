@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/JSON Content/Default
 parent: {8EEDF398-7F80-4C29-AFCD-6FBEA796988C}
 name: Default
-master: {1C28CDE5-00F2-4392-833F-674B06BC9C67}
+master: {00000000-0000-0000-0000-000000000000}
 template: {2E1D7985-0BF1-469B-A00B-4F2AC443940C}
 templatekey: JSON Variant Definition
-created: 20171030T210111Z
+created: 20171027T151944Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,8 +20,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 337dbdff-3b4c-4736-bfcd-360569b7239a
+revision: 58f2166d-2e85-43cd-87e2-967d73b8dc95
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-337dbdff-3b4c-4736-bfcd-360569b7239a
+58f2166d-2e85-43cd-87e2-967d73b8dc95
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210111Z
+20171027T151949Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

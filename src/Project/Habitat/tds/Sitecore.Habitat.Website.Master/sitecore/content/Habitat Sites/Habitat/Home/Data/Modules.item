@@ -8,12 +8,12 @@ name: Modules
 master: {00000000-0000-0000-0000-000000000000}
 template: {324733CF-AFEC-4281-9A18-03B6CFC4E535}
 templatekey: Promo
-created: 20171031T165626Z
+created: 20171031T155603Z
 
 ----version----
 language: en
 version: 1
-revision: f0a746a6-7218-4954-84bf-58e862e62d59
+revision: 811bd2f3-3297-4ea3-a3d8-8123faa0abd7
 
 ----field----
 field: {14023DD5-30E7-4E3C-BF31-D835F3A87410}
@@ -37,6 +37,13 @@ content-length: 104
 
 The Habitat example implementation has a range of modules which covers the basics of a Sitecore website.
 ----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -56,18 +63,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-f0a746a6-7218-4954-84bf-58e862e62d59
+811bd2f3-3297-4ea3-a3d8-8123faa0abd7
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165626Z
+20171031T160107Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin
+----field----
+field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
+name: __Lock
+key: __lock
+content-length: 5
+
+<r />

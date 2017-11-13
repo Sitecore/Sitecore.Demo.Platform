@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Settings/Creative Exchange Storages/Folder on server
 parent: {3AF73A80-4539-4B3F-B4D1-D309C2566966}
 name: Folder on server
-master: {AAB15F53-CC56-44E0-BFC6-1ED18FF81FFB}
+master: {00000000-0000-0000-0000-000000000000}
 template: {BCA27DE4-A869-4282-B3FB-4FBD7BA1B87B}
 templatekey: Creative Exchange File Storage
-created: 20171030T210107Z
+created: 20171027T151649Z
 
 ----field----
 field: {18EE0052-ACCD-42AD-8D80-D60CB88D9950}
@@ -48,7 +48,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: a2598dc8-8819-4f84-990a-f9b385d05df3
+revision: 2644ac73-8087-4d2a-95ea-c12aef898bb8
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -57,6 +57,13 @@ key: __display name
 content-length: 16
 
 Folder on server
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -77,18 +84,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a2598dc8-8819-4f84-990a-f9b385d05df3
+2644ac73-8087-4d2a-95ea-c12aef898bb8
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T140220Z
+20171027T151652Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 22
 
-sitecore\unicorn
+sitecore\virtualssuser

@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Presentation/Partial Designs/Empty
 parent: {D468B55C-675B-4D15-921C-014A77DA873F}
 name: Empty
-master: {B90549B5-C997-4D6B-B102-C9AB82528974}
+master: {00000000-0000-0000-0000-000000000000}
 template: {EAFFC9F9-3684-4650-92F4-78560BED789B}
 templatekey: Partial Design
-created: 20171030T210103Z
+created: 20171027T151256Z
 
 ----field----
 field: {55FAAE90-3BBA-4F7F-96FE-13C3F40055FF}
@@ -27,7 +27,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 9158dbf8-c687-4787-a94a-41acdc0c8d87
+revision: 9c3c0abb-eca6-4d8c-b606-b8c2aec6f314
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -36,6 +36,13 @@ key: __display name
 content-length: 5
 
 Empty
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -56,18 +63,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-9158dbf8-c687-4787-a94a-41acdc0c8d87
+9c3c0abb-eca6-4d8c-b606-b8c2aec6f314
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210103Z
+20171027T151305Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

@@ -8,12 +8,12 @@ name: Logo
 master: {00000000-0000-0000-0000-000000000000}
 template: {04129321-7708-49C1-801B-AEE196E1C0A8}
 templatekey: File
-created: 20171031T165625Z
+created: 20171031T141150Z
 
 ----version----
 language: en
 version: 1
-revision: 427b8944-230c-4181-ab21-5c7c962ac400
+revision: 580c5592-6fc4-44d2-9d12-8babc9d37baa
 
 ----field----
 field: {58DEEF8C-1A88-449E-B165-BFE3BE9B53B7}
@@ -22,6 +22,13 @@ key: linktext
 content-length: 7
 
 Habitat
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-427b8944-230c-4181-ab21-5c7c962ac400
+580c5592-6fc4-44d2-9d12-8babc9d37baa
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165625Z
+20171031T141210Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 14
 
-extranet\Anonymous
+sitecore\admin
+----field----
+field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
+name: __Lock
+key: __lock
+content-length: 5
+
+<r />

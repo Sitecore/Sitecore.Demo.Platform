@@ -8,12 +8,12 @@ name: About-Habitat
 master: {00000000-0000-0000-0000-000000000000}
 template: {324733CF-AFEC-4281-9A18-03B6CFC4E535}
 templatekey: Promo
-created: 20171031T165625Z
+created: 20171031T144521Z
 
 ----version----
 language: en
 version: 1
-revision: 9ecfcf06-fcce-4d11-a7fd-53baf3e70da9
+revision: ce4cbd35-2cb3-4b2d-b596-8568181ab3e8
 
 ----field----
 field: {14023DD5-30E7-4E3C-BF31-D835F3A87410}
@@ -33,12 +33,19 @@ content-length: 131
 field: {B59ADC09-32A3-46F2-AEDE-B0C633979263}
 name: PromoText2
 key: promotext2
-content-length: 239
+content-length: 236
 
 <p>
       Habitat sites are demonstration sites for the Sitecore® Experience Platform™.
 The sites demonstrate the full set of capabilities and potential of the platform through a number of both technical and business scenarios.
     </p>
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -59,18 +66,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-9ecfcf06-fcce-4d11-a7fd-53baf3e70da9
+ce4cbd35-2cb3-4b2d-b596-8568181ab3e8
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165625Z
+20171031T144836Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin
+----field----
+field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
+name: __Lock
+key: __lock
+content-length: 5
+
+<r />

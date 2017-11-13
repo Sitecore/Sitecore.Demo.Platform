@@ -8,12 +8,12 @@ name: Image 1
 master: {00000000-0000-0000-0000-000000000000}
 template: {BB8A85AB-1F6D-4518-8772-1C9F4F8DAC18}
 templatekey: Image
-created: 20171031T165628Z
+created: 20171031T141250Z
 
 ----version----
 language: en
 version: 1
-revision: 4581163c-7942-4704-82ea-dcba3585c697
+revision: 3f8b00d0-4f86-4839-90af-180c7ed01004
 
 ----field----
 field: {EBE4FDEF-16D5-4D19-833C-24A241628A3A}
@@ -37,6 +37,13 @@ content-length: 7
 
 Habitat
 ----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -56,18 +63,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-4581163c-7942-4704-82ea-dcba3585c697
+3f8b00d0-4f86-4839-90af-180c7ed01004
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165628Z
+20171031T143634Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin
+----field----
+field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
+name: __Lock
+key: __lock
+content-length: 5
+
+<r />
