@@ -1,33 +1,26 @@
 ----item----
 version: 1
-id: {04D1BC97-46C2-482F-8400-D6F34E38A71C}
+id: {CB0C2013-6679-4DF1-8551-E6E2B14C898C}
 database: master
-path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Page Content/Article Content/PublishDate
-parent: {E1E4AE25-C812-49CF-8D98-2D61EF5DAFC3}
-name: PublishDate
+path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Page Content/Article Content/Author Wrapper/Author Image
+parent: {3A25E77B-8EEF-42DC-A951-995D8415AE69}
+name: Author Image
 master: {00000000-0000-0000-0000-000000000000}
-template: {DC4EBC23-A470-4B5D-8DF8-4A55FA823BB4}
-templatekey: VariantDateField
-created: 20171112T204212Z
+template: {FCD285DA-9AB2-4C8D-B185-5A7487A9BA1B}
+templatekey: VariantField
+created: 20171113T211134Z
 
 ----field----
 field: {4753764C-C05A-4623-841B-97F85135241C}
 name: FieldName
 key: fieldname
-content-length: 11
+content-length: 12
 
-PublishDate
-----field----
-field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
-name: __Sortorder
-key: __sortorder
-content-length: 3
-
-150
+Author Image
 ----version----
 language: en
 version: 1
-revision: ee910eb8-bdef-4b1b-9c92-72edf0c49466
+revision: c05ec7dc-0f64-4e7e-8809-b178e3be50fa
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -42,21 +35,21 @@ name: __Created
 key: __created
 content-length: 16
 
-20171112T204212Z
+20171113T211134Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-ee910eb8-bdef-4b1b-9c92-72edf0c49466
+c05ec7dc-0f64-4e7e-8809-b178e3be50fa
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171112T204219Z
+20171113T211507Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
