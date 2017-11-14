@@ -1,4 +1,6 @@
-﻿namespace Sitecore.Feature.Demo.Controllers
+﻿using System.Web.Mvc;
+
+namespace Sitecore.Feature.Demo.Controllers
 {
     using Sitecore.Feature.Demo.Repositories;
     using Sitecore.XA.Foundation.Mvc.Controllers;
@@ -15,6 +17,11 @@
         protected override object GetModel()
         {
             return _repository.GetModel();
+        }
+
+        public ActionResult DataSource()
+        {
+            return View("~/Views/Sidebar.cshtml", GetModel());
         }
     }
 }

@@ -62,6 +62,7 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\layout\Renderings\Feature\Demo\Sidebar.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>

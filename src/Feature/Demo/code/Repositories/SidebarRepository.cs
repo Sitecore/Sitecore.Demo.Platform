@@ -12,6 +12,7 @@ namespace Sitecore.Feature.Demo.Repositories
         {
             SidebarModel model = new SidebarModel();
             FillBaseProperties(model);
+            model.HtmlContent = PageContext.Current[Templates.SidebarContent.Fields.HtmlContent];
             return model;
         }
     }

@@ -4,13 +4,6 @@
 
     public class SidebarModel : RenderingModelBase
     {
-        public string HtmlContent
-        {
-            get
-            {
-                var content = this.Item[Templates.SidebarContent.Fields.HtmlContent];
-                return content;
-            }
-        }
+        public string HtmlContent { get; set; }
     }
 }
