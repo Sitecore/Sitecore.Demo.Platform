@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Data/Search/Search Box/Default
 parent: {6E1CAB94-A6A0-46C6-858C-2882C3C42467}
 name: Default
-master: {957565A0-BF0D-4F8B-BF2C-4A8F40EC9080}
+master: {00000000-0000-0000-0000-000000000000}
 template: {1C04FD61-1D87-4590-ACFE-9CC186865AB3}
 templatekey: Search Box
-created: 20171030T210124Z
+created: 20171027T152420Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,7 +20,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 6c0b9da8-7bbb-4a83-b37a-8d489dd93e75
+revision: c70d9688-4c2b-451e-bf02-f25c58dd5650
 
 ----field----
 field: {143BC719-8C3F-42EB-9B1A-2DB64C7CFEB7}
@@ -29,6 +29,13 @@ key: searchtextboxlabel
 content-length: 20
 
 Search textbox label
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -49,18 +56,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-6c0b9da8-7bbb-4a83-b37a-8d489dd93e75
+c70d9688-4c2b-451e-bf02-f25c58dd5650
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210124Z
+20171027T152436Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

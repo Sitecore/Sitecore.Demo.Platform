@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Settings/Creative Exchange Storages
 parent: {292489A6-8F39-42A6-BEB6-595A141AB4A7}
 name: Creative Exchange Storages
-master: {AAB15F53-CC56-44E0-BFC6-1ED18FF81FFB}
+master: {00000000-0000-0000-0000-000000000000}
 template: {0D792404-79AA-483D-BB0C-50785F2E295B}
 templatekey: Creative Exchange Storage
-created: 20171030T210054Z
+created: 20171027T151648Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,8 +20,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 86d7deb2-423b-4ef0-8a4d-a9712ebe0822
+revision: b8a3fad4-38fd-4d01-922e-67c6dbfc03ad
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-86d7deb2-423b-4ef0-8a4d-a9712ebe0822
+b8a3fad4-38fd-4d01-922e-67c6dbfc03ad
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210054Z
+20171027T151650Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

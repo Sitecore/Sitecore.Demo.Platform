@@ -8,20 +8,27 @@ name: __Standard Values
 master: {00000000-0000-0000-0000-000000000000}
 template: {5A5DEEF3-C463-43DD-9B44-30C549A7C949}
 templatekey: Page Design Folder
-created: 20171030T210051Z
+created: 20171027T151102Z
 
 ----field----
 field: {1172F251-DAD4-4EFB-A329-0C63500E4F1E}
 name: __Masters
 key: __masters
-content-length: 77
+content-length: 78
 
-{5A5DEEF3-C463-43DD-9B44-30C549A7C949}|{26336120-B85F-4BF2-A988-290C7B3328FC}
+{5A5DEEF3-C463-43DD-9B44-30C549A7C949}|{26336120-B85F-4BF2-A988-290C7B3328FC}|
 ----version----
 language: en
 version: 1
-revision: a3c9ded1-2e51-4917-9b08-f6a12dcb8b7b
+revision: a479bdf2-b444-46c3-b3a8-4770508f8db5
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a3c9ded1-2e51-4917-9b08-f6a12dcb8b7b
+a479bdf2-b444-46c3-b3a8-4770508f8db5
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210051Z
+20171027T151134Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser

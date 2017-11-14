@@ -176,6 +176,8 @@
     <Content Include="App_Config\Include\Feature\Feature.Demo.Serialization.config" />
     <None Include="packages.config" />
     <Content Include="Views\Sidebar.cshtml" />
+    <Content Include="Views\Demo\EmptyLayout.cshtml" />
+    <None Include="Views\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

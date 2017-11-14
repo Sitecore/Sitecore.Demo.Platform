@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Home/Data/Carousel/Slide1
 parent: {D6B6839A-5371-4720-AB13-561F30CC0555}
 name: Slide1
-master: {3FA4800D-ECA0-44ED-9B49-7D6DA032C747}
+master: {00000000-0000-0000-0000-000000000000}
 template: {142E5FC1-EC62-4540-BAD9-CD88F337CD2E}
 templatekey: Carousel Slide
-created: 20171031T165628Z
+created: 20171031T155226Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -27,7 +27,7 @@ content-length: 392
 ----version----
 language: en
 version: 1
-revision: d33a2279-4d2b-4c9b-a2fc-96c466d74eef
+revision: 65e0e90c-6f04-42ad-988b-c10c8c74fba2
 
 ----field----
 field: {427EC0BD-3BF2-45B9-880F-BDB0054E7925}
@@ -43,6 +43,13 @@ key: slidetext
 content-length: 17
 
 <p>Simplicity</p>
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -63,18 +70,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d33a2279-4d2b-4c9b-a2fc-96c466d74eef
+65e0e90c-6f04-42ad-988b-c10c8c74fba2
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171101T190110Z
+20171031T163622Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin
+----field----
+field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
+name: __Lock
+key: __lock
+content-length: 5
+
+<r />

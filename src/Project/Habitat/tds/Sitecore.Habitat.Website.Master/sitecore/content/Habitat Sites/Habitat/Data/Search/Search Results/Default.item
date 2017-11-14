@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Data/Search/Search Results/Default
 parent: {00E2622A-C364-4BC7-9987-D1AD28F5EBB8}
 name: Default
-master: {957565A0-BF0D-4F8B-BF2C-4A8F40EC9080}
+master: {00000000-0000-0000-0000-000000000000}
 template: {A06F7130-041D-46BB-8C29-95A2DC00C26A}
 templatekey: Search Results
-created: 20171030T210124Z
+created: 20171027T152421Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,7 +20,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: e99131f1-27bb-4c30-9007-1902fb3e6351
+revision: 27c432ce-1c8a-43eb-b54c-5f5cf62427e0
 
 ----field----
 field: {904CB4CA-42D1-4690-8A99-9ECF22855E88}
@@ -29,6 +29,13 @@ key: resultsnotfoundtext
 content-length: 10
 
 No results
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -49,18 +56,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-e99131f1-27bb-4c30-9007-1902fb3e6351
+27c432ce-1c8a-43eb-b54c-5f5cf62427e0
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210124Z
+20171027T152437Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 22
 
-sitecore\unicorn
+sitecore\virtualssuser

@@ -5,10 +5,10 @@ database: master
 path: /sitecore/content/Habitat Sites/Habitat/Settings/Social Media Groups
 parent: {292489A6-8F39-42A6-BEB6-595A141AB4A7}
 name: Social Media Groups
-master: {4DDBDD69-8A15-4520-BED8-F7553139586B}
+master: {00000000-0000-0000-0000-000000000000}
 template: {B14BAB5B-8965-466B-886B-1F93175BCAB3}
 templatekey: Social Media Folder
-created: 20171030T210053Z
+created: 20171027T152325Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,8 +20,15 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 04033236-6644-498b-9684-4efe1cbde92b
+revision: 62f810e9-c1b1-40b5-b7db-04a0213c2ec3
 
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-04033236-6644-498b-9684-4efe1cbde92b
+62f810e9-c1b1-40b5-b7db-04a0213c2ec3
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210053Z
+20171027T152330Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 22
 
-extranet\Anonymous
+sitecore\virtualssuser
