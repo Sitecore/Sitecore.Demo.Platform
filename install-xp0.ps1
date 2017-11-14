@@ -31,10 +31,10 @@ function Install-Prerequisites {
 	$jdkPath = "HKLM:\SOFTWARE\JavaSoft\Java Development Kit"
 	if (Test-Path $jrePath) {
 		$path = $jrePath
-	}
-	if (Test-Path $jdkPath) {
-		$path = $jdkPath
-	}
+    }
+    elseif (Test-Path $jdkPath) {
+        $path = $jdkPath
+    }
 	else {
         throw "Cannot find Java Runtime Environment or Java Development Kit on this machine."
 	}
