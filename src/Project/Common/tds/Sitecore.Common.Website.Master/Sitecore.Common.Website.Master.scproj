@@ -73,7 +73,7 @@
   <ItemGroup>
     <SitecoreItem Include="sitecore\content.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat Sites.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -81,14 +81,14 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\layout.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\layout\Renderings.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\layout\Renderings\Project.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\layout\Renderings\Project\Habitat Sites.item">
@@ -97,10 +97,10 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library\Feature.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library\Feature\Habitat Sites.item">
@@ -108,7 +108,7 @@
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library\Foundation.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library\Foundation\Habitat Sites.item">
@@ -116,7 +116,7 @@
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library\Project.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library\Project\Habitat Sites.item">
@@ -124,7 +124,7 @@
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library\Themes.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\media library\Themes\Habitat Sites.item">
@@ -133,14 +133,14 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Settings.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Settings\Project.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Settings\Project\Habitat Sites.item">
@@ -149,14 +149,14 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Branches.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Branches\Project.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Branches\Project\Habitat Sites.item">
@@ -164,7 +164,7 @@
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature\Habitat Sites.item">
@@ -172,7 +172,7 @@
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Foundation.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Foundation\Habitat Sites.item">
@@ -180,7 +180,7 @@
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Project.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Project\Habitat Sites.item">
