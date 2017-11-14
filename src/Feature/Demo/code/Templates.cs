@@ -27,17 +27,7 @@
                 public static readonly ID Region = new ID("{D0C9D21B-7B64-4E4A-905F-8697A50B18E2}");
                 public static readonly ID Url = new ID("{594BAF13-3763-4C7D-86B1-B9BB46A86359}");
             }
-        }
-
-        public struct SidebarContent
-        {
-            public static readonly ID ID = new ID("{3E2F8AF4-3304-4BFA-856A-7B9EB51A9FA2}");
-
-            public struct Fields
-            {
-                public static readonly ID HtmlContent = new ID("{2F8FDA17-8721-4D2E-8C07-8248A883605B}");
-            }
-        }
+        }           
 
         public struct Token
         {
