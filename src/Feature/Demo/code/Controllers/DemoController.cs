@@ -1,29 +1,22 @@
-﻿using System.Web.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Sitecore.Feature.Demo.Controllers
+﻿namespace Sitecore.Feature.Demo.Controllers
 {
-    using Sitecore.DependencyInjection;
     using Sitecore.Feature.Demo.Repositories;
     using Sitecore.XA.Foundation.Mvc.Controllers;
 
     public class DemoController : StandardController
     {
-        private readonly ISidebarRepository _repository;
-
-        //public DemoController()
-        //{
-        //    this._repository = ServiceLocator.ServiceProvider.GetService<SidebarRepository>();
-        //}
-
-        public DemoController(ISidebarRepository repository)
+        private readonly ISidebarRepository _sidebarRepository;
+        private readonly IVisitsRepository _visitsRepository;
+        
+        public DemoController(ISidebarRepository sidebarRepository, IVisitsRepository visitsRepository)
         {
-            this._repository = repository;
+            this._sidebarRepository = sidebarRepository;
+            this._visitsRepository = visitsRepository;
         }
 
         protected override object GetModel()
         {
-            return _repository.GetModel();
+            return _sidebarRepository.GetModel();
         }
 
         protected override string GetIndexViewName()

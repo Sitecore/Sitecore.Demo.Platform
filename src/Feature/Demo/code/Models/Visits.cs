@@ -1,8 +1,9 @@
 ﻿namespace Sitecore.Feature.Demo.Models
 {
+    using Sitecore.XA.Foundation.Mvc.Models;
     using System.Collections.Generic;
 
-    public class Visits
+    public class Visits : RenderingModelBase
     {
         public int EngagementValue { get; set; }
         public IEnumerable<PageView> PageViews { get; set; }
