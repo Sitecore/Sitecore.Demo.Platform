@@ -159,21 +159,21 @@ Copy-Item $KeystorePath -Destination "$solrRoot\server\etc\solr-ssl.keystore.jks
 	 $newCfg | Set-Content "$solrRoot\bin\solr.in.cmd"
 
 # install the service & runs
-$svc = Get-Service "$solrName" -ErrorAction SilentlyContinue
+$svc = Get-Service "$solrName" -ErrorAction Stop
 if(!($svc))
 {
     Write-Host "Installing Solr service"
     &"$installFolder\nssm-$nssmVersion\win64\nssm.exe" install "$solrName" "$solrRoot\bin\solr.cmd" "-f" "-p $solrPort"
     $svc = Get-Service "$solrName" -ErrorAction SilentlyContinue
 }
-else {
-    if($svc.Status -ne "Running")
-    {
-        Write-Host "Starting Solr service"
-        Start-Service "$solrName"
-    }
-        
+
+if($svc.Status -ne "Running")
+{
+    Write-Host "Starting Solr service"
+    Start-Service "$solrName"
 }
+        
+
 
 # finally prove it's all working
 $protocol = "http"
