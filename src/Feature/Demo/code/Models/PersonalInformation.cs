@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class PersonalInfo
+    public class PersonalInformation
     {
         public string FullName { get; set; }
         public bool IsIdentified { get; set; }

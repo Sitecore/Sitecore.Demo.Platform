@@ -121,6 +121,9 @@
     <Reference Include="Sitecore.XA.Foundation.SitecoreExtensions">
       <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XA.Foundation.SitecoreExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\..\..\..\lib\Sitecore\System.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.XConnect, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.XConnect.NoReferences.9.0.171002\lib\NET462\Sitecore.XConnect.dll</HintPath>
     </Reference>
@@ -190,6 +193,11 @@
     <Content Include="Views\Demo\Sidebar.cshtml" />
     <Content Include="Views\Demo\EmptyLayout.cshtml" />
     <Content Include="Views\Demo\_Visits.cshtml" />
+    <Content Include="Views\Demo\_SidebarContent.cshtml" />
+    <Content Include="Views\Demo\_PersonalInformation.cshtml" />
+    <Content Include="Views\Demo\_OnsiteBehavior.cshtml" />
+    <Content Include="Views\Demo\_OnsiteBehaviorProfiling.cshtml" />
+    <Content Include="Views\Demo\_Referral.cshtml" />
     <None Include="Views\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -222,7 +230,7 @@
     <Compile Include="Repositories\OnsiteBehaviorRepository.cs" />
     <Compile Include="Repositories\OutcomeRepository.cs" />
     <Compile Include="Repositories\PageEventRepository.cs" />
-    <Compile Include="Repositories\PersonalInfoRepository.cs" />
+    <Compile Include="Repositories\PersonalInformationRepository.cs" />
     <Compile Include="Models\PersonalInformation.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Referral.cs" />

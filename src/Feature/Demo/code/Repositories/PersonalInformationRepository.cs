@@ -8,21 +8,21 @@
     using System.Linq;
 
     [Service]
-    public class PersonalInfoRepository
+    public class PersonalInformationRepository
     {
         private readonly LocationRepository locationRepository;
         private readonly DeviceRepository deviceRepository;
         //private readonly IContactFacetsProvider contactFacetsProvider;
 
-        public PersonalInfoRepository(LocationRepository locationRepository, DeviceRepository deviceRepository)
+        public PersonalInformationRepository(LocationRepository locationRepository, DeviceRepository deviceRepository)
         {
             this.locationRepository = locationRepository;
             this.deviceRepository = deviceRepository;
         }
 
-        public PersonalInfo Get()
+        public Models.PersonalInformation Get()
         {
-            return new PersonalInfo
+            return new Models.PersonalInformation
             {
                 //FullName = this.GetFullName(),
                 //IsIdentified = this.GetIsIdentified(),
@@ -98,9 +98,9 @@
         //    yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Do Not Market", "Do not market"), this.contactFacetsProvider.CommunicationProfile.DoNotMarket ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
         //    yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Consent Revoked", "Consent revoked"), this.contactFacetsProvider.CommunicationProfile.ConsentRevoked ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
         //    yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Executed Right To Be Forgotten", "Executed right to be forgotten"), this.contactFacetsProvider.CommunicationProfile.ExecutedRightToBeForgotten ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
-        //    if (!string.IsNullOrEmpty(this.contactFacetsProvider.PersonalInfo.PreferredLanguage))
+        //    if (!string.IsNullOrEmpty(this.contactFacetsProvider.PersonalInformation.PreferredLanguage))
         //    {
-        //        yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Preferred Language", "Preferred Language"), this.contactFacetsProvider.PersonalInfo.PreferredLanguage);
+        //        yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Preferred Language", "Preferred Language"), this.contactFacetsProvider.PersonalInformation.PreferredLanguage);
         //    }
         //}
 
@@ -179,18 +179,18 @@
 
         //private IEnumerable<KeyValuePair<string, string>> GetPersonalInfoProperties()
         //{
-        //    if (this.contactFacetsProvider?.PersonalInfo == null)
+        //    if (this.contactFacetsProvider?.PersonalInformation == null)
         //        yield break;
 
-        //    var fullNameProperties = new[] { nameof(this.contactFacetsProvider.PersonalInfo.FirstName), nameof(this.contactFacetsProvider.PersonalInfo.MiddleName), nameof(this.contactFacetsProvider.PersonalInfo.Suffix), nameof(this.contactFacetsProvider.PersonalInfo.LastName), nameof(this.contactFacetsProvider.PersonalInfo.Title) };
-        //    foreach (var property in this.contactFacetsProvider.PersonalInfo.GetType().GetProperties(BindingFlags.DeclaredOnly))
+        //    var fullNameProperties = new[] { nameof(this.contactFacetsProvider.PersonalInformation.FirstName), nameof(this.contactFacetsProvider.PersonalInformation.MiddleName), nameof(this.contactFacetsProvider.PersonalInformation.Suffix), nameof(this.contactFacetsProvider.PersonalInformation.LastName), nameof(this.contactFacetsProvider.PersonalInformation.Title) };
+        //    foreach (var property in this.contactFacetsProvider.PersonalInformation.GetType().GetProperties(BindingFlags.DeclaredOnly))
         //    {
         //        if (fullNameProperties.Contains(property.Name))
         //        {
         //            continue;
         //        }
 
-        //        var value = property.GetValue(this.contactFacetsProvider.PersonalInfo);
+        //        var value = property.GetValue(this.contactFacetsProvider.PersonalInformation);
         //        if (string.IsNullOrEmpty(value?.ToString()) || property.Name.Equals("IsEmpty"))
         //        {
         //            continue;
@@ -234,15 +234,15 @@
 
         //private string GetFullName()
         //{
-        //    if (this.contactFacetsProvider?.PersonalInfo == null)
+        //    if (this.contactFacetsProvider?.PersonalInformation == null)
         //    {
         //        return null;
         //    }
 
-        //    var fullName = string.Join(" ", this.contactFacetsProvider.PersonalInfo.Title, this.contactFacetsProvider.PersonalInfo.FirstName, this.contactFacetsProvider.PersonalInfo.MiddleName, this.contactFacetsProvider.PersonalInfo.LastName).Trim();
-        //    if (!string.IsNullOrEmpty(this.contactFacetsProvider.PersonalInfo.Suffix))
+        //    var fullName = string.Join(" ", this.contactFacetsProvider.PersonalInformation.Title, this.contactFacetsProvider.PersonalInformation.FirstName, this.contactFacetsProvider.PersonalInformation.MiddleName, this.contactFacetsProvider.PersonalInformation.LastName).Trim();
+        //    if (!string.IsNullOrEmpty(this.contactFacetsProvider.PersonalInformation.Suffix))
         //    {
-        //        fullName = string.Join(", ", fullName, this.contactFacetsProvider.PersonalInfo.Suffix).Trim();
+        //        fullName = string.Join(", ", fullName, this.contactFacetsProvider.PersonalInformation.Suffix).Trim();
         //    }
         //    return !string.IsNullOrEmpty(fullName) ? fullName : null;
         //}

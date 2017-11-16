@@ -1,4 +1,6 @@
-﻿namespace Sitecore.Feature.Demo.Models
+﻿using System.Linq;
+
+namespace Sitecore.Feature.Demo.Models
 {
     using System.Collections.Generic;
 
