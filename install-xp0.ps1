@@ -3,7 +3,10 @@
 #  Install Sitecore
 # 
 #####################################################
+$ErrorActionPreference = 'Stop'
+
 . $PSScriptRoot\settings.ps1
+
 if (Test-Path $PSScriptRoot\settings.user.ps1){
 	. $PSScriptRoot\settings.user.ps1
 }
@@ -13,12 +16,13 @@ Write-Host " Installing Sitecore $SitecoreVersion" -ForegroundColor Green
 Write-Host " Sitecore: $SitecoreSiteName" -ForegroundColor Green
 Write-Host " xConnect: $XConnectSiteName" -ForegroundColor Green
 Write-Host "*******************************************************" -ForegroundColor Green
+
 function Install-Prerequisites {
     #Verify SQL version
     $SqlRequiredVersion = "13.0.4001"
     [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo") | out-null
     $srv = New-Object "Microsoft.SqlServer.Management.Smo.Server" $SqlServer
-    $minVersion = New-Object System.Version($RequiredSqlVersion)
+    $minVersion = New-Object System.Version($SqlRequiredVersion)
     if ($srv.Version.CompareTo($minVersion) -lt 0) {
         throw "Invalid SQL version. Expected SQL 2016 SP1 (13.0.4001.0) or over."
     }
@@ -31,10 +35,10 @@ function Install-Prerequisites {
 	$jdkPath = "HKLM:\SOFTWARE\JavaSoft\Java Development Kit"
 	if (Test-Path $jrePath) {
 		$path = $jrePath
-    }
-    elseif (Test-Path $jdkPath) {
-        $path = $jdkPath
-    }
+	}
+	elseif (Test-Path $jdkPath) {
+		$path = $jdkPath
+	}
 	else {
         throw "Cannot find Java Runtime Environment or Java Development Kit on this machine."
 	}
@@ -96,6 +100,7 @@ function Install-Prerequisites {
     }
 
     # Verify Solr
+    Write-Host "Verifying Solr connection" -ForegroundColor Green
     if (-not $SolrUrl.ToLower().StartsWith("https")) {
         throw "Solr URL ($SolrUrl) must be secured with https"
     }
@@ -103,13 +108,26 @@ function Install-Prerequisites {
 	$SolrResponse = $SolrRequest.GetResponse()
 	try {
 		If ($SolrResponse.StatusCode -ne 200) {
-			throw "Could not contact Solr on '$SolrUrl'. Response status was '$SolrResponse.StatusCode'"
+            Write-Host "Could not contact Solr on '$SolrUrl'. Response status was '$SolrResponse.StatusCode'" -ForegroundColor Red
+            
 		}
 	}
 	finally {
 		$SolrResponse.Close()
-	}
-	
+    }
+    
+    Write-Host "Verifying Solr directory" -ForegroundColor Green
+    if(-not (Test-Path "$SolrRoot\server")) {
+        throw "The Solr root path '$SolrRoot' appears invalid. A 'server' folder should be present in this path to be a valid Solr distributive."
+    }
+
+    Write-Host "Verifying Solr service" -ForegroundColor Green
+    try {
+        $null = Get-Service $SolrService
+    } catch {
+        throw "The Solr service '$SolrService' does not exist. Perhaps it's incorrect in settings.ps1?"
+    }
+
 	#Verify .NET framework
 	$requiredDotNetFrameworkVersionValue = 394802
 	$requiredDotNetFrameworkVersion = "4.6.2"
@@ -119,6 +137,9 @@ function Install-Prerequisites {
 	}
 }
 
+function Verify-Solr {
+    
+}
 function Install-Assets {
     #Register Assets PowerShell Repository
     if ((Get-PSRepository | Where-Object {$_.Name -eq $AssetsPSRepositoryName}).count -eq 0) {
@@ -132,7 +153,7 @@ function Install-Assets {
     $module = Get-Module -FullyQualifiedName @{ModuleName="SitecoreInstallFramework";ModuleVersion=$InstallerVersion}
     if (-not $module) {
         write-host "Installing the Sitecore Install Framework, version $InstallerVersion" -ForegroundColor Green
-        Install-Module SitecoreInstallFramework -RequiredVersion $InstallerVersion -Repository $AssetsPSRepositoryName -Scope CurrentUser
+        Install-Module SitecoreInstallFramework -RequiredVersion $InstallerVersion -Repository $AssetsPSRepositoryName -Scope CurrentUser 
         Import-Module SitecoreInstallFramework -RequiredVersion $InstallerVersion
     }
 
