@@ -1,15 +1,17 @@
 ﻿namespace Sitecore.Feature.Demo.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
     using Sitecore.Analytics;
+    using Sitecore.Common;
+    using Sitecore.Data;
     using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.Foundation.DependencyInjection;        
     using Sitecore.Marketing.Definitions;
     using Sitecore.Marketing.Definitions.Campaigns;
     using Sitecore.Marketing.Taxonomy;
     using Sitecore.Marketing.Taxonomy.Extensions;
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
 
     [Service(typeof(ICampaignRepository))]
     public class CampaignRepository : ICampaignRepository
@@ -34,7 +36,7 @@
 
             return new Campaign
             {
-                Title = campaign?.Name ?? Sitecore.Globalization.Translate.Text("Unknown"),
+                Title = campaign?.Name ?? Globalization.Translate.Text("/Demo/Campaigns/Unknown Campaign", "(Unknown)"),
                 IsActive = true,
                 Date = Tracker.Current.Interaction.StartDateTime,
                 Channel = this.GetChannel(campaign)
@@ -50,7 +52,7 @@
 
                 yield return new Campaign
                 {
-                    Title = campaign?.Name ?? Sitecore.Globalization.Translate.Text("Unknown"),
+                    Title = campaign?.Name ?? Globalization.Translate.Text("/Demo/Campaigns/Unknown Campaign", "(Unknown)"),
                     IsActive = false,
                     Date = cachedCampaign.DateTime,
                     Channel = this.GetChannel(campaign)

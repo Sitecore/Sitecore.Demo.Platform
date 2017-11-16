@@ -1,10 +1,10 @@
-﻿namespace Sitecore.Feature.Demo.Models
+namespace Sitecore.Feature.Demo.Models
 {
+    using System.Linq;
     using Sitecore.Analytics.Model;
     using Sitecore.Data.Items;
     using Sitecore.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.Text;
-    using System.Linq;
     using static Configuration.Factory;
 
     public class DemoContent
@@ -72,7 +72,7 @@
 
         private string[] GetReplacementTokens()
         {
-            return this.Item.Children.Where(i => i.IsDerived(Templates.Token.ID)).SelectMany(i => new[] { $"${i.Name}", i[Templates.Token.Fields.TokenValue] }).ToArray();
+            return this.Item.Children.Where(i => i.IsDerived(Templates.Token.ID)).SelectMany(i => new[] {$"${i.Name}", i[Templates.Token.Fields.TokenValue]}).ToArray();
         }
     }
 }

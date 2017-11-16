@@ -1,54 +1,53 @@
 ﻿namespace Sitecore.Feature.Demo.Repositories
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using Sitecore.Analytics;
     using Sitecore.Analytics.Tracking;
     using Sitecore.Feature.Demo.Models;
+    using Sitecore.Foundation.Accounts.Providers;
     using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.XA.Foundation.Mvc.Repositories.Base;
-    using System.Collections.Generic;
-    using System.Linq;
 
-    [Service(typeof(IVisitsRepository))]
-    public class VisitsRepository : ModelRepository, IVisitsRepository
+    [Service]
+    public class VisitsRepository
     {
-        //private readonly IContactFacetsProvider contactFacetsProvider;
+        private readonly IContactFacetsProvider contactFacetsProvider;
         private readonly EngagementPlanStateRepository engagementPlanStateRepository;
         private readonly PageViewRepository pageViewRepository;
 
-        public VisitsRepository(EngagementPlanStateRepository engagementPlanStateRepository, PageViewRepository pageViewRepository)
+        public VisitsRepository(IContactFacetsProvider contactFacetsProvider, EngagementPlanStateRepository engagementPlanStateRepository, PageViewRepository pageViewRepository)
         {
+            this.contactFacetsProvider = contactFacetsProvider;
             this.engagementPlanStateRepository = engagementPlanStateRepository;
             this.pageViewRepository = pageViewRepository;
         }
 
-        public override IRenderingModelBase GetModel()
+        public Visits Get()
         {
-            Visits model = new Visits();
-            FillBaseProperties(model);
-
             var allPageViews = this.GetAllPageViews().ToArray();
-            model.EngagementValue = GetEngagementValue();
-            model.PageViews = allPageViews.Take(10);
-            model.TotalPageViews = allPageViews.Length;
-            model.TotalVisits = GetTotalVisits();
-            model.EngagementPlanStates = engagementPlanStateRepository.GetCurrent().ToArray();
-
-            return model;
+            return new Visits
+            {
+                EngagementValue = this.GetEngagementValue(),
+                PageViews = allPageViews.Take(10),
+                TotalPageViews = allPageViews.Count(),
+                TotalVisits = this.GetTotalVisits(),
+                EngagementPlanStates = this.engagementPlanStateRepository.GetCurrent().ToArray()
+            };
         }
 
         private int GetEngagementValue()
         {
-            return 0; //this.contactFacetsProvider.Contact?.System.Value ?? 0;
-        }
-
-        private int GetTotalVisits()
-        {
-            return 1;  //this.contactFacetsProvider.Contact?.System?.VisitCount ?? 1;
+            return this.contactFacetsProvider.Contact?.System.Value ?? 0;
         }
 
         private IEnumerable<PageView> GetAllPageViews()
         {
-            return Tracker.Current.Interaction.GetPages().Cast<ICurrentPageContext>().Where(x => !x.IsCancelled).Select(pc => (PageView)pageViewRepository.Get(pc)).Reverse();
+            return Tracker.Current.Interaction.GetPages().Cast<ICurrentPageContext>().Where(x => !x.IsCancelled).Select(pc => pageViewRepository.Get(pc)).Reverse();
+        }
+
+        private int GetTotalVisits()
+        {
+            return this.contactFacetsProvider.Contact?.System?.VisitCount ?? 1;
         }
     }
 }

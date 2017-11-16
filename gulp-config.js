@@ -1,5 +1,5 @@
 module.exports = function () {
-    var instanceRoot = "E:\\Sites\\sc9demo.local";
+    var instanceRoot = "C:\\inetpub\\wwwroot\\habitat.dev.local";
     var config = {
         websiteRoot: instanceRoot + "\\",
         sitecoreLibraries: instanceRoot + "\\bin",
@@ -9,7 +9,7 @@ module.exports = function () {
         solutionName: "Habitat",
         buildConfiguration: "Debug",
         buildToolsVersion: 15.0,
-        buildMaxCpuCount: 0,
+        buildMaxCpuCount: 1,
         buildVerbosity: "minimal",
         buildPlatform: "Any CPU",
         publishPlatform: "AnyCpu",

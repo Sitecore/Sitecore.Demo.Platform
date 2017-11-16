@@ -1,9 +1,9 @@
 ﻿namespace Sitecore.Feature.Demo.Models
 {
-    using Sitecore.XA.Foundation.Mvc.Models;
     using System.Collections.Generic;
+    using Sitecore.XConnect;
 
-    public class OnsiteBehavior : RenderingModelBase
+    public class OnsiteBehavior
     {
         public IEnumerable<Profile> ActiveProfiles { get; set; }
         public IEnumerable<Profile> HistoricProfiles { get; set; }

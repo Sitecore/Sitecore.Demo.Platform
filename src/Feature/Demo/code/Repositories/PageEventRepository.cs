@@ -1,15 +1,20 @@
 ﻿namespace Sitecore.Feature.Demo.Repositories
 {
-    using Sitecore.Analytics;
-    using Sitecore.Analytics.Model;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Marketing.Definitions;
-    using Sitecore.Marketing.Definitions.PageEvents;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using Sitecore.Analytics;
+    using Sitecore.Analytics.Model;
+    using Sitecore.Analytics.Tracking;
+    using Sitecore.Common;
+    using Sitecore.Data;
+    using Sitecore.Feature.Demo.Models;
+    using Sitecore.Foundation.DependencyInjection;         
+    using Sitecore.Marketing.Definitions;
+    using Sitecore.Marketing.Definitions.Goals;
+    using Sitecore.Marketing.Definitions.PageEvents;
+    using Sitecore.Marketing.Definitions.PageEvents.Data;
 
     [Service]
     public class PageEventRepository
@@ -42,13 +47,13 @@
                 var goal = GetGoalDefinition(cachedGoal.Id);
 
                 yield return new PageEvent
-                {
-                    Title = goal?.Name ?? Sitecore.Globalization.Translate.Text("Unknown"),
-                    Date = cachedGoal.DateTime,
-                    EngagementValue = goal?.EngagementValuePoints ?? 0,
-                    IsCurrentVisit = false,
-                    Data = cachedGoal.Data
-                };
+                             {
+                                 Title = goal?.Name ?? Globalization.Translate.Text("/Demo/Goals/Unknown Goal", "(Unknown)"),
+                                 Date = cachedGoal.DateTime,
+                                 EngagementValue = goal?.EngagementValuePoints ?? 0,
+                                 IsCurrentVisit = false,
+                                 Data = cachedGoal.Data
+                             };
             }
         }
 
@@ -70,13 +75,13 @@
         private PageEvent Create(PageEventData pageEventData)
         {
             return new PageEvent
-            {
-                IsCurrentVisit = true,
-                Date = pageEventData.DateTime,
-                EngagementValue = pageEventData.Value,
-                Title = pageEventData.Name,
-                Data = pageEventData.Text
-            };
+                   {
+                       IsCurrentVisit = true,
+                       Date = pageEventData.DateTime,
+                       EngagementValue = pageEventData.Value,
+                       Title = pageEventData.Name,
+                       Data = pageEventData.Text
+                   };
         }
 
         public IEnumerable<PageEvent> GetLatest()

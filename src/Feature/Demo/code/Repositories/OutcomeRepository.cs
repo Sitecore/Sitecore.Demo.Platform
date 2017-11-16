@@ -1,17 +1,18 @@
 ﻿namespace Sitecore.Feature.Demo.Repositories
 {
-    using Sitecore.Analytics;
-    using Sitecore.Analytics.Model;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Marketing.Definitions;
-    using Sitecore.Marketing.Definitions.Outcomes.Model;
-    using Sitecore.Marketing.Taxonomy;
-    using Sitecore.Marketing.Taxonomy.Extensions;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using Sitecore.Analytics;
+    using Sitecore.Analytics.Model;
+    using Sitecore.Feature.Demo.Models;
+    using Sitecore.Foundation.DependencyInjection;      
+    using Sitecore.Marketing.Definitions;
+    using Sitecore.Marketing.Definitions.Outcomes;
+    using Sitecore.Marketing.Definitions.Outcomes.Model;
+    using Sitecore.Marketing.Taxonomy;
+    using Sitecore.Marketing.Taxonomy.Extensions;
 
     [Service]
     public class OutcomeRepository
@@ -35,7 +36,7 @@
             var definition = GetOutcomeDefinition(outcomeDefinitionId);
             return new Outcome
             {
-                Title = definition?.Name ?? Sitecore.Globalization.Translate.Text("Unknown"),
+                Title = definition?.Name ?? Globalization.Translate.Text("/Demo/Outcomes/Unknown Outcome", "(Unknown)"),
                 Date = timeStamp,
                 IsCurrentVisit = currentInteraction,
                 OutcomeGroup = this.GetOutcomeGroup(definition)

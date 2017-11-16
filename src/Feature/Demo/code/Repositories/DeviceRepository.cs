@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Demo.Repositories
+namespace Sitecore.Feature.Demo.Repositories
 {
     using Sitecore.Analytics;
     using Sitecore.CES.DeviceDetection;

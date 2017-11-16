@@ -1,11 +1,11 @@
 ﻿namespace Sitecore.Feature.Demo.Repositories
 {
+    using System;
+    using System.Linq;
     using Sitecore.Analytics.Core;
     using Sitecore.Analytics.Tracking;
     using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;
-    using System;
-    using System.Linq;
+    using Sitecore.Foundation.DependencyInjection;     
 
     [Service]
     public class PageViewRepository
@@ -43,7 +43,7 @@
             var pageName = RemoveLanguage(page).Replace("//", "/").Remove(0, 1).Replace(".aspx", "");
             if (pageName == string.Empty || this.IsLanguage(pageName))
             {
-                pageName = Sitecore.Globalization.Translate.Text("Home");
+                pageName = Globalization.Translate.Text("/Demo/PageView/Home", "Home");
             }
             return pageName;
         }

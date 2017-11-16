@@ -1,18 +1,20 @@
-﻿using Sitecore.Analytics.Model.Framework;
-
 namespace Sitecore.Feature.Demo.Repositories
 {
-    using Sitecore.Analytics;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Marketing.Automation.Data;
-    using Sitecore.Marketing.Definitions;
-    using Sitecore.Marketing.Definitions.AutomationPlans.Model;
-    using Sitecore.XConnect.Collection.Model;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using Sitecore.Analytics;
+    using Sitecore.DependencyInjection;
+    using Sitecore.Diagnostics;
+    using Sitecore.Feature.Demo.Models;
+    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.Marketing.Automation.Data;
+    using Sitecore.Marketing.Automation.Extensions;
+    using Sitecore.Marketing.Definitions;
+    using Sitecore.Marketing.Definitions.AutomationPlans.Model;
+    using Sitecore.XConnect.Collection.Model;
+    using Sitecore.Xdb.MarketingAutomation.Tracking.Extensions;
 
     [Service]
     public class EngagementPlanStateRepository
@@ -27,8 +29,8 @@ namespace Sitecore.Feature.Demo.Repositories
 
         public IEnumerable<EngagementPlanState> GetCurrent()
         {
-            var plans = Tracker.Current?.Contact?.GetFacet<IFacet>("AutomationPlanEnrollmentCache");
-            var enrollments = ((AutomationPlanEnrollmentCache)plans)?.ActivityEnrollments;
+            var plans = Tracker.Current?.Contact?.GetPlanEnrollmentCache();
+            var enrollments = plans?.ActivityEnrollments;
 
             return enrollments?.Select(this.CreateEngagementPlanState).ToArray() ?? Enumerable.Empty<EngagementPlanState>();
         }

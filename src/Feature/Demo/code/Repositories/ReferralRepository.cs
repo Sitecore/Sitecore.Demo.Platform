@@ -1,16 +1,15 @@
 ﻿namespace Sitecore.Feature.Demo.Repositories
 {
-    using Sitecore.Analytics;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.XA.Foundation.Mvc.Repositories.Base;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
+    using Sitecore.Analytics;
+    using Sitecore.Feature.Demo.Models;
+    using Sitecore.Foundation.DependencyInjection;
 
-    [Service(typeof(IReferralRepository))]
-    public class ReferralRepository : ModelRepository, IReferralRepository
+    [Service]
+    public class ReferralRepository
     {
         private readonly ICampaignRepository campaignRepository;
 
@@ -19,18 +18,16 @@
             this.campaignRepository = campaignRepository;
         }
 
-        public override IRenderingModelBase GetModel()
+        public Referral Get()
         {
-            Referral model = new Referral();
-            FillBaseProperties(model);
-
             var campaigns = this.CreateCampaigns().ToArray();
-            model.ReferringSite = GetReferringSite();
-            model.TotalNoOfCampaigns = campaigns.Length;
-            model.Campaigns = campaigns;
-            model.Keywords = GetKeywords();
 
-            return model;
+            return new Referral {
+                    Campaigns = campaigns,
+                    TotalNoOfCampaigns = campaigns.Length,
+                    ReferringSite = this.GetReferringSite(),
+                    Keywords = GetKeywords()
+                };
         }
 
         private static string GetKeywords()
