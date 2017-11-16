@@ -73,6 +73,9 @@
     <BundledProject Include="..\..\..\src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj">
       <ProjectId>{3e21fc58-e2b6-4de9-94c3-ff38c7cf0402}</ProjectId>
     </BundledProject>
+    <BundledProject Include="..\..\..\src\Feature\Navigation\tds\Sitecore.Feature.Navigation.Master\Sitecore.Feature.Navigation.Master.scproj">
+      <ProjectId>{4f1527a3-7a5b-40bd-83fc-f6726d16f51e}</ProjectId>
+    </BundledProject>
     <BundledProject Include="..\..\..\src\Project\Common\tds\Sitecore.Common.Website.Master\Sitecore.Common.Website.Master.scproj">
       <ProjectId>{321a2547-ded0-4f12-bd2b-d80cecb7396f}</ProjectId>
     </BundledProject>
@@ -85,6 +88,9 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Feature\Navigation\tds\Sitecore.Feature.Navigation.Master\Sitecore.Feature.Navigation.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Project\Common\tds\Sitecore.Common.Website.Master\Sitecore.Common.Website.Master.scproj">

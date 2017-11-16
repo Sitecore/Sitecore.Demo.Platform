@@ -166,14 +166,20 @@ if(!($svc))
     &"$installFolder\nssm-$nssmVersion\win64\nssm.exe" install "$solrName" "$solrRoot\bin\solr.cmd" "-f" "-p $solrPort"
     $svc = Get-Service "$solrName" -ErrorAction SilentlyContinue
 }
-else {
-    if($svc.Status -ne "Running")
-    {
-        Write-Host "Starting Solr service"
-        Start-Service "$solrName"
-    }
-        
+
+if($svc.Status -ne "Running")
+{
+	Write-Host "Starting Solr service..."
+	Start-Service "$solrName"
 }
+elseif ($svc.Status -eq "Running")
+{
+	Write-Host "Restarting Solr service..."
+	Restart-Service "$solrName"
+}
+
+        
+Start-Sleep -s 5
 
 # finally prove it's all working
 $protocol = "http"
@@ -181,6 +187,7 @@ if($solrSSL)
 {
     $protocol = "https"
 }
+
 Invoke-Expression "start $($protocol)://$($solrHost):$solrPort/solr/#/"
 
 Write-Host ''

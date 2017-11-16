@@ -1,8 +1,8 @@
 ﻿---
 ID: "1c1b88ad-425a-4349-9a51-27d1fc4b8357"
-Parent: "93f3857b-50b9-4a2d-ade8-95f3b2f53005"
+Parent: "63a86d91-3194-4486-aaff-0b4c9438396e"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: /sitecore/templates/Project/Habitat Sites/Article Page
+Path: /sitecore/templates/Project/Habitat Sites/Common/Pages/Article Page
 DB: master
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
@@ -11,7 +11,10 @@ SharedFields:
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Type: tree list
-  Value: "{BD74A392-DACD-4C23-853A-D520762B33A1}"
+  Value: |
+    {BD74A392-DACD-4C23-853A-D520762B33A1}
+    {64C95DF1-2550-4D79-BAAF-27AB43B85618}
+    {15D5A612-D3C7-47B4-B0C5-ECC97899B82C}
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 650
