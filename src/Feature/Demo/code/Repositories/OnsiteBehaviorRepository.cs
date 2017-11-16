@@ -2,10 +2,11 @@
 {
     using Sitecore.Feature.Demo.Models;
     using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.XA.Foundation.Mvc.Repositories.Base;
     using System.Linq;
 
-    [Service]
-    public class OnsiteBehaviorRepository
+    [Service(typeof(IOnsiteBehaviorRepository))]
+    public class OnsiteBehaviorRepository : ModelRepository, IOnsiteBehaviorRepository
     {
         private readonly PageEventRepository pageEventRepository;
         private readonly OutcomeRepository outcomesRepository;
@@ -18,16 +19,17 @@
             this.profileRepository = profileRepository;
         }
 
-        public OnsiteBehavior Get()
+        public override IRenderingModelBase GetModel()
         {
-            return new OnsiteBehavior
-            {
-                Goals = this.pageEventRepository.GetLatest().ToArray(),
-                PageEvents = this.pageEventRepository.GetPageEvents().ToArray(),
-                Outcomes = this.outcomesRepository.GetLatest().ToArray(),
-                HistoricProfiles = this.profileRepository.GetProfiles(ProfilingTypes.Historic).ToArray(),
-                ActiveProfiles = this.profileRepository.GetProfiles(ProfilingTypes.Active).ToArray()
-            };
+            OnsiteBehavior model = new OnsiteBehavior();
+            FillBaseProperties(model);
+            model.ActiveProfiles = profileRepository.GetProfiles(ProfilingTypes.Active).ToArray();
+            model.HistoricProfiles = profileRepository.GetProfiles(ProfilingTypes.Historic).ToArray();
+            model.Goals = pageEventRepository.GetLatest().ToArray();
+            model.Outcomes = outcomesRepository.GetLatest().ToArray();
+            model.PageEvents = pageEventRepository.GetLatest().ToArray();
+
+            return model;
         }
     }
 }

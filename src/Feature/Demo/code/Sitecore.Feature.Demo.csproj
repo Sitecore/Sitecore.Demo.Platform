@@ -226,6 +226,9 @@
     <Compile Include="Repositories\CampaignRepository.cs" />
     <Compile Include="Repositories\DeviceRepository.cs" />
     <Compile Include="Repositories\ICampaignRepository.cs" />
+    <Compile Include="Repositories\IOnsiteBehaviorRepository.cs" />
+    <Compile Include="Repositories\IPersonalInformationRepository.cs" />
+    <Compile Include="Repositories\IReferralRepository.cs" />
     <Compile Include="Repositories\LocationRepository.cs" />
     <Compile Include="Repositories\OnsiteBehaviorRepository.cs" />
     <Compile Include="Repositories\OutcomeRepository.cs" />

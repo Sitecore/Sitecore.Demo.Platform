@@ -7,12 +7,10 @@
     public class DemoController : StandardController
     {
         private readonly ISidebarRepository _sidebarRepository;
-        private readonly IVisitsRepository _visitsRepository;
         
-        public DemoController(ISidebarRepository sidebarRepository, IVisitsRepository visitsRepository)
+        public DemoController(ISidebarRepository sidebarRepository)
         {
             this._sidebarRepository = sidebarRepository;
-            this._visitsRepository = visitsRepository;
         }
 
         public ActionResult SidebarContent()

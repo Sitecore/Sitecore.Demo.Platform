@@ -1,7 +1,6 @@
 ﻿namespace Sitecore.Feature.Demo.Models
 {
     using Sitecore.XA.Foundation.Mvc.Models;
-    using Sitecore.XConnect;
     using System.Collections.Generic;
 
     public class OnsiteBehavior : RenderingModelBase

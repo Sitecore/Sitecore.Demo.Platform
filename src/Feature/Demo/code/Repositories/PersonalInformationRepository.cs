@@ -2,13 +2,14 @@
 {
     using Sitecore.Feature.Demo.Models;
     using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.XA.Foundation.Mvc.Repositories.Base;
     using Sitecore.XConnect.Collection.Model;
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    [Service]
-    public class PersonalInformationRepository
+    [Service(typeof(IPersonalInformationRepository))]
+    public class PersonalInformationRepository : ModelRepository, IPersonalInformationRepository
     {
         private readonly LocationRepository locationRepository;
         private readonly DeviceRepository deviceRepository;
@@ -20,17 +21,14 @@
             this.deviceRepository = deviceRepository;
         }
 
-        public Models.PersonalInformation Get()
+        public override IRenderingModelBase GetModel()
         {
-            return new Models.PersonalInformation
-            {
-                //FullName = this.GetFullName(),
-                //IsIdentified = this.GetIsIdentified(),
-                //PhotoUrl = this.GetPhotoUrl(),
-                //Properties = this.GetProperties().ToArray(),
-                Device = this.GetDevice(),
-                Location = this.GetLocation()
-            };
+            Models.PersonalInformation model = new Models.PersonalInformation();
+            FillBaseProperties(model);
+            model.Device = GetDevice();
+            model.Location = GetLocation();
+
+            return model;
         }
 
         //private IEnumerable<KeyValuePair<string, string>> GetProperties()

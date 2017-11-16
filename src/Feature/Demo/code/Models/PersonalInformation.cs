@@ -1,8 +1,9 @@
 ﻿namespace Sitecore.Feature.Demo.Models
 {
+    using Sitecore.XA.Foundation.Mvc.Models;
     using System.Collections.Generic;
 
-    public class PersonalInformation
+    public class PersonalInformation : RenderingModelBase
     {
         public string FullName { get; set; }
         public bool IsIdentified { get; set; }
