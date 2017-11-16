@@ -136,10 +136,6 @@ function Install-Prerequisites {
 		throw "Please install .NET Framework $requiredDotNetFrameworkVersion or later"
 	}
 }
-
-function Verify-Solr {
-    
-}
 function Install-Assets {
     #Register Assets PowerShell Repository
     if ((Get-PSRepository | Where-Object {$_.Name -eq $AssetsPSRepositoryName}).count -eq 0) {
