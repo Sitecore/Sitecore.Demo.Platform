@@ -75,14 +75,6 @@
       <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\layout\Renderings\Feature\Navigation.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
-      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
-    </SitecoreItem>
-    <SitecoreItem Include="sitecore\layout\Renderings\Feature\Navigation\ExtendedNavigation.item">
-      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
-    </SitecoreItem>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Import Project="..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
