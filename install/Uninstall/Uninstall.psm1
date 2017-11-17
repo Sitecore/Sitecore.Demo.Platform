@@ -37,6 +37,7 @@ function Remove-SitecoreSolrCore(
 
     $coreRootPath = Join-Path $root "server\solr"
     $corePath = Join-Path $coreRootPath $coreName
+    Write-Host $corePath
     if (Test-Path $corePath) {
         Remove-Item $corePath -Force -Recurse
         Write-Host "Solr Core $coreName, ($corePath) is removed" -ForegroundColor Green
