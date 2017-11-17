@@ -1,0 +1,58 @@
+{
+    "assets": {
+        "root": "@@assets.root@@",
+        "psRepository": "@@assets.psRepository@@",
+        "psRepositoryName": "@@assets.psRepositoryName@@",
+        "licenseFilePath": "@@assets.licenseFilePath@@",
+        "certificatesPath": "@@assets.certificatePath@@",
+        "sitecoreVersion": "@@assets.sitecoreVersion@@",
+        "installerVersion": "@@assets.installerVersion@@",
+        "jreRequiredVersion":"@@assets.jreRequiredVersion@@",
+        "dotnetMinimumVersion":"@@assets.netMinimumVersion@@",
+        "dotnetMinimumVersionValue":"@@assets.netMinimumVersionValue@@"
+    },
+    "settings": {
+        "site": {
+            "prefix": "@@site.prefix@@",
+            "suffix": "@@site.suffix@@",
+            "webRoot": "@@site.webRoot@@",
+            "hostName": "@@site.hostName"
+
+        },
+        "sql": {
+            "server": "@@sql.server@@",
+            "adminUser": "@@sql.adminUser@@",
+            "adminPassword": "@@sql.adminPassword@@",
+            "minimumVersion":"@@sql.minimumVersion@@"
+
+        },
+        "xConnect": {
+            "configurationPath": "@@xConnect.configurationPath@@",
+            "certificateConfigurationPath": "@@xConnect.certificateConfigurationPath@@",
+            "solrConfigurationPath": "@@xConnect.solrConfigurationPath@@",
+            "packagePath": "@@xConnect.packagePath@@",
+            "siteName": "@@xConnect.siteName@@",
+            "certificateName": "@@xConnect.certificate@@",
+            "siteRoot": "@@xConnect.siteRoot@@",
+            "sqlCollectionUser": "@@xConnect.sqlCollectionUser@@",
+            "sqlCollectionPassword": "@@xConnect.sqlConnectionPassword@@"
+        },
+        "sitecore": {
+            "solrConfigurationPath": "@@sitecore.solrConfigurationPath@@",
+            "configurationPath": "@@sitecore.configurationPath@@",
+            "sslConfigurationPath": "@@sitecore.sslConfigurationPath@@",
+            "packagePath": "@@sitecore.sslConfigurationPath@@",
+            "siteName": "@@sitecore.sslConfigurationPath@@",
+            "siteRoot": "@@sitecore.sslConfigurationPath@@"
+
+        },
+        "solr": {
+            "url": "@@solr.url@@",
+            "root": "@@solr.root@@",
+            "serviceName": "@@solr.serviceName@@"
+
+        }
+    }
+
+
+}
