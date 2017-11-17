@@ -1,40 +1,40 @@
 ----item----
 version: 1
-id: {5A0B08E5-7F6C-48DC-929A-5D6CFDA45E1D}
+id: {74687D7C-2EF8-47EF-A779-9A8040BB2D1A}
 database: master
-path: /sitecore/templates/Project/Habitat Sites/Page/Content/Content
-parent: {D89E583A-939C-4FE2-BCD9-0B7991291AB1}
-name: Content
+path: /sitecore/templates/Feature/Habitat Sites/Navigation/_NavigationPromotions/Navigation/Navigation Secondary Promotions
+parent: {17DC3AD6-9C26-49FA-B2EC-5428877ADF29}
+name: Navigation Secondary Promotions
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
-created: 20171027T151145Z
+created: 20171117T200221Z
 
 ----field----
 field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
 name: Type
 key: type
-content-length: 9
+content-length: 8
 
-Rich Text
+Treelist
 ----field----
 field: {1EB8AE32-E190-44A6-968D-ED904C794EBF}
 name: Source
 key: source
-content-length: 59
+content-length: 33
 
-/sitecore/system/Settings/Html Editor Profiles/Rich Text XA
+DataSource=query:$site/Data/Links
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
 key: __sortorder
-content-length: 1
+content-length: 3
 
-2
+200
 ----version----
 language: en
 version: 1
-revision: 15c0051c-cefa-428c-82f1-965702f333c6
+revision: 8bc0aff7-6d16-4ebe-8286-8ebe62f88fb5
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -42,28 +42,21 @@ name: __Created
 key: __created
 content-length: 16
 
-20171027T151146Z
-----field----
-field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
-name: __Created by
-key: __created by
-content-length: 22
-
-sitecore\virtualssuser
+20171117T200221Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-15c0051c-cefa-428c-82f1-965702f333c6
+8bc0aff7-6d16-4ebe-8286-8ebe62f88fb5
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171117T212400Z
+20171117T213236Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
