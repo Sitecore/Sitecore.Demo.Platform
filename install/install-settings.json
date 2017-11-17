@@ -9,16 +9,17 @@
         "installerVersion": "@@assets.installerVersion@@",
         "jreRequiredVersion":"@@assets.jreRequiredVersion@@",
         "dotnetMinimumVersion":"@@assets.netMinimumVersion@@",
-        "dotnetMinimumVersionValue":"@@assets.netMinimumVersionValue@@"
+        "dotnetMinimumVersionValue":"@@assets.netMinimumVersionValue@@",
+        "installPackagePath":"@@assets.installPackagePath@@"
     },
     "settings": {
         "site": {
             "prefix": "@@site.prefix@@",
             "suffix": "@@site.suffix@@",
             "webRoot": "@@site.webRoot@@",
-            "hostName": "@@site.hostName"
-
+            "hostName": "@@site.hostName@@"
         },
+        
         "sql": {
             "server": "@@sql.server@@",
             "adminUser": "@@sql.adminUser@@",
@@ -41,9 +42,9 @@
             "solrConfigurationPath": "@@sitecore.solrConfigurationPath@@",
             "configurationPath": "@@sitecore.configurationPath@@",
             "sslConfigurationPath": "@@sitecore.sslConfigurationPath@@",
-            "packagePath": "@@sitecore.sslConfigurationPath@@",
-            "siteName": "@@sitecore.sslConfigurationPath@@",
-            "siteRoot": "@@sitecore.sslConfigurationPath@@"
+            "packagePath": "@@sitecore.packagePath@@",
+            "siteName": "@@sitecore.siteName@@",
+            "siteRoot": "@@sitecore.siteRoot@@"
 
         },
         "solr": {
@@ -52,7 +53,22 @@
             "serviceName": "@@solr.serviceName@@"
 
         }
-    }
+    },
+    "modules":[
+        {
+            "id":"spe",
+            "name":"Sitecore PowerShell Extensions",
+            "packagePath":"@@modules.spePackagePath@@",
+            "install":"@@modules.speInstall@@"
+        },
+        {
+            "id":"sxa",
+            "name":"Sitecore Experience Accelerator",
+            "packagePath":"@@modules.sxaPackagePath@@",
+            "install":"@@moduels.sxaInstall@@"
+        }
+    ]
+
 
 
 }

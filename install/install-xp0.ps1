@@ -8,23 +8,24 @@ Param(
 # 
 #####################################################
 $ErrorActionPreference = 'Stop'
-cd $PSScriptRoot
+Set-Location $PSScriptRoot
 
-if (!(Test-Path $ConfigurationFile)){
+if (!(Test-Path $ConfigurationFile)) {
     Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
     Write-Host  "Please use 'set-installation...ps1' files to generate a configuration file." -ForegroundColor Red
     Exit 1
 }
-$config =  Get-Content -Raw $ConfigurationFile |  ConvertFrom-Json
-if (!$config){
+$config = Get-Content -Raw $ConfigurationFile |  ConvertFrom-Json
+if (!$config) {
     throw "Error trying to load configuration!"
 }
 $site = $config.settings.site
-$sql  = $config.settings.sql
+$sql = $config.settings.sql
 $xConnect = $config.settings.xConnect
 $sitecore = $config.settings.sitecore
 $solr = $config.settings.solr
 $assets = $config.assets
+$modules = $config.modules
 
 
 Write-Host "*******************************************************" -ForegroundColor Green
@@ -47,23 +48,24 @@ function Install-Prerequisites {
     
     $minVersion = New-Object System.Version($assets.jreRequiredVersion)
     $foundVersion = $FALSE
-	$jrePath = "HKLM:\SOFTWARE\JavaSoft\Java Runtime Environment"
-	$jdkPath = "HKLM:\SOFTWARE\JavaSoft\Java Development Kit"
-	if (Test-Path $jrePath) {
-		$path = $jrePath
-	}
-	elseif (Test-Path $jdkPath) {
-		$path = $jdkPath
-	}
-	else {
+    $jrePath = "HKLM:\SOFTWARE\JavaSoft\Java Runtime Environment"
+    $jdkPath = "HKLM:\SOFTWARE\JavaSoft\Java Development Kit"
+    if (Test-Path $jrePath) {
+        $path = $jrePath
+    }
+    elseif (Test-Path $jdkPath) {
+        $path = $jdkPath
+    }
+    else {
         throw "Cannot find Java Runtime Environment or Java Development Kit on this machine."
-	}
+    }
 	
-	$javaVersionStrings = Get-ChildItem $path | ForEach-Object { $parts = $_.Name.Split("\"); $parts[$parts.Count-1] } 
+    $javaVersionStrings = Get-ChildItem $path | ForEach-Object { $parts = $_.Name.Split("\"); $parts[$parts.Count - 1] } 
     foreach ($versionString in $javaVersionStrings) {
         try {
             $version = New-Object System.Version($versionString)
-        } catch {
+        }
+        catch {
             continue
         }
 
@@ -88,7 +90,8 @@ function Install-Prerequisites {
         if (-not $assembly) {
             throw "error"
         }
-    } catch {
+    }
+    catch {
         throw "Could load the Microsoft.SqlServer.TransactSql.ScriptDom assembly. Please make sure it is installed and registered in the GAC"
     }
     
@@ -102,15 +105,13 @@ function Install-Prerequisites {
     
     #Enable Contained Databases
     Write-Host "Enable contained databases" -ForegroundColor Green
-    try
-    {
+    try {
         Invoke-Sqlcmd -ServerInstance $sql.server `
-                      -Username $sql.adminUser `
-                      -Password $sql.adminPassword `
-                      -InputFile "$PSScriptRoot\database\containedauthentication.sql"
+            -Username $sql.adminUser `
+            -Password $sql.adminPassword `
+            -InputFile "$PSScriptRoot\database\containedauthentication.sql"
     }
-    catch
-    {
+    catch {
         write-host "Set Enable contained databases failed" -ForegroundColor Red
         throw
     }
@@ -121,36 +122,37 @@ function Install-Prerequisites {
         throw "Solr URL ($SolrUrl) must be secured with https"
     }
     Write-Host "Solr URL: $($solr.url)"
-	$SolrRequest = [System.Net.WebRequest]::Create($solr.url)
-	$SolrResponse = $SolrRequest.GetResponse()
-	try {
-		If ($SolrResponse.StatusCode -ne 200) {
+    $SolrRequest = [System.Net.WebRequest]::Create($solr.url)
+    $SolrResponse = $SolrRequest.GetResponse()
+    try {
+        If ($SolrResponse.StatusCode -ne 200) {
             Write-Host "Could not contact Solr on '$($solr.url)'. Response status was '$SolrResponse.StatusCode'" -ForegroundColor Red
             
-		}
-	}
-	finally {
-		$SolrResponse.Close()
+        }
+    }
+    finally {
+        $SolrResponse.Close()
     }
     
     Write-Host "Verifying Solr directory" -ForegroundColor Green
-    if(-not (Test-Path "$($solr.root)\server")) {
+    if (-not (Test-Path "$($solr.root)\server")) {
         throw "The Solr root path '$($solr.root)' appears invalid. A 'server' folder should be present in this path to be a valid Solr distributive."
     }
 
     Write-Host "Verifying Solr service" -ForegroundColor Green
     try {
         $null = Get-Service $solr.serviceName
-    } catch {
+    }
+    catch {
         throw "The Solr service '$($solr.serviceName)' does not exist. Perhaps it's incorrect in settings.ps1?"
     }
 
-	#Verify .NET framework
+    #Verify .NET framework
 	
-	$versionExists = Get-ChildItem "hklm:SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\" | Get-ItemPropertyValue -Name Release | % { $_ -ge $assets.dotnetMinimumVersionValue }
-	if (-not $versionExists) {
-		throw "Please install .NET Framework $($assets.dotnetMinimumVersion) or newer"
-	}
+    $versionExists = Get-ChildItem "hklm:SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\" | Get-ItemPropertyValue -Name Release | ForEach-Object { $_ -ge $assets.dotnetMinimumVersionValue }
+    if (-not $versionExists) {
+        throw "Please install .NET Framework $($assets.dotnetMinimumVersion) or newer"
+    }
 }
 function Install-Assets {
     #Register Assets PowerShell Repository
@@ -162,7 +164,7 @@ function Install-Assets {
     Import-Module WebAdministration
 
     #Install SIF
-    $module = Get-Module -FullyQualifiedName @{ModuleName="SitecoreInstallFramework";ModuleVersion=$assets.installerVersion}
+    $module = Get-Module -FullyQualifiedName @{ModuleName = "SitecoreInstallFramework"; ModuleVersion = $assets.installerVersion}
     if (-not $module) {
         write-host "Installing the Sitecore Install Framework, version $($assets.installerVersion)" -ForegroundColor Green
         Install-Module SitecoreInstallFramework -RequiredVersion $assets.installerVersion -Repository $assets.psRepositoryName -Scope CurrentUser 
@@ -192,52 +194,46 @@ function Install-Assets {
 
 function Install-XConnect {
     #Install xConnect Solr
-    try
-    {
+    try {
         Install-SitecoreConfiguration $xConnect.solrConfigurationPath `
-                                      -SolrUrl $solr.url `
-                                      -SolrRoot $solr.root `
-                                      -SolrService $solr.serviceName `
-                                      -CorePrefix $site.prefix
+            -SolrUrl $solr.url `
+            -SolrRoot $solr.root `
+            -SolrService $solr.serviceName `
+            -CorePrefix $site.prefix
     }
-    catch
-    {
+    catch {
         write-host "XConnect SOLR Failed" -ForegroundColor Red
         throw
     }
 
     #Generate xConnect client certificate
-    try
-    {
+    try {
         Install-SitecoreConfiguration $xConnect.certificateConfigurationPath `
-                                      -CertificateName $xConnect.certificateName `
-                                      -CertPath $assets.certificatesPath
+            -CertificateName $xConnect.certificateName `
+            -CertPath $assets.certificatesPath
     }
-    catch
-    {
+    catch {
         write-host "XConnect Certificate Creation Failed" -ForegroundColor Red
         throw
     }
 
     #Install xConnect
-    try
-    {
+    try {
         Install-SitecoreConfiguration $xConnect.ConfigurationPath `
-                                      -Package $xConnect.PackagePath `
-                                      -LicenseFile $assets.licenseFilePath `
-                                      -SiteName $xConnect.siteName `
-                                      -XConnectCert $xConnect.certificateName `
-                                      -SqlDbPrefix $site.prefix `
-                                      -SolrCorePrefix $site.prefix `
-                                      -SqlAdminUser $sql.adminUser `
-                                      -SqlAdminPassword $sql.adminPassword `
-                                      -SqlServer $sql.server `
-                                      -SqlCollectionUser $xConnect.sqlCollectionUser `
-                                      -SqlCollectionPassword $xConnect.sqlCollectionPassword `
-                                      -SolrUrl $solr.url
+            -Package $xConnect.PackagePath `
+            -LicenseFile $assets.licenseFilePath `
+            -SiteName $xConnect.siteName `
+            -XConnectCert $xConnect.certificateName `
+            -SqlDbPrefix $site.prefix `
+            -SolrCorePrefix $site.prefix `
+            -SqlAdminUser $sql.adminUser `
+            -SqlAdminPassword $sql.adminPassword `
+            -SqlServer $sql.server `
+            -SqlCollectionUser $xConnect.sqlCollectionUser `
+            -SqlCollectionPassword $xConnect.sqlCollectionPassword `
+            -SolrUrl $solr.url
     }
-    catch
-    {
+    catch {
         write-host "XConnect Setup Failed" -ForegroundColor Red
         throw
     }
@@ -245,17 +241,15 @@ function Install-XConnect {
 
     #Set rights on the xDB connection database
     Write-Host "Setting Collection User rights" -ForegroundColor Green
-    try
-    {
+    try {
         $sqlVariables = "DatabasePrefix = $($site.prefix)", "UserName = $($xConnect.sqlCollectionUser)", "Password = $($xConnect.sqlCollectionPassword)"
         Invoke-Sqlcmd -ServerInstance $sql.server `
-                      -Username $sql.adminUser `
-                      -Password $sql.adminPassword `
-                      -InputFile "$PSScriptRoot\database\collectionusergrant.sql" `
-                      -Variable $sqlVariables
+            -Username $sql.adminUser `
+            -Password $sql.adminPassword `
+            -InputFile "$PSScriptRoot\database\collectionusergrant.sql" `
+            -Variable $sqlVariables
     }
-    catch
-    {
+    catch {
         write-host "Set Collection User rights failed" -ForegroundColor Red
         throw
     }
@@ -263,63 +257,101 @@ function Install-XConnect {
 
 function Install-Sitecore {
 
-    try
-    {
+    try {
         #Install Sitecore Solr
         Install-SitecoreConfiguration $sitecore.solrConfigurationPath `
-                                      -SolrUrl $solr.url `
-                                      -SolrRoot $solr.root `
-                                      -SolrService $solr.serviceName `
-                                      -CorePrefix $site.prefix
+            -SolrUrl $solr.url `
+            -SolrRoot $solr.root `
+            -SolrService $solr.serviceName `
+            -CorePrefix $site.prefix
     }
-    catch
-    {
+    catch {
         write-host "Sitecore SOLR Failed" -ForegroundColor Red
         throw
     }
 
-    try
-    {
+    try {
         #Install Sitecore
         Install-SitecoreConfiguration $sitecore.configurationPath `
-                                      -Package $sitecore.packagePath `
-                                      -LicenseFile $assets.licenseFilePath `
-                                      -SiteName $sitecore.siteName `
-                                      -XConnectCert $xConnect.certificate `
-                                      -SqlDbPrefix $site.prefix `
-                                      -SolrCorePrefix $site.prefix `
-                                      -SqlAdminUser $sql.adminUser `
-                                      -SqlAdminPassword $sql.adminPassword `
-                                      -SqlServer $sql.server `
-                                      -SolrUrl $solr.url `
-                                      -XConnectCollectionService "https://$($xConnect.siteName)" `
-                                      -XConnectReferenceDataService "https://$($xConnect.siteName)" `
-                                      -MarketingAutomationOperationsService "https://$($xConnect.siteName)" `
-                                      -MarketingAutomationReportingService "https://$($xConnect.siteName)"
+            -Package $sitecore.packagePath `
+            -LicenseFile $assets.licenseFilePath `
+            -SiteName $sitecore.siteName `
+            -XConnectCert $xConnect.certificateName `
+            -SqlDbPrefix $site.prefix `
+            -SolrCorePrefix $site.prefix `
+            -SqlAdminUser $sql.adminUser `
+            -SqlAdminPassword $sql.adminPassword `
+            -SqlServer $sql.server `
+            -SolrUrl $solr.url `
+            -XConnectCollectionService "https://$($xConnect.siteName)" `
+            -XConnectReferenceDataService "https://$($xConnect.siteName)" `
+            -MarketingAutomationOperationsService "https://$($xConnect.siteName)" `
+            -MarketingAutomationReportingService "https://$($xConnect.siteName)"
     }
-    catch
-    {
+    catch {
         write-host "Sitecore Setup Failed" -ForegroundColor Red
         throw
     }
 
-    try
-    {
+    try {
         #Set web certificate on Sitecore site
         Install-SitecoreConfiguration $sitecore.sslConfigurationPath `
-                                      -SiteName $sitecore.siteName
+            -SiteName $sitecore.siteName
     }
-    catch
-    {
+    catch {
         write-host "Sitecore SSL Binding Failed" -ForegroundColor Red
         throw
     }
 }
+function Copy-Tools {
+    if (!(Test-Path $assets.installPackagePath)) {
+        throw "$($assets.installPackagePath) not found"
+    }
 
+    try {
+        Write-Host "Copying tools to webroot" -ForegroundColor Green
+        Copy-Item $assets.installPackagePath -Destination $sitecore.siteRoot -Force
+    }
+    catch {
+        write-host "Failed to copy InstallPackage.aspx to web root" -ForegroundColor Red
+    }
+}
+function Copy-Package ($packagePath, $destination) {
+    if (!(Test-Path $packagePath)) {
+        throw "Package not found"
+    }
+    # Check destination
+    if (! (Test-Path $destination)) { New-Item $destination -Type Directory }
+
+    Write-Host $packageName
+    Copy-Item $packagePath   $destination  -Verbose -Force
+         
+    
+}
+function Install-OptionalModules {
+    #Copy InstallPackage.aspx to webroot
+    
+    $packageDestination = Join-Path $sitecore.siteRoot "\temp\Packages"
+    foreach ($module in $modules | where {$_.install -eq $true}) {
+        Write-Host "Copying $($module.name) to the $packageDestination"
+        Copy-Package -packagePath $module.packagePath -destination "$packageDestination"
+        $packageFileName = Split-Path $module.packagePath -Leaf
+
+        $packageInstallerUrl = "https://$($sitecore.siteName)/InstallPackage.aspx?package=/temp/Packages/"
+        $url = $packageInstallerUrl + $packageFileName 
+        $request = [system.net.WebRequest]::Create($url)
+        $request.Timeout = 2400000
+        Write-Host $url
+        Write-Host "Installing Package : $($module.name)" -ForegroundColor Green
+        $request.GetResponse()  
+    }
+}
 Install-Prerequisites
 Install-Assets
 Install-XConnect
 Install-Sitecore
+Copy-Tools
+Install-OptionalModules
 
 # TODO: 
 # Run optimization scripts

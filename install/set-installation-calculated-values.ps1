@@ -1,7 +1,7 @@
 Param(
     [string] $configurationFile = "configuration-xp0.json"
 )
-cd $PSScriptRoot
+Set-Location $PSScriptRoot
 Write-Host "Setting Defaults and creating $configurationFile"
 
 $json = Get-Content -Raw $configurationFile |  ConvertFrom-Json
@@ -9,7 +9,7 @@ $json = Get-Content -Raw $configurationFile |  ConvertFrom-Json
 # Assets and prerequisites
 
 $assets = $json.assets
-$assets.licenseFilePath = Join-Path $assets.root "license.xml"
+#$assets.licenseFilePath = Join-Path $assets.root "license.xml"
 $assets.certificatesPath = Join-Path $assets.root "Certificates"
 
 $json.assets = $assets
@@ -21,7 +21,7 @@ $site = $json.settings.site
 $site.hostName = $json.settings.site.prefix + "." + $json.settings.site.suffix
 $json.settings.site = $site
 
-$sql = $json.settings.sql
+#$sql = $json.settings.sql
 
 # XConnect Parameters
 $xConnect = $json.settings.xConnect
