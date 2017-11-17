@@ -25,7 +25,7 @@ $assets.installPackagePath = Join-Path $assets.root "installpackage.aspx"
 
 # Site Settings
 $site = $json.settings.site
-$site.prefix = "habitat"
+$site.prefix = "sxa"
 $site.suffix = "dev.local"
 $site.webroot = "C:\inetpub\wwwroot"
 $site.hostName = $json.settings.site.prefix + "." + $json.settings.site.suffix
