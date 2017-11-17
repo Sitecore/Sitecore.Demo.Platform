@@ -74,7 +74,8 @@
                                             }
                                             else
                                             {
-                                                @*@(campaign.Date?.ToString("dd-MM hh:mm") ?? "")*@
+                                                @*Do NOT "use null-coalescing expression"*@
+                                                @(campaign.Date != null ? campaign.Date.Value.ToString("dd-MM hh:mm") : "")
                                             }
                                         </small>
                                     </div>
