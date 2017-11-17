@@ -1,33 +1,33 @@
 ----item----
 version: 1
-id: {E2A634FD-5177-46DE-B629-5393CAED77D7}
+id: {AAC13977-F643-4D4C-BF30-91FEDB7249CB}
 database: master
-path: /sitecore/templates/Project/Habitat Sites/Page/Content/Title
-parent: {D89E583A-939C-4FE2-BCD9-0B7991291AB1}
-name: Title
+path: /sitecore/templates/Feature/Habitat Sites/Navigation/_NavigationPromotions
+parent: {4C182C14-643E-403E-84F4-1C784CD05C1A}
+name: _NavigationPromotions
 master: {00000000-0000-0000-0000-000000000000}
-template: {455A3E98-A627-4B40-8035-E683A0331AC7}
-templatekey: Template field
-created: 20171027T151145Z
+template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
+templatekey: Template
+created: 20171117T212228Z
 
 ----field----
-field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
-name: Type
-key: type
-content-length: 16
+field: {12C33F3F-86C5-43A5-AEB4-5598CEC45116}
+name: __Base template
+key: __base template
+content-length: 38
 
-Single-Line Text
+{1930BBEB-7805-471A-A3BE-4858AC7CF696}
 ----field----
-field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
-name: __Sortorder
-key: __sortorder
-content-length: 1
+field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
+name: __Icon
+key: __icon
+content-length: 28
 
-1
+Office/32x32/ships_wheel.png
 ----version----
 language: en
 version: 1
-revision: a5eb4510-3e63-42c4-a260-9bdd1ccbbd58
+revision: 964bc2a3-c140-485e-8bd9-25ad9d4095d4
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -35,28 +35,28 @@ name: __Created
 key: __created
 content-length: 16
 
-20171027T151145Z
+20171117T212228Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
 key: __created by
-content-length: 22
+content-length: 14
 
-sitecore\virtualssuser
+sitecore\admin
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-a5eb4510-3e63-42c4-a260-9bdd1ccbbd58
+964bc2a3-c140-485e-8bd9-25ad9d4095d4
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171117T212400Z
+20171117T213234Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
