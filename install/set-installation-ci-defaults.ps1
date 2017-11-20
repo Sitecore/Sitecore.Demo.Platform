@@ -1,8 +1,8 @@
 Param(
-    [string] $OutputFileName = "configuration-xp0.json"
+    [string] $ConfigurationFile = "configuration-xp0.json"
 )
 cd $PSScriptRoot
-Write-Host "Setting Defaults and creating $OutputFileName"
+Write-Host "Setting Defaults and creating $ConfigurationFile"
 
 $json = Get-Content -Raw .\install-settings.json |  ConvertFrom-Json
 
@@ -37,4 +37,4 @@ $xConnect.sqlCollectionPassword = "Test12345"
 
 $json.settings.xConnect = $xConnect
 
-Set-Content $OutputFileName  (ConvertTo-Json -InputObject $json -Depth 3)
+Set-Content $ConfigurationFile  (ConvertTo-Json -InputObject $json -Depth 3)
