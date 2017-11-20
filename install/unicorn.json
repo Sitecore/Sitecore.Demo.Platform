@@ -1,0 +1,83 @@
+{
+	"roles": {
+		"disable": {
+			"IOActions": [{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.AutoPublish.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.DataProvider.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.PowerShell.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.Roles.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.Roles.DataProvider.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.UI.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.Users.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.Users.DataProvider.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn.Helix.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn.SharedSecret.config"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn.UI.DisableWarnings.config"
+				}
+			]
+		},
+		"enable": {
+			"IOActions": [{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.AutoPublish.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.DataProvider.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.PowerShell.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.Roles.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.Roles.DataProvider.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.UI.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.Users.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn\\Unicorn.Users.DataProvider.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn.Helix.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn.SharedSecret.config.demo"
+				},
+				{
+					"path": "App_Config\\Include\\Unicorn.UI.DisableWarnings.config.demo"
+				}
+			]
+		}
+	
+	}
+}
