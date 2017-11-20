@@ -4,6 +4,16 @@
 
     public struct Templates
     {
+        public struct ProfilingSettings
+        {
+            public static readonly ID ID = new ID("{C6D4DDD5-B912-4C1A-A3A3-E1D90E4D0939}");
+
+            public struct Fields
+            {
+                public static readonly ID SiteProfiles = new ID("{2A84ECA4-68BB-4451-B4AC-98EA71A5A3DC}");
+            }
+        }
+
         public struct DemoContent
         {
             public static readonly ID ID = new ID("{90224634-CAB5-4D8E-9F71-2DBAC989C6F8}");
@@ -27,7 +37,7 @@
                 public static readonly ID Region = new ID("{D0C9D21B-7B64-4E4A-905F-8697A50B18E2}");
                 public static readonly ID Url = new ID("{594BAF13-3763-4C7D-86B1-B9BB46A86359}");
             }
-        }
+        }           
 
         public struct Token
         {
