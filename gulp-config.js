@@ -9,7 +9,7 @@ module.exports = function () {
         solutionName: "Habitat",
         buildConfiguration: "Debug",
         buildToolsVersion: 15.0,
-        buildMaxCpuCount: 0,
+        buildMaxCpuCount: 1,
         buildVerbosity: "minimal",
         buildPlatform: "Any CPU",
         publishPlatform: "AnyCpu",
