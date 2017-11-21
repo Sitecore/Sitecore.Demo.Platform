@@ -10,17 +10,29 @@
         
         public DemoController(ISidebarRepository sidebarRepository)
         {
-            this._sidebarRepository = sidebarRepository;
+            if (!Sitecore.Context.PageMode.IsExperienceEditor)
+            {
+                this._sidebarRepository = sidebarRepository;
+            }
         }
 
         public ActionResult SidebarContent()
         {
+            if (Sitecore.Context.PageMode.IsExperienceEditor)
+            {
+                return new EmptyResult();
+            }
+
             var sidebarContent = GetModel();
             return this.View("_SidebarContent", sidebarContent);
         }
 
         protected override object GetModel()
         {
+            if (Sitecore.Context.PageMode.IsExperienceEditor)
+            {
+                return null;
+            }
             return _sidebarRepository.GetModel();
         }
 
