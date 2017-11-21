@@ -32,9 +32,9 @@ Write-Host " Sitecore: $($sitecore.siteName)" -ForegroundColor Green
 Write-Host " xConnect: $($xConnect.siteName)" -ForegroundColor Green
 Write-Host "*******************************************************" -ForegroundColor Green
 
-if (Get-Module("uninstall")) {
-    Remove-Module "uninstall"
-}
+#if (Get-Module("uninstall")) {
+#    Remove-Module "uninstall"
+#}
 
 $carbon = Get-Module Carbon
 if (-not $carbon) {
