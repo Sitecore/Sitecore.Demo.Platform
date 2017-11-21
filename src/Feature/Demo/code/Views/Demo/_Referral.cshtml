@@ -1,0 +1,94 @@
+﻿@model Sitecore.Feature.Demo.Models.Referral
+
+<div class="panel panel-primary">
+    <div class="panel-heading" role="tab">
+        <h4 class="panel-title">
+            <a role="button" href="#referralPanel" data-toggle="collapse" class="panel-title collapsed" data-parent="#experiencedata">
+                <span class="fa fa-bullhorn"></span>
+                @Sitecore.Globalization.Translate.Text("Referral")
+                <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+            </a>
+        </h4>
+    </div>
+    <div id="referralPanel" class="panel-collapse collapse" role="tabpanel">
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <span class="fa fa-sign-in"></span>
+                </div>
+                <div class="media-body ">
+                    <h4 class="media-title">
+                        @Sitecore.Globalization.Translate.Text("Referrer")
+                    </h4>
+                    @if (string.IsNullOrEmpty(Model.ReferringSite))
+                    {
+                        <div class="text-nowrap" title="@Sitecore.Globalization.Translate.Text("ReferrerUnknown")">
+                            @Sitecore.Globalization.Translate.Text("ReferrerUnknown")
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-nowrap" title="@Model.ReferringSite">
+                            @Model.ReferringSite
+                        </div>
+
+                        if (!string.IsNullOrEmpty(Model.Keywords))
+                        {
+                            <div class="text-nowrap" title="@Model.Keywords">
+                                <small><em>@Sitecore.Globalization.Translate.Text("Keywords")</em> @Model.Keywords</small>
+                            </div>
+
+                        }
+                    }
+                </div>
+            </div>
+            <div class="media">
+                <div class="media-left">
+                    <span class="fa fa-bullhorn"></span>
+                </div>
+                <div class="media-body ">
+                    <h4 class="media-title">
+                        @Sitecore.Globalization.Translate.Text("Campaigns")
+                        @if (Model.Campaigns.Any())
+                        {
+                            <strong class="pull-right">@Model.TotalNoOfCampaigns</strong>
+                        }
+                    </h4>
+                    @if (!Model.Campaigns.Any())
+                    {
+                        <div class="alert alert-info small">
+                            @Sitecore.Globalization.Translate.Text("NoCampaigns")
+                        </div>
+                    }
+                    else
+                    {
+                        <ol class="list-unstyled">
+                            @foreach (var campaign in Model.Campaigns)
+                            {
+                                <li>
+                                    <div>
+                                        <small>
+                                            @if (campaign.IsActive)
+                                            {
+                                                <strong>@Sitecore.Globalization.Translate.Text("Active")</strong>
+                                            }
+                                            else
+                                            {
+                                                @*Do NOT "use null-coalescing expression"*@
+                                                @(campaign.Date != null ? campaign.Date.Value.ToString("dd-MM hh:mm") : "")
+                                            }
+                                        </small>
+                                    </div>
+                                    <div class="text-nowrap" title="@campaign.Title">@campaign.Title</div>
+                                    <div class="text-nowrap" title="@campaign.Channel">
+                                        <small>@campaign.Channel</small>
+                                    </div>
+                                </li>
+                            }
+                        </ol>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

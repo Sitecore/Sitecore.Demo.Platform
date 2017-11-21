@@ -1,15 +1,18 @@
 ﻿namespace Sitecore.Foundation.SitecoreExtensions.Extensions
 {
-    using Sitecore.Data;
-    using Sitecore.Data.Fields;
-    using Sitecore.Data.Items;
-    using Sitecore.Data.Managers;
-    using Sitecore.Links;
-    using Sitecore.Resources.Media;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using System.Web;
+    using Sitecore.Data;
+    using Sitecore.Data.Fields;
+    using Sitecore.Data.Items;
+    using Sitecore.Data.Managers;
+    using Sitecore.Diagnostics;
+    using Sitecore.Foundation.SitecoreExtensions.Services;
+    using Sitecore.Links;
+    using Sitecore.Resources.Media;
 
     public static class ItemExtensions
     {
@@ -27,7 +30,16 @@
             return !item.Paths.IsMediaItem ? LinkManager.GetItemUrl(item) : MediaManager.GetMediaUrl(item);
         }
 
+        public static string ImageUrl(this Item item, ID imageFieldId, MediaUrlOptions options = null)
+        {
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
 
+            var imageField = (ImageField)item.Fields[imageFieldId];
+            return imageField?.MediaItem == null ? string.Empty : imageField.ImageUrl(options);
+        }
 
         public static string ImageUrl(this MediaItem mediaItem, int width, int height)
         {
@@ -240,6 +252,13 @@
         {
             var latestVersion = item.Versions.GetLatestVersion();
             return latestVersion?.Versions.Count > 0;
+        }
+
+        public static HtmlString Field(this Item item, ID fieldId)
+        {
+            Assert.IsNotNull(item, "Item cannot be null");
+            Assert.IsNotNull(fieldId, "FieldId cannot be null");
+            return new HtmlString(FieldRendererService.RenderField(item, fieldId));
         }
     }
 

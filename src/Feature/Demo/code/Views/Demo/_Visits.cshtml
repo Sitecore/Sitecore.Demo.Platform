@@ -1,0 +1,129 @@
+﻿@model Sitecore.Feature.Demo.Models.Visits
+
+<div class="panel panel-primary">
+    <div class="panel-heading" role="tab">
+        <h3 class="panel-title">
+            <a role="button" href="#visitsPanel" data-toggle="collapse" class="panel-title collapsed" data-parent="#experiencedata">
+                <span class="fa fa-heart"></span>
+                @Sitecore.Globalization.Translate.Text("Engagement");
+                <span class="badge" title="@Sitecore.Globalization.Translate.Text("EngagementValue")" data-toggle="tooltip" data-placement="bottom">
+                    <span class="fa fa-heart"></span>
+                    @Model.EngagementValue
+                </span>
+                <span class="badge" title="@Sitecore.Globalization.Translate.Text("PagesViewed")" data-toggle="tooltip" data-placement="bottom">
+                    <span class="fa fa-eye"></span>
+                    @Model.TotalPageViews
+                </span>
+                <span class="badge" title="@Sitecore.Globalization.Translate.Text("NumberOfVisits")" data-toggle="tooltip" data-placement="bottom">
+                    <span class="fa fa-history"></span>
+                    @Model.TotalVisits
+                </span>
+                <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+            </a>
+        </h3>
+    </div>
+    <div id="visitsPanel" class="panel-collapse collapse" role="tabpanel">
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <span class="fa fa-heart"></span>
+                </div>
+
+                <div class="media-body ">
+                    <h4 class="media-title">
+                        @Sitecore.Globalization.Translate.Text("EngagementValue")
+                        <strong class="pull-right">@Model.EngagementValue</strong>
+                    </h4>
+                </div>
+            </div>
+            <div class="media">
+                <div class="media-left">
+                    <span class="fa fa-eye"></span>
+                </div>
+                <div class="media-body ">
+                    <h4 class="media-title">
+                        @Sitecore.Globalization.Translate.Text("PagesThisVisit")
+                        <strong class="pull-right">@Model.TotalPageViews</strong>
+                    </h4>
+                </div>
+            </div>
+            <table class="table table-condensed table-borderless">
+                @foreach (var pageView in Model.PageViews)
+                {
+                    <tr>
+                        <td class="text-muted text-nowrap">
+                            @if (pageView.HasEngagementValue)
+                            {
+                                <span class="fa fa-heart" title="@Sitecore.Globalization.Translate.Text("PageHasEngagementValue")"></span>
+                            }
+                            @if (pageView.HasMvTest)
+                            {
+                                <span class="fa fa-flask" title="@Sitecore.Globalization.Translate.Text("PageHasTest")"></span>
+                            }
+                            @if (pageView.HasPersonalisation)
+                            {
+                                <span class="fa fa-street-view" title="@Sitecore.Globalization.Translate.Text("PageHasPersonalisation")"></span>
+                            }
+                        </td>
+                        <td class="text-nowrap" title="@pageView.FullPath">@pageView.Path</td>
+                        <td>
+                            @if (pageView.Duration == TimeSpan.Zero)
+                            {
+                                <span>-</span>
+                            }
+                            else
+                            {
+                                @pageView.Duration.ToString(@"mm\:ss")
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+            <div class="media">
+                <div class="media-left">
+                    <span class="fa fa-history"></span>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-title">
+                        @Sitecore.Globalization.Translate.Text("TotalVisits")
+                        @if (Model.TotalVisits > 1)
+            {
+                            <strong class="pull-right">@Model.TotalVisits</strong>
+                        }
+                    </h4>
+                    @if (Model.TotalVisits <= 1)
+                    {
+                        <div class="alert alert-info small">
+                            @Sitecore.Globalization.Translate.Text("FirstVisit")
+                        </div>
+                    }
+                </div>
+            </div>
+            @if (Model.EngagementPlanStates.Count() > 0)
+            {
+                <div class="media">
+                    <div class="media-left">
+                        <span class="fa fa-street-view"></span>
+                    </div>
+                    <div class="media-body ">
+                        <h4 class="media-title">
+                            @Sitecore.Globalization.Translate.Text("EngagementPlans")
+                        </h4>
+                        <table class="table table-condensed table-borderless">
+                            @foreach (var state in Model.EngagementPlanStates)
+                            {
+                                <tr>
+                                    <td colspan="2"><small>@state.EngagementPlanTitle</small></td>
+                                </tr>
+                                <tr>
+                                    <td>@state.Date.ToString("dd-MM hh:mm")</td>
+                                    <td>@state.Title</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
