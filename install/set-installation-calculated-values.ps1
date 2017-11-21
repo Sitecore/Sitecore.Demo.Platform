@@ -9,7 +9,7 @@ $json = Get-Content -Raw $configurationFile |  ConvertFrom-Json
 # Assets and prerequisites
 
 $assets = $json.assets
-#$assets.licenseFilePath = Join-Path $assets.root "license.xml"
+$assets.licenseFilePath = Join-Path $assets.root "license.xml"
 $assets.certificatesPath = Join-Path $assets.root "Certificates"
 
 $json.assets = $assets
