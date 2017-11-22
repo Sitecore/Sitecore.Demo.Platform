@@ -10,10 +10,7 @@
         
         public DemoController(ISidebarRepository sidebarRepository)
         {
-            if (!Sitecore.Context.PageMode.IsExperienceEditor)
-            {
-                this._sidebarRepository = sidebarRepository;
-            }
+            this._sidebarRepository = sidebarRepository;
         }
 
         public ActionResult SidebarContent()
@@ -28,11 +25,7 @@
         }
 
         protected override object GetModel()
-        {
-            if (Sitecore.Context.PageMode.IsExperienceEditor)
-            {
-                return null;
-            }
+        {  
             return _sidebarRepository.GetModel();
         }
 
