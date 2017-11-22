@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{9846C4BE-2108-479E-AA17-4A96052CCCE0}"
 EndProject
@@ -18,6 +18,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{EA348692-4DA3-4388-9E0C-EF8C548EB579}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Common.Website", "src\Project\Common\code\Sitecore.Common.Website.csproj", "{473A0B1B-347B-413D-83A4-F9D166C9E8AA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{50558914-27E0-4903-82C1-907605DAF8A8} = {50558914-27E0-4903-82C1-907605DAF8A8}
+		{3E21FC58-E2B6-4DE9-94C3-FF38C7CF0402} = {3E21FC58-E2B6-4DE9-94C3-FF38C7CF0402}
+		{4F1527A3-7A5B-40BD-83FC-F6726D16F51E} = {4F1527A3-7A5B-40BD-83FC-F6726D16F51E}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{25781A7E-9FF0-4FF5-9BD1-0E25BF8C2AF6}"
 	ProjectSection(SolutionItems) = preProject
@@ -40,6 +45,12 @@ EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Common.Website.Master", "src\Project\Common\tds\Sitecore.Common.Website.Master\Sitecore.Common.Website.Master.scproj", "{321A2547-DED0-4F12-BD2B-D80CECB7396F}"
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Habitat.Website.Master", "src\Project\Habitat\tds\Sitecore.Habitat.Website.Master\Sitecore.Habitat.Website.Master.scproj", "{D259EF27-FA71-4D70-A2E4-C6D854CC849F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{50558914-27E0-4903-82C1-907605DAF8A8} = {50558914-27E0-4903-82C1-907605DAF8A8}
+		{321A2547-DED0-4F12-BD2B-D80CECB7396F} = {321A2547-DED0-4F12-BD2B-D80CECB7396F}
+		{3E21FC58-E2B6-4DE9-94C3-FF38C7CF0402} = {3E21FC58-E2B6-4DE9-94C3-FF38C7CF0402}
+		{4F1527A3-7A5B-40BD-83FC-F6726D16F51E} = {4F1527A3-7A5B-40BD-83FC-F6726D16F51E}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{0554FDB3-149E-4B59-BC22-27A0CB3854A7}"
 EndProject
