@@ -38,7 +38,7 @@ function Install-Prerequisites {
     #Verify SQL version
     
     [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo") | out-null
-    $srv = New-Object "Microsoft.SqlServer.Management.Smo.Server" $SqlServer
+    $srv = New-Object "Microsoft.SqlServer.Management.Smo.Server" $sql.server
     $minVersion = New-Object System.Version($sql.minimumVersion)
     if ($srv.Version.CompareTo($minVersion) -lt 0) {
         throw "Invalid SQL version. Expected SQL 2016 SP1 ($($sql.minimumVersion)) or above."
