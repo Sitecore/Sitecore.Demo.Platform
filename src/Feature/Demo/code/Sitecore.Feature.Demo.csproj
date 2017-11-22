@@ -103,17 +103,20 @@
     <Reference Include="Sitecore.Mvc.Analytics, Version=11.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Mvc.Analytics.NoReferences.9.0.171002\lib\NET462\Sitecore.Mvc.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.XA.Foundation.IoC">
-      <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XA.Foundation.IoC.dll</HintPath>
+    <Reference Include="Sitecore.XA.Foundation.IoC, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Modules\SXA\Sitecore.XA.Foundation.IoC.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.XA.Foundation.MarkupDecorator">
-      <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XA.Foundation.MarkupDecorator.dll</HintPath>
+    <Reference Include="Sitecore.XA.Foundation.Mvc, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Modules\SXA\Sitecore.XA.Foundation.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.XA.Foundation.Mvc">
-      <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XA.Foundation.Mvc.dll</HintPath>
+    <Reference Include="Sitecore.XA.Foundation.SitecoreExtensions, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Modules\SXA\Sitecore.XA.Foundation.SitecoreExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.XA.Foundation.SitecoreExtensions">
-      <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XA.Foundation.SitecoreExtensions.dll</HintPath>
+    <Reference Include="Sitecore.XA.Foundation.Variants.Abstractions">
+      <HintPath>..\..\..\..\lib\Modules\SXA\Sitecore.XA.Foundation.Variants.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Xdb.MarketingAutomation.Tracking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Xdb.MarketingAutomation.Tracking.NoReferences.9.0.171002\lib\NET462\Sitecore.Xdb.MarketingAutomation.Tracking.dll</HintPath>
