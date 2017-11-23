@@ -20,6 +20,9 @@
     </div>
 
     <div class="sidebar sidebar-fixed-right">
-        @Html.Partial("_SidebarContent", Model)   
+        @if (!Sitecore.Context.PageMode.IsExperienceEditor)
+        {
+            @Html.Partial("_SidebarContent", Model)
+        }
     </div>
 </div>
