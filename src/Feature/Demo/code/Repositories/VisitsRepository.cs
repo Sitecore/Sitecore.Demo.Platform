@@ -42,7 +42,9 @@
 
         private IEnumerable<PageView> GetAllPageViews()
         {
-            return Tracker.Current.Interaction.GetPages().Cast<ICurrentPageContext>().Where(x => !x.IsCancelled).Select(pc => pageViewRepository.Get(pc)).Reverse();
+            var allPageViews = Tracker.Current.Interaction.GetPages().Cast<ICurrentPageContext>()
+                .Where(x => !x.IsCancelled && !x.Url.ToString().Contains("sitecore"));
+            return allPageViews.Select(pc => pageViewRepository.Get(pc)).Reverse();
         }
 
         private int GetTotalVisits()
