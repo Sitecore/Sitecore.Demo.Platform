@@ -1,0 +1,75 @@
+﻿@using System.Web.Mvc.Html
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+@using Sitecore.XA.Foundation.MarkupDecorator.Extensions
+@using Sitecore.XA.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.XA.Foundation.Grid.Extensions
+@using Sitecore.XA.Foundation.Theming.Bundler
+
+@model Sitecore.Mvc.Presentation.RenderingModel
+
+@{
+    AssetLinks assetLinks = AssetLinksGenerator.GenerateLinks(new ThemesProvider());
+}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="@Model.Item.Language.Name">
+<!--<![endif]-->
+<head>
+    @foreach (string style in assetLinks.Styles)
+    {
+        @Html.Raw(style)
+    }
+    @Html.Sitecore().VisitorIdentification()
+    @Html.Sxa().Placeholder("head")
+</head>
+<body @Html.Sxa().Body().Decorate()>
+@Html.Sitecore().Placeholder("body-top")
+@Html.Sxa().GridBody()
+@Html.Sitecore().Placeholder("body-bottom")
+@foreach (string script in assetLinks.Scripts)
+{
+    @Html.Raw(script)
+}
+    <!-- #wrapper -->
+    <div id="wrapper">
+        <!-- #header -->
+        <header>
+            <div id="header" class="@Html.Sxa().GridPlaceholderClasses("header")">
+                <div class="row">
+                    @Html.Sitecore().Placeholder("header")
+                </div>
+            </div>
+        </header>
+        <!-- /#header -->
+        <!-- #content -->
+        <main>
+            <div id="content" class="@Html.Sxa().GridPlaceholderClasses("main")">
+                <div class="row">
+                    @Html.Sitecore().Placeholder("main")
+                </div>
+            </div>
+            <div id="recommended-content" class="@Html.Sxa().GridPlaceholderClasses("recommended-content")">
+                <div class="row">
+                    @Html.Sitecore().Placeholder("recommended-content")
+                </div>
+            </div>
+        </main>
+        <!-- /#content -->
+        <!-- #footer -->
+        <footer>
+            <div id="footer" class="@Html.Sxa().GridPlaceholderClasses("footer")">
+                <div class="row">
+                    @Html.Sitecore().Placeholder("footer")
+                </div>
+            </div>
+        </footer>
+        <!-- /#footer -->
+    </div>
+    <!-- /#wrapper -->
+</body>
+</html>
