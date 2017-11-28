@@ -73,6 +73,12 @@
     <BundledProject Include="..\..\..\src\Feature\Navigation\tds\Sitecore.Feature.Navigation.Master\Sitecore.Feature.Navigation.Master.scproj">
       <ProjectId>{4f1527a3-7a5b-40bd-83fc-f6726d16f51e}</ProjectId>
     </BundledProject>
+    <BundledProject Include="..\..\..\src\Foundation\Accounts\tds\Sitecore.Foundation.Accounts.Master\Sitecore.Foundation.Accounts.Master.scproj">
+      <ProjectId>{2c337d0a-2483-4a8c-9ecd-5d823481ebed}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\..\..\src\Foundation\DependencyInjection\tds\Sitecore.Foundation.DependencyInjection.Master\Sitecore.Foundation.DependencyInjection.Master.scproj">
+      <ProjectId>{784abeed-9f00-4ae6-8cef-5aef3c161e96}</ProjectId>
+    </BundledProject>
     <BundledProject Include="..\..\..\src\Project\Common\tds\Sitecore.Common.Website.Master\Sitecore.Common.Website.Master.scproj">
       <ProjectId>{321a2547-ded0-4f12-bd2b-d80cecb7396f}</ProjectId>
     </BundledProject>
@@ -88,6 +94,12 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Feature\Navigation\tds\Sitecore.Feature.Navigation.Master\Sitecore.Feature.Navigation.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Foundation\Accounts\tds\Sitecore.Foundation.Accounts.Master\Sitecore.Foundation.Accounts.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Foundation\DependencyInjection\tds\Sitecore.Foundation.DependencyInjection.Master\Sitecore.Foundation.DependencyInjection.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Project\Common\tds\Sitecore.Common.Website.Master\Sitecore.Common.Website.Master.scproj">
