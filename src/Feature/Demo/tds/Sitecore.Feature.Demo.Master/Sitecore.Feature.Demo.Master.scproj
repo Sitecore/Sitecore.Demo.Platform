@@ -21,6 +21,9 @@
     <AssemblyStatus>Include</AssemblyStatus>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <SourceWebVirtualPath>/Sitecore.Feature.Demo.csproj</SourceWebVirtualPath>
+    <SourceWebProject>{b4848a62-92aa-4670-b519-12efc204409e}|src\Feature\Demo\code\Sitecore.Feature.Demo.csproj</SourceWebProject>
+    <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -178,18 +181,6 @@
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
     </SitecoreItem>
-  </ItemGroup>
-  <ItemGroup>
-    <SourceWebProjects Include="{b4848a62-92aa-4670-b519-12efc204409e}|src\Feature\Demo\code\Sitecore.Feature.Demo.csproj">
-      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
-      <SourceWebVirtualPath>/Sitecore.Feature.Demo.csproj</SourceWebVirtualPath>
-      <SourceWebProjectId>b4848a62-92aa-4670-b519-12efc204409e</SourceWebProjectId>
-    </SourceWebProjects>
-    <SourceWebProjects Include="{b4848a62-92aa-4670-b519-12efc204409e}|src\Feature\Demo\code\Sitecore.Feature.Demo\Sitecore.Feature.Demo.csproj">
-      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
-      <SourceWebVirtualPath>/Sitecore.Feature.Demo.csproj</SourceWebVirtualPath>
-      <SourceWebProjectId>b4848a62-92aa-4670-b519-12efc204409e</SourceWebProjectId>
-    </SourceWebProjects>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\code\Sitecore.Feature.Demo.csproj">
