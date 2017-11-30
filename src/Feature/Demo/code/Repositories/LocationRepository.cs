@@ -1,11 +1,10 @@
 namespace Sitecore.Feature.Demo.Repositories
 {
-    using System;
-    using System.Globalization;
     using Sitecore.Analytics;
     using Sitecore.Analytics.Tracking;
     using Sitecore.Feature.Demo.Models;
     using Sitecore.Foundation.DependencyInjection;
+    using System.Globalization;
 
     [Service]
     public class LocationRepository
