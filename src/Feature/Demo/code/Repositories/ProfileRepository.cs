@@ -1,20 +1,20 @@
 ﻿namespace Sitecore.Feature.Demo.Repositories
 {
-    using System.Collections.Generic;
-    using System.Linq;
     using Sitecore.Analytics;
     using Sitecore.Feature.Demo.Models;
     using Sitecore.Feature.Demo.Services;
     using Sitecore.Foundation.DependencyInjection;
+    using System.Collections.Generic;
+    using System.Linq;
 
     [Service]
     public class ProfileRepository
     {
-        private readonly IProfileProvider profileProvider;
+        private readonly IProfileProvider _profileProvider;
 
         public ProfileRepository(IProfileProvider profileProvider)
         {
-            this.profileProvider = profileProvider;
+            this._profileProvider = profileProvider;
         }
 
         public IEnumerable<Profile> GetProfiles(ProfilingTypes profiling)
@@ -24,10 +24,10 @@
                 return Enumerable.Empty<Profile>();
             }
 
-            return this.profileProvider.GetSiteProfiles().Where(p => this.profileProvider.HasMatchingPattern(p, profiling)).Select(x => new Profile
+            return this._profileProvider.GetSiteProfiles().Where(p => this._profileProvider.HasMatchingPattern(p, profiling)).Select(x => new Profile
             {
                 Name = x.NameField,
-                PatternMatches = this.profileProvider.GetPatternsWithGravityShare(x, profiling)
+                PatternMatches = this._profileProvider.GetPatternsWithGravityShare(x, profiling)
             });
         }
     }
