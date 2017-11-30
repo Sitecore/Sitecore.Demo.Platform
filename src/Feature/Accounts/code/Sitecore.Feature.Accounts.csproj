@@ -89,8 +89,9 @@
       <HintPath>..\..\..\..\packages\Sitecore.Owin.Authentication.NoReferences.9.0.171002\lib\NET462\Sitecore.Owin.Authentication.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.XA.Foundation.IoC, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Reference Include="Sitecore.XA.Foundation.Mvc">
-      <HintPath>..\..\..\..\..\Sites\sc9demo.local\bin\Sitecore.XA.Foundation.Mvc.dll</HintPath>
+    <Reference Include="Sitecore.XA.Foundation.Mvc, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XA.Foundation.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.XConnect, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
