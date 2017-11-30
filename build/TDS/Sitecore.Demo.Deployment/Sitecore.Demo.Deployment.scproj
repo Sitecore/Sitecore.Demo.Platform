@@ -64,10 +64,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <BundledProject Include="..\..\..\src\Feature\Accounts\Sitecore.Feature.Accounts.Core\Sitecore.Feature.Accounts.Core.scproj">
+    <BundledProject Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Core\Sitecore.Feature.Accounts.Core.scproj">
       <ProjectId>{89f6a443-9e24-499f-a255-194d74187dd9}</ProjectId>
     </BundledProject>
-    <BundledProject Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Master.scproj">
+    <BundledProject Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Master\Sitecore.Feature.Accounts.Master.scproj">
       <ProjectId>{a1e771f2-9c73-4a8e-8a07-973499c73cad}</ProjectId>
     </BundledProject>
     <BundledProject Include="..\..\..\src\Feature\Articles\tds\Sitecore.Feature.Articles.Master\Sitecore.Feature.Articles.Master.scproj">
@@ -93,10 +93,10 @@
     </BundledProject>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Feature\Accounts\Sitecore.Feature.Accounts.Core\Sitecore.Feature.Accounts.Core.scproj">
+    <ProjectReference Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Core\Sitecore.Feature.Accounts.Core.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Master.scproj">
+    <ProjectReference Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Master\Sitecore.Feature.Accounts.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Feature\Articles\tds\Sitecore.Feature.Articles.Master\Sitecore.Feature.Articles.Master.scproj">
