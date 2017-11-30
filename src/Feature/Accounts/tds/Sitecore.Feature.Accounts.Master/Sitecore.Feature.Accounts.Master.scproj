@@ -19,11 +19,11 @@
     <ManageRoles>False</ManageRoles>
     <SitecoreDatabase>master</SitecoreDatabase>
     <AssemblyStatus>Include</AssemblyStatus>
-    <SourceWebVirtualPath>/Sitecore.Feature.Accounts.csproj</SourceWebVirtualPath>
-    <SourceWebProject>{b4a56d7d-ddbb-494b-a05a-26974fb7eeb1}|src\Feature\Accounts\code\Sitecore.Feature.Accounts.csproj</SourceWebProject>
-    <SourceWebPhysicalPath>..\code</SourceWebPhysicalPath>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <SourceWebVirtualPath>/Sitecore.Feature.Accounts.csproj</SourceWebVirtualPath>
+    <SourceWebProject>{b4a56d7d-ddbb-494b-a05a-26974fb7eeb1}|src\Feature\Accounts\code\Sitecore.Feature.Accounts.csproj</SourceWebProject>
+    <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,16 +48,6 @@
     <AssemblyAttributes Include="AssemblyVersion">
       <Value>$(AssemblyVersion)</Value>
     </AssemblyAttributes>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\code\Sitecore.Feature.Accounts.csproj">
-      <Project>{b4a56d7d-ddbb-494b-a05a-26974fb7eeb1}</Project>
-      <Name>Sitecore.Feature.Accounts</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ExcludedAssemblies Include="Sitecore.Feature.Accounts.%2a" />
-    <ExcludedAssemblies Include="Sitecore.Foundation.%2a" />
   </ItemGroup>
   <ItemGroup>
     <SitecoreItem Include="sitecore\layout.item">
@@ -167,6 +157,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\code\Sitecore.Feature.Accounts.csproj">
+      <Project>{b4a56d7d-ddbb-494b-a05a-26974fb7eeb1}</Project>
+      <Name>Sitecore.Feature.Accounts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ExcludedAssemblies Include="Sitecore.Feature.Accounts.%2a" />
+    <ExcludedAssemblies Include="Sitecore.Foundation.%2a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Import Project="..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />

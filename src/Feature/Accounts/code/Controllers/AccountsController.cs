@@ -1,9 +1,6 @@
-﻿using System.Web.Security;
-using Sitecore.Diagnostics;
-using Sitecore.Feature.Accounts.Attributes;
-
-namespace Sitecore.Feature.Accounts.Controllers
+﻿namespace Sitecore.Feature.Accounts.Controllers
 {
+    using Sitecore.Feature.Accounts.Attributes;
     using Sitecore.Feature.Accounts.Models;
     using Sitecore.Feature.Accounts.Repositories;
     using Sitecore.Feature.Accounts.Services;
@@ -13,7 +10,7 @@ namespace Sitecore.Feature.Accounts.Controllers
 
     public class AccountsController : StandardController
     {
-        //private IFedAuthLoginButtonRepository FedAuthLoginRepository { get; }
+        private readonly IFedAuthLoginButtonRepository _fedAuthLoginRepository;
         private readonly IAccountRepository _accountRepository;
         //private INotificationService NotificationService { get; }
         private readonly IAccountsSettingsService _accountsSettingsService;
@@ -22,21 +19,22 @@ namespace Sitecore.Feature.Accounts.Controllers
         //private IUserProfileService UserProfileService { get; }
 
         public AccountsController(IAccountsSettingsService accountsSettingsService,
-            IGetRedirectUrlService getRedirectUrlService, IAccountRepository accountRepository)
+            IGetRedirectUrlService getRedirectUrlService, IAccountRepository accountRepository, IFedAuthLoginButtonRepository fedAuthLoginRepository)
         {
             this._accountsSettingsService = accountsSettingsService;
             this._getRedirectUrlService = getRedirectUrlService;
             this._accountRepository = accountRepository;
+            this._fedAuthLoginRepository = fedAuthLoginRepository;
         }
 
-        //private LoginInfo CreateLoginInfo(string returnUrl = null)
-        //{
-        //    return new LoginInfo
-        //    {
-        //        ReturnUrl = returnUrl,
-        //        //LoginButtons = this.FedAuthLoginRepository.GetAll()
-        //    };
-        //}
+        private LoginInfo CreateLoginInfo(string returnUrl = null)
+        {
+            return new LoginInfo
+            {
+                ReturnUrl = returnUrl,
+                LoginButtons = this._fedAuthLoginRepository.GetAll()
+            };
+        }
 
         protected virtual ActionResult Login(LoginInfo loginInfo, Func<string, ActionResult> redirectAction)
         {
@@ -61,33 +59,6 @@ namespace Sitecore.Feature.Accounts.Controllers
             var loginModel = GetModel();
             return this.View("Login", loginModel);
         }
-
-        //[HttpPost]
-        //[ValidateModel]
-        //public ActionResult Register(RegistrationInfo registrationInfo)
-        //{
-        //    if (this._accountRepository.Exists(registrationInfo.Email))
-        //    {
-        //        this.ModelState.AddModelError(nameof(registrationInfo.Email), UserAlreadyExistsError);
-
-        //        return this.View(registrationInfo);
-        //    }
-
-        //    try
-        //    {
-        //        this._accountRepository.RegisterUser(registrationInfo.Email, registrationInfo.Password, this.UserProfileService.GetUserDefaultProfileId());
-
-        //        var link = this._getRedirectUrlService.GetRedirectUrl(AuthenticationStatus.Authenticated);
-        //        return this.Redirect(link);
-        //    }
-        //    catch (MembershipCreateUserException ex)
-        //    {
-        //        Log.Error($"Can't create user with {registrationInfo.Email}", ex, this);
-        //        this.ModelState.AddModelError(nameof(registrationInfo.Email), ex.Message);
-
-        //        return this.View(registrationInfo);
-        //    }
-        //}
         
         [HttpPost]
         [ValidateModel]

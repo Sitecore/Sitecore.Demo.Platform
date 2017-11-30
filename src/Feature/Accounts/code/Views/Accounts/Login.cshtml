@@ -47,9 +47,9 @@
         <div class="col-lg-6">
             <input type="submit" class="btn btn-primary btn-block" value="@Sitecore.Globalization.Translate.Text("Login")" />
         </div>
-        <div class="col-lg-6">
+        @*<div class="col-lg-6">
             <a href="@AccountsSettingsService.Instance.GetPageLinkOrDefault(Sitecore.Context.Item, Templates.AccountsSettings.Fields.RegisterPage)" class="btn btn-default btn-block">@Sitecore.Globalization.Translate.Text("Register")</a>
-        </div>
+        </div>*@
     </div>
     <a href="@AccountsSettingsService.Instance.GetPageLinkOrDefault(Sitecore.Context.Item, Templates.AccountsSettings.Fields.ForgotPasswordPage)" class="btn btn-link">@Sitecore.Globalization.Translate.Text("ForgotPassword")</a>
 }
