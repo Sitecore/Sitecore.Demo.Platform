@@ -143,7 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Feature\Feature.Accounts.config" />
-    <None Include="App_Config\Security\Domains.config.transform" />
+    <None Include="App_Config\Security\Domains.config.xdt" />
     <None Include="packages.config" />
     <Content Include="Views\Accounts\Login.cshtml" />
     <Content Include="Views\Accounts\_FedAuth.cshtml" />
