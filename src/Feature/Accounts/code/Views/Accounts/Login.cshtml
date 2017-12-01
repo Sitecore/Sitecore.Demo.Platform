@@ -3,12 +3,13 @@
 @using Sitecore.Mvc.Configuration
 @using System.Web.Mvc
 @using System.Web.Mvc.Html
+@using Sitecore.Foundation.SitecoreExtensions.Extensions
 @model Sitecore.Feature.Accounts.Models.LoginInfo
 
 @using (Html.BeginRouteForm(MvcSettings.SitecoreRouteName, FormMethod.Post, new { @class = "form-signin" }))
 {
     @Html.Hidden("ReturnUrl", Model.ReturnUrl)
-    @*@Html.AddUniqueFormId()*@
+    @Html.AddUniqueFormId()
     @Html.ValidationSummary(true)
     <div class="form-group"> @*@Html.ValidationErrorFor(x => x.Email, "has-error")">*@
         @Html.LabelFor(x => x.Email, new
@@ -45,8 +46,8 @@
     @Html.ValidationMessage("invalidCredentials", "alert alert-danger" , "div")
     <div class="row">
         <div class="col-lg-6">
-            <input type="submit" class="btn btn-primary btn-block" value="@Sitecore.Globalization.Translate.Text("Login")" />
-        </div>
+                <input type="button" onclick="login('form-signin')" class="btn btn-primary btn-block" value="@Sitecore.Globalization.Translate.Text("Login")" />
+</div>
         @*<div class="col-lg-6">
             <a href="@AccountsSettingsService.Instance.GetPageLinkOrDefault(Sitecore.Context.Item, Templates.AccountsSettings.Fields.RegisterPage)" class="btn btn-default btn-block">@Sitecore.Globalization.Translate.Text("Register")</a>
         </div>*@
@@ -54,3 +55,4 @@
     <a href="@AccountsSettingsService.Instance.GetPageLinkOrDefault(Sitecore.Context.Item, Templates.AccountsSettings.Fields.ForgotPasswordPage)" class="btn btn-link">@Sitecore.Globalization.Translate.Text("ForgotPassword")</a>
 }
 @Html.Partial("~/Views/Accounts/_FedAuth.cshtml", Model)
+<script src="~/Scripts/Accounts/Accounts.js"></script>

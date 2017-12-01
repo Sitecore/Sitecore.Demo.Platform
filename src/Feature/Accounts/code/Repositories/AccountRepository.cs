@@ -67,42 +67,13 @@
                 throw new ArgumentException($"Could not reset password for user '{userName}'", nameof(userName));
             return user.ResetPassword();
         }
-
-        //public void RegisterUser(string email, string password, string profileId)
-        //{
-        //    Assert.ArgumentNotNullOrEmpty(email, nameof(email));
-        //    Assert.ArgumentNotNullOrEmpty(password, nameof(password));
-
-        //    var fullName = Context.Domain.GetFullName(email);
-        //    try
-        //    {
-
-        //        Assert.IsNotNullOrEmpty(fullName, "Can't retrieve full userName");
-
-        //        var user = User.Create(fullName, password);
-        //        user.Profile.Email = email;
-        //        if (!string.IsNullOrEmpty(profileId))
-        //        {
-        //            user.Profile.ProfileItemId = profileId;
-        //        }
-
-        //        user.Profile.Save();
-        //        this._pipelineService.RunRegistered(user);
-        //    }
-        //    catch
-        //    {
-        //        AccountTrackerService.TrackRegistrationFailed(email);
-        //        throw;
-        //    }
-
-        //    this.Login(email, password);
-        //}
-
+        
         public override IRenderingModelBase GetModel()
         {
             LoginInfo model = new LoginInfo();
             FillBaseProperties(model);
             model.ReturnUrl = Context.Site.GetStartItem().Paths.FullPath;
+            
 
             return model;
         }

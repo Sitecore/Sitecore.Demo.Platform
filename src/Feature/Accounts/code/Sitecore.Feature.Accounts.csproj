@@ -145,6 +145,7 @@
     <Content Include="App_Config\Include\Feature\Feature.Accounts.config" />
     <None Include="App_Config\Security\Domains.config.transform" />
     <None Include="packages.config" />
+    <Content Include="Scripts\Accounts\Accounts.js" />
     <Content Include="Views\Accounts\Login.cshtml" />
     <Content Include="Views\Accounts\_FedAuth.cshtml" />
     <Content Include="Views\Accounts\Register.cshtml" />
@@ -166,6 +167,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Infrastructure\Pipelines\IdentityProviders\Facebook.cs" />
+    <Compile Include="Infrastructure\Pipelines\RegisterWebApiRoutes.cs" />
     <Compile Include="Models\EditProfile.cs" />
     <Compile Include="Models\FedAuthLoginButton.cs" />
     <Compile Include="Models\LoginInfo.cs" />
