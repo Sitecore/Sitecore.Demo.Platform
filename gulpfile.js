@@ -8,6 +8,8 @@ var nugetRestore = require("gulp-nuget-restore");
 var msbuild = require("gulp-msbuild");
 var foreach = require("gulp-foreach");
 var debug = require("gulp-debug");
+var util = require("gulp-util");
+
 var config;
 if (fs.existsSync("./gulp-config.js.user")) {
     config = require("./gulp-config.js.user")();

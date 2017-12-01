@@ -1,40 +1,26 @@
 ----item----
 version: 1
-id: {3DCAAFE8-BBC0-4022-AC43-89E4DE7B8E6C}
+id: {DEE996F8-951B-42D0-B590-CAC163154716}
 database: master
-path: /sitecore/templates/Feature/Habitat Sites/Navigation/Links Folder
-parent: {4C182C14-643E-403E-84F4-1C784CD05C1A}
-name: Links Folder
+path: /sitecore/templates/Feature/Habitat Sites/Navigation/_NavigationImage/Navigation
+parent: {DDB08F92-1CC2-43E2-B5C1-FE7F98E32EC9}
+name: Navigation
 master: {00000000-0000-0000-0000-000000000000}
-template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
-templatekey: Template
-created: 20171117T193536Z
+template: {E269FBB5-3750-427A-9149-7AA950B49301}
+templatekey: Template section
+created: 20171117T193317Z
 
-----field----
-field: {12C33F3F-86C5-43A5-AEB4-5598CEC45116}
-name: __Base template
-key: __base template
-content-length: 38
-
-{AD8537DF-06BB-4DD3-B044-0CD5C181A219}
-----field----
-field: {F7D48A55-2158-4F02-9356-756654404F73}
-name: __Standard values
-key: __standard values
-content-length: 38
-
-{DDEF8A70-A4D7-4015-94C0-890B5AE91628}
 ----field----
 field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
 name: __Icon
 key: __icon
-content-length: 30
+content-length: 27
 
-Office/32x32/elements_tree.png
+office/32x32/jackhammer.png
 ----version----
 language: en
 version: 1
-revision: d0a08031-030f-49dc-9d24-95daac709bca
+revision: 9f0774bd-fd6e-4d8f-8489-3ec8fbac5c24
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -42,7 +28,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171117T193536Z
+20171117T193317Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -56,14 +42,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d0a08031-030f-49dc-9d24-95daac709bca
+9f0774bd-fd6e-4d8f-8489-3ec8fbac5c24
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171117T193648Z
+20171130T200604Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
