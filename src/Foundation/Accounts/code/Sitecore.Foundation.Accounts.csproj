@@ -105,7 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Foundation\Foundation.Accounts.config" />
-    <None Include="App_Config\Security\domains.config.transform" />
+    <None Include="App_Config\Security\domains.config.xdt" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
