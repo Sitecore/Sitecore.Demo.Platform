@@ -1,0 +1,45 @@
+﻿@using System.Web.Mvc.Html
+@using Sitecore.Feature.Accounts
+@using Sitecore.Feature.Accounts.Services
+@using Sitecore.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
+@model Sitecore.Feature.Accounts.Models.LoginInfo
+
+<div class="login-body">
+    @Html.ValidationMessage("invalidCredentials", "alert alert-danger", "div")
+    <div class="form-group @Html.ValidationErrorFor(x => x.Email, "has-error")">
+        @Html.LabelFor(x => x.Email, new
+   {
+       @class = "control-label"
+   })
+        @Html.TextBoxFor(x => x.Email, new
+   {
+       @class = "form-control",
+       id = "popupLoginEmail",
+       placeholder = Sitecore.Globalization.Translate.Text("EnterEmail")
+   })
+        @Html.ValidationMessageFor(x => x.Email, "", new
+   {
+       @class = "help-block"
+   }, "p")
+    </div>
+    <div class="form-group @Html.ValidationErrorFor(x => x.Password, "has-error")">
+        @Html.LabelFor(x => x.Password, new
+   {
+       @class = "control-label"
+   })
+        @Html.PasswordFor(x => x.Password, new
+   {
+       @class = "form-control",
+       id = "popupLoginPassword",
+       placeholder = Sitecore.Globalization.Translate.Text("EnterPassword")
+   })
+        @Html.ValidationMessageFor(x => x.Password, "", new
+   {
+       @class = "help-block"
+   }, "p")
+    </div>
+    <button type="button" class="btn btn-block btn-primary" onclick="login('loginModal')">@Sitecore.Globalization.Translate.Text("Login")</button>
+    <a class="btn btn-block btn-default" href="@AccountsSettingsService.Instance.GetPageLinkOrDefault(Sitecore.Context.Item, Templates.AccountsSettings.Fields.ForgotPasswordPage)">@Sitecore.Globalization.Translate.Text("ForgotPassword")</a>
+    <a class="btn btn-block btn-default" href="@AccountsSettingsService.Instance.GetPageLinkOrDefault(Sitecore.Context.Item, Templates.AccountsSettings.Fields.RegisterPage)">@Sitecore.Globalization.Translate.Text("Register")</a>
+</div>

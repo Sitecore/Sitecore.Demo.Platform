@@ -16,11 +16,13 @@
     {
         public IAccountTrackerService AccountTrackerService { get; }
         private readonly PipelineService _pipelineService;
+        private readonly IFedAuthLoginButtonRepository _fedAuthLoginButtonRepository;
 
-        public AccountRepository(PipelineService pipelineService, IAccountTrackerService accountTrackerService)
+        public AccountRepository(PipelineService pipelineService, IAccountTrackerService accountTrackerService, IFedAuthLoginButtonRepository fedAuthLoginButtonRepository)
         {
             this.AccountTrackerService = accountTrackerService;
             this._pipelineService = pipelineService;
+            this._fedAuthLoginButtonRepository = fedAuthLoginButtonRepository;
         }
 
         public bool Exists(string userName)
@@ -73,7 +75,7 @@
             LoginInfo model = new LoginInfo();
             FillBaseProperties(model);
             model.ReturnUrl = Context.Site.GetStartItem().Paths.FullPath;
-            
+            model.LoginButtons = _fedAuthLoginButtonRepository.GetAll();
 
             return model;
         }

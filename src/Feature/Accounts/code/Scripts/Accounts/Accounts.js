@@ -4,7 +4,7 @@
     var passwordField = logincontrol.find("#loginPassword");
     jQuery.ajax(
         {
-            url: "/api/accounts/_Login",
+            url: "/api/accounts/Login",
             method: "POST",
             data: {
                 email: usernameField.val(),

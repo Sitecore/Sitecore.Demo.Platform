@@ -10,7 +10,7 @@
 
     public class AccountsController : StandardController
     {
-        private readonly IFedAuthLoginButtonRepository _fedAuthLoginRepository;
+        //private readonly IFedAuthLoginButtonRepository _fedAuthLoginRepository;
         private readonly IAccountRepository _accountRepository;
         //private INotificationService NotificationService { get; }
         private readonly IAccountsSettingsService _accountsSettingsService;
@@ -24,24 +24,24 @@
             this._accountsSettingsService = accountsSettingsService;
             this._getRedirectUrlService = getRedirectUrlService;
             this._accountRepository = accountRepository;
-            this._fedAuthLoginRepository = fedAuthLoginRepository;
+            //this._fedAuthLoginRepository = fedAuthLoginRepository;
         }
 
-        private LoginInfo CreateLoginInfo(string returnUrl = null)
-        {
-            return new LoginInfo
-            {
-                ReturnUrl = returnUrl,
-                LoginButtons = this._fedAuthLoginRepository.GetAll()
-            };
-        }
+        //private LoginInfo CreateLoginInfo(string returnUrl = null)
+        //{
+        //    return new LoginInfo
+        //    {
+        //        ReturnUrl = returnUrl,
+        //        LoginButtons = this._fedAuthLoginRepository.GetAll()
+        //    };
+        //}
 
         protected virtual ActionResult Login(LoginInfo loginInfo, Func<string, ActionResult> redirectAction)
         {
             var user = this._accountRepository.Login(loginInfo.Email, loginInfo.Password);
             if (user == null)
             {
-                this.ModelState.AddModelError("invalidCredentials", Sitecore.Globalization.Translate.Text("USerNotFound"));
+                this.ModelState.AddModelError("invalidCredentials", Sitecore.Globalization.Translate.Text("UserNotFound"));
                 return this.View(loginInfo);
             }
 
@@ -54,6 +54,7 @@
             return redirectAction(redirectUrl);
         }
 
+        [HttpGet]
         public ActionResult Login(string returnUrl = null)
         {
             var loginModel = GetModel();
