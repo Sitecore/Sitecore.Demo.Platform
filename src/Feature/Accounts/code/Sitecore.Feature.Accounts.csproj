@@ -55,6 +55,9 @@
     <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Microsoft.Owin.Security.Facebook.3.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
     </Reference>
@@ -72,6 +75,9 @@
     <Reference Include="Sitecore.Analytics, Version=11.18.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Analytics.NoReferences.9.0.171002\lib\NET462\Sitecore.Analytics.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Analytics.Core, Version=11.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.Analytics.Core.NoReferences.9.0.171002\lib\NET462\Sitecore.Analytics.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Analytics.Model, Version=11.40.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Analytics.Model.NoReferences.9.0.171002\lib\NET462\Sitecore.Analytics.Model.dll</HintPath>
     </Reference>
@@ -83,6 +89,9 @@
     </Reference>
     <Reference Include="Sitecore.Mvc, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Mvc.NoReferences.9.0.171002\lib\NET462\Sitecore.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Owin, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.Owin.NoReferences.9.0.171002\lib\NET462\Sitecore.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Owin.Authentication, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Owin.Authentication.NoReferences.9.0.171002\lib\NET462\Sitecore.Owin.Authentication.dll</HintPath>
@@ -169,6 +178,10 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Infrastructure\Pipelines\IdentityProviders\Facebook.cs" />
     <Compile Include="Infrastructure\Pipelines\RegisterWebApiRoutes.cs" />
+    <Compile Include="Infrastructure\Pipelines\SignedIn\TrackSignedIn.cs" />
+    <Compile Include="Infrastructure\Pipelines\TrackLoggedIn.cs" />
+    <Compile Include="Infrastructure\Pipelines\TrackLoggedOut.cs" />
+    <Compile Include="Infrastructure\Pipelines\TrackRegistered.cs" />
     <Compile Include="Models\EditProfile.cs" />
     <Compile Include="Models\FedAuthLoginButton.cs" />
     <Compile Include="Models\LoginInfo.cs" />

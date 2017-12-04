@@ -74,7 +74,7 @@
         {
             LoginInfo model = new LoginInfo();
             FillBaseProperties(model);
-            model.ReturnUrl = Context.Site.GetStartItem().Paths.FullPath;
+            model.ReturnUrl = Links.LinkManager.GetItemUrl(Context.Site.GetStartItem()); //todo: replace with settings item -> after login url        
             model.LoginButtons = _fedAuthLoginButtonRepository.GetAll();
 
             return model;

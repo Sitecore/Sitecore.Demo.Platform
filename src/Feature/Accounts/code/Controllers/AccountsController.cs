@@ -9,8 +9,7 @@
     using System.Web.Mvc;
 
     public class AccountsController : StandardController
-    {
-        //private readonly IFedAuthLoginButtonRepository _fedAuthLoginRepository;
+    {                                                                               
         private readonly IAccountRepository _accountRepository;
         //private INotificationService NotificationService { get; }
         private readonly IAccountsSettingsService _accountsSettingsService;
@@ -23,18 +22,8 @@
         {
             this._accountsSettingsService = accountsSettingsService;
             this._getRedirectUrlService = getRedirectUrlService;
-            this._accountRepository = accountRepository;
-            //this._fedAuthLoginRepository = fedAuthLoginRepository;
-        }
-
-        //private LoginInfo CreateLoginInfo(string returnUrl = null)
-        //{
-        //    return new LoginInfo
-        //    {
-        //        ReturnUrl = returnUrl,
-        //        LoginButtons = this._fedAuthLoginRepository.GetAll()
-        //    };
-        //}
+            this._accountRepository = accountRepository;              
+        }                   
 
         protected virtual ActionResult Login(LoginInfo loginInfo, Func<string, ActionResult> redirectAction)
         {

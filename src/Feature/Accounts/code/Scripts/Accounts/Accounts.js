@@ -2,13 +2,15 @@
     var logincontrol = jQuery("." + componentid).first();
     var usernameField = logincontrol.find("#loginEmail");
     var passwordField = logincontrol.find("#loginPassword");
+    var returnUrlField = logincontrol.find("#ReturnUrl");
     jQuery.ajax(
         {
-            url: "/api/accounts/Login",
+            url: "/api/accounts/_Login",
             method: "POST",
             data: {
                 email: usernameField.val(),
-                password: passwordField.val()
+                password: passwordField.val(),
+                returnUrl: returnUrlField.val()
             },
             success: function (data) {
                 if (data.RedirectUrl != null && data.RedirectUrl != undefined) {
