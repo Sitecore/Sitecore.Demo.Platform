@@ -1,4 +1,6 @@
-﻿namespace Sitecore.Foundation.SitecoreExtensions.Extensions
+﻿using System.Linq;
+
+namespace Sitecore.Foundation.SitecoreExtensions.Extensions
 {
     using System;
     using Sitecore;
@@ -32,6 +34,17 @@
                 throw new ArgumentNullException(nameof(site));
 
             return site.Database.GetItem(Context.Site.StartPath);
+        }
+
+        public static Item GetSettingsItem(this SiteContext site)
+        {
+            if (site == null)
+            {
+                throw new ArgumentNullException(nameof(site));
+            }
+
+            return site.GetRootItem().Children
+                .FirstOrDefault(x => x.TemplateID == new ID("{BE2A1204-F7BA-4BE3-933D-190C97496700}"));
         }
     }
 }

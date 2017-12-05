@@ -36,15 +36,15 @@
 
         private static Item GetSettingsItem(Item contextItem)
         {
-            Item item = null;
+            //Item item = null;
 
-            if (contextItem != null)
-            {
-                item = contextItem.GetAncestorOrSelfOfTemplate(Templates.ProfileSettigs.ID);
-            }
-            item = item ?? Context.Site.GetContextItem(Templates.ProfileSettigs.ID);
+            //if (contextItem != null)
+            //{
+            //    item = contextItem.GetAncestorOrSelfOfTemplate(Templates.ProfileSettigs.ID);
+            //}
+            //item = item ?? Context.Site.GetContextItem(Templates.ProfileSettigs.ID);
 
-            return item;
+            return Context.Site.GetSettingsItem();
         }
     }
 }

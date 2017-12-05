@@ -24,7 +24,7 @@
 
         public IEnumerable<FedAuthLoginButton> GetAll()
         {
-            var returnUrl = this.AccountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage);
+            var returnUrl = this.AccountsSettingsService.GetSettingsPageLink(Templates.AccountsSettings.Fields.AfterLoginPage);
             var args = new GetSignInUrlInfoArgs(Context.Site.Name, returnUrl);
             GetSignInUrlInfoPipeline.Run(this.PipelineManager, args);
             if (args.Result == null)

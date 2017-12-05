@@ -1,4 +1,6 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿using Sitecore.Sites;
+
+namespace Sitecore.Feature.Accounts.Services
 {
     using Sitecore.Foundation.DependencyInjection;
     using Sitecore.Foundation.SitecoreExtensions.Extensions;
@@ -34,12 +36,14 @@
 
         public string GetDefaultRedirectUrl(AuthenticationStatus status)
         {
+            SiteContext site = SiteContext.Current;
+            
             switch (status)
             {
                 case AuthenticationStatus.Unauthenticated:
-                    return this.accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.LoginPage, Context.Site.GetStartItem());
+                    return this.accountsSettingsService.GetSettingsPageLink(Templates.AccountsSettings.Fields.LoginPage);
                 case AuthenticationStatus.Authenticated:
-                    return this.accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage, Context.Site.GetStartItem());
+                    return this.accountsSettingsService.GetSettingsPageLink(Templates.AccountsSettings.Fields.AfterLoginPage);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(status), status, null);
             }
