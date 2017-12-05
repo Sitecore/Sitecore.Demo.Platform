@@ -1,5 +1,6 @@
 ﻿namespace Sitecore.Feature.Accounts.Repositories
 {
+    using Sitecore.Data.Fields;
     using Sitecore.Feature.Accounts.Models;
     using Sitecore.Feature.Accounts.Services;
     using Sitecore.Foundation.Accounts.Pipelines;
@@ -74,7 +75,13 @@
         {
             LoginInfo model = new LoginInfo();
             FillBaseProperties(model);
-            model.ReturnUrl = Links.LinkManager.GetItemUrl(Context.Site.GetStartItem()); //todo: replace with settings item -> after login url        
+            InternalLinkField link = Context.Site.GetSettingsItem().Fields[Templates.AccountsSettings.Fields.AfterLoginPage];
+            if (link.TargetItem == null)
+            {
+                throw new Exception($"{link.InnerField.Name} link isn't set");
+            }
+
+            model.ReturnUrl = link.TargetItem.Url();
             model.LoginButtons = _fedAuthLoginButtonRepository.GetAll();
 
             return model;

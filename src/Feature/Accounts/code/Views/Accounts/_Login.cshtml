@@ -40,6 +40,6 @@
    }, "p")
     </div>
     <button type="button" class="btn btn-block btn-primary" onclick="login('loginModal')">@Sitecore.Globalization.Translate.Text("Login")</button>
-    <a class="btn btn-block btn-default" href="@AccountsSettingsService.Instance.GetPageLinkOrDefault(Sitecore.Context.Item, Templates.AccountsSettings.Fields.ForgotPasswordPage)">@Sitecore.Globalization.Translate.Text("ForgotPassword")</a>
-    <a class="btn btn-block btn-default" href="@AccountsSettingsService.Instance.GetPageLinkOrDefault(Sitecore.Context.Item, Templates.AccountsSettings.Fields.RegisterPage)">@Sitecore.Globalization.Translate.Text("Register")</a>
+    <a class="btn btn-block btn-default" href="@AccountsSettingsService.Instance.GetSettingsPageLink(Templates.AccountsSettings.Fields.ForgotPasswordPage)">@Sitecore.Globalization.Translate.Text("ForgotPassword")</a>
+    <a class="btn btn-block btn-default" href="@AccountsSettingsService.Instance.GetSettingsPageLink(Templates.AccountsSettings.Fields.RegisterPage)">@Sitecore.Globalization.Translate.Text("Register")</a>
 </div>

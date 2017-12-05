@@ -17,9 +17,9 @@
         public static readonly string PageNotFoundUrl = Settings.GetSetting("Sitecore.Feature.Accounts.PageNotFoundUrl", "/404");
         public static AccountsSettingsService Instance => new AccountsSettingsService();
 
-        public virtual string GetPageLink(Item contextItem, ID fieldID)
+        public virtual string GetSettingsPageLink(ID fieldID)
         {
-            var item = this.GetAccountsSettingsItem(contextItem);
+            var item = Context.Site.GetSettingsItem();
             if (item == null)
             {
                 throw new Exception("Page with accounts settings isn't specified");
@@ -35,11 +35,11 @@
         }
 
 
-        public virtual string GetPageLinkOrDefault(Item contextItem, ID field, Item defaultItem = null)
+        public virtual string GetPageLinkOrDefault(ID field, Item defaultItem = null)
         {
             try
             {
-                return this.GetPageLink(contextItem, field);
+                return this.GetSettingsPageLink(field);
             }
             catch (Exception ex)
             {
@@ -48,9 +48,9 @@
             }
         }
 
-        public virtual Guid? GetRegistrationOutcome(Item contextItem)
+        public virtual Guid? GetRegistrationOutcome()
         {
-            var item = this.GetAccountsSettingsItem(contextItem);
+            var item = Context.Site.GetSettingsItem();
 
             if (item == null)
             {
@@ -63,7 +63,7 @@
 
         public MailMessage GetForgotPasswordMailTemplate()
         {
-            var settingsItem = this.GetAccountsSettingsItem(null);
+            var settingsItem = Context.Site.GetSettingsItem();
             InternalLinkField link = settingsItem.Fields[Templates.AccountsSettings.Fields.ForgotPasswordMailTemplate];
             var mailTemplateItem = link.TargetItem;
 
@@ -95,19 +95,6 @@
                 Body = "test",
                 Subject = "test",
             };
-        }
-
-        public virtual Item GetAccountsSettingsItem(Item contextItem)
-        {
-            Item item = null;
-
-            if (contextItem != null)
-            {
-                item = contextItem.GetAncestorOrSelfOfTemplate(Templates.AccountsSettings.ID);
-            }
-            item = item ?? Context.Site.GetContextItem(Templates.AccountsSettings.ID);
-
-            return item;
         }
     }
 }

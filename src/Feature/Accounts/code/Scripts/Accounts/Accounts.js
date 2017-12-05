@@ -23,4 +23,32 @@
                 }
             }
         });
+};
+function register(componentid) {
+    var logincontrol = jQuery("." + componentid).first();
+    var usernameField = logincontrol.find("#registerEmail");
+    var passwordField = logincontrol.find("#registerPassword");
+    var confirmPasswordField = logincontrol.find("#registerConfirmPassword");
+    var returnUrlField = logincontrol.find("#ReturnUrl");
+    jQuery.ajax(
+        {
+            url: "/api/register/Register",
+            method: "POST",
+            data: {
+                email: usernameField.val(),
+                password: passwordField.val(),
+                confirmPassword: confirmPasswordField.val(),
+                returnUrl: returnUrlField.val()
+            },
+            success: function (data) {
+                if (data.RedirectUrl != null && data.RedirectUrl != undefined) {
+                    window.location.assign(data.RedirectUrl);
+                } else {
+                    var body = logincontrol.find(".login-body");
+                    var parent = body.parent();
+                    body.remove();
+                    parent.html(data);
+                }
+            }
+        });
 }

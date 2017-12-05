@@ -58,7 +58,7 @@
 
         public void TrackRegistrationOutcome()
         {
-            var outcomeId = this.accountsSettingsService.GetRegistrationOutcome(Context.Item);
+            var outcomeId = this.accountsSettingsService.GetRegistrationOutcome();
             if (outcomeId.HasValue)
             {
                 this.trackerService.TrackOutcome(outcomeId.Value);
