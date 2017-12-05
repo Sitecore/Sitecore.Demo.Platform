@@ -16,14 +16,14 @@
     <AssemblyName>Sitecore.Foundation.DependencyInjection.Master</AssemblyName>
     <Name>Sitecore.Foundation.DependencyInjection.Master</Name>
     <RootNamespace>Sitecore.Foundation.DependencyInjection.Master</RootNamespace>
+    <ManageRoles>False</ManageRoles>
+    <SitecoreDatabase>master</SitecoreDatabase>
+    <AssemblyStatus>Include</AssemblyStatus>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <SourceWebVirtualPath>/Sitecore.Foundation.DependencyInjection.csproj</SourceWebVirtualPath>
     <SourceWebProject>{fa1eee78-e6d6-4b63-a126-5f470624efee}|src\Foundation\DependencyInjection\code\Sitecore.Foundation.DependencyInjection.csproj</SourceWebProject>
     <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
-    <ManageRoles>False</ManageRoles>
-    <SitecoreDatabase>master</SitecoreDatabase>
-    <AssemblyStatus>Exclude</AssemblyStatus>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,13 +50,16 @@
     </AssemblyAttributes>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\code\Sitecore.Foundation.DependencyInjection.csproj">
       <Project>{fa1eee78-e6d6-4b63-a126-5f470624efee}</Project>
       <Name>Sitecore.Foundation.DependencyInjection</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <ExcludedAssemblies Include="Sitecore.Foundation.%2a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Import Project="..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
