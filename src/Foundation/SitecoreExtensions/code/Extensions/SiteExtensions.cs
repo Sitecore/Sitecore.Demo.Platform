@@ -43,8 +43,15 @@ namespace Sitecore.Foundation.SitecoreExtensions.Extensions
                 throw new ArgumentNullException(nameof(site));
             }
 
-            return site.GetRootItem().Children
-                .FirstOrDefault(x => x.TemplateID == new ID("{BE2A1204-F7BA-4BE3-933D-190C97496700}"));
+            var defaultSettingsItem = site.GetRootItem().Children
+                .FirstOrDefault(x => x.TemplateID == Templates.Settings.TemplateID);
+
+            if (defaultSettingsItem == null)
+            {
+                throw new ArgumentNullException("Site settings not found", nameof(site));
+            }
+
+            return defaultSettingsItem.Children.FirstOrDefault(x => x.TemplateID == Templates.SecuritySettings.TemplateID);
         }
     }
 }
