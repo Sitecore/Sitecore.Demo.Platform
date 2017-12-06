@@ -69,10 +69,10 @@ $solr.serviceName = "Solr"
 $modules = $json.modules
 
 $spe = $modules | Where { $_.id -eq "spe"}
-$spe.packagePath = Join-Path $assets.root "packages\Sitecore PowerShell Extensions-4.7 for Sitecore 8.zip"
+$spe.packagePath = Join-Path $assets.root "packages\spe-latest.zip"
 $spe.install = $true
 $sxa = $modules | Where { $_.id -eq "sxa"}
-$sxa.packagePath = Join-Path $assets.root "packages\Sitecore Experience Accelerator 1.5 rev. 171010 for 9.0.zip"
+$sxa.packagePath = Join-Path $assets.root "packages\sxa-latest.zip"
 $sxa.install = $true
 
 Set-Content $ConfigurationFile  (ConvertTo-Json -InputObject $json -Depth 3 )
