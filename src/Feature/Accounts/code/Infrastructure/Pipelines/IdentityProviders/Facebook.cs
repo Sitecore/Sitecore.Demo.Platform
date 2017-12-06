@@ -23,7 +23,7 @@ namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
 
         protected override void ProcessCore([NotNull] IdentityProvidersArgs args)
         {
-            Assert.ArgumentNotNull(args, nameof(args));
+            Assert.ArgumentNotNull(args, nameof(args));                               
 
             var identityProvider = this.GetIdentityProvider();
             var authenticationType = this.GetAuthenticationType();

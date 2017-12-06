@@ -36,7 +36,7 @@
 
         private static FedAuthLoginButton CreateFedAuthLoginButton(SignInUrlInfo signInInfo)
         {
-            var caption = Sitecore.Globalization.Translate.Text("SignInWith") + signInInfo.Caption;
+            var caption = Globalization.Translate.Text(string.Format("SignInWith{0}", signInInfo.Caption));
             string iconClass = null;
             switch (signInInfo.IdentityProvider.ToLower())
             {
@@ -51,6 +51,9 @@
                     break;
                 case "twitter":
                     iconClass = "fa fa-twitter";
+                    break;
+                case "openid":
+                    iconClass = "fa fa-windows";
                     break;
                 default:
                     iconClass = "fa fa-cloud";
