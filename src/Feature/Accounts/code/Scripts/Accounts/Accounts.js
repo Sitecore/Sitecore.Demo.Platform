@@ -42,9 +42,9 @@ function register(componentid) {
             },
             success: function (data) {
                 if (data.RedirectUrl != null && data.RedirectUrl != undefined) {
-                    window.location.assign(data.RedirectUrl);
+                    window.location.href = data.ReturnUrl;
                 } else {
-                    var body = logincontrol.find(".login-body");
+                    var body = logincontrol.find("componentid");
                     var parent = body.parent();
                     body.remove();
                     parent.html(data);
