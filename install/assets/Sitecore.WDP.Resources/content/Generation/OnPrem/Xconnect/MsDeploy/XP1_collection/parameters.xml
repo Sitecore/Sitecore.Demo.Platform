@@ -1,0 +1,104 @@
+﻿<parameters>
+  <parameter name="IIS Web Application Name" description="Full site path where you want to install your application." defaultValue="" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="iisApp" match="^Website" />
+  </parameter>
+  <parameter name="AppDataLogFolderAcl" description="Full site or physical path where you want to apply this ACL (for example, Default Web Site/Application or c:\Folder\SubFolder)." defaultValue="{IIS Web Application Name}\App_Data\logs" tags="Hidden, SetAcl">
+    <parameterValidation kind="AllowEmpty" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="Website\\App_Data\\logs" />
+  </parameter>
+  <parameter name="Database Server Name" description="Database Server Name" defaultValue="(local)\SQL2016" tags="">
+  </parameter>
+  <parameter name="Database Admin User Name" description="Database Admin User Name" defaultValue="sa" tags="">
+  </parameter>
+  <parameter name="Database Admin User Password" description="Database Admin User Password" defaultValue="12345" tags="NoStore,Password">
+  </parameter>
+  <parameter name="Collection Database Server Name" description="Collection Database Server Name" defaultValue="(local)\SQL2016" tags="">
+  </parameter>
+  <parameter name="Collection Shard Map Manager Database Name" description="Collection Shard Map Manager Database Name" defaultValue="Sitecore.Xdb.Collection.ShardMapManager" tags="">
+  </parameter>
+  <parameter name="Collection Shard 0 Database Name" description="Collection Shard 0 Database Name" defaultValue="Sitecore.Xdb.Collection.Shard0" tags="">
+  </parameter>
+  <parameter name="Collection Shard 1 Database Name" description="Collection Shard 1 Database Name" defaultValue="Sitecore.Xdb.Collection.Shard1" tags="">
+  </parameter>
+  <parameter name="Processing Pools Database Name" description="Processing Pools Database Name" defaultValue="Sitecore.Processing.Pools" tags="">
+    <parameterEntry type="TextFile" scope="createuser_text_processing.sql" match="PlaceHolderForDatabaseName" />
+  </parameter>
+  <parameter name="Marketing Automation Database Name" description="Marketing Automation Database Name" defaultValue="Sitecore.MarketingAutomation" tags="">
+    <parameterEntry type="TextFile" scope="createuser_text_automation.sql" match="PlaceHolderForDatabaseName" />
+  </parameter>
+  <parameter name="Messaging Database Name" description="Messaging Database Name" defaultValue="Sitecore.Messaging" tags="">
+    <parameterEntry type="TextFile" scope="createuser_text_messaging.sql" match="PlaceHolderForDatabaseName" />
+  </parameter>
+  <parameter name="Collection Database Application User Name" description="Database Application User Name" defaultValue="collectionuser" tags="">
+  </parameter>
+  <parameter name="Collection Database Application User Password" description="Database Application User Password" defaultValue="12345" tags="NoStore,Password">
+  </parameter>
+  <parameter name="Processing Pool Database Application User Name" description="Database Application User Name" defaultValue="processingpooluser" tags="">
+    <parameterEntry type="TextFile" scope="createuser_text_processing.sql" match="PlaceHolderForUser" />
+  </parameter>
+  <parameter name="Processing Pool Database Application User Password" description="Database Application User Password" defaultValue="12345" tags="NoStore,Password">
+    <parameterEntry type="TextFile" scope="createuser_text_processing.sql" match="PlaceHolderForPassword" />
+  </parameter>
+  <parameter name="Marketing Automation Database Application User Name" description="Database Application User Name" defaultValue="automationuser" tags="">
+    <parameterEntry type="TextFile" scope="createuser_text_automation.sql" match="PlaceHolderForUser" />
+  </parameter>
+  <parameter name="Marketing Automation Database Application User Password" description="Database Application User Password" defaultValue="12345" tags="NoStore,Password">
+    <parameterEntry type="TextFile" scope="createuser_text_automation.sql" match="PlaceHolderForPassword" />
+  </parameter>
+  <parameter name="Messaging Database Application User Name" description="Messaging User Name" defaultValue="messaginguser" tags="">
+    <parameterEntry type="TextFile" scope="createuser_text_messaging.sql" match="PlaceHolderForUser" />
+  </parameter>
+  <parameter name="Messaging Database Application User Password" description="Messaging User Password" defaultValue="12345" tags="NoStore,Password">
+    <parameterEntry type="TextFile" scope="createuser_text_messaging.sql" match="PlaceHolderForPassword" />
+  </parameter>
+  <parameter name="XConnect Server Configuration Environment" description="XConnect Server Configuration Environment" defaultValue="Development" tags="" />
+  <parameter name="XConnect Server Certificate Validation Thumbprint" description="XConnect Server Certificate Validation Thumbprint" defaultValue="" tags="" />
+  <parameter name="XConnect Server Log Level" description="XConnect Server Log Level" defaultValue="Warning" tags="" />
+  <parameter name="XConnect Server Instance Name" description="XConnect Server Instance Name" defaultValue="Collection" tags="" />
+  <parameter name="Allow Invalid Client Certificates" description="Allow Invalid Client Certificates" defaultValue="false" tags="" />
+  <parameter name="Processing Pool Database Connection String" description="Enter the connection string where to deploy the Processing Pool database." defaultValue="user id={Database Admin User Name};password={Database Admin User Password};data source={Database Server Name};Initial Catalog={Processing Pools Database Name}" tags="Hidden,NoStore">
+    <parameterEntry kind="ProviderPath" scope="dbDacFx" match="Sitecore_Processing_Pools\.dacpac" />
+    <parameterEntry kind="ProviderPath" scope="dbFullSql" match="createuser_text_processing.sql" />
+  </parameter>
+  <parameter name="Marketing Automation Database Connection String" description="Enter the connection string where to deploy the Marketing Automation database" defaultValue="user id={Database Admin User Name};password={Database Admin User Password};data source={Database Server Name};Initial Catalog={Marketing Automation Database Name}" tags="Hidden,NoStore">
+    <parameterEntry kind="ProviderPath" scope="dbDacFx" match="Sitecore_MarketingAutomation\.dacpac" />
+    <parameterEntry kind="ProviderPath" scope="dbFullSql" match="createuser_text_automation.sql" />
+  </parameter>
+  <parameter name="Messaging Database Connection String" description="Enter the connection string where to deploy the Messaging database" defaultValue="user id={Database Admin User Name};password={Database Admin User Password};data source={Database Server Name};Initial Catalog={Messaging Database Name}" tags="Hidden,NoStore">
+    <parameterEntry kind="ProviderPath" scope="dbDacFx" match="Sitecore_Messaging\.dacpac" />
+    <parameterEntry kind="ProviderPath" scope="dbFullSql" match="createuser_text_messaging.sql" />
+  </parameter>
+  <parameter name="Collection Shard Map Manager Database Connection String" description="Collection Shard Map Manager Database Connection String" defaultValue="user id={Database Admin User Name};password={Database Admin User Password};data source={Collection Database Server Name};Initial Catalog={Collection Shard Map Manager Database Name}" tags="Hidden,NoStore">
+  </parameter>
+  <parameter name="Collection Shard 0 Database Connection String" description="Collection Shard 0 Database Connection String" defaultValue="user id={Database Admin User Name};password={Database Admin User Password};data source={Collection Database Server Name};Initial Catalog={Collection Shard 0 Database Name}" tags="Hidden,NoStore">
+  </parameter>
+  <parameter name="Collection Shard 1 Database Connection String" description="Collection Shard 1 Database Connection String" defaultValue="user id={Database Admin User Name};password={Database Admin User Password};data source={Collection Database Server Name};Initial Catalog={Collection Shard 1 Database Name}" tags="Hidden,NoStore">
+  </parameter>
+  <parameter name="Collection Shard Map Manager Database Application Connection String" description="Collection SQL Database Connection String" defaultValue="user id={Collection Database Application User Name};password={Collection Database Application User Password};data source={Collection Database Server Name};Initial Catalog={Collection Shard Map Manager Database Name}" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='collection']/@connectionString" />
+  </parameter>
+  <parameter name="Processing Pool Database Application Connection String" description="Processing Pool Database Application Connection String" defaultValue="user id={Processing Pool Database Application User Name};password={Processing Pool Database Application User Password};data source={Database Server Name};Initial Catalog={Processing Pools Database Name}" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.processing.pools']/@connectionString" />
+  </parameter>
+  <parameter name="Marketing Automation Database Application Connection String" description="Marketing Automation Database Application Connection String" defaultValue="user id={Marketing Automation Database Application User Name};password={Marketing Automation Database Application User Password};data source={Database Server Name};Initial Catalog={Marketing Automation Database Name}" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.marketingautomation']/@connectionString" />
+  </parameter>
+  <parameter name="Messaging Database Application Connection String" description="Messaging Database Application Connection String" defaultValue="user id={Messaging Database Application User Name};password={Messaging Database Application User Password};data source={Database Server Name};Initial Catalog={Messaging Database Name}" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='messaging']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="App_data\\jobs\\continuous\\AutomationEngine\\App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='messaging']/@connectionString" />
+  </parameter>
+  <parameter name="XConnect Server Configuration Environment App Setting" description="XConnect Server Configuration Environment App Setting" defaultValue="{XConnect Server Configuration Environment}" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\AppSettings\.config$" match="//appSettings/add[@key='configurationEnvironment']/@value" />
+  </parameter>
+  <parameter name="XConnect Server Certificate Validation Thumbprint App Setting" description="XConnect Server Certificate Validation Thumbprint App Setting" defaultValue="{XConnect Server Certificate Validation Thumbprint}" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\AppSettings\.config$" match="//appSettings/add[@key='validateCertificateThumbprint']/@value" />
+  </parameter>
+  <parameter name="XConnect Server Log Level App Setting" description="XConnect Server Log Level App Setting" defaultValue="{XConnect Server Log Level}" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_data\\config\\Sitecore\\CoreServices\\sc\.Serilog\.xml$" match="//Settings/Serilog/MinimumLevel/Default/text()" />
+  </parameter>
+  <parameter name="XConnect Server Instance Name App Setting" description="XConnect Server Instance Name App Setting" defaultValue="{XConnect Server Instance Name}" tags="Hidden,NoStore">
+  </parameter>
+  <parameter name="Allow Invalid Client Certificates App Setting" description="Allow Invalid Client Certificates App Setting" defaultValue="{Allow Invalid Client Certificates}" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\AppSettings\.config$" match="//appSettings/add[@key='AllowInvalidClientCertificates']/@value" />
+  </parameter>
+</parameters>

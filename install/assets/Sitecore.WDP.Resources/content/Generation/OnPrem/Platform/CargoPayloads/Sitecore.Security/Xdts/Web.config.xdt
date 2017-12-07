@@ -1,0 +1,76 @@
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <location path="sitecore/shell" xdt:Transform="InsertAfter(/configuration/system.webServer)">
+    <system.web>
+      <authorization>
+        <deny users="?" />
+        <allow users="*" />
+      </authorization>
+    </system.web>
+  </location>
+  <location path="sitecore/admin" xdt:Transform="InsertAfter(/configuration/location[(@path='sitecore/shell')])">
+    <system.web>
+      <authorization>
+        <deny users="?" />
+        <allow users="*" />
+      </authorization>
+    </system.web>
+  </location>
+  <location path="App_Config" xdt:Transform="InsertAfter(/configuration/location[(@path='sitecore/admin')])">
+    <system.web>
+      <authorization>
+        <deny users="?" />
+        <allow users="*" />
+      </authorization>
+    </system.web>
+  </location>
+  <location path="xsl" xdt:Transform="InsertAfter(/configuration/location[(@path='App_Config')])">
+    <system.web>
+      <authorization>
+        <deny users="?" />
+        <allow users="*" />
+      </authorization>
+    </system.web>
+  </location>
+  <location path="sitecore modules/Shell" xdt:Transform="InsertAfter(/configuration/location[(@path='xsl')])">
+    <system.web>
+      <authorization>
+        <deny users="?" />
+        <allow users="*" />
+      </authorization>
+    </system.web>
+  </location>
+  <location path="sitecore modules/debug" xdt:Transform="InsertAfter(/configuration/location[(@path='sitecore modules/Shell')])">
+    <system.web>
+      <authorization>
+        <deny users="?" />
+        <allow users="*" />
+      </authorization>
+    </system.web>
+  </location>
+  <location path="sitecore/shell/Themes/Standard" xdt:Transform="InsertAfter(/configuration/location[(@path='sitecore modules/debug')])">
+    <system.web>
+      <authorization>
+        <allow users="?" />
+      </authorization>
+    </system.web>
+  </location>
+  <location path="sitecore/shell/controls/Lib" xdt:Transform="InsertAfter(/configuration/location[(@path='sitecore/shell/Themes/Standard')])">
+    <system.web>
+      <authorization>
+        <allow users="?" />
+      </authorization>
+    </system.web>
+  </location>
+  <location path="sitecore/shell/client/Speak" xdt:Transform="InsertAfter(/configuration/location[(@path='sitecore/shell/controls/Lib')])">
+    <system.web>
+      <authorization>
+        <allow users="?" />
+      </authorization>
+    </system.web>
+  </location>
+  <system.web>
+    <authentication mode="Forms" xdt:Transform="SetAttributes(mode)">
+      <forms loginUrl="Sitecore/login" xdt:Transform="SetAttributes(loginUrl)" />
+    </authentication>
+  </system.web>
+</configuration>

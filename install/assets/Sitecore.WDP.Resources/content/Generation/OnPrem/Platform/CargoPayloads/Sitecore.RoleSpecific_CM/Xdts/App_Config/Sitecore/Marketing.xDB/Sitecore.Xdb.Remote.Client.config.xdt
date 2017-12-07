@@ -1,0 +1,18 @@
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <sitecore>
+    <reporting>
+      <remote>
+        <httpTransportFactory>
+          <param desc="serviceUrl" xdt:Transform="Replace">http://reportingservice/</param>
+        </httpTransportFactory>
+      </remote>
+    </reporting>
+    <processing>
+      <remote>
+        <httpTransportFactory>
+          <param desc="serviceUrl" xdt:Transform="Replace">http://processingservice/</param>
+        </httpTransportFactory>
+      </remote>
+    </processing>
+  </sitecore>
+</configuration>

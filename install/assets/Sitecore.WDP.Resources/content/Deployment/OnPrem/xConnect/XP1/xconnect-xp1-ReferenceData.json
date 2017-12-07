@@ -1,0 +1,267 @@
+﻿// -------------------------------------------------------------------------- //
+//     Sitecore Install Framework - XConnect XP1 Reference Data               //
+//                                                                            //
+//  Run this configuration to install the XConnect Reference Data service.    //
+//                                                                            //
+//  NOTE: Only single line comments are accepted in configurations.           //
+// -------------------------------------------------------------------------- //
+
+{
+    "Parameters": {
+        // Parameters are values that may be passed when Install-SitecoreConfiguration is called.
+        // Parameters must declare a Type and may declare a DefaultValue and Description.
+        // Parameters with no DefaultValue are required when Install-SitecoreConfiguration is called.
+
+        "Package": {
+            "Type": "string",
+            "Description": "The path to the Web Deploy package to deploy."
+        },
+        "LicenseFile": {
+            "Type": "string",
+            "Description": "The path to the Sitecore license file."
+        },
+        "SiteName": {
+            "Type": "string",
+            "DefaultValue": "XConnectReferenceData",
+            "Description": "The name of the site to be deployed."
+        },
+        "SSLCert": {
+            "Type": "string",
+            "Description": "The certificate to use for HTTPS web bindings. Provide the name or the thumbprint. If not provided a certificate will be generated.",
+            "DefaultValue": ""
+        },
+        "XConnectCert": {
+            "Type": "string",
+            "Description": "The certificate to use for encryption. Provide the name or the thumbprint."
+        },
+        "SqlDbPrefix": {
+            "Type": "string",
+            "Description": "The prefix used for all Sql databases."
+        },
+        "SqlAdminUser": {
+            "Type": "string",
+            "DefaultValue": "sa",
+            "Description": "The Sql admin user account to use when installing databases."
+        },
+        "SqlAdminPassword": {
+            "Type": "string",
+            "DefaultValue": "12345",
+            "Description": "The Sql admin password to use when installing databases."
+        },
+        "SqlReferenceDataUser": {
+            "Type": "string",
+            "DefaultValue": "referencedatauser",
+            "Description": "The Sql user for the Reference Data connection string in Sitecore."
+        },
+        "SqlReferenceDataPassword": {
+            "Type": "string",
+            "DefaultValue": "Test12345",
+            "Description": "The Sql password for the Reference Data connection string in Sitecore."
+        },
+        "SqlServer": {
+            "Type": "string",
+            "DefaultValue": ".\\SQLSERVER",
+            "Description": "The Sql Server where databases will be installed."
+        },
+        "XConnectEnvironment": {
+            "Type": "string",
+            "DefaultValue": "Development",
+            "Description": "The configuration environment for this instance."
+        },
+        "XConnectLogLevel": {
+            "Type": "string",
+            "DefaultValue": "Information",
+            "Description": "The level of log information to output."
+        }
+    },
+    "Variables": {
+        // Variables are values calculated in a configuration.
+        // They can reference Parameters, other Variables, and config functions.
+
+        // The database names.
+        "Sql.Database.Reference": "[concat(parameter('SqlDbPrefix'), '_ReferenceData')]",
+
+        // The security certificate details
+        "Security.CertificateStore": "Cert:\\Localmachine\\My",
+        "Security.SSL.CertificateThumbprint": "[GetCertificateThumbprint(parameter('SSLCert'), variable('Security.CertificateStore'))]",
+        "Security.XConnect.CertificateThumbprint": "[GetCertificateThumbprint(parameter('XConnectCert'), variable('Security.CertificateStore'))]",
+        "Security.XConnect.CertificatePath":        "[joinpath(variable('Security.CertificateStore'), variable('Security.XConnect.CertificateThumbprint'))]",
+
+        // The sites full path on disk
+        "Site.PhysicalPath": "[joinpath(environment('SystemDrive'), 'inetpub', 'wwwroot', parameter('SiteName'))]",
+        "Site.DataFolder": "[joinpath(variable('Site.PhysicalPath'), 'App_Data')]"
+    },
+    "Tasks": {
+        // Tasks are separate units of work in a configuration.
+        // Each task is an action that will be completed when Install-SitecoreConfiguration is called.
+        // By default, tasks are applied in the order they are declared.
+        // Tasks may reference Parameters, Variables, and config functions.
+
+        "CreatePaths": {
+            // Ensure the destination path for the site exists.
+            "Type": "EnsurePath",
+            "Params": {
+                "Exists": [ "[variable('Site.PhysicalPath')]" ]
+            }
+        },
+        "CreateAppPool": {
+            // Creates or updates the app pool.
+            "Type": "AppPool",
+            "Params": {
+                "Name": "[parameter('SiteName')]",
+                "Properties": {
+                    "ProcessModel": {
+                        "identityType" : "ApplicationPoolIdentity"
+                    }
+                }
+            }
+        },
+        "SetAppPoolCertStorePermissions": {
+            // Set permissions for the App Pool User to access the client certificate.
+            "Type": "FilePermissions",
+            "Params": {
+                "Path" : "[ResolveCertificatePath(variable('Security.XConnect.CertificatePath'))]",
+                "Rights": [
+                    {
+                        "User": "[concat('IIS AppPool\\', parameter('SiteName'))]",
+                        "FileSystemRights": ["Read"],
+                        "InheritanceFlags": [ "None"]
+                    }
+                ]
+            }
+        },
+        "CreateWebsite": {
+            // Creates or updates the IIS website instance.
+            "Type": "Website",
+            "Params": {
+                "Name": "[parameter('SiteName')]",
+                "ApplicationPool": "[parameter('SiteName')]",
+                "PhysicalPath": "[variable('Site.PhysicalPath')]"
+            }
+        },
+        "StopWebsite": {
+            // Stops the website if it is running.
+            "Type": "ManageWebsite",
+            "Params": {
+                "Name": "[parameter('SiteName')]",
+                "Action": "Stop"
+            }
+        },
+        "StopAppPool": {
+            // Stops the app pool if it is running.
+            "Type": "ManageAppPool",
+            "Params": {
+                "Name": "[parameter('SiteName')]",
+                "Action": "Stop"
+            }
+        },
+        "RemoveDefaultBinding": {
+            // Removes the default *:80 web binding
+            "Type": "WebBinding",
+            "Params": {
+                "SiteName" : "[parameter('SiteName')]",
+                "Remove" : [ { "Port": "80", "IPAddress": "*" } ]
+            }
+        },
+        "CreateBindingsWithThumprint": {
+            // Configures the site bindings for the website.
+            "Type": "WebBinding",
+            "Params": {
+                "SiteName" : "[parameter('SiteName')]",
+                "Add": [
+                    {
+                        "HostHeader": "[parameter('SiteName')]",
+                        "Protocol": "https",
+                        "SSLFlags": 1,
+                        "Thumbprint": "[variable('Security.SSL.CertificateThumbprint')]"
+                    }
+                ]
+            },
+            "Skip": "[not(parameter('SSLCert'))]"
+        },
+        "SetClientCertificatePermissions": {
+            "Type": "WebsiteClientCert",
+            "Params": {
+                "SiteName": "[parameter('SiteName')]",
+                "Setting": "Accept"
+            }
+        },
+        "CreateHostHeader": {
+            // Sets a hostheader for the website.
+            "Type": "HostHeader",
+            "Params": {
+                "HostName": "[parameter('SiteName')]"
+            }
+        },
+        "SetPermissions": {
+            // Sets permissions for the app pool user.
+            "Type": "FilePermissions",
+            "Params": {
+                "Path" : "[variable('Site.PhysicalPath')]",
+                "Rights": [
+                    {
+                        "User": "[concat('IIS AppPool\\', parameter('SiteName'))]",
+                        "FileSystemRights": "FullControl",
+                        "InheritanceFlags": [ "ContainerInherit", "ObjectInherit"]
+                    }
+                ]
+            }
+        },
+        "InstallWDP": {
+            // Syncs the web deploy package with the website.
+            "Type": "WebDeploy",
+            "Params" : {
+                "Verb": "Sync",
+                "Arguments": {
+                    "Source": { "Package": "[resolvepath(parameter('Package'))]" },
+                    "Dest": "Auto",
+                    "SetParam":  [
+                        { "Name": "IIS Web Application Name", "Value":  "[parameter('SiteName')]" },
+                        { "Name": "Database Server Name", "Value": "[parameter('SqlServer')]" },
+                        { "Name": "Database Admin User Name", "Value": "[parameter('SqlAdminUser')]" },
+                        { "Name": "Database Admin User Password", "Value": "[parameter('SqlAdminPassword')]" },
+                        { "Name": "Reference Data Database Name", "Value":  "[variable('Sql.Database.Reference')]" },
+                        { "Name": "Reference Data Database Application User Name", "Value":  "[parameter('SqlReferenceDataUser')]" },
+                        { "Name": "Reference Data Database Application User Password", "Value":  "[parameter('SqlReferenceDataPassword')]" },
+                        { "Name": "XConnect Server Configuration Environment", "Value":  "[parameter('XConnectEnvironment')]" },
+                        { "Name": "XConnect Server Certificate Validation Thumbprint", "Value":  "[variable('Security.XConnect.CertificateThumbprint')]" },
+                        { "Name": "XConnect Server Log Level", "Value":  "[parameter('XConnectLogLevel')]" }
+                    ]
+                }
+            }
+        },
+        "SetLicense" : {
+            // Copies the license file to the instance data folder.
+            "Type": "Copy",
+            "Params": {
+                "Source": "[resolvepath(parameter('LicenseFile'))]",
+                "Destination": "[variable('Site.DataFolder')]"
+            }
+        },
+        "CreateBindingsWithDevelopmentThumprint": {
+            // Creates a new thumprint with a custom CA
+            "Type": "AddWebFeatureSSL",
+            "Params": {
+                "HostName": "[parameter('SiteName')]",
+                "OutputDirectory": "[variable('Site.DataFolder')]"
+            },
+            "Skip": "[parameter('SSLCert')]"
+        },
+        "StartAppPool": {
+            // Starts the app pool.
+            "Type": "ManageAppPool",
+            "Params": {
+                "Name": "[parameter('SiteName')]",
+                "Action": "Start"
+            }
+        },
+        "StartWebsite": {
+            // Starts the website.
+            "Type": "ManageWebsite",
+            "Params": {
+                "Name": "[parameter('SiteName')]",
+                "Action": "Start"
+            }
+        }
+    }
+}
