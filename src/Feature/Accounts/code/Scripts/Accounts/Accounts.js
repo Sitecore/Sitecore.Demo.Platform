@@ -41,8 +41,8 @@ function register(componentid) {
                 returnUrl: returnUrlField.val()
             },
             success: function (data) {
-                if (data.RedirectUrl != null && data.RedirectUrl != undefined) {
-                    window.location.href = data.ReturnUrl;
+                if (data.returnUrl != null && data.returnUrl != undefined) {
+                    window.location.href = data.returnUrl;
                 } else {
                     var body = logincontrol.find("componentid");
                     var parent = body.parent();
