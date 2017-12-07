@@ -101,3 +101,10 @@ function Remove-SitecoreFiles($path) {
         Write-Host "Could not find files $path" -ForegroundColor Yellow
     }
 }
+
+function Remove-SitecoreDatabaseLogin($Server, $Name){
+
+    if ($Server.Logins.Contains($Name)){
+        $Server.Logins[$Name].Drop()
+    }
+}
