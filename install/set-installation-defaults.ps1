@@ -13,7 +13,7 @@ $assets.root = "$PSScriptRoot\assets"
 $assets.psRepository = "https://sitecore.myget.org/F/sc-powershell/api/v2/"
 $assets.psRepositoryName = "SitecoreGallery"
 $assets.licenseFilePath = Join-Path $assets.root "license.xml"
-$assets.sitecoreVersion = "9.0.0 rev. 171201"
+$assets.sitecoreVersion = "9.0.0 rev. 171204"
 $assets.installerVersion = "1.0.2"
 $assets.certificatesPath = Join-Path $assets.root "Certificates"
 $assets.jreRequiredVersion = "1.8"
@@ -25,7 +25,7 @@ $assets.installPackagePath = Join-Path $assets.root "installpackage.aspx"
 
 # Site Settings
 $site = $json.settings.site
-$site.prefix = "sxa1"
+$site.prefix = "habitat"
 $site.suffix = "dev.local"
 $site.webroot = "C:\inetpub\wwwroot"
 $site.hostName = $json.settings.site.prefix + "." + $json.settings.site.suffix
