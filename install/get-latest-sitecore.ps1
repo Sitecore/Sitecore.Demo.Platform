@@ -1,9 +1,14 @@
 Param(
-    [Switch]$UseLocal = $false
+    [bool]$UseLocal = $true
 )
 $rootQA = "\\mars\qa\9.0\9.0.1"
 
 $jsonLocalFileName = ".\assets\wdpUrls_OnPrem.json"
+$WdpResourcesFeed = "http://nuget1dk1/nuget/9.0.1_master/"
+$downloadFolder = ".\assets"
+$sxaPackageUrl = "http://tcbuild-ext1ua1:8080/guestAuth/repository/download/Sxa90Build_Nightly/.lastSuccessful/Sitecore%20Experience%20Accelerator%20{build.number}.zip"
+$spePackageUrl = "https://marketplace.sitecore.net/services/~/download/BA9304F736324923A4D034FF4D8D4F2D.ashx?data=Sitecore%20PowerShell%20Extensions-4.7%20for%20Sitecore%208&itemId=6aaea046-83af-4ef1-ab91-87f5f9c1aa57"
+
 
 try {
     if ($useLocal -eq $false) {
@@ -13,12 +18,8 @@ try {
 }
 catch {
     Write-Host "Unable to get latest wdp url file. Using previously saved version" - -ForegroundColor Yellow
-    $useLocal = $true
+    $UseLocal = $true
 }
-$WdpResourcesFeed = "http://nuget1dk1/nuget/9.0.1_master/"
-$downloadFolder = ".\assets"
-$sxaPackageUrl = "http://tcbuild-ext1ua1:8080/guestAuth/repository/download/Sxa90Build_Nightly/.lastSuccessful/Sitecore%20Experience%20Accelerator%20{build.number}.zip"
-$spePackageUrl = "https://marketplace.sitecore.net/services/~/download/BA9304F736324923A4D034FF4D8D4F2D.ashx?data=Sitecore%20PowerShell%20Extensions-4.7%20for%20Sitecore%208&itemId=6aaea046-83af-4ef1-ab91-87f5f9c1aa57"
 
 if ($useLocal -eq $true) {
     Write-Host "Using Local: $jsonLocalFileName"
@@ -31,16 +32,16 @@ else {
     Set-Content $jsonLocalFileName -Value $json
 }
 
-
 $sitecorePackageUrl = $json.xp0.single
 $xConnectPackageUrl = $json.xp0.xconnect
 $resources = $json.resources
 $resourcesName = "Sitecore.WDP.Resources"
 $resourcesVersion = $resources.Replace($resourcesName + ".", "")
 
-Write-Host "Installing Resource Version $resourcesVersion" -ForegroundColor Green
-nuget install $resourcesName -Version $resourcesVersion -Source $WdpResourcesFeed -OutputDirectory $downloadFolder -x -prerelease
-
+if ($useLocal -eq $false) {
+    Write-Host "Installing Resource Version $resourcesVersion" -ForegroundColor Green
+    nuget install $resourcesName -Version $resourcesVersion -Source $WdpResourcesFeed -OutputDirectory $downloadFolder -x -prerelease
+}
 $sitecorePackagePaths = $sitecorePackageUrl.Split("?")
 $sitecorePackageFileName = $sitecorePackagePaths[0].substring($sitecorePackagePaths[0].LastIndexOf("/") + 1)
 
