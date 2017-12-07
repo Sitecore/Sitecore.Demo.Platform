@@ -13,7 +13,7 @@ $assets.root = "$PSScriptRoot\assets"
 $assets.psRepository = "https://sitecore.myget.org/F/sc-powershell/api/v2/"
 $assets.psRepositoryName = "SitecoreGallery"
 $assets.licenseFilePath = Join-Path $assets.root "license.xml"
-$assets.sitecoreVersion = "9.0.0 rev. 171204"
+$assets.sitecoreVersion = "9.0.1 rev. 171204"
 $assets.installerVersion = "1.0.2"
 $assets.certificatesPath = Join-Path $assets.root "Certificates"
 $assets.jreRequiredVersion = "1.8"
@@ -42,12 +42,12 @@ $xConnect = $json.settings.xConnect
 
 $xConnect.ConfigurationPath = (Get-ChildItem $assets.root -filter "xconnect-xp0.json" -Recurse).FullName 
 $xConnect.certificateConfigurationPath = (Get-ChildItem $assets.root -filter "xconnect-createcert.json" -Recurse).FullName
-$xConnect.solrConfigurationPath = Get-ChildItem $assets.root -filter "xconnect-solr.json" -Recurse).FullName 
+$xConnect.solrConfigurationPath = (Get-ChildItem $assets.root -filter "xconnect-solr.json" -Recurse).FullName 
 $xConnect.packagePath = Join-Path $assets.root $("Sitecore " + $assets.sitecoreVersion + " (OnPrem)_xp0xconnect.scwdp.zip")
 $xConnect.siteName = $site.prefix + "_xconnect." + $site.suffix
 $xConnect.certificateName = [string]::Join(".", @($site.prefix, $site.suffix, "xConnect.Client"))
 $xConnect.siteRoot = Join-Path $site.webRoot -ChildPath $xConnect.siteName
-$xConnect.sqlCollectionUser = "collectionuser"
+$xConnect.sqlCollectionUser = $site.prefix + "collectionuser"
 $xConnect.sqlCollectionPassword = "Test12345"
 
 

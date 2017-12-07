@@ -1,5 +1,5 @@
 Param(
-    [string] $ConfigurationFile = "install-xp0.json"
+    [string] $ConfigurationFile = "configuration-xp0.json"
 )
 
 #####################################################
@@ -27,7 +27,7 @@ $solr = $config.settings.solr
 $assets = $config.assets
 
 Write-Host "*******************************************************" -ForegroundColor Green
-Write-Host " UN Installing Sitecore $($assets.sitecoreVersion)" -ForegroundColor Green
+Write-Host " UNInstalling Sitecore $($assets.sitecoreVersion)" -ForegroundColor Green
 Write-Host " Sitecore: $($sitecore.siteName)" -ForegroundColor Green
 Write-Host " xConnect: $($xConnect.siteName)" -ForegroundColor Green
 Write-Host "*******************************************************" -ForegroundColor Green
@@ -87,6 +87,8 @@ Remove-SitecoreDatabase -Name "$($site.prefix)_Core" -Server $database
 Remove-SitecoreDatabase -Name "$($site.prefix)_ExperienceForms" -Server $database
 Remove-SitecoreDatabase -Name "$($site.prefix)_Master" -Server $database
 Remove-SitecoreDatabase -Name "$($site.prefix)_Web" -Server $database
+Remove-SitecoreDatabase -Name "$($site.prefix)_EXM.Master" -Server $database
+Remove-SitecoreDatabase -Name "$($site.prefix)_Messaging" -Server $database
 
 # Delete sitecore files
 Remove-SitecoreFiles $sitecore.siteRoot
@@ -108,3 +110,6 @@ gwmi win32_service  -Filter "name like '$($solr.serviceName)'" | Start-Service
 
 # Delete sitecore certificate
 Remove-SitecoreCertificate $sitecore.siteName
+
+# Drop the SQL Collectionuser login
+Remove-SitecoreDatabaseLogin -Server $database, -Name $($xConnect.sqlCollectionUser)
