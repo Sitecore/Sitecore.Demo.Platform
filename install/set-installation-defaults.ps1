@@ -68,11 +68,11 @@ $solr.root = "c:\solr"
 $solr.serviceName = "Solr"
 $modules = $json.modules
 
-$spe = $modules | Where { $_.id -eq "spe"}
+$spe = $modules | Where-Object { $_.id -eq "spe"}
 $spe.packagePath = Join-Path $assets.root "packages\spe-latest.zip"
 $spe.install = $true
-$sxa = $modules | Where { $_.id -eq "sxa"}
-$sxa.packagePath = Join-Path $assets.root "packages\sxa-latest.zip"
+$sxa = $modules | Where-Object { $_.id -eq "sxa"}
+$sxa.packagePath = Join-Path $assets.root "packages\sxa-nightly.zip"
 $sxa.install = $true
 
 Set-Content $ConfigurationFile  (ConvertTo-Json -InputObject $json -Depth 3 )

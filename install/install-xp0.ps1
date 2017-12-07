@@ -317,6 +317,7 @@ function Copy-Tools {
     }
 }
 function Copy-Package ($packagePath, $destination) {
+   
     if (!(Test-Path $packagePath)) {
         throw "Package not found"
     }
@@ -332,7 +333,7 @@ function Install-OptionalModules {
     #Copy InstallPackage.aspx to webroot
     
     $packageDestination = Join-Path $sitecore.siteRoot "\temp\Packages"
-    foreach ($module in $modules | where {$_.install -eq $true}) {
+    foreach ($module in $modules | Where-Object {$_.install -eq $true}) {
         Write-Host "Copying $($module.name) to the $packageDestination"
         Copy-Package -packagePath $module.packagePath -destination "$packageDestination"
         $packageFileName = Split-Path $module.packagePath -Leaf

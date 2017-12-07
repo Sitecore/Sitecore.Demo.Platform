@@ -1,7 +1,7 @@
 Param(
     [bool]$UseLocal = $true
 )
-$rootQA = "\\mars\qa\9.0\9.0.1"
+$rootQA = "\\fil1ca2\mars\QA\9.0\9.0.1"
 
 $jsonLocalFileName = ".\assets\wdpUrls_OnPrem.json"
 $WdpResourcesFeed = "http://nuget1dk1/nuget/9.0.1_master/"
@@ -13,7 +13,7 @@ $spePackageUrl = "https://marketplace.sitecore.net/services/~/download/BA9304F73
 try {
     if ($useLocal -eq $false) {
         Write-Host "Trying to get latest Urls from $rootQA"
-        $jsonFileName = (Get-ChildItem "$rootQA" -File -Recurse | ? { $_.Name -eq "wdpUrls_OnPrem.json" } | Sort-Object LastWriteTime -Descending | Select-Object -First 1).FullName
+        $jsonFileName = (Get-ChildItem "$rootQA" -File -Recurse | Where-Object { $_.Name -eq "wdpUrls_OnPrem.json" } | Sort-Object LastWriteTime -Descending | Select-Object -First 1).FullName
     }
 }
 catch {
@@ -29,19 +29,12 @@ if ($useLocal -eq $true) {
 }
 else {
     $json = $(Get-Content $jsonFileName -Raw | ConvertFrom-Json)
-    Set-Content $jsonLocalFileName -Value $json
+    Set-Content $jsonLocalFileName   (ConvertTo-Json -InputObject $json -Depth 3 )
 }
 
 $sitecorePackageUrl = $json.xp0.single
 $xConnectPackageUrl = $json.xp0.xconnect
-$resources = $json.resources
-$resourcesName = "Sitecore.WDP.Resources"
-$resourcesVersion = $resources.Replace($resourcesName + ".", "")
 
-if ($useLocal -eq $false) {
-    Write-Host "Installing Resource Version $resourcesVersion" -ForegroundColor Green
-    nuget install $resourcesName -Version $resourcesVersion -Source $WdpResourcesFeed -OutputDirectory $downloadFolder -x -prerelease
-}
 $sitecorePackagePaths = $sitecorePackageUrl.Split("?")
 $sitecorePackageFileName = $sitecorePackagePaths[0].substring($sitecorePackagePaths[0].LastIndexOf("/") + 1)
 
@@ -60,6 +53,17 @@ Write-Host "Saving $xConnectPackageUrl to $xConnectDestination - if required" -F
 if (!(Test-Path $xConnectDestination)) {
     Start-BitsTransfer -Source $xConnectPackageUrl -Destination $xConnectDestination
 }
+
+
+$resources = $json.resources
+$resourcesName = "Sitecore.WDP.Resources"
+$resourcesVersion = $resources.Replace($resourcesName + ".", "")
+
+if ($useLocal -eq $false) {
+    Write-Host "Installing Resource Version $resourcesVersion" -ForegroundColor Green
+    nuget install $resourcesName -Version $resourcesVersion -Source $WdpResourcesFeed -OutputDirectory $downloadFolder -x -prerelease
+}
+
 New-Item -ItemType Directory -Force -Path $($downloadFolder + "\packages")
 if ($useLocal -eq $false) {
     Write-Host "Downloading latest SPE and SXA" -ForegroundColor Green
