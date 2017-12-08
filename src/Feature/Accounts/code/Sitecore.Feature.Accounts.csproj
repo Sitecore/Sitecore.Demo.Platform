@@ -164,14 +164,13 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\Feature\Feature.Accounts.config" />
+    <Content Include="App_Config\Include\Feature\Feature.Accounts.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="App_Config\Security\Domains.config.xdt" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="App_Config\Include\Feature\Feature.Accounts.config">
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="App_Config\Security\Domains.config.xdt">
       <SubType>Designer</SubType>
     </None>
