@@ -23,6 +23,8 @@
         [Compare(nameof(Password), ErrorMessageResourceName = nameof(ConfirmPasswordMismatch), ErrorMessageResourceType = typeof(RegistrationInfo))]
         public string ConfirmPassword { get; set; }
 
+        public string ReturnUrl { get; set; }
+
         public static string ConfirmPasswordCaption => Sitecore.Globalization.Translate.Text("ConfirmPassword");
         public static string EmailCaption => Sitecore.Globalization.Translate.Text("Email");
         public static string PasswordCaption => Sitecore.Globalization.Translate.Text("Password");

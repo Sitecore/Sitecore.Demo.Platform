@@ -1,5 +1,6 @@
 ﻿namespace Sitecore.Feature.Accounts.Repositories
 {
+    using Sitecore.Data.Fields;
     using Sitecore.Feature.Accounts.Models;
     using Sitecore.Feature.Accounts.Services;
     using Sitecore.Foundation.Accounts.Pipelines;
@@ -16,11 +17,13 @@
     {
         public IAccountTrackerService AccountTrackerService { get; }
         private readonly PipelineService _pipelineService;
+        private readonly IFedAuthLoginButtonRepository _fedAuthLoginButtonRepository;
 
-        public AccountRepository(PipelineService pipelineService, IAccountTrackerService accountTrackerService)
+        public AccountRepository(PipelineService pipelineService, IAccountTrackerService accountTrackerService, IFedAuthLoginButtonRepository fedAuthLoginButtonRepository)
         {
             this.AccountTrackerService = accountTrackerService;
             this._pipelineService = pipelineService;
+            this._fedAuthLoginButtonRepository = fedAuthLoginButtonRepository;
         }
 
         public bool Exists(string userName)
@@ -67,42 +70,19 @@
                 throw new ArgumentException($"Could not reset password for user '{userName}'", nameof(userName));
             return user.ResetPassword();
         }
-
-        //public void RegisterUser(string email, string password, string profileId)
-        //{
-        //    Assert.ArgumentNotNullOrEmpty(email, nameof(email));
-        //    Assert.ArgumentNotNullOrEmpty(password, nameof(password));
-
-        //    var fullName = Context.Domain.GetFullName(email);
-        //    try
-        //    {
-
-        //        Assert.IsNotNullOrEmpty(fullName, "Can't retrieve full userName");
-
-        //        var user = User.Create(fullName, password);
-        //        user.Profile.Email = email;
-        //        if (!string.IsNullOrEmpty(profileId))
-        //        {
-        //            user.Profile.ProfileItemId = profileId;
-        //        }
-
-        //        user.Profile.Save();
-        //        this._pipelineService.RunRegistered(user);
-        //    }
-        //    catch
-        //    {
-        //        AccountTrackerService.TrackRegistrationFailed(email);
-        //        throw;
-        //    }
-
-        //    this.Login(email, password);
-        //}
-
+        
         public override IRenderingModelBase GetModel()
         {
             LoginInfo model = new LoginInfo();
             FillBaseProperties(model);
-            model.ReturnUrl = Context.Site.GetStartItem().Paths.FullPath;
+            InternalLinkField link = Context.Site.GetSettingsItem().Fields[Templates.AccountsSettings.Fields.AfterLoginPage];
+            if (link.TargetItem == null)
+            {
+                throw new Exception($"{link.InnerField.Name} link isn't set");
+            }
+
+            model.ReturnUrl = link.TargetItem.Url();
+            model.LoginButtons = _fedAuthLoginButtonRepository.GetAll();
 
             return model;
         }

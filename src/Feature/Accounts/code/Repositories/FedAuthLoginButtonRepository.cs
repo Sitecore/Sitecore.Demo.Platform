@@ -24,7 +24,7 @@
 
         public IEnumerable<FedAuthLoginButton> GetAll()
         {
-            var returnUrl = this.AccountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage);
+            var returnUrl = this.AccountsSettingsService.GetSettingsPageLink(Templates.AccountsSettings.Fields.AfterLoginPage);
             var args = new GetSignInUrlInfoArgs(Context.Site.Name, returnUrl);
             GetSignInUrlInfoPipeline.Run(this.PipelineManager, args);
             if (args.Result == null)
@@ -36,7 +36,7 @@
 
         private static FedAuthLoginButton CreateFedAuthLoginButton(SignInUrlInfo signInInfo)
         {
-            var caption = Sitecore.Globalization.Translate.Text("SignInWith") + signInInfo.Caption;
+            var caption = Globalization.Translate.Text(string.Format("SignInWith{0}", signInInfo.Caption));
             string iconClass = null;
             switch (signInInfo.IdentityProvider.ToLower())
             {
@@ -51,6 +51,9 @@
                     break;
                 case "twitter":
                     iconClass = "fa fa-twitter";
+                    break;
+                case "openid":
+                    iconClass = "fa fa-windows";
                     break;
                 default:
                     iconClass = "fa fa-cloud";

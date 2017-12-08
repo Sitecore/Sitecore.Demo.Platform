@@ -23,7 +23,7 @@ namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
 
         protected override void ProcessCore([NotNull] IdentityProvidersArgs args)
         {
-            Assert.ArgumentNotNull(args, nameof(args));
+            Assert.ArgumentNotNull(args, nameof(args));                               
 
             var identityProvider = this.GetIdentityProvider();
             var authenticationType = this.GetAuthenticationType();
@@ -33,8 +33,8 @@ namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
                 Caption = identityProvider.Caption,
                 AuthenticationType = authenticationType,
                 AuthenticationMode = AuthenticationMode.Passive,
-                AppId = Settings.GetSetting("Sitecore.Feature.Accounts.Facebook.AppId"),
-                AppSecret = Settings.GetSetting("Sitecore.Feature.Accounts.Facebook.AppSecret"),
+                AppId = Settings.GetSetting("Sitecore.Feature.Accounts.Facebook.AppId"),   //todo: move this to site-specific configuration item
+                AppSecret = Settings.GetSetting("Sitecore.Feature.Accounts.Facebook.AppSecret"),  //todo: move this to site-specific configuration item
                 Provider = new FacebookAuthenticationProvider
                 {
                     OnAuthenticated = context =>

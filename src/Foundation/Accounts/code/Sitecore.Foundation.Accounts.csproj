@@ -106,9 +106,9 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Foundation\Foundation.Accounts.config" />
     <None Include="App_Config\Security\domains.config.xdt" />
-    <Content Include="packages.config">
+    <None Include="packages.config">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

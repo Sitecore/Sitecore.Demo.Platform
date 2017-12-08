@@ -1,13 +1,15 @@
-﻿using Sitecore.Feature.Accounts.Models;
-
-namespace Sitecore.Feature.Accounts.Repositories
+﻿namespace Sitecore.Feature.Accounts.Repositories
 {
+    using Sitecore.Data.Fields;
     using Sitecore.Diagnostics;
+    using Sitecore.Feature.Accounts.Models;
     using Sitecore.Feature.Accounts.Services;
     using Sitecore.Foundation.Accounts.Pipelines;
     using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.Security.Accounts;
     using Sitecore.XA.Foundation.Mvc.Repositories.Base;
+    using System;
 
     [Service(typeof(IRegisterRepository))]
     public class RegisterRepository : ModelRepository, IRegisterRepository
@@ -64,6 +66,13 @@ namespace Sitecore.Feature.Accounts.Repositories
         {
             RegistrationInfo model = new RegistrationInfo();
             FillBaseProperties(model);
+            InternalLinkField link = Context.Site.GetSettingsItem().Fields[Templates.AccountsSettings.Fields.AfterLoginPage];
+            if (link.TargetItem == null)
+            {
+                throw new Exception($"{link.InnerField.Name} link isn't set");
+            }
+
+            model.ReturnUrl = link.TargetItem.Url();
 
             return model;
         }

@@ -77,6 +77,7 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Project\Common.Website.config" />
     <Content Include="App_Config\Include\Project\Common.Website.Serialization.config" />
+    <Content Include="App_Config\Security\Domains.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -20,11 +20,12 @@
         private IUserProfileService _userProfileService { get; }
 
         public RegisterController(IAccountsSettingsService accountsSettingsService,
-            IGetRedirectUrlService getRedirectUrlService, IRegisterRepository registerRepository)
+            IGetRedirectUrlService getRedirectUrlService, IRegisterRepository registerRepository, IUserProfileService userProfileService)
         {
             this._accountsSettingsService = accountsSettingsService;
             this._getRedirectUrlService = getRedirectUrlService;
             this._registerRepository = registerRepository;
+            this._userProfileService = userProfileService;
         }
 
         public ActionResult Register()
@@ -48,7 +49,7 @@
                 this._registerRepository.RegisterUser(registrationInfo.Email, registrationInfo.Password, this._userProfileService.GetUserDefaultProfileId());
 
                 var link = this._getRedirectUrlService.GetRedirectUrl(AuthenticationStatus.Authenticated);
-                return this.Redirect(link);
+                return this.Redirect(link); //TODO: make this actually redirect
             }
             catch (MembershipCreateUserException ex)
             {
