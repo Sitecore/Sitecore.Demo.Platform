@@ -1,4 +1,8 @@
-﻿namespace Sitecore.Feature.Accounts.Controllers
+﻿using Sitecore.Diagnostics;
+using Sitecore.Foundation.Alerts.Extensions;
+using Sitecore.Foundation.Alerts.Models;
+
+namespace Sitecore.Feature.Accounts.Controllers
 {
     using Sitecore.Feature.Accounts.Attributes;
     using Sitecore.Feature.Accounts.Models;
@@ -11,18 +15,19 @@
     public class AccountsController : StandardController
     {                                                                               
         private readonly IAccountRepository _accountRepository;
-        //private INotificationService NotificationService { get; }
+        private readonly INotificationService _notificationService;
         private readonly IAccountsSettingsService _accountsSettingsService;
 
         private readonly IGetRedirectUrlService _getRedirectUrlService;
         //private IUserProfileService UserProfileService { get; }
 
         public AccountsController(IAccountsSettingsService accountsSettingsService,
-            IGetRedirectUrlService getRedirectUrlService, IAccountRepository accountRepository, IFedAuthLoginButtonRepository fedAuthLoginRepository)
+            IGetRedirectUrlService getRedirectUrlService, IAccountRepository accountRepository, IFedAuthLoginButtonRepository fedAuthLoginRepository, INotificationService notificationService)
         {
             this._accountsSettingsService = accountsSettingsService;
             this._getRedirectUrlService = getRedirectUrlService;
-            this._accountRepository = accountRepository;              
+            this._accountRepository = accountRepository;
+            this._notificationService = notificationService;
         }                   
 
         protected virtual ActionResult Login(LoginInfo loginInfo, Func<string, ActionResult> redirectAction)
@@ -65,6 +70,48 @@
         public ActionResult Login(LoginInfo loginInfo)
         {
             return this.Login(loginInfo, redirectUrl => new RedirectResult(redirectUrl));
+        }
+
+        //[RedirectAuthenticated]
+        public ActionResult ForgotPassword()
+        {
+            try
+            {
+                this._accountsSettingsService.GetForgotPasswordMailTemplate();
+            }
+            catch (Exception)
+            {
+                return this.InfoMessage(InfoMessage.Error(ForgotPasswordEmailNotConfigured));
+            }
+
+            return this.View();
+        }
+
+        [HttpPost]
+        [ValidateModel]
+        //[RedirectAuthenticated]
+        public ActionResult ForgotPassword(PasswordResetInfo model)
+        {
+            if (!this._accountRepository.Exists(model.Email))
+            {
+                this.ModelState.AddModelError(nameof(model.Email), UserDoesNotExistError);
+
+                return this.View(model);
+            }
+
+            try
+            {
+                var newPassword = this._accountRepository.RestorePassword(model.Email);
+                this._notificationService.SendPassword(model.Email, newPassword);
+                return this.InfoMessage(InfoMessage.Success(Sitecore.Globalization.Translate.Text("PasswordResetSuccess")));
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Can't reset password for user {model.Email}", ex, this);
+                this.ModelState.AddModelError(nameof(model.Email), ex.Message);
+
+                return this.View(model);
+            }
         }
 
         protected override object GetModel()

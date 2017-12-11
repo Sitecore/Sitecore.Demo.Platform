@@ -177,6 +177,7 @@
     <Content Include="Views\Accounts\Register.cshtml" />
     <Content Include="Views\Accounts\_Login.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="Views\Accounts\ForgotPassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,6 +196,7 @@
     <Compile Include="Attributes\ValidateModelAttribute.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Infrastructure\Pipelines\IdentityProviders\Facebook.cs" />
     <Compile Include="Infrastructure\Pipelines\IdentityProviders\MicrosoftAccount.cs" />
@@ -207,6 +209,7 @@
     <Compile Include="Models\FedAuthLoginButton.cs" />
     <Compile Include="Models\LoginInfo.cs" />
     <Compile Include="Models\LoginResult.cs" />
+    <Compile Include="Models\PasswordResetInfo.cs" />
     <Compile Include="Models\RegistrationInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
@@ -222,6 +225,7 @@
     <Compile Include="Services\IAccountsSettingsService.cs" />
     <Compile Include="Services\IAccountTrackerService.cs" />
     <Compile Include="Services\IGetRedirectUrlService.cs" />
+    <Compile Include="Services\INotificationService.cs" />
     <Compile Include="Services\IProfileSettingsService.cs" />
     <Compile Include="Services\IUpdateContactFacetsService.cs" />
     <Compile Include="Services\IUserProfileProvider.cs" />
@@ -236,6 +240,10 @@
     <ProjectReference Include="..\..\..\Foundation\Accounts\code\Sitecore.Foundation.Accounts.csproj">
       <Project>{CE34A3B7-B91A-41BA-8B16-C1E131E1C621}</Project>
       <Name>Sitecore.Foundation.Accounts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Alerts\code\Sitecore.Foundation.Alerts.csproj">
+      <Project>{33130b84-7456-4b2e-9ea6-cf27a273e918}</Project>
+      <Name>Sitecore.Foundation.Alerts</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Foundation\DependencyInjection\code\Sitecore.Foundation.DependencyInjection.csproj">
       <Project>{fa1eee78-e6d6-4b63-a126-5f470624efee}</Project>

@@ -53,5 +53,17 @@
                 public static readonly ID Title = new ID("{CE693119-C97F-48FD-8154-27C4930CA7DB}");
             }
         }
+
+        public struct MailTemplate
+        {
+            public static readonly ID ID = new ID("{2E4EA6E2-73FA-423B-9338-730C380B84E2}");
+
+            public struct Fields
+            {
+                public static readonly ID From = new ID("{D8A24409-0AEC-4C55-9513-5028E50D6AAB}");
+                public static readonly ID Subject = new ID("{FAF6C7D4-1C02-4986-9D8E-EDF726BD92B8}");
+                public static readonly ID Body = new ID("{BCB0298C-F7FA-437F-BC29-81A8C2D0BD6D}");
+            }
+        }
     }
 }

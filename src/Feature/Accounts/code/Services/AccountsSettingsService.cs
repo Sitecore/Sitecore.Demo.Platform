@@ -72,22 +72,22 @@
                 throw new ItemNotFoundException($"Could not find mail template item with {link.TargetID} ID");
             }
 
-            //var fromMail = mailTemplateItem.Fields[Templates.MailTemplate.Fields.From];
+            var fromMail = mailTemplateItem.Fields[Templates.MailTemplate.Fields.From];
 
-            //if (string.IsNullOrEmpty(fromMail.Value))
-            //{
-            //    throw new InvalidValueException("'From' field in mail template should be set");
-            //}
+            if (string.IsNullOrEmpty(fromMail.Value))
+            {
+                throw new InvalidValueException("'From' field in mail template should be set");
+            }
 
-            //var body = mailTemplateItem.Fields[Templates.MailTemplate.Fields.Body];
-            //var subject = mailTemplateItem.Fields[Templates.MailTemplate.Fields.Subject];
+            var body = mailTemplateItem.Fields[Templates.MailTemplate.Fields.Body];
+            var subject = mailTemplateItem.Fields[Templates.MailTemplate.Fields.Subject];
 
-            //return new MailMessage
-            //{
-            //    From = new MailAddress(fromMail.Value),
-            //    Body = body.Value,
-            //    Subject = subject.Value
-            //};
+            return new MailMessage
+            {
+                From = new MailAddress(fromMail.Value),
+                Body = body.Value,
+                Subject = subject.Value
+            };
 
             return new MailMessage
             {

@@ -17,7 +17,7 @@
         private readonly IAccountsSettingsService _accountsSettingsService;
 
         private readonly IGetRedirectUrlService _getRedirectUrlService;
-        private IUserProfileService _userProfileService { get; }
+        private readonly IUserProfileService _userProfileService;
 
         public RegisterController(IAccountsSettingsService accountsSettingsService,
             IGetRedirectUrlService getRedirectUrlService, IRegisterRepository registerRepository, IUserProfileService userProfileService)
@@ -35,6 +35,7 @@
 
         [HttpPost]
         [ValidateModel]
+        //[RedirectAuthenticated]
         public ActionResult Register(RegistrationInfo registrationInfo)
         {
             if (this._registerRepository.Exists(registrationInfo.Email))
