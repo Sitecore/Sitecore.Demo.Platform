@@ -49,7 +49,8 @@
                 this._registerRepository.RegisterUser(registrationInfo.Email, registrationInfo.Password, this._userProfileService.GetUserDefaultProfileId());
 
                 var link = this._getRedirectUrlService.GetRedirectUrl(AuthenticationStatus.Authenticated);
-                return this.Redirect(link); //TODO: make this actually redirect
+                registrationInfo.ReturnUrl = link;
+                return this.View(registrationInfo); //TODO: make this actually redirect
             }
             catch (MembershipCreateUserException ex)
             {
