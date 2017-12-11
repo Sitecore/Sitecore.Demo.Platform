@@ -82,6 +82,9 @@
     <BundledProject Include="..\..\..\src\Foundation\Accounts\tds\Sitecore.Foundation.Accounts.Master\Sitecore.Foundation.Accounts.Master.scproj">
       <ProjectId>{2c337d0a-2483-4a8c-9ecd-5d823481ebed}</ProjectId>
     </BundledProject>
+    <BundledProject Include="..\..\..\src\Foundation\Alerts\tds\Sitecore.Foundation.Alerts.Master\Sitecore.Foundation.Alerts.Master.scproj">
+      <ProjectId>{d02d7f61-c1d3-40b6-9ce6-d17bd9ad6bb0}</ProjectId>
+    </BundledProject>
     <BundledProject Include="..\..\..\src\Foundation\DependencyInjection\tds\Sitecore.Foundation.DependencyInjection.Master\Sitecore.Foundation.DependencyInjection.Master.scproj">
       <ProjectId>{784abeed-9f00-4ae6-8cef-5aef3c161e96}</ProjectId>
     </BundledProject>
@@ -109,6 +112,9 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Foundation\Accounts\tds\Sitecore.Foundation.Accounts.Master\Sitecore.Foundation.Accounts.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Foundation\Alerts\tds\Sitecore.Foundation.Alerts.Master\Sitecore.Foundation.Alerts.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Foundation\DependencyInjection\tds\Sitecore.Foundation.DependencyInjection.Master\Sitecore.Foundation.DependencyInjection.Master.scproj">
