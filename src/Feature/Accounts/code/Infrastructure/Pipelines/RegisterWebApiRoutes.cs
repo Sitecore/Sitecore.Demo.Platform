@@ -12,10 +12,6 @@
             {
                 controller = "Accounts"
             });
-            RouteTable.Routes.MapRoute("Feature.Register.Api", "api/register/{action}", new
-            {
-                controller = "Register"
-            });
         }
     }
 }

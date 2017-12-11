@@ -1,4 +1,6 @@
-﻿namespace Sitecore.Feature.Accounts.Attributes
+﻿using Sitecore.DependencyInjection;
+
+namespace Sitecore.Feature.Accounts.Attributes
 {
     using Sitecore.Feature.Accounts.Services;
     using System.Web.Mvc;
@@ -7,9 +9,9 @@
     {
         private readonly IGetRedirectUrlService _getRedirectUrlService;
 
-        public RedirectAuthenticatedAttribute(IGetRedirectUrlService getRedirectUrlService)
+        public RedirectAuthenticatedAttribute()
         {
-            this._getRedirectUrlService = getRedirectUrlService;
+            this._getRedirectUrlService = (IGetRedirectUrlService) ServiceLocator.ServiceProvider.GetService(typeof(IGetRedirectUrlService));
         }
 
 

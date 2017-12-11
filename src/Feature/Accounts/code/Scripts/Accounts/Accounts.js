@@ -32,7 +32,7 @@ function register(componentid) {
     var returnUrlField = logincontrol.find("#ReturnUrl");
     jQuery.ajax(
         {
-            url: "/api/register/Register",
+            url: "/api/accounts/Register",
             method: "POST",
             data: {
                 email: usernameField.val(),
@@ -41,8 +41,8 @@ function register(componentid) {
                 returnUrl: returnUrlField.val()
             },
             success: function (data) {
-                if (data.returnUrl != null && data.returnUrl != undefined) {
-                    window.location.href = data.returnUrl;
+                if (returnUrlField.val() != null && returnUrlField.val() != undefined) {
+                    window.location.href = returnUrlField.val();
                 } else {
                     var body = logincontrol.find("componentid");
                     var parent = body.parent();
