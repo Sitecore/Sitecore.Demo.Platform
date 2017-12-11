@@ -1,0 +1,13 @@
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings>
+    <add key="role:define" xdt:Locator="Match(key)" value="ContentManagement, DedicatedDispatch" xdt:Transform="SetAttributes(value)" />
+    <add key="Telerik.AsyncUpload.ConfigurationEncryptionKey" xdt:Locator="Match(key)" value="" xdt:Transform="Insert" />
+    <add key="Telerik.Upload.ConfigurationHashKey" xdt:Locator="Match(key)" value="" xdt:Transform="Insert" />
+    <add key="Telerik.Web.UI.DialogParametersEncryptionKey" xdt:Locator="Match(key)" value="" xdt:Transform="Insert" />
+  </appSettings>
+  <system.webServer>
+    <modules>
+      <add name="MediaRequestSessionModule" xdt:Locator="Match(name)" type="Sitecore.Analytics.Media.MediaRequestSessionModule, Sitecore.Analytics" xdt:Transform="SetAttributes(type)" />
+    </modules>
+  </system.webServer>
+</configuration> 

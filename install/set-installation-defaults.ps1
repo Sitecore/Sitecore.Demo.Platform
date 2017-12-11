@@ -40,9 +40,9 @@ $sql.minimumVersion="13.0.4001"
 # XConnect Parameters
 $xConnect = $json.settings.xConnect
 
-$xConnect.ConfigurationPath = (Get-ChildItem $assets.root -filter "xconnect-xp0.json" -Recurse).FullName 
+$xConnect.ConfigurationPath = (Get-ChildItem $pwd -filter "xconnect-xp0.json" -Recurse).FullName 
 $xConnect.certificateConfigurationPath = (Get-ChildItem $assets.root -filter "xconnect-createcert.json" -Recurse).FullName
-$xConnect.solrConfigurationPath = (Get-ChildItem $assets.root -filter "xconnect-solr.json" -Recurse).FullName 
+$xConnect.solrConfigurationPath = (Get-ChildItem $pwd -filter "xconnect-solr.json" -Recurse).FullName 
 $xConnect.packagePath = Join-Path $assets.root $("Sitecore " + $assets.sitecoreVersion + " (OnPrem)_xp0xconnect.scwdp.zip")
 $xConnect.siteName = $site.prefix + "_xconnect." + $site.suffix
 $xConnect.certificateName = [string]::Join(".", @($site.prefix, $site.suffix, "xConnect.Client"))
@@ -54,8 +54,8 @@ $xConnect.sqlCollectionPassword = "Test12345"
 # Sitecore Parameters
 $sitecore = $json.settings.sitecore
 
-$sitecore.solrConfigurationPath =  (Get-ChildItem $assets.root -filter "sitecore-solr.json" -Recurse).FullName 
-$sitecore.configurationPath = (Get-ChildItem $assets.root -filter "sitecore-xp0.json" -Recurse).FullName 
+$sitecore.solrConfigurationPath =  (Get-ChildItem $pwd -filter "sitecore-solr.json" -Recurse).FullName 
+$sitecore.configurationPath = (Get-ChildItem $pwd -filter "sitecore-xp0.json" -Recurse).FullName 
 $sitecore.sslConfigurationPath = "$PSScriptRoot\certificates\sitecore-ssl.json"
 $sitecore.packagePath = Join-Path $assets.root $("Sitecore " + $assets.sitecoreVersion +" (OnPrem)_single.scwdp.zip")
 $sitecore.siteName = [string]::Join(".", @($site.prefix, $site.suffix))
