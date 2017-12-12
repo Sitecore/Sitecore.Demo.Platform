@@ -1,21 +1,22 @@
-﻿@model Sitecore.Feature.Demo.Models.SidebarModel
+﻿@using Sitecore.Foundation.Dictionary.Extensions
+@model Sitecore.Feature.Demo.Models.SidebarModel
 
 <div class="off-canvas-sidebar off-canvas-sidebar-right">
     <div class="btn-group-vertical hover" role="group">
-        <button type="button" class="btn btn-info sidebar-closed" data-toggle="sidebar" title="@Sitecore.Globalization.Translate.Text("OpenVisitDetailsPanel")" data-side="right" data-role="openSidebar">
+        <button type="button" class="btn btn-info sidebar-closed" data-toggle="sidebar" title="@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/Open Visit Details Panel", "Open visit details panel")" data-side="right">
             <i class="fa fa-info-circle" aria-hidden="true"></i>
         </button>
-        <button type="button" class="btn btn-info btn-lg sidebar-opened" style="display: none" data-toggle="sidebar" title="@Sitecore.Globalization.Translate.Text("CloseVisitDetailsPanel")" data-side="right" data-role="closeSidebar">
+        <button type="button" class="btn btn-info btn-lg sidebar-opened" style="display: none" data-toggle="sidebar" title="@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/Close Visit Details Panel", "Close visit details panel")" data-side="right">
             <i class="fa fa-times" aria-hidden="true"></i>
-            <span class="hover-only">@Sitecore.Globalization.Translate.Text("Close")</span>
+            <span class="hover-only">@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/Close Label", "Close")</span>
         </button>
-        <button href="#" style="display: none" class="btn btn-success refresh-sidebar sidebar-opened" title="@Sitecore.Globalization.Translate.Text("RefreshVisitDetails")">
+        <button href="#" style="display: none" class="btn btn-success refresh-sidebar sidebar-opened" title="@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/Refresh Visit Details", "Refresh visit details panel")">
             <i class="fa fa-refresh" aria-hidden="true"></i>
-            <span class="hover-only">@Sitecore.Globalization.Translate.Text("Refresh")</span>
+            <span class="hover-only">@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/Refresh Label", "Refresh")</span>
         </button>
-        <button href="#" class="btn btn-danger end-visit sidebar-opened" style="display: none" title="@Sitecore.Globalization.Translate.Text("EndVisit")">
+        <button href="#" class="btn btn-danger end-visit sidebar-opened" style="display: none" title="@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/End Visit", "End the current visit and submit it to the Sitecore Experience Database")">
             <i class="fa fa-eye-slash" aria-hidden="true"></i>
-            <span class="hover-only">@Sitecore.Globalization.Translate.Text("EndVisit")</span>
+            <span class="hover-only">@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/End Visit Label", "End Visit")</span>
         </button>
     </div>
 

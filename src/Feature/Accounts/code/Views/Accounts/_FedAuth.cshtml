@@ -1,5 +1,8 @@
-﻿@model Sitecore.Feature.Accounts.Models.LoginInfo
-
+﻿@using Sitecore.Feature.Accounts
+@using Sitecore.Feature.Accounts.Services
+@using Sitecore.Foundation.Dictionary.Extensions
+@using Sitecore.Foundation.SitecoreExtensions.Extensions
+@model Sitecore.Feature.Accounts.Models.LoginInfo
 <div class="m-t-1">
     @if (Model.LoginButtons.Any())
     {

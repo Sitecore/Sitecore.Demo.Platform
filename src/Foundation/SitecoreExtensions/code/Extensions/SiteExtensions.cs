@@ -51,7 +51,7 @@ namespace Sitecore.Foundation.SitecoreExtensions.Extensions
                 throw new ArgumentNullException("Site settings not found", nameof(site));
             }
 
-            return defaultSettingsItem.Children.FirstOrDefault(x => x.TemplateID == Templates.SecuritySettings.TemplateID);
+            return defaultSettingsItem;
         }
     }
 }

@@ -1,14 +1,16 @@
 ﻿namespace Sitecore.Feature.Accounts.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Sitecore.Abstractions;
     using Sitecore.Data;
     using Sitecore.Feature.Accounts.Models;
     using Sitecore.Feature.Accounts.Services;
     using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.Foundation.Dictionary.Repositories;
+    using Sitecore.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.Pipelines.GetSignInUrlInfo;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
 
     [Service(typeof(IFedAuthLoginButtonRepository))]
     public class FedAuthLoginButtonRepository : IFedAuthLoginButtonRepository
@@ -24,7 +26,7 @@
 
         public IEnumerable<FedAuthLoginButton> GetAll()
         {
-            var returnUrl = this.AccountsSettingsService.GetSettingsPageLink(Templates.AccountsSettings.Fields.AfterLoginPage);
+            var returnUrl = this.AccountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage);
             var args = new GetSignInUrlInfoArgs(Context.Site.Name, returnUrl);
             GetSignInUrlInfoPipeline.Run(this.PipelineManager, args);
             if (args.Result == null)
@@ -36,7 +38,7 @@
 
         private static FedAuthLoginButton CreateFedAuthLoginButton(SignInUrlInfo signInInfo)
         {
-            var caption = Globalization.Translate.Text(string.Format("SignInWith{0}", signInInfo.Caption));
+            var caption = DictionaryPhraseRepository.Current.Get($"/Accounts/Sign in providers/{signInInfo.IdentityProvider}", $"Sign in with {signInInfo.Caption}");
             string iconClass = null;
             switch (signInInfo.IdentityProvider.ToLower())
             {
@@ -51,9 +53,6 @@
                     break;
                 case "twitter":
                     iconClass = "fa fa-twitter";
-                    break;
-                case "openid":
-                    iconClass = "fa fa-windows";
                     break;
                 default:
                     iconClass = "fa fa-cloud";

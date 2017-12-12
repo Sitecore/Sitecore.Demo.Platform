@@ -1,11 +1,11 @@
 ﻿namespace Sitecore.Feature.Accounts.Services
 {
-    using Sitecore.Data.Items;
-    using System.Collections.Generic;
+  using System.Collections.Generic;
+  using Sitecore.Data.Items;
 
-    public interface IProfileSettingsService
-    {
-        IEnumerable<string> GetInterests();
-        Item GetUserDefaultProfile();
-    }
+  public interface IProfileSettingsService
+  {
+    IEnumerable<string> GetInterests();
+    Item GetUserDefaultProfile();
+  }
 }

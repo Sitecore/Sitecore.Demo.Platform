@@ -119,9 +119,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\ValidateRenderingIdAttribute.cs" />
+    <Compile Include="Controls\EditFrameRendering.cs" />
     <Compile Include="Extensions\FieldExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
+    <Compile Include="Extensions\SessionExtensions.cs" />
     <Compile Include="Extensions\SiteExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,10 +1,11 @@
 ﻿namespace Sitecore.Feature.Accounts.Services
 {
+    using System;
     using Sitecore.Configuration;
+    using Sitecore.Data;
     using Sitecore.Foundation.DependencyInjection;
     using Sitecore.Foundation.SitecoreExtensions.Services;
     using Sitecore.Security;
-    using System;
 
     [Service(typeof(IAccountTrackerService))]
     public class AccountTrackerService : IAccountTrackerService
@@ -58,7 +59,7 @@
 
         public void TrackRegistrationOutcome()
         {
-            var outcomeId = this.accountsSettingsService.GetRegistrationOutcome();
+            var outcomeId = this.accountsSettingsService.GetRegistrationOutcome(Context.Item);
             if (outcomeId.HasValue)
             {
                 this.trackerService.TrackOutcome(outcomeId.Value);
