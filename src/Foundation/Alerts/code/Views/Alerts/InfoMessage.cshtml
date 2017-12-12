@@ -3,10 +3,10 @@
 @{
     var alerts = new Dictionary<InfoMessage.MessageType, string>
     {
-        [InfoMessage.MessageType.Info] = "alert-info",
-        [InfoMessage.MessageType.Success] = "alert-success",
-        [InfoMessage.MessageType.Warning] = "alert-warning",
-        [InfoMessage.MessageType.Error] = "alert-danger"
+        { InfoMessage.MessageType.Info, "alert-info" },
+        { InfoMessage.MessageType.Success,"alert-success" },
+        { InfoMessage.MessageType.Warning, "alert-warning"},
+        { InfoMessage.MessageType.Error, "alert-danger" }
     };
 }
 
