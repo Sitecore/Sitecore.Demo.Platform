@@ -96,5 +96,23 @@
 
             this.Login(email, password);
         }
+
+        public bool ChangePassword(string userName, string oldPassword, string newPassword)
+        {
+            Assert.ArgumentNotNullOrEmpty(oldPassword, nameof(oldPassword));
+            Assert.ArgumentNotNullOrEmpty(newPassword, nameof(newPassword));
+
+            var accountName = string.Empty;
+            var domain = Context.Domain;
+            if (domain != null)
+            {
+                accountName = domain.GetFullName(userName);
+            }
+
+            var user = Membership.GetUser(accountName);
+            Assert.ArgumentNotNull(user, nameof(user));
+            
+            return user.ChangePassword(oldPassword, newPassword);
+        }
     }
 }

@@ -232,6 +232,7 @@
         }
 
         [HttpPost]
+        [ValidateModel]
         [RedirectUnauthenticated]
         public virtual ActionResult EditProfile(EditProfile profile)
         {
@@ -249,6 +250,47 @@
 
             this.Session["EditProfileMessage"] = new InfoMessage(DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Edit Profile Success", "Profile was successfully updated"));
             return this.Redirect(this.Request.RawUrl);
+        }
+
+        [RedirectUnauthenticated]
+        public ActionResult ChangePassword()
+        {
+            var profile = this.UserProfileService.GetProfile(Context.User);
+            ChangePasswordInfo passwordInfo = new ChangePasswordInfo();
+            
+            return this.View(passwordInfo);
+        }
+
+        [HttpPost]
+        [RedirectUnauthenticated]
+        public ActionResult ChangePassword(ChangePasswordInfo changePasswordInfo)
+        {
+            if (string.IsNullOrWhiteSpace(changePasswordInfo.Password))
+            {
+                this.ModelState.AddModelError(nameof(changePasswordInfo.Password), DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Old Password", "Please insert your old password."));
+                return this.View(changePasswordInfo);
+            }
+
+            try
+            {
+                if (AccountRepository.ChangePassword(Context.User.Profile.Email, changePasswordInfo.Password,
+                    changePasswordInfo.NewPassword))
+                {
+                    return this.InfoMessage(InfoMessage.Success(DictionaryPhraseRepository.Current.Get(
+                        "/Accounts/Forgot Password/Change Password Success", "Your password has been changed.")));
+                }
+
+                Log.Error($"Can't change password for user {Context.User.Profile.Email}", this);
+                this.ModelState.AddModelError(nameof(changePasswordInfo.Password), "Failed to change password for user");
+                return this.View(changePasswordInfo);
+            }
+            catch (MembershipPasswordException ex)
+            {
+                Log.Error($"Can't change password for user {Context.User.Profile.Email}", ex, this);
+                this.ModelState.AddModelError(nameof(changePasswordInfo.Password), ex.Message);
+
+                return this.View(changePasswordInfo);
+            }
         }
     }
 }

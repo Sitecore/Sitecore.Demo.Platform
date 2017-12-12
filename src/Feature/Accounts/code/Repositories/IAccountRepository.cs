@@ -15,5 +15,6 @@
     bool Exists(string userName);
     void Logout();
     User Login(string userName, string password);
+    bool ChangePassword(string userName, string oldPassword, string newPassword);
   }
 }

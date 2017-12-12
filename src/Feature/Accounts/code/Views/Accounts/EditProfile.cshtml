@@ -27,11 +27,12 @@
                                      })
 
         @Html.TextBoxFor(x => x.Email, new
-                                       {
-                                           @class = "form-control",
-                                           id = "email",
-                                           @readonly = true
-                                       })
+           {
+               @class = "form-control",
+               id = "email",
+               @readonly = true,
+               @Value = Model.Email
+           })
         <span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
     </div>
 
@@ -42,11 +43,12 @@
                                          })
 
         @Html.TextBoxFor(x => x.FirstName, new
-                                           {
-                                               @class = "form-control",
-                                               id = "firstName",
-                                               placeholder = Html.Sitecore().Dictionary("/Accounts/Edit Profile/Edit Profile First Name Placeholder", "Please enter your first name")
-                                           })
+   {
+       @class = "form-control",
+       id = "firstName",
+       placeholder = Html.Sitecore().Dictionary("/Accounts/Edit Profile/Edit Profile First Name Placeholder", "Please enter your first name"),
+       @Value = Model.FirstName
+   })
 
         @Html.ValidationMessageFor(x => x.FirstName, "", new
                                                          {
@@ -64,7 +66,8 @@
                                           {
                                               @class = "form-control",
                                               id = "lastName",
-                                              placeholder = Html.Sitecore().Dictionary("/Accounts/Edit Profile/Edit Profile Last Name Placeholder", "Please enter your last name")
+                                              placeholder = Html.Sitecore().Dictionary("/Accounts/Edit Profile/Edit Profile Last Name Placeholder", "Please enter your last name"),
+                                          @Value = Model.LastName
                                           })
 
         @Html.ValidationMessageFor(x => x.LastName, "", new
@@ -80,11 +83,12 @@
                                            })
 
         @Html.TextBoxFor(x => x.PhoneNumber, new
-                                             {
-                                                 @class = "form-control",
-                                                 id = "phoneNumber",
-                                                 placeholder = Html.Sitecore().Dictionary("/Accounts/Edit Profile/Edit Profile Phone Placeholder", "Please enter your contact phone number")
-                                             })
+   {
+       @class = "form-control",
+       id = "phoneNumber",
+       placeholder = Html.Sitecore().Dictionary("/Accounts/Edit Profile/Edit Profile Phone Placeholder", "Please enter your contact phone number"),
+       @Value = Model.PhoneNumber
+   })
 
         @Html.ValidationMessageFor(x => x.PhoneNumber, "", new
                                                            {
