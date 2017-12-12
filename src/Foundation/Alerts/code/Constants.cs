@@ -1,6 +1,4 @@
-﻿using Sitecore.Foundation.Alerts.Models;
-
-namespace Sitecore.Foundation.Alerts
+﻿namespace Sitecore.Foundation.Alerts
 {
     public class Constants
     {

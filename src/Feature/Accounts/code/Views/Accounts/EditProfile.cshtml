@@ -1,7 +1,10 @@
-﻿@using Sitecore.Foundation.Alerts
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using Sitecore.Foundation.Alerts
 @using Sitecore.Foundation.Alerts.Models
 @using Sitecore.Foundation.Dictionary.Extensions
 @using Sitecore.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
 @using Sitecore.Mvc.Configuration
 @model Sitecore.Feature.Accounts.Models.EditProfile
 
@@ -14,7 +17,7 @@
     var info = Session.GetAndRemove("EditProfileMessage") as InfoMessage;
     if (info != null)
     {
-        Html.RenderPartial(Constants.InfoMessageView, info);
+        Html.RenderPartial(Sitecore.Foundation.Alerts.Constants.InfoMessageView, info);
     }
 
     <div class="form-group has-feedback">

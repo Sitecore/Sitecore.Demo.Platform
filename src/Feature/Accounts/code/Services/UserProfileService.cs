@@ -51,9 +51,9 @@
             var model = new EditProfile
                         {
                             Email = user.Profile.Email,
-                            FirstName = properties.ContainsKey(Constants.UserProfile.Fields.FirstName) ? properties[Constants.UserProfile.Fields.FirstName] : "",
-                            LastName = properties.ContainsKey(Constants.UserProfile.Fields.LastName) ? properties[Constants.UserProfile.Fields.LastName] : "",
-                            PhoneNumber = properties.ContainsKey(Constants.UserProfile.Fields.PhoneNumber) ? properties[Constants.UserProfile.Fields.PhoneNumber] : "",
+                            FirstName = user.Profile.Name ?? "",
+                            LastName = user.Profile.GetCustomProperty("LastName") ?? "",
+                            PhoneNumber = user.Profile.GetCustomProperty("Phone") ?? "",
                             Interest = properties.ContainsKey(Constants.UserProfile.Fields.Interest) ? properties[Constants.UserProfile.Fields.Interest] : "",
                             InterestTypes = this.profileSettingsService.GetInterests()
                         };
