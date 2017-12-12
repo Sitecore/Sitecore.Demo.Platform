@@ -1,4 +1,5 @@
-﻿@model Sitecore.Feature.Demo.Models.SidebarModel
+﻿@using Sitecore.Foundation.Dictionary.Extensions
+@model Sitecore.Feature.Demo.Models.SidebarModel
 
 <div class="panel-group" id="experiencedata">
     @if (!Model.IsActive)
@@ -7,7 +8,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title">
                     <span class="fa fa-warning"></span>
-                    @Sitecore.Globalization.Translate.Text("TrackingNotActive")
+                    @Html.Sitecore().DictionaryField("/Demo/Experience Content/No Active", "Tracking is not active!")
                 </h3>
             </div>
         </div>

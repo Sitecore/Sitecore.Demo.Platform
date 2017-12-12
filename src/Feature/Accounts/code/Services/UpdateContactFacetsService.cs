@@ -21,7 +21,7 @@
     {
         private readonly IContactFacetsProvider contactFacetsProvider;
         private readonly ContactManager contactManager;
-        private readonly string[] facetsToUpdate = { PersonalInformation.DefaultFacetKey, AddressList.DefaultFacetKey, EmailAddressList.DefaultFacetKey, ConsentInformation.DefaultFacetKey, PhoneNumberList.DefaultFacetKey, Avatar.DefaultFacetKey };
+        private readonly string[] facetsToUpdate = {PersonalInformation.DefaultFacetKey, AddressList.DefaultFacetKey, EmailAddressList.DefaultFacetKey, ConsentInformation.DefaultFacetKey, PhoneNumberList.DefaultFacetKey, Avatar.DefaultFacetKey};
 
         public UpdateContactFacetsService(IContactFacetsProvider contactFacetsProvider)
         {
@@ -231,7 +231,17 @@
             personalInfo.Birthdate = birthDate;
             return true;
         }
-        
+
+        //var personalInfo = this.contactProfileProvider.PersonalInfo;
+        //personalInfo.FirstName = profile[Accounts.Constants.UserProfile.Fields.FirstName];
+        //personalInfo.Surname = profile[Accounts.Constants.UserProfile.Fields.LastName];
+        //this.SetPreferredPhoneNumber(profile[Accounts.Constants.UserProfile.Fields.PhoneNumber]);
+        //    this.SetPreferredEmail(profile.Email);
+        //    this.SetPicture(profile[Accounts.Constants.UserProfile.Fields.PictureUrl], profile[Accounts.Constants.UserProfile.Fields.PictureMimeType]);
+        //this.SetTags(profile);
+        //    this.contactProfileProvider.Flush();
+
+
         private Analytics.Model.Entities.ContactIdentifier GetContactId()
         {
             if (Tracker.Current?.Contact == null)

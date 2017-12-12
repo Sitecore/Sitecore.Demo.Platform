@@ -3,7 +3,7 @@
     using Sitecore.Data;
 
     public struct Templates
-    {
+    {                
         public struct AccountsSettings
         {
             public static readonly ID ID = new ID("{4C7D90D2-CEAA-4A1F-8302-63D831E8E7B6}");

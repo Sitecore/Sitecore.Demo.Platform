@@ -245,6 +245,10 @@
       <Project>{fa1eee78-e6d6-4b63-a126-5f470624efee}</Project>
       <Name>Sitecore.Foundation.DependencyInjection</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Dictionary\code\Sitecore.Foundation.Dictionary.csproj">
+      <Project>{0d6ba4d8-c469-4ae9-9ebb-93bdf7d7e78f}</Project>
+      <Name>Sitecore.Foundation.Dictionary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Foundation\SitecoreExtensions\code\Sitecore.Foundation.SitecoreExtensions.csproj">
       <Project>{1c7b40c7-aea6-4038-9d45-0f5440908929}</Project>
       <Name>Sitecore.Foundation.SitecoreExtensions</Name>

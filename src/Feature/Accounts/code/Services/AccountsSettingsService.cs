@@ -1,5 +1,7 @@
 ﻿namespace Sitecore.Feature.Accounts.Services
 {
+    using System;
+    using System.Net.Mail;
     using Sitecore.Configuration;
     using Sitecore.Data;
     using Sitecore.Data.Fields;
@@ -8,8 +10,7 @@
     using Sitecore.Exceptions;
     using Sitecore.Foundation.DependencyInjection;
     using Sitecore.Foundation.SitecoreExtensions.Extensions;
-    using System;
-    using System.Net.Mail;
+    using System.Linq;
 
     [Service(typeof(IAccountsSettingsService))]
     public class AccountsSettingsService : IAccountsSettingsService
@@ -17,9 +18,9 @@
         public static readonly string PageNotFoundUrl = Settings.GetSetting("Sitecore.Feature.Accounts.PageNotFoundUrl", "/404");
         public static AccountsSettingsService Instance => new AccountsSettingsService();
 
-        public virtual string GetSettingsPageLink(ID fieldID)
+        public virtual string GetPageLink(Item contextItem, ID fieldID)
         {
-            var item = Context.Site.GetSettingsItem();
+            var item = this.GetAccountsSettingsItem();
             if (item == null)
             {
                 throw new Exception("Page with accounts settings isn't specified");
@@ -35,11 +36,11 @@
         }
 
 
-        public virtual string GetPageLinkOrDefault(ID field, Item defaultItem = null)
+        public virtual string GetPageLinkOrDefault(Item contextItem, ID field, Item defaultItem = null)
         {
             try
             {
-                return this.GetSettingsPageLink(field);
+                return this.GetPageLink(contextItem, field);
             }
             catch (Exception ex)
             {
@@ -48,9 +49,9 @@
             }
         }
 
-        public virtual Guid? GetRegistrationOutcome()
+        public virtual Guid? GetRegistrationOutcome(Item contextItem)
         {
-            var item = Context.Site.GetSettingsItem();
+            var item = this.GetAccountsSettingsItem();
 
             if (item == null)
             {
@@ -63,7 +64,7 @@
 
         public MailMessage GetForgotPasswordMailTemplate()
         {
-            var settingsItem = Context.Site.GetSettingsItem();
+            var settingsItem = this.GetAccountsSettingsItem();
             InternalLinkField link = settingsItem.Fields[Templates.AccountsSettings.Fields.ForgotPasswordMailTemplate];
             var mailTemplateItem = link.TargetItem;
 
@@ -88,13 +89,11 @@
                 Body = body.Value,
                 Subject = subject.Value
             };
+        }
 
-            return new MailMessage
-            {
-                From = new MailAddress("test"),
-                Body = "test",
-                Subject = "test",
-            };
+        public virtual Item GetAccountsSettingsItem()
+        {
+            return Context.Site.GetSettingsItem()?.Children.FirstOrDefault(x => x.IsDerived(Templates.AccountsSettings.ID));
         }
     }
 }

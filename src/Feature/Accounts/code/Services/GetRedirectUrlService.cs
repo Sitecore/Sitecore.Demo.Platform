@@ -1,11 +1,9 @@
-﻿using Sitecore.Sites;
-
-namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.Feature.Accounts.Services
 {
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
     using System;
     using System.Web;
+    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.Foundation.SitecoreExtensions.Extensions;
 
     [Service(typeof(IGetRedirectUrlService))]
     public class GetRedirectUrlService : IGetRedirectUrlService
@@ -31,19 +29,17 @@ namespace Sitecore.Feature.Accounts.Services
 
         private string AddReturnUrl(string baseUrl, string returnUrl)
         {
-            return baseUrl + "?" + ReturnUrlQuerystring + "=" + HttpUtility.UrlEncode(returnUrl);
+           return baseUrl + "?" + ReturnUrlQuerystring + "=" + HttpUtility.UrlEncode(returnUrl);
         }
 
         public string GetDefaultRedirectUrl(AuthenticationStatus status)
         {
-            SiteContext site = SiteContext.Current;
-            
             switch (status)
             {
                 case AuthenticationStatus.Unauthenticated:
-                    return this.accountsSettingsService.GetSettingsPageLink(Templates.AccountsSettings.Fields.LoginPage);
+                    return this.accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.LoginPage, Context.Site.GetStartItem());
                 case AuthenticationStatus.Authenticated:
-                    return this.accountsSettingsService.GetSettingsPageLink(Templates.AccountsSettings.Fields.AfterLoginPage);
+                    return this.accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage, Context.Site.GetStartItem());
                 default:
                     throw new ArgumentOutOfRangeException(nameof(status), status, null);
             }

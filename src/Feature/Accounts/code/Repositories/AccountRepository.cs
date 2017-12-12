@@ -1,29 +1,25 @@
 ﻿namespace Sitecore.Feature.Accounts.Repositories
 {
-    using Sitecore.Data.Fields;
-    using Sitecore.Feature.Accounts.Models;
+    using System;
+    using System.Web.Security;
+    using Sitecore.Diagnostics;
     using Sitecore.Feature.Accounts.Services;
     using Sitecore.Foundation.Accounts.Pipelines;
     using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.Pipelines;
     using Sitecore.Security.Accounts;
     using Sitecore.Security.Authentication;
-    using Sitecore.XA.Foundation.Mvc.Repositories.Base;
-    using System;
-    using System.Web.Security;
 
     [Service(typeof(IAccountRepository))]
-    public class AccountRepository : ModelRepository, IAccountRepository
+    public class AccountRepository : IAccountRepository
     {
         public IAccountTrackerService AccountTrackerService { get; }
-        private readonly PipelineService _pipelineService;
-        private readonly IFedAuthLoginButtonRepository _fedAuthLoginButtonRepository;
+        private readonly PipelineService pipelineService;
 
-        public AccountRepository(PipelineService pipelineService, IAccountTrackerService accountTrackerService, IFedAuthLoginButtonRepository fedAuthLoginButtonRepository)
+        public AccountRepository(PipelineService pipelineService, IAccountTrackerService accountTrackerService)
         {
             this.AccountTrackerService = accountTrackerService;
-            this._pipelineService = pipelineService;
-            this._fedAuthLoginButtonRepository = fedAuthLoginButtonRepository;
+            this.pipelineService = pipelineService;
         }
 
         public bool Exists(string userName)
@@ -50,7 +46,7 @@
             }
 
             var user = AuthenticationManager.GetActiveUser();
-            this._pipelineService.RunLoggedIn(user);
+            this.pipelineService.RunLoggedIn(user);
             return user;
         }
 
@@ -59,7 +55,7 @@
             var user = AuthenticationManager.GetActiveUser();
             AuthenticationManager.Logout();
             if (user != null)
-                this._pipelineService.RunLoggedOut(user);
+                this.pipelineService.RunLoggedOut(user);
         }
 
         public string RestorePassword(string userName)
@@ -70,21 +66,35 @@
                 throw new ArgumentException($"Could not reset password for user '{userName}'", nameof(userName));
             return user.ResetPassword();
         }
-        
-        public override IRenderingModelBase GetModel()
+
+        public void RegisterUser(string email, string password, string profileId)
         {
-            LoginInfo model = new LoginInfo();
-            FillBaseProperties(model);
-            InternalLinkField link = Context.Site.GetSettingsItem().Fields[Templates.AccountsSettings.Fields.AfterLoginPage];
-            if (link.TargetItem == null)
+            Assert.ArgumentNotNullOrEmpty(email, nameof(email));
+            Assert.ArgumentNotNullOrEmpty(password, nameof(password));
+
+            var fullName = Context.Domain.GetFullName(email);
+            try
             {
-                throw new Exception($"{link.InnerField.Name} link isn't set");
+
+                Assert.IsNotNullOrEmpty(fullName, "Can't retrieve full userName");
+
+                var user = User.Create(fullName, password);
+                user.Profile.Email = email;
+                if (!string.IsNullOrEmpty(profileId))
+                {
+                    user.Profile.ProfileItemId = profileId;
+                }
+
+                user.Profile.Save();
+                this.pipelineService.RunRegistered(user);
+            }
+            catch
+            {
+                AccountTrackerService.TrackRegistrationFailed(email);
+                throw;
             }
 
-            model.ReturnUrl = link.TargetItem.Url();
-            model.LoginButtons = _fedAuthLoginButtonRepository.GetAll();
-
-            return model;
+            this.Login(email, password);
         }
     }
 }
