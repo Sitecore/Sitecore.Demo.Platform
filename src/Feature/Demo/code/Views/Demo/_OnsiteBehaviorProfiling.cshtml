@@ -45,14 +45,17 @@
                 </div>
                 @{
                     var matchedPattern = profile.PatternMatches.FirstOrDefault();
-                    var image = matchedPattern?.Image;
-                    if (!string.IsNullOrWhiteSpace(image))
+                    if (matchedPattern != null)
                     {
+                        var image = matchedPattern.Image;
+                        if (!string.IsNullOrWhiteSpace(image))
+                        {
                         <div class="media-right">
                             <img src="@image" alt="@matchedPattern.PatternName" width="30" />
                         </div>
+                            }
+                        }
                     }
-                }
             </div>
                         }
                     }
