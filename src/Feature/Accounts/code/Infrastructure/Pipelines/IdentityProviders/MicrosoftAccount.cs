@@ -30,7 +30,7 @@ namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
         protected override string IdentityProviderName => "MicrosoftAccount";
 
         protected override void ProcessCore([NotNull] IdentityProvidersArgs args)
-        {
+        {      
             Assert.ArgumentNotNull(args, nameof(args));                                       
 
             var identityProvider = this.GetIdentityProvider();
@@ -45,15 +45,14 @@ namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
                 AuthenticationType = authenticationType,
                 AuthenticationMode = AuthenticationMode.Passive,
                 ClientId = clientId,    
-                ClientSecret = clientSecret,                 
-                CallbackPath = new Microsoft.Owin.PathString("/"),   
-                Provider = new MicrosoftAccountAuthenticationProvider()          
-                {                                                              
-                    OnAuthenticated = (context) =>                                
+                ClientSecret = clientSecret,
+                Provider = new MicrosoftAccountAuthenticationProvider()
+                {
+                    OnAuthenticated = (context) =>
                       Task.Run(() =>
                       {
                           context.Identity.ApplyClaimsTransformations(new TransformationContext(this.FederatedAuthenticationConfiguration, identityProvider));
-                      })                                              
+                      })
                 }
             };
 
