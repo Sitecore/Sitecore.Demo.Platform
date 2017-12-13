@@ -19,6 +19,11 @@
     {
         Html.RenderPartial(Sitecore.Foundation.Alerts.Constants.InfoMessageView, info);
     }
+    var passwordInfo = Session.GetAndRemove("ChangePasswordMessage") as InfoMessage;
+    if (passwordInfo != null)
+    {
+        Html.RenderPartial(Sitecore.Foundation.Alerts.Constants.InfoMessageView, passwordInfo);
+    }
 
     <div class="form-group has-feedback">
         @Html.LabelFor(x => x.Email, new

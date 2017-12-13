@@ -246,9 +246,12 @@
                 return this.View(profile);
             }
 
-            this.UserProfileService.SaveProfile(Context.User.Profile, profile);
+            if (profile.Email != null)
+            {
+                this.UserProfileService.SaveProfile(Context.User.Profile, profile);
 
-            this.Session["EditProfileMessage"] = new InfoMessage(DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Edit Profile Success", "Profile was successfully updated"));
+                this.Session["EditProfileMessage"] = new InfoMessage(DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Edit Profile Success", "Profile was successfully updated"));
+            }
             return this.Redirect(this.Request.RawUrl);
         }
 
@@ -276,13 +279,17 @@
                 if (AccountRepository.ChangePassword(Context.User.Profile.Email, changePasswordInfo.Password,
                     changePasswordInfo.NewPassword))
                 {
-                    return this.InfoMessage(InfoMessage.Success(DictionaryPhraseRepository.Current.Get(
-                        "/Accounts/Forgot Password/Change Password Success", "Your password has been changed.")));
-                }
+                    this.Session["ChangePasswordMessage"] = new InfoMessage(DictionaryPhraseRepository.Current.Get("/Accounts/Forgot Password/Change Password Success", "Your password has been changed."));
 
-                Log.Error($"Can't change password for user {Context.User.Profile.Email}", this);
-                this.ModelState.AddModelError(nameof(changePasswordInfo.Password), "Failed to change password for user");
-                return this.View(changePasswordInfo);
+                    return this.Redirect(this.Request.RawUrl);
+                }
+                else
+                {
+                    Log.Error($"Can't change password for user {Context.User.Profile.Email}", this);
+                    this.ModelState.AddModelError(nameof(changePasswordInfo.Password),
+                        "Failed to change password for user");
+                    return this.View(changePasswordInfo);
+                }
             }
             catch (MembershipPasswordException ex)
             {
