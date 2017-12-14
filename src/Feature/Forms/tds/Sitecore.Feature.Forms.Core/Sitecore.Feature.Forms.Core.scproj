@@ -4,26 +4,23 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>528e10e7-7bad-4ef2-9076-d31b31bbddf9</ProjectGuid>
+    <ProjectGuid>2ad001bf-4378-4056-b7e9-993a9e43a1c7</ProjectGuid>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <EnableUpdateable>true</EnableUpdateable>
     <UseMerge>true</UseMerge>
-    <SingleAssemblyName>Sitecore.Feature.Forms.Master</SingleAssemblyName>
+    <SingleAssemblyName>Sitecore.Feature.Forms.Core</SingleAssemblyName>
     <UseWebConfigReplacement>false</UseWebConfigReplacement>
     <DeleteAppCodeCompiledFiles>true</DeleteAppCodeCompiledFiles>
     <LegacyFileReplacement>false</LegacyFileReplacement>
-    <AssemblyName>Sitecore.Feature.Forms.Master</AssemblyName>
-    <Name>Sitecore.Feature.Forms.Master</Name>
-    <RootNamespace>Sitecore.Feature.Forms.Master</RootNamespace>
+    <AssemblyName>Sitecore.Feature.Forms.Core</AssemblyName>
+    <Name>Sitecore.Feature.Forms.Core</Name>
+    <RootNamespace>Sitecore.Feature.Forms.Core</RootNamespace>
+    <ManageRoles>False</ManageRoles>
+    <SitecoreDatabase>core</SitecoreDatabase>
+    <AssemblyStatus>Exclude</AssemblyStatus>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <ManageRoles>False</ManageRoles>
-    <SitecoreDatabase>master</SitecoreDatabase>
-    <AssemblyStatus>Include</AssemblyStatus>
-    <SourceWebVirtualPath>/Sitecore.Feature.Forms.csproj</SourceWebVirtualPath>
-    <SourceWebProject>{9cc4b700-d002-4bc2-b417-fd956ad3dd39}|src\Feature\Forms\code\Sitecore.Feature.Forms.csproj</SourceWebProject>
-    <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,33 +50,52 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\code\Sitecore.Feature.Forms.csproj">
-      <Project>{9cc4b700-d002-4bc2-b417-fd956ad3dd39}</Project>
-      <Name>Sitecore.Feature.Forms</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ExcludedAssemblies Include="Sitecore.Feature.Forms.%2a" />
-    <ExcludedAssemblies Include="Sitecore.Foundation.%2a" />
-  </ItemGroup>
-  <ItemGroup>
-    <SitecoreItem Include="sitecore\system.item">
+    <SitecoreItem Include="sitecore\client.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Settings.item">
+    <SitecoreItem Include="sitecore\client\Applications.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Settings\Forms.item">
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Settings\Forms\Submit Actions.item">
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\system\Settings\Forms\Submit Actions\Assign Pattern Cards.item">
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard.item">
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard\PageSettings.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard\PageSettings\HeaderSubtitle.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard\PageSettings\HeaderTitle.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard\PageSettings\ItemTreeView.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
+      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+    </SitecoreItem>
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard\PageSettings\Stylesheet.item">
+      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
   </ItemGroup>
