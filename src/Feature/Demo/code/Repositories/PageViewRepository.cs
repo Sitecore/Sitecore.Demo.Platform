@@ -40,8 +40,8 @@
 
         private string GetFullPath(IPage page)
         {
-            var pageName = RemoveLanguage(page).Replace("//", "/").Remove(0, 1).Replace(".aspx", "");
-            if (pageName == string.Empty || this.IsLanguage(pageName))
+            var pageName = RemoveLanguage(page)?.Replace("//", "/").Remove(0, 1).Replace(".aspx", "");
+            if (string.IsNullOrEmpty(pageName) || this.IsLanguage(pageName))
             {
                 pageName = Globalization.Translate.Text("/Demo/PageView/Home", "Home");
             }
@@ -67,7 +67,7 @@
         private static string RemoveLanguage(IPage page)
         {
             //TODO: support other languages
-            return page.Url.Path.Replace("/en", "/");
+            return page?.Url?.Path?.Replace("/en", "/");
         }
     }
 }

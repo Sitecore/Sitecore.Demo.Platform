@@ -1,14 +1,16 @@
 ﻿namespace Sitecore.Feature.Accounts.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Sitecore.Abstractions;
     using Sitecore.Data;
     using Sitecore.Feature.Accounts.Models;
     using Sitecore.Feature.Accounts.Services;
     using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.Foundation.Dictionary.Repositories;
+    using Sitecore.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.Pipelines.GetSignInUrlInfo;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
 
     [Service(typeof(IFedAuthLoginButtonRepository))]
     public class FedAuthLoginButtonRepository : IFedAuthLoginButtonRepository
@@ -36,7 +38,7 @@
 
         private static FedAuthLoginButton CreateFedAuthLoginButton(SignInUrlInfo signInInfo)
         {
-            var caption = Sitecore.Globalization.Translate.Text("SignInWith") + signInInfo.Caption;
+            var caption = DictionaryPhraseRepository.Current.Get($"/Accounts/Sign in providers/{signInInfo.IdentityProvider}", $"Sign in with {signInInfo.Caption}");
             string iconClass = null;
             switch (signInInfo.IdentityProvider.ToLower())
             {

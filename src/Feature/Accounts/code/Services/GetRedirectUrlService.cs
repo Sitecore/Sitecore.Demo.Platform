@@ -1,9 +1,9 @@
 ﻿namespace Sitecore.Feature.Accounts.Services
 {
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
     using System;
     using System.Web;
+    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.Foundation.SitecoreExtensions.Extensions;
 
     [Service(typeof(IGetRedirectUrlService))]
     public class GetRedirectUrlService : IGetRedirectUrlService
@@ -29,7 +29,7 @@
 
         private string AddReturnUrl(string baseUrl, string returnUrl)
         {
-            return baseUrl + "?" + ReturnUrlQuerystring + "=" + HttpUtility.UrlEncode(returnUrl);
+           return baseUrl + "?" + ReturnUrlQuerystring + "=" + HttpUtility.UrlEncode(returnUrl);
         }
 
         public string GetDefaultRedirectUrl(AuthenticationStatus status)

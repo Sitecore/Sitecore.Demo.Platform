@@ -1,26 +1,25 @@
 ﻿namespace Sitecore.Feature.Accounts.Repositories
 {
-    using Sitecore.Feature.Accounts.Models;
+    using System;
+    using System.Web.Security;
+    using Sitecore.Diagnostics;
     using Sitecore.Feature.Accounts.Services;
     using Sitecore.Foundation.Accounts.Pipelines;
     using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.Pipelines;
     using Sitecore.Security.Accounts;
     using Sitecore.Security.Authentication;
-    using Sitecore.XA.Foundation.Mvc.Repositories.Base;
-    using System;
-    using System.Web.Security;
 
     [Service(typeof(IAccountRepository))]
-    public class AccountRepository : ModelRepository, IAccountRepository
+    public class AccountRepository : IAccountRepository
     {
         public IAccountTrackerService AccountTrackerService { get; }
-        private readonly PipelineService _pipelineService;
+        private readonly PipelineService pipelineService;
 
         public AccountRepository(PipelineService pipelineService, IAccountTrackerService accountTrackerService)
         {
             this.AccountTrackerService = accountTrackerService;
-            this._pipelineService = pipelineService;
+            this.pipelineService = pipelineService;
         }
 
         public bool Exists(string userName)
@@ -47,7 +46,7 @@
             }
 
             var user = AuthenticationManager.GetActiveUser();
-            this._pipelineService.RunLoggedIn(user);
+            this.pipelineService.RunLoggedIn(user);
             return user;
         }
 
@@ -56,7 +55,7 @@
             var user = AuthenticationManager.GetActiveUser();
             AuthenticationManager.Logout();
             if (user != null)
-                this._pipelineService.RunLoggedOut(user);
+                this.pipelineService.RunLoggedOut(user);
         }
 
         public string RestorePassword(string userName)
@@ -68,43 +67,52 @@
             return user.ResetPassword();
         }
 
-        //public void RegisterUser(string email, string password, string profileId)
-        //{
-        //    Assert.ArgumentNotNullOrEmpty(email, nameof(email));
-        //    Assert.ArgumentNotNullOrEmpty(password, nameof(password));
-
-        //    var fullName = Context.Domain.GetFullName(email);
-        //    try
-        //    {
-
-        //        Assert.IsNotNullOrEmpty(fullName, "Can't retrieve full userName");
-
-        //        var user = User.Create(fullName, password);
-        //        user.Profile.Email = email;
-        //        if (!string.IsNullOrEmpty(profileId))
-        //        {
-        //            user.Profile.ProfileItemId = profileId;
-        //        }
-
-        //        user.Profile.Save();
-        //        this._pipelineService.RunRegistered(user);
-        //    }
-        //    catch
-        //    {
-        //        AccountTrackerService.TrackRegistrationFailed(email);
-        //        throw;
-        //    }
-
-        //    this.Login(email, password);
-        //}
-
-        public override IRenderingModelBase GetModel()
+        public void RegisterUser(string email, string password, string profileId)
         {
-            LoginInfo model = new LoginInfo();
-            FillBaseProperties(model);
-            model.ReturnUrl = Context.Site.GetStartItem().Paths.FullPath;
+            Assert.ArgumentNotNullOrEmpty(email, nameof(email));
+            Assert.ArgumentNotNullOrEmpty(password, nameof(password));
 
-            return model;
+            var fullName = Context.Domain.GetFullName(email);
+            try
+            {
+
+                Assert.IsNotNullOrEmpty(fullName, "Can't retrieve full userName");
+
+                var user = User.Create(fullName, password);
+                user.Profile.Email = email;
+                if (!string.IsNullOrEmpty(profileId))
+                {
+                    user.Profile.ProfileItemId = profileId;
+                }
+
+                user.Profile.Save();
+                this.pipelineService.RunRegistered(user);
+            }
+            catch
+            {
+                AccountTrackerService.TrackRegistrationFailed(email);
+                throw;
+            }
+
+            this.Login(email, password);
+        }
+
+        public bool ChangePassword(string userName, string oldPassword, string newPassword)
+        {
+            Assert.ArgumentNotNullOrEmpty(oldPassword, nameof(oldPassword));
+            Assert.ArgumentNotNullOrEmpty(newPassword, nameof(newPassword));
+
+            var accountName = string.Empty;
+            var domain = Context.Domain;
+            if (domain != null)
+            {
+                accountName = domain.GetFullName(userName);
+            }
+
+            var user = Membership.GetUser(accountName);
+            Assert.ArgumentNotNull(user, nameof(user));
+            
+            return user.ChangePassword(oldPassword, newPassword);
         }
     }
 }

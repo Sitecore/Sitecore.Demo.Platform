@@ -1,12 +1,11 @@
-﻿@using System.Linq
+﻿@using Sitecore.Foundation.Dictionary.Extensions
 @model Sitecore.Feature.Demo.Models.OnsiteBehavior
-
 <div class="panel panel-primary">
     <div class="panel-heading" role="tab">
         <h4 class="panel-title">
             <a role="button" href="#onsiteBehaviorPanel" data-toggle="collapse" class="panel-title collapsed" data-parent="#experiencedata">
                 <span class="fa fa-bullseye"></span>
-                @Sitecore.Globalization.Translate.Text("OnsiteBehavior")
+                @Html.Sitecore().DictionaryField("/Demo/Onsite Behavior/Title", "Onsite Behavior")            
                 <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i>
             </a>
         </h4>
@@ -19,13 +18,13 @@
                 </div>
                 <div class="media-body ">
                     <h4 class="media-title">
-                        @Sitecore.Globalization.Translate.Text("Profiling")
+                        @Html.Sitecore().DictionaryField("/Demo/Onsite Behavior/Profiling", "Profiling")
                     </h4>
                     <div class="media-body">
                         @if (!Model.HistoricProfiles.Any() && !Model.ActiveProfiles.Any())
                         {
                             <div class="alert alert-info small">
-                                @Sitecore.Globalization.Translate.Text("NoProfiling")
+                                @Html.Sitecore().DictionaryField("//Demo/Onsite Behavior/No Profiling", "You have not been profiled yet")
                             </div>
                         }
                         else
@@ -34,10 +33,10 @@
                             {
                                 <ul class="nav nav-tabs nav-justified small">
                                     <li class="active">
-                                        <a href="#onSiteBehaviorProfileCurrent" data-toggle="tab">@Sitecore.Globalization.Translate.Text("CurrentVisit")</a>
+                                        <a href="#onSiteBehaviorProfileCurrent" data-toggle="tab">@Html.Sitecore().DictionaryField("//Demo/Onsite Behavior/Current Visit", "Current Visit")</a>
                                     </li>
                                     <li>
-                                        <a href="#onSiteBehaviorProfileHistoric" data-toggle="tab">@Sitecore.Globalization.Translate.Text("Historic")</a>
+                                        <a href="#onSiteBehaviorProfileHistoric" data-toggle="tab">@Html.Sitecore().DictionaryField("//Demo/Onsite Behavior/Historic", "Historic")</a>
                                     </li>
                                 </ul>
                             }
@@ -58,7 +57,7 @@
                 </div>
                 <div class="media-body ">
                     <h4 class="media-title">
-                        @Sitecore.Globalization.Translate.Text("TriggeredGoals")
+                        @Html.Sitecore().DictionaryField("//Demo/Onsite Behavior/Goals Triggered", "Triggered goals")
                         @if (Model.Goals.Any())
                         {
                             <strong class="pull-right">@Model.Goals.Count()</strong>
@@ -67,10 +66,10 @@
                     <div class="media-body">
                         <ul class="nav nav-tabs nav-justified small">
                             <li class="active">
-                                <a href="#onSiteBehaviorGoals" data-toggle="tab">@Sitecore.Globalization.Translate.Text("Goals")</a>
+                                <a href="#onSiteBehaviorGoals" data-toggle="tab">@Html.Sitecore().DictionaryField("//Demo/Onsite Behavior/Goals Tab", "Goals")</a>
                             </li>
                             <li>
-                                <a href="#onSiteBehaviorPageEvents" data-toggle="tab">@Sitecore.Globalization.Translate.Text("PageEvents")</a>
+                                <a href="#onSiteBehaviorPageEvents" data-toggle="tab">@Html.Sitecore().DictionaryField("//Demo/Onsite Behavior/Page Events Tab", "Page Events")</a>
                             </li>
                         </ul>
 
@@ -79,7 +78,7 @@
                                 @if (!Model.Goals.Any())
                                 {
                                     <div class="alert alert-info small">
-                                        @Sitecore.Globalization.Translate.Text("NoGoals")
+                                        @Html.Sitecore().DictionaryField("//Demo/Onsite Behavior/No Goals", "You have triggered no goals so far")
                                     </div>
                                 }
                                 else
@@ -89,7 +88,7 @@
                                         {
                                             <li>
                                                 <div>
-                                                    <small>@(goal.IsCurrentVisit ? @Sitecore.Globalization.Translate.Text("Now") : goal.Date.ToString("dd-MM HH:MM"))</small>
+                                                    <small>@(goal.IsCurrentVisit ? Html.Sitecore().Dictionary("//Demo/Onsite Behavior/Current Visit", "Now") : goal.Date.ToString("dd-MM HH:MM"))</small>
                                                 </div>
                                                 <div class="text-nowrap">
                                                     @goal.Title
@@ -107,7 +106,7 @@
                                 @if (!Model.PageEvents.Any())
                                 {
                                     <div class="alert alert-info small">
-                                        @Sitecore.Globalization.Translate.Text("NoPageEvents")
+                                        @Html.Sitecore().DictionaryField("//Demo/Onsite Behavior/No Page Events", "You have triggered no page events so far")
                                     </div>
                                 }
                                 else
@@ -117,12 +116,12 @@
                                             <tr>
                                                 <th>
                                                     <small>
-                                                        @Sitecore.Globalization.Translate.Text("Elapsed")
+                                                        @Html.Sitecore().Dictionary("//Demo/Onsite Behavior/Page Event Elapsed", "Elapsed")
                                                     </small>
                                                 </th>
                                                 <th class="text-nowrap">
                                                     <small>
-                                                        @Sitecore.Globalization.Translate.Text("PageEventName")
+                                                        @Html.Sitecore().Dictionary("//Demo/Onsite Behavior/Page Event Name", "Name")
                                                     </small>
                                                 </th>
                                             </tr>
@@ -151,7 +150,7 @@
                 </div>
                 <div class="media-body ">
                     <h4 class="media-title">
-                        @Sitecore.Globalization.Translate.Text("Outcomes")
+                        @Html.Sitecore().DictionaryField("//Demo/Onsite Behavior/Outcomes", "Outcomes")
                         @if (Model.Outcomes.Any())
             {
                             <strong class="pull-right">@Model.Outcomes.Count()</strong>
@@ -160,7 +159,7 @@
                     @if (!Model.Outcomes.Any())
                     {
                         <div class="alert alert-info small">
-                            @Sitecore.Globalization.Translate.Text("NoOutcomes")
+                            @Html.Sitecore().DictionaryField("//Demo/Onsite Behavior/No Outcomes", "You have reached no outcomes")
                         </div>
                     }
                     else
@@ -169,7 +168,7 @@
                             @foreach (var outcome in Model.Outcomes)
                             {
                                 <li>
-                                    <div><small>@(!outcome.IsCurrentVisit ? outcome.Date.ToString("dd-MM HH:MM") : @Sitecore.Globalization.Translate.Text("Now"))</small></div>
+                                    <div><small>@(!outcome.IsCurrentVisit ? outcome.Date.ToString("dd-MM HH:MM") : @Html.Sitecore().Dictionary("//Demo/Onsite Behavior/Current Visit", "Now"))</small></div>
                                     <div><small>@outcome.OutcomeGroup</small></div>
                                     <div>@outcome.Title</div>
                                 </li>

@@ -16,14 +16,14 @@
     <AssemblyName>Sitecore.Foundation.Accounts.Master</AssemblyName>
     <Name>Sitecore.Foundation.Accounts.Master</Name>
     <RootNamespace>Sitecore.Foundation.Accounts.Master</RootNamespace>
+    <ManageRoles>False</ManageRoles>
+    <SitecoreDatabase>master</SitecoreDatabase>
+    <AssemblyStatus>Include</AssemblyStatus>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <SourceWebVirtualPath>/Sitecore.Foundation.Accounts.csproj</SourceWebVirtualPath>
     <SourceWebProject>{ce34a3b7-b91a-41ba-8b16-c1e131e1c621}|src\Foundation\Accounts\code\Sitecore.Foundation.Accounts.csproj</SourceWebProject>
     <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
-    <ManageRoles>False</ManageRoles>
-    <SitecoreDatabase>master</SitecoreDatabase>
-    <AssemblyStatus>Exclude</AssemblyStatus>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,13 +50,16 @@
     </AssemblyAttributes>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\code\Sitecore.Foundation.Accounts.csproj">
       <Project>{ce34a3b7-b91a-41ba-8b16-c1e131e1c621}</Project>
       <Name>Sitecore.Foundation.Accounts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <ExcludedAssemblies Include="Sitecore.Foundation.%2a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Import Project="..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
