@@ -1,6 +1,9 @@
 ﻿namespace Sitecore.Feature.Demo.Controllers
 {
+    using Sitecore.ExperienceEditor.Utils;
+    using Sitecore.ExperienceExplorer.Core.State;
     using Sitecore.Feature.Demo.Repositories;
+    using Sitecore.Sites;
     using Sitecore.XA.Foundation.Mvc.Controllers;
     using System.Web.Mvc;
 
@@ -18,7 +21,9 @@
 
         public ActionResult SidebarContent()
         {
-            if (Sitecore.Context.PageMode.IsExperienceEditor)
+            var explorerContext = DependencyResolver.Current.GetService<IExplorerContext>();
+            var isInExperienceExplorer = explorerContext?.IsExplorerMode() ?? false;
+            if (Context.Site.DisplayMode != DisplayMode.Normal || WebEditUtility.IsDebugActive(Context.Site) || isInExperienceExplorer)
             {
                 return new EmptyResult();
             }

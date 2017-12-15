@@ -1,7 +1,7 @@
 ﻿namespace Sitecore.Feature.Accounts.Models
 {
-    public class LoginResult
-    {
-        public string RedirectUrl { get; set; }
-    }
+  public class LoginResult
+  {
+    public string RedirectUrl { get; set; }
+  }
 }

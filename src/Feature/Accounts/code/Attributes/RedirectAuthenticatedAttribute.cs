@@ -1,15 +1,17 @@
 ﻿namespace Sitecore.Feature.Accounts.Attributes
 {
-    using Sitecore.Feature.Accounts.Services;
     using System.Web.Mvc;
+    using Microsoft.Extensions.DependencyInjection;
+    using Sitecore.DependencyInjection;
+    using Sitecore.Feature.Accounts.Services;
 
     public class RedirectAuthenticatedAttribute : ActionFilterAttribute
     {
-        private readonly IGetRedirectUrlService _getRedirectUrlService;
+        private readonly IGetRedirectUrlService getRedirectUrlService;
 
-        public RedirectAuthenticatedAttribute(IGetRedirectUrlService getRedirectUrlService)
+        public RedirectAuthenticatedAttribute()
         {
-            this._getRedirectUrlService = getRedirectUrlService;
+            this.getRedirectUrlService = ServiceLocator.ServiceProvider.GetService<IGetRedirectUrlService>();
         }
 
 
@@ -19,7 +21,7 @@
                 return;
             if (!Context.User.IsAuthenticated)
                 return;
-            var link = this._getRedirectUrlService.GetRedirectUrl(AuthenticationStatus.Authenticated);
+            var link = this.getRedirectUrlService.GetRedirectUrl(AuthenticationStatus.Authenticated);
             filterContext.Result = new RedirectResult(link);
         }
     }

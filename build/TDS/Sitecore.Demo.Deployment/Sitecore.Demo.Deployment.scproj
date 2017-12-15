@@ -70,17 +70,14 @@
     <BundledProject Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Master\Sitecore.Feature.Accounts.Master.scproj">
       <ProjectId>{a1e771f2-9c73-4a8e-8a07-973499c73cad}</ProjectId>
     </BundledProject>
-    <BundledProject Include="..\..\..\src\Feature\Articles\tds\Sitecore.Feature.Articles.Master\Sitecore.Feature.Articles.Master.scproj">
-      <ProjectId>{50558914-27e0-4903-82c1-907605daf8a8}</ProjectId>
-    </BundledProject>
     <BundledProject Include="..\..\..\src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj">
       <ProjectId>{3e21fc58-e2b6-4de9-94c3-ff38c7cf0402}</ProjectId>
     </BundledProject>
-    <BundledProject Include="..\..\..\src\Feature\Navigation\tds\Sitecore.Feature.Navigation.Master\Sitecore.Feature.Navigation.Master.scproj">
-      <ProjectId>{4f1527a3-7a5b-40bd-83fc-f6726d16f51e}</ProjectId>
-    </BundledProject>
     <BundledProject Include="..\..\..\src\Foundation\Accounts\tds\Sitecore.Foundation.Accounts.Master\Sitecore.Foundation.Accounts.Master.scproj">
       <ProjectId>{2c337d0a-2483-4a8c-9ecd-5d823481ebed}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\..\..\src\Foundation\Alerts\tds\Sitecore.Foundation.Alerts.Master\Sitecore.Foundation.Alerts.Master.scproj">
+      <ProjectId>{d02d7f61-c1d3-40b6-9ce6-d17bd9ad6bb0}</ProjectId>
     </BundledProject>
     <BundledProject Include="..\..\..\src\Foundation\DependencyInjection\tds\Sitecore.Foundation.DependencyInjection.Master\Sitecore.Foundation.DependencyInjection.Master.scproj">
       <ProjectId>{784abeed-9f00-4ae6-8cef-5aef3c161e96}</ProjectId>
@@ -99,16 +96,13 @@
     <ProjectReference Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Master\Sitecore.Feature.Accounts.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Feature\Articles\tds\Sitecore.Feature.Articles.Master\Sitecore.Feature.Articles.Master.scproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Feature\Navigation\tds\Sitecore.Feature.Navigation.Master\Sitecore.Feature.Navigation.Master.scproj">
+    <ProjectReference Include="..\..\..\src\Foundation\Accounts\tds\Sitecore.Foundation.Accounts.Master\Sitecore.Foundation.Accounts.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\src\Foundation\Accounts\tds\Sitecore.Foundation.Accounts.Master\Sitecore.Foundation.Accounts.Master.scproj">
+    <ProjectReference Include="..\..\..\src\Foundation\Alerts\tds\Sitecore.Foundation.Alerts.Master\Sitecore.Foundation.Alerts.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Foundation\DependencyInjection\tds\Sitecore.Foundation.DependencyInjection.Master\Sitecore.Foundation.DependencyInjection.Master.scproj">

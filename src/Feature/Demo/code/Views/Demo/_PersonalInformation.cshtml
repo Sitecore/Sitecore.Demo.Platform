@@ -1,11 +1,11 @@
-﻿@model Sitecore.Feature.Demo.Models.PersonalInfo
-
+﻿@using Sitecore.Foundation.Dictionary.Extensions
+@model Sitecore.Feature.Demo.Models.PersonalInfo
 <div class="panel panel-primary">
     <div class="panel-heading" role="tab">
         <h3 class="panel-title">
             <a role="button" href="#personalInfoPanel" data-toggle="collapse" class="panel-title collapsed" data-parent="#experiencedata">
                 <span class="fa fa-user"></span>
-                @Sitecore.Globalization.Translate.Text("PersonalInformation")   
+                @Html.Sitecore().DictionaryField("/Demo/Personal Info/Title", "Personal Information")
                 <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i>
             </a>
         </h3>
@@ -24,11 +24,11 @@
                         }
                         else if (Model.IsIdentified)
                         {
-                            @Sitecore.Globalization.Translate.Text("YouAreKnown")
+                            @Html.Sitecore().DictionaryField("/Demo/Personal Info/Identified User", "You are known")
                         }
                         else
                         {
-                            @Sitecore.Globalization.Translate.Text("YouAreAnonymous")
+                            @Html.Sitecore().DictionaryField("/Demo/Personal Info/Anonymous User", "You are anonymous")
                         }
                     </h4>
                     @if (Model.PhotoUrl != null)
@@ -54,31 +54,31 @@
                     </div>
                     <div class="media-body ">
                         <h4 class="media-title">
-                            @Sitecore.Globalization.Translate.Text("Location")
+                            @Html.Sitecore().DictionaryField("/Demo/Referral/Location", "Location")
                         </h4>
                         <dl>
                             @if (!string.IsNullOrEmpty(Model.Location.City) || !string.IsNullOrEmpty(Model.Location.Region) || !string.IsNullOrEmpty(Model.Location.Country))
                             {
-                                <dt>@Sitecore.Globalization.Translate.Text("Place")</dt>
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Location Place", "Place")</dt>
                                 <dd>@string.Join(", ", Model.Location.City, Model.Location.Region, Model.Location.Country)</dd>
                             }
 
                             @if (!string.IsNullOrEmpty(Model.Location.BusinessName))
                             {
-                                <dt>@Sitecore.Globalization.Translate.Text("Business")</dt>
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Location Business", "Business")</dt>
                                 <dd>@Model.Location.BusinessName</dd>
                             }
 
                             @if (!string.IsNullOrEmpty(Model.Location.Url))
                             {
-                                <dt>@Sitecore.Globalization.Translate.Text("Url")</dt>
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Location Url", "Url")</dt>
                                 <dd><a href="@Model.Location.Url">@Model.Location.Url</a></dd>
                             }
 
                             @if (!string.IsNullOrEmpty(Model.Location.Latitude) && !string.IsNullOrEmpty(Model.Location.Longitude))
                             {
-                                <dt>@Sitecore.Globalization.Translate.Text("Map")</dt>
-                                <dd><a href="https://maps.google.com/?q=@Model.Location.Latitude,@Model.Location.Longitude" target="_blank">@Sitecore.Globalization.Translate.Text("MapLink")</a></dd>
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Location Map", "Map")</dt>
+                                <dd><a href="https://maps.google.com/?q=@Model.Location.Latitude,@Model.Location.Longitude" target="_blank">@Html.Sitecore().DictionaryField("/Demo/Referral/Location Map Link", "Map Link (external)")</a></dd>
                             }
                         </dl>
                     </div>
@@ -92,13 +92,13 @@
                     </div>
                     <div class="media-body ">
                         <h4 class="media-title">
-                            @Sitecore.Globalization.Translate.Text("Device")
+                            @Html.Sitecore().DictionaryField("/Demo/Referral/Device", "Device")
                         </h4>
                         <div class="text-nowrap">
                             <dl>
-                                <dt>@Sitecore.Globalization.Translate.Text("Device")</dt>
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Device Title", "Device")</dt>
                                 <dd>@Model.Device.Title</dd>
-                                <dt>@Sitecore.Globalization.Translate.Text("Browser")</dt>
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Device Browser", "Browser")</dt>
                                 <dd>@Model.Device.Browser</dd>
                             </dl>
                         </div>

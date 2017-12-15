@@ -1,5 +1,7 @@
 ﻿namespace Sitecore.Feature.Accounts.Services
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using Sitecore.Configuration;
     using Sitecore.Data;
     using Sitecore.Data.Items;
@@ -7,8 +9,6 @@
     using Sitecore.Foundation.DependencyInjection;
     using Sitecore.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.SecurityModel;
-    using System.Collections.Generic;
-    using System.Linq;
 
     [Service(typeof(IProfileSettingsService))]
     public class ProfileSettingsService : IProfileSettingsService
@@ -36,15 +36,7 @@
 
         private static Item GetSettingsItem(Item contextItem)
         {
-            Item item = null;
-
-            if (contextItem != null)
-            {
-                item = contextItem.GetAncestorOrSelfOfTemplate(Templates.ProfileSettigs.ID);
-            }
-            item = item ?? Context.Site.GetContextItem(Templates.ProfileSettigs.ID);
-
-            return item;
+            return Context.Site.GetSettingsItem()?.Children.FirstOrDefault(x => x.IsDerived(Templates.ProfileSettigs.ID));
         }
     }
 }

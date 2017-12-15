@@ -1,10 +1,11 @@
 ﻿namespace Sitecore.Feature.Accounts.Services
 {
+    using System;
     using Sitecore.Configuration;
+    using Sitecore.Data;
     using Sitecore.Foundation.DependencyInjection;
     using Sitecore.Foundation.SitecoreExtensions.Services;
     using Sitecore.Security;
-    using System;
 
     [Service(typeof(IAccountTrackerService))]
     public class AccountTrackerService : IAccountTrackerService

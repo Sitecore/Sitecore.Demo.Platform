@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Sitecore.Foundation.Dictionary.Repositories;
 
     public class EditProfile
     {
@@ -24,12 +25,12 @@
 
         public IEnumerable<string> InterestTypes { get; set; }
 
-        public static string EmailCaption => Sitecore.Globalization.Translate.Text("Email");
-        public static string FirstNameCaption => Sitecore.Globalization.Translate.Text("FirstName");
-        public static string LastNameCaption => Sitecore.Globalization.Translate.Text("LastName");
-        public static string PhoneNumberCaption => Sitecore.Globalization.Translate.Text("PhoneNumber");
-        public static string InterestsCaption => Sitecore.Globalization.Translate.Text("Interests");
-        public static string MaxLengthExceeded => Sitecore.Globalization.Translate.Text("MaxLength");
-        public static string PhoneNumberFormat => Sitecore.Globalization.Translate.Text("PhoneNumberFormat");
+        public static string EmailCaption => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Email", "E-mail");
+        public static string FirstNameCaption => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/First Name", "First name");
+        public static string LastNameCaption => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Last Name", "Last name");
+        public static string PhoneNumberCaption => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Phone Number", "Phone number");
+        public static string InterestsCaption => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Interests", "Interests");
+        public static string MaxLengthExceeded => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Max Length", "{0} length should be less than {1}");
+        public static string PhoneNumberFormat => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Phone Number Format", "Phone number should contain only +, ( ) and digits");
     }
 }

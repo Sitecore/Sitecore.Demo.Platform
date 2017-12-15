@@ -1,4 +1,6 @@
-﻿namespace Sitecore.Foundation.SitecoreExtensions.Extensions
+﻿using System.Linq;
+
+namespace Sitecore.Foundation.SitecoreExtensions.Extensions
 {
     using System;
     using Sitecore;
@@ -32,6 +34,24 @@
                 throw new ArgumentNullException(nameof(site));
 
             return site.Database.GetItem(Context.Site.StartPath);
+        }
+
+        public static Item GetSettingsItem(this SiteContext site)
+        {
+            if (site == null)
+            {
+                throw new ArgumentNullException(nameof(site));
+            }
+
+            var defaultSettingsItem = site.GetRootItem().Children
+                .FirstOrDefault(x => x.TemplateID == Templates.Settings.TemplateID);
+
+            if (defaultSettingsItem == null)
+            {
+                throw new ArgumentNullException("Site settings not found", nameof(site));
+            }
+
+            return defaultSettingsItem;
         }
     }
 }
