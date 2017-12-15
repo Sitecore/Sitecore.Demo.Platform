@@ -6,7 +6,7 @@ namespace Sitecore.Feature.Forms
     {
         public struct PatternCardActionSettings
         {
-            public static readonly ID ID = new ID("{C6D4DDD5-B912-4C1A-A3A3-E1D90E4D0939}");
+            public static readonly ID ID = new ID("{5996AE17-2739-49F0-A1C8-C5EDBE3F0025}");
 
             public struct Fields
             {
