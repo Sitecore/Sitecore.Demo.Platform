@@ -1,34 +1,27 @@
 ----item----
 version: 1
-id: {86373780-7B4D-4049-9E86-458BF9AE568F}
+id: {C341B656-5743-4A7F-86C7-8181F536D428}
 database: core
-path: /sitecore/client/Applications/FormsBuilder/Components/Layouts/Actions/AssignPatternCard/PageSettings/HeaderTitle
-parent: {BCEE5343-8820-4853-8958-0C24E7ED8756}
-name: HeaderTitle
+path: /sitecore/client/Applications/FormsBuilder/Components/Layouts/Actions/Assign Pattern Card/PageSettings
+parent: {337DDF68-A471-4675-B859-0DA4F5C242E9}
+name: PageSettings
 master: {00000000-0000-0000-0000-000000000000}
-template: {46EFCF7F-6EBB-4059-B9BF-8EF47C4F5E20}
-templatekey: Text Parameters
-created: 20171213T220713Z
+template: {E35EAA2D-EDEA-431C-A9E6-488272B53782}
+templatekey: PageSettings
+created: 20171215T050833Z
 
 ----version----
 language: da
 version: 1
-revision: 59278e9e-dd2c-4731-b17f-9cef513212d6
+revision: 77e46c77-b46b-4ad5-9a42-3c66c06104c5
 
-----field----
-field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
-name: Text
-key: text
-content-length: 8
-
-Vælg mål
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 11
+content-length: 12
 
-HeaderTitle
+PageSettings
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -42,7 +35,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183000Z
+20171204T183012Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -56,14 +49,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-59278e9e-dd2c-4731-b17f-9cef513212d6
+77e46c77-b46b-4ad5-9a42-3c66c06104c5
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183000Z
+20171204T183012Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -74,22 +67,15 @@ sitecore\admin
 ----version----
 language: de-DE
 version: 1
-revision: dbe4ada0-8718-4c54-92d7-03d92899e15e
+revision: 720ca757-fe74-4a69-9df2-2c4a62993b3e
 
-----field----
-field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
-name: Text
-key: text
-content-length: 14
-
-Ziel auswählen
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 14
+content-length: 19
 
-KopfzeileTitel
+Seiteneinstellungen
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -103,7 +89,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183337Z
+20171204T183351Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -117,14 +103,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-dbe4ada0-8718-4c54-92d7-03d92899e15e
+720ca757-fe74-4a69-9df2-2c4a62993b3e
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183337Z
+20171204T183351Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -135,15 +121,8 @@ sitecore\admin
 ----version----
 language: en
 version: 1
-revision: bff8e92b-7e38-45a4-8712-12bf08a9f0e7
+revision: d7c9547e-c1ce-4139-848f-4970541ea4ee
 
-----field----
-field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
-name: Text
-key: text
-content-length: 20
-
-Assign pattern cards
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -157,7 +136,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20170403T085023Z
+20170330T112951Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -171,40 +150,33 @@ name: __Revision
 key: __revision
 content-length: 36
 
-bff8e92b-7e38-45a4-8712-12bf08a9f0e7
+d7c9547e-c1ce-4139-848f-4970541ea4ee
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171214T002443Z
+20170330T112951Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
 content-length: 14
 
-sitecore\admin
+sitecore\Admin
 ----version----
 language: ja-JP
 version: 1
-revision: a6bc8d5a-44d0-4dba-ba33-99eacdabb71c
+revision: 7d16acc1-711c-4ad2-aa9f-884daa60cb26
 
-----field----
-field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
-name: Text
-key: text
-content-length: 6
-
-ゴールを選択
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 9
+content-length: 5
 
-ヘッダー タイトル
+ページ設定
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -218,7 +190,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183639Z
+20171204T183653Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -232,14 +204,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a6bc8d5a-44d0-4dba-ba33-99eacdabb71c
+7d16acc1-711c-4ad2-aa9f-884daa60cb26
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183639Z
+20171204T183653Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

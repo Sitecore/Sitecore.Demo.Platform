@@ -1,34 +1,62 @@
 ----item----
 version: 1
-id: {02AAD540-F514-4193-AC14-FD2FA8707DF9}
+id: {D8AB10F7-39F0-4B99-8F0B-B0E2539CC8A2}
 database: core
-path: /sitecore/client/Applications/FormsBuilder/Components/Layouts/Actions/AssignPatternCard/PageSettings/HeaderSubtitle
-parent: {BCEE5343-8820-4853-8958-0C24E7ED8756}
-name: HeaderSubtitle
+path: /sitecore/client/Applications/FormsBuilder/Components/Layouts/Actions/Assign Pattern Card/PageSettings/ItemTreeView
+parent: {C341B656-5743-4A7F-86C7-8181F536D428}
+name: ItemTreeView
 master: {00000000-0000-0000-0000-000000000000}
-template: {46EFCF7F-6EBB-4059-B9BF-8EF47C4F5E20}
-templatekey: Text Parameters
-created: 20171213T220713Z
+template: {AA697A95-4189-4015-8A0B-DA76D6A83589}
+templatekey: ItemTreeView Parameters
+created: 20171215T050833Z
 
+----field----
+field: {0CC7F24B-2013-46C6-8AE3-5233D094FF7C}
+name: StaticData
+key: staticdata
+content-length: 38
+
+{11111111-1111-1111-1111-111111111111}
+----field----
+field: {4CEC56F0-9FE2-4980-8085-62B0A0AB51EC}
+name: Database
+key: database
+content-length: 24
+
+$context_contentdatabase
+----field----
+field: {E0F5C2E5-EA32-4463-AEF5-925D4194B4A2}
+name: IsCheckModeEnabled
+key: ischeckmodeenabled
+content-length: 0
+
+
+----field----
+field: {E46CF3AA-5AD6-4A61-AD2B-D9D5D6698B7D}
+name: CheckMode
+key: checkmode
+content-length: 6
+
+Single
+----field----
+field: {F2A83648-50D1-44B3-BEA0-0F6124BF211C}
+name: ShowHiddenItems
+key: showhiddenitems
+content-length: 1
+
+1
 ----version----
 language: da
 version: 1
-revision: fdfea55e-1450-4fec-995b-197558e9727b
+revision: d9a24d1e-13df-401d-ba80-b7e5e8ee28c9
 
-----field----
-field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
-name: Text
-key: text
-content-length: 59
-
-Vælg det mål, der skal udløses, når der klikkes på knappen.
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 16
+content-length: 12
 
-HeaderUndertitel
+ItemTreeView
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -42,7 +70,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183019Z
+20171204T182917Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -56,14 +84,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-fdfea55e-1450-4fec-995b-197558e9727b
+d9a24d1e-13df-401d-ba80-b7e5e8ee28c9
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183019Z
+20171204T182917Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -74,22 +102,15 @@ sitecore\admin
 ----version----
 language: de-DE
 version: 1
-revision: 68c88e46-99a0-42dc-b475-83eb2752c8e9
+revision: 9e77f802-4004-4771-b3d3-4c5460b6d042
 
-----field----
-field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
-name: Text
-key: text
-content-length: 80
-
-Wählen Sie das Ziel, das ausgelöst werden soll, wenn der Button angeklickt wird.
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 16
+content-length: 15
 
-HeaderUntertitel
+ItemTreeAnsicht
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -103,7 +124,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183358Z
+20171204T183250Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -117,14 +138,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-68c88e46-99a0-42dc-b475-83eb2752c8e9
+9e77f802-4004-4771-b3d3-4c5460b6d042
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183358Z
+20171204T183250Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -135,15 +156,8 @@ sitecore\admin
 ----version----
 language: en
 version: 1
-revision: 6a4f489e-2c83-4f3c-ac10-20edb4e2f2fa
+revision: 1acc3cea-6964-484e-a8ad-a54ed0caa7dc
 
-----field----
-field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
-name: Text
-key: text
-content-length: 49
-
-Select the settings item for this form's patterns
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -157,7 +171,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20170403T085023Z
+20170404T103808Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -171,40 +185,33 @@ name: __Revision
 key: __revision
 content-length: 36
 
-6a4f489e-2c83-4f3c-ac10-20edb4e2f2fa
+1acc3cea-6964-484e-a8ad-a54ed0caa7dc
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171214T002308Z
+20170404T103821Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
 content-length: 14
 
-sitecore\admin
+sitecore\Admin
 ----version----
 language: ja-JP
 version: 1
-revision: 7125c10b-5764-4922-a0c4-5b4a00626a43
+revision: c1e112e9-d3ff-4dd1-aa84-758096c892bc
 
-----field----
-field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
-name: Text
-key: text
-content-length: 26
-
-ボタンのクリック時にトリガーされるゴールを選択します
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 11
+content-length: 7
 
-ヘッダー サブタイトル
+ツリー ビュー
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -218,7 +225,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183702Z
+20171204T183548Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -232,14 +239,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-7125c10b-5764-4922-a0c4-5b4a00626a43
+c1e112e9-d3ff-4dd1-aa84-758096c892bc
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183702Z
+20171204T183548Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

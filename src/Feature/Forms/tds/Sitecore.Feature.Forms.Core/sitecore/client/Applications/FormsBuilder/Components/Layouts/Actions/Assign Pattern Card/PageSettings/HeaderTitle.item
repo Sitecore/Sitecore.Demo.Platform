@@ -1,55 +1,34 @@
 ----item----
 version: 1
-id: {8F8159A8-A6BC-4831-8110-08ECEEF4E22C}
+id: {7D82D98E-84F8-41FA-991F-D4885FC21A82}
 database: core
-path: /sitecore/client/Applications/FormsBuilder/Components/Layouts/Actions/AssignPatternCard/PageSettings/ItemTreeView
-parent: {BCEE5343-8820-4853-8958-0C24E7ED8756}
-name: ItemTreeView
+path: /sitecore/client/Applications/FormsBuilder/Components/Layouts/Actions/Assign Pattern Card/PageSettings/HeaderTitle
+parent: {C341B656-5743-4A7F-86C7-8181F536D428}
+name: HeaderTitle
 master: {00000000-0000-0000-0000-000000000000}
-template: {AA697A95-4189-4015-8A0B-DA76D6A83589}
-templatekey: ItemTreeView Parameters
-created: 20171213T220713Z
+template: {46EFCF7F-6EBB-4059-B9BF-8EF47C4F5E20}
+templatekey: Text Parameters
+created: 20171215T050833Z
 
-----field----
-field: {0CC7F24B-2013-46C6-8AE3-5233D094FF7C}
-name: StaticData
-key: staticdata
-content-length: 38
-
-{653AAAE9-9118-4ACF-AF29-D57C6E7F745B}
-----field----
-field: {4CEC56F0-9FE2-4980-8085-62B0A0AB51EC}
-name: Database
-key: database
-content-length: 24
-
-$context_contentdatabase
-----field----
-field: {E0F5C2E5-EA32-4463-AEF5-925D4194B4A2}
-name: IsCheckModeEnabled
-key: ischeckmodeenabled
-content-length: 0
-
-
-----field----
-field: {F2A83648-50D1-44B3-BEA0-0F6124BF211C}
-name: ShowHiddenItems
-key: showhiddenitems
-content-length: 1
-
-1
 ----version----
 language: da
 version: 1
-revision: 8bc93ea2-05b1-4ad1-8851-bb3ce75d0514
+revision: 53a47afe-8395-4b45-a6e1-4b0e32775e58
 
+----field----
+field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
+name: Text
+key: text
+content-length: 9
+
+Vælg side
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 12
+content-length: 11
 
-ItemTreeView
+HeaderTitle
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -63,7 +42,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183006Z
+20171204T183004Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -77,14 +56,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-8bc93ea2-05b1-4ad1-8851-bb3ce75d0514
+53a47afe-8395-4b45-a6e1-4b0e32775e58
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183006Z
+20171204T183004Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -95,15 +74,22 @@ sitecore\admin
 ----version----
 language: de-DE
 version: 1
-revision: 66c71146-25d1-46f5-b723-353a8d3910a5
+revision: 995d21d1-2306-40f4-8ca3-3481b65ea008
 
+----field----
+field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
+name: Text
+key: text
+content-length: 15
+
+Seite auswählen
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 15
+content-length: 14
 
-ItemTreeAnsicht
+KopfzeileTitel
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -117,7 +103,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183344Z
+20171204T183341Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -131,14 +117,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-66c71146-25d1-46f5-b723-353a8d3910a5
+995d21d1-2306-40f4-8ca3-3481b65ea008
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183344Z
+20171204T183341Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -149,8 +135,15 @@ sitecore\admin
 ----version----
 language: en
 version: 1
-revision: ebedf4d9-2f77-4675-b388-e1a0f271e21d
+revision: 4cb4b617-3b39-4510-be35-92766c866e36
 
+----field----
+field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
+name: Text
+key: text
+content-length: 20
+
+Assign pattern cards
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -164,7 +157,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20170407T123200Z
+20170403T085023Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -178,14 +171,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ebedf4d9-2f77-4675-b388-e1a0f271e21d
+4cb4b617-3b39-4510-be35-92766c866e36
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171213T220921Z
+20171215T165641Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -196,15 +189,22 @@ sitecore\admin
 ----version----
 language: ja-JP
 version: 1
-revision: 3687cf42-fc71-46d1-8541-d331c9f8c361
+revision: 5d4e7af7-296a-4d7b-9461-8ec6e7e1b420
 
+----field----
+field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
+name: Text
+key: text
+content-length: 5
+
+選択ページ
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 7
+content-length: 9
 
-ツリー ビュー
+ヘッダー タイトル
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -218,7 +218,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183646Z
+20171204T183643Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -232,14 +232,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-3687cf42-fc71-46d1-8541-d331c9f8c361
+5d4e7af7-296a-4d7b-9461-8ec6e7e1b420
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183646Z
+20171204T183643Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

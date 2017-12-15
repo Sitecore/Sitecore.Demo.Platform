@@ -52,49 +52,49 @@
   <ItemGroup>
     <SitecoreItem Include="sitecore\client.item">
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\client\Applications.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\client\Applications\FormsBuilder.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions.item">
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ItemDeployment>DeployOnce</ItemDeployment>
       <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard.item">
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\Assign Pattern Card.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard\PageSettings.item">
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\Assign Pattern Card\PageSettings.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard\PageSettings\HeaderSubtitle.item">
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\Assign Pattern Card\PageSettings\HeaderSubtitle.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard\PageSettings\HeaderTitle.item">
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\Assign Pattern Card\PageSettings\HeaderTitle.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard\PageSettings\ItemTreeView.item">
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\Assign Pattern Card\PageSettings\ItemTreeView.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\AssignPatternCard\PageSettings\Stylesheet.item">
+    <SitecoreItem Include="sitecore\client\Applications\FormsBuilder\Components\Layouts\Actions\Assign Pattern Card\PageSettings\Stylesheet.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>

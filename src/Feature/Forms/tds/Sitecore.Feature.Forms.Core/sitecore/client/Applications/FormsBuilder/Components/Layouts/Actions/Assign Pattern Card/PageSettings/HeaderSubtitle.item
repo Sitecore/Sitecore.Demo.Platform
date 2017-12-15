@@ -1,59 +1,34 @@
 ----item----
 version: 1
-id: {A1ED2F85-2308-49A9-BE2E-3E902F9C328D}
+id: {46A6C14A-D4A8-4ADA-B038-240E6466D024}
 database: core
-path: /sitecore/client/Applications/FormsBuilder/Components/Layouts/Actions/AssignPatternCard
-parent: {A3E5E09F-1422-4050-9414-DC959AA60D7B}
-name: AssignPatternCard
+path: /sitecore/client/Applications/FormsBuilder/Components/Layouts/Actions/Assign Pattern Card/PageSettings/HeaderSubtitle
+parent: {C341B656-5743-4A7F-86C7-8181F536D428}
+name: HeaderSubtitle
 master: {00000000-0000-0000-0000-000000000000}
-template: {5F2C442F-2554-4C80-B1D9-2195FA6168B1}
-templatekey: Speak-BasePage
-created: 20171213T220713Z
+template: {46EFCF7F-6EBB-4059-B9BF-8EF47C4F5E20}
+templatekey: Text Parameters
+created: 20171215T050833Z
 
-----field----
-field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
-name: __Sortorder
-key: __sortorder
-content-length: 1
-
-0
-----field----
-field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
-name: __Renderings
-key: __renderings
-content-length: 1557
-
-<r>
-  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{5A7CF08C-3647-4F56-B189-9E8C0531FBAF}">
-    <r id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}" par="SpeakCoreVersion=%7b3F937240-C16E-4229-9641-4CE5B4CB4ABA%7d&amp;PageCodeScriptFileName=%2fsitecore%2fshell%2fclient%2fApplications%2fFormsBuilder%2fLayouts%2fActions%2fTriggerGoal.js" ph="Page.Code" uid="{0B0D3147-9F7C-417F-BEFE-E113D4D61569}" />
-    <r id="{EFCD0AB0-5B9D-4F1D-AB81-BE0336CD273C}" par="Id=HeaderTitle&amp;IsVisible=0" ph="Page.Body" uid="{96A7EEEE-1114-4D18-8DD8-33CBCD7D739D}" />
-    <r id="{EFCD0AB0-5B9D-4F1D-AB81-BE0336CD273C}" par="Id=HeaderSubtitle&amp;IsVisible=0" ph="Page.Body" uid="{CB222779-37C3-4379-B5A2-79C62636B0DF}" />
-    <r id="{08994B8F-7BF1-4963-815D-0FA8D75B3D86}" par="Id=CreateGoalButtonBorder&amp;ContentHorizontalAlignment=Right&amp;UsePadding=0" ph="Page.Body" uid="{3F828705-CD7D-4C2F-A603-E122C2440F0A}" />
-    <r id="{08994B8F-7BF1-4963-815D-0FA8D75B3D86}" par="Id=SpacingBorder&amp;PaddingType=All&amp;UsePadding=1" ph="Page.Body" uid="{A0627531-D6F1-4919-A568-CE13CF751F25}" />
-    <r id="{88C38B36-787A-43FA-85D4-FE08B0A4B7FF}" par="Id=CreateGoalButton&amp;IsEnabled=0" ph="CreateGoalButtonBorder.Content" uid="{8EF7F8C5-4E70-4E5D-9800-0404C2989F27}" />
-    <r id="{08994B8F-7BF1-4963-815D-0FA8D75B3D86}" par="Id=MainBorder" ph="Page.Body" uid="{CA2BB730-30FF-4E3F-91D6-E126B6DB6403}" />
-    <r id="{4D096960-FC73-4E0B-8D93-28736AD98E98}" par="Id=ItemTreeView" ph="MainBorder.Content" uid="{7F575716-19A9-4E71-8022-6372DD41A8E0}" />
-  </d>
-</r>
 ----version----
 language: da
 version: 1
-revision: 9cedb33a-f7f2-4f95-b84e-5f22750d0846
+revision: 553e1dad-7f3f-4ba0-8c9e-cad7e0d37877
 
 ----field----
-field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
-name: BrowserTitle
-key: browsertitle
-content-length: 11
+field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
+name: Text
+key: text
+content-length: 58
 
-Udløser mål
+Vælg den side, der skal vises, når der klikkes på knappen.
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 11
+content-length: 16
 
-Udløser mål
+HeaderUndertitel
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -67,7 +42,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T182934Z
+20171204T182956Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -81,14 +56,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-9cedb33a-f7f2-4f95-b84e-5f22750d0846
+553e1dad-7f3f-4ba0-8c9e-cad7e0d37877
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T182934Z
+20171204T182956Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -99,22 +74,22 @@ sitecore\admin
 ----version----
 language: de-DE
 version: 1
-revision: d3d727c7-1606-4aa8-b816-ec0cadfec2ad
+revision: 028c4b17-2742-4531-813e-ac40b883e6b1
 
 ----field----
-field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
-name: BrowserTitle
-key: browsertitle
-content-length: 13
+field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
+name: Text
+key: text
+content-length: 80
 
-Ziel auslösen
+Wählen Sie die Seite, die Sie anzeigen wollen, wenn der Button angeklickt wird. 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 13
+content-length: 16
 
-Ziel auslösen
+HeaderUntertitel
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -128,7 +103,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183308Z
+20171204T183333Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -142,14 +117,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d3d727c7-1606-4aa8-b816-ec0cadfec2ad
+028c4b17-2742-4531-813e-ac40b883e6b1
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183308Z
+20171204T183333Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -160,22 +135,15 @@ sitecore\admin
 ----version----
 language: en
 version: 1
-revision: 0fba4c22-6c66-4188-995d-44999ff17c72
+revision: da7f7171-107d-42b0-8704-1cdffc3976e4
 
 ----field----
-field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
-name: BrowserTitle
-key: browsertitle
-content-length: 20
+field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
+name: Text
+key: text
+content-length: 49
 
-Assign Pattern Cards
-----field----
-field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
-name: __Display name
-key: __display name
-content-length: 20
-
-Assign Pattern Cards
+Select the settings item for this form's patterns
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -189,7 +157,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20170330T100042Z
+20170403T085023Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -203,14 +171,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-0fba4c22-6c66-4188-995d-44999ff17c72
+da7f7171-107d-42b0-8704-1cdffc3976e4
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171213T220806Z
+20171215T165637Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -221,22 +189,22 @@ sitecore\admin
 ----version----
 language: ja-JP
 version: 1
-revision: 8d8dc915-a8e1-4d33-af96-ce7030dfc381
+revision: fe84e44b-2152-40f2-b6ac-b21931f1871f
 
 ----field----
-field: {7205A57F-93B4-413A-AA9A-6B16BBC59565}
-name: BrowserTitle
-key: browsertitle
-content-length: 8
+field: {240ACDCD-C405-4E49-A96A-B3CAAB843920}
+name: Text
+key: text
+content-length: 24
 
-ゴールをトリガー
+ボタンのクリック時に表示したいページを選択します
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 8
+content-length: 11
 
-ゴールをトリガー
+ヘッダー サブタイトル
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -250,7 +218,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171204T183609Z
+20171204T183634Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -264,14 +232,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-8d8dc915-a8e1-4d33-af96-ce7030dfc381
+fe84e44b-2152-40f2-b6ac-b21931f1871f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171204T183609Z
+20171204T183634Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
