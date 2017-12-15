@@ -129,6 +129,16 @@
       "DefaultValue": "Test12345",
       "Description": "The Sql password for the EXM Master connection string in Sitecore."
     },
+    "SqlMessagingUser": {
+      "Type": "string",
+      "DefaultValue": "messaginguser",
+      "Description": "The Sql user for the Messaging connection string in Sitecore."
+    },
+    "SqlMessagingPassword": {
+        "Type": "string",
+        "DefaultValue": "Test12345",
+        "Description": "The Sql password for the Messaging connection string in Sitecore."
+    },
     "SqlServer": {
       "Type": "string",
       "DefaultValue": ".\\SQL2016",
@@ -207,6 +217,7 @@
         "Sql.Database.Reference":   "[concat(parameter('SqlDbPrefix'), '_ReferenceData')]",
         "Sql.Database.Forms":       "[concat(parameter('SqlDbPrefix'), '_ExperienceForms')]",
         "Sql.Database.EXM.Master":  "[concat(parameter('SqlDbPrefix'), '_EXM.Master')]",
+        "Sql.Database.Messaging":   "[concat(parameter('SqlDbPrefix'), '_Messaging')]",
 
         // Solr core names.
         "Solr.Core.Name":        "[concat(parameter('SolrCorePrefix'), '_core_index')]",
@@ -368,6 +379,7 @@
                         { "Name": "XDB Reference Data DB Name", "Value": "[variable('Sql.Database.Reference')]" },
                         { "Name": "Experience Forms DB Name", "Value": "[variable('Sql.Database.Forms')]" },
                         { "Name": "EXM Master DB Name", "Value": "[variable('Sql.Database.EXM.Master')]" },
+                        { "Name": "Messaging DB Name", "Value": "[variable('Sql.Database.Messaging')]" },
                         { "Name": "Core DB User Name", "Value":  "[parameter('SqlCoreUser')]"},
                         { "Name": "Core DB User Password", "Value":  "[parameter('SqlCorePassword')]"},
                         { "Name": "Master DB User Name", "Value":  "[parameter('SqlMasterUser')]"},
@@ -382,6 +394,8 @@
                         { "Name": "Experience Forms DB User Password", "Value":  "[parameter('SqlFormsPassword')]"},
                         { "Name": "EXM Master DB User Name", "Value":  "[parameter('SqlExmMasterUser')]"},
                         { "Name": "EXM Master DB User Password", "Value":  "[parameter('SqlExmMasterPassword')]"},
+                        { "Name": "Messaging DB User Name", "Value":  "[parameter('SqlMessagingUser')]"},
+                        { "Name": "Messaging DB User Password", "Value":  "[parameter('SqlMessagingPassword')]"},
                         { "Name": "XConnect Collection", "Value": "[parameter('XConnectCollectionSearchService')]" },
                         { "Name": "Xdb Reference Data Client", "Value": "[parameter('XConnectReferenceDataService')]" },
                         { "Name": "XDB MA Reporting Client", "Value": "[parameter('MarketingAutomationReportingService')]" },
@@ -402,9 +416,9 @@
                         { "Name": "Solr Suggested Index Name", "Value": "[variable('Solr.Suggested.Name')]"},
                         { "Name": "Solr FXM Master Index Name", "Value": "[variable('Solr.FXM.Master.Name')]"},
                         { "Name": "Solr FXM Web Index Name", "Value": "[variable('Solr.FXM.Web.Name')]"},
-                        { "Name": "EXM EDS Provider", "Value": "[parameter('ExmEdsProvider')]"},
                         { "Name": "EXM Cryptographic Key", "Value": "[parameter('EXMCryptographicKey')]" },
                         { "Name": "EXM Authentication Key", "Value": "[parameter('EXMAuthenticationKey')]" },
+                        { "Name": "EXM EDS Provider", "Value": "[parameter('ExmEdsProvider')]"},
                         { "Name": "EXM Internal Api Key", "Value": "[parameter('EXMInternalApiKey')]" }
                     ]
                 }

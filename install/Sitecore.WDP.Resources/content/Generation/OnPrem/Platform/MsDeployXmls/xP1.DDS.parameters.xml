@@ -12,6 +12,7 @@
   <parameter name="XDB Reference Data DB Name"/>
   <parameter name="Experience Forms DB Name"/>
   <parameter name="EXM Master DB Name"/>
+  <parameter name="Messaging DB Name" />
   <parameter name="Core DB User Name" description="User name to access you Core database." tags="SQL, Hidden, DbUsername" />
   <parameter name="Core DB User Password" description="Password to access you Core database." tags="SQL, Hidden, DbUserPassword" />
   <parameter name="Master DB User Name" description="User name to access you Master database." tags="SQL, Hidden, DbUsername" />
@@ -26,6 +27,8 @@
   <parameter name="Experience Forms DB User Password" description="Password to access you Experience Forms database" tags="SQL, Hidden, DbUserPassword" />
   <parameter name="EXM Master DB User Name" description="User name to access you EXM Master database" tags="SQL, Hidden, DbUsername" />
   <parameter name="EXM Master DB User Password" description="Password to access you EXM Master database" tags="SQL, Hidden, DbUserPassword"/>
+  <parameter name="Messaging DB User Name" description="User name to access you Messaging database" tags="SQL, Hidden, DbUsername" />
+  <parameter name="Messaging DB User Password" description="Password to access you Messaging database" tags="SQL, Hidden, DbUserPassword" />
 
   <parameter name="Master Connection String" description="Connection string to enter into config" tags="SQL, Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Master DB Name};User ID={Master DB User Name};Password={Master DB User Password}">
     <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='master']/@connectionString" />
@@ -50,6 +53,9 @@
   </parameter>
   <parameter name="SOLR Connection String" description="SOLR Connection String" tags="Hidden,NoStore">
     <parameterEntry kind="XmlFile" scope="App_Config\\Sitecore\\ContentSearch\\Sitecore.ContentSearch.Solr.DefaultIndexConfiguration\.config$" match="//configuration/sitecore/settings/setting[@name='ContentSearch.Solr.ServiceBaseAddress']/@value" />
+  </parameter>
+  <parameter name="Messaging Connection String" description="Connection string to connect to your Messaging database" tags="SQL, Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Messaging DB Name};User ID={Messaging DB User Name};Password={Messaging DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='messaging']/@connectionString" />
   </parameter>
   <parameter name="XConnect Collection" description="XConnect Collection" tags="Hidden,NoStore">
     <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xconnect.collection']/@connectionString" />
@@ -130,6 +136,9 @@
     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\Marketing\.Operations\.xMgmt\\Sitecore\.Marketing\.Solr\.Index\.Web\.config" match="//index/param[@desc='core']/text()" />
   </parameter>
   
+   <parameter name="EXM EDS Provider" tags="Hidden,NoStore" defaultValue="CustomSmtp">
+     <parameterEntry kind="XmlFile" scope="Web\.config$" match="//configuration/appSettings/add[@key='eds:define']/@value" />
+   </parameter>
   <parameter name="EXM Cryptographic Key" description="Cryptographic Key" tags="Hidden, SQLConnectionString, NoStore">
     <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='EXM.CryptographicKey']/@connectionString" />
   </parameter>
@@ -138,9 +147,5 @@
   </parameter>
   <parameter name="EXM Internal Api Key" description="Internal Api Key" tags="Hidden, SQLConnectionString, NoStore">
     <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='EXM.InternalApiKey']/@connectionString" />
-  </parameter>
-  
-  <parameter name="EXM EDS Provider" tags="Hidden,NoStore" defaultValue="CustomSmtp">
-    <parameterEntry kind="XmlFile" scope="Web\.config$" match="//configuration/appSettings/add[@key='eds:define']/@value" />
   </parameter>
 </parameters>

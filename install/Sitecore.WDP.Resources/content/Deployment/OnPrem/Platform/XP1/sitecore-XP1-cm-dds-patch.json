@@ -63,22 +63,6 @@
         // By default, tasks are applied in the order they are declared.
         // Tasks may reference Parameters, Variables, and config functions.
 
-        "StopWebsite": {
-            // Stops the website if it is running.
-            "Type": "ManageWebsite",
-            "Params": {
-                "Name": "[parameter('SiteName')]",
-                "Action": "Stop"
-            }
-        },
-        "StopAppPool": {
-            // Stops the app pool if it is running.
-            "Type": "ManageAppPool",
-            "Params": {
-                "Name": "[parameter('SiteName')]",
-                "Action": "Stop"
-            }
-        },
 		  "InstallDDSPatchWDP": {
             // Syncs the web deploy package with the website.
             "Type": "WebDeploy",
@@ -101,22 +85,6 @@
                 }
             }
         },
-        "StartAppPool": {
-            // Starts the app pool.
-            "Type": "ManageAppPool",
-            "Params": {
-                "Name": "[parameter('SiteName')]",
-                "Action": "Start"
-            }
-        },
-        "StartWebsite": {
-            // Starts the website.
-            "Type": "ManageWebsite",
-            "Params": {
-                "Name": "[parameter('SiteName')]",
-                "Action": "Start"
-            }
-        },
         "TransformXmlDocuments": {
             "Type": "TransformXmlDoc",
             "Params":{
@@ -125,5 +93,5 @@
             }
         }
     },
-  "Modules": [ ".\\SimpleScalingScripts9_WDP\\patchExtensions.ps1" ]
+  "Modules": [ ".\\sitecore-XP1-cm-dds-patch.ps1" ]
 }

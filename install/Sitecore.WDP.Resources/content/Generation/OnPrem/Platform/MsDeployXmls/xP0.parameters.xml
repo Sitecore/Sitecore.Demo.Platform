@@ -186,7 +186,12 @@
   <parameter name="EXM EDS Provider" tags="Hidden,NoStore" defaultValue="CustomSmtp">
     <parameterEntry kind="XmlFile" scope="Web\.config$" match="//configuration/appSettings/add[@key='eds:define']/@value" />
   </parameter>
-
+  <parameter name="EXM Cryptographic Key" description="Cryptographic Key" tags="Hidden, SQLConnectionString, NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='EXM.CryptographicKey']/@connectionString" />
+  </parameter>
+  <parameter name="EXM Authentication Key" description="Authentication Key" tags="Hidden, SQLConnectionString, NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='EXM.AuthenticationKey']/@connectionString" />
+  </parameter>
   <parameter name="Solr Core Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
      <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\ContentSearch\\Sitecore\.ContentSearch\.Solr\.Index\.Core\.config" match="//index/param[@desc='core']/text()" />
    </parameter>

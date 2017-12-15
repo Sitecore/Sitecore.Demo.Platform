@@ -171,6 +171,16 @@
           "DefaultValue": "CustomSMTP",
           "Description": "The default EDS provider to be used."
         },
+        "EXMCryptographicKey": {
+            "Type": "string",
+            "DefaultValue": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "Description": "64 digits hexadecimal EXM Cryptographic Key."
+        },
+        "EXMAuthenticationKey": {
+            "Type": "string",
+            "DefaultValue": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "Description": "64 digits hexadecimal EXM Authentication Key."
+        },        
         "SolrUrl": {
             "Type": "string",
             "DefaultValue": "https://localhost:8983/solr",
@@ -402,7 +412,9 @@
                         { "Name": "Solr FXM Master Index Name", "Value": "[variable('Solr.FXM.Master.Name')]" },
                         { "Name": "Solr FXM Web Index Name", "Value": "[variable('Solr.FXM.Web.Name')]" },
                         { "Name": "Telerik Encryption Key", "Value": "[parameter('TelerikEncryptionKey')]" },
-                        { "Name": "EXM EDS Provider", "Value": "[parameter('ExmEdsProvider')]"}
+                        { "Name": "EXM EDS Provider", "Value": "[parameter('ExmEdsProvider')]"},
+                        { "Name": "EXM Cryptographic Key", "Value": "[parameter('EXMCryptographicKey')]" },
+                        { "Name": "EXM Authentication Key", "Value": "[parameter('EXMAuthenticationKey')]" }
                     ]
                 }
             }
