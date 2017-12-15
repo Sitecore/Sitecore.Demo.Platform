@@ -219,6 +219,19 @@
         }
 
         [RedirectUnauthenticated]
+        public ActionResult BasicInformation()
+        {
+            if (!Context.PageMode.IsNormal)
+            {
+                return this.View(this.UserProfileService.GetEmptyProfile());
+            }
+
+            var profile = this.UserProfileService.GetProfile(Context.User);
+
+            return this.View(profile);
+        }
+
+        [RedirectUnauthenticated]
         public ActionResult EditProfile()
         {
             if (!Context.PageMode.IsNormal)
