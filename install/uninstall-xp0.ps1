@@ -1,5 +1,5 @@
 Param(
-    [string] $ConfigurationFile = "install-xp0.json"
+    [string] $ConfigurationFile = "configuration-xp0.json"
 )
 
 #####################################################
@@ -8,7 +8,7 @@ Param(
 # 
 #####################################################
 $ErrorActionPreference = 'Stop'
-cd $PSScriptRoot
+Set-Location $PSScriptRoot
 
 if (!(Test-Path $ConfigurationFile)){
     Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
@@ -27,7 +27,7 @@ $solr = $config.settings.solr
 $assets = $config.assets
 
 Write-Host "*******************************************************" -ForegroundColor Green
-Write-Host " UN Installing Sitecore $($assets.sitecoreVersion)" -ForegroundColor Green
+Write-Host " UNInstalling Sitecore $($assets.sitecoreVersion)" -ForegroundColor Green
 Write-Host " Sitecore: $($sitecore.siteName)" -ForegroundColor Green
 Write-Host " xConnect: $($xConnect.siteName)" -ForegroundColor Green
 Write-Host "*******************************************************" -ForegroundColor Green
@@ -69,10 +69,10 @@ Remove-SitecoreFiles $xConnect.siteRoot
 
 # Delete xconnect cores
 
-gwmi win32_service  -Filter "name like '$($solr.serviceName)'" | Stop-Service 
+Get-WmiObject win32_service  -Filter "name like '$($solr.serviceName)'" | Stop-Service 
 Remove-SitecoreSolrCore "$($site.prefix)_xdb" -Root $solr.root
 Remove-SitecoreSolrCore "$($site.prefix)_xdb_rebuild" -Root $solr.root
-gwmi win32_service  -Filter "name like '$($solr.serviceName)'" | Start-Service 
+Get-WmiObject win32_service  -Filter "name like '$($solr.serviceName)'" | Start-Service 
 
 # Delete xconnect server certificate
 Remove-SitecoreCertificate $xConnect.siteName
@@ -87,12 +87,14 @@ Remove-SitecoreDatabase -Name "$($site.prefix)_Core" -Server $database
 Remove-SitecoreDatabase -Name "$($site.prefix)_ExperienceForms" -Server $database
 Remove-SitecoreDatabase -Name "$($site.prefix)_Master" -Server $database
 Remove-SitecoreDatabase -Name "$($site.prefix)_Web" -Server $database
+Remove-SitecoreDatabase -Name "$($site.prefix)_EXM.Master" -Server $database
+Remove-SitecoreDatabase -Name "$($site.prefix)_Messaging" -Server $database
 
 # Delete sitecore files
 Remove-SitecoreFiles $sitecore.siteRoot
 
 # Delete sitecore cores
-gwmi win32_service  -Filter "name like '$($solr.serviceName)'" | Stop-Service 
+Get-WmiObject win32_service  -Filter "name like '$($solr.serviceName)'" | Stop-Service 
 Remove-SitecoreSolrCore "$($site.prefix)_core_index" -Root $solr.root
 Remove-SitecoreSolrCore "$($site.prefix)_master_index" -Root $solr.root
 Remove-SitecoreSolrCore "$($site.prefix)_web_index" -Root $solr.root
@@ -104,7 +106,10 @@ Remove-SitecoreSolrCore "$($site.prefix)_testing_index" -Root $solr.root
 Remove-SitecoreSolrCore "$($site.prefix)_suggested_test_index" -Root $solr.root
 Remove-SitecoreSolrCore "$($site.prefix)_fxm_master_index" -Root $solr.root
 Remove-SitecoreSolrCore "$($site.prefix)_fxm_web_index" -Root $solr.root
-gwmi win32_service  -Filter "name like '$($solr.serviceName)'" | Start-Service 
+Get-WmiObject win32_service  -Filter "name like '$($solr.serviceName)'" | Start-Service 
 
 # Delete sitecore certificate
 Remove-SitecoreCertificate $sitecore.siteName
+
+# Drop the SQL Collectionuser login
+Remove-SitecoreDatabaseLogin -Server $database, -Name $($xConnect.sqlCollectionUser)

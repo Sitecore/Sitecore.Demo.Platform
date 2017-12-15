@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<system.webServer>
+		<rewrite xdt:Transform="InsertIfMissing">
+			<rules>
+				<rule name="Root Hit Force HTTPS Redirection" enabled="true" stopProcessing="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)">
+					<match url="^$" ignoreCase="false"/>
+					<conditions>
+						<add input="{HTTPS}" pattern="^OFF$"/>
+						<add input="{HTTP_METHOD}" pattern="GET"/>
+					</conditions>
+					<action type="Redirect" url="https://{HTTP_HOST}/" redirectType="Permanent"/>
+				</rule>
+				<rule name="Sitecore Login or Admin Force HTTPS Redirection" enabled="true" stopProcessing="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)">
+					<match url="^(sitecore/(login|admin))$"/>
+					<conditions>
+						<add input="{HTTPS}" pattern="^OFF$"/>
+						<add input="{HTTP_METHOD}" pattern="GET"/>
+					</conditions>
+					<action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent"/>
+				</rule>
+				<rule name="Forbidden" enabled="true" stopProcessing="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)">
+					<match url="(.*)"/>
+					<conditions>
+						<add input="{HTTPS}" pattern="^OFF$"/>
+						<add input="{HTTP_METHOD}" pattern="GET"/>
+					</conditions>
+					<action type="CustomResponse" statusCode="403" subStatusCode="0"/>
+				</rule>
+			</rules>
+		</rewrite>
+	</system.webServer>
+</configuration>

@@ -95,6 +95,16 @@
             "DefaultValue": "Test12345",
             "Description": "The Sql password for the Marketing Automation connection string in Sitecore."
         },
+        "SqlMessagingUser": {
+            "Type": "string",
+            "DefaultValue": "messaginguser",
+            "Description": "The Sql user for the Messaging connection string in Sitecore."
+        },
+        "SqlMessagingPassword": {
+            "Type": "string",
+            "DefaultValue": "Test12345",
+            "Description": "The Sql password for the Messaging connection string in Sitecore."
+        },
         "SqlServer": {
             "Type": "string",
             "DefaultValue": ".\\SQLSERVER",
@@ -123,6 +133,7 @@
         "Sql.Database.Shard1":              "[concat(variable('Sharding.Database.Prefix'), '1')]",
         "Sql.Database.Pools":               "[concat(parameter('SqlDbPrefix'), '_Processing.Pools')]",
         "Sql.Database.MarketingAutomation": "[concat(parameter('SqlDbPrefix'), '_MarketingAutomation')]",
+        "Sql.Database.Messaging":           "[concat(parameter('SqlDbPrefix'), '_Messaging')]",
         "Sql.Database.Reference":           "[concat(parameter('SqlDbPrefix'), '_ReferenceData')]",
 
         // The security certificate details
@@ -159,7 +170,10 @@
             "ContactIdentifiersIndexShardMap"
         ],
         "Sharding.DB.Connection": "[sqlconnectionstring(parameter('SqlServer'), '', parameter('SqlAdminUser'), parameter('SqlAdminPassword'))]",
-        "Sharding.Edition": "Basic",
+        "Sharding.Edition": "Basic",        
+        "Sharding.SqlCmd.Path.CreateShardApplicationDatabaseServerLogin":   "[joinpath(variable('Sharding.Root.Path'), 'CreateShardApplicationDatabaseServerLogin.sql')]",
+        "Sharding.SqlCmd.Path.CreateShardManagerApplicationDatabaseUser":   "[joinpath(variable('Sharding.Root.Path'), 'CreateShardManagerApplicationDatabaseUser.sql')]",
+        "Sharding.SqlCmd.Path.CreateShardApplicationDatabaseUser":          "[joinpath(variable('Sharding.Root.Path'), 'CreateShardApplicationDatabaseUser.sql')]",
 
         // The solr configuration details.
         "Xdb.Name":         "[concat(parameter('SolrCorePrefix'), '_xdb')]",
@@ -340,6 +354,7 @@
                         { "Name": "Collection Shard 1 Database Name", "Value": "[variable('Sql.Database.Shard1')]" },
                         { "Name": "Processing Pools Database Name", "Value": "[variable('Sql.Database.Pools')]" },
                         { "Name": "Marketing Automation Database Name", "Value": "[variable('Sql.Database.MarketingAutomation')]" },
+                        { "Name": "Messaging Database Name", "Value": "[variable('Sql.Database.Messaging')]" },
                         { "Name": "Reference Data Database Name", "Value": "[variable('Sql.Database.Reference')]" },
                         { "Name": "Search SOLR Core Application Connection String", "Value": "[variable('Solr.Url.Xdb')]" },
                         { "Name": "XConnect Server Configuration Environment", "Value": "[parameter('XConnectEnvironment')]" },
@@ -356,7 +371,9 @@
                         { "Name": "Reference Data Database Application User Name", "Value": "[parameter('SqlReferenceDataUser')]" },
                         { "Name": "Reference Data Database Application User Password", "Value": "[parameter('SqlReferenceDataPassword')]" },
                         { "Name": "Marketing Automation Database Application User Name", "Value": "[parameter('SqlMarketingAutomationUser')]" },
-                        { "Name": "Marketing Automation Database Application User Password", "Value": "[parameter('SqlMarketingAutomationPassword')]" }
+                        { "Name": "Marketing Automation Database Application User Password", "Value": "[parameter('SqlMarketingAutomationPassword')]" },
+                        { "Name": "Messaging Database Application User Name", "Value": "[parameter('SqlMessagingUser')]" },
+                        { "Name": "Messaging Database Application User Password", "Value": "[parameter('SqlMessagingPassword')]" }
                     ]
                 }
             }
@@ -424,6 +441,90 @@
                     "/dacpac", "[variable('Sharding.DacPac.Path')]"
                 ],
                 "TaskName": "ShardingTool - Create"
+            }
+        },
+        "CreateShardApplicationDatabaseServerLoginSqlCmd": {
+            // Create Collection Shard Database Server Login
+            "Type": "Command",
+            "Params": {
+                "Path": "sqlcmd",
+                "Arguments": [
+                    "-i",
+                    "[variable('Sharding.SqlCmd.Path.CreateShardApplicationDatabaseServerLogin')]",
+                    "-S",
+                    "[parameter('SqlServer')]",
+                    "-U",
+                    "[parameter('SqlAdminUser')]",
+                    "-P",
+                    "[parameter('SqlAdminPassword')]",
+                    "-v",
+                    "[concat('UserName=',parameter('SqlCollectionUser'))]",
+                    "-v",
+                    "[concat('Password=',parameter('SqlCollectionPassword'))]"
+                ]
+            }
+        },
+        "CreateShardManagerApplicationDatabaseUserSqlCmd": {
+            // Create Collection Shard Manager Database User
+            "Type": "Command",
+            "Params": {
+                "Path": "sqlcmd",
+                "Arguments": [
+                    "-i",
+                    "[variable('Sharding.SqlCmd.Path.CreateShardManagerApplicationDatabaseUser')]",
+                    "-S",
+                    "[parameter('SqlServer')]",
+                    "-U",
+                    "[parameter('SqlAdminUser')]",
+                    "-P",
+                    "[parameter('SqlAdminPassword')]",
+                    "-v",
+                    "[concat('UserName=',parameter('SqlCollectionUser'))]",
+                    "-v",
+                    "[concat('ShardMapManagerDatabaseName=',variable('Sql.Database.ShardMapManager'))]"
+                ]
+            }
+        },
+        "CreateShard0ApplicationDatabaseUserSqlCmd": {
+            // Create Collection Shard 0 Database User
+            "Type": "Command",
+            "Params": {
+                "Path": "sqlcmd",
+                "Arguments": [
+                    "-i",
+                    "[variable('Sharding.SqlCmd.Path.CreateShardApplicationDatabaseUser')]",
+                    "-S",
+                    "[parameter('SqlServer')]",
+                    "-U",
+                    "[parameter('SqlAdminUser')]",
+                    "-P",
+                    "[parameter('SqlAdminPassword')]",
+                    "-v",
+                    "[concat('UserName=',parameter('SqlCollectionUser'))]",
+                    "-v",
+                    "[concat('ShardDatabaseName=',variable('Sql.Database.Shard0'))]"
+                ]
+            }
+        },
+        "CreateShard1ApplicationDatabaseUserSqlCmd": {
+            // Create Collection Shard 1 Database User
+            "Type": "Command",
+            "Params": {
+                "Path": "sqlcmd",
+                "Arguments": [
+                    "-i",
+                    "[variable('Sharding.SqlCmd.Path.CreateShardApplicationDatabaseUser')]",
+                    "-S",
+                    "[parameter('SqlServer')]",
+                    "-U",
+                    "[parameter('SqlAdminUser')]",
+                    "-P",
+                    "[parameter('SqlAdminPassword')]",
+                    "-v",
+                    "[concat('UserName=',parameter('SqlCollectionUser'))]",
+                    "-v",
+                    "[concat('ShardDatabaseName=',variable('Sql.Database.Shard1'))]"
+                ]
             }
         },
         "CreateServicesLogPaths": {
