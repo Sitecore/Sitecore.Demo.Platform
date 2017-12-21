@@ -2,7 +2,7 @@
   [string] $Major = "9",
   [string] $Minor = "0",
   [string] $Update = "1",
-  [string] $Date = "171204",
+  [string] $Date = "171219",
   [string] $nugetPath = ".\tools\nuget.exe",
   [string] $downloadsPath = "C:\\inetpub\\wwwroot\\habitat.dev.local",
   [string] $outputPath = "C:\\LocalNuGet\\Generated",
