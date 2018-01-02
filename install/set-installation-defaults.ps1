@@ -72,7 +72,7 @@ $spe = $modules | Where-Object { $_.id -eq "spe"}
 $spe.packagePath = Join-Path $assets.root "packages\spe-latest.zip"
 $spe.install = $true
 $sxa = $modules | Where-Object { $_.id -eq "sxa"}
-$sxa.packagePath = Join-Path $assets.root "packages\sxa-nightly.zip"
+$sxa.packagePath = Join-Path $assets.root "packages\Sitecore Experience Accelerator 1.6 rev. 171222 for 9.0.zip"
 $sxa.install = $true
 
 Set-Content $ConfigurationFile  (ConvertTo-Json -InputObject $json -Depth 3 )
