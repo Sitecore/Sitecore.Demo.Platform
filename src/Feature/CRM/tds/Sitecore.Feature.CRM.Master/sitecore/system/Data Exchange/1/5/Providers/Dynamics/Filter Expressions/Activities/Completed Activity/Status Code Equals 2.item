@@ -1,0 +1,94 @@
+----item----
+version: 1
+id: {E723820B-1826-4FCA-8CEA-78B20CCF70EB}
+database: master
+path: /sitecore/system/Data Exchange/Habitat Home Tenant/Tenant Settings/Providers/Dynamics/Filter Expressions/Activities/Completed Activity/Status Code Equals 2
+parent: {5157791F-A478-4368-B961-08B05A76C1FD}
+name: Status Code Equals 2
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {81748153-7100-4C60-8A09-29C1109128E8}
+templatekey: Numeric Condition Expression
+created: 20180102T112735Z
+
+----field----
+field: {7A97A031-8C1A-4A31-B97A-329AFAFF9017}
+name: LeftValueAccessor
+key: leftvalueaccessor
+content-length: 38
+
+{B5932189-7B37-47A2-B235-CAF5B0309DC9}
+----field----
+field: {9E4E3098-9E1A-4075-9345-BF96F49CE081}
+name: ConditionOperator
+key: conditionoperator
+content-length: 38
+
+{9449E935-2E93-4A5D-ACCD-6DECB350974D}
+----field----
+field: {A5B4631C-CA3E-41B6-816C-6D7D3D11FFBE}
+name: Value
+key: value
+content-length: 1
+
+2
+----field----
+field: {677A262F-7D7C-45AB-8D3C-9D612E502310}
+name: ValueType
+key: valuetype
+content-length: 38
+
+{49D45275-E135-48D0-99D6-0C1A5BAF889E}
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{E723820B-1826-4FCA-8CEA-78B20CCF70EB}
+----version----
+language: en
+version: 1
+revision: d7d84aa1-e28c-4f32-aac3-5de3f3cf6d8e
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112735Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+d7d84aa1-e28c-4f32-aac3-5de3f3cf6d8e
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180102T113023Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+sitecore\Anonymous

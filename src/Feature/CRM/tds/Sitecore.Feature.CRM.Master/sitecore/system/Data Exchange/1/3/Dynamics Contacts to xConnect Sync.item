@@ -1,0 +1,94 @@
+----item----
+version: 1
+id: {99092E16-4534-4A0C-92C2-76E49556024A}
+database: master
+path: /sitecore/system/Data Exchange/Habitat Home Tenant/Pipeline Batches/Dynamics Contacts to xConnect Sync
+parent: {82F70D8F-D32E-4728-856F-D9578CC72159}
+name: Dynamics Contacts to xConnect Sync
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {075C4FBD-F54E-4E6D-BD54-D49BDA0913D8}
+templatekey: Pipeline Batch
+created: 20180102T112643Z
+
+----field----
+field: {9061BEEA-DF25-4B2B-A698-3F5B4E867D18}
+name: Pipelines
+key: pipelines
+content-length: 38
+
+{453425AD-792E-44D9-8E77-5A3875C7A1C7}
+----field----
+field: {985BA535-0F3E-4DA8-A768-A469026DE9DB}
+name: RequestedAt
+key: requestedat
+content-length: 16
+
+20180102T114115Z
+----field----
+field: {6A2B2CBB-4338-4814-A8A9-9FECBB90456A}
+name: LastRunFinished
+key: lastrunfinished
+content-length: 16
+
+20180102T114257Z
+----field----
+field: {2AA5C591-FF55-411D-96C0-978BB2C58B94}
+name: Log
+key: log
+content-length: 134
+
+C:\inetpub\wwwroot\sc9demo.local\App_Data\logs\DataExchange\Habitat.Home.Tenant\Dynamics.Contacts.to.xConnect.Sync.20180102.114115.txt
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{99092E16-4534-4A0C-92C2-76E49556024A}
+----version----
+language: en
+version: 1
+revision: 13ebac43-4910-4c2f-b02e-1759882af354
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112644Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+13ebac43-4910-4c2f-b02e-1759882af354
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180102T114257Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

@@ -1,0 +1,52 @@
+----item----
+version: 1
+id: {7E500937-8376-BAAF-38B2-C2479A77D530}
+database: master
+path: /sitecore/system/Settings/Data Exchange/Providers/xConnect/Collection Models/Connect for Dynamics/Connect for Dynamics Collection Model/Facets/Interaction/DynamicsInteraction
+parent: {5F949331-9683-FAEF-F336-11B1E2B11E44}
+name: DynamicsInteraction
+master: {00000000-0000-0000-0000-000000000000}
+template: {BE9BFD91-0509-4573-807E-D8BE6AF7034F}
+templatekey: Declared Facet
+created: 00010101T000000
+
+----field----
+field: {207561E7-E95F-4034-8C2D-39FA5F40C381}
+name: FacetName
+key: facetname
+content-length: 19
+
+DynamicsInteraction
+----field----
+field: {3490E0F9-4CC2-466F-8262-B1D39B1BC8A2}
+name: FacetType
+key: facettype
+content-length: 123
+
+Sitecore.DataExchange.Tools.DynamicsConnect.Facets.DynamicsActivityInteraction, Sitecore.DataExchange.Tools.DynamicsConnect
+----field----
+field: {B96D5D51-1372-41C5-A3A7-FFF17BA34089}
+name: CollectionModelType
+key: collectionmodeltype
+content-length: 126
+
+Sitecore.DataExchange.Tools.DynamicsConnect.Models.DynamicsConnectCollectionModel, Sitecore.DataExchange.Tools.DynamicsConnect
+----field----
+field: {34B08F94-E310-4D8D-BABB-24B619032967}
+name: EntityType
+key: entitytype
+content-length: 38
+
+{C2BC584F-39E5-140E-B537-4D6F321BCA9A}
+----version----
+language: en
+version: 1
+revision: 
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 30
+
+XdbCollectionModelDataProvider

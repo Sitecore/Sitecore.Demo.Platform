@@ -1,0 +1,108 @@
+----item----
+version: 1
+id: {6296AEF1-EB9D-48D7-BB63-3F776FA98322}
+database: master
+path: /sitecore/system/Data Exchange/Habitat Home Tenant/Tenant Settings/Providers/Dynamics/Link Entities/List Members/List Member to Contact Link
+parent: {F7806887-AF68-4970-A1FD-6726D8B303E9}
+name: List Member to Contact Link
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {1D0BE1BD-1EE8-4A3E-BFEC-689BFACF2860}
+templatekey: Link Entity
+created: 20180102T112738Z
+
+----field----
+field: {A54F7604-52EC-4474-9CB6-F5978CAB2888}
+name: JoinOperator
+key: joinoperator
+content-length: 5
+
+Inner
+----field----
+field: {7F4CF79F-73FD-42E5-9C07-2184193AFFAF}
+name: LinkFromEntityName
+key: linkfromentityname
+content-length: 10
+
+listmember
+----field----
+field: {F9E3D2D8-C4FE-4E83-9633-D74FA825CECC}
+name: LinkFromAttributeValueAccessor
+key: linkfromattributevalueaccessor
+content-length: 38
+
+{FDBEF87B-3135-4A37-863A-C56FFC0C51FA}
+----field----
+field: {C726E7A4-A377-4A84-AE23-91E2CAD7DA3D}
+name: LinkToEntityName
+key: linktoentityname
+content-length: 7
+
+contact
+----field----
+field: {3D908798-0B3F-4ED8-9DCF-9DF00A713AE8}
+name: LinkToAttributeValueAccessor
+key: linktoattributevalueaccessor
+content-length: 38
+
+{D7F97DCB-7E39-4EB1-93BF-31F8F6438321}
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{6296AEF1-EB9D-48D7-BB63-3F776FA98322}
+----version----
+language: en
+version: 1
+revision: 50d2754e-833e-4fd4-b803-0254d16f42e5
+
+----field----
+field: {008F2CCD-7B44-4D13-B78A-87F134A7E460}
+name: EntityAlias
+key: entityalias
+content-length: 7
+
+contact
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112738Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+50d2754e-833e-4fd4-b803-0254d16f42e5
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180102T113024Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+sitecore\Anonymous

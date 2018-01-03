@@ -1,0 +1,80 @@
+----item----
+version: 1
+id: {397C2CD9-C48C-4A49-9D63-1AB620D43544}
+database: master
+path: /sitecore/system/Data Exchange/Habitat Home Tenant/Pipelines/Dynamics Marketing Lists to xConnect Sync Pipelines/Update Membership on a Single Contact/Apply Added Mapping Pipeline Step
+parent: {722C4202-4D7D-4CF2-9E39-BE8D9423931B}
+name: Apply Added Mapping Pipeline Step
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {8E726575-35CF-48A0-B2C9-00C30D16F2D9}
+templatekey: Apply Mapping Pipeline Step
+created: 20180102T112701Z
+
+----field----
+field: {CB970E4D-AA7C-4AD1-8984-59BF01163D08}
+name: MappingSet
+key: mappingset
+content-length: 38
+
+{7A3A09DE-3D53-406C-BD81-E874AB9CA451}
+----field----
+field: {DC6CCAB3-A90F-4F91-82A9-7D358B0039FF}
+name: SourceObjectLocation
+key: sourceobjectlocation
+content-length: 38
+
+{252FC7D6-BF86-445F-A952-7B9268A47FDA}
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{397C2CD9-C48C-4A49-9D63-1AB620D43544}
+----version----
+language: en
+version: 1
+revision: f74a5ac3-01e8-4c4a-bef6-75c23d050e57
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112702Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+f74a5ac3-01e8-4c4a-bef6-75c23d050e57
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180102T113008Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+sitecore\Anonymous
