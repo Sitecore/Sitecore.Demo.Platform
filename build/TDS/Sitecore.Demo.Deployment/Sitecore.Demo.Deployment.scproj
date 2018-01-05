@@ -73,6 +73,12 @@
     <BundledProject Include="..\..\..\src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj">
       <ProjectId>{3e21fc58-e2b6-4de9-94c3-ff38c7cf0402}</ProjectId>
     </BundledProject>
+    <BundledProject Include="..\..\..\src\Feature\Forms\tds\Sitecore.Feature.Forms.Core\Sitecore.Feature.Forms.Core.scproj">
+      <ProjectId>{2ad001bf-4378-4056-b7e9-993a9e43a1c7}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\..\..\src\Feature\Forms\tds\Sitecore.Feature.Forms.Master\Sitecore.Feature.Forms.Master.scproj">
+      <ProjectId>{528e10e7-7bad-4ef2-9076-d31b31bbddf9}</ProjectId>
+    </BundledProject>
     <BundledProject Include="..\..\..\src\Foundation\Accounts\tds\Sitecore.Foundation.Accounts.Master\Sitecore.Foundation.Accounts.Master.scproj">
       <ProjectId>{2c337d0a-2483-4a8c-9ecd-5d823481ebed}</ProjectId>
     </BundledProject>
@@ -99,6 +105,12 @@
     <ProjectReference Include="..\..\..\src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Feature\Forms\tds\Sitecore.Feature.Forms.Core\Sitecore.Feature.Forms.Core.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Feature\Forms\tds\Sitecore.Feature.Forms.Master\Sitecore.Feature.Forms.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\src\Foundation\Accounts\tds\Sitecore.Foundation.Accounts.Master\Sitecore.Foundation.Accounts.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
@@ -116,13 +128,13 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets') and !Exists('..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
-  <Import Project="..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets'))" />
     <Error Condition="!Exists('..\..\..\packages\Hedgehog.TDS.BuildExtensions.GitDeltaDeploy.2.0.1\build\Hedgehog.TDS.BuildExtensions.GitDeltaDeploy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Hedgehog.TDS.BuildExtensions.GitDeltaDeploy.2.0.1\build\Hedgehog.TDS.BuildExtensions.GitDeltaDeploy.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.11\build\HedgehogDevelopment.TDS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.11\build\HedgehogDevelopment.TDS.targets'))" />
   </Target>
   <Import Project="..\..\..\packages\Hedgehog.TDS.BuildExtensions.GitDeltaDeploy.2.0.1\build\Hedgehog.TDS.BuildExtensions.GitDeltaDeploy.targets" Condition="Exists('..\..\..\packages\Hedgehog.TDS.BuildExtensions.GitDeltaDeploy.2.0.1\build\Hedgehog.TDS.BuildExtensions.GitDeltaDeploy.targets')" />
+  <Import Project="..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.11\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.11\build\HedgehogDevelopment.TDS.targets')" />
 </Project>
