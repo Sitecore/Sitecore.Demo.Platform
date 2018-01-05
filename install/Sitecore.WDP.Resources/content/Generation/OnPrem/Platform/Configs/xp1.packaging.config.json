@@ -1,0 +1,29 @@
+{
+  "scwdps":[
+    {
+        "role" : "cd",
+        "parametersXml": "xP1.CD.parameters.xml",
+        "sccpls" : ["Sitecore.RoleSpecific_CD.sccpl", "Sitecore.Search.Solr.sccpl", "Sitecore.Security_CD.sccpl"]
+    },
+    {
+        "role" : "cm",
+        "parametersXml": "xP1.CM.parameters.xml",
+        "sccpls" : ["Sitecore.RoleSpecific_CM.sccpl", "Sitecore.Search.Solr.sccpl", "Sitecore.HttpsRedirection.sccpl"]
+    },
+    {
+        "role" : "prc",
+        "parametersXml": "xP1.PRC.parameters.xml",
+        "sccpls" : ["Sitecore.RoleSpecific_PRC.sccpl", "Sitecore.Search.Solr.sccpl", "Sitecore.HttpsRedirection.sccpl"]
+    },
+    {
+        "role" : "rep",
+        "parametersXml": "xP1.REP.parameters.xml",
+        "sccpls" : ["Sitecore.RoleSpecific_REP.sccpl", "Sitecore.Search.Solr.sccpl", "Sitecore.HttpsRedirection.sccpl"]
+    },
+    {
+      "role" : "dds",
+      "parametersXml" : "xP1.DDS.parameters.xml",
+      "sccpls" : [ "Sitecore.RoleSpecific_DDS.sccpl", "Sitecore.Search.Solr.sccpl", "Sitecore.HttpsRedirection.sccpl" ]
+    }
+  ]
+}
