@@ -1,8 +1,8 @@
 ﻿param(
-  [string] $Major = "9",
-  [string] $Minor = "0",
-  [string] $Update = "1",
-  [string] $Date = "171219",
+  [string] $Major = "1",
+  [string] $Minor = "6",
+  [string] $Update = "0",
+  [string] $Date = "171222",
   [string] $nugetPath = ".\tools\nuget.exe",
   [string] $downloadsPath = "C:\\inetpub\\wwwroot\\habitat.dev.local",
   [string] $outputPath = "C:\\LocalNuGet\\Generated",
@@ -26,14 +26,14 @@ function Publish-NugetPackageFromWebsiteBin(
   {
     $updateText = "$major.$minor Update-$update"
   }
-  $description = "Sitecore Experience Platform $major.$minor rev. $date ($updateText) Preview Release"
+  $description = "Sitecore Experience Accelerator $major.$minor rev. $date ($updateText) Preview Release"
   $version = "$major.$minor.$update.$date"
   # clean-up
   $output = New-Item -ItemType Directory -Path ($outputPath + "\" + [System.Guid]::NewGuid())
   echo 'Output is ' + $outputPath
 
   Get-ChildItem $bin |
-    Where-Object {$_.Name -match "^Sitecore.*\.dll$"} |
+    Where-Object {$_.Name -match "^Sitecore.XA.*\.dll$"} |
     Foreach { Publish-NugetPackageFromDLL $bin $_.Name $output.FullName $description $version $nugetPath $nuspecTemplate }
 }
 
