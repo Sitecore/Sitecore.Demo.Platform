@@ -176,6 +176,9 @@
     </SitecoreItem>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\code\Sitecore.Feature.Accounts.csproj">
       <Project>{b4a56d7d-ddbb-494b-a05a-26974fb7eeb1}</Project>
       <Name>Sitecore.Feature.Accounts</Name>
@@ -185,9 +188,6 @@
     <ExcludedAssemblies Include="Microsoft.Owin.%2a" />
     <ExcludedAssemblies Include="Sitecore.Feature.Accounts.%2a" />
     <ExcludedAssemblies Include="Sitecore.Foundation.%2a" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Import Project="..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.11\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.11\build\HedgehogDevelopment.TDS.targets')" />
