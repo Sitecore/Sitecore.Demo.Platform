@@ -34,11 +34,12 @@
                 var userPattern = Tracker.Current.Contact.BehaviorProfiles[currentProfile.ID];
                 return userPattern != null && userPattern.NumberOfTimesScored != 0;
             }
-            else
+            if (Tracker.Current.Interaction.Profiles.ContainsProfile(currentProfile.Name))
             {
                 var userPattern = Tracker.Current.Interaction.Profiles[currentProfile.Name];
                 return userPattern != null && userPattern.Count != 0;
             }
+            return false;
         }
 
         public IEnumerable<PatternMatch> GetPatternsWithGravityShare(ProfileItem visibleProfile, ProfilingTypes type)
