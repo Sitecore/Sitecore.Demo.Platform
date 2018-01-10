@@ -1,13 +1,11 @@
 # Introduction 
 Habitat and the tools and processes in it is a Sitecore solution example built using Sitecore Experience Accelerator (SXA) following the Helix architecture principles.
-The architecture and methodology focuses on:
 
-Simplicity - A consistent and discoverable architecture
-Flexibility - Change and add quickly and without worry
-Extensibility - Simply add new features without steep learning curve
 
 # Getting Started
 ## Installation:
+
+All installation instructions assume using PowerShell 5.1 in administrative mode.
 
 ### 1 Clone this repository
 Clone the Sitecore.Habitat repository locally - scripts assume c:\Projects\Sitecore.Habitat
@@ -15,33 +13,43 @@ Clone the Sitecore.Habitat repository locally - scripts assume c:\Projects\Sitec
 - **ssh**:		`git clone ssh://sitecoredst@vs-ssh.visualstudio.com:22/Demo/_ssh/Sitecore.Habitat`
 
 ### 2 Acquire packages
+From the install directory
 
-Download the following packages
+Execute **`.\get-latest-sitecore.ps1`**
 
-- [Sitecore 9.0.0 rev. 171002](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/90/Sitecore_Experience_Platform_90_Initial_Release.aspx) 
-   - Select Packages for XP Single under "Deployment options for On Premises deployment")
-* [Sitecore PowerShell Extensions-4.7 for Sitecore 8.zip](https://marketplace.sitecore.net/Modules/S/Sitecore_PowerShell_console.aspx)
-* [Sitecore Experience Accelerator 1.5 rev. 171010 for 9.0.zip](https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/15/Sitecore_Experience_Accelerator_15_Initial_Release.aspx)
+### 3 Install Solr
 
-### 3 Extract Packages
-Extract Contents of Sitecore 9.0.0 rev. 171002 (WDP XP0 packages).zip to ./build/assets
+From the install\solr directory, review and modify the install-solr.ps1 file as required
+Execute **`install-solr.ps1`**
 
-### 4 Copy License
-Copy license file to `./build/assets`
+### 4 Set up Installation Configuration file
+- Modify `set-installation-defaults.ps1.example` and rename to ps1
+- Ensure you set the location of the license file 
+- Ensure the solr details in the overrides file match your solr installation details
+- Execute **`.\set-installation-defaults.ps1`**
+- Execute **`.\set-installation-overrides.ps1`** (modified from above)
 
-### 5 Install Solr
+At this point you should have a **`configuration-xp0.json`** file. Review the file for correctness.
 
-### 6 Install Sitecore
-- Review settings.ps1 file. If any modifications need to be made, create a new settings-user.ps1 and override the settings.
-- Open PowerShell window with Administrative Privileges
+
+### 5 Install Sitecore
+
 - Run **`.\install-xp0.ps1`**
-- Install package **Sitecore PowerShell Extensions 4.7**
-- Install package **Sitecore Experience Accelerator 1.5**
 
-### 7 Deploy Solution
-- Run `npm install`
-- Run `gulp` 
+### 7 Deploy Sitecore.Habitat
+From the root directory of the solution
+- Run **`npm install`**
+- Run **`.\node_modules\.bin\gulp`** 
 
-# Contribute
-Please contact jfl on Microsoft Teams:  **Teams - Sitecore Demo** if you would like contributor access to the repo
+### 8 Deploy Sitecore.Habitat.Home
+Clone the Sitecore.Habitat.Home repository locally - instructions assume c:\Projects\Sitecore.Habitat.Home
+- **https**:	`git clone https://sitecoredst.visualstudio.com/Demo/_git/Sitecore.Habitat.Home` 
+- **ssh**:		`git clone ssh://sitecoredst@vs-ssh.visualstudio.com:22/Demo/_ssh/Sitecore.Habitat.Home`
+
+From the root directory of Habitat Home solution:
+- Run **`npm install`**
+- Run **`.\node_modules\.bin\gulp`**
+
+# Contribute or Issues
+Please post on Microsoft Teams:  **Teams - Sitecore Demo** if you would like contributor access to the repo or if you encounter any issues
 

@@ -61,7 +61,7 @@ $resourcesVersion = $resources.Replace($resourcesName + ".", "")
 
 if ($useLocal -eq $false) {
     Write-Host "Installing Resource Version $resourcesVersion" -ForegroundColor Green
-    nuget install $resourcesName -Version $resourcesVersion -Source $WdpResourcesFeed -OutputDirectory $downloadFolder -x -prerelease
+    nuget install $resourcesName -Version $resourcesVersion -Source $WdpResourcesFeed -OutputDirectory . -x -prerelease
 }
 
 New-Item -ItemType Directory -Force -Path $($downloadFolder + "\packages")
