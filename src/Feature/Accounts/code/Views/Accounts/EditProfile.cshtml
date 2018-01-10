@@ -14,6 +14,23 @@
                                                                             }))
 {
     @Html.AddUniqueFormId()
+
+    <div class="form-group @Html.ValidationErrorFor(x => x.Email, "has-error")">
+        @Html.LabelFor(x => x.Email, new
+        {
+            @class = "control-label"
+        })
+
+        @Html.TextBoxFor(x => x.Email, new
+        {
+            @class = "form-control",
+            id = "email",
+            @Value = Model.Email,
+            @readonly="readonly",
+        })
+    </div>
+    
+
     <div class="form-group @Html.ValidationErrorFor(x => x.FirstName, "has-error")">
         @Html.LabelFor(x => x.FirstName, new
                                          {
