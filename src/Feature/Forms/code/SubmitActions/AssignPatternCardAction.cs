@@ -6,8 +6,7 @@ using Sitecore.ExperienceForms.Models;
 using Sitecore.Diagnostics;
 using Sitecore.Data;
 using Sitecore.Data.Items;
-using System.Xml;
-using System.Collections;
+using System.Xml;               
 using Sitecore.ExperienceForms.SubmitActions;
 using Sitecore.Analytics;
 using Sitecore.Analytics.Tracking;
@@ -59,9 +58,7 @@ namespace Sitecore.Feature.Forms.SubmitActions
             string answer = string.Empty;
             try
             {
-                var property = fieldModel.GetType().GetProperty("Value");
-                var postedValue = property.GetValue(fieldModel);
-                answer = ParseFieldValue(postedValue);
+                answer = fieldModel.GetValue();
             }
             catch (Exception ex)
             {
@@ -118,25 +115,6 @@ namespace Sitecore.Feature.Forms.SubmitActions
             }                 
 
             return true;
-        }
-        protected static string ParseFieldValue(object postedValue)
-        {
-            Assert.ArgumentNotNull(postedValue, nameof(postedValue));
-            List<string> stringList = new List<string>();
-            IList list = postedValue as IList;
-            if (list != null)
-            {
-                foreach (object obj in list)
-                {
-                    stringList.Add(obj.ToString());
-                }
-            }
-            else
-            {
-                stringList.Add(postedValue.ToString());
-            }
-
-            return string.Join(",", stringList);
         }
     }
 }
