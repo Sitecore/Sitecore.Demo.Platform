@@ -21,6 +21,9 @@
     <ManageRoles>False</ManageRoles>
     <SitecoreDatabase>master</SitecoreDatabase>
     <AssemblyStatus>Include</AssemblyStatus>
+    <SourceWebVirtualPath>/Sitecore.Demo.Deployment.Web.csproj</SourceWebVirtualPath>
+    <SourceWebProject>{6d10ca5e-549b-4e44-97b6-3082a0843aae}|build\code\Sitecore.Demo.Deployment.Web.csproj</SourceWebProject>
+    <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -95,6 +98,11 @@
       <ProjectId>{d259ef27-fa71-4d70-a2e4-c6d854cc849f}</ProjectId>
     </BundledProject>
   </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.Extensions.TDS.CreateUserPostDeployStep,Sitecore.Demo.Deployment.Web">
+      <Order>0</Order>
+    </PostDeployAction>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Core\Sitecore.Feature.Accounts.Core.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
@@ -126,6 +134,13 @@
     <ProjectReference Include="..\..\..\src\Project\Habitat\tds\Sitecore.Habitat.Website.Master\Sitecore.Habitat.Website.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\..\code\Sitecore.Demo.Deployment.Web.csproj">
+      <Project>{6d10ca5e-549b-4e44-97b6-3082a0843aae}</Project>
+      <Name>Sitecore.Demo.Deployment.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ExcludedAssemblies Include="Sitecore.Demo.Deployment.Web.%2a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets') and !Exists('..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
