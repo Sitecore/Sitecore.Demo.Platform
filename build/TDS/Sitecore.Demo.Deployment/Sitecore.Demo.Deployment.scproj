@@ -140,7 +140,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ExcludedAssemblies Include="Sitecore.Demo.Deployment.Web.dll" />
+    <ExcludedAssemblies Include="Sitecore.Demo.Deployment.Web.%2a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets') and !Exists('..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
