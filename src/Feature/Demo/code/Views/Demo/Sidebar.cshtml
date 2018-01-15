@@ -23,7 +23,9 @@
     <div class="sidebar sidebar-fixed-right">
         @if (!Sitecore.Context.PageMode.IsExperienceEditor)
         {
-            @Html.Partial("_SidebarContent", Model)
+            @Html.Partial("_ExperienceDataContent", Model)
         }
     </div>
 </div>
+
+<script src="~/Scripts/Demo/VisitDetails.js"></script>

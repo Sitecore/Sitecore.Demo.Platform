@@ -172,10 +172,11 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Scripts\Demo\VisitDetails.js" />
     <Content Include="Views\Demo\Sidebar.cshtml" />
     <Content Include="Views\Demo\EmptyLayout.cshtml" />
     <Content Include="Views\Demo\_Visits.cshtml" />
-    <Content Include="Views\Demo\_SidebarContent.cshtml" />
+    <Content Include="Views\Demo\_ExperienceDataContent.cshtml" />
     <Content Include="Views\Demo\_PersonalInformation.cshtml" />
     <Content Include="Views\Demo\_OnsiteBehavior.cshtml" />
     <Content Include="Views\Demo\_OnsiteBehaviorProfiling.cshtml" />
@@ -206,6 +207,7 @@
     <Compile Include="Models\PatternMatch.cs" />
     <Compile Include="Models\PersonalInfo.cs" />
     <Compile Include="Models\ProfilingTypes.cs" />
+    <Compile Include="Pipelines\RegisterWebApiRoutes.cs" />
     <Compile Include="Repositories\CampaignRepository.cs" />
     <Compile Include="Repositories\DeviceRepository.cs" />
     <Compile Include="Repositories\ICampaignRepository.cs" />
