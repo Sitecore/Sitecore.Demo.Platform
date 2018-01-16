@@ -15,7 +15,7 @@ $assets.psRepositoryName = "SitecoreGallery"
 $assets.licenseFilePath = Join-Path $assets.root "license.xml"
 $assets.sitecoreVersion = "9.0.1 rev. 171219"
 $assets.installerVersion = "1.0.2"
-$assets.certificatesPath = Join-Path $assets.root "Certificates"
+$assets.certificatesPath = (Get-ChildItem $pwd -filter "Certificates" -Recurse).FullName 
 $assets.jreRequiredVersion = "1.8"
 $assets.dotnetMinimumVersionValue = "394802"
 $assets.dotnetMinimumVersion = "4.6.2"
@@ -41,7 +41,7 @@ $sql.minimumVersion="13.0.4001"
 $xConnect = $json.settings.xConnect
 
 $xConnect.ConfigurationPath = (Get-ChildItem $pwd -filter "xconnect-xp0.json" -Recurse).FullName 
-$xConnect.certificateConfigurationPath = (Get-ChildItem $assets.root -filter "xconnect-createcert.json" -Recurse).FullName
+$xConnect.certificateConfigurationPath = (Get-ChildItem $pwd -filter "xconnect-createcert.json" -Recurse).FullName
 $xConnect.solrConfigurationPath = (Get-ChildItem $pwd -filter "xconnect-solr.json" -Recurse).FullName 
 $xConnect.packagePath = Join-Path $assets.root $("Sitecore " + $assets.sitecoreVersion + " (OnPrem)_xp0xconnect.scwdp.zip")
 $xConnect.siteName = $site.prefix + "_xconnect." + $site.suffix
@@ -71,8 +71,34 @@ $modules = $json.modules
 $spe = $modules | Where-Object { $_.id -eq "spe"}
 $spe.packagePath = Join-Path $assets.root "packages\Sitecore PowerShell Extensions-4.7 for Sitecore 8.zip"
 $spe.install = $true
+
 $sxa = $modules | Where-Object { $_.id -eq "sxa"}
 $sxa.packagePath = Join-Path $assets.root "packages\Sitecore Experience Accelerator 1.6 rev. 180103 for 9.0.zip"
 $sxa.install = $true
+
+$def = $modules | Where-Object {$_.id -eq "def"}
+$def.packagePath = Join-Path $assets.root "packages\Data Exchange Framework 2.0.1 rev. 180108.zip"
+$def.install = $true
+
+$defSql = $modules | Where-Object {$_.id -eq "defSql"}
+$defSql.packagePath = Join-Path $assets.root "packages\SQL Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"
+$defSql.install = $true
+
+$defSitecore = $modules | Where-Object {$_.id -eq "defSitecore"}
+$defSitecore.packagePath = Join-Path $assets.root "packages\Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"
+$defSitecore.install = $true
+
+$defxConnect = $modules | Where-Object {$_.id -eq "defxConnect"}
+$defxConnect.packagePath = Join-Path $assets.root "packages\xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"
+$defxConnect.install = $true
+
+$defDynamicsProvider = $modules | Where-Object {$_.id -eq "defDynamicsProvider"}
+$defDynamicsProvider.packagePath = Join-Path $assets.root "packages\Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"
+$defDynamicsProvider.install = $true
+
+$defDynamicsConnect = $modules | Where-Object {$_.id -eq "defDynamicsConnect"}
+$defDynamicsConnect.packagePath = Join-Path $assets.root "packages\Connect for Microsoft Dynamics 2.0.1 rev. 180108.zip"
+$defDynamicsConnect.install = $true
+
 
 Set-Content $ConfigurationFile  (ConvertTo-Json -InputObject $json -Depth 3 )
