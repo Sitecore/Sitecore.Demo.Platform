@@ -1,0 +1,73 @@
+----item----
+version: 1
+id: {EC93240B-EADC-46E6-BB99-9A59C9114A51}
+database: master
+path: /sitecore/system/Data Exchange/Demo CRM
+parent: {5EE8330D-E35E-433B-9BA6-DAF87ED38867}
+name: Demo CRM
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {327A381B-59F8-4E88-B331-BEBC7BD87E4E}
+templatekey: Data Exchange Tenant
+created: 20180102T112448Z
+
+----field----
+field: {506BAD49-3DA6-474C-ACB5-7BCB509BFBD7}
+name: Enabled
+key: enabled
+content-length: 1
+
+1
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{B901EF59-EAE8-417A-BF9B-17970CF71E53}
+----version----
+language: en
+version: 1
+revision: faa24fda-bd0c-42d1-9c3f-d22061f67a77
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112449Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+faa24fda-bd0c-42d1-9c3f-d22061f67a77
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180103T142718Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

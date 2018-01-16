@@ -1,0 +1,80 @@
+----item----
+version: 1
+id: {E2F24793-778F-4D3A-BCD6-6F17DB4AF252}
+database: master
+path: /sitecore/system/Data Exchange/Demo CRM/Tenant Settings/Providers/SQL/Databases/Staging/Tables/Stage/Entity ID
+parent: {F42A905C-B2AF-4AF1-9691-B5C663A9CA69}
+name: Entity ID
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {E72E52ED-FCC2-4E1D-8562-6165021F0D92}
+templatekey: SQL Database Table Column
+created: 20180102T112744Z
+
+----field----
+field: {0AF2B297-01CD-4A28-9E05-FE56BDAD3177}
+name: ColumnName
+key: columnname
+content-length: 8
+
+EntityID
+----field----
+field: {DAD080A5-782D-4C77-B8BA-A10568697564}
+name: DataType
+key: datatype
+content-length: 38
+
+{10E30C3E-6069-4C52-8BB3-07BFD04DC72C}
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{E2F24793-778F-4D3A-BCD6-6F17DB4AF252}
+----version----
+language: en
+version: 1
+revision: 547d9127-d55e-4b3b-aad7-3cf384d7a9a2
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112744Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+547d9127-d55e-4b3b-aad7-3cf384d7a9a2
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180102T113027Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+sitecore\Anonymous

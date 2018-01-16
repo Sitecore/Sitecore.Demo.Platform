@@ -1,0 +1,66 @@
+----item----
+version: 1
+id: {E83BA086-A2CE-6612-2CF6-F24DDE81B9B0}
+database: master
+path: /sitecore/system/Settings/Data Exchange/Providers/xConnect/Collection Models/Default/Default Collection Model/Facets/Contact/ContactBehaviorProfile/Scores
+parent: {42D4B200-40B8-2FFF-ED60-CEB67167F576}
+name: Scores
+master: {00000000-0000-0000-0000-000000000000}
+template: {DD11EFA5-CAAA-4345-8017-6CDD20017FAA}
+templatekey: Facet Property
+created: 00010101T000000
+
+----field----
+field: {31FEB12B-66C3-4E50-A8C9-4CADF00C31C3}
+name: PropertyName
+key: propertyname
+content-length: 6
+
+Scores
+----field----
+field: {9C9C26ED-1ED5-41E4-8A4D-F505465255B2}
+name: ReadOnly
+key: readonly
+content-length: 1
+
+1
+----field----
+field: {207561E7-E95F-4034-8C2D-39FA5F40C381}
+name: FacetName
+key: facetname
+content-length: 22
+
+ContactBehaviorProfile
+----field----
+field: {3490E0F9-4CC2-466F-8262-B1D39B1BC8A2}
+name: FacetType
+key: facettype
+content-length: 93
+
+Sitecore.XConnect.Collection.Model.ContactBehaviorProfile, Sitecore.XConnect.Collection.Model
+----field----
+field: {B96D5D51-1372-41C5-A3A7-FFF17BA34089}
+name: CollectionModelType
+key: collectionmodeltype
+content-length: 86
+
+Sitecore.XConnect.Collection.Model.CollectionModel, Sitecore.XConnect.Collection.Model
+----field----
+field: {34B08F94-E310-4D8D-BABB-24B619032967}
+name: EntityType
+key: entitytype
+content-length: 38
+
+{8ECD641B-8F97-DB64-DF17-7E94D8AF6124}
+----version----
+language: en
+version: 1
+revision: 
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 30
+
+XdbCollectionModelDataProvider

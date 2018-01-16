@@ -126,7 +126,9 @@
     <Content Include="App_Config\Include\Project\z.Habitat.Website.DevSettings.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web.config" />
+    <None Include="Web.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,0 +1,52 @@
+----item----
+version: 1
+id: {97699052-1242-6C85-0945-2CA5A890FDF6}
+database: master
+path: /sitecore/system/Settings/Data Exchange/Providers/xConnect/Collection Models/Default/Default Collection Model/Facets/Contact/MergeInfo
+parent: {31957630-F334-110F-158D-CD2A049B54B3}
+name: MergeInfo
+master: {00000000-0000-0000-0000-000000000000}
+template: {BE9BFD91-0509-4573-807E-D8BE6AF7034F}
+templatekey: Declared Facet
+created: 00010101T000000
+
+----field----
+field: {207561E7-E95F-4034-8C2D-39FA5F40C381}
+name: FacetName
+key: facetname
+content-length: 9
+
+MergeInfo
+----field----
+field: {3490E0F9-4CC2-466F-8262-B1D39B1BC8A2}
+name: FacetType
+key: facettype
+content-length: 80
+
+Sitecore.XConnect.Collection.Model.MergeInfo, Sitecore.XConnect.Collection.Model
+----field----
+field: {B96D5D51-1372-41C5-A3A7-FFF17BA34089}
+name: CollectionModelType
+key: collectionmodeltype
+content-length: 86
+
+Sitecore.XConnect.Collection.Model.CollectionModel, Sitecore.XConnect.Collection.Model
+----field----
+field: {34B08F94-E310-4D8D-BABB-24B619032967}
+name: EntityType
+key: entitytype
+content-length: 38
+
+{8ECD641B-8F97-DB64-DF17-7E94D8AF6124}
+----version----
+language: en
+version: 1
+revision: 
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 30
+
+XdbCollectionModelDataProvider

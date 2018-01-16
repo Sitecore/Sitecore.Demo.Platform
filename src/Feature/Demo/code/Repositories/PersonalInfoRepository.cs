@@ -105,7 +105,7 @@
             yield return new KeyValuePair<string, string>(Globalization.Translate.Text("/Demo/Personal Info/Do Not Market", "Do not market"), this.contactFacetsProvider.CommunicationProfile.DoNotMarket ? Globalization.Translate.Text("/Demo/Personal Info/Yes", "Yes") : Globalization.Translate.Text("/Demo/Personal Info/No", "No"));
             yield return new KeyValuePair<string, string>(Globalization.Translate.Text("/Demo/Personal Info/Consent Revoked", "Consent revoked"), this.contactFacetsProvider.CommunicationProfile.ConsentRevoked ? Globalization.Translate.Text("/Demo/Personal Info/Yes", "Yes") : Globalization.Translate.Text("/Demo/Personal Info/No", "No"));
             yield return new KeyValuePair<string, string>(Globalization.Translate.Text("/Demo/Personal Info/Executed Right To Be Forgotten", "Executed right to be forgotten"), this.contactFacetsProvider.CommunicationProfile.ExecutedRightToBeForgotten ? Globalization.Translate.Text("/Demo/Personal Info/Yes", "Yes") : Globalization.Translate.Text("/Demo/Personal Info/No", "No"));
-            if (!string.IsNullOrEmpty(this.contactFacetsProvider.PersonalInfo.PreferredLanguage))
+            if (!string.IsNullOrEmpty(this.contactFacetsProvider.PersonalInfo?.PreferredLanguage))
             {
                 yield return new KeyValuePair<string, string>(Globalization.Translate.Text("/Demo/Personal Info/Preferred Language", "Preferred Language"), this.contactFacetsProvider.PersonalInfo.PreferredLanguage);
             }
@@ -127,12 +127,12 @@
         private string FormatPhone(PhoneNumber phoneNumber)
         {
             var formattedPhone = "";
-            if (!string.IsNullOrEmpty(phoneNumber.CountryCode))
+            if (!string.IsNullOrEmpty(phoneNumber?.CountryCode))
             {
                 formattedPhone += $"+{phoneNumber.CountryCode}";
             }
-            formattedPhone = string.Join(" ", formattedPhone, phoneNumber.Number).Trim();
-            if (!string.IsNullOrEmpty(phoneNumber.Extension))
+            formattedPhone = string.Join(" ", formattedPhone, phoneNumber?.Number).Trim();
+            if (!string.IsNullOrEmpty(phoneNumber?.Extension))
             {
                 formattedPhone = string.Join("x", formattedPhone, phoneNumber.Extension).Trim();
             }
@@ -146,7 +146,7 @@
                 yield break;
 
             var emailTitle = Globalization.Translate.Text("/Demo/Personal Info/Email", "Email");
-            yield return new KeyValuePair<string, string>($"{emailTitle}", this.contactFacetsProvider.Emails.PreferredEmail.SmtpAddress);
+            yield return new KeyValuePair<string, string>($"{emailTitle}", this.contactFacetsProvider.Emails.PreferredEmail?.SmtpAddress);
             foreach (var emailKey in this.contactFacetsProvider.Emails.Others.Keys)
             {
                 yield return new KeyValuePair<string, string>($"{emailTitle} ({emailKey.Humanize()})", this.contactFacetsProvider.Emails.Others[emailKey].SmtpAddress);

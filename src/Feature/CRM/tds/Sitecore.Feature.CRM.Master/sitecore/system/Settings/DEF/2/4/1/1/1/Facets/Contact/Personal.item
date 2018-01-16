@@ -1,0 +1,52 @@
+----item----
+version: 1
+id: {C80801F6-DA55-9E34-0EEB-A850BBCF8862}
+database: master
+path: /sitecore/system/Settings/Data Exchange/Providers/xConnect/Collection Models/Connect for Dynamics/Connect for Dynamics Collection Model/Facets/Contact/Personal
+parent: {A709018B-E454-ABD3-585F-8BCC05A3D756}
+name: Personal
+master: {00000000-0000-0000-0000-000000000000}
+template: {31AD5E1A-AC6D-4EC4-A284-86BB10729DFA}
+templatekey: Referenced Facet
+created: 00010101T000000
+
+----field----
+field: {207561E7-E95F-4034-8C2D-39FA5F40C381}
+name: FacetName
+key: facetname
+content-length: 8
+
+Personal
+----field----
+field: {3490E0F9-4CC2-466F-8262-B1D39B1BC8A2}
+name: FacetType
+key: facettype
+content-length: 90
+
+Sitecore.XConnect.Collection.Model.PersonalInformation, Sitecore.XConnect.Collection.Model
+----field----
+field: {B96D5D51-1372-41C5-A3A7-FFF17BA34089}
+name: CollectionModelType
+key: collectionmodeltype
+content-length: 126
+
+Sitecore.DataExchange.Tools.DynamicsConnect.Models.DynamicsConnectCollectionModel, Sitecore.DataExchange.Tools.DynamicsConnect
+----field----
+field: {34B08F94-E310-4D8D-BABB-24B619032967}
+name: EntityType
+key: entitytype
+content-length: 38
+
+{8ECD641B-8F97-DB64-DF17-7E94D8AF6124}
+----version----
+language: en
+version: 1
+revision: 
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 30
+
+XdbCollectionModelDataProvider

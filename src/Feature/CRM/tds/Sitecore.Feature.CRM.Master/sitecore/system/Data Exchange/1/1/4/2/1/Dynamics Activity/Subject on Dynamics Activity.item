@@ -1,0 +1,73 @@
+----item----
+version: 1
+id: {9422C056-F9CE-4B10-A811-48805CCEF889}
+database: master
+path: /sitecore/system/Data Exchange/Demo CRM/Data Access/Value Accessor Sets/Providers/Dynamics/Dynamics Activity/Subject on Dynamics Activity
+parent: {E36BF45A-F52C-4C7C-ACD5-2ED0F91EEA5D}
+name: Subject on Dynamics Activity
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {C3C9E93C-F197-4FBD-820D-DCB565707AF7}
+templatekey: Entity Attribute Value Accessor
+created: 20180102T112505Z
+
+----field----
+field: {90E1B80F-E650-414C-9D98-6C52E6708A0D}
+name: AttributeName
+key: attributename
+content-length: 7
+
+subject
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{9422C056-F9CE-4B10-A811-48805CCEF889}
+----version----
+language: en
+version: 1
+revision: a74ce8a9-af9b-43c5-b870-086979156fbd
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112506Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+a74ce8a9-af9b-43c5-b870-086979156fbd
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180102T112901Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+sitecore\Anonymous
