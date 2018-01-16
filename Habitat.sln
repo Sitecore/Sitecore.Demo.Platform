@@ -109,6 +109,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Feature.CRM", "src\Feature\CRM\code\Sitecore.Feature.CRM.csproj", "{2EC4C2C2-3124-4679-B113-164457315173}"
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Feature.CRM.Master", "src\Feature\CRM\tds\Sitecore.Feature.CRM.Master\Sitecore.Feature.CRM.Master.scproj", "{1E9FE6A6-E0E5-421D-AB6F-59AE11E0D290}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Deployment.Web", "build\code\Sitecore.Demo.Deployment.Web.csproj", "{6D10CA5E-549B-4E44-97B6-3082A0843AAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -289,6 +290,12 @@ Global
 		{1E9FE6A6-E0E5-421D-AB6F-59AE11E0D290}.TDS|Any CPU.ActiveCfg = TDS|Any CPU
 		{1E9FE6A6-E0E5-421D-AB6F-59AE11E0D290}.TDS|Any CPU.Build.0 = TDS|Any CPU
 		{1E9FE6A6-E0E5-421D-AB6F-59AE11E0D290}.TDS|Any CPU.Deploy.0 = TDS|Any CPU
+		{6D10CA5E-549B-4E44-97B6-3082A0843AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D10CA5E-549B-4E44-97B6-3082A0843AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D10CA5E-549B-4E44-97B6-3082A0843AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D10CA5E-549B-4E44-97B6-3082A0843AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D10CA5E-549B-4E44-97B6-3082A0843AAE}.TDS|Any CPU.ActiveCfg = Release|Any CPU
+		{6D10CA5E-549B-4E44-97B6-3082A0843AAE}.TDS|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -331,6 +338,7 @@ Global
 		{217AA2A9-02D7-4169-8B56-F8632E446A79} = {37394D96-A276-41B7-BFC0-E0897AFE4690}
 		{2EC4C2C2-3124-4679-B113-164457315173} = {217AA2A9-02D7-4169-8B56-F8632E446A79}
 		{1E9FE6A6-E0E5-421D-AB6F-59AE11E0D290} = {217AA2A9-02D7-4169-8B56-F8632E446A79}
+		{6D10CA5E-549B-4E44-97B6-3082A0843AAE} = {0554FDB3-149E-4B59-BC22-27A0CB3854A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}

@@ -24,10 +24,24 @@ key: __renderings
 content-length: 237
 
 <r xmlns:xsd="http://www.w3.org/2001/XMLSchema" ><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}" /><d id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}" l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" /></r>
+----field----
+field: {A4F985D9-98B3-4B52-AAAF-4344F6E747C6}
+name: __Workflow
+key: __workflow
+content-length: 0
+
+
+----field----
+field: {CA9B9F52-4FB0-4F87-A79F-24DEA62CDA65}
+name: __Default workflow
+key: __default workflow
+content-length: 38
+
+{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}
 ----version----
 language: en
 version: 1
-revision: 6a4f4020-2a9c-44ba-9ca7-64374104b2dd
+revision: a22e1bd7-a7f0-40f1-966f-ce9ddfb73843
 
 ----field----
 field: {E2A634FD-5177-46DE-B629-5393CAED77D7}
@@ -56,18 +70,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-6a4f4020-2a9c-44ba-9ca7-64374104b2dd
+a22e1bd7-a7f0-40f1-966f-ce9ddfb73843
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171027T151147Z
+20180110T105011Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 14
 
-sitecore\virtualssuser
+sitecore\admin
+----field----
+field: {3E431DE1-525E-47A3-B6B0-1CCBEC3A8C98}
+name: __Workflow state
+key: __workflow state
+content-length: 38
+
+{FF509B64-B6D4-4FB7-9718-C4218B992740}
