@@ -105,10 +105,14 @@ EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Feature.Forms.Core", "src\Feature\Forms\tds\Sitecore.Feature.Forms.Core\Sitecore.Feature.Forms.Core.scproj", "{2AD001BF-4378-4056-B7E9-993A9E43A1C7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRM", "CRM", "{217AA2A9-02D7-4169-8B56-F8632E446A79}"
+	ProjectSection(SolutionItems) = preProject
+		src\Project\Habitat\code\App_Config\ConnectionStrings.config.xdt = src\Project\Habitat\code\App_Config\ConnectionStrings.config.xdt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Feature.CRM", "src\Feature\CRM\code\Sitecore.Feature.CRM.csproj", "{2EC4C2C2-3124-4679-B113-164457315173}"
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Feature.CRM.Master", "src\Feature\CRM\tds\Sitecore.Feature.CRM.Master\Sitecore.Feature.CRM.Master.scproj", "{1E9FE6A6-E0E5-421D-AB6F-59AE11E0D290}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Deployment.Web", "build\code\Sitecore.Demo.Deployment.Web.csproj", "{6D10CA5E-549B-4E44-97B6-3082A0843AAE}"
 EndProject
 Global
