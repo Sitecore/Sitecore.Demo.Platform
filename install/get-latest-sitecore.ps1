@@ -8,7 +8,12 @@ $WdpResourcesFeed = "http://nuget1dk1/nuget/9.0.1_master/"
 $downloadFolder = ".\assets\"
 $sxaPackageUrl = "https://v9assets.blob.core.windows.net/v9-onprem-assets/Sitecore%20Experience%20Accelerator%201.6%20rev.%20180103%20for%209.0.zip"
 $spePackageUrl = "https://marketplace.sitecore.net/services/~/download/BA9304F736324923A4D034FF4D8D4F2D.ashx?data=Sitecore%20PowerShell%20Extensions-4.7%20for%20Sitecore%208&itemId=6aaea046-83af-4ef1-ab91-87f5f9c1aa57"
-
+$DEFPackageUrl = "https://v9assets.blob.core.windows.net/v9-onprem-assets/Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip"
+$DEFSqlProviderPackageUrl = "https://v9assets.blob.core.windows.net/v9-onprem-assets/SQL%20Provider%20for%20Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip"
+$DEFSitecoreProviderPackageUrl = "https://v9assets.blob.core.windows.net/v9-onprem-assets/Sitecore%20Provider%20for%20Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip"
+$DEFxConnectProviderPackageUrl ="https://v9assets.blob.core.windows.net/v9-onprem-assets/xConnect%20Provider%20for%20Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip"
+$DEFDynamicsProviderPackageUrl="https://v9assets.blob.core.windows.net/v9-onprem-assets/Dynamics%20Provider%20for%20Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip"
+$DEFDynamicsConnectPackageUrl="https://v9assets.blob.core.windows.net/v9-onprem-assets/Connect%20for%20Microsoft%20Dynamics%202.0.1%20rev.%20180108.zip"
 
 try {
     if ($useLocal -eq $false) {
@@ -65,9 +70,15 @@ if ($useLocal -eq $false) {
 }
 
 New-Item -ItemType Directory -Force -Path $($downloadFolder + "\packages")
-if ($useLocal -eq $false) {
+
     Write-Host "Downloading latest SPE and SXA" -ForegroundColor Green
 
+    
     Start-BitsTransfer -Source $sxaPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Sitecore Experience Accelerator 1.6 rev. 180103 for 9.0.zip")) 
     Start-BitsTransfer -Source $spePackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Sitecore PowerShell Extensions-4.7 for Sitecore 8.zip"))
-}
+    Start-BitsTransfer -Source $DEFPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Data Exchange Framework 2.0.1 rev. 180108.zip"))
+    Start-BitsTransfer -Source $DEFSqlProviderPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\SQL Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
+    Start-BitsTransfer -Source $DEFSitecoreProviderPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
+    Start-BitsTransfer -Source $DEFxConnectProviderPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
+    Start-BitsTransfer -Source $DEFDynamicsProviderPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
+    Start-BitsTransfer -Source $DEFDynamicsConnectPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Connect for Microsoft Dynamics 2.0.1 rev. 180108.zip"))

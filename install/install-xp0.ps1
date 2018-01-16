@@ -95,14 +95,6 @@ function Install-Prerequisites {
         throw "Could load the Microsoft.SqlServer.TransactSql.ScriptDom assembly. Please make sure it is installed and registered in the GAC"
     }
     
-    #Add ApplicationPoolIdentity to performance log users to avoid Sitecore log errors (https://kb.sitecore.net/articles/404548)
-    if (!(Get-LocalGroupMember "Performance Log Users" "IIS APPPOOL\DefaultAppPool")) {
-        Add-LocalGroupMember "Performance Log Users" "IIS APPPOOL\DefaultAppPool"    
-    }
-    if (!(Get-LocalGroupMember "Performance Monitor Users" "IIS APPPOOL\DefaultAppPool")) {
-        Add-LocalGroupMember "Performance Monitor Users" "IIS APPPOOL\DefaultAppPool"
-    }
-    
     #Enable Contained Databases
     Write-Host "Enable contained databases" -ForegroundColor Green
     try {
@@ -208,6 +200,7 @@ function Install-XConnect {
 
     #Generate xConnect client certificate
     try {
+        Write-Host $xConnect.certificateConfigurationPath
         Install-SitecoreConfiguration $xConnect.certificateConfigurationPath `
             -CertificateName $xConnect.certificateName `
             -CertPath $assets.certificatesPath
@@ -353,11 +346,3 @@ Install-XConnect
 Install-Sitecore
 Copy-Tools
 Install-OptionalModules
-
-# TODO: 
-# Run optimization scripts
-# Deploy-Habitat
-# Deploy marketing definitions
-# Rebuild indexes
-# Rebuild links database
-# Test-Setup

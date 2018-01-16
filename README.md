@@ -23,9 +23,9 @@ From the install\solr directory, review and modify the install-solr.ps1 file as 
 Execute **`install-solr.ps1`**
 
 ### 4 Set up Installation Configuration file
-- Modify `set-installation-defaults.ps1.example` and rename to ps1
-- Ensure you set the location of the license file 
-- Ensure the solr details in the overrides file match your solr installation details
+- Copy `set-installation-overrides.ps1.example` to `set-installation-overrides.ps1` and modify to match your environment 
+- Ensure you **set the location of the license file** 
+- Ensure the **solr details** in the overrides file **match your solr installation details**
 - Execute **`.\set-installation-defaults.ps1`**
 - Execute **`.\set-installation-overrides.ps1`** (modified from above)
 
@@ -35,6 +35,7 @@ At this point you should have a **`configuration-xp0.json`** file. Review the fi
 ### 5 Install Sitecore
 
 - Run **`.\install-xp0.ps1`**
+- This will install all required modules including SPE, SXA and Data Exchange Framework-related modules
 
 ### 7 Deploy Sitecore.Habitat
 From the root directory of the solution
