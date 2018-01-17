@@ -1,0 +1,66 @@
+﻿---
+ID: "a00c359e-2a64-42dc-807d-7530240233e9"
+Parent: "3dafefd9-bec3-4aaf-9ccf-fc1cc64646e1"
+Template: "294cd29f-08eb-4463-a1e5-5b404de57d1a"
+Path: /sitecore/system/Settings/Data Exchange/Providers/xConnect/Marketing Definitions/Goal Definition
+DB: master
+SharedFields:
+- ID: "2380ab8b-6345-4a9f-9472-93e72c53e19a"
+  Hint: DefinitionInterfaceType
+  Value: Sitecore.Marketing.Definitions.Goals.IGoalDefinition, Sitecore.Marketing 
+- ID: "ca37c80e-cd78-4b48-a5bc-5af7be6a9d4d"
+  Hint: DefinitionType
+  Value: Sitecore.DataExchange.Providers.XConnect.Local.Models.DefinitionModels.GoalDefinitionModel, Sitecore.DataExchange.Providers.XConnect.Local
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Måldefinition
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171222T133139Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Zieldefinition
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171222T133355Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170524T092252Z
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ゴールの定義
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171222T133610Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

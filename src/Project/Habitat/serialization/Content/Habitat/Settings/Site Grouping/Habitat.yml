@@ -4,7 +4,6 @@ Parent: "9a5c3950-ceca-4e5c-aedb-d2e53a1db7d8"
 Template: "eda823fc-bc7e-4ef6-b498-cd09ec6fdaef"
 Path: /sitecore/content/Habitat Sites/Habitat/Settings/Site Grouping/Habitat
 DB: master
-BranchID: "b90549b5-c997-4d6b-b102-c9ab82528974"
 SharedFields:
 - ID: "1ee576af-ba8e-4312-9fbd-2ccf8395baa1"
   Hint: StartItem
@@ -14,7 +13,7 @@ SharedFields:
   Value: "formsRoot=%7B476ABC87-1BE4-401B-B624-5708EB428FF2%7D&dictionaryPath=%2Fsitecore%2Fsystem%2FDictionary"
 - ID: "8e0dd914-9afb-4d45-bf8b-7ff5d6e5337e"
   Hint: HostName
-  Value: habitat.dev.local|habitat.dev.azure
+  Value: "habitat.dev.local|*-h.habitathomedemo.com"
 - ID: "a7803a5d-cd03-4eda-abed-1d9af4bf6660"
   Hint: Database
   Value: master
@@ -24,6 +23,9 @@ SharedFields:
 - ID: "da06d09e-02b6-464a-80fc-9d8d7fc875e3"
   Hint: Environment
   Value: *
+- ID: "e5b5ccb5-17a1-429d-bd3e-6122b3216e52"
+  Hint: TargetHostName
+  Value: 
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{0EF8CB53-535D-41FE-8704-2C014D60D2DD}"
