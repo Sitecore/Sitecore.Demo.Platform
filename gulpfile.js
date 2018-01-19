@@ -130,6 +130,7 @@ gulp.task("Sync-Unicorn",
         var options = {};
         options.siteHostName = habitat.getSiteUrl();
         options.authenticationConfigFile = config.websiteRoot + "/App_config/Include/Unicorn.SharedSecret.config";
+        options.maxBuffer = "Infinity";
 
         unicorn(function () { return callback() }, options);
     });

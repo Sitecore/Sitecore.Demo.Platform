@@ -7,7 +7,6 @@ _ReSharper.*
 packages/
 artifacts/
 build/assets/**/*
-lib/**/*
 *.user
 *.cache
 *.suo
@@ -17,8 +16,9 @@ lib/**/*
 license.xml
 lib/Sitecore/*
 !lib/Sitecore/readme.MD
+!lib/Modules/*
 lib/System/*
-!lib/System/readme.MD
+!lib/System/readme.MD	
 .sonar
 vars.user.cmd
 .vs
