@@ -49,6 +49,12 @@ gulp.task("deploy-unicorn",
             callback);
     });
 
+    gulp.task("test",function(callback){
+        return runSequence(
+            "Publish-xConnect-Project",
+            callback);
+        
+    });
 
 /*****************************
   Initial setup
@@ -214,3 +220,8 @@ gulp.task("Publish-Project-Projects",
     function () {
         return publishProjects("./src/Project");
     });
+
+gulp.task("Publish-xConnect-Project",
+function(){
+    return publishProjects("./src/xConnect",config.xConnectRoot);
+});
