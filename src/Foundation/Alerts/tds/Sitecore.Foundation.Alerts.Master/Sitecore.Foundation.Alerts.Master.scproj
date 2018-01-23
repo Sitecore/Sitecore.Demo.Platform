@@ -21,6 +21,9 @@
     <AssemblyStatus>Include</AssemblyStatus>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <SourceWebVirtualPath>/Sitecore.Foundation.Alerts.csproj</SourceWebVirtualPath>
+    <SourceWebProject>{33130b84-7456-4b2e-9ea6-cf27a273e918}|src\Foundation\Alerts\code\Sitecore.Foundation.Alerts.csproj</SourceWebProject>
+    <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,16 +50,7 @@
     </AssemblyAttributes>
   </ItemGroup>
   <ItemGroup>
-    <SourceWebProjects Include="{33130b84-7456-4b2e-9ea6-cf27a273e918}|src\Foundation\Alerts\code\Sitecore.Foundation.Alerts.csproj">
-      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
-      <SourceWebVirtualPath>/Sitecore.Foundation.Alerts.csproj</SourceWebVirtualPath>
-      <SourceWebProjectId>33130b84-7456-4b2e-9ea6-cf27a273e918</SourceWebProjectId>
-    </SourceWebProjects>
-    <SourceWebProjects Include="{33130b84-7456-4b2e-9ea6-cf27a273e918}|src\Foundation\Alerts\Sitecore.Foundation.Alerts\Sitecore.Foundation.Alerts.csproj">
-      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
-      <SourceWebVirtualPath>/Sitecore.Foundation.Alerts.csproj</SourceWebVirtualPath>
-      <SourceWebProjectId>33130b84-7456-4b2e-9ea6-cf27a273e918</SourceWebProjectId>
-    </SourceWebProjects>
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\code\Sitecore.Foundation.Alerts.csproj">
@@ -66,9 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <ExcludedAssemblies Include="Sitecore.Foundation.%2a" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
+    <ExcludedAssemblies Include="Sitecore.Foundation.Alerts.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Import Project="..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.11\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.11\build\HedgehogDevelopment.TDS.targets')" />
