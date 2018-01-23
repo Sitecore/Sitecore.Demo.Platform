@@ -34,7 +34,7 @@
             var isInExperienceExplorer = explorerContext?.IsExplorerMode() ?? false;
             if (Context.Site.DisplayMode != DisplayMode.Normal || WebEditUtility.IsDebugActive(Context.Site) || isInExperienceExplorer)
             {
-                return new EmptyResult();
+                return null;
             }
                               
             return _sidebarRepository.GetModel();
