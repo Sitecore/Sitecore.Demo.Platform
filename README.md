@@ -51,6 +51,11 @@ From the root directory of Habitat Home solution:
 - Run **`npm install`**
 - Run **`.\node_modules\.bin\gulp`**
 
+### 9 Modify hosts file and bindings
+- Add habitathome.dev.local pointing to 127.0.0.1 to you hosts file
+- Add habitathome.dev.local bindings (both HTTP and HTTPS) to IIS site bindings
+
+
 # Contribute or Issues
 Please post on Microsoft Teams:  **Teams - Sitecore Demo** if you would like contributor access to the repo or if you encounter any issues
 
