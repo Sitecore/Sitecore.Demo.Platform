@@ -1,0 +1,101 @@
+----item----
+version: 1
+id: {11A807D9-CF25-472B-9278-71749E2EDF83}
+database: master
+path: /sitecore/content/Habitat Sites/Habitat/Settings/Creative Exchange Storages/Zip file
+parent: {3AF73A80-4539-4B3F-B4D1-D309C2566966}
+name: Zip file
+master: {00000000-0000-0000-0000-000000000000}
+template: {C7109945-BD76-4B3D-B09B-DB80CBF515C0}
+templatekey: Creative Exchange Storage
+created: 20171027T151649Z
+
+----field----
+field: {18EE0052-ACCD-42AD-8D80-D60CB88D9950}
+name: Name
+key: name
+content-length: 8
+
+Zip file
+----field----
+field: {52E8DE18-7F21-4036-A6DA-2B6C71EEA601}
+name: ExportType
+key: exporttype
+content-length: 106
+
+Sitecore.XA.Feature.CreativeExchange.Storage.Export.ZipExportStorage, Sitecore.XA.Feature.CreativeExchange
+----field----
+field: {15D142E5-E484-458D-8A66-317BAAFEE28F}
+name: ImportType
+key: importtype
+content-length: 106
+
+Sitecore.XA.Feature.CreativeExchange.Storage.Import.ZipImportStorage, Sitecore.XA.Feature.CreativeExchange
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 3
+
+150
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{D6FA3049-D3F8-4E60-97A2-41510818C6A4}
+----version----
+language: en
+version: 1
+revision: 3860fddf-febb-41fd-8f01-42a9ceceeb21
+
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 8
+
+Zip file
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20171027T151650Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+3860fddf-febb-41fd-8f01-42a9ceceeb21
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20171027T151650Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 22
+
+sitecore\virtualssuser

@@ -1,0 +1,75 @@
+Param(
+    [string] $configurationFile = "configuration-xp0.json"
+)
+
+# Replace the values in this file with your installation Overrides
+# all objects in the install-settings.json file can be overridden in this file
+
+# You can remove any items that you do not need to override. Keep in mind the dependency on other settings when removing items.
+# For example, $assets is used in various sections.
+  
+Write-Host "Setting Local Overrides in $configurationFile"
+
+$json = Get-Content -Raw $configurationFile |  ConvertFrom-Json
+
+# Assets and prerequisites
+
+$assets = $json.assets 
+$assets.root = "$PSScriptRoot\assets"
+$assets.psRepository = "https://sitecore.myget.org/F/sc-powershell/api/v2/"
+$assets.psRepositoryName = "SitecoreGallery"
+$assets.licenseFilePath = Join-Path $assets.root "license.xml"
+$assets.certificatesPath = Join-Path $assets.root "Certificates"
+$assets.jreRequiredVersion = "1.8"
+$assets.dotnetMinimumVersionValue = "394802"
+$assets.dotnetMinimumVersion = "4.6.2"
+
+$json.assets = $assets
+
+
+# Settings
+
+# Site Settings
+$site = $json.settings.site
+$site.prefix = "habitat"
+$site.suffix = "dev.local"
+$site.webroot = "C:\inetpub\wwwroot"
+$site.hostName = $json.settings.site.prefix + "." + $json.settings.site.suffix
+$json.settings.site = $site
+
+$sql = $json.settings.sql
+# SQL Settings
+$sql.server = "."
+$sql.adminUser = "sa"
+$sql.adminPassword = "12345"
+$sql.minimumVersion="13.0.4001"
+
+$json.settings.sql = $sql
+
+# XConnect Parameters
+$xConnect = $json.settings.xConnect
+
+$xConnect.siteName = $site.prefix + "_xconnect." + $site.suffix
+$xConnect.certificateName = [string]::Join(".", @($site.prefix, $site.suffix, "xConnect.Client"))
+$xConnect.siteRoot = Join-Path $site.webRoot -ChildPath $xConnect.siteName
+$xConnect.sqlCollectionUser = $site.prefix + "collectionuser"
+$xConnect.sqlCollectionPassword = "Test12345"
+
+$json.settings.xConnect = $xConnect
+
+# Sitecore Parameters
+$sitecore = $json.settings.sitecore
+
+$sitecore.sslConfigurationPath = "$PSScriptRoot\certificates\sitecore-ssl.json"
+$sitecore.packagePath = Join-Path $assets.root $("Sitecore " + $assets.sitecoreVersion +" (OnPrem)_single.scwdp.zip")
+$sitecore.siteName = [string]::Join(".", @($site.prefix, $site.suffix))
+$sitecore.siteRoot = Join-Path $site.webRoot -ChildPath $sitecore.siteName
+$json.settings.sitecore = $sitecore
+# Solr Parameters
+$solr = $json.settings.solr
+$solr.url = "https://localhost:8983/solr"
+$solr.root = "c:\solr"
+$solr.serviceName = "Solr"
+
+
+Set-Content $configurationFile  (ConvertTo-Json -InputObject $json -Depth 3)

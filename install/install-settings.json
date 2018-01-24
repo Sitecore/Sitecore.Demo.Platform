@@ -1,0 +1,110 @@
+{
+    "assets": {
+        "root": "@@assets.root@@",
+        "psRepository": "@@assets.psRepository@@",
+        "psRepositoryName": "@@assets.psRepositoryName@@",
+        "licenseFilePath": "@@assets.licenseFilePath@@",
+        "certificatesPath": "@@assets.certificatePath@@",
+        "sitecoreVersion": "@@assets.sitecoreVersion@@",
+        "installerVersion": "@@assets.installerVersion@@",
+        "jreRequiredVersion":"@@assets.jreRequiredVersion@@",
+        "dotnetMinimumVersion":"@@assets.netMinimumVersion@@",
+        "dotnetMinimumVersionValue":"@@assets.netMinimumVersionValue@@",
+        "installPackagePath":"@@assets.installPackagePath@@"
+    },
+    "settings": {
+        "site": {
+            "prefix": "@@site.prefix@@",
+            "suffix": "@@site.suffix@@",
+            "webRoot": "@@site.webRoot@@",
+            "hostName": "@@site.hostName@@"
+        },
+        
+        "sql": {
+            "server": "@@sql.server@@",
+            "adminUser": "@@sql.adminUser@@",
+            "adminPassword": "@@sql.adminPassword@@",
+            "minimumVersion":"@@sql.minimumVersion@@"
+
+        },
+        "xConnect": {
+            "configurationPath": "@@xConnect.configurationPath@@",
+            "certificateConfigurationPath": "@@xConnect.certificateConfigurationPath@@",
+            "solrConfigurationPath": "@@xConnect.solrConfigurationPath@@",
+            "packagePath": "@@xConnect.packagePath@@",
+            "siteName": "@@xConnect.siteName@@",
+            "certificateName": "@@xConnect.certificate@@",
+            "siteRoot": "@@xConnect.siteRoot@@",
+            "sqlCollectionUser": "@@xConnect.sqlCollectionUser@@",
+            "sqlCollectionPassword": "@@xConnect.sqlConnectionPassword@@"
+        },
+        "sitecore": {
+            "solrConfigurationPath": "@@sitecore.solrConfigurationPath@@",
+            "configurationPath": "@@sitecore.configurationPath@@",
+            "sslConfigurationPath": "@@sitecore.sslConfigurationPath@@",
+            "packagePath": "@@sitecore.packagePath@@",
+            "siteName": "@@sitecore.siteName@@",
+            "siteRoot": "@@sitecore.siteRoot@@"
+
+        },
+        "solr": {
+            "url": "@@solr.url@@",
+            "root": "@@solr.root@@",
+            "serviceName": "@@solr.serviceName@@"
+
+        }
+    },
+    "modules":[
+        {
+            "id":"spe",
+            "name":"Sitecore PowerShell Extensions",
+            "packagePath":"@@modules.spePackagePath@@",
+            "install":"@@modules.speInstall@@"
+        },
+        {
+            "id":"sxa",
+            "name":"Sitecore Experience Accelerator",
+            "packagePath":"@@modules.sxaPackagePath@@",
+            "install":"@@modules.sxaInstall@@"
+        },
+        {
+            "id":"def",
+            "name":"Data Exchange Framework",
+            "packagePath":"@@modules.defPackagePath@@",
+            "install":"@@modules.defInstall@@"
+        },
+        {
+            "id":"defSql",
+            "name":"SQL Provider Data Exchange Framework",
+            "packagePath":"@@modules.defSqlPackagePath@@",
+            "install":"@@modules.defSqlInstall@@"
+        },
+        {
+            "id":"defSitecore",
+            "name":"Sitecore Provider Data Exchange Framework",
+            "packagePath":"@@modules.defSitecorePackagePath@@",
+            "install":"@@modules.defSitecoreInstall@@"
+        },
+        {
+            "id":"defxConnect",
+            "name":"xConnect Provider Data Exchange Framework",
+            "packagePath":"@@modules.defxConnectPackagePath@@",
+            "install":"@@modules.defxConnectInstall@@"
+        },
+        {
+            "id":"defDynamicsProvider",
+            "name":"Dynamics Provider Data Exchange Framework",
+            "packagePath":"@@modules.defDynamicsProviderPackagePath@@",
+            "install":"@@modules.defDynamicsProviderInstall@@"
+        },
+        {
+            "id":"defDynamicsConnect",
+            "name":"Dynamics Connect Data Exchange Framework",
+            "packagePath":"@@modules.defDynamicsConnectPackagePath@@",
+            "install":"@@modules.defDynamicsConnectInstall@@"
+        }
+    ]
+
+
+
+}

@@ -1,0 +1,87 @@
+----item----
+version: 1
+id: {D885450A-828B-4786-B647-A8E9731F66A9}
+database: master
+path: /sitecore/system/Data Exchange/Demo CRM/Tenant Settings/Providers/SQL/Filter Expressions/Staging/Where BatchID eq Pipeline Source/Batch ID Expression
+parent: {FFE4147C-57B0-4DFF-844E-20FB1CDCFF30}
+name: Batch ID Expression
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {59D2F8A3-B47E-45A5-A2A6-D18CF7A82808}
+templatekey: Numeric Condition Expression
+created: 20180102T112747Z
+
+----field----
+field: {7A97A031-8C1A-4A31-B97A-329AFAFF9017}
+name: LeftValueAccessor
+key: leftvalueaccessor
+content-length: 38
+
+{FADF9DC2-2B7F-4559-BE24-6A97DBD570B1}
+----field----
+field: {CA182EE0-C5F3-496B-AB0A-ACFA68692859}
+name: RightValueAccessor
+key: rightvalueaccessor
+content-length: 38
+
+{D10E0F4E-A3D6-4D86-974F-0148C6358DC5}
+----field----
+field: {9E4E3098-9E1A-4075-9345-BF96F49CE081}
+name: ConditionOperator
+key: conditionoperator
+content-length: 38
+
+{9449E935-2E93-4A5D-ACCD-6DECB350974D}
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{D885450A-828B-4786-B647-A8E9731F66A9}
+----version----
+language: en
+version: 1
+revision: aca439ae-be3e-43b4-b851-0b33cf7f8e76
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112747Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+aca439ae-be3e-43b4-b851-0b33cf7f8e76
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180102T113028Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+sitecore\Anonymous

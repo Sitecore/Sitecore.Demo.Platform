@@ -1,0 +1,239 @@
+<parameters>
+  <parameter name="Application Path" description="Full site path where you would like to install your application (i.e., Default Web Site/Content)" defaultValue="Default Web Site/Content" tags="iisapp">
+    <parameterEntry type="ProviderPath" scope="iisapp" match="WebSite" />
+  </parameter>
+  <parameter name="Sitecore Admin New Password" description="" tags="SQL, Hidden, DbUserPassword">
+    <parameterEntry type="TextFile" scope="SetSitecoreAdminPassword.sql" match="PlaceHolderForPassword" />
+  </parameter>
+  <parameter name="Database Server Name"/>
+  <parameter name="Database Admin User Name"/>
+  <parameter name="Database Admin User Password"/>
+  <parameter name="Core DB Name">
+    <parameterEntry type="TextFile" scope="CreateUser.Core.sql" match="PlaceholderForDB" />
+  </parameter>
+  <parameter name="Master DB Name">
+    <parameterEntry type="TextFile" scope="CreateUser.Master.sql" match="PlaceholderForDB" />
+  </parameter>
+  <parameter name="Web DB Name">
+    <parameterEntry type="TextFile" scope="CreateUser.Web.sql" match="PlaceholderForDB" />
+  </parameter>
+  <parameter name="Reporting DB Name">
+    <parameterEntry type="TextFile" scope="CreateUser.Reporting.sql" match="PlaceholderForDB" />
+  </parameter>
+  <parameter name="XDB Reference Data DB Name"/>
+  <parameter name="Experience Forms DB Name">
+    <parameterEntry type="TextFile" scope="CreateUser.ExperienceForms.sql" match="PlaceholderForDB" />
+  </parameter>
+  <parameter name="EXM Master DB Name">
+    <parameterEntry type="TextFile" scope="CreateUser.ExmMaster.sql" match="PlaceholderForDB" />
+  </parameter>
+  <parameter name="Marketing Automation DB Name"/>
+  <parameter name="Processing Pools DB Name" />
+  <parameter name="Processing Tasks DB Name">
+    <parameterEntry type="TextFile" scope="CreateUser.ProcessingTasks.sql" match="PlaceholderForDB" />
+  </parameter>
+  <parameter name="Messaging DB Name" />
+
+  <parameter name="Core DB User Name" description="User name to access you Core database." tags="SQL, Hidden, DbUsername" >
+    <parameterEntry type="TextFile" scope="CreateUser.Core.sql" match="PlaceHolderForUser" />
+  </parameter>
+  <parameter name="Core DB User Password" description="Password to access you Core database." tags="SQL, Hidden, DbUserPassword" >
+    <parameterEntry type="TextFile" scope="CreateUser.Core.sql" match="PlaceHolderForPassword" />
+  </parameter>
+  <parameter name="Master DB User Name" description="User name to access you Master database." tags="SQL, Hidden, DbUsername" >
+    <parameterEntry type="TextFile" scope="CreateUser.Master.sql" match="PlaceHolderForUser" />
+  </parameter>
+  <parameter name="Master DB User Password" description="Password to access you Master database." tags="SQL, Hidden, DbUserPassword">
+    <parameterEntry type="TextFile" scope="CreateUser.Master.sql" match="PlaceHolderForPassword" />
+  </parameter>
+  <parameter name="Web DB User Name" description="User name to access you Web database." tags="SQL, Hidden, DbUsername" >
+    <parameterEntry type="TextFile" scope="CreateUser.Web.sql" match="PlaceHolderForUser" />
+  </parameter>
+  <parameter name="Web DB User Password" description="Password to access you Web database." tags="SQL, Hidden, DbUserPassword">
+    <parameterEntry type="TextFile" scope="CreateUser.Web.sql" match="PlaceHolderForPassword" />
+  </parameter>
+  <parameter name="Reporting DB User Name" description="User name to access you Reporting database." tags="SQL, Hidden, DbUsername" >
+    <parameterEntry type="TextFile" scope="CreateUser.Reporting.sql" match="PlaceHolderForUser" />
+  </parameter>
+  <parameter name="Reporting DB User Password" description="Password to access you Reporting database." tags="SQL, Hidden, DbUserPassword" >
+    <parameterEntry type="TextFile" scope="CreateUser.Reporting.sql" match="PlaceHolderForPassword" />
+  </parameter>
+  <parameter name="XDB Reference Data DB User Name" description="User name to access you XDB Reference Data database" tags="SQL, Hidden, DbUsername" />
+  <parameter name="XDB Reference Data DB User Password" description="Password to access you XDB Reference Data database" tags="SQL, Hidden, DbUserPassword" />
+  <parameter name="Experience Forms DB User Name" description="User name to access you Experience Forms database" tags="SQL, Hidden, DbUsername" >
+    <parameterEntry type="TextFile" scope="CreateUser.ExperienceForms.sql" match="PlaceHolderForUser" />
+  </parameter>
+  <parameter name="Experience Forms DB User Password" description="Password to access you Experience Forms database" tags="SQL, Hidden, DbUserPassword" >
+    <parameterEntry type="TextFile" scope="CreateUser.ExperienceForms.sql" match="PlaceHolderForPassword" />
+  </parameter>
+  <parameter name="EXM Master DB User Name" description="User name to access you EXM Master database" tags="SQL, Hidden, DbUsername" >
+    <parameterEntry type="TextFile" scope="CreateUser.ExmMaster.sql" match="PlaceHolderForUser" />
+  </parameter>
+  <parameter name="EXM Master DB User Password" description="Password to access you EXM Master database" tags="SQL, Hidden, DbUserPassword" >
+    <parameterEntry type="TextFile" scope="CreateUser.ExmMaster.sql" match="PlaceHolderForPassword" />
+  </parameter>
+  <parameter name="Marketing Automation DB User Name" description="User name to access your Marketing Automation database" tags="SQL, Hidden, DbUsername" />
+  <parameter name="Marketing Automation DB User Password" description="Password to access your Marketing Automation database" tags="SQL, Hidden, DbUserPassword" />
+
+  <parameter name="Processing Pools DB User Name" description="User name to access your Processing Pools database" tags="SQL, Hidden, DbUsername" />
+  <parameter name="Processing Pools DB User Password" description="Password to access your Processing Pools database" tags="SQL, Hidden, DbUserPassword" />
+
+  <parameter name="Processing Tasks DB User Name" description="User name to access your Processing Tasks database" tags="SQL, Hidden, DbUsername" >
+    <parameterEntry type="TextFile" scope="CreateUser.ProcessingTasks.sql" match="PlaceHolderForUser" />
+  </parameter>
+  <parameter name="Processing Tasks DB User Password" description="Password to access your Processing Tasks database" tags="SQL, Hidden, DbUserPassword" >
+    <parameterEntry type="TextFile" scope="CreateUser.ProcessingTasks.sql" match="PlaceHolderForPassword" />
+  </parameter>
+
+  <parameter name="Messaging DB User Name" description="User name to access your Messaging database" tags="SQL, Hidden, DbUsername" />
+  <parameter name="Messaging DB User Password" description="Password to access your Messaging database" tags="SQL, Hidden, DbUserPassword" />
+
+  <parameter name="Core Admin Connection String" description="Connection string to Import the Dacpac and Create DB User in Core Databse" tags="Hidden, SQLConnectionString, NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Core DB Name};User ID={Database Admin User Name};Password={Database Admin User Password}">
+    <parameterEntry kind="ProviderPath" scope="dbDacFx" match="Sitecore.Core.dacpac" />
+    <parameterEntry type="ProviderPath" scope="dbfullsql" match="CreateUser.Core.sql" />
+    <parameterEntry type="ProviderPath" scope="dbfullsql" match="SetSitecoreAdminPassword.sql" />
+  </parameter>
+  <parameter name="Master Admin Connection String" description="Connection string to Import the Dacpac and Create DB User in Master Databse" tags="Hidden, SQLConnectionString, NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Master DB Name};User ID={Database Admin User Name};Password={Database Admin User Password}">
+    <parameterEntry kind="ProviderPath" scope="dbDacFx" match="Sitecore.Master.dacpac" />
+    <parameterEntry type="ProviderPath" scope="dbfullsql" match="CreateUser.Master.sql" />
+  </parameter>
+  <parameter name="Web Admin Connection String" description="Connection string to Import the Dacpac and Create DB User in Web Databse" tags="Hidden, SQLConnectionString, NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Web DB Name};User ID={Database Admin User Name};Password={Database Admin User Password}">
+    <parameterEntry kind="ProviderPath" scope="dbDacFx" match="Sitecore.Web.dacpac" />
+    <parameterEntry type="ProviderPath" scope="dbfullsql" match="CreateUser.Web.sql" />
+  </parameter>
+  <parameter name="Experience Forms Admin Connection String" description="Connection string to import the dacpac and create user in Experience Forms database" tags="Hidden, SQLConnectionString, NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Experience Forms DB Name};User ID={Database Admin User Name};Password={Database Admin User Password}">
+    <parameterEntry kind="ProviderPath" scope="dbDacFx" match="Sitecore.Experienceforms.dacpac" />
+    <parameterEntry type="ProviderPath" scope="dbfullsql" match="CreateUser.ExperienceForms.sql" />
+  </parameter>
+  <parameter name="EXM Master Admin Connection String" description="Connection string to import the dacpac and create user in EXM Master database" tags="Hidden, SQLConnectionString, NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={EXM Master DB Name};User ID={Database Admin User Name};Password={Database Admin User Password}">
+    <parameterEntry kind="ProviderPath" scope="dbDacFx" match="Sitecore.Exm.Master.dacpac" />
+    <parameterEntry type="ProviderPath" scope="dbfullsql" match="CreateUser.ExmMaster.sql" />
+  </parameter>
+  <parameter name="Reporting Admin Connection String" description="Connection string to Import the Dacpac and Create DB User in Reporting Databse" tags="Hidden, SQLConnectionString, NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Reporting DB Name};User ID={Database Admin User Name};Password={Database Admin User Password}">
+    <parameterEntry kind="ProviderPath" scope="dbDacFx" match="Sitecore.Reporting.dacpac" />
+    <parameterEntry type="ProviderPath" scope="dbfullsql" match="CreateUser.Reporting.sql" />
+  </parameter>
+  <parameter name="Processing Tasks Admin Connection String" description="Connection string to Import the Dacpac and Create DB User in Processing tasks Database" tags="Hidden, SQLConnectionString, NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Processing Tasks DB Name};User ID={Database Admin User Name};Password={Database Admin User Password}">
+    <parameterEntry kind="ProviderPath" scope="dbDacFx" match="Sitecore.Processing.tasks.dacpac" />
+    <parameterEntry type="ProviderPath" scope="dbfullsql" match="CreateUser.ProcessingTasks.sql" />
+  </parameter>
+
+
+  <parameter name="Master Connection String" description="Connection string to enter into config" tags="SQL, Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Master DB Name};User ID={Master DB User Name};Password={Master DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='master']/@connectionString" />
+  </parameter>
+  <parameter name="Core Connection String" description="Connection string to enter into config" tags="SQL, Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Core DB Name};User ID={Core DB User Name};Password={Core DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='core']/@connectionString" />
+  </parameter>
+  <parameter name="Web Connection String" description="Connection string to enter into config" tags="SQL, Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Web DB Name};User ID={Web DB User Name};Password={Web DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='web']/@connectionString" />
+  </parameter>
+  <parameter name="XDB Reference Data Connection String" description="Connection string to connect to your XDB Reference Data database" tags="SQL, Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={XDB Reference Data DB Name};User ID={XDB Reference Data DB User Name};Password={XDB Reference Data DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.referencedata']/@connectionString" />
+  </parameter>
+  <parameter name="Experience Forms Connection String" description="Connection string to connect to your Experience Forms database" tags="SQL, Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Experience Forms DB Name};User ID={Experience Forms DB User Name};Password={Experience Forms DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='experienceforms']/@connectionString" />
+  </parameter>
+  <parameter name="EXM Master Connection String" description="Connection string to connect to your EXM Master database" tags="SQL, Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={EXM Master DB Name};User ID={EXM Master DB User Name};Password={EXM Master DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='exm.master']/@connectionString" />
+  </parameter>
+  <parameter name="Reporting Connection String" description="Connection string to enter into config" tags="SQL, Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Reporting DB Name};User ID={Reporting DB User Name};Password={Reporting DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='reporting']/@connectionString" />
+  </parameter>
+  <parameter name="SOLR Connection String" description="SOLR Connection String" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\Sitecore\\ContentSearch\\Sitecore.ContentSearch.Solr.DefaultIndexConfiguration\.config$" match="//configuration/sitecore/settings/setting[@name='ContentSearch.Solr.ServiceBaseAddress']/@value" />
+  </parameter>
+  <parameter name="XConnect Collection" description="XConnect Collection" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xconnect.collection']/@connectionString" />
+  </parameter>
+  <parameter name="XDB Reference Data Client" description="XDB Reference Data Client" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.referencedata.client']/@connectionString" />
+  </parameter>
+  <parameter name="XDB MA Connection String" description="XDB MA Connection String" tags="Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Marketing Automation DB Name};User ID={Marketing Automation DB User Name};Password={Marketing Automation DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.marketingautomation']/@connectionString" />
+  </parameter>
+  <parameter name="XDB MA Reporting Client" description="XDB MA Reporting Client" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.marketingautomation.reporting.client']/@connectionString" />
+  </parameter>
+  <parameter name="XDB MA Ops Client" description="XDB MA Ops Client" tags="Hidden,NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.marketingautomation.operations.client']/@connectionString" />
+  </parameter>
+  <parameter name="Processing Pools Connection String" description="Connection string to processing pools DB" tags="Hidden,NoStore"  defaultValue="Data Source={Database Server Name};Initial Catalog={Processing Pools DB Name};User ID={Processing Pools DB User Name};Password={Processing Pools DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.processing.pools']/@connectionString" />
+  </parameter>
+  <parameter name="Processing Tasks Connection String" description="Connection string to processing tasks DB" tags="Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Processing Tasks DB Name};User ID={Processing Tasks DB User Name};Password={Processing Tasks DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.processing.tasks']/@connectionString" />
+  </parameter>
+  <parameter name="Messaging Connection String" description="Connection string to messaging tasks DB" tags="Hidden,NoStore" defaultValue="Data Source={Database Server Name};Initial Catalog={Messaging DB Name};User ID={Messaging DB User Name};Password={Messaging DB User Password}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='messaging']/@connectionString" />
+  </parameter>
+  <parameter name="XConnect Server Certificate Validation Thumbprint" description="XConnect Server Certificate Validation Thumbprint" defaultValue="" tags="" />
+  <parameter name="XConnect Collection Certificate" description="XConnect Collection Certificate" tags="Hidden,NoStore" defaultValue="StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue={XConnect Server Certificate Validation Thumbprint}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xconnect.collection.certificate']/@connectionString" />
+  </parameter>
+  <parameter name="XDB Reference Data Client Certificate" description="XDB Reference Data Client Certificate" tags="Hidden,NoStore" defaultValue="StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue={XConnect Server Certificate Validation Thumbprint}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.referencedata.client.certificate']/@connectionString" />
+  </parameter>
+  <parameter name="XDB MA Reporting Client Certificate" description="XDB MA Reporting Client Certificate" tags="Hidden,NoStore" defaultValue="StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue={XConnect Server Certificate Validation Thumbprint}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.marketingautomation.reporting.client.certificate']/@connectionString" />
+  </parameter>
+  <parameter name="XDB MA Ops Client Certificate" description="XDB MA Ops Client Certificate" tags="Hidden,NoStore" defaultValue="StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue={XConnect Server Certificate Validation Thumbprint}">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='xdb.marketingautomation.operations.client.certificate']/@connectionString" />
+  </parameter>
+  <parameter name="Data Folder" tags="Hidden,NoStore" defaultValue="/App_Data">
+     <parameterEntry type="XmlFile" scope= "App_Config\\sitecore.config" match="/sitecore/sc.variable[@name='dataFolder']/@value" />
+   </parameter>
+  <parameter name="EXM EDS Provider" tags="Hidden,NoStore" defaultValue="CustomSmtp">
+    <parameterEntry kind="XmlFile" scope="Web\.config$" match="//configuration/appSettings/add[@key='eds:define']/@value" />
+  </parameter>
+  <parameter name="EXM Cryptographic Key" description="Cryptographic Key" tags="Hidden, SQLConnectionString, NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='EXM.CryptographicKey']/@connectionString" />
+  </parameter>
+  <parameter name="EXM Authentication Key" description="Authentication Key" tags="Hidden, SQLConnectionString, NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Config\\ConnectionStrings\.config$" match="//connectionStrings/add[@name='EXM.AuthenticationKey']/@connectionString" />
+  </parameter>
+  <parameter name="Solr Core Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\ContentSearch\\Sitecore\.ContentSearch\.Solr\.Index\.Core\.config" match="//index/param[@desc='core']/text()" />
+   </parameter>
+   <parameter name="Solr Master Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\ContentSearch\\Sitecore\.ContentSearch\.Solr\.Index\.Master\.config" match="//index/param[@desc='core']/text()" />
+   </parameter>
+   <parameter name="Solr Web Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\ContentSearch\\Sitecore\.ContentSearch\.Solr\.Index\.Web\.config" match="//index/param[@desc='core']/text()" />
+   </parameter>
+
+   <parameter name="Solr Testing Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\ContentTesting\\Sitecore\.ContentTesting\.Solr\.IndexConfiguration\.config" match="//index[@id='sitecore_testing_index']/param[@desc='core']/text()" />
+   </parameter>
+   <parameter name="Solr Suggested Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\ContentTesting\\Sitecore\.ContentTesting\.Solr\.IndexConfiguration\.config" match="//index[@id='sitecore_suggested_test_index']/param[@desc='core']/text()" />
+   </parameter>
+
+   <parameter name="Solr FXM Master Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\FederatedExperienceManager\\Sitecore\.FXM\.Solr\.DomainsSearch\.Index\.Master\.config" match="//index/param[@desc='core']/text()" />
+   </parameter>
+   <parameter name="Solr FXM Web Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\FederatedExperienceManager\\Sitecore\.FXM\.Solr\.DomainsSearch\.Index\.Web\.config" match="//index/param[@desc='core']/text()" />
+   </parameter>
+
+   <parameter name="Solr Marketing Asset Master Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\Marketing.Assets\\Sitecore\.Marketing\.Definitions\.MarketingAssets\.Repositories\.Solr\.Index\.Master\.config" match="//index/param[@desc='core']/text()" />
+   </parameter>
+   <parameter name="Solr Marketing Asset Web Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\Marketing.Assets\\Sitecore\.Marketing\.Definitions\.MarketingAssets\.Repositories\.Solr\.Index\.Web\.config" match="//index/param[@desc='core']/text()" />
+   </parameter>
+
+  <parameter name="Solr Marketing Definitions Master Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\Marketing\.Operations\.xMgmt\\Sitecore\.Marketing\.Solr\.Index\.Master\.config" match="//index/param[@desc='core']/text()" />
+   </parameter>
+   <parameter name="Solr Marketing Definitions Web Index Name" tags="Hidden,NoStore" defaultValue="$(id)">
+     <parameterEntry type="XmlFile" scope= "App_Config\\Sitecore\\Marketing\.Operations\.xMgmt\\Sitecore\.Marketing\.Solr\.Index\.Web\.config" match="//index/param[@desc='core']/text()" />
+   </parameter>
+   
+   <parameter name="Telerik Encryption Key" tags="Hidden,NoStore">
+     <parameterEntry kind="XmlFile" scope="Web\.config$" match="//configuration/appSettings/add[@key='Telerik.AsyncUpload.ConfigurationEncryptionKey']/@value" />
+     <parameterEntry kind="XmlFile" scope="Web\.config$" match="//configuration/appSettings/add[@key='Telerik.Upload.ConfigurationHashKey']/@value" />
+     <parameterEntry kind="XmlFile" scope="Web\.config$" match="//configuration/appSettings/add[@key='Telerik.Web.UI.DialogParametersEncryptionKey']/@value" />
+   </parameter>
+
+</parameters>

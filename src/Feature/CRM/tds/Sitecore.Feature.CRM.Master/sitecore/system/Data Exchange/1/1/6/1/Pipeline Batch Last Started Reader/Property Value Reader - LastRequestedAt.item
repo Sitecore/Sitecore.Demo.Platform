@@ -1,0 +1,80 @@
+----item----
+version: 1
+id: {D8272DB9-8492-4195-BDA5-427BC5059E93}
+database: master
+path: /sitecore/system/Data Exchange/Demo CRM/Data Access/Value Readers/Common/Pipeline Batch Last Started Reader/Property Value Reader - LastRequestedAt
+parent: {16AC214F-8E80-428F-B41C-3F423465B319}
+name: Property Value Reader - LastRequestedAt
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {34D69975-7AD7-460D-AAC2-1988355F404D}
+templatekey: Property Value Reader
+created: 20180102T112628Z
+
+----field----
+field: {169AECA8-D5AE-4A1A-8F79-F88FEDCFE279}
+name: PropertyName
+key: propertyname
+content-length: 15
+
+LastRequestedAt
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 3
+
+300
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{D8272DB9-8492-4195-BDA5-427BC5059E93}
+----version----
+language: en
+version: 1
+revision: fe242a62-8053-4527-b961-8e3ad71c9b17
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112628Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+fe242a62-8053-4527-b961-8e3ad71c9b17
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180102T112949Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+sitecore\Anonymous

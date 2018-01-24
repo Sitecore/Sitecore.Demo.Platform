@@ -1,0 +1,80 @@
+----item----
+version: 1
+id: {62A8FAE6-2361-426F-86A5-BF1E0A6CA1A7}
+database: master
+path: /sitecore/system/Data Exchange/Demo CRM/Tenant Settings/Providers/xConnect/Add Object to Batch Rules/Interaction Has Events
+parent: {338C6C7A-9F5F-42A4-A859-20EEEBAAEB0A}
+name: Interaction Has Events
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {7944CC2F-F8EC-4F30-9146-BF021D6B6292}
+templatekey: Interaction Event Count Rule
+created: 20180102T112748Z
+
+----field----
+field: {72BE489F-4AF8-4B35-B188-FB06351C176F}
+name: Operator
+key: operator
+content-length: 38
+
+{27682C54-571D-416D-B02C-FC7EE9D26C17}
+----field----
+field: {531C3FA3-EC9E-4480-9AC2-3756340D7F28}
+name: Count
+key: count
+content-length: 0
+
+
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{62A8FAE6-2361-426F-86A5-BF1E0A6CA1A7}
+----version----
+language: en
+version: 1
+revision: f7881507-7bcd-459c-922e-ca368884cc05
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112749Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+f7881507-7bcd-459c-922e-ca368884cc05
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180103T142840Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

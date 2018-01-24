@@ -1,0 +1,40 @@
+﻿---
+ID: "a74a2c25-3844-4f80-8836-95a5c652ae90"
+Parent: "9aa1efb1-8a82-48dc-b329-b3f76dc914a7"
+Template: "eaffc9f9-3684-4650-92f4-78560bed789b"
+Path: /sitecore/content/Habitat Sites/Habitat/Presentation/Partial Designs/Shared/Article List
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "article-list"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{AEAF8711-7782-4C25-A646-088B09021EC8}"
+              s:cac="0"
+              s:ds=""
+              s:id="{2E991AA4-4B08-43D2-AD2B-17C11E69A499}"
+              s:par="ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7B34147B89-B9E1-4705-9F8D-55529C7C0F2C%7D&amp;Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D%7C%7BCE43E6B9-F32D-496C-887D-DE5EC3AD21B2%7D&amp;SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="main"
+              s:vbd="0" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171113T172908Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

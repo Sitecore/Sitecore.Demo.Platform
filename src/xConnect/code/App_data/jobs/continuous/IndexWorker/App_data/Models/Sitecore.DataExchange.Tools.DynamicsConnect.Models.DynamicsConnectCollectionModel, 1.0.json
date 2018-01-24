@@ -1,0 +1,127 @@
+{
+  "Name": "Sitecore.DataExchange.Tools.DynamicsConnect.Models.DynamicsConnectCollectionModel",
+  "Version": "1.0",
+  "References": [
+    {
+      "Name": "XConnect",
+      "Version": "1.0"
+    },
+    {
+      "Name": "Sitecore.XConnect.Collection.Model",
+      "Version": "9.0"
+    },
+    {
+      "Name": "Sitecore.EmailCampaign.XConnectModel",
+      "Version": "1.0"
+    }
+  ],
+  "Types": {
+    "Sitecore.DataExchange.Tools.DynamicsConnect.Facets.DynamicsContactInformation": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Sitecore.DataExchange.Tools.DynamicsConnect.Facets.DynamicsContactInformation, Sitecore.DataExchange.Tools.DynamicsConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "CreatedOn": {
+          "Type": "DateTime"
+        },
+        "FullName": {
+          "Type": "String",
+          "Annotations": [
+            {
+              "Type": "PIISensitiveAttribute"
+            }
+          ]
+        }
+      }
+    },
+    "Sitecore.DataExchange.Tools.DynamicsConnect.Facets.DynamicsMembership": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Sitecore.DataExchange.Tools.DynamicsConnect.Facets.DynamicsMembership, Sitecore.DataExchange.Tools.DynamicsConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "MarketingListIds": {
+          "Type": [
+            "String"
+          ]
+        }
+      }
+    },
+    "Sitecore.DataExchange.Tools.DynamicsConnect.Facets.DynamicsActivityInteraction": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Sitecore.DataExchange.Tools.DynamicsConnect.Facets.DynamicsActivityInteraction, Sitecore.DataExchange.Tools.DynamicsConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "Identifier": {
+          "Type": "String"
+        }
+      }
+    },
+    "Sitecore.DataExchange.Tools.DynamicsConnect.Events.ActivityEvent": {
+      "Type": "Event",
+      "Abstract": true,
+      "BaseType": "Sitecore.XConnect.Event",
+      "ClrType": "Sitecore.DataExchange.Tools.DynamicsConnect.Events.ActivityEvent, Sitecore.DataExchange.Tools.DynamicsConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "Status": {
+          "Type": "String"
+        },
+        "Description": {
+          "Type": "String"
+        },
+        "Subject": {
+          "Type": "String"
+        },
+        "ActualStart": {
+          "Type": "DateTime"
+        },
+        "ActualEnd": {
+          "Type": "DateTime"
+        },
+        "ScheduledStart": {
+          "Type": "DateTime"
+        },
+        "ScheduledEnd": {
+          "Type": "DateTime"
+        },
+        "Priority": {
+          "Type": "String"
+        }
+      }
+    },
+    "Sitecore.DataExchange.Tools.DynamicsConnect.Events.EmailEvent": {
+      "Type": "Event",
+      "BaseType": "Sitecore.DataExchange.Tools.DynamicsConnect.Events.ActivityEvent",
+      "ClrType": "Sitecore.DataExchange.Tools.DynamicsConnect.Events.EmailEvent, Sitecore.DataExchange.Tools.DynamicsConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {}
+    },
+    "Sitecore.DataExchange.Tools.DynamicsConnect.Events.PhoneCallEvent": {
+      "Type": "Event",
+      "BaseType": "Sitecore.DataExchange.Tools.DynamicsConnect.Events.ActivityEvent",
+      "ClrType": "Sitecore.DataExchange.Tools.DynamicsConnect.Events.PhoneCallEvent, Sitecore.DataExchange.Tools.DynamicsConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {}
+    },
+    "Sitecore.DataExchange.Tools.DynamicsConnect.Events.TaskEvent": {
+      "Type": "Event",
+      "BaseType": "Sitecore.DataExchange.Tools.DynamicsConnect.Events.ActivityEvent",
+      "ClrType": "Sitecore.DataExchange.Tools.DynamicsConnect.Events.TaskEvent, Sitecore.DataExchange.Tools.DynamicsConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {}
+    }
+  },
+  "Facets": [
+    {
+      "Target": "Contact",
+      "Name": "DynamicsContact",
+      "Type": "Sitecore.DataExchange.Tools.DynamicsConnect.Facets.DynamicsContactInformation"
+    },
+    {
+      "Target": "Contact",
+      "Name": "DynamicsMembership",
+      "Type": "Sitecore.DataExchange.Tools.DynamicsConnect.Facets.DynamicsMembership"
+    },
+    {
+      "Target": "Interaction",
+      "Name": "DynamicsInteraction",
+      "Type": "Sitecore.DataExchange.Tools.DynamicsConnect.Facets.DynamicsActivityInteraction"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+﻿// -----------------------------------------------------------------------------//
+//       Sitecore Install Framework - Sitecore XP1-CM-DDS Patch Configuration   //
+//                                                                              //
+//  Run this configuration to patch a CM instance of Sitecore.                  //
+//                                                                              //
+//  NOTE: Only single line comments are accepted in configurations.             //
+// -----------------------------------------------------------------------------//
+
+{
+    "Parameters": {
+        // Parameters are values that may be passed when Install-SitecoreConfiguration is called.
+        // Parameters must declare a Type and may declare a DefaultValue and Description.
+        // Parameters with no DefaultValue are required when Install-SitecoreConfiguration is called.
+
+        "Package": {
+            "Type": "string",
+            "Description": "The path to the patch Web Deploy package to deploy."
+        },
+        "SiteName": {
+            "Type": "string",
+            "DefaultValue": "SitecoreCM",
+            "Description": "The name of the CM site to be patched."
+        },
+        "EXMCryptographicKey": {
+            "Type": "string",
+            "DefaultValue": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "Description": "64 digits hexadecimal EXM Cryptographic Key."
+        },
+        "EXMAuthenticationKey": {
+            "Type": "string",
+            "DefaultValue": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "Description": "64 digits hexadecimal EXM Authentication Key."
+        },
+        "EXMInternalApiKey": {
+            "Type": "string",
+            "DefaultValue": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "Description": "64 digits hexadecimal EXM Internal API Key."
+        },
+        "DedicatedDispatchService": {
+            "Type": "string",
+            "DefaultValue": "/sitecore%20modules/web/exm/dedicateddispatchservice.asmx",
+            "Description": "Dedicated Dispatch Service Path."
+        },
+        "DedicatedServerHostName": {
+            "Type": "string",
+            "DefaultValue": "",
+            "Description": "Dedicated Server Host Name."
+        }
+    },
+    "Variables": {
+        // Variables are values calculated in a configuration.
+        // They can reference Parameters, other Variables, and config functions.
+
+        // The sites full path on disk
+        "Site.PhysicalPath": "[joinpath(environment('SystemDrive'), 'inetpub', 'wwwroot', parameter('SiteName'))]",
+
+        // The sites data folder
+        "Site.DataFolder": "[joinpath(variable('Site.PhysicalPath'), 'App_Data')]"
+    },
+    "Tasks": {
+        // Tasks are separate units of work in a configuration.
+        // Each task is an action that will be completed when Install-SitecoreConfiguration is called.
+        // By default, tasks are applied in the order they are declared.
+        // Tasks may reference Parameters, Variables, and config functions.
+
+		  "InstallDDSPatchWDP": {
+            // Syncs the web deploy package with the website.
+            "Type": "WebDeploy",
+            "Params" : {
+                "Verb": "Sync",
+                "Arguments": {
+                    "Source": {
+                        "Package": "[resolvepath(parameter('Package'))]"
+                    },
+                    "Dest": "Auto",
+					          "enableRule": "DoNotDeleteRule",
+                    "SetParam": [
+                        { "Name": "Application Path", "Value": "[parameter('SiteName')]" },
+                        { "Name": "EXM Cryptographic Key", "Value": "[parameter('EXMCryptographicKey')]" },
+                        { "Name": "EXM Authentication Key", "Value": "[parameter('EXMAuthenticationKey')]" },
+                        { "Name": "EXM Internal Api Key", "Value": "[parameter('EXMInternalApiKey')]" },
+                        { "Name": "Dedicated Dispatch Service", "Value": "[parameter('DedicatedDispatchService')]" },
+                        { "Name": "Dedicated Server Host Name", "Value": "[parameter('DedicatedServerHostName')]" }
+                    ]
+                }
+            }
+        },
+        "TransformXmlDocuments": {
+            "Type": "TransformXmlDoc",
+            "Params":{
+                "Path": "[variable('Site.PhysicalPath')]",
+                "XDTDirectory": "[joinpath(variable('Site.DataFolder'), 'Transforms', 'EXM', 'xdts')]"
+            }
+        }
+    },
+  "Modules": [ ".\\sitecore-XP1-cm-dds-patch.ps1" ]
+}

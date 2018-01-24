@@ -1,0 +1,115 @@
+----item----
+version: 1
+id: {BED9D95F-8311-4ACC-A2D0-4771BCC18B6C}
+database: master
+path: /sitecore/content/Habitat Sites/Habitat/Settings/Site Grouping/Habitat
+parent: {9A5C3950-CECA-4E5C-AEDB-D2E53A1DB7D8}
+name: Habitat
+master: {00000000-0000-0000-0000-000000000000}
+template: {EDA823FC-BC7E-4EF6-B498-CD09EC6FDAEF}
+templatekey: Site
+created: 20171027T151258Z
+
+----field----
+field: {CB4E9E2E-2B66-43DC-AD3F-9CAF363D28D3}
+name: SiteName
+key: sitename
+content-length: 7
+
+Habitat
+----field----
+field: {DA06D09E-02B6-464A-80FC-9D8D7FC875E3}
+name: Environment
+key: environment
+content-length: 1
+
+*
+----field----
+field: {E5B5CCB5-17A1-429D-BD3E-6122B3216E52}
+name: TargetHostName
+key: targethostname
+content-length: 0
+
+
+----field----
+field: {8E0DD914-9AFB-4D45-BF8B-7FF5D6E5337E}
+name: HostName
+key: hostname
+content-length: 41
+
+habitat.dev.local|*-h.habitathomedemo.com
+----field----
+field: {1EE576AF-BA8E-4312-9FBD-2CCF8395BAA1}
+name: StartItem
+key: startitem
+content-length: 38
+
+{CC0B61BA-50E2-4FE0-9311-1CF141A5DA13}
+----field----
+field: {A7803A5D-CD03-4EDA-ABED-1D9AF4BF6660}
+name: Database
+key: database
+content-length: 6
+
+master
+----field----
+field: {301E719A-6F65-4874-B565-A953A7B5AC83}
+name: OtherProperties
+key: otherproperties
+content-length: 101
+
+formsRoot=%7B476ABC87-1BE4-401B-B624-5708EB428FF2%7D&dictionaryPath=%2Fsitecore%2Fsystem%2FDictionary
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{0EF8CB53-535D-41FE-8704-2C014D60D2DD}
+----version----
+language: en
+version: 1
+revision: eae042f7-6c54-4ce4-8e80-92917feeb45a
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20171027T151303Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+eae042f7-6c54-4ce4-8e80-92917feeb45a
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20171212T065555Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

@@ -1,0 +1,20 @@
+<parameters>
+  <parameter name="Application Path" description="Full site path where you would like to install your application (i.e., Default Web Site/Content)" defaultValue="Default Web Site/Content" tags="iisapp">
+    <parameterEntry type="ProviderPath" scope="iisapp" match="WebSite" />
+  </parameter>
+  <parameter name="EXM Cryptographic Key" description="Cryptographic Key"  tags="Hidden, NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Data\\Transforms\\EXM\\Xdts\\App_Config\\ConnectionStrings\.config\.xdt$" match="//connectionStrings/add[@name='EXM.CryptographicKey']/@connectionString" />
+  </parameter>
+  <parameter name="EXM Authentication Key" description="Authentication Key" tags="Hidden, NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Data\\Transforms\\EXM\\Xdts\\App_Config\\ConnectionStrings\.config\.xdt$" match="//connectionStrings/add[@name='EXM.AuthenticationKey']/@connectionString" />
+  </parameter>
+  <parameter name="EXM Internal Api Key" description="Internal Api Key" tags="Hidden, SQLConnectionString, NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Data\\Transforms\\EXM\\Xdts\\App_Config\\ConnectionStrings\.config\.xdt$" match="//connectionStrings/add[@name='EXM.InternalApiKey']/@connectionString" />
+  </parameter>
+  <parameter name="Dedicated Dispatch Service" description="Dedicated Dispatch Service" tags="Hidden, SQLConnectionString, NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Data\\Transforms\\EXM\\Xdts\\App_Config\\ConnectionStrings\.config\.xdt$" match="//connectionStrings/add[@name='EXM.DedicatedDispatchService']/@connectionString" />
+  </parameter>
+  <parameter name="Dedicated Server Host Name" description="Dedicated Server Host Name" tags="Hidden, NoStore">
+    <parameterEntry kind="XmlFile" scope="App_Data\\Transforms\\EXM\\Xdts\\App_Config\\Sitecore\\EmailExperience\\Sitecore\.EmailExperience\.ContentManagementPrimary\.config\.xdt$"  match="//sitecore/DedicatedServers/address/@value" />
+  </parameter>
+</parameters>

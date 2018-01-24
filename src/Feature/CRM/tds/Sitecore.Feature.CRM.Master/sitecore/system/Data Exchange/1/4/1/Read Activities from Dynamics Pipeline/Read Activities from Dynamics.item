@@ -1,0 +1,115 @@
+----item----
+version: 1
+id: {9388399E-4C69-456B-850A-2D0774A2B1B4}
+database: master
+path: /sitecore/system/Data Exchange/Demo CRM/Pipelines/Dynamics Activities to xConnect Sync Pipelines/Read Activities from Dynamics Pipeline/Read Activities from Dynamics
+parent: {D154E7EB-4507-4096-B63F-8E6838033CA9}
+name: Read Activities from Dynamics
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {86A5F63E-A5D6-4DE6-8FAB-F20987E2620A}
+templatekey: Read Dynamics Entities Pipeline Step
+created: 20180102T112705Z
+
+----field----
+field: {AD963103-122C-48E1-B0BB-444E98572AB9}
+name: EndpointFrom
+key: endpointfrom
+content-length: 38
+
+{DCDA28A7-6999-44D3-9C0E-A97671C0DDCE}
+----field----
+field: {8099FDC6-B566-4711-8B6E-FF2934187767}
+name: EntityName
+key: entityname
+content-length: 15
+
+activitypointer
+----field----
+field: {95B8AB42-0B81-4BB0-A9CD-7804EF8C9B06}
+name: AttributesToRead
+key: attributestoread
+content-length: 38
+
+{E36BF45A-F52C-4C7C-ACD5-2ED0F91EEA5D}
+----field----
+field: {2AC84EAF-03B8-4388-84B3-9D153DF5D9A9}
+name: FilterExpression
+key: filterexpression
+content-length: 38
+
+{5157791F-A478-4368-B961-08B05A76C1FD}
+----field----
+field: {3ECC7C7F-341D-4BEC-BB3F-2D4F1A07D78A}
+name: LinkEntities
+key: linkentities
+content-length: 38
+
+{71E753FB-E3A2-4C10-AF91-B18CE1C77250}
+----field----
+field: {57CF77AE-1D9C-4E2E-B817-11349BF292EA}
+name: ExcludeActiveFilter
+key: excludeactivefilter
+content-length: 1
+
+1
+----field----
+field: {1FE9C9A1-2FBC-4F60-87DA-25B8556C193B}
+name: ExcludeUseDeltaSettings
+key: excludeusedeltasettings
+content-length: 1
+
+1
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{9388399E-4C69-456B-850A-2D0774A2B1B4}
+----version----
+language: en
+version: 1
+revision: 080463d2-f744-49af-b650-24875e4513fa
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112705Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+080463d2-f744-49af-b650-24875e4513fa
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180102T113010Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+sitecore\Anonymous

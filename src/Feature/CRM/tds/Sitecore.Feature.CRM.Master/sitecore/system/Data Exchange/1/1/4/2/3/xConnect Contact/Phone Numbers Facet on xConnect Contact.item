@@ -1,0 +1,80 @@
+----item----
+version: 1
+id: {E73961F1-FA0A-47DE-9B7E-F57A8EC98A9C}
+database: master
+path: /sitecore/system/Data Exchange/Demo CRM/Data Access/Value Accessor Sets/Providers/xConnect/xConnect Contact/Phone Numbers Facet on xConnect Contact
+parent: {04D033FC-4121-4BEF-9B73-6A03BD15CF5E}
+name: Phone Numbers Facet on xConnect Contact
+master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
+template: {40C62E1A-4985-49BC-BBE6-AEF11228151A}
+templatekey: xConnect Entity Facet Value Accessor
+created: 20180102T112543Z
+
+----field----
+field: {19E74327-EDB8-4AA8-B696-FF88F096310B}
+name: FacetDefinition
+key: facetdefinition
+content-length: 38
+
+{632D4894-DC14-B928-A9DE-340AACE432FA}
+----field----
+field: {C43A22D0-F73E-4B09-AF5E-84E346EC515B}
+name: MappingSet
+key: mappingset
+content-length: 38
+
+{BB4E4FD8-C8F9-4612-A945-60D78B3D63B7}
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{E73961F1-FA0A-47DE-9B7E-F57A8EC98A9C}
+----version----
+language: en
+version: 1
+revision: c6297220-77cb-4aa7-8baa-32a4ee63494f
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180102T112543Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+sitecore\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+c6297220-77cb-4aa7-8baa-32a4ee63494f
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180102T112921Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+sitecore\Anonymous
