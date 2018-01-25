@@ -19,7 +19,7 @@ $solrRoot = "$installFolder\$solrName"
 $nssmRoot = "$installFolder\nssm-$nssmVersion"
 $solrPackage = "http://archive.apache.org/dist/lucene/solr/$solrVersion/$solrName.zip"
 $nssmPackage = "http://nssm.cc/release/nssm-$nssmVersion.zip"
-$downloadFolder = "C:\Projects\Sitecore.Habitat\build\assets"
+$downloadFolder = "C:\Projects\Sitecore.Habitat\install\assets"
 
 ## Verify elevated
 ## https://superuser.com/questions/749243/detect-if-powershell-is-running-as-administrator
