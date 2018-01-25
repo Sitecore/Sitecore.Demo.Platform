@@ -8,7 +8,7 @@ name: __Standard Values
 master: {00000000-0000-0000-0000-000000000000}
 template: {9F54E3D8-1BBA-4442-84E1-F0528B780ECC}
 templatekey: Metadata Partial Design
-created: 20171027T151058Z
+created: 20180117T173110Z
 
 ----field----
 field: {55FAAE90-3BBA-4F7F-96FE-13C3F40055FF}
@@ -17,6 +17,13 @@ key: signature
 content-length: 17
 
 __standard-values
+----field----
+field: {FD4E2050-186C-4375-8B99-E8A85DD7436E}
+name: __Enable item fallback
+key: __enable item fallback
+content-length: 1
+
+1
 ----field----
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
@@ -27,7 +34,7 @@ content-length: 237
 ----version----
 language: en
 version: 1
-revision: af202e55-d73f-42af-b9da-283d5fb2756e
+revision: 8175b5e1-55a9-45a5-8ea9-36722eb95175
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -49,18 +56,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-af202e55-d73f-42af-b9da-283d5fb2756e
+8175b5e1-55a9-45a5-8ea9-36722eb95175
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171027T151143Z
+20180125T214207Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 14
 
-sitecore\virtualssuser
+sitecore\admin
