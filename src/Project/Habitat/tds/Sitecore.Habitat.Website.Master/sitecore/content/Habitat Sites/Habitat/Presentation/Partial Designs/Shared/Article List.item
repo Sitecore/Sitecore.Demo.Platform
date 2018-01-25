@@ -8,7 +8,7 @@ name: Article List
 master: {00000000-0000-0000-0000-000000000000}
 template: {EAFFC9F9-3684-4650-92F4-78560BED789B}
 templatekey: Partial Design
-created: 20171113T172908Z
+created: 20180117T173119Z
 
 ----field----
 field: {55FAAE90-3BBA-4F7F-96FE-13C3F40055FF}
@@ -17,18 +17,18 @@ key: signature
 content-length: 12
 
 article-list
-----version----
-language: en
-version: 1
-revision: c982457c-cd9f-4939-a54f-eae7495f2ae4
-
 ----field----
-field: {04BF00DB-F5FB-41F7-8AB7-22408372A981}
-name: __Final Renderings
-key: __final renderings
+field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
+name: __Renderings
+key: __renderings
 content-length: 645
 
 <r xmlns:p="p" xmlns:s="s" p:p="1"><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"><r uid="{AEAF8711-7782-4C25-A646-088B09021EC8}" s:cac="0" s:ds="" s:id="{2E991AA4-4B08-43D2-AD2B-17C11E69A499}" s:par="ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7B34147B89-B9E1-4705-9F8D-55529C7C0F2C%7D&amp;Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D%7C%7BCE43E6B9-F32D-496C-887D-DE5EC3AD21B2%7D&amp;SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1" s:ph="main" s:vbd="0" /></d></r>
+----version----
+language: en
+version: 1
+revision: 2959ebbb-63ee-40c3-81d6-c34bc533abb5
+
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -49,21 +49,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-c982457c-cd9f-4939-a54f-eae7495f2ae4
+2959ebbb-63ee-40c3-81d6-c34bc533abb5
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171214T194733Z
+20180125T204904Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 14
+content-length: 22
 
-sitecore\admin
+sitecore\virtualssuser
 ----field----
 field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
 name: __Lock
