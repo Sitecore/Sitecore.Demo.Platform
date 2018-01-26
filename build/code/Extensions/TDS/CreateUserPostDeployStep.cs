@@ -18,10 +18,18 @@ namespace Sitecore.Demo.Deployment.Web.Extensions.TDS
                 host.LogMessage("Creating user: " + demoAdminDomainUsername);
 
                 var user = User.Create(demoAdminDomainUsername, "demopass");
-                user.Profile.FullName = "Demo Administrator";
-                user.Profile.IsAdministrator = true;
+                user.Profile.FullName = "Demo Administrator";        
                 user.Profile.Email = "admin@demo.com";
                 user.Profile.Save();
+
+                var authorRole = Role.FromName("sitecore\\Author");
+                user.Roles.Add(authorRole);
+
+                var analyticsReportingRole = Role.FromName("sitecore\\Analytics Reporting");
+                user.Roles.Add(analyticsReportingRole);
+
+                var analyticsTestingRole = Role.FromName("sitecore\\Analytics Testing");
+                user.Roles.Add(analyticsTestingRole);            
             }
         }
     }
