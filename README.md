@@ -1,7 +1,6 @@
 # Introduction 
 Habitat and the tools and processes in it is a Sitecore solution example built using Sitecore Experience Accelerator (SXA) following the Helix architecture principles.
 
-
 # Getting Started
 ## Installation:
 
@@ -11,9 +10,6 @@ All installation instructions assume using PowerShell 5.1 in administrative mode
 Clone the Sitecore.Habitat repository locally - defaults are configured for **C:\Projects\Sitecore.Habitat**. 
 
 #### Setting Git for Long Paths
-
-
-
 
 - Before cloning, you need to configure git to allow long paths, which is not the default.
 
@@ -52,7 +48,6 @@ Execute **`install-solr.ps1`**
 
 At this point you should have a **`configuration-xp0.json`** file. Review the file for correctness.
 
-
 ### 5 Install Sitecore
 
 - Run **`.\install-xp0.ps1`**
@@ -72,7 +67,6 @@ Clone the Sitecore.Habitat.Home repository locally - defaults are configured for
 
 - **https**:	`git clone https://sitecoredst.visualstudio.com/Demo/_git/Sitecore.Habitat.Home` 
 - **ssh**:		`git clone ssh://sitecoredst@vs-ssh.visualstudio.com:22/Demo/_ssh/Sitecore.Habitat.Home`
-
 
 > #### Required if cloning to a folder **different than c:\projects**:
 > 
