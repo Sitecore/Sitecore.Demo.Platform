@@ -48,31 +48,42 @@ function Install-Prerequisites {
     
     $minVersion = New-Object System.Version($assets.jreRequiredVersion)
     $foundVersion = $FALSE
-    $jrePath = "HKLM:\SOFTWARE\JavaSoft\Java Runtime Environment"
-    $jdkPath = "HKLM:\SOFTWARE\JavaSoft\Java Development Kit"
-    if (Test-Path $jrePath) {
-        $path = $jrePath
+   
+    
+    function getJavaVersions() {
+        $versions = '', 'Wow6432Node\' |
+            ForEach-Object {Get-ItemProperty -Path HKLM:\SOFTWARE\$($_)Microsoft\Windows\CurrentVersion\Uninstall\* |
+                Where-Object {($_.DisplayName -like '*Java *') -and (-not $_.SystemComponent)} |
+                Select-Object DisplayName, DisplayVersion, @{n = 'Architecture'; e = {If ($_.PSParentPath -like '*Wow6432Node*') {'x86'} Else {'x64'}}}}
+        return $versions
     }
-    elseif (Test-Path $jdkPath) {
-        $path = $jdkPath
-    }
-    else {
-        throw "Cannot find Java Runtime Environment or Java Development Kit on this machine."
-    }
-	
-    $javaVersionStrings = Get-ChildItem $path | ForEach-Object { $parts = $_.Name.Split("\"); $parts[$parts.Count - 1] } 
-    foreach ($versionString in $javaVersionStrings) {
-        try {
-            $version = New-Object System.Version($versionString)
-        }
-        catch {
-            continue
+function checkJavaversion($toVersion)
+    {
+        $versions_ = getJavaVersions
+        foreach ($version_ in $versions_)
+        {
+            try
+            {
+                $version = New-Object System.Version($version_.DisplayVersion)
+                
+            }
+            catch
+            {
+                continue
+            }
+
+            if ($version.CompareTo($toVersion) -ge 0)
+            {
+                return $TRUE
+            }
         }
 
-        if ($version.CompareTo($minVersion) -ge 0) {
-            $foundVersion = $TRUE
-        }
+        return $false
+
     }
+    
+    $foundVersion =  checkJavaversion($minversion)
+    
     if (-not $foundVersion) {
         throw "Invalid Java version. Expected $minVersion or above."
     }
