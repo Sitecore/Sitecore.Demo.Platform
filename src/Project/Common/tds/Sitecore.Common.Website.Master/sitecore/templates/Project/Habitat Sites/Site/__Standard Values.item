@@ -8,8 +8,15 @@ name: __Standard Values
 master: {00000000-0000-0000-0000-000000000000}
 template: {4F7B68D5-F792-4868-BFD1-C143466AA537}
 templatekey: Site
-created: 20171030T210049Z
+created: 20180117T173110Z
 
+----field----
+field: {FD4E2050-186C-4375-8B99-E8A85DD7436E}
+name: __Enable item fallback
+key: __enable item fallback
+content-length: 1
+
+1
 ----field----
 field: {1172F251-DAD4-4EFB-A329-0C63500E4F1E}
 name: __Masters
@@ -20,7 +27,7 @@ content-length: 116
 ----version----
 language: en
 version: 1
-revision: 6f663733-7543-400b-9ced-551c2908022c
+revision: a5ac32c9-75ae-4f27-bf2b-9e1353e35865
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -42,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-6f663733-7543-400b-9ced-551c2908022c
+a5ac32c9-75ae-4f27-bf2b-9e1353e35865
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210049Z
+20180125T214333Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 14
 
-extranet\Anonymous
+sitecore\admin
