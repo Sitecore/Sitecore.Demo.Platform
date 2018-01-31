@@ -4,6 +4,11 @@ Parent: "36ac0b4c-c464-460b-bdba-2d2f252073bb"
 Template: "36ac0b4c-c464-460b-bdba-2d2f252073bb"
 Path: /sitecore/templates/Project/Habitat Sites/Tenant/__Standard Values
 DB: master
+SharedFields:
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Type: Checkbox
+  Value: 1
 Languages:
 - Language: en
   Versions:
