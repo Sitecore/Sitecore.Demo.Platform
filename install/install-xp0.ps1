@@ -19,6 +19,16 @@ $config = Get-Content -Raw $ConfigurationFile |  ConvertFrom-Json
 if (!$config) {
     throw "Error trying to load configuration!"
 }
+
+$carbon = Get-Module Carbon
+if (-not $carbon) {
+    Write-Host "Installing latest version of Carbon" -ForegroundColor Green
+    Install-Module -Name Carbon -Repository PSGallery -AllowClobber -Verbose
+    Import-Module Carbon
+}
+
+
+
 $site = $config.settings.site
 $sql = $config.settings.sql
 $xConnect = $config.settings.xConnect
@@ -27,10 +37,11 @@ $solr = $config.settings.solr
 $assets = $config.assets
 $modules = $config.modules
 
+Import-Module .\scripts\additional-tasks.psm1 -Force
 
 Write-Host "*******************************************************" -ForegroundColor Green
 Write-Host " Installing Sitecore $($assets.sitecoreVersion)" -ForegroundColor Green
-Write-Host " Sitecore: $($site.siteName)" -ForegroundColor Green
+Write-Host " Sitecore: $($site.hostName)" -ForegroundColor Green
 Write-Host " xConnect: $($xConnect.siteName)" -ForegroundColor Green
 Write-Host "*******************************************************" -ForegroundColor Green
 
@@ -57,23 +68,18 @@ function Install-Prerequisites {
                 Select-Object DisplayName, DisplayVersion, @{n = 'Architecture'; e = {If ($_.PSParentPath -like '*Wow6432Node*') {'x86'} Else {'x64'}}}}
         return $versions
     }
-function checkJavaversion($toVersion)
-    {
+    function checkJavaversion($toVersion) {
         $versions_ = getJavaVersions
-        foreach ($version_ in $versions_)
-        {
-            try
-            {
+        foreach ($version_ in $versions_) {
+            try {
                 $version = New-Object System.Version($version_.DisplayVersion)
                 
             }
-            catch
-            {
+            catch {
                 continue
             }
 
-            if ($version.CompareTo($toVersion) -ge 0)
-            {
+            if ($version.CompareTo($toVersion) -ge 0) {
                 return $TRUE
             }
         }
@@ -82,7 +88,7 @@ function checkJavaversion($toVersion)
 
     }
     
-    $foundVersion =  checkJavaversion($minversion)
+    $foundVersion = checkJavaversion($minversion)
     
     if (-not $foundVersion) {
         throw "Invalid Java version. Expected $minVersion or above."
@@ -307,6 +313,11 @@ function Install-Sitecore {
         throw
     }
 }
+
+function Add-AdditionalBindings{
+    Add-HabitatHomeBindingDetails $site.hostName $site.habitatHomeHostName
+}
+
 function Copy-Tools {
     if (!(Test-Path $assets.installPackagePath)) {
         throw "$($assets.installPackagePath) not found"
@@ -320,6 +331,8 @@ function Copy-Tools {
         write-host "Failed to copy InstallPackage.aspx to web root" -ForegroundColor Red
     }
 }
+
+
 function Copy-Package ($packagePath, $destination) {
    
     if (!(Test-Path $packagePath)) {
@@ -355,5 +368,6 @@ Install-Prerequisites
 Install-Assets
 Install-XConnect
 Install-Sitecore
+Add-AdditionalBindings
 Copy-Tools
 Install-OptionalModules

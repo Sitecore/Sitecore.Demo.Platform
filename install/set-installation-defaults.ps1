@@ -29,6 +29,7 @@ $site.prefix = "habitat"
 $site.suffix = "dev.local"
 $site.webroot = "C:\inetpub\wwwroot"
 $site.hostName = $json.settings.site.prefix + "." + $json.settings.site.suffix
+$site.habitatHomeHostName = $json.settings.site.prefix + "home." + $json.settings.site.suffix
 
 $sql = $json.settings.sql
 # SQL Settings
