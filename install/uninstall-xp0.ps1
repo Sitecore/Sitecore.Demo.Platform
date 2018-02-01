@@ -78,6 +78,8 @@ Get-WmiObject win32_service  -Filter "name like '$($solr.serviceName)'" | Start-
 Remove-SitecoreCertificate $xConnect.siteName
 # Delete xconnect client certificate
 Remove-SitecoreCertificate $xConnect.certificateName
+# Delete SSL certificate
+Remove-SitecoreCertificate $site.habitatHomeSslCertificateName
 
 # Delete sitecore site
 Remove-SitecoreIisSite $sitecore.siteName
