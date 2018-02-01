@@ -2,6 +2,40 @@
 Habitat and the tools and processes in it is a Sitecore solution example built using Sitecore Experience Accelerator (SXA) following the Helix architecture principles.
 
 # Getting Started
+
+## Custom install - before you start
+
+
+The following is a list of default values / assumptions for install locations
+
+**Habitat Project location**		`c:\projects\sitecore.habitat\`
+**Habitat Home Project location**	`c:\projects\sitecore.habitat.home\`
+**Habitat Site domain**				`habitat.dev.local`
+**Web Root**						`c:\inetpub\wwwroot`
+**Host Suffix**						`dev.local`
+
+-- the wildcare host name *home.dev.local is used in the SXA Host Name (Site Grouping). 
+
+If you do not use *home.dev.local you will need to modify the Host Name in 
+`/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
+The Habitat Home site will not respond / render correctly until this value is modified. 
+
+If you do **not want to use the default settings**, you need to adjust the appropriate values in the following files in **both** projects:
+
+Create a user version of the following files
+
+**Sitecore.Habitat**
+`/gulp-config.user.js` 
+`/publishsettings.user.targets` 
+`/TDSGlobal.config.user` (only if using TDS)
+`src\Project\Habitat\code\App_Config\Include\Project\z.Habitat.WebSite.DevSettings.user.config`
+
+**Sitecore.Habitat.Home**
+`/gulp-config.user.js` 
+`/publishsettings.user.targets` 
+`/TDSGlobal.config.user` (only if using TDS)
+`\src\Project\Habitat.Home\code\App_Config\Include\Project\z.Habitat.Home.Website.DevSettings.user.config`
+
 ## Installation:
 
 All installation instructions assume using PowerShell 5.1 in administrative mode.
@@ -91,6 +125,9 @@ From the root directory of Habitat Home solution:
 
 ### 10 Rebuild indexes
 Once you've confirmed the site has come up, please rebuild the master index.
+
+### 11 Populate EXM Campaigns table
+After deploying the site, navigate to `/sitecore/admin/MessageStatistics.aspx` and click **Upgrade**
 
 # Failed installation
 

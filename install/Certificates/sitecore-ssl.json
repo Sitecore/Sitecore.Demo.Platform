@@ -10,11 +10,16 @@
         "SiteName": {
             "Type": "string",
             "Description": "The name of the site to be deployed."
+        },
+        "WebRoot":{
+            "Type":"string",
+            "DefaultValue":"c:\\inetpub\\wwwroot",
+            "Description":"The physical path of the configured Web Root for the environment"
         }
     },
     "Variables": {
         // The sites full path on disk
-        "Site.PhysicalPath": "[joinpath(environment('SystemDrive'), 'inetpub', 'wwwroot', parameter('SiteName'))]",
+        "Site.PhysicalPath": "[concat(parameter('WebRoot'),'\\', parameter('SiteName'))]",
         "Site.DataFolder": "[joinpath(variable('Site.PhysicalPath'), 'App_Data')]"
     },
     "Tasks": {
