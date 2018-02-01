@@ -25,7 +25,12 @@ namespace Sitecore.Feature.Forms
             }
         }
 
-        public struct FacetActionMapping
+        public struct ContactIdentificationActionSettings
+        {
+            public static readonly ID ID = new ID("{7E33CFBD-1060-4A7C-97B5-FD3785BD5085}");
+        }
+
+        public struct ContactIdentificationActionMapping
         {
             public static readonly ID ID = new ID("{44E9B708-77AD-4933-B8CA-C4CA15918B76}");
 

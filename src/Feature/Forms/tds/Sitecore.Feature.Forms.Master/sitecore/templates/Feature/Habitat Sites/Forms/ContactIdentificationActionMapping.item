@@ -2,9 +2,9 @@
 version: 1
 id: {44E9B708-77AD-4933-B8CA-C4CA15918B76}
 database: master
-path: /sitecore/templates/Feature/Habitat Sites/Forms/FacetActionMapping
+path: /sitecore/templates/Feature/Habitat Sites/Forms/ContactIdentificationActionMapping
 parent: {2AAA91CA-BCF6-4398-88D6-CE7082A0D9B8}
-name: FacetActionMapping
+name: ContactIdentificationActionMapping
 master: {00000000-0000-0000-0000-000000000000}
 template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
 templatekey: Template
@@ -28,13 +28,13 @@ content-length: 38
 field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
 name: __Icon
 key: __icon
-content-length: 32
+content-length: 22
 
-Office/32x32/businessperson2.png
+Office/32x32/piece.png
 ----version----
 language: en
 version: 1
-revision: dde3edb9-e175-450c-96c6-8a59689e06d4
+revision: ef70c8bb-cdd2-4725-90fb-807f933e012c
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -56,14 +56,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-dde3edb9-e175-450c-96c6-8a59689e06d4
+ef70c8bb-cdd2-4725-90fb-807f933e012c
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180124T124047Z
+20180201T052858Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

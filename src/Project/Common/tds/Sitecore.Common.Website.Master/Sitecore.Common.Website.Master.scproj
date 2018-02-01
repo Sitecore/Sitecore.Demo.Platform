@@ -221,6 +221,7 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Languages\en.item">
       <ItemDeployment>DeployOnce</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Languages\fr-CA.item">
       <ItemDeployment>DeployOnce</ItemDeployment>
