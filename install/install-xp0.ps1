@@ -330,11 +330,7 @@ function Add-AdditionalBindings {
         write-host "$site.habitatHomeHostName Certificate Creation Failed" -ForegroundColor Red
         throw
     }
-    Write-Host "SSL Cert Name: $($site.habitatHomeSslCertificateName)"
-    Write-Host
-    Write-Host "Site Name: $($site.hostName)"
-    Write-Host
-    Write-Host "Header: $($site.habitatHomeHostName)"
+
     try {
         Install-SitecoreConfiguration $site.habitatHomeConfigurationPath `
             -SSLCert $site.habitatHomeSslCertificateName `
