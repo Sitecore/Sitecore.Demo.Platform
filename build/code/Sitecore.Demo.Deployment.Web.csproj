@@ -73,7 +73,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\z.Project.Overrides\Common.Website.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -93,6 +92,7 @@
     <Compile Include="Extensions\TDS\CreateUserPostDeployStep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
