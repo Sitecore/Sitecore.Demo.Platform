@@ -8,12 +8,19 @@ name: __Standard Values
 master: {00000000-0000-0000-0000-000000000000}
 template: {36AC0B4C-C464-460B-BDBA-2D2F252073BB}
 templatekey: Tenant
-created: 20171030T210049Z
+created: 20180117T173110Z
 
+----field----
+field: {FD4E2050-186C-4375-8B99-E8A85DD7436E}
+name: __Enable item fallback
+key: __enable item fallback
+content-length: 1
+
+1
 ----version----
 language: en
 version: 1
-revision: 2b61ae6a-7743-46c2-a26a-cebec382c1b8
+revision: 3b4576e9-a909-4342-bbf6-8f2e5e62b035
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -28,18 +35,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-2b61ae6a-7743-46c2-a26a-cebec382c1b8
+3b4576e9-a909-4342-bbf6-8f2e5e62b035
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171030T210049Z
+20180125T214338Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 14
 
-extranet\Anonymous
+sitecore\admin

@@ -8,8 +8,15 @@ name: __Standard Values
 master: {00000000-0000-0000-0000-000000000000}
 template: {738123E9-8DFB-4590-AAB4-22FC618D088D}
 templatekey: Page Designs
-created: 20171027T151050Z
+created: 20180117T173110Z
 
+----field----
+field: {FD4E2050-186C-4375-8B99-E8A85DD7436E}
+name: __Enable item fallback
+key: __enable item fallback
+content-length: 1
+
+1
 ----field----
 field: {1172F251-DAD4-4EFB-A329-0C63500E4F1E}
 name: __Masters
@@ -20,7 +27,7 @@ content-length: 78
 ----version----
 language: en
 version: 1
-revision: 7c5a58c1-f124-4a2f-92f3-bbb5d36d5bb4
+revision: 73ad0f3e-ce35-4a26-9dec-0811f25ef558
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -49,18 +56,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-7c5a58c1-f124-4a2f-92f3-bbb5d36d5bb4
+73ad0f3e-ce35-4a26-9dec-0811f25ef558
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171027T151135Z
+20180125T220207Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 14
 
-sitecore\virtualssuser
+sitecore\admin

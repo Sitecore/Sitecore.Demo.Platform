@@ -8,7 +8,7 @@ name: Slide2
 master: {00000000-0000-0000-0000-000000000000}
 template: {142E5FC1-EC62-4540-BAD9-CD88F337CD2E}
 templatekey: Carousel Slide
-created: 20171031T155227Z
+created: 20180117T173119Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -21,13 +21,13 @@ content-length: 38
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 392
+content-length: 403
 
-<r xmlns:xsd="http://www.w3.org/2001/XMLSchema"><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{B8AB7438-FF88-41A2-B0FD-493FB644E1B2}"><r ds="" id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}" par="FieldNames={7C5FEDFB-F002-4136-99B0-5ED23040938B}&amp;Styles&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}" ph="section-content" uid="{5658F292-4896-4D04-970A-DA12CB963979}" /></d></r>
+<r xmlns:p="p" xmlns:s="s" p:p="1"><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"><r uid="{CB7B1C66-77F9-45E4-9AA3-12AC3E1EDF5A}"><p:d /></r><r uid="{5658F292-4896-4D04-970A-DA12CB963979}" s:ds="" s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}" s:par="FieldNames={7C5FEDFB-F002-4136-99B0-5ED23040938B}&amp;Styles&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}" s:ph="section-content" /></d></r>
 ----version----
 language: en
 version: 1
-revision: 363ab822-7e6f-4bf1-b5f3-6421a41d7012
+revision: 4487350c-2597-4643-b99c-f659dee76240
 
 ----field----
 field: {427EC0BD-3BF2-45B9-880F-BDB0054E7925}
@@ -70,21 +70,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-363ab822-7e6f-4bf1-b5f3-6421a41d7012
+4487350c-2597-4643-b99c-f659dee76240
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165415Z
+20180125T204903Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 14
+content-length: 22
 
-sitecore\admin
+sitecore\virtualssuser
 ----field----
 field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
 name: __Lock
@@ -92,3 +92,148 @@ key: __lock
 content-length: 5
 
 <r />
+----version----
+language: fr-CA
+version: 1
+revision: 2bf64470-905a-4102-bfbf-d388b452e3ef
+
+----field----
+field: {427EC0BD-3BF2-45B9-880F-BDB0054E7925}
+name: SlideImage
+key: slideimage
+content-length: 58
+
+<image mediaid="{07482444-9628-40CB-B9A9-CB6D1E112F3D}" />
+----field----
+field: {7209159D-6B3E-4281-983E-F7F82104FA1B}
+name: SlideText
+key: slidetext
+content-length: 20
+
+<p>Extensibility</p>
+----field----
+field: {B31D5DDD-1EDA-4B22-B97D-FF71FC8E72BC}
+name: SlideLink
+key: slidelink
+content-length: 0
+
+
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 0
+
+
+----field----
+field: {41C6CC0E-389F-4D51-9990-FE35417B6666}
+name: __Preview
+key: __preview
+content-length: 0
+
+
+----field----
+field: {577F1689-7DE4-4AD2-A15F-7FDC1759285F}
+name: __Long description
+key: __long description
+content-length: 0
+
+
+----field----
+field: {9541E67D-CE8C-4225-803D-33F7F29F09EF}
+name: __Short description
+key: __short description
+content-length: 0
+
+
+----field----
+field: {04BF00DB-F5FB-41F7-8AB7-22408372A981}
+name: __Final Renderings
+key: __final renderings
+content-length: 0
+
+
+----field----
+field: {700F4AAD-AD3B-4058-8673-A0CEE765A1F7}
+name: __Content Test
+key: __content test
+content-length: 0
+
+
+----field----
+field: {C8F93AFE-BFD4-4E8F-9C61-152559854661}
+name: __Valid from
+key: __valid from
+content-length: 0
+
+
+----field----
+field: {4C346442-E859-4EFD-89B2-44AEDF467D21}
+name: __Valid to
+key: __valid to
+content-length: 0
+
+
+----field----
+field: {B8F42732-9CB8-478D-AE95-07E25345FB0F}
+name: __Hide version
+key: __hide version
+content-length: 0
+
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20171031T155227Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+2bf64470-905a-4102-bfbf-d388b452e3ef
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180125T210354Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 22
+
+sitecore\virtualssuser
+----field----
+field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
+name: __Semantics
+key: __semantics
+content-length: 0
+
+
+----field----
+field: {3E431DE1-525E-47A3-B6B0-1CCBEC3A8C98}
+name: __Workflow state
+key: __workflow state
+content-length: 0
+
+
