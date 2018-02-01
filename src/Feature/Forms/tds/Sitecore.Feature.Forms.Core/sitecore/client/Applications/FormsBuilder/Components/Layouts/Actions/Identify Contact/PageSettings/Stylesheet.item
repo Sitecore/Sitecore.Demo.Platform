@@ -1,69 +1,55 @@
 ----item----
 version: 1
-id: {1DABF0F7-3E82-4E47-BA57-8CEB4F9D0184}
-database: master
-path: /sitecore/system/Settings/Forms/Submit Actions/Identify Contact
-parent: {891E7268-FA3E-4E74-B4B1-C16B206F2165}
-name: Identify Contact
+id: {D2AA0141-9804-40AB-BEE4-B72048084C9A}
+database: core
+path: /sitecore/client/Applications/FormsBuilder/Components/Layouts/Actions/Identify Contact/PageSettings/Stylesheet
+parent: {38E17736-B801-49D2-9EA2-14CF167B05B6}
+name: Stylesheet
 master: {00000000-0000-0000-0000-000000000000}
-template: {C2D1D114-3CFE-4558-A9E3-D1A1EC0FCAB7}
-templatekey: Submit Action
-created: 20180117T173100Z
+template: {27C78269-CEF0-483F-9E7A-AF27ED04CE5D}
+templatekey: Page-Stylesheet-File
+created: 20180201T055717Z
 
 ----field----
-field: {2C6E7306-2871-473A-9149-71443182B8E8}
-name: Model Type
-key: model type
-content-length: 58
+field: {834B2406-24A9-4376-9350-CBE6DA96C51A}
+name: Stylesheet
+key: stylesheet
+content-length: 76
 
-Sitecore.Feature.Forms.SubmitActions.IdentifyContactAction
-----field----
-field: {D83B5C6B-7230-419F-BD75-4E2D20C87A18}
-name: Editor
-key: editor
-content-length: 38
-
-{8A05E0B1-F25B-4123-8275-6318B638F334}
-----field----
-field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
-name: __Icon
-key: __icon
-content-length: 23
-
-Office/32x32/beaker.png
+/sitecore/shell/client/Applications/FormsBuilder/Layouts/Actions/Actions.css
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
 key: __sortorder
-content-length: 3
+content-length: 1
 
-300
+0
 ----version----
 language: da
 version: 1
-revision: ad599f9b-7762-4b46-9642-a02d44a4332c
+revision: 38fbb2e9-f0fa-4211-b6c2-7620e6932286
 
-----field----
-field: {47837625-B3D9-46F1-A73B-FF13DD1C8B25}
-name: Error Message
-key: error message
-content-length: 36
-
-Lagring af formulardata mislykkedes!
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 8
+content-length: 10
 
-Gem data
+Stylesheet
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20171219T155358Z
+20171204T183030Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -77,47 +63,47 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ad599f9b-7762-4b46-9642-a02d44a4332c
+38fbb2e9-f0fa-4211-b6c2-7620e6932286
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180117T173101Z
+20171204T183030Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin
 ----version----
 language: de-DE
 version: 1
-revision: 03bd85a8-8ded-4e1a-afd2-fb9c92c56f96
+revision: 06838af5-f922-42ea-8330-5ed796919864
 
-----field----
-field: {47837625-B3D9-46F1-A73B-FF13DD1C8B25}
-name: Error Message
-key: error message
-content-length: 45
-
-Speicherung der Formulardaten fehlgeschlagen!
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 15
+content-length: 10
 
-Daten speichern
+Stylesheet
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20171219T155834Z
+20171204T183411Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -131,40 +117,40 @@ name: __Revision
 key: __revision
 content-length: 36
 
-03bd85a8-8ded-4e1a-afd2-fb9c92c56f96
+06838af5-f922-42ea-8330-5ed796919864
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180117T173101Z
+20171204T183411Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin
 ----version----
 language: en
 version: 1
-revision: ba530e85-b098-4d4f-88a4-a1f8b52574bd
+revision: d1489f4e-baf7-4a54-9c27-13e20ba94a5b
 
 ----field----
-field: {47837625-B3D9-46F1-A73B-FF13DD1C8B25}
-name: Error Message
-key: error message
-content-length: 40
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
 
-Failed to update contact identification!
+sitecore\Admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20170216T114811Z
+20170331T114926Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -178,47 +164,47 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ba530e85-b098-4d4f-88a4-a1f8b52574bd
+d1489f4e-baf7-4a54-9c27-13e20ba94a5b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180201T060047Z
+20170403T091827Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
 content-length: 14
 
-sitecore\admin
+sitecore\Admin
 ----version----
 language: ja-JP
 version: 1
-revision: b94b3c96-843f-429f-ac58-fb29a438875f
+revision: e5eaad35-06ff-42cd-bffd-ab56675370b6
 
-----field----
-field: {47837625-B3D9-46F1-A73B-FF13DD1C8B25}
-name: Error Message
-key: error message
-content-length: 19
-
-フォーム データの保存に失敗しました！
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 6
+content-length: 7
 
-データを保存
+スタイルシート
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20171219T160250Z
+20171204T183715Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -232,18 +218,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-b94b3c96-843f-429f-ac58-fb29a438875f
+e5eaad35-06ff-42cd-bffd-ab56675370b6
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180117T173101Z
+20171204T183715Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 16
+content-length: 14
 
-sitecore\unicorn
+sitecore\admin

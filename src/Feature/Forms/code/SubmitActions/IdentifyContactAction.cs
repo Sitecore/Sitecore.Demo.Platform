@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Sitecore.Data;
+using Sitecore.Data.Items;
 using Sitecore.DependencyInjection;
 using Sitecore.Diagnostics;
 using Sitecore.ExperienceForms.Models;
@@ -7,7 +9,9 @@ using Sitecore.ExperienceForms.SubmitActions;
 using Sitecore.Feature.Forms.SubmitActions.Models;
 using Sitecore.Foundation.Accounts.Models;
 using Sitecore.Foundation.Accounts.Services;
+using Sitecore.Foundation.SitecoreExtensions.Extensions;
 using Sitecore.Foundation.SitecoreExtensions.Services;
+using Sitecore.SecurityModel;
 using System;
 using System.Linq;
 
@@ -35,6 +39,13 @@ namespace Sitecore.Feature.Forms.SubmitActions
             }
                                                                                          
             //todo: use the data.ReferenceId to retrieve mapping of fields to contact facets
+            var item = Context.Database.GetItem(new ID(data.ReferenceId));
+            if (item == null || !item.IsDerived(Templates.ContactIdentificationActionSettings.ID))
+            {
+                // submit action was not configured properly    
+                Log.Error(string.Format("IdentifyContactAction failed: Submit action settings for form {0} point to an invalid item.", formSubmitContext.FormId), this);
+                return false;
+            }
 
             ContactFacetData contactFacetData = new ContactFacetData();
 
@@ -42,56 +53,33 @@ namespace Sitecore.Feature.Forms.SubmitActions
             {
                 if (field != null)
                 {
-                    ProcessField(contactFacetData, field);
+                    var mapSettingsItem = item.Children.FirstOrDefault(x =>
+                        x[Templates.ContactIdentificationActionMapping.Fields.FacetValue].ToLower() == field.Name.ToLower());
+                    if (mapSettingsItem != null)
+                    {
+                        Item facetItem;
+
+                        using (new SecurityDisabler())
+                        {
+                            facetItem = Sitecore.Configuration.Factory.GetDatabase("core").GetItem(mapSettingsItem[Templates.ContactIdentificationActionMapping.Fields.FacetKey]);
+                        }
+
+                        if (facetItem != null)
+                        {
+                            contactFacetData[facetItem.Name] = field.GetValue();
+                        }
+                    }
                 }
+            }
+
+            if (!string.IsNullOrEmpty(contactFacetData.EmailAddress))
+            {
+                _trackerService.IdentifyContact(Context.Site.Domain.Name, contactFacetData.EmailAddress);
             }
 
             _contactFacetService.UpdateContactFacets(contactFacetData);
 
             return true;
-        }
-
-        private void ProcessField(ContactFacetData data, IViewModel field)
-        {
-            //todo: use mapping data instead of hard coded values
-            switch (field.Name)
-            {
-                case "Email":
-                case "Email Address":
-                    string emailAddress = field.GetValue();
-                    if (!string.IsNullOrEmpty(emailAddress))
-                    {                                                                                               
-                        _trackerService.IdentifyContact(Context.Site.Domain.Name, emailAddress);
-                        data.EmailAddress = emailAddress;
-                    }
-                    break;
-                case "FirstName":
-                case "First Name":
-                    string firstName = field.GetValue();
-                    if (!string.IsNullOrEmpty(firstName))
-                    {
-                        data.FirstName = firstName;
-                    }
-                    break;
-                case "LastName":
-                case "Last Name":
-                    string lastName = field.GetValue();
-                    if (!string.IsNullOrEmpty(lastName))
-                    {
-                        data.LastName = lastName;
-                    }
-                    break;
-                case "FullName":
-                case "Full Name":
-                    string fullName = field.GetValue();
-                    if (!string.IsNullOrEmpty(fullName))
-                    {
-                        data.FirstName = fullName.Split(' ').FirstOrDefault();
-                        data.LastName = fullName.Split(' ').LastOrDefault();
-                    }
-                    break;
-                default: break;
-            }
         }
     }
 }

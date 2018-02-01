@@ -1,26 +1,33 @@
 ----item----
 version: 1
-id: {F456CBB6-8BC1-4DD3-9EFE-B2C3C47B4846}
-database: master
-path: /sitecore/templates/Feature/Habitat Sites/Forms/FormSettingsFolder/__Standard Values
-parent: {74D7898A-7858-4896-9181-6ECAA9AE2DA5}
-name: __Standard Values
+id: {8A11DD2D-E602-4599-8FCC-6414B9BB125E}
+database: core
+path: /sitecore/templates/Feature/Habitat Sites/Accounts/_UserProfile/Data/Email
+parent: {3124FCAB-D183-4612-9D98-4C2D1F518424}
+name: Email
 master: {00000000-0000-0000-0000-000000000000}
-template: {74D7898A-7858-4896-9181-6ECAA9AE2DA5}
-templatekey: FormSettingsFolder
-created: 20180117T173102Z
+template: {455A3E98-A627-4B40-8035-E683A0331AC7}
+templatekey: Template field
+created: 20180122T112606Z
 
 ----field----
-field: {1172F251-DAD4-4EFB-A329-0C63500E4F1E}
-name: __Masters
-key: __masters
-content-length: 116
+field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
+name: Type
+key: type
+content-length: 16
 
-{5996AE17-2739-49F0-A1C8-C5EDBE3F0025}|{7E33CFBD-1060-4A7C-97B5-FD3785BD5085}|{74D7898A-7858-4896-9181-6ECAA9AE2DA5}
+Single-Line Text
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 3
+
+500
 ----version----
 language: en
 version: 1
-revision: 883ebdf3-0bbc-40a1-ab0f-58f71b469e0a
+revision: be76122b-e439-456c-9051-a858c882e7d1
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -35,7 +42,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171215T164441Z
+20180122T112606Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -49,14 +56,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-883ebdf3-0bbc-40a1-ab0f-58f71b469e0a
+be76122b-e439-456c-9051-a858c882e7d1
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180201T053109Z
+20180122T112606Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
