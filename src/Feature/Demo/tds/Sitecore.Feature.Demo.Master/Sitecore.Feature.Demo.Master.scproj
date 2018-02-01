@@ -72,6 +72,7 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\layout\Layouts\Feature\Habitat Sites\Demo\EmptyLayout.item">
       <ItemDeployment>DeployOnce</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\layout\Renderings.item">
       <ItemDeployment>DeployOnce</ItemDeployment>
