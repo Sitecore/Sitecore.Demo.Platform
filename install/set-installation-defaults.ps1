@@ -15,7 +15,7 @@ $assets.psRepositoryName = "SitecoreGallery"
 $assets.licenseFilePath = Join-Path $assets.root "license.xml"
 $assets.sitecoreVersion = "9.0.1 rev. 171219"
 $assets.installerVersion = "1.1.0"
-$assets.certificatesPath = (Get-ChildItem $pwd -filter "Certificates" -Recurse).FullName 
+$assets.certificatesPath = Join-Path $assets.root "Certificates"
 $assets.jreRequiredVersion = "8.0.1510"
 $assets.dotnetMinimumVersionValue = "394802"
 $assets.dotnetMinimumVersion = "4.6.2"
@@ -30,7 +30,8 @@ $site.suffix = "dev.local"
 $site.webroot = "C:\inetpub\wwwroot"
 $site.hostName = $json.settings.site.prefix + "." + $json.settings.site.suffix
 $site.habitatHomeHostName = $json.settings.site.prefix + "home." + $json.settings.site.suffix
-
+$site.habitatHomeConfigurationPath = (Get-ChildItem $pwd -filter "habitathome-xp0.json" -Recurse).FullName
+$site.habitatHomeSslCertificateName = $site.prefix + "." + $site.suffix
 $sql = $json.settings.sql
 # SQL Settings
 $sql.server = "."

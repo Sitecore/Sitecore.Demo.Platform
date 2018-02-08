@@ -11,8 +11,8 @@ var debug = require("gulp-debug");
 var util = require("gulp-util");
 
 var config;
-if (fs.existsSync("./gulp-config.js.user")) {
-    config = require("./gulp-config.js.user")();
+if (fs.existsSync("./gulp-config.user.js")) {
+    config = require("./gulp-config.user.js")();
 } else {
     config = require("./gulp-config.js")();
 }

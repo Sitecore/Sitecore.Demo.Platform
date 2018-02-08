@@ -226,7 +226,7 @@ function Install-XConnect {
         write-host "XConnect Certificate Creation Failed" -ForegroundColor Red
         throw
     }
-
+    
     #Install xConnect
     try {
         Install-SitecoreConfiguration $xConnect.ConfigurationPath `
@@ -241,7 +241,8 @@ function Install-XConnect {
             -SqlServer $sql.server `
             -SqlCollectionUser $xConnect.sqlCollectionUser `
             -SqlCollectionPassword $xConnect.sqlCollectionPassword `
-            -SolrUrl $solr.url
+            -SolrUrl $solr.url `
+            -WebRoot $site.webRoot
     }
     catch {
         write-host "XConnect Setup Failed" -ForegroundColor Red
@@ -296,7 +297,8 @@ function Install-Sitecore {
             -XConnectCollectionService "https://$($xConnect.siteName)" `
             -XConnectReferenceDataService "https://$($xConnect.siteName)" `
             -MarketingAutomationOperationsService "https://$($xConnect.siteName)" `
-            -MarketingAutomationReportingService "https://$($xConnect.siteName)"
+            -MarketingAutomationReportingService "https://$($xConnect.siteName)"`
+            -WebRoot $site.webRoot
     }
     catch {
         write-host "Sitecore Setup Failed" -ForegroundColor Red
@@ -306,16 +308,40 @@ function Install-Sitecore {
     try {
         #Set web certificate on Sitecore site
         Install-SitecoreConfiguration $sitecore.sslConfigurationPath `
-            -SiteName $sitecore.siteName
+            -SiteName $sitecore.siteName `
+            -WebRoot $site.WebRoot
     }
     catch {
         write-host "Sitecore SSL Binding Failed" -ForegroundColor Red
         throw
     }
+    
 }
 
-function Add-AdditionalBindings{
-    Add-HabitatHomeBindingDetails $site.hostName $site.habitatHomeHostName
+function Add-AdditionalBindings {
+    #Add-HabitatHomeBindingDetails $site.hostName $site.habitatHomeHostName
+    try {
+        
+        Install-SitecoreConfiguration $xConnect.certificateConfigurationPath `
+            -CertificateName $site.habitatHomeSslCertificateName `
+            -CertPath $assets.certificatesPath
+    }
+    catch {
+        write-host "$site.habitatHomeHostName Certificate Creation Failed" -ForegroundColor Red
+        throw
+    }
+
+    try {
+        Install-SitecoreConfiguration $site.habitatHomeConfigurationPath `
+            -SSLCert $site.habitatHomeSslCertificateName `
+            -SiteName $site.hostName `
+            -HostHeader $site.habitatHomeHostName 
+        
+    }
+    catch {
+        write-host "Sitecore Setup Failed" -ForegroundColor Red
+        throw
+    }
 }
 
 function Copy-Tools {
@@ -364,6 +390,8 @@ function Install-OptionalModules {
         $request.GetResponse()  
     }
 }
+
+
 Install-Prerequisites
 Install-Assets
 Install-XConnect
