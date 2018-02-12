@@ -1,6 +1,7 @@
 @using Sitecore.ExperienceForms.Mvc.Html
 @model Sitecore.ExperienceForms.Mvc.Models.Fields.ListViewModel
-
+                                                           
+<div class="field-group">
 <label class="@Model.LabelCssClass">@Html.DisplayTextFor(t => Model.Title)</label>
 @foreach (var item in Model.Items)
 {
@@ -8,3 +9,4 @@
     <label class="@item.Value" for="@item.ItemId">@item.Text        </label>
  }
 @Html.ValidationMessageFor(m => Model.Value)
+</div>
