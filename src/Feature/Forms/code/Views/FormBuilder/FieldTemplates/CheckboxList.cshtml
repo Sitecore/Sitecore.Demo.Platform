@@ -5,9 +5,10 @@
     <input type="hidden" name="@Html.NameFor(m => Model.Value)" />
     @foreach (var item in Model.Items)
     {
-    <label>
+    <label class="checkcontainer">
         <input type="checkbox" name="@Html.NameFor(m => Model.Value)" @if (item.Selected)
                {<text> checked</text>} value="@item.Value" data-sc-tracking="@Model.IsTrackingEnabled" data-sc-field-name="@Model.Name" @Html.GenerateUnobtrusiveValidationAttributes(m => Model.Value)/>@item.Text
+                <span class="checkmark"></span>
     </label>
     }
     @Html.ValidationMessageFor(m => Model.Value)
