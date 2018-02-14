@@ -1,0 +1,11 @@
+﻿<configuration  xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+    <system.webServer>
+        <modules>
+            <remove name="FormsAuthentication" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+        </modules>
+    </system.webServer>
+    <system.web>
+        <authentication mode="None" xdt:Transform="Replace">
+        </authentication>
+    </system.web>
+</configuration>
