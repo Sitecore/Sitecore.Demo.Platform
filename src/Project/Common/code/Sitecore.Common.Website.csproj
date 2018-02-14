@@ -78,8 +78,10 @@
     <Content Include="App_Config\Include\Project\Common.Website.config" />
     <Content Include="App_Config\Include\Project\Common.Website.Serialization.config" />
     <Content Include="App_Config\Security\Domains.config" />
+    <Content Include="App_Config\Sitecore\ContentTesting\Sitecore.ContentTesting.PreemptiveScreenshot.config" />
     <None Include="packages.config" />
     <Content Include="web.config.xdt" />
+    <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
