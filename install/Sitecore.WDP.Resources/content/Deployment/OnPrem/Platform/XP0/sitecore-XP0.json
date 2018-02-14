@@ -210,6 +210,11 @@
             "Type": "string",
             "DefaultValue": "PutYourCustomEncryptionKeyHereFrom32To256CharactersLong",
             "Description": "The key to be used by Telerik controls to encrypt interaction with Content Editors. It's a random string between 32 and 256 symbols long."
+        },
+        "WebRoot":{
+            "Type":"string",
+            "DefaultValue":"c:\\inetpub\\wwwroot",
+            "Description":"The physical path of the configured Web Root for the environment"
         }
     },
     "Variables": {
@@ -247,7 +252,7 @@
         "Solr.FXM.Web.Name":    "[concat(parameter('SolrCorePrefix'), '_fxm_web_index')]",
 
         // The sites full path on disk
-        "Site.PhysicalPath": "[joinpath(environment('SystemDrive'), 'inetpub', 'wwwroot', parameter('SiteName'))]",
+        "Site.PhysicalPath": "[concat(parameter('WebRoot'),'\\', parameter('SiteName'))]",
 
         // The sites data folder
         "Site.DataFolder": "[joinpath(variable('Site.PhysicalPath'), 'App_Data')]"

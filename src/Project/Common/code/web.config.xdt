@@ -1,0 +1,17 @@
+﻿<configuration  xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+    <appSettings>
+        <!-- SUPPORTED ENVIRONMENTS                  
+         Local
+         Production                                   
+    Default value: Local
+    -->
+        <add key="env:define" value="Local" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+
+        <!-- UNICORN MODE SUPPORTED VALUES                 
+         On
+         Off                                   
+    Default value: On
+    -->
+        <add key="unicorn:define" value="On" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+    </appSettings>
+</configuration>

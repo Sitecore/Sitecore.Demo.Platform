@@ -11,8 +11,8 @@ var debug = require("gulp-debug");
 var util = require("gulp-util");
 
 var config;
-if (fs.existsSync("./gulp-config.js.user")) {
-    config = require("./gulp-config.js.user")();
+if (fs.existsSync("./gulp-config.user.js")) {
+    config = require("./gulp-config.user.js")();
 } else {
     config = require("./gulp-config.js")();
 }
@@ -25,9 +25,7 @@ helix.header("The Habitat source code, tools and processes are examples of Sitec
 gulp.task("default",
     function (callback) {
         config.runCleanBuilds = true;
-        return runSequence(
-            "Copy-Sitecore-License",
-            "Copy-Sitecore-Lib",
+        return runSequence(            
             "Nuget-Restore",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
@@ -38,15 +36,25 @@ gulp.task("default",
 gulp.task("deploy-unicorn",
     function (callback) {
         config.runCleanBuilds = true;
-        return runSequence(
-            "Copy-Sitecore-License",
-            "Copy-Sitecore-Lib",
+        return runSequence(         
             "Nuget-Restore",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
             "Sync-Unicorn",
             "Publish-Transforms",
             callback);
+    });
+
+gulp.task("tds",
+    function (callback) {
+        config.runCleanBuilds = true;
+        return runSequence(
+            "Nuget-Restore-TDS",
+            "Apply-Xml-Transform",
+            "Publish-Transforms",
+            "TDS-Build",
+            callback
+        );
     });
 
     gulp.task("test",function(callback){
@@ -59,28 +67,18 @@ gulp.task("deploy-unicorn",
 /*****************************
   Initial setup
 *****************************/
-gulp.task("Copy-Sitecore-License",
-    function () {
-        console.log("Copying Sitecore License file");
-        return gulp.src(config.licensePath).pipe(gulp.dest("./lib"));
-    });
 
-gulp.task("Copy-Sitecore-Lib",
-    function () {
-        console.log("Copying Sitecore Libraries");
+    gulp.task("Nuget-Restore",
+        function (callback) {
+            var solution = "./" + config.solutionName + ".sln";
+            return gulp.src(solution).pipe(nugetRestore());
+        });
 
-        fs.statSync(config.sitecoreLibraries);
-
-        var files = config.sitecoreLibraries + "/**/*";
-
-        return gulp.src(files).pipe(gulp.dest("./lib/Sitecore"));
-    });
-
-gulp.task("Nuget-Restore",
-    function (callback) {
-        var solution = "./" + config.solutionName + ".sln";
-        return gulp.src(solution).pipe(nugetRestore());
-    });
+    gulp.task("Nuget-Restore-TDS",
+        function (callback) {
+            var solution = "./" + config.solutionName + "TDS.sln";
+            return gulp.src(solution).pipe(nugetRestore());
+        });
 
 gulp.task("Publish-All-Projects",
     function (callback) {
@@ -151,6 +149,31 @@ gulp.task("Build-Solution",
         }
 
         var solution = "./" + config.solutionName + ".sln";
+        return gulp.src(solution)
+            .pipe(msbuild({
+                targets: targets,
+                configuration: config.buildConfiguration,
+                logCommand: false,
+                verbosity: config.buildVerbosity,
+                stdout: true,
+                errorOnFail: true,
+                maxcpucount: config.buildMaxCpuCount,
+                nodeReuse: false,
+                toolsVersion: config.buildToolsVersion,
+                properties: {
+                    Platform: config.buildPlatform
+                }
+            }));
+    });
+
+gulp.task("TDS-Build",
+    function () {
+        var targets = ["Build"];
+        if (config.runCleanBuilds) {
+            targets = ["Clean", "Build"];
+        }
+
+        var solution = "./" + config.solutionName + ".TDS.sln";
         return gulp.src(solution)
             .pipe(msbuild({
                 targets: targets,

@@ -30,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		gulp-config.js = gulp-config.js
+		gulpfile.js = gulpfile.js
 		nuget.config = nuget.config
 		package.json = package.json
 		README.md = README.md
@@ -105,6 +107,10 @@ EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.Feature.CRM.Master", "src\Feature\CRM\tds\Sitecore.Feature.CRM.Master\Sitecore.Feature.CRM.Master.scproj", "{1E9FE6A6-E0E5-421D-AB6F-59AE11E0D290}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Deployment.Web", "build\code\Sitecore.Demo.Deployment.Web.csproj", "{6D10CA5E-549B-4E44-97B6-3082A0843AAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serialization", "{B377ED6C-B3C4-4929-85DB-314D01C27AA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.Serialization", "src\Foundation\Serialization\code\Sitecore.Foundation.Serialization.csproj", "{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -286,6 +292,12 @@ Global
 		{6D10CA5E-549B-4E44-97B6-3082A0843AAE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D10CA5E-549B-4E44-97B6-3082A0843AAE}.TDS|Any CPU.ActiveCfg = Release|Any CPU
 		{6D10CA5E-549B-4E44-97B6-3082A0843AAE}.TDS|Any CPU.Build.0 = Release|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.TDS|Any CPU.ActiveCfg = TDS|Any CPU
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6}.TDS|Any CPU.Build.0 = TDS|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -327,6 +339,8 @@ Global
 		{2EC4C2C2-3124-4679-B113-164457315173} = {217AA2A9-02D7-4169-8B56-F8632E446A79}
 		{1E9FE6A6-E0E5-421D-AB6F-59AE11E0D290} = {217AA2A9-02D7-4169-8B56-F8632E446A79}
 		{6D10CA5E-549B-4E44-97B6-3082A0843AAE} = {0554FDB3-149E-4B59-BC22-27A0CB3854A7}
+		{B377ED6C-B3C4-4929-85DB-314D01C27AA3} = {78EA0067-9C56-4E62-B428-A84F35EDB7BF}
+		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6} = {B377ED6C-B3C4-4929-85DB-314D01C27AA3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
