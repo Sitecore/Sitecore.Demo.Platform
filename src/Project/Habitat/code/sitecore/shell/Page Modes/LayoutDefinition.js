@@ -203,8 +203,12 @@ Sitecore.LayoutDefinition.getRenderingConditions = function(renderingUid) {
   }
 
   var layoutDefinition = this.getLayoutDefinition();
-  var device = this.getDevice(layoutDefinition);
+  var device = this.getDevice(layoutDefinition);  
+  if (device.r === undefined) {
+    return [];
+  }
   var conditions = [];
+  if (device.r) { //reason: http://tfs4dk1/tfs/PD-External-01/WEB/_workitems?_a=edit&id=3848
   for (var i = 0; i < device.r.length; i++) {
     if (this.getShortID(device.r[i]["@uid"]) == renderingUid && device.r[i].rls) {
       var rules = device.r[i].rls.ruleset;
@@ -225,7 +229,7 @@ Sitecore.LayoutDefinition.getRenderingConditions = function(renderingUid) {
       }
     }
   }
-
+  }
   return conditions;
 };
 
@@ -315,6 +319,9 @@ Sitecore.LayoutDefinition.getDevice = function(layoutDefinition) {
       if (d.r && !d.r.length) {
         d.r = [d.r];
       }
+      if (typeof d.r === "undefined") {
+          d.r = [];
+      }
       return d;
     }
   }
@@ -355,4 +362,3 @@ Sitecore.LayoutDefinition._getRenderingPositionInPlaceholder = function(device, 
 
   return -1;
 };
-
