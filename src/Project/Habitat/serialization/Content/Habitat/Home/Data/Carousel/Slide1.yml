@@ -19,9 +19,9 @@ SharedFields:
         </r>
         <r
           uid="{F9FEB0A6-E42E-45EB-B377-6C0716ECAADE}"
-          s:ds=""
+          s:ds="{0169F361-05D5-47FB-B504-B35F3630A261}"
           s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
-          s:par="FieldNames={7C5FEDFB-F002-4136-99B0-5ED23040938B}&amp;Styles&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B9AA4ECB4-7A13-42BB-9205-8EB276998AE8%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
           s:ph="section-content" />
       </d>
     </r>
@@ -46,7 +46,9 @@ Languages:
         sitecore\admin
     - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
       Hint: SlideText
-      Value: <p>Simplicity</p>
+      Value: |
+         <p>Simplicity</p>
+         <p class="lead">A consistent and discoverable architecture</p>
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"

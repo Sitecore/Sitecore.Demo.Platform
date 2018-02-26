@@ -21,13 +21,13 @@ content-length: 3
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 403
+content-length: 499
 
-<r xmlns:p="p" xmlns:s="s" p:p="1"><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"><r uid="{CB7B1C66-77F9-45E4-9AA3-12AC3E1EDF5A}"><p:d /></r><r uid="{8F027E38-CF97-43D3-AC15-B677C49DA39B}" s:ds="" s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}" s:par="FieldNames={7C5FEDFB-F002-4136-99B0-5ED23040938B}&amp;Styles&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}" s:ph="section-content" /></d></r>
+<r xmlns:p="p" xmlns:s="s" p:p="1"><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"><r uid="{CB7B1C66-77F9-45E4-9AA3-12AC3E1EDF5A}"><p:d /></r><r uid="{8F027E38-CF97-43D3-AC15-B677C49DA39B}" s:ds="{12C5B30D-E7DF-4C3D-A0F4-5212E8152310}" s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}" s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B9AA4ECB4-7A13-42BB-9205-8EB276998AE8%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier" s:ph="section-content" /></d></r>
 ----version----
 language: en
 version: 1
-revision: d3737384-35df-4a89-bdba-5237d977c68d
+revision: fe6a2c28-0837-41b5-9c19-6a594ac1bc1f
 
 ----field----
 field: {427EC0BD-3BF2-45B9-880F-BDB0054E7925}
@@ -40,9 +40,13 @@ content-length: 58
 field: {7209159D-6B3E-4281-983E-F7F82104FA1B}
 name: SlideText
 key: slidetext
-content-length: 11
+content-length: 148
 
-Flexibility
+
+                <p>Flexibility</p>
+                <p class="lead">
+                  Change and add quickly and without worry
+                </p>
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -63,21 +67,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d3737384-35df-4a89-bdba-5237d977c68d
+fe6a2c28-0837-41b5-9c19-6a594ac1bc1f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T204903Z
+20180223T215747Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 14
 
-sitecore\virtualssuser
+sitecore\admin
 ----version----
 language: fr-CA
 version: 1
