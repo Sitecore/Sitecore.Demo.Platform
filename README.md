@@ -14,7 +14,7 @@ The following is a list of default values / assumptions for install locations
 **Web Root**						`c:\inetpub\wwwroot`
 **Host Suffix**						`dev.local`
 
--- the wildcare host name *home.dev.local is used in the SXA Host Name (Site Grouping). 
+-- the wildcard host name *home.dev.local is used in the SXA Host Name (Site Grouping). 
 
 If you do not use *home.dev.local you will need to modify the Host Name in 
 `/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
