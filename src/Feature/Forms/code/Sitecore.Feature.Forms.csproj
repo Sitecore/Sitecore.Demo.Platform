@@ -122,6 +122,19 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\FormBuilder\FieldTemplates\RadioButtonList.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\Checkbox.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\CheckboxList.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\Date.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\DropdownList.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\Email.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\ListBox.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\MultipleLineText.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\Number.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\Password.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\PasswordConfirmation.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\SingleLineText.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\Telephone.cshtml" />
+    <Content Include="Views\FormBuilder\FieldTemplates\NonGroupedRadioButtonList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
