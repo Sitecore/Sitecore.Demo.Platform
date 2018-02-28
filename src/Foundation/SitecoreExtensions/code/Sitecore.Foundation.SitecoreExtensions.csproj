@@ -62,6 +62,9 @@
     <Reference Include="Sitecore.Analytics.Model, Version=11.40.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Analytics.Model.NoReferences.9.0.171219\lib\NET462\Sitecore.Analytics.Model.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Client, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.Client.NoReferences.9.0.171219\lib\NET462\Sitecore.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Kernel.NoReferences.9.0.171219\lib\NET462\Sitecore.Kernel.dll</HintPath>
     </Reference>
@@ -106,6 +109,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Config\Include\Foundation\Foundation.SitecoreExtensions.config" />
+    <Content Include="App_Config\Include\Foundation\Foundation.SitecoreExtensions.Serialization.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -121,6 +126,9 @@
     <Compile Include="Attributes\SkipAnalyticsTrackingAttribute.cs" />
     <Compile Include="Attributes\ValidateRenderingIdAttribute.cs" />
     <Compile Include="Controls\EditFrameRendering.cs" />
+    <Compile Include="Controls\ExtendedGeneralLink.cs" />
+    <Compile Include="Controls\RelativePathForm.cs" />
+    <Compile Include="Pipelines\RenderField\RenderRelativeLink.cs" />
     <Compile Include="Extensions\FieldExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
@@ -138,6 +146,9 @@
       <Project>{fa1eee78-e6d6-4b63-a126-5f470624efee}</Project>
       <Name>Sitecore.Foundation.DependencyInjection</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sitecore\shell\Applications\Dialogs\RelativePathLink\RelativePathLink.xml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
