@@ -9,6 +9,7 @@ var msbuild = require("gulp-msbuild");
 var foreach = require("gulp-foreach");
 var debug = require("gulp-debug");
 var util = require("gulp-util");
+var get = require('simple-get');
 
 var config;
 if (fs.existsSync("./gulp-config.user.js")) {
@@ -30,6 +31,7 @@ gulp.task("default",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
             "Publish-Transforms",
+            "Deploy-EXM-Campaigns",
             callback);
     });
 
@@ -42,6 +44,7 @@ gulp.task("deploy-unicorn",
             "Apply-Xml-Transform",
             "Sync-Unicorn",
             "Publish-Transforms",
+            "Deploy-EXM-Campaigns",
             callback);
     });
 
@@ -53,6 +56,7 @@ gulp.task("tds",
             "Apply-Xml-Transform",
             "Publish-Transforms",
             "TDS-Build",
+            "Deploy-EXM-Campaigns",
             callback
         );
     });
@@ -247,4 +251,20 @@ gulp.task("Publish-Project-Projects",
 gulp.task("Publish-xConnect-Project",
 function(){
     return publishProjects("./src/xConnect",config.xConnectRoot);
-});
+    });
+
+gulp.task("Deploy-EXM-Campaigns",
+    function () {       
+        console.log("Deploying EXM Campaigns");      
+
+        var url = config.instanceUrl + "utilities/deployemailcampaigns.aspx?apiKey=97CC4FC13A814081BF6961A3E2128C5B";
+        console.log("Deploying EXM Campaigns at " + url);
+        get({
+            url: url,
+            "rejectUnauthorized": false
+        }, function (err, res) {
+            if (err) {
+                throw err;
+            }  
+        });                  
+    });

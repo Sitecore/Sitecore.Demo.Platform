@@ -1,7 +1,8 @@
 module.exports = function () {
-    var instanceRoot = "C:\\inetpub\\wwwroot\\habitat.dev.local";
+    var instanceRoot = "C:\\inetpub\\wwwroot\\habitat.dev.local";   
     var config = {
         websiteRoot: instanceRoot + "\\",
+        instanceUrl: "https://habitat.dev.local/",
         xConnectRoot: "C:\\inetput\\wwwroot\\habitat_xconnect.dev.local\\",
         sitecoreLibraries: instanceRoot + "\\bin",
         licensePath: instanceRoot + "\\App_Data\\license.xml",
