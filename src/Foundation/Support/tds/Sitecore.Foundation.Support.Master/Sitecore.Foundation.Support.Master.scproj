@@ -35,6 +35,12 @@
     <OutputPath>.\bin\Release\</OutputPath>
     <RecursiveDeployAction>Ignore</RecursiveDeployAction>
   </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'TDS' ">
+        <OutputPath>.\bin\TDS\</OutputPath>
+        <InstallSitecoreConnector>False</InstallSitecoreConnector>
+        <DisableFileDeployment>False</DisableFileDeployment>
+        <LightningDeployMode>False</LightningDeployMode>
+    </PropertyGroup>
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">
       <Value>$(AssemblyFileVersion)</Value>
