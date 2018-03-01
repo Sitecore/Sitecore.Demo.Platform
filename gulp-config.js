@@ -1,13 +1,14 @@
 module.exports = function () {
-    var instanceRoot = "C:\\inetpub\\wwwroot\\habitat.dev.local";
+    var instanceRoot = "C:\\inetpub\\wwwroot\\habitat.dev.local";   
     var config = {
         websiteRoot: instanceRoot + "\\",
+        instanceUrl: "https://habitat.dev.local/",
         xConnectRoot: "C:\\inetput\\wwwroot\\habitat_xconnect.dev.local\\",
         sitecoreLibraries: instanceRoot + "\\bin",
         licensePath: instanceRoot + "\\App_Data\\license.xml",
         packageXmlBasePath: ".\\src\\Project\\Habitat\\code\\App_Data\\packages\\habitat.xml",
         packagePath: instanceRoot + "\\App_Data\\packages",
-        solutionName: "Habitat",
+        solutionName: "Habitat",                          
         buildConfiguration: "Debug",
         buildToolsVersion: 15.0,
         buildMaxCpuCount: 1,
