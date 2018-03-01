@@ -8,7 +8,7 @@ module.exports = function () {
         licensePath: instanceRoot + "\\App_Data\\license.xml",
         packageXmlBasePath: ".\\src\\Project\\Habitat\\code\\App_Data\\packages\\habitat.xml",
         packagePath: instanceRoot + "\\App_Data\\packages",
-        solutionName: "Habitat",
+        solutionName: "Habitat",                          
         buildConfiguration: "Debug",
         buildToolsVersion: 15.0,
         buildMaxCpuCount: 1,
