@@ -30,6 +30,7 @@ gulp.task("default",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
             "Publish-Transforms",
+            "Publish-xConnect-Project",
             callback);
     });
 
@@ -42,6 +43,7 @@ gulp.task("deploy-unicorn",
             "Apply-Xml-Transform",
             "Sync-Unicorn",
             "Publish-Transforms",
+            "Publish-xConnect-Project",
             callback);
     });
 
@@ -53,16 +55,10 @@ gulp.task("tds",
             "Apply-Xml-Transform",
             "Publish-Transforms",
             "TDS-Build",
+            "Publish-xConnect-Project",
             callback
         );
-    });
-
-    gulp.task("test",function(callback){
-        return runSequence(
-            "Publish-xConnect-Project",
-            callback);
-        
-    });
+    });                    
 
 /*****************************
   Initial setup
@@ -197,7 +193,7 @@ gulp.task("TDS-Build",
 *****************************/
 var publishStream = function (stream, dest) {
     var targets = ["Build"];
-
+                                         
     return stream
         .pipe(debug({ title: "Building project:" }))
         .pipe(msbuild({
@@ -245,6 +241,6 @@ gulp.task("Publish-Project-Projects",
     });
 
 gulp.task("Publish-xConnect-Project",
-function(){
-    return publishProjects("./src/xConnect",config.xConnectRoot);
-});
+    function () {                                                   
+        return publishProjects("./src/xConnect", config.xConnectRoot);
+    });
