@@ -20,7 +20,8 @@
             string apiKey = Request.QueryString["apiKey"];
             if (!string.Equals(apiKey, GetApiKey()))
             {
-                Response.Write("ApiKey is wrong dude");
+                Response.Write("Invalid API Key");                  
+                Sitecore.Diagnostics.Log.Warn("DeployEmailCampaigns utility: Invalid API key", this);
                 Response.End();
             }
 
@@ -31,7 +32,8 @@
             }
             catch (Exception ex)
             {
-                Response.Write("ERROR: " + ex.Message);
+                Response.Write("ERROR: " + ex.Message);      
+                Sitecore.Diagnostics.Log.Error(string.Format("DeployEmailCampaigns utility: {0}", ex.Message), ex, this);
             }
 
             Response.End();

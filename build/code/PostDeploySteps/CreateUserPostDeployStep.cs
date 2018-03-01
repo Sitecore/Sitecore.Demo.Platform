@@ -2,7 +2,7 @@
 using Sitecore.Security.Accounts;
 using System.Xml.Linq;
 
-namespace Sitecore.Demo.Deployment.Web.Extensions.TDS
+namespace Sitecore.Demo.Deployment.Web.PostDeploySteps
 {
     public class CreateUserPostDeployStep : IPostDeployAction
     {
@@ -10,12 +10,10 @@ namespace Sitecore.Demo.Deployment.Web.Extensions.TDS
         {
             string demoAdminUsername = "demoadmin";                                                        
             string demoAdminDomainUsername = Security.Domains.Domain.GetDomain("sitecore").GetFullName(demoAdminUsername);
-
-            host.LogMessage("Checking if user exists: " + demoAdminDomainUsername);
-
+                                                                                                             
             if (!User.Exists(demoAdminDomainUsername))
             {
-                host.LogMessage("Creating user: " + demoAdminDomainUsername);
+                host.LogMessage("TDS Post Deploy: Creating user " + demoAdminDomainUsername);
 
                 var user = User.Create(demoAdminDomainUsername, "demopass");
                 user.Profile.FullName = "Demo Administrator";        
