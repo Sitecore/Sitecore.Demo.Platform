@@ -1,0 +1,33 @@
+﻿---
+ID: "52201f7c-b56b-45f3-8398-b682687308ff"
+Parent: "f570e8b5-163f-4de0-a28e-c27eb798ac4e"
+Template: "f570e8b5-163f-4de0-a28e-c27eb798ac4e"
+Path: /sitecore/templates/Project/Habitat Sites/Habitat Home/Pages/Store/Catalog Navigation Page/__Standard Values
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {F6C621CE-6176-4F83-AEE3-84AF17EEAA94}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+    {2C7F849B-62F5-40E5-A209-1F0B6630A7DE}
+    {C7B45FE1-189F-47CB-A9E4-6DE27E67D00F}
+    {CED1B68C-BC10-4A08-96A5-7DE4F4162E71}
+    {F570E8B5-163F-4DE0-A28E-C27EB798AC4E}
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170818T061601Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
