@@ -8,7 +8,7 @@ name: Publish Date
 master: {00000000-0000-0000-0000-000000000000}
 template: {DC4EBC23-A470-4B5D-8DF8-4A55FA823BB4}
 templatekey: VariantDateField
-created: 20180117T173129Z
+created: 20180308T042406Z
 
 ----field----
 field: {DB805BDC-8EEC-4238-B174-2427B6F1F077}
@@ -30,19 +30,12 @@ name: __Sortorder
 key: __sortorder
 content-length: 3
 
-275
+150
 ----version----
 language: en
 version: 1
-revision: db1f8569-8243-4178-ab66-76fd798747ff
+revision: 7c445b4a-4ea0-4269-a6e0-6bee45f8d59c
 
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -56,14 +49,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-db1f8569-8243-4178-ab66-76fd798747ff
+7c445b4a-4ea0-4269-a6e0-6bee45f8d59c
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171113T211542Z
+20180309T040731Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -74,7 +67,7 @@ sitecore\admin
 ----version----
 language: fr-CA
 version: 1
-revision: 6955ba9a-9d9c-457e-99a5-2d0079104173
+revision: adc456d8-1161-4257-a012-2a10a495269f
 
 ----field----
 field: {FD5230D8-E68D-4E17-9D85-EA676F27AC3A}
@@ -154,13 +147,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -180,21 +166,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-6955ba9a-9d9c-457e-99a5-2d0079104173
+adc456d8-1161-4257-a012-2a10a495269f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210416Z
+20180308T042406Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics

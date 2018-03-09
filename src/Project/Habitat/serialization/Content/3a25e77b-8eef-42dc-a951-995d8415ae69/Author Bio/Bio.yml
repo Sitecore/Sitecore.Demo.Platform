@@ -1,16 +1,16 @@
 ﻿---
-ID: "6f52ec59-b9d1-4143-9119-a6e1ad822e50"
-Parent: "e1e4ae25-c812-49cf-8d98-2d61ef5dafc3"
-Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
-Path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Page Content/Article Content/Title Wrapper
+ID: "8d58ef2c-c7a8-44a0-b332-7206fb2e7f13"
+Parent: "1f641fe0-6fb7-42af-80fa-3d6c2486505f"
+Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
+Path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Page Content/Article Content/Author Wrapper/Author Bio/Bio
 DB: master
 SharedFields:
+- ID: "4753764c-c05a-4623-841b-97f85135241c"
+  Hint: FieldName
+  Value: Author Bio
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 0
-- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
-  Hint: CssClass
-  Value: "article-header"
+  Value: 375
 Languages:
 - Language: en
   Versions:
@@ -18,7 +18,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171113T210924Z
+      Value: 20171113T211352Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -40,9 +40,12 @@ Languages:
       Hint: __Final Renderings
       Type: Layout
       Value: 
+    - ID: "15867cb6-e128-4d78-9d4f-739e5963dfc4"
+      Hint: Suffix
+      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171113T210924Z
+      Value: 20171113T211352Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: 
@@ -66,4 +69,7 @@ Languages:
       Value: 0
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
+      Value: 
+    - ID: "fd5230d8-e68d-4e17-9d85-ea676f27ac3a"
+      Hint: Prefix
       Value: 

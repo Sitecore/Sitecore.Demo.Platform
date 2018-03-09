@@ -2,13 +2,13 @@
 version: 1
 id: {1F819C2E-1659-40C3-8B73-D9EC72A37354}
 database: master
-path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Page Content/Article Content/Author Wrapper/Info Wrapper/Author
-parent: {B1A84154-3A95-42D6-861F-C96D404F0257}
-name: Author
+path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Page Content/Article Content/Author Wrapper/Info Wrapper/Author Name/Name
+parent: {CF8B3B28-FCBF-4DA9-9E49-A3CE0BEA52BD}
+name: Name
 master: {00000000-0000-0000-0000-000000000000}
 template: {FCD285DA-9AB2-4C8D-B185-5A7487A9BA1B}
 templatekey: VariantField
-created: 20180117T173129Z
+created: 20180308T042406Z
 
 ----field----
 field: {DB805BDC-8EEC-4238-B174-2427B6F1F077}
@@ -34,15 +34,8 @@ content-length: 3
 ----version----
 language: en
 version: 1
-revision: 41634729-c75d-47d4-b8bf-aa108485cb61
+revision: 4f3b1dde-5929-478f-ac23-0e73af6b5da5
 
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -56,14 +49,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-41634729-c75d-47d4-b8bf-aa108485cb61
+4f3b1dde-5929-478f-ac23-0e73af6b5da5
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171113T211510Z
+20180309T041012Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -74,7 +67,7 @@ sitecore\admin
 ----version----
 language: fr-CA
 version: 1
-revision: f29fcda1-9217-45ce-8844-969fda5bcab5
+revision: cdbad492-9807-4428-83b9-7192bf32f64b
 
 ----field----
 field: {FD5230D8-E68D-4E17-9D85-EA676F27AC3A}
@@ -154,13 +147,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -180,21 +166,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-f29fcda1-9217-45ce-8844-969fda5bcab5
+cdbad492-9807-4428-83b9-7192bf32f64b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210416Z
+20180308T042406Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
