@@ -166,7 +166,7 @@ function Install-Prerequisites {
 function Install-Assets {
     #Register Assets PowerShell Repository
     if ((Get-PSRepository | Where-Object {$_.Name -eq $assets.psRepositoryName}).count -eq 0) {
-        Register-PSRepository -Name $AssetsPSRepositoryName -SourceLocation $assets.psRepository -InstallationPolicy Trusted
+        Register-PSRepository -Name $assets.psRepositoryName -SourceLocation $assets.psRepository -InstallationPolicy Trusted
     }
 
     #Sitecore Install Framework dependencies
