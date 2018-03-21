@@ -68,12 +68,19 @@ From the install directory
 
 Execute **`.\get-latest-sitecore.ps1`**
 
-### 3 Install Solr
+### 3 Install Java
+Download and install Java SE Runtime Environment 8u151 from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html "Oracle Download Archive")
+** After installation is complete, exit and re-open PowerShell.
+
+### 4 Install Solr
 
 From the install\solr directory, review and modify the install-solr.ps1 file as required
 Execute **`install-solr.ps1`**
 
-### 4 Set up Installation Configuration file
+
+> Although it doesn't always happen, if you encounter an issue where **keytool cannot be found**, restart your computer.
+ 
+### 5 Set up Installation Configuration file
 - Copy `set-installation-overrides.ps1.example` to `set-installation-overrides.ps1` and modify to match your environment 
 - Ensure you **set the location of the license file** 
 - Ensure the **solr details** in the overrides file **match your solr installation details**
@@ -82,7 +89,7 @@ Execute **`install-solr.ps1`**
 
 At this point you should have a **`configuration-xp0.json`** file. Review the file for correctness.
 
-### 5 Install Sitecore
+### 6 Install Sitecore
 
 - Run **`.\install-xp0.ps1`**
 - This will install all required modules including SPE, SXA and Data Exchange Framework-related modules
