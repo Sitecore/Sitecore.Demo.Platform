@@ -29,8 +29,7 @@ catch {
 }
 
 if ($useLocal -eq $true) {
-    Write-Host "Using Local: $jsonLocalFileName" -ForegroundColor Green
-    Write-Host ""
+    Write-Host "Using Local: $jsonLocalFileName`r`n" -ForegroundColor Green
     $json = $(Get-Content $jsonLocalFileName -Raw | ConvertFrom-Json)
     
 }
