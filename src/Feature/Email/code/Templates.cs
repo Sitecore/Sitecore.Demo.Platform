@@ -39,5 +39,38 @@ namespace Sitecore.Feature.Email
                 public static readonly ID Body = new ID("{9F2D5F68-061F-43A5-AA1C-12079D07763E}");
             }
         }
+
+        public struct Promo
+        {
+            public struct Fields
+            {       
+                public static readonly ID Title = new ID("{2BE2FD2C-B43F-4237-9B24-2905EFE66483}");
+                public static readonly ID PromoText = new ID("{EFFCB8E2-8C7E-4CA8-87EA-6E9B9D120C13}");
+                public static readonly ID LinkLabel = new ID("{330DC4A3-644B-4ED4-8775-F7313DCAB71F}");
+                public static readonly ID Image = new ID("{270CC513-EE8A-4D95-87A3-9EF5129733AD}");
+                public static readonly ID Link = new ID("{4521AD3A-5672-409A-86C1-58362E88DDB6}");
+            }
+        }
+
+        public struct PageTeaser
+        {
+            public struct Fields
+            {
+                public static readonly ID Title = new ID("{E2A634FD-5177-46DE-B629-5393CAED77D7}");
+                public static readonly ID Summary = new ID("{CA65ACA5-4323-418A-AA72-A5037F606D2A}");
+                public static readonly ID Content = new ID("{5A0B08E5-7F6C-48DC-929A-5D6CFDA45E1D}");
+                public static readonly ID Image = new ID("{23AA5741-FA6A-4ADD-9E79-7A752AF6DEB1}");
+                public static readonly ID OpenGraphImage = new ID("{D8B38DD7-E9A0-4410-9F17-D436B0C8635A}");
+            }
+        }
+
+        public struct Image
+        {
+            public struct Fields
+            {
+                public static readonly ID Image = new ID("{EBE4FDEF-16D5-4D19-833C-24A241628A3A}");
+            }
+        }
+
     }
 }

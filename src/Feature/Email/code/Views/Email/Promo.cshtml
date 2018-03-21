@@ -1,10 +1,11 @@
 ﻿@model Sitecore.Mvc.Presentation.RenderingModel
+@using Sitecore.Feature.Email;
 
 <table class="header" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; padding: 0 40px; background:#ffffff;" cellspacing="0" cellpadding="0" border="0">
     <tbody>
         <tr>
             <td>
-                <img alt="" style="width: 494px; height: 193px;" src="-/media/E59F13306FD347DCB7089B34296D7314.ashx" />&nbsp;
+                 @Html.Sitecore().Field(Templates.Promo.Fields.Image.ToString(), Model.Item, new { width = "494", height = "193", style = "width: 494px; height: 193px;" })&nbsp;
             </td>
         </tr>
     </tbody>
@@ -15,10 +16,10 @@
         <tr>
             <td>
                 <h2 style="font-family: sans-serif; font-size: 24px; margin: 32px 0; color: #1b8f9c; font-weight: bold;">
-                    Your Smart Home Checklist
+                    @Html.Sitecore().Field(Templates.Promo.Fields.Title.ToString(), Model.Item)
                 </h2>
-                <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; color:#848589; line-height: 2;">
-                    Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Habitat has a few "smart" suggestions in its newest whitepaper.
+                <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; color:#848589; line-height: 2;">                    
+                    @Html.Sitecore().Field(Templates.Promo.Fields.PromoText.ToString(), Model.Item)
                 </p>
             </td>
         </tr>
@@ -29,11 +30,13 @@
     <tbody>
         <tr>
             <td>
-                <a href="~/link.aspx?_id=0A419FC1C98F400FA6A88A70562A0A6E&amp;_z=z">
+               
+                @Html.Sitecore().BeginField(Templates.Promo.Fields.Link.ToString(), Model.Item, new { haschildren = true })
                     <button style="cursor: pointer; width: 100%; text-align: center; color:#ffffff; background-color: #1b8f9c; padding: 14px; border: none; text-transform: uppercase; font-weight: bold;" type="submit">
-                        Continue Reading
+                        @Html.Sitecore().Field(Templates.Promo.Fields.LinkLabel.ToString(), Model.Item)
                     </button>
-                </a>&nbsp;
+                @Html.Sitecore().EndField()
+                &nbsp;  
             </td>
         </tr>
     </tbody>
