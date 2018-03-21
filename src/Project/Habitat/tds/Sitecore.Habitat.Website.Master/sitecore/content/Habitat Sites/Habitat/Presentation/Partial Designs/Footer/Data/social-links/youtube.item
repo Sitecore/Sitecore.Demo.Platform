@@ -8,12 +8,12 @@ name: youtube
 master: {00000000-0000-0000-0000-000000000000}
 template: {E24E0789-A058-48BF-ABB6-C69C0E60B6B7}
 templatekey: Link
-created: 20180223T204156Z
+created: 20180312T173601Z
 
 ----version----
 language: en
 version: 1
-revision: 7a450f5f-414d-4d77-9ef8-0bf992e43d9d
+revision: 986dd343-16e8-44f5-a5fe-ae34bd9aefbc
 
 ----field----
 field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
@@ -42,14 +42,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-7a450f5f-414d-4d77-9ef8-0bf992e43d9d
+986dd343-16e8-44f5-a5fe-ae34bd9aefbc
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180214T172511Z
+20180321T110219Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -60,7 +60,7 @@ sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 33b89ee0-0dae-40d0-9bca-64d0f310471b
+revision: 2c56742f-b430-4e56-9b34-6d42832bf81e
 
 ----field----
 field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
@@ -152,14 +152,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-33b89ee0-0dae-40d0-9bca-64d0f310471b
+2c56742f-b430-4e56-9b34-6d42832bf81e
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180214T172511Z
+20180321T110219Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -181,3 +181,50 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: 74de7669-53c5-42bc-a520-b7a07db34088
+
+----field----
+field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
+name: Link
+key: link
+content-length: 123
+
+<link text="Youtube" linktype="external" url="http://youtube.com" anchor="" class="social-links-youtube" target="_blank" />
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104423Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+74de7669-53c5-42bc-a520-b7a07db34088
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110219Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

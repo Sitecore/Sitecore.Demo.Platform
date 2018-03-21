@@ -7,8 +7,8 @@ parent: {0D1C017A-5ED6-4971-9714-5D732991F81C}
 name: Read Dynamics ML Memberships Step
 master: {F6D87616-5E7C-461A-9D5C-C2BF87DEB2A1}
 template: {C22E4498-B185-41E3-9D16-D2C3ACEF8DF1}
-templatekey: Read Dynamics ML Memberships Step
-created: 20180102T112655Z
+templatekey: Read Dynamics Marketing List Memberships Step
+created: 20180312T173302Z
 
 ----field----
 field: {0B4517F6-5269-421B-8FC7-80A2505C608F}
@@ -27,15 +27,8 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: ba7f36c0-f4ee-42f6-89d6-1dd213edc3b6
+revision: 4e43a39e-b98d-43ad-8c38-3a6aeaa5ee28
 
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 18
-
-sitecore\Anonymous
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -56,18 +49,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ba7f36c0-f4ee-42f6-89d6-1dd213edc3b6
+4e43a39e-b98d-43ad-8c38-3a6aeaa5ee28
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180102T113004Z
+20180312T173302Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 16
 
-sitecore\Anonymous
+sitecore\unicorn

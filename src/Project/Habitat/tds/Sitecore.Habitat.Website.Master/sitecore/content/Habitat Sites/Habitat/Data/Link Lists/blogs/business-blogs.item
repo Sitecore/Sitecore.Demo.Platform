@@ -8,12 +8,12 @@ name: business-blogs
 master: {00000000-0000-0000-0000-000000000000}
 template: {E24E0789-A058-48BF-ABB6-C69C0E60B6B7}
 templatekey: Link
-created: 20180117T173125Z
+created: 20180312T173541Z
 
 ----version----
 language: en
 version: 1
-revision: f4ecafa9-8005-4f13-aa8a-e354f7a3948a
+revision: c0dcf21e-b3d1-4699-aab2-37be387fe0d5
 
 ----field----
 field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
@@ -42,14 +42,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-f4ecafa9-8005-4f13-aa8a-e354f7a3948a
+c0dcf21e-b3d1-4699-aab2-37be387fe0d5
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165627Z
+20180321T110212Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -60,7 +60,7 @@ sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 4024a100-b8de-479e-887a-2629b100dd5b
+revision: 45c42011-432a-4a94-ab85-ce4e168f699d
 
 ----field----
 field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
@@ -133,13 +133,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -159,21 +152,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-4024a100-b8de-479e-887a-2629b100dd5b
+45c42011-432a-4a94-ab85-ce4e168f699d
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210357Z
+20180321T110212Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -188,3 +181,57 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: a70d3387-1227-48ee-8e61-211088cee84e
+
+----field----
+field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
+name: Link
+key: link
+content-length: 118
+
+<link linktype="external" text="ビジネスブログ" url="https://www.sitecore.net/company/blog.aspx" anchor="" target="_blank" />
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 7
+
+ビジネスブログ
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104418Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+a70d3387-1227-48ee-8e61-211088cee84e
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110212Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

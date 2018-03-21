@@ -1,6 +1,6 @@
 ----item----
 version: 1
-id: {E736561F-00E5-484B-AD50-D148FF6419DF}
+id: {4490752F-C6B1-4004-B5C7-E8513FED1597}
 database: master
 path: /sitecore/media library/Themes/Habitat Sites/Habitat Home/scripts/optimized-min
 parent: {78A53B2D-1E7C-4BA6-B363-D20AAFEC7A42}
@@ -8,7 +8,7 @@ name: optimized-min
 master: {00000000-0000-0000-0000-000000000000}
 template: {B43AB8D5-E123-42DD-8042-DE869CC98C4F}
 templatekey: Optimized File
-created: 20180315T140214Z
+created: 20180321T111903Z
 
 ----field----
 field: {40E50ED9-BA07-4702-992E-A912738D32DC}
@@ -1790,9 +1790,56 @@ content-length: 24
 
 People/32x32/package.png
 ----version----
+language: de-DE
+version: 1
+revision: bba88688-ce13-4e97-a3ad-85fbabefc099
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+extranet\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T111903Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+extranet\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+bba88688-ce13-4e97-a3ad-85fbabefc099
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T111903Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+extranet\Anonymous
+----version----
 language: en
 version: 1
-revision: d3ce8f92-4a08-48cb-babd-70dc17f381d6
+revision: 7b3842a4-610d-4e43-9417-27b6eb94a4a0
 
 ----field----
 field: {3F4B20E9-36E6-4D45-A423-C86567373F82}
@@ -1821,7 +1868,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20180315T140214Z
+20180321T111903Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -1835,14 +1882,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d3ce8f92-4a08-48cb-babd-70dc17f381d6
+7b3842a4-610d-4e43-9417-27b6eb94a4a0
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180315T140214Z
+20180321T111904Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -1853,7 +1900,7 @@ extranet\Anonymous
 ----version----
 language: fr-CA
 version: 1
-revision: 063bb44f-59ae-45d1-aca1-30bbc88b2a96
+revision: 192c822a-0b52-426b-9da0-84321d9f3f09
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -1868,7 +1915,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20180315T140214Z
+20180321T111904Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -1882,14 +1929,108 @@ name: __Revision
 key: __revision
 content-length: 36
 
-063bb44f-59ae-45d1-aca1-30bbc88b2a96
+192c822a-0b52-426b-9da0-84321d9f3f09
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180315T140214Z
+20180321T111904Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+extranet\Anonymous
+----version----
+language: fr-FR
+version: 1
+revision: a405f43c-0017-4efb-8503-5ac0b7f63d92
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+extranet\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T111903Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+extranet\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+a405f43c-0017-4efb-8503-5ac0b7f63d92
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T111903Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 18
+
+extranet\Anonymous
+----version----
+language: ja-JP
+version: 1
+revision: 2c291d6a-58f4-46be-b337-db27b62ce519
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 18
+
+extranet\Anonymous
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T111903Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 18
+
+extranet\Anonymous
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+2c291d6a-58f4-46be-b337-db27b62ce519
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T111903Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

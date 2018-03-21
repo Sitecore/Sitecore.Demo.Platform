@@ -8,12 +8,12 @@ name: About Habitat
 master: {00000000-0000-0000-0000-000000000000}
 template: {E24E0789-A058-48BF-ABB6-C69C0E60B6B7}
 templatekey: Link
-created: 20180223T205750Z
+created: 20180312T173530Z
 
 ----version----
 language: en
 version: 1
-revision: e9c80617-be69-4099-8d3a-19db83f73ef5
+revision: 4eb4db92-f6c4-4477-8e2a-ecea1d55c617
 
 ----field----
 field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
@@ -22,13 +22,6 @@ key: link
 content-length: 124
 
 <link text="" anchor="" linktype="internal" class="" title=""  querystring="" id="{20C58439-60CC-43D6-9EAC-CB859EA60D46}" />
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -49,18 +42,72 @@ name: __Revision
 key: __revision
 content-length: 36
 
-e9c80617-be69-4099-8d3a-19db83f73ef5
+4eb4db92-f6c4-4477-8e2a-ecea1d55c617
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180223T205816Z
+20180321T110209Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
+content-length: 16
+
+sitecore\unicorn
+----version----
+language: ja-JP
+version: 1
+revision: 3a731c20-f171-4e3f-9ade-a8215d7d3754
+
+----field----
+field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
+name: Link
+key: link
+content-length: 124
+
+<link text="" anchor="" linktype="internal" class="" title=""  querystring="" id="{20C58439-60CC-43D6-9EAC-CB859EA60D46}" />
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 12
+
+Habitat について
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104420Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
 content-length: 14
 
 sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+3a731c20-f171-4e3f-9ade-a8215d7d3754
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110209Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

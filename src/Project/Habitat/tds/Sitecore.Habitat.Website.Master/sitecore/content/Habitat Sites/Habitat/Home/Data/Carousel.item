@@ -8,7 +8,7 @@ name: Carousel
 master: {00000000-0000-0000-0000-000000000000}
 template: {ADD22F05-6B4C-4344-95AD-9A1A9BA6A216}
 templatekey: Carousel
-created: 20180117T173115Z
+created: 20180312T173532Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,15 +20,8 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: bd808f47-75aa-49dc-9928-baf8c30b20cb
+revision: 9de2de56-56a6-42fb-9ceb-0a25abbcbd88
 
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -49,25 +42,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-bd808f47-75aa-49dc-9928-baf8c30b20cb
+9de2de56-56a6-42fb-9ceb-0a25abbcbd88
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T155226Z
+20180321T110211Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 14
+content-length: 16
 
-sitecore\admin
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: ea47de79-eac5-4300-b949-bc3010d46cfd
+revision: dc7c8b5c-59d5-4b4e-9173-52981874fef8
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -133,13 +126,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -159,21 +145,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ea47de79-eac5-4300-b949-bc3010d46cfd
+dc7c8b5c-59d5-4b4e-9173-52981874fef8
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210354Z
+20180321T110211Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -188,3 +174,50 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: 6224ba67-2fb9-4328-a9c9-3d61e09b6a78
+
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 5
+
+カルーセル
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104415Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+6224ba67-2fb9-4328-a9c9-3d61e09b6a78
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110211Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

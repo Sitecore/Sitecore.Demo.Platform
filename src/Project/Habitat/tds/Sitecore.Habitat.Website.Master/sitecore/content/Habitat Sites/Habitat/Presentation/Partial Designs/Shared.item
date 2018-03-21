@@ -8,12 +8,12 @@ name: Shared
 master: {00000000-0000-0000-0000-000000000000}
 template: {D623F3AD-2202-473C-998B-798B5302ADE2}
 templatekey: Partial Design Folder
-created: 20180117T173115Z
+created: 20180312T173533Z
 
 ----version----
 language: en
 version: 1
-revision: 1ddf360d-ebc3-4cee-b0ef-5821664d444d
+revision: fb5e2546-db19-4278-b8c4-33456a95f6e1
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -35,25 +35,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-1ddf360d-ebc3-4cee-b0ef-5821664d444d
+fb5e2546-db19-4278-b8c4-33456a95f6e1
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171113T172620Z
+20180321T110210Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 14
+content-length: 16
 
-sitecore\admin
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 17cc3ead-66d2-46dc-bf1f-d649dc5e908a
+revision: c722df90-bb8b-4e34-9eda-214e2a7610d0
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -119,13 +119,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -145,21 +138,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-17cc3ead-66d2-46dc-bf1f-d649dc5e908a
+c722df90-bb8b-4e34-9eda-214e2a7610d0
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210407Z
+20180321T110210Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -174,3 +167,50 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: ba9e9a04-9c5a-4c08-97a9-e91125c43a82
+
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 2
+
+共有
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104422Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+ba9e9a04-9c5a-4c08-97a9-e91125c43a82
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110210Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn
