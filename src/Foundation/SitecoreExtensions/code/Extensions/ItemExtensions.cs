@@ -218,6 +218,11 @@
 
         public static bool FieldHasValue(this Item item, ID fieldID)
         {
+            if(item == null)
+            {
+                return false;
+            }
+
             return item.Fields[fieldID] != null && !string.IsNullOrWhiteSpace(item.Fields[fieldID].Value);
         }
 

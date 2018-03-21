@@ -79,6 +79,9 @@
     <ProjectReference Include="..\..\..\src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Feature\Email\tds\Sitecore.Feature.Email.Master\Sitecore.Feature.Email.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\src\Feature\Forms\tds\Sitecore.Feature.Forms.Core\Sitecore.Feature.Forms.Core.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
@@ -114,6 +117,24 @@
   <ItemGroup>
     <ExcludedAssemblies Include="Sitecore.Demo.Deployment.Web.%2a" />
   </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.CreateUserPostDeployStep,Sitecore.Demo.Deployment.Web">
+      <Order>0</Order>
+    </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.DeployEmailCampaigns,Sitecore.Demo.Deployment.Web">
+      <Parameter>hostname=habitat.dev.local&amp;apiKey=97CC4FC13A814081BF6961A3E2128C5B</Parameter>
+      <Order>1</Order>
+    </PostDeployAction>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'TDS' ">
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.CreateUserPostDeployStep,Sitecore.Demo.Deployment.Web">
+      <Order>0</Order>
+    </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.DeployEmailCampaigns,Sitecore.Demo.Deployment.Web">
+      <Parameter>hostname=na.habitathomedemo.com&amp;apiKey=97CC4FC13A814081BF6961A3E2128C5B</Parameter>
+      <Order>1</Order>
+    </PostDeployAction>
+  </ItemGroup>
   <ItemGroup>
     <BundledProject Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Core\Sitecore.Feature.Accounts.Core.scproj">
       <ProjectId>{89f6a443-9e24-499f-a255-194d74187dd9}</ProjectId>
@@ -126,6 +147,9 @@
     </BundledProject>
     <BundledProject Include="..\..\..\src\Feature\Demo\tds\Sitecore.Feature.Demo.Master\Sitecore.Feature.Demo.Master.scproj">
       <ProjectId>{3e21fc58-e2b6-4de9-94c3-ff38c7cf0402}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\..\..\src\Feature\Email\tds\Sitecore.Feature.Email.Master\Sitecore.Feature.Email.Master.scproj">
+      <ProjectId>{3f967028-96b1-4a57-a93d-3aca23e97372}</ProjectId>
     </BundledProject>
     <BundledProject Include="..\..\..\src\Feature\Forms\tds\Sitecore.Feature.Forms.Core\Sitecore.Feature.Forms.Core.scproj">
       <ProjectId>{2ad001bf-4378-4056-b7e9-993a9e43a1c7}</ProjectId>
@@ -154,24 +178,6 @@
     <BundledProject Include="..\..\..\src\Project\Habitat\tds\Sitecore.Habitat.Website.Master\Sitecore.Habitat.Website.Master.scproj">
       <ProjectId>{d259ef27-fa71-4d70-a2e4-c6d854cc849f}</ProjectId>
     </BundledProject>
-  </ItemGroup>
-  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.CreateUserPostDeployStep,Sitecore.Demo.Deployment.Web">
-      <Order>0</Order>
-    </PostDeployAction>
-    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.DeployEmailCampaigns,Sitecore.Demo.Deployment.Web">
-      <Parameter>hostname=habitat.dev.local&amp;apiKey=97CC4FC13A814081BF6961A3E2128C5B</Parameter>
-      <Order>1</Order>
-    </PostDeployAction>
-  </ItemGroup>
-  <ItemGroup Condition=" '$(Configuration)' == 'TDS' ">
-    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.CreateUserPostDeployStep,Sitecore.Demo.Deployment.Web">
-      <Order>0</Order>
-    </PostDeployAction>
-    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.DeployEmailCampaigns,Sitecore.Demo.Deployment.Web">
-      <Parameter>hostname=na.habitathomedemo.com&amp;apiKey=97CC4FC13A814081BF6961A3E2128C5B</Parameter>
-      <Order>1</Order>
-    </PostDeployAction>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets') and !Exists('..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
