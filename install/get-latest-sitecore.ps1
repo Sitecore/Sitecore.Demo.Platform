@@ -11,13 +11,15 @@ $spePackageUrl = "https://marketplace.sitecore.net/services/~/download/BA9304F73
 $DEFPackageUrl = "https://v9assets.blob.core.windows.net/v9-onprem-assets/Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2027-11-09T20%3A11%3A50Z&st=2017-11-09T12%3A11%3A50Z&spr=https&sig=naspk%2BQflDLjyuC6gfXw4OZKvhhxzTlTvDctfw%2FByj8%3D"
 $DEFSqlProviderPackageUrl = "https://v9assets.blob.core.windows.net/v9-onprem-assets/SQL%20Provider%20for%20Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2027-11-09T20%3A11%3A50Z&st=2017-11-09T12%3A11%3A50Z&spr=https&sig=naspk%2BQflDLjyuC6gfXw4OZKvhhxzTlTvDctfw%2FByj8%3D"
 $DEFSitecoreProviderPackageUrl = "https://v9assets.blob.core.windows.net/v9-onprem-assets/Sitecore%20Provider%20for%20Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2027-11-09T20%3A11%3A50Z&st=2017-11-09T12%3A11%3A50Z&spr=https&sig=naspk%2BQflDLjyuC6gfXw4OZKvhhxzTlTvDctfw%2FByj8%3D"
-$DEFxConnectProviderPackageUrl ="https://v9assets.blob.core.windows.net/v9-onprem-assets/xConnect%20Provider%20for%20Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2027-11-09T20%3A11%3A50Z&st=2017-11-09T12%3A11%3A50Z&spr=https&sig=naspk%2BQflDLjyuC6gfXw4OZKvhhxzTlTvDctfw%2FByj8%3D"
-$DEFDynamicsProviderPackageUrl="https://v9assets.blob.core.windows.net/v9-onprem-assets/Dynamics%20Provider%20for%20Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2027-11-09T20%3A11%3A50Z&st=2017-11-09T12%3A11%3A50Z&spr=https&sig=naspk%2BQflDLjyuC6gfXw4OZKvhhxzTlTvDctfw%2FByj8%3D"
-$DEFDynamicsConnectPackageUrl="https://v9assets.blob.core.windows.net/v9-onprem-assets/Connect%20for%20Microsoft%20Dynamics%202.0.1%20rev.%20180108.zip?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2027-11-09T20%3A11%3A50Z&st=2017-11-09T12%3A11%3A50Z&spr=https&sig=naspk%2BQflDLjyuC6gfXw4OZKvhhxzTlTvDctfw%2FByj8%3D"
+$DEFxConnectProviderPackageUrl = "https://v9assets.blob.core.windows.net/v9-onprem-assets/xConnect%20Provider%20for%20Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2027-11-09T20%3A11%3A50Z&st=2017-11-09T12%3A11%3A50Z&spr=https&sig=naspk%2BQflDLjyuC6gfXw4OZKvhhxzTlTvDctfw%2FByj8%3D"
+$DEFDynamicsProviderPackageUrl = "https://v9assets.blob.core.windows.net/v9-onprem-assets/Dynamics%20Provider%20for%20Data%20Exchange%20Framework%202.0.1%20rev.%20180108.zip?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2027-11-09T20%3A11%3A50Z&st=2017-11-09T12%3A11%3A50Z&spr=https&sig=naspk%2BQflDLjyuC6gfXw4OZKvhhxzTlTvDctfw%2FByj8%3D"
+$DEFDynamicsConnectPackageUrl = "https://v9assets.blob.core.windows.net/v9-onprem-assets/Connect%20for%20Microsoft%20Dynamics%202.0.1%20rev.%20180108.zip?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2027-11-09T20%3A11%3A50Z&st=2017-11-09T12%3A11%3A50Z&spr=https&sig=naspk%2BQflDLjyuC6gfXw4OZKvhhxzTlTvDctfw%2FByj8%3D"
+
+Write-Host ""
 
 try {
     if ($useLocal -eq $false) {
-        Write-Host "Trying to get latest Urls from $rootQA"
+        Write-Host "Trying to get latest Urls from $rootQA" -ForegroundColor Yellow
         $jsonFileName = (Get-ChildItem "$rootQA" -File -Recurse | Where-Object { $_.Name -eq "wdpUrls_OnPrem.json" } | Sort-Object LastWriteTime -Descending | Select-Object -First 1).FullName
     }
 }
@@ -27,10 +29,10 @@ catch {
 }
 
 if ($useLocal -eq $true) {
-    Write-Host "Using Local: $jsonLocalFileName"
+    Write-Host "Using Local: $jsonLocalFileName" -ForegroundColor Green
+    Write-Host ""
     $json = $(Get-Content $jsonLocalFileName -Raw | ConvertFrom-Json)
-    Write-Host "Got Json"
-    Write-Host $json
+    
 }
 else {
     $json = $(Get-Content $jsonFileName -Raw | ConvertFrom-Json)
@@ -49,12 +51,12 @@ $xConnectPackageFileName = $xConnectPackagePaths[0].substring($xConnectPackagePa
 $sitecoreDestination = $([io.path]::combine($downloadFolder, $sitecorePackageFileName)).ToString()
 $xConnectDestination = $([io.path]::combine($downloadFolder, $xConnectPackageFileName)).ToString()
 
-Write-Host "Saving $sitecorePackageUrl to $sitecoreDestination - if required" -ForegroundColor Green
+Write-Host ("Saving '{0}' to '{1}' - if required" -f $sitecorePackageFileName, $sitecoreDestination) -ForegroundColor Green
 if (!(Test-Path $sitecoreDestination)) {
     Start-BitsTransfer -Source $sitecorePackageUrl -Destination $sitecoreDestination
 }
 
-Write-Host "Saving $xConnectPackageUrl to $xConnectDestination - if required" -ForegroundColor Green
+Write-Host ("Saving '{0}' to '{1}' - if required" -f $xConnectPackageFileName, $xConnectDestination)  -ForegroundColor Green
 if (!(Test-Path $xConnectDestination)) {
     Start-BitsTransfer -Source $xConnectPackageUrl -Destination $xConnectDestination
 }
@@ -71,14 +73,43 @@ if ($useLocal -eq $false) {
 
 New-Item -ItemType Directory -Force -Path $($downloadFolder + "\packages")
 
-    Write-Host "Downloading latest SPE and SXA" -ForegroundColor Green
+Write-Host "Downloading latest SPE and SXA - if required`r`n" -ForegroundColor Green
 
+$sxaDestination = $([io.path]::combine($downloadFolder, "packages\Sitecore Experience Accelerator 1.6 rev. 180103 for 9.0.zip"))
     
-    Start-BitsTransfer -Source $sxaPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Sitecore Experience Accelerator 1.6 rev. 180103 for 9.0.zip")) 
-    Start-BitsTransfer -Source $spePackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Sitecore PowerShell Extensions-4.7 for Sitecore 8.zip"))
-    Start-BitsTransfer -Source $DEFPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Data Exchange Framework 2.0.1 rev. 180108.zip"))
-    Start-BitsTransfer -Source $DEFSqlProviderPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\SQL Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
-    Start-BitsTransfer -Source $DEFSitecoreProviderPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
-    Start-BitsTransfer -Source $DEFxConnectProviderPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
-    Start-BitsTransfer -Source $DEFDynamicsProviderPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
-    Start-BitsTransfer -Source $DEFDynamicsConnectPackageUrl -Destination $([io.path]::combine($downloadFolder, "packages\Connect for Microsoft Dynamics 2.0.1 rev. 180108.zip"))
+if (!(Test-Path $sxaDestination)) {
+    Start-BitsTransfer -Source $sxaPackageUrl -Destination $sxaDestination
+}
+$speDestination = $([io.path]::combine($downloadFolder, "packages\Sitecore PowerShell Extensions-4.7 for Sitecore 8.zip"))
+    
+if (!(Test-Path $speDestination)) {
+    Start-BitsTransfer -Source $spePackageUrl -Destination $speDestination
+}
+Write-Host "Downloading Data Exchange Framework packages - if required" -ForegroundColor Green
+    
+$DEFDestination = $([io.path]::combine($downloadFolder, "packages\Data Exchange Framework 2.0.1 rev. 180108.zip"))
+if (!(Test-Path $DEFDestination)) {
+    Start-BitsTransfer -Source $DEFPackageUrl -Destination $DEFDestination
+}
+
+$DEFSqlProviderDestination = $([io.path]::combine($downloadFolder, "packages\SQL Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
+if (!(Test-Path $DEFSqlProviderDestination)) {
+    Start-BitsTransfer -Source $DEFSqlProviderPackageUrl -Destination $DEFSqlProviderDestination
+}
+
+$DEFSitecoreProviderDestination = $([io.path]::combine($downloadFolder, "packages\Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
+if (!(Test-Path $DEFSitecoreProviderDestination)) {
+    Start-BitsTransfer -Source $DEFSitecoreProviderPackageUrl -Destination $DEFSitecoreProviderDestination
+}
+$DEFxConnectProviderDestination = $([io.path]::combine($downloadFolder, "packages\xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
+if (!(Test-Path $DEFxConnectProviderDestination)) {
+    Start-BitsTransfer -Source $DEFxConnectProviderPackageUrl -Destination $DEFxConnectProviderDestination
+}   
+$DEFDynamicsProviderDestination = $([io.path]::combine($downloadFolder, "packages\Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108.zip"))
+if (!(Test-Path $DEFDynamicsProviderDestination)) {
+    Start-BitsTransfer -Source $DEFDynamicsProviderPackageUrl -Destination $DEFDynamicsProviderDestination
+}   
+$DEFDynamicsConnectDestination = $([io.path]::combine($downloadFolder, "packages\Connect for Microsoft Dynamics 2.0.1 rev. 180108.zip"))
+if (!(Test-Path $DEFDynamicsConnectDestination)) {
+    Start-BitsTransfer -Source $DEFDynamicsConnectPackageUrl -Destination $DEFDynamicsConnectDestination
+}
