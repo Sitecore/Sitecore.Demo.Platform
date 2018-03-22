@@ -8,12 +8,12 @@ name: community-links
 master: {00000000-0000-0000-0000-000000000000}
 template: {F7561FFC-C0D8-477F-B53D-2703A4060BE1}
 templatekey: Link List
-created: 20180117T173119Z
+created: 20180312T173530Z
 
 ----version----
 language: en
 version: 1
-revision: 6538fc27-3bde-4204-8141-4475b6664215
+revision: 5da9363f-c1e0-41b6-b565-182d4fa5b3f1
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -35,25 +35,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-6538fc27-3bde-4204-8141-4475b6664215
+5da9363f-c1e0-41b6-b565-182d4fa5b3f1
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165625Z
+20180321T110209Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 16
 
-extranet\Anonymous
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 5849c4b2-ba14-4797-94b0-d383206d5af0
+revision: c4c9f2b4-bfe3-4c0b-8394-d364d7607b54
 
 ----field----
 field: {AA9C8D1C-B210-4EFA-86DB-83E8FA32C672}
@@ -126,13 +126,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -152,21 +145,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5849c4b2-ba14-4797-94b0-d383206d5af0
+c4c9f2b4-bfe3-4c0b-8394-d364d7607b54
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210357Z
+20180321T110209Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -181,3 +174,50 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: bd1941c8-a72a-45ee-9629-41432bfa18ef
+
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 10
+
+コミュニティ リンク
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104419Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+bd1941c8-a72a-45ee-9629-41432bfa18ef
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110209Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

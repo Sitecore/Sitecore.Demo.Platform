@@ -8,7 +8,7 @@ name: Demo Page
 master: {00000000-0000-0000-0000-000000000000}
 template: {26336120-B85F-4BF2-A988-290C7B3328FC}
 templatekey: Page Design
-created: 20180117T173119Z
+created: 20180312T173543Z
 
 ----field----
 field: {7B487159-E180-4846-BE49-E196E4C3A2B3}
@@ -20,7 +20,7 @@ content-length: 0
 ----version----
 language: en
 version: 1
-revision: e2b6a0d5-2e3b-4bd2-b4f4-ada77906af76
+revision: 2f2e67e0-0c01-4d79-a83c-b6c341ffed62
 
 ----field----
 field: {0966B999-0D0E-4278-ACC9-9DA69D461FE6}
@@ -29,13 +29,6 @@ key: partialdesigns
 content-length: 38
 
 {DC8802ED-4DCE-4E07-B3F5-3D40A3B5C65B}
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -56,25 +49,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-e2b6a0d5-2e3b-4bd2-b4f4-ada77906af76
+2f2e67e0-0c01-4d79-a83c-b6c341ffed62
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180223T204427Z
+20180321T110215Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 14
+content-length: 16
 
-sitecore\admin
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 8e26b864-f888-421d-98c7-af88bfe8d389
+revision: 3b96b731-182c-4319-b3d2-e753b37796ef
 
 ----field----
 field: {0966B999-0D0E-4278-ACC9-9DA69D461FE6}
@@ -154,13 +147,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -180,21 +166,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-8e26b864-f888-421d-98c7-af88bfe8d389
+3b96b731-182c-4319-b3d2-e753b37796ef
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210407Z
+20180321T110215Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -209,3 +195,50 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: ee73d2af-0e08-47af-a152-c096aab7c38a
+
+----field----
+field: {0966B999-0D0E-4278-ACC9-9DA69D461FE6}
+name: PartialDesigns
+key: partialdesigns
+content-length: 38
+
+{DC8802ED-4DCE-4E07-B3F5-3D40A3B5C65B}
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104421Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+ee73d2af-0e08-47af-a152-c096aab7c38a
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110215Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

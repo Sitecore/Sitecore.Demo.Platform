@@ -8,7 +8,7 @@ name: Default
 master: {00000000-0000-0000-0000-000000000000}
 template: {1C04FD61-1D87-4590-ACFE-9CC186865AB3}
 templatekey: Search Box
-created: 20180117T173124Z
+created: 20180312T173542Z
 
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
@@ -20,7 +20,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: c70d9688-4c2b-451e-bf02-f25c58dd5650
+revision: 6414bd86-5752-438a-8fb5-b471554e2ab1
 
 ----field----
 field: {143BC719-8C3F-42EB-9B1A-2DB64C7CFEB7}
@@ -29,13 +29,6 @@ key: searchtextboxlabel
 content-length: 20
 
 Search textbox label
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -56,25 +49,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-c70d9688-4c2b-451e-bf02-f25c58dd5650
+6414bd86-5752-438a-8fb5-b471554e2ab1
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171027T152436Z
+20180321T110212Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 9d9d1617-edea-4507-94b1-098faedd02c4
+revision: 509b94ac-8276-40a0-a374-f0d85278946f
 
 ----field----
 field: {143BC719-8C3F-42EB-9B1A-2DB64C7CFEB7}
@@ -147,13 +140,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -173,21 +159,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-9d9d1617-edea-4507-94b1-098faedd02c4
+509b94ac-8276-40a0-a374-f0d85278946f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210403Z
+20180321T110212Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -202,3 +188,50 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: d2cef1bb-4e44-4f6f-911a-17da29819fe7
+
+----field----
+field: {143BC719-8C3F-42EB-9B1A-2DB64C7CFEB7}
+name: SearchTextBoxLabel
+key: searchtextboxlabel
+content-length: 20
+
+Search textbox label
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104421Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+d2cef1bb-4e44-4f6f-911a-17da29819fe7
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110212Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

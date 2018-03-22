@@ -8,12 +8,12 @@ name: Contact-Information
 master: {00000000-0000-0000-0000-000000000000}
 template: {324733CF-AFEC-4281-9A18-03B6CFC4E535}
 templatekey: Promo
-created: 20180117T173118Z
+created: 20180312T173530Z
 
 ----version----
 language: en
 version: 1
-revision: e63c236f-8aec-488e-a8b3-27cd47180475
+revision: 5fc97587-251e-4140-890d-f87f0352c9e6
 
 ----field----
 field: {14023DD5-30E7-4E3C-BF31-D835F3A87410}
@@ -26,7 +26,7 @@ content-length: 26
 field: {B59ADC09-32A3-46F2-AEDE-B0C633979263}
 name: PromoText2
 key: promotext2
-content-length: 394
+content-length: 404
 
 <address>
     <p>
@@ -39,13 +39,6 @@ content-length: 394
         <i class="fa fa-phone"></i> +1 415 380 0600              <br />
         <i class="fa fa-envelope"></i> <a href="mailto:sales@sitecore.net" target="_new" title="Mail Sitecore">sales@sitecore.net</a>    </p>
   </address>
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -66,32 +59,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-e63c236f-8aec-488e-a8b3-27cd47180475
+5fc97587-251e-4140-890d-f87f0352c9e6
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T145012Z
+20180321T110209Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 14
+content-length: 16
 
-sitecore\admin
-----field----
-field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
-name: __Lock
-key: __lock
-content-length: 5
-
-<r />
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 3c49c18a-826d-4d0c-8dc9-48d3de6635ac
+revision: 64cdf6b7-56ef-4590-8204-f4b8d5f7a7d3
 
 ----field----
 field: {14023DD5-30E7-4E3C-BF31-D835F3A87410}
@@ -118,7 +104,7 @@ content-length: 0
 field: {B59ADC09-32A3-46F2-AEDE-B0C633979263}
 name: PromoText2
 key: promotext2
-content-length: 394
+content-length: 404
 
 <address>
     <p>
@@ -209,13 +195,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -235,21 +214,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-3c49c18a-826d-4d0c-8dc9-48d3de6635ac
+64cdf6b7-56ef-4590-8204-f4b8d5f7a7d3
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210400Z
+20180321T110209Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -264,3 +243,74 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: 12a59965-87ef-4089-b1ba-c662c5b5de8c
+
+----field----
+field: {14023DD5-30E7-4E3C-BF31-D835F3A87410}
+name: PromoText
+key: promotext
+content-length: 10
+
+<p>連絡先</p>
+----field----
+field: {B59ADC09-32A3-46F2-AEDE-B0C633979263}
+name: PromoText2
+key: promotext2
+content-length: 370
+
+<address>
+    <p>
+        <strong>サイトコア株式会社</strong>
+      <br />
+      〒107-0062<br />東京都港区南青山<br />2-11-16 
+    </p>
+    <p>
+        <br />
+        <i class="fa fa-phone"></i> +81 03-5413-6900 <br />
+        <i class="fa fa-envelope"></i> <a href="mailto:info-jp@sitecore.net" target="_new" title="Mail Sitecore">info-jp@sitecore.net</a>    </p>
+  </address>
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 3
+
+連絡先
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104420Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+12a59965-87ef-4089-b1ba-c662c5b5de8c
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110209Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

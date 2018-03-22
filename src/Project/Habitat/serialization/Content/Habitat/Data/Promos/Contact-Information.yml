@@ -110,3 +110,35 @@ Languages:
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 連絡先
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: <p>連絡先</p>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T104420Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: |
+        <address>
+            <p>
+                <strong>サイトコア株式会社</strong>
+              <br />
+              〒107-0062<br />東京都港区南青山<br />2-11-16 
+            </p>
+            <p>
+                <br />
+                <i class="fa fa-phone"></i> +81 03-5413-6900 <br />
+                <i class="fa fa-envelope"></i> <a href="mailto:info-jp@sitecore.net" target="_new" title="Mail Sitecore">info-jp@sitecore.net</a>    </p>
+          </address>

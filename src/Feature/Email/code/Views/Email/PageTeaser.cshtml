@@ -1,0 +1,54 @@
+﻿@model Sitecore.Mvc.Presentation.RenderingModel
+@using Sitecore.Feature.Email;
+@using Sitecore.Foundation.SitecoreExtensions.Extensions
+
+<table class="header" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; padding: 0 40px; background:#ffffff;" cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+
+            @if (Model.Item.FieldHasValue(Templates.PageTeaser.Fields.Image))
+            {
+                <td>
+                    @Html.Sitecore().Field(Templates.PageTeaser.Fields.Image.ToString(), Model.Item, new { width = "494", height = "193", style = "width: 494px; height: 193px;" })&nbsp;
+                </td>
+            }
+            else if (Model.Item.FieldHasValue(Templates.PageTeaser.Fields.OpenGraphImage))
+            {
+                <td>
+                    @Html.Sitecore().Field(Templates.PageTeaser.Fields.OpenGraphImage.ToString(), Model.Item, new { width = "494", height = "193", style = "width: 494px; height: 193px;" })&nbsp;
+
+                </td>
+            }
+        </tr>
+    </tbody>
+</table>
+
+<table class="header" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; padding: 20px 40px; background-color: #ffffff;" cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+            <td>
+                <h2 style="font-family: sans-serif; font-size: 24px; margin: 32px 0; color: #1b8f9c; font-weight: bold;">
+                    @Html.Sitecore().Field(Templates.PageTeaser.Fields.Title.ToString(), Model.Item)
+                </h2>
+                <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; color:#848589; line-height: 2;">
+                    @Html.Sitecore().Field(Templates.PageTeaser.Fields.Summary.ToString(), Model.Item)
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table class="header" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; padding: 20px 40px; background-color: #ffffff;" cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+            <td>
+                <a href="@Model.Item.Url()">
+                    <button style="cursor: pointer; width: 100%; text-align: center; color:#ffffff; background-color: #1b8f9c; padding: 14px; border: none; text-transform: uppercase; font-weight: bold;" type="submit">
+                        Continue Reading
+                    </button>
+                </a>&nbsp;
+            </td>
+        </tr>
+    </tbody>
+</table>

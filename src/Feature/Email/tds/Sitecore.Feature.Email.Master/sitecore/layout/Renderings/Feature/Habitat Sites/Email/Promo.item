@@ -1,0 +1,66 @@
+----item----
+version: 1
+id: {6BDA85A1-1CB2-4F84-A777-67025160523F}
+database: master
+path: /sitecore/layout/Renderings/Feature/Habitat Sites/Email/Promo
+parent: {2B8BEE23-47A9-414D-81D4-5574108AC7D8}
+name: Promo
+master: {00000000-0000-0000-0000-000000000000}
+template: {99F8905D-4A87-4EB8-9F8B-A9BEBFB3ADD6}
+templatekey: View rendering
+created: 20180320T021454Z
+
+----field----
+field: {51B435BC-F7B9-478A-9C51-52916AF96FF5}
+name: Path
+key: path
+content-length: 26
+
+~/Views/Email/Promo.cshtml
+----field----
+field: {1A7C85E5-DC0B-490D-9187-BB1DBCB4C72F}
+name: Datasource Template
+key: datasource template
+content-length: 53
+
+/sitecore/templates/Feature/Habitat Sites/Email/Promo
+----field----
+field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
+name: __Icon
+key: __icon
+content-length: 25
+
+Office/32x32/notebook.png
+----version----
+language: en
+version: 1
+revision: a926e754-16c5-4568-bb21-7aa860ddf8c5
+
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180320T021142Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+a926e754-16c5-4568-bb21-7aa860ddf8c5
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T033136Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
