@@ -8,7 +8,7 @@ name: Slide 3
 master: {00000000-0000-0000-0000-000000000000}
 template: {142E5FC1-EC62-4540-BAD9-CD88F337CD2E}
 templatekey: Carousel Slide
-created: 20180117T173119Z
+created: 20180312T173543Z
 
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
@@ -27,7 +27,7 @@ content-length: 499
 ----version----
 language: en
 version: 1
-revision: fe6a2c28-0837-41b5-9c19-6a594ac1bc1f
+revision: 2a0a7839-0d60-48aa-9df7-469420e556fa
 
 ----field----
 field: {427EC0BD-3BF2-45B9-880F-BDB0054E7925}
@@ -40,7 +40,7 @@ content-length: 58
 field: {7209159D-6B3E-4281-983E-F7F82104FA1B}
 name: SlideText
 key: slidetext
-content-length: 148
+content-length: 152
 
 
                 <p>Flexibility</p>
@@ -67,25 +67,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-fe6a2c28-0837-41b5-9c19-6a594ac1bc1f
+2a0a7839-0d60-48aa-9df7-469420e556fa
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180223T215747Z
+20180321T110216Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 14
+content-length: 16
 
-sitecore\admin
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 3e998370-237d-4920-951d-9fd62b1f4726
+revision: f7c77c67-e843-4992-a543-4f4034dbaca8
 
 ----field----
 field: {427EC0BD-3BF2-45B9-880F-BDB0054E7925}
@@ -172,13 +172,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -198,21 +191,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-3e998370-237d-4920-951d-9fd62b1f4726
+f7c77c67-e843-4992-a543-4f4034dbaca8
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210354Z
+20180321T110216Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -227,3 +220,68 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: f30ada00-b55f-4889-9fc8-0b431cbbc906
+
+----field----
+field: {427EC0BD-3BF2-45B9-880F-BDB0054E7925}
+name: SlideImage
+key: slideimage
+content-length: 58
+
+<image mediaid="{A2DF1899-BCD6-4422-83C3-653B0E684CCB}" />
+----field----
+field: {7209159D-6B3E-4281-983E-F7F82104FA1B}
+name: SlideText
+key: slidetext
+content-length: 131
+
+
+                <p>Flexibility</p>
+                <p class="lead">
+                  変更してすぐに心配することなく追加する
+                </p>
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 6
+
+スライド 3
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104416Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+f30ada00-b55f-4889-9fc8-0b431cbbc906
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110216Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

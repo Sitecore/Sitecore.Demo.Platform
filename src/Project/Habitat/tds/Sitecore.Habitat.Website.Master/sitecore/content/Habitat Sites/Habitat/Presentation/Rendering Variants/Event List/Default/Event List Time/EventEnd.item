@@ -8,7 +8,7 @@ name: EventEnd
 master: {00000000-0000-0000-0000-000000000000}
 template: {DC4EBC23-A470-4B5D-8DF8-4A55FA823BB4}
 templatekey: VariantDateField
-created: 20180117T173128Z
+created: 20180312T173603Z
 
 ----field----
 field: {4753764C-C05A-4623-841B-97F85135241C}
@@ -27,7 +27,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 4b795d49-05ee-44d9-aa8e-f86ebdae6539
+revision: 66586b62-548c-4372-b201-c35d777b47ef
 
 ----field----
 field: {00AA3E05-DD03-47A9-AA1B-03A4DFBB3156}
@@ -43,13 +43,6 @@ key: prefix
 content-length: 3
 
 to 
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -70,25 +63,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-4b795d49-05ee-44d9-aa8e-f86ebdae6539
+66586b62-548c-4372-b201-c35d777b47ef
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171027T151901Z
+20180321T110218Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: ec586c84-81ff-4e44-bef8-447c060cdfce
+revision: 5e6b5408-f472-4c7b-9b7b-07b2af65add1
 
 ----field----
 field: {00AA3E05-DD03-47A9-AA1B-03A4DFBB3156}
@@ -175,13 +168,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -201,21 +187,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ec586c84-81ff-4e44-bef8-447c060cdfce
+5e6b5408-f472-4c7b-9b7b-07b2af65add1
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210410Z
+20180321T110218Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -230,3 +216,57 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: 0400153b-7228-48b3-a9a7-1420a1470995
+
+----field----
+field: {00AA3E05-DD03-47A9-AA1B-03A4DFBB3156}
+name: DateFormat
+key: dateformat
+content-length: 38
+
+{6661BFF7-029E-4C18-9288-10E143E436F2}
+----field----
+field: {FD5230D8-E68D-4E17-9D85-EA676F27AC3A}
+name: Prefix
+key: prefix
+content-length: 3
+
+to 
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104423Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+0400153b-7228-48b3-a9a7-1420a1470995
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110218Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

@@ -8,7 +8,7 @@ name: Media
 master: {00000000-0000-0000-0000-000000000000}
 template: {E8E8C94F-4248-43C3-A79F-99FBB49D78E6}
 templatekey: MediaVirtualFolder
-created: 20180117T173112Z
+created: 20180312T173524Z
 
 ----field----
 field: {DE8257D9-43AA-4EFF-A2F4-2E9FBBD20E79}
@@ -27,15 +27,8 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: fecc71b6-7dee-4f81-b2dd-b53620f0b84c
+revision: 114aef29-a902-4bf3-aea7-40a980f96e84
 
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -56,25 +49,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-fecc71b6-7dee-4f81-b2dd-b53620f0b84c
+114aef29-a902-4bf3-aea7-40a980f96e84
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171027T151306Z
+20180321T110208Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: edc935ac-a9a0-430c-9c00-47e9c9b60623
+revision: c75c89f1-b61a-4ca0-a94f-5bb446dae366
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -140,13 +133,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -166,21 +152,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-edc935ac-a9a0-430c-9c00-47e9c9b60623
+c75c89f1-b61a-4ca0-a94f-5bb446dae366
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210355Z
+20180321T110208Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -195,3 +181,50 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: 1f740baa-bc17-47a8-a151-681acb712ad0
+
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 4
+
+メディア
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104418Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+1f740baa-bc17-47a8-a151-681acb712ad0
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110208Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

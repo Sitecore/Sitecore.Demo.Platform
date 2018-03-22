@@ -8,12 +8,12 @@ name: blogs
 master: {00000000-0000-0000-0000-000000000000}
 template: {F7561FFC-C0D8-477F-B53D-2703A4060BE1}
 templatekey: Link List
-created: 20180117T173119Z
+created: 20180312T173530Z
 
 ----version----
 language: en
 version: 1
-revision: 1ecf96fc-9d95-4e5e-b7b9-706fb5d99d0c
+revision: 0412504c-30c5-4638-b919-2bffb1fb0f7b
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -35,25 +35,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-1ecf96fc-9d95-4e5e-b7b9-706fb5d99d0c
+0412504c-30c5-4638-b919-2bffb1fb0f7b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165625Z
+20180321T110209Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 16
 
-extranet\Anonymous
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 36016144-49d7-41f2-a98a-2a2ee68112c5
+revision: 6d6eee3c-4181-4c73-a9c1-ffd248c3de7b
 
 ----field----
 field: {AA9C8D1C-B210-4EFA-86DB-83E8FA32C672}
@@ -126,13 +126,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -152,21 +145,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-36016144-49d7-41f2-a98a-2a2ee68112c5
+6d6eee3c-4181-4c73-a9c1-ffd248c3de7b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210357Z
+20180321T110209Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -181,3 +174,50 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: 238ef90f-815a-49c8-b80f-621ad23fbf1f
+
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 3
+
+ブログ
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104418Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+238ef90f-815a-49c8-b80f-621ad23fbf1f
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110209Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

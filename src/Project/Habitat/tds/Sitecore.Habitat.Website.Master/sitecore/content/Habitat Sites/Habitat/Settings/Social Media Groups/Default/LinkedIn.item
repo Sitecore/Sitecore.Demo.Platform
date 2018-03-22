@@ -8,7 +8,7 @@ name: LinkedIn
 master: {00000000-0000-0000-0000-000000000000}
 template: {3DE7AA7E-961A-4B90-98F2-01AC2BE92EC5}
 templatekey: SocialMediaTemplate
-created: 20180117T173124Z
+created: 20180312T173553Z
 
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
@@ -27,7 +27,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 5d2bcf09-7f97-4277-8ad2-0b4be3699ac9
+revision: 0dacf404-1d71-4678-90e4-10d251b0dae8
 
 ----field----
 field: {3A453560-042A-4DF9-945F-5750EA7C4A46}
@@ -43,13 +43,6 @@ key: buttoncode
 content-length: 54
 
 <script type="IN/Share" data-counter="right"></script>
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -70,25 +63,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5d2bcf09-7f97-4277-8ad2-0b4be3699ac9
+0dacf404-1d71-4678-90e4-10d251b0dae8
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171027T152332Z
+20180321T110215Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: eee7509f-4869-4da3-b7db-2bfa3bdf6a18
+revision: 665cf4b4-722e-4844-9545-6ddafc690fa4
 
 ----field----
 field: {3A453560-042A-4DF9-945F-5750EA7C4A46}
@@ -175,13 +168,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -201,21 +187,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-eee7509f-4869-4da3-b7db-2bfa3bdf6a18
+665cf4b4-722e-4844-9545-6ddafc690fa4
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210448Z
+20180321T110216Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -230,3 +216,57 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: 20e89ccf-2939-402b-b3ed-b37687220765
+
+----field----
+field: {3A453560-042A-4DF9-945F-5750EA7C4A46}
+name: OnlyOnceCode
+key: onlyoncecode
+content-length: 76
+
+<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+----field----
+field: {31B5C056-CFD5-4331-950D-25453A808D7C}
+name: ButtonCode
+key: buttoncode
+content-length: 54
+
+<script type="IN/Share" data-counter="right"></script>
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104427Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+20e89ccf-2939-402b-b3ed-b37687220765
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110216Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

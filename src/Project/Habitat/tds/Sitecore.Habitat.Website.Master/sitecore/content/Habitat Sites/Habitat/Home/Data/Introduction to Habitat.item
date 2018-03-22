@@ -8,12 +8,12 @@ name: Introduction to Habitat
 master: {00000000-0000-0000-0000-000000000000}
 template: {324733CF-AFEC-4281-9A18-03B6CFC4E535}
 templatekey: Promo
-created: 20180117T173115Z
+created: 20180312T173532Z
 
 ----version----
 language: en
 version: 1
-revision: 3e286b4b-3755-43ae-b71b-b291eda1c16e
+revision: ecae9200-3950-40e7-87dc-ec758c94cfca
 
 ----field----
 field: {14023DD5-30E7-4E3C-BF31-D835F3A87410}
@@ -33,17 +33,10 @@ content-length: 65
 field: {B59ADC09-32A3-46F2-AEDE-B0C633979263}
 name: PromoText2
 key: promotext2
-content-length: 243
+content-length: 244
 
 <p>Sitecore Habitat is a range of sites demonstrating the capabilities of the Sitecore Experience Platform.
 The solution is built on the Sitecore Helix guidelines, which focuses on increasing productivity and quality in Sitecore projects. </p>
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -64,32 +57,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-3e286b4b-3755-43ae-b71b-b291eda1c16e
+ecae9200-3950-40e7-87dc-ec758c94cfca
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180226T025824Z
+20180321T110211Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 14
+content-length: 16
 
-sitecore\admin
-----field----
-field: {001DD393-96C5-490B-924A-B0F25CD9EFD8}
-name: __Lock
-key: __lock
-content-length: 5
-
-<r />
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 23c317f4-f889-4ee1-84fa-8d3057f53ddd
+revision: 8c03d82b-54e1-4f2c-8567-6a2cece240e1
 
 ----field----
 field: {14023DD5-30E7-4E3C-BF31-D835F3A87410}
@@ -197,13 +183,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -223,21 +202,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-23c317f4-f889-4ee1-84fa-8d3057f53ddd
+8c03d82b-54e1-4f2c-8567-6a2cece240e1
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210354Z
+20180321T110211Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -252,3 +231,72 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: e9aa20ae-863b-4a47-be9e-3f7af76f03de
+
+----field----
+field: {14023DD5-30E7-4E3C-BF31-D835F3A87410}
+name: PromoText
+key: promotext
+content-length: 19
+
+<p>Habitat について</p>
+----field----
+field: {18F9BEB8-0116-40FD-B47E-FD0A2327D7E0}
+name: PromoIcon
+key: promoicon
+content-length: 65
+
+<image mediaid="{67A44F7A-C12C-4F61-AF94-0058805CC378}" ></image>
+----field----
+field: {B59ADC09-32A3-46F2-AEDE-B0C633979263}
+name: PromoText2
+key: promotext2
+content-length: 143
+
+<p>Sitecore Habitatは、Sitecore Experience Platformの機能を示すさまざまなサイトです。
+このソリューションは、Sitecoreプロジェクトの生産性と品質の向上に重点を置くSitecore Helixガイドラインに基づいています。 </p>
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 12
+
+Habitat について
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104416Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+e9aa20ae-863b-4a47-be9e-3f7af76f03de
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110211Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

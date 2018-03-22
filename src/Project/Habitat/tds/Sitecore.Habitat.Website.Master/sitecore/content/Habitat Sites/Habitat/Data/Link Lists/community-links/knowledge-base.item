@@ -8,12 +8,12 @@ name: knowledge-base
 master: {00000000-0000-0000-0000-000000000000}
 template: {E24E0789-A058-48BF-ABB6-C69C0E60B6B7}
 templatekey: Link
-created: 20180117T173124Z
+created: 20180312T173541Z
 
 ----version----
 language: en
 version: 1
-revision: 7d49cd7b-11fa-44bd-860d-19f0f96a68ce
+revision: bc1cf831-9082-4094-bcc5-64133946eb42
 
 ----field----
 field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
@@ -42,14 +42,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-7d49cd7b-11fa-44bd-860d-19f0f96a68ce
+bc1cf831-9082-4094-bcc5-64133946eb42
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171031T165627Z
+20180321T110212Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -60,7 +60,7 @@ sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: bf100d17-8c0e-48d3-9db2-b2d2aefec5e0
+revision: 97646dc9-db30-4b94-b5cd-8e1bcdd99590
 
 ----field----
 field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
@@ -133,13 +133,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -159,21 +152,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-bf100d17-8c0e-48d3-9db2-b2d2aefec5e0
+97646dc9-db30-4b94-b5cd-8e1bcdd99590
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210358Z
+20180321T110212Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -188,3 +181,57 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: 03f30c21-fc56-41f9-891e-baccbd9e36a3
+
+----field----
+field: {DD05144A-BD66-4EA3-956A-4B7104DAABA3}
+name: Link
+key: link
+content-length: 97
+
+<link linktype="external" text="サポート情報" url="http://kb.sitecore.net" anchor="" target="_blank" />
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 6
+
+サポート情報
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104419Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+03f30c21-fc56-41f9-891e-baccbd9e36a3
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110212Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

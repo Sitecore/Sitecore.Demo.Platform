@@ -8,7 +8,7 @@ name: Title Asc
 master: {00000000-0000-0000-0000-000000000000}
 template: {3E53AC1B-65E8-4AE2-8C5B-8BAF9C3D655E}
 templatekey: Sorting
-created: 20180117T173127Z
+created: 20180312T173554Z
 
 ----field----
 field: {C95B7BAD-FA93-41F0-82DE-C2C2BF0A0E89}
@@ -34,7 +34,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: 3cb810c0-ca9f-4f80-9d5c-93fd0fc074c0
+revision: 2ea9d275-2492-48b9-8899-0d29334f1bf4
 
 ----field----
 field: {F3B01C7D-BD46-4972-AB13-4C9C95C4F23D}
@@ -43,13 +43,6 @@ key: title
 content-length: 9
 
 Title Asc
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -70,25 +63,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-3cb810c0-ca9f-4f80-9d5c-93fd0fc074c0
+2ea9d275-2492-48b9-8899-0d29334f1bf4
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171027T152454Z
+20180321T110216Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 3c57df86-3a9d-4059-a9c9-2b638f4b6f7b
+revision: eadbaa4a-3df9-4d7c-821e-7b93aaf508ff
 
 ----field----
 field: {F3B01C7D-BD46-4972-AB13-4C9C95C4F23D}
@@ -161,13 +154,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -187,21 +173,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-3c57df86-3a9d-4059-a9c9-2b638f4b6f7b
+eadbaa4a-3df9-4d7c-821e-7b93aaf508ff
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210403Z
+20180321T110216Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -216,3 +202,50 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: 972f3dce-19f0-44f7-a8b1-589a359c40c3
+
+----field----
+field: {F3B01C7D-BD46-4972-AB13-4C9C95C4F23D}
+name: Title
+key: title
+content-length: 9
+
+Title Asc
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104421Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+972f3dce-19f0-44f7-a8b1-589a359c40c3
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110216Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

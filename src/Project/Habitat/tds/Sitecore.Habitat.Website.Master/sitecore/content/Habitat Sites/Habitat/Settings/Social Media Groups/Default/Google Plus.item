@@ -8,7 +8,7 @@ name: Google Plus
 master: {00000000-0000-0000-0000-000000000000}
 template: {3DE7AA7E-961A-4B90-98F2-01AC2BE92EC5}
 templatekey: SocialMediaTemplate
-created: 20180117T173124Z
+created: 20180312T173553Z
 
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
@@ -27,7 +27,7 @@ content-length: 38
 ----version----
 language: en
 version: 1
-revision: d42c9f9d-efc9-4d1a-ac63-5994c848a7e2
+revision: fbc74c8d-2a53-4b6e-8f4e-1f83d0b2393d
 
 ----field----
 field: {3A453560-042A-4DF9-945F-5750EA7C4A46}
@@ -50,13 +50,6 @@ content-length: 48
 
 <div class="g-plusone" data-size="medium"></div>
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -76,25 +69,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d42c9f9d-efc9-4d1a-ac63-5994c848a7e2
+fbc74c8d-2a53-4b6e-8f4e-1f83d0b2393d
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171027T152332Z
+20180321T110215Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----version----
 language: fr-CA
 version: 1
-revision: 86d70bfd-7a94-4b7f-90ac-e4e5e6701181
+revision: e6c0a746-4bfb-48a4-9884-740164fa2583
 
 ----field----
 field: {3A453560-042A-4DF9-945F-5750EA7C4A46}
@@ -187,13 +180,6 @@ content-length: 0
 
 
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -213,21 +199,21 @@ name: __Revision
 key: __revision
 content-length: 36
 
-86d70bfd-7a94-4b7f-90ac-e4e5e6701181
+e6c0a746-4bfb-48a4-9884-740164fa2583
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180125T210449Z
+20180321T110215Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----field----
 field: {A14F1B0C-4384-49EC-8790-28A440F3670C}
 name: __Semantics
@@ -242,3 +228,63 @@ key: __workflow state
 content-length: 0
 
 
+----version----
+language: ja-JP
+version: 1
+revision: 7b47e383-ede7-4507-bc58-c96aac52372b
+
+----field----
+field: {3A453560-042A-4DF9-945F-5750EA7C4A46}
+name: OnlyOnceCode
+key: onlyoncecode
+content-length: 308
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+----field----
+field: {31B5C056-CFD5-4331-950D-25453A808D7C}
+name: ButtonCode
+key: buttoncode
+content-length: 48
+
+<div class="g-plusone" data-size="medium"></div>
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104427Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+7b47e383-ede7-4507-bc58-c96aac52372b
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110215Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn

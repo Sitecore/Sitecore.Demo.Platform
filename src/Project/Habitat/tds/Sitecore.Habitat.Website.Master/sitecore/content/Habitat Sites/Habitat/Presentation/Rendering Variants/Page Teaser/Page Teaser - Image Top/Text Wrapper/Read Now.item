@@ -8,7 +8,7 @@ name: Read Now
 master: {00000000-0000-0000-0000-000000000000}
 template: {7C02E9F5-54B5-4EF4-BD10-F4C5D448A48C}
 templatekey: VariantText
-created: 20180307T153615Z
+created: 20180312T173602Z
 
 ----field----
 field: {F9926E84-399E-4070-B2ED-A31F6F542BDD}
@@ -27,7 +27,7 @@ content-length: 3
 ----version----
 language: en
 version: 1
-revision: 3b6e393f-4eee-4d56-ba6b-0ec564f2a2a1
+revision: de03beaf-97aa-4c8f-9644-a99cf993bf7d
 
 ----field----
 field: {07211F80-7FFC-4DF4-A4DE-C8956F391850}
@@ -36,13 +36,6 @@ key: text
 content-length: 8
 
 Read Now
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -56,18 +49,65 @@ name: __Revision
 key: __revision
 content-length: 36
 
-3b6e393f-4eee-4d56-ba6b-0ec564f2a2a1
+de03beaf-97aa-4c8f-9644-a99cf993bf7d
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180307T043426Z
+20180321T110218Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
+content-length: 16
+
+sitecore\unicorn
+----version----
+language: ja-JP
+version: 1
+revision: f22f7689-b8b5-4831-8989-bdbbbced0fd5
+
+----field----
+field: {07211F80-7FFC-4DF4-A4DE-C8956F391850}
+name: Text
+key: text
+content-length: 8
+
+Read Now
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T104424Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
 content-length: 14
 
 sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+f22f7689-b8b5-4831-8989-bdbbbced0fd5
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T110218Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn
