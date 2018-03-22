@@ -8,7 +8,7 @@ name: Page Teaser
 master: {00000000-0000-0000-0000-000000000000}
 template: {2A3E91A0-7987-44B5-AB34-35C2D9DE83B9}
 templatekey: Controller rendering
-created: 20180307T040745Z
+created: 20180314T145730Z
 
 ----field----
 field: {E64AD073-DFCC-4D20-8C0B-FE5AA6226CD7}
@@ -38,6 +38,13 @@ key: open properties after add
 content-length: 1
 
 1
+----field----
+field: {49B9D6C5-9551-4BA4-840E-74D5582256C0}
+name: RenderingViewPath
+key: renderingviewpath
+content-length: 29
+
+~/Views/Variants/Promo.cshtml
 ----field----
 field: {B5B27AF1-25EF-405C-87CE-369B3A004016}
 name: Datasource Location
@@ -76,7 +83,7 @@ content-length: 3
 ----version----
 language: da
 version: 1
-revision: 46f56032-d443-45a2-9d71-31df868c8b4d
+revision: a6f8872e-deef-401e-b388-7655365ddaa9
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -85,13 +92,6 @@ key: __display name
 content-length: 5
 
 Promo
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -112,25 +112,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-46f56032-d443-45a2-9d71-31df868c8b4d
+a6f8872e-deef-401e-b388-7655365ddaa9
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180124T204511Z
+20180314T145730Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----version----
 language: de-DE
 version: 1
-revision: 07e75c59-f5b3-4cec-ac24-768d7e2341a5
+revision: da1901ed-3d48-462c-8f8a-9cb485d4ecf6
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -139,13 +139,6 @@ key: __display name
 content-length: 5
 
 Promo
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -166,25 +159,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-07e75c59-f5b3-4cec-ac24-768d7e2341a5
+da1901ed-3d48-462c-8f8a-9cb485d4ecf6
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180124T204826Z
+20180314T145730Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----version----
 language: en
 version: 1
-revision: 57ba5a28-0ecb-413a-ab9d-c3c97055e172
+revision: 1f04c429-b79f-4677-a87d-88b9a66d8c6e
 
 ----field----
 field: {34E81E40-1D4D-45B0-BCF1-A0FFE5521685}
@@ -193,13 +186,6 @@ key: renderingcssclass
 content-length: 11
 
 page-teaser
-----field----
-field: {49B9D6C5-9551-4BA4-840E-74D5582256C0}
-name: RenderingViewPath
-key: renderingviewpath
-content-length: 29
-
-~/Views/Variants/Promo.cshtml
 ----field----
 field: {E829C217-5E94-4306-9C48-2634B094FDC2}
 name: OtherProperties
@@ -220,14 +206,61 @@ name: __Revision
 key: __revision
 content-length: 36
 
-57ba5a28-0ecb-413a-ab9d-c3c97055e172
+1f04c429-b79f-4677-a87d-88b9a66d8c6e
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180307T153655Z
+20180314T145730Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn
+----version----
+language: fr-CA
+version: 1
+revision: 02632518-ccfc-4233-8c6a-78f38b9b0319
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180321T185237Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+02632518-ccfc-4233-8c6a-78f38b9b0319
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180321T185251Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -238,7 +271,7 @@ sitecore\admin
 ----version----
 language: ja-JP
 version: 1
-revision: ae5ec6b8-abfd-4bea-bbfd-f61525142335
+revision: 0a9cde2f-b04c-48f8-bcf5-68f5f54bfcea
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
@@ -247,13 +280,6 @@ key: __display name
 content-length: 3
 
 プロモ
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -274,18 +300,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-ae5ec6b8-abfd-4bea-bbfd-f61525142335
+0a9cde2f-b04c-48f8-bcf5-68f5f54bfcea
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180124T205103Z
+20180321T185301Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 14
 
-sitecore\virtualssuser
+sitecore\admin
