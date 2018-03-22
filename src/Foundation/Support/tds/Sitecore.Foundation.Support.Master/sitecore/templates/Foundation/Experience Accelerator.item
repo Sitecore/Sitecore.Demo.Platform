@@ -1,97 +1,27 @@
 ----item----
 version: 1
-id: {6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}
+id: {9049DA78-CCF3-4237-9DC3-689A7BDCF54B}
 database: master
-path: /sitecore/layout/Renderings/Feature/Habitat Sites/Page Content/Hero
-parent: {A30296A1-9AF3-40CF-AC36-3BC10A478AD0}
-name: Hero
+path: /sitecore/templates/Foundation/Experience Accelerator
+parent: {B26BD035-8D0A-4DF3-8F67-2DE3C7FDD74A}
+name: Experience Accelerator
 master: {00000000-0000-0000-0000-000000000000}
-template: {2A3E91A0-7987-44B5-AB34-35C2D9DE83B9}
-templatekey: Controller rendering
-created: 20180316T022202Z
+template: {0437FEE2-44C9-46A6-ABE9-28858D9FEE8C}
+templatekey: Template Folder
+created: 20180103T162831Z
 
-----field----
-field: {E64AD073-DFCC-4D20-8C0B-FE5AA6226CD7}
-name: Controller
-key: controller
-content-length: 112
-
-Sitecore.XA.Foundation.RenderingVariants.Controllers.VariantsController,Sitecore.XA.Foundation.RenderingVariants
-----field----
-field: {DED9E431-3604-4921-A4B3-A6EC7636A5B6}
-name: Controller Action
-key: controller action
-content-length: 5
-
-Index
-----field----
-field: {13F89250-AD6B-4548-882E-118A12C18094}
-name: Parameters Template
-key: parameters template
-content-length: 38
-
-{0D00A090-B7CA-4296-9B6D-B0FCC0C34BB4}
-----field----
-field: {94069F66-609C-48B0-8281-521C30FB269D}
-name: Open Properties after Add
-key: open properties after add
-content-length: 1
-
-0
-----field----
-field: {49B9D6C5-9551-4BA4-840E-74D5582256C0}
-name: RenderingViewPath
-key: renderingviewpath
-content-length: 29
-
-~/Views/Variants/Promo.cshtml
-----field----
-field: {B5B27AF1-25EF-405C-87CE-369B3A004016}
-name: Datasource Location
-key: datasource location
-content-length: 128
-
-query:$site/*[@@name='Data']/*[@@templatename='Hero Folder']|query:$sharedSites/*[@@name='Data']/*[@@templatename='Hero Folder']
-----field----
-field: {1A7C85E5-DC0B-490D-9187-BB1DBCB4C72F}
-name: Datasource Template
-key: datasource template
-content-length: 59
-
-/sitecore/templates/Feature/Habitat Sites/Page Content/Hero
-----field----
-field: {B0B15510-B138-470E-8F33-8DA2E228AAFE}
-name: Rendering Contents Resolver
-key: rendering contents resolver
-content-length: 38
-
-{89661D30-CF7D-479F-A3C4-D61C289A41E2}
-----field----
-field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
-name: __Icon
-key: __icon
-content-length: 30
-
-Office/32x32/window_dialog.png
-----field----
-field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
-name: __Sortorder
-key: __sortorder
-content-length: 3
-
-100
 ----version----
 language: da
 version: 1
-revision: bd77db18-b630-4b13-9209-33f7e8ac4e2e
+revision: 3c7182aa-b0e8-4b01-a12e-3c0722377e84
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 5
+content-length: 21
 
-Promo
+Oplevelsesaccelerator
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -105,7 +35,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20180314T032418Z
+20180314T032439Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -119,14 +49,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-bd77db18-b630-4b13-9209-33f7e8ac4e2e
+3c7182aa-b0e8-4b01-a12e-3c0722377e84
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180314T032418Z
+20180314T032439Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -137,15 +67,15 @@ sitecore\virtualssuser
 ----version----
 language: de-DE
 version: 1
-revision: 1f93e6bd-90df-4cc7-9c98-862f3224a68e
+revision: 2cfa9087-5cff-46ba-959c-eb5b6f7db806
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 5
+content-length: 22
 
-Promo
+Experience Accelerator
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -159,7 +89,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20180314T032631Z
+20180314T032653Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -173,14 +103,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-1f93e6bd-90df-4cc7-9c98-862f3224a68e
+2cfa9087-5cff-46ba-959c-eb5b6f7db806
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180314T032631Z
+20180314T032653Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -191,62 +121,55 @@ sitecore\virtualssuser
 ----version----
 language: en
 version: 1
-revision: d01cfdf9-211c-4d07-b11a-98412be69788
+revision: 4285fe4f-22d0-4310-a6bf-b05eb93efc7f
 
-----field----
-field: {34E81E40-1D4D-45B0-BCF1-A0FFE5521685}
-name: RenderingCssClass
-key: renderingcssclass
-content-length: 4
-
-hero
-----field----
-field: {E829C217-5E94-4306-9C48-2634B094FDC2}
-name: OtherProperties
-key: otherproperties
-content-length: 40
-
-IsRenderingsWithDynamicPlaceholders=true
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20150116T151025Z
+20160413T083452Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-d01cfdf9-211c-4d07-b11a-98412be69788
+4285fe4f-22d0-4310-a6bf-b05eb93efc7f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180316T022220Z
+20180103T162831Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 14
+content-length: 16
 
-sitecore\admin
+sitecore\unicorn
 ----version----
 language: ja-JP
 version: 1
-revision: d02265b1-ae0f-42f0-b06c-2c19d6225e0d
+revision: fab72dec-d03d-4c1f-908a-6bec7aec434c
 
 ----field----
 field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
 name: __Display name
 key: __display name
-content-length: 3
+content-length: 17
 
-プロモ
+エクスペリエンス アクセラレータ―
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -260,7 +183,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20180314T032836Z
+20180314T032857Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -274,14 +197,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-d02265b1-ae0f-42f0-b06c-2c19d6225e0d
+fab72dec-d03d-4c1f-908a-6bec7aec434c
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180314T032836Z
+20180314T032857Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
