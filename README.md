@@ -3,6 +3,32 @@ Habitat and the tools and processes in it is a Sitecore solution example built u
 
 # Getting Started
 
+## Prerequisites
+The list of software / utilities is required as part of the install
+ 
+
+### Windows Server 2016
+*IF* you’re running a brand new instance of Windows Server 2016, you can download [features.xml](https://sitecore.box.com/s/365l8988xkr95i0i02funszvuf9him0y) to the machine and then run a script to install the features listed.
+
+*The following will make the Windows Server 2016 Features “parity” to a sample generated the features.xml.*
+**Using PowerShell as Administrator:**
+`Import-Module ServerManager`
+`Import-CliXml .\features.xml | Install-WindowsFeature`
+
+### Software required
+
+- [MS Build for Visual Studio 2017 with .NET core, .NET 4.6.2 and 4.7.1](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
+- [7Zip, Chrome and Notepad++](https://ninite.com/7zip-chrome-notepadplusplus/)
+- [Git for Windows](https://github.com/git-for-windows/git/releases/download/v2.16.2.windows.1/Git-2.16.2-64-bit.exe)
+- Java 8 U151 from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html "Oracle Download Archive")
+	- Add Java folder to path
+- [NodeJS](https://nodejs.org/dist/v8.10.0/node-v8.10.0-x64.msi) 
+
+
+Restart-Computer once you have installed Java and NodeJS 
+
+** 
+
 ## Custom install - before you start
 
 
