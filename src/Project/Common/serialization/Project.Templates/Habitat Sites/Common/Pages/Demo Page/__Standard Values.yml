@@ -5,6 +5,12 @@ Template: "568d0b5c-eccb-4a2f-a301-79c7761cda36"
 Path: /sitecore/templates/Project/Habitat Sites/Common/Pages/Demo Page/__Standard Values
 DB: master
 SharedFields:
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking
+      ignore="1" />
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
