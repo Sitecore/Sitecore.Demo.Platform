@@ -36,6 +36,18 @@ gulp.task("default",
             callback);
     });
 
+gulp.task("quick-deploy",
+    function (callback) {
+        config.runCleanBuilds = true;
+        return runSequence(            
+            "Nuget-Restore",
+            "Publish-All-Projects",
+            "Apply-Xml-Transform",
+            "Publish-Transforms",
+            "Publish-xConnect-Project",
+            callback);
+    });
+
 gulp.task("deploy-unicorn",
     function (callback) {
         config.runCleanBuilds = true;
