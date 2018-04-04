@@ -28,7 +28,7 @@ $site.suffix = "dev.local"
 $site.webroot = "C:\inetpub\wwwroot"
 $site.hostName = $json.settings.site.prefix + "." + $json.settings.site.suffix
 $site.habitatHomePrefix = $json.settings.site.prefix + "home"
-$site.habitatHomeHostName = $json.settings.habitatHomePrefix + "." + $json.settings.site.suffix
+$site.habitatHomeHostName = $site.habitatHomePrefix + "." + $json.settings.site.suffix
 $site.habitatHomeSslCertificateName = $site.HabitatHomeHostName
 $json.settings.site = $site
 
