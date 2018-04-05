@@ -124,12 +124,18 @@ At this point you should have a **`configuration-xp0.json`** file. Review the fi
 > 
 > To exit Select mode simply press Enter from inside the PowerShell window. **Clicking on the PowerShell window is what triggers the Select mode.**
 
-### 7 Deploy Sitecore.Habitat
+### 7 Give the application pool user permission to your webroot 
+Browse to the root of the IIS (by default c:\inetpub\wwwroot) and give the Application Pool user read/write permissions.
+Using Windows Explorer, navigate to c:\inetpub\wwwroot and in the Windows Security dialog, add IIS APPPOOL\habitat.dev.local (if that's the name of you application pool)
+
+### 8 Deploy Sitecore.Habitat
+
+
 From the root directory of the solution
 - Run **`npm install`**
 - Run **`.\node_modules\.bin\gulp`** 
 
-### 8 Deploy Sitecore.Habitat.Home
+### 9 Deploy Sitecore.Habitat.Home
 Clone the Sitecore.Habitat.Home repository locally - defaults are configured for **C:\Projects\Sitecore.Habitat.Home**
 
 - **https**:	`git clone https://sitecoredst.visualstudio.com/Demo/_git/Sitecore.Habitat.Home` 
@@ -152,15 +158,12 @@ From the root directory of Habitat Home solution:
 > An error (maxBuffer) sometimes occurs the first time running gulp during Sync-Unicorn. 
 > Running gulp a second time resolves the issue (and doesn't take as long)
 
-### 9 Modify hosts file and bindings
+### 10 Modify hosts file and bindings
 - Add habitathome.dev.local pointing to 127.0.0.1 to you hosts file
 - Add habitathome.dev.local bindings (both HTTP and HTTPS) to IIS site bindings
 
-### 10 Rebuild indexes
+### 11 Rebuild indexes
 Once you've confirmed the site has come up, please rebuild the master index.
-
-### 11 Populate EXM Campaigns table
-After deploying the site, navigate to `/sitecore/admin/MessageStatistics.aspx` and click **Upgrade**
 
 # Failed installation
 
