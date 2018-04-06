@@ -1,16 +1,16 @@
 ﻿@using Sitecore.Foundation.Dictionary.Extensions
 @model Sitecore.Feature.Demo.Models.PersonalInfo
 <div class="panel panel-primary">
-    <div class="panel-heading" role="tab">
+    <div class="panel-heading">
         <h3 class="panel-title">
-            <a role="button" href="#personalInfoPanel" data-toggle="collapse" class="panel-title collapsed" data-parent="#experiencedata">
+            <a role="button" href="#personalInfoPanel" class="panel-title" data-parent="#experiencedata">
                 <span class="fa fa-user"></span>
                 @Html.Sitecore().DictionaryField("/Demo/Personal Info/Title", "Personal Information")
                 <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i>
             </a>
         </h3>
     </div>
-    <div id="personalInfoPanel" class="panel-collapse collapse" role="tabpanel">
+    <div id="personalInfoPanel" class="panel-collapse">
         <div class="panel-body">
             <div class="media">
                 <div class="media-left">

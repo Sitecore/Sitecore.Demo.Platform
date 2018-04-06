@@ -1,16 +1,16 @@
 ﻿@using Sitecore.Foundation.Dictionary.Extensions
 @model Sitecore.Feature.Demo.Models.Referral
 <div class="panel panel-primary">
-    <div class="panel-heading" role="tab">
+    <div class="panel-heading">
         <h4 class="panel-title">
-            <a role="button" href="#referralPanel" data-toggle="collapse" class="panel-title collapsed" data-parent="#experiencedata">
+            <a role="button" href="#referralPanel" class="panel-title" data-parent="#experiencedata">
                 <span class="fa fa-bullhorn"></span>
                 @Html.Sitecore().DictionaryField("/Demo/Referral/Title", "Referral")
                 <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i>
             </a>
         </h4>
     </div>
-    <div id="referralPanel" class="panel-collapse collapse" role="tabpanel">
+    <div id="referralPanel" class="panel-collapse">
         <div class="panel-body">
             <div class="media">
                 <div class="media-left">
