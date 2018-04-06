@@ -1,9 +1,9 @@
 ﻿@using Sitecore.Foundation.Dictionary.Extensions
 @model Sitecore.Feature.Demo.Models.Visits
 <div class="panel panel-primary">
-    <div class="panel-heading" role="tab">
+    <div class="panel-heading">
         <h3 class="panel-title">
-            <a role="button" href="#visitsPanel" data-toggle="collapse" class="panel-title collapsed" data-parent="#experiencedata">
+            <a type="button" href="#visitsPanel" class="panel-title" data-parent="#experiencedata">
                 <span class="fa fa-heart"></span>
                 @Html.Sitecore().DictionaryField("/Demo/Visits/Engagement", "Engagement")
                 <span class="badge" title="@Html.Sitecore().Dictionary("/Demo/Visits/Engagement Value", "Engagement Value")" data-toggle="tooltip" data-placement="bottom">
@@ -22,7 +22,7 @@
             </a>
         </h3>
     </div>
-    <div id="visitsPanel" class="panel-collapse collapse" role="tabpanel">
+    <div id="visitsPanel" class="panel-collapse" >
         <div class="panel-body">
             <div class="media">
                 <div class="media-left">
