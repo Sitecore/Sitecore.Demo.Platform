@@ -381,7 +381,7 @@ function Install-OptionalModules {
         Copy-Package -packagePath $module.packagePath -destination "$packageDestination"
         $packageFileName = Split-Path $module.packagePath -Leaf
 
-        $packageInstallerUrl = "https://$($sitecore.siteName)/InstallPackage.aspx?package=/temp/Packages/"
+        $packageInstallerUrl = "https://$($site.habitatHomeHostName)/InstallPackage.aspx?package=/temp/Packages/"
         $url = $packageInstallerUrl + $packageFileName 
         $request = [system.net.WebRequest]::Create($url)
         $request.Timeout = 2400000
