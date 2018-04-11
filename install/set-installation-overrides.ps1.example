@@ -58,5 +58,4 @@ $xConnect.sqlCollectionPassword = "Test12345"
 
 $json.settings.xConnect = $xConnect
 
-
 Set-Content $configurationFile  (ConvertTo-Json -InputObject $json -Depth 3)
