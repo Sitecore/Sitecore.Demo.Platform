@@ -32,6 +32,10 @@ $site.habitatHomeHostName = $site.habitatHomePrefix + "." + $json.settings.site.
 $site.habitatHomeSslCertificateName = $site.HabitatHomeHostName
 $json.settings.site = $site
 
+$sitecore = $json.settings.sitecore
+$sitecore.siteRoot = Join-Path $site.webRoot -ChildPath $site.hostName
+$json.settings.sitecore = $sitecore
+
 # Solr Parameters
 $solr = $json.settings.solr
 $solr.url = "https://localhost:8983/solr"

@@ -61,8 +61,7 @@ $sitecore.solrConfigurationPath =  (Get-ChildItem $pwd -filter "sitecore-solr.js
 $sitecore.configurationPath = (Get-ChildItem $pwd -filter "sitecore-xp0.json" -Recurse).FullName 
 $sitecore.sslConfigurationPath = "$PSScriptRoot\certificates\sitecore-ssl.json"
 $sitecore.packagePath = Join-Path $assets.root $("Sitecore " + $assets.sitecoreVersion +" (OnPrem)_single.scwdp.zip")
-$sitecore.siteName = [string]::Join(".", @($site.prefix, $site.suffix))
-$sitecore.siteRoot = Join-Path $site.webRoot -ChildPath $sitecore.siteName
+$sitecore.siteRoot = Join-Path $site.webRoot -ChildPath $site.hostName
 
 # Solr Parameters
 $solr = $json.settings.solr
