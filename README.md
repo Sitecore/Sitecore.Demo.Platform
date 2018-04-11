@@ -53,13 +53,13 @@ Create a user version of the following files
 
 **Sitecore.Habitat**
 `/gulp-config.user.js` 
-`/publishsettings.user.targets` 
+`/publishsettings.targets.user` 
 `/TDSGlobal.config.user` (only if using TDS)
 `src\Project\Habitat\code\App_Config\Include\Project\z.Habitat.WebSite.DevSettings.user.config`
 
 **Sitecore.Habitat.Home**
 `/gulp-config.user.js` 
-`/publishsettings.user.targets` 
+`/publishsettings.targets.user` 
 `/TDSGlobal.config.user` (only if using TDS)
 `\src\Project\Habitat.Home\code\App_Config\Include\Project\z.Habitat.Home.Website.DevSettings.user.config`
 
