@@ -28,7 +28,7 @@ $assets = $config.assets
 
 Write-Host "*******************************************************" -ForegroundColor Green
 Write-Host " UNInstalling Sitecore $($assets.sitecoreVersion)" -ForegroundColor Green
-Write-Host " Sitecore: $($sitecore.siteName)" -ForegroundColor Green
+Write-Host " Sitecore: $($site.hostName)" -ForegroundColor Green
 Write-Host " xConnect: $($xConnect.siteName)" -ForegroundColor Green
 Write-Host "*******************************************************" -ForegroundColor Green
 
@@ -82,7 +82,7 @@ Remove-SitecoreCertificate $xConnect.certificateName
 Remove-SitecoreCertificate $site.habitatHomeSslCertificateName
 
 # Delete sitecore site
-Remove-SitecoreIisSite $sitecore.siteName
+Remove-SitecoreIisSite $site.hostName
 
 # Drop sitecore databases
 Remove-SitecoreDatabase -Name "$($site.prefix)_Core" -Server $database
@@ -111,7 +111,7 @@ Remove-SitecoreSolrCore "$($site.prefix)_fxm_web_index" -Root $solr.root
 Get-WmiObject win32_service  -Filter "name like '$($solr.serviceName)'" | Start-Service 
 
 # Delete sitecore certificate
-Remove-SitecoreCertificate $sitecore.siteName
+Remove-SitecoreCertificate $site.hostName
 
 # Drop the SQL Collectionuser login
 Remove-SitecoreDatabaseLogin -Server $database, -Name $($xConnect.sqlCollectionUser)
