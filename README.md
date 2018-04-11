@@ -10,24 +10,28 @@ The list of software / utilities is required as part of the install
 ### Windows Server 2016
 *IF* you’re running a brand new instance of Windows Server 2016, you can download [features.xml](https://sitecore.box.com/s/365l8988xkr95i0i02funszvuf9him0y) to the machine and then run a script to install the features listed.
 
-*The following will make the Windows Server 2016 Features “parity” to a sample generated the features.xml.*
+*The following will make the Windows Server 2016 Features “parity” to the generated features.xml.*
+
 **Using PowerShell as Administrator:**
 `Import-Module ServerManager`
-`Import-CliXml .\features.xml | Install-WindowsFeature`
+`Import-CliXml <path-to-features.xml> | Install-WindowsFeature`
 
 ### Software required
 
 - [MS Build for Visual Studio 2017 with .NET core, .NET 4.6.2 and 4.7.1](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
-- [7Zip, Chrome and Notepad++](https://ninite.com/7zip-chrome-notepadplusplus/)
+- [7Zip, Chrome and Notepad++](https://ninite.com/7zip-chrome-notepadplusplus/) **
 - [Git for Windows](https://github.com/git-for-windows/git/releases/download/v2.16.2.windows.1/Git-2.16.2-64-bit.exe)
-- Java 8 U151 from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html "Oracle Download Archive")
-	- Add Java folder to path
+- Java (JRE) 8 U151 from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html "Oracle Download Archive")
+		- The file itself is called **jre-8u151-windows-x64.exe** (CTRL+F to find it quickly)
+		- need a free Oracle account
+	- Add Java bin folder to path
 - [NodeJS](https://nodejs.org/dist/v8.10.0/node-v8.10.0-x64.msi) 
+- VC++ 2015 Redistributable <a href="https://www.microsoft.com/en-us/download/details.aspx?id=53587&irgwc=1&OCID=AID681541_aff_7593_1211691&tduid=(ir_zTS3WeQr7Vf8xSI0HYRvRUkFUkj1QD24eQ9uTU0)(7593(1211691)(TnL5HPStwNw-plWV.mlI6FL23fFCV8WYiQ)(ir)&clickid=zTS3WeQr7Vf8xSI0HYRvRUkFUkj1QD24eQ9uTU0&ircid=7593">here</a>
 
 
 Restart-Computer once you have installed Java and NodeJS 
 
-** 
+** You can click [here: Ninite.com](https://ninite.com/7zip-chrome-notepadplusplus/) to install 7Zip, Chrome and Notepad all at once.
 
 ## Custom install - before you start
 
@@ -52,13 +56,13 @@ Create a user version of the following files
 
 **Sitecore.Habitat**
 `/gulp-config.user.js` 
-`/publishsettings.user.targets` 
+`/publishsettings.targets.user` 
 `/TDSGlobal.config.user` (only if using TDS)
 `src\Project\Habitat\code\App_Config\Include\Project\z.Habitat.WebSite.DevSettings.user.config`
 
 **Sitecore.Habitat.Home**
 `/gulp-config.user.js` 
-`/publishsettings.user.targets` 
+`/publishsettings.targets.user` 
 `/TDSGlobal.config.user` (only if using TDS)
 `\src\Project\Habitat.Home\code\App_Config\Include\Project\z.Habitat.Home.Website.DevSettings.user.config`
 
@@ -94,11 +98,7 @@ From the install directory
 
 Execute **`.\get-latest-sitecore.ps1`**
 
-### 3 Install Java
-Download and install Java SE Runtime Environment 8u151 from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html "Oracle Download Archive")
-** After installation is complete, exit and re-open PowerShell.
-
-### 4 Install Solr
+### 3 Install Solr
 
 From the install\solr directory, review and modify the install-solr.ps1 file as required
 Execute **`install-solr.ps1`**
@@ -106,7 +106,7 @@ Execute **`install-solr.ps1`**
 
 > Although it doesn't always happen, if you encounter an issue where **keytool cannot be found**, restart your computer.
  
-### 5 Set up Installation Configuration file
+### 4 Set up Installation Configuration file
 - Copy `set-installation-overrides.ps1.example` to `set-installation-overrides.ps1` and modify to match your environment 
 - Ensure you **set the location of the license file** 
 - Ensure the **solr details** in the overrides file **match your solr installation details**
@@ -115,7 +115,7 @@ Execute **`install-solr.ps1`**
 
 At this point you should have a **`configuration-xp0.json`** file. Review the file for correctness.
 
-### 6 Install Sitecore
+### 5 Install Sitecore
 
 - Run **`.\install-xp0.ps1`**
 - This will install all required modules including SPE, SXA and Data Exchange Framework-related modules
@@ -124,18 +124,17 @@ At this point you should have a **`configuration-xp0.json`** file. Review the fi
 > 
 > To exit Select mode simply press Enter from inside the PowerShell window. **Clicking on the PowerShell window is what triggers the Select mode.**
 
-### 7 Give the application pool user permission to your webroot 
+### 6 Give the application pool user permission to your webroot 
 Browse to the root of the IIS (by default c:\inetpub\wwwroot) and give the Application Pool user read/write permissions.
 Using Windows Explorer, navigate to c:\inetpub\wwwroot and in the Windows Security dialog, add IIS APPPOOL\habitat.dev.local (if that's the name of you application pool)
 
-### 8 Deploy Sitecore.Habitat
-
+### 7 Deploy Sitecore.Habitat
 
 From the root directory of the solution
 - Run **`npm install`**
 - Run **`.\node_modules\.bin\gulp`** 
 
-### 9 Deploy Sitecore.Habitat.Home
+### 8 Deploy Sitecore.Habitat.Home
 Clone the Sitecore.Habitat.Home repository locally - defaults are configured for **C:\Projects\Sitecore.Habitat.Home**
 
 - **https**:	`git clone https://sitecoredst.visualstudio.com/Demo/_git/Sitecore.Habitat.Home` 
@@ -158,11 +157,7 @@ From the root directory of Habitat Home solution:
 > An error (maxBuffer) sometimes occurs the first time running gulp during Sync-Unicorn. 
 > Running gulp a second time resolves the issue (and doesn't take as long)
 
-### 10 Modify hosts file and bindings
-- Add habitathome.dev.local pointing to 127.0.0.1 to you hosts file
-- Add habitathome.dev.local bindings (both HTTP and HTTPS) to IIS site bindings
-
-### 11 Rebuild indexes
+### 9 Rebuild indexes
 Once you've confirmed the site has come up, please rebuild the master index.
 
 # Failed installation
