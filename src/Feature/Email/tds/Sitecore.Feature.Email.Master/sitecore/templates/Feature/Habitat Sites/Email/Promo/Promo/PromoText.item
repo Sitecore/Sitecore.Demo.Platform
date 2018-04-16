@@ -8,22 +8,22 @@ name: PromoText
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
-created: 20180321T032723Z
+created: 20180323T035932Z
 
 ----field----
 field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
 name: Type
 key: type
-content-length: 9
+content-length: 15
 
-Rich Text
+Multi-Line Text
 ----field----
 field: {1EB8AE32-E190-44A6-968D-ED904C794EBF}
 name: Source
 key: source
-content-length: 59
+content-length: 0
 
-/sitecore/system/Settings/Html Editor Profiles/Rich Text XA
+
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
@@ -34,7 +34,7 @@ content-length: 3
 ----version----
 language: da
 version: 1
-revision: a45c30b4-e954-4514-92d6-7fdf6af66c75
+revision: 4f9bd3b6-da07-4cca-a45d-482640910d27
 
 ----field----
 field: {19A69332-A23E-4E70-8D16-B2640CB24CC8}
@@ -51,13 +51,6 @@ content-length: 10
 
 PromoText3
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -77,25 +70,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a45c30b4-e954-4514-92d6-7fdf6af66c75
+4f9bd3b6-da07-4cca-a45d-482640910d27
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180314T032435Z
+20180411T165322Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----version----
 language: de-DE
 version: 1
-revision: bec320c8-384d-4fa5-a692-1b51efa8ff4d
+revision: 370765e2-8a70-4eaa-875d-d015895092c2
 
 ----field----
 field: {19A69332-A23E-4E70-8D16-B2640CB24CC8}
@@ -112,13 +105,6 @@ content-length: 10
 
 PromoText3
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
@@ -138,25 +124,25 @@ name: __Revision
 key: __revision
 content-length: 36
 
-bec320c8-384d-4fa5-a692-1b51efa8ff4d
+370765e2-8a70-4eaa-875d-d015895092c2
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180314T032648Z
+20180411T165322Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn
 ----version----
 language: en
 version: 1
-revision: bf5506f8-3838-4094-9bfb-fe969fe97311
+revision: 56e17936-47e0-43ef-9b6a-382f1839a515
 
 ----field----
 field: {19A69332-A23E-4E70-8D16-B2640CB24CC8}
@@ -192,14 +178,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-bf5506f8-3838-4094-9bfb-fe969fe97311
+56e17936-47e0-43ef-9b6a-382f1839a515
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180321T033520Z
+20180416T150355Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
@@ -210,7 +196,7 @@ sitecore\admin
 ----version----
 language: ja-JP
 version: 1
-revision: 077569a4-8980-4265-ae6a-6d6acbbb3dcd
+revision: 30d6c399-4146-459b-adb9-a4aa76cf5a68
 
 ----field----
 field: {19A69332-A23E-4E70-8D16-B2640CB24CC8}
@@ -226,13 +212,6 @@ key: __display name
 content-length: 9
 
 プロモ テキスト3
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 22
-
-sitecore\virtualssuser
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -253,18 +232,18 @@ name: __Revision
 key: __revision
 content-length: 36
 
-077569a4-8980-4265-ae6a-6d6acbbb3dcd
+30d6c399-4146-459b-adb9-a4aa76cf5a68
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180314T032853Z
+20180411T165322Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 22
+content-length: 16
 
-sitecore\virtualssuser
+sitecore\unicorn

@@ -1,0 +1,59 @@
+----item----
+version: 1
+id: {ABA38C23-F573-4ABA-BEA2-A501F8D951BF}
+database: master
+path: /sitecore/content/Email/Message Types/Automated/Default
+parent: {5542ABBC-A69A-4F73-8ED0-2A80747A950E}
+name: Default
+master: {F8FAE92A-4F10-470C-AD5C-7ED9E6B636AF}
+template: {9795C562-98D9-4A9E-BC9C-C6B7A079FDF4}
+templatekey: Automated
+created: 20180323T040825Z
+
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{704AA7E8-2DA5-49EF-9C72-A18ED69DDB90}
+----field----
+field: {1172F251-DAD4-4EFB-A329-0C63500E4F1E}
+name: __Masters
+key: __masters
+content-length: 272
+
+{BDB49A2E-9BE1-456F-BEBB-4F72DA36524E}|{9E170B31-F8AA-4E1F-B605-2FC0BD4FE120}|{6FE51EB4-1D30-4E6B-8BA0-0EBB1405D283}|{ECF0A9C8-FE56-45D8-B750-6BDE3A34A532}|{1AFE38A7-9461-4278-ADAF-D807F27F36E4}|{F868C724-50D0-4347-9C9B-BABB8DB705FE}|{06A7EA2B-A5C7-4091-8E4B-35001A173758}
+----version----
+language: en
+version: 1
+revision: 6ad492a7-0a30-458a-bf58-34f561a59e6c
+
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180103T182135Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+6ad492a7-0a30-458a-bf58-34f561a59e6c
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180416T150805Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

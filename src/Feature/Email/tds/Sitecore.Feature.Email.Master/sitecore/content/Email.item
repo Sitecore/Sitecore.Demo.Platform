@@ -1,0 +1,108 @@
+----item----
+version: 1
+id: {872A22D8-312A-4115-A5C6-B6A46764BF46}
+database: master
+path: /sitecore/content/Email
+parent: {0DE95AE4-41AB-4D01-9EB0-67441B7C2450}
+name: Email
+master: {F8FAE92A-4F10-470C-AD5C-7ED9E6B636AF}
+template: {CF9C8A2A-2794-4FEA-980A-EF8426F3D6C3}
+templatekey: Manager Root
+created: 20180323T040824Z
+
+----field----
+field: {1B963507-6176-4336-A14D-D5070C3B0286}
+name: Base URL
+key: base url
+content-length: 29
+
+https://habitathome.dev.local
+----field----
+field: {FF64B61E-E68D-4BE1-BFD1-AAE311F4ACA1}
+name: Embed Images
+key: embed images
+content-length: 1
+
+1
+----field----
+field: {52D572AD-9678-423F-96E2-477528418BA1}
+name: Global Opt-out List
+key: global opt-out list
+content-length: 38
+
+{CDCDD641-7FFF-472E-A050-0EB117394039}
+----field----
+field: {AFB3E366-DAB4-4E10-B61F-BC3776542BB8}
+name: POP3 User Name
+key: pop3 user name
+content-length: 5
+
+admin
+----field----
+field: {1EC023FB-DBB4-4A7B-837D-55F9614737B8}
+name: POP3 Password
+key: pop3 password
+content-length: 1
+
+b
+----field----
+field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
+name: __Originator
+key: __originator
+content-length: 38
+
+{DB7A8703-C5AE-41FF-8B23-264195634B9E}
+----field----
+field: {DEC8D2D5-E3CF-48B6-A653-8E69E2716641}
+name: __Security
+key: __security
+content-length: 247
+
+ar|sitecore\EXM Users|pd|^*|+item:read|pe|^*|+item:read|ar|sitecore\EXM Advanced Users|pd|+item:delete|+item:admin|+item:create|+item:rename|^*|+item:read|+item:write|pe|+item:delete|+item:admin|+item:create|+item:rename|^*|+item:read|+item:write|
+----version----
+language: en
+version: 1
+revision: 9edef270-a9d2-473c-adf4-ee95dbce0e29
+
+----field----
+field: {0F383CD8-C031-4A9D-9ED0-D55217F91287}
+name: From Address
+key: from address
+content-length: 27
+
+noreply@habitathomedemo.com
+----field----
+field: {B5E02AD9-D56F-4C41-A065-A133DB87BDEB}
+name: __Display name
+key: __display name
+content-length: 5
+
+Email
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180103T182134Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+9edef270-a9d2-473c-adf4-ee95dbce0e29
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180323T151827Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 16
+
+sitecore\unicorn
