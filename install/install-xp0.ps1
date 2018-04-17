@@ -351,7 +351,7 @@ function Copy-Tools {
 
     try {
         Write-Host "Copying tools to webroot" -ForegroundColor Green
-        Copy-Item $assets.installPackagePath -Destination $site.siteRoot -Force
+        Copy-Item $assets.installPackagePath -Destination $sitecore.siteRoot -Force
     }
     catch {
         write-host "Failed to copy InstallPackage.aspx to web root" -ForegroundColor Red
