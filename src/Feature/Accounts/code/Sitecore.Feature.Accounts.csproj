@@ -95,6 +95,18 @@
     <Reference Include="Sitecore.Analytics.Model, Version=11.40.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Analytics.Model.NoReferences.9.0.171219\lib\NET462\Sitecore.Analytics.Model.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.ExperienceEditor.Speak, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.ExperienceEditor.Speak.NoReferences.9.0.171219\lib\NET462\Sitecore.ExperienceEditor.Speak.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ExperienceEditor.Speak.Ribbon, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.ExperienceEditor.Speak.Ribbon.NoReferences.9.0.171219\lib\NET462\Sitecore.ExperienceEditor.Speak.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ExperienceExplorer.Core, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.ExperienceExplorer.Core.NoReferences.9.0.171219\lib\NET462\Sitecore.ExperienceExplorer.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ExperienceExplorer.Web, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.ExperienceExplorer.Web.NoReferences.9.0.171219\lib\NET462\Sitecore.ExperienceExplorer.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Kernel.NoReferences.9.0.171219\lib\NET462\Sitecore.Kernel.dll</HintPath>
     </Reference>
@@ -106,6 +118,9 @@
     </Reference>
     <Reference Include="Sitecore.Owin.Authentication, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Owin.Authentication.NoReferences.9.0.171219\lib\NET462\Sitecore.Owin.Authentication.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Speak.Client, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.Speak.Client.NoReferences.9.0.171219\lib\NET462\Sitecore.Speak.Client.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.IdentityModel" />
@@ -160,7 +175,9 @@
     <Content Include="Views\Accounts\_FedAuth.cshtml" />
     <Content Include="Views\Accounts\Register.cshtml" />
     <Content Include="Views\Accounts\_Login.cshtml" />
-    <Content Include="App_Config\Include\Feature\Feature.Accounts.Serialization.config" />
+    <Content Include="App_Config\Include\Feature\Feature.Accounts.Serialization.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -191,6 +208,8 @@
     <Compile Include="Attributes\ValidateModelAttribute.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="ExperienceEditor\CanExplore.cs" />
+    <Compile Include="ExperienceEditor\LargeDropDownButtonChildItems.cs" />
     <Compile Include="Infrastructure\Pipelines\IdentityProviders\Facebook.cs" />
     <Compile Include="Infrastructure\Pipelines\IdentityProviders\MicrosoftAccount.cs" />
     <Compile Include="Infrastructure\Pipelines\RegisterWebApiRoutes.cs" />
