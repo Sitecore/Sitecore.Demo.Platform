@@ -12,6 +12,7 @@
     using Sitecore.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.XConnect.Collection.Model;
     using Sitecore.Foundation.Accounts.Providers;
+    using Sitecore.Foundation.Dictionary.Repositories;
 
     [Service]
     public class PersonalInfoRepository
@@ -83,10 +84,10 @@
                 switch (identifier.Type)
                 {
                     case ContactIdentificationLevel.Anonymous:
-                        yield return new KeyValuePair<string, string>(string.Format(Globalization.Translate.Text("/Demo/Personal Info/Anonymous ID", "Anonymous ID ({0})"), identifier.Source), identifier.Identifier);
+                        yield return new KeyValuePair<string, string>(string.Format(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Anonymous ID", "Anonymous ID ({0})"), identifier.Source), identifier.Identifier);
                         break;
                     case ContactIdentificationLevel.Known:
-                        yield return new KeyValuePair<string, string>(string.Format(Globalization.Translate.Text("/Demo/Personal Info/Identification", "Known ID ({0})"), identifier.Source), identifier.Identifier);
+                        yield return new KeyValuePair<string, string>(string.Format(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Identification", "Known ID ({0})"), identifier.Source), identifier.Identifier);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -102,12 +103,12 @@
             if (!this.contactFacetsProvider.IsKnown)
                 yield break;
 
-            yield return new KeyValuePair<string, string>(Globalization.Translate.Text("/Demo/Personal Info/Do Not Market", "Do not market"), this.contactFacetsProvider.CommunicationProfile.DoNotMarket ? Globalization.Translate.Text("/Demo/Personal Info/Yes", "Yes") : Globalization.Translate.Text("/Demo/Personal Info/No", "No"));
-            yield return new KeyValuePair<string, string>(Globalization.Translate.Text("/Demo/Personal Info/Consent Revoked", "Consent revoked"), this.contactFacetsProvider.CommunicationProfile.ConsentRevoked ? Globalization.Translate.Text("/Demo/Personal Info/Yes", "Yes") : Globalization.Translate.Text("/Demo/Personal Info/No", "No"));
-            yield return new KeyValuePair<string, string>(Globalization.Translate.Text("/Demo/Personal Info/Executed Right To Be Forgotten", "Executed right to be forgotten"), this.contactFacetsProvider.CommunicationProfile.ExecutedRightToBeForgotten ? Globalization.Translate.Text("/Demo/Personal Info/Yes", "Yes") : Globalization.Translate.Text("/Demo/Personal Info/No", "No"));
+            yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Do Not Market", "Do not market"), this.contactFacetsProvider.CommunicationProfile.DoNotMarket ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
+            yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Consent Revoked", "Consent revoked"), this.contactFacetsProvider.CommunicationProfile.ConsentRevoked ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
+            yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Executed Right To Be Forgotten", "Executed right to be forgotten"), this.contactFacetsProvider.CommunicationProfile.ExecutedRightToBeForgotten ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
             if (!string.IsNullOrEmpty(this.contactFacetsProvider.PersonalInfo?.PreferredLanguage))
             {
-                yield return new KeyValuePair<string, string>(Globalization.Translate.Text("/Demo/Personal Info/Preferred Language", "Preferred Language"), this.contactFacetsProvider.PersonalInfo.PreferredLanguage);
+                yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Preferred Language", "Preferred Language"), this.contactFacetsProvider.PersonalInfo.PreferredLanguage);
             }
         }
 
@@ -116,7 +117,7 @@
             if (this.contactFacetsProvider.PhoneNumbers == null)
                 yield break;
 
-            var phoneTitle = Globalization.Translate.Text("/Demo/Personal Info/Phone", "Phone");
+            var phoneTitle = DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Phone", "Phone");
             yield return new KeyValuePair<string, string>($"{phoneTitle}", this.FormatPhone(this.contactFacetsProvider.PhoneNumbers.PreferredPhoneNumber));
             foreach (var phoneKey in this.contactFacetsProvider.PhoneNumbers.Others.Keys)
             {
@@ -145,7 +146,7 @@
             if (this.contactFacetsProvider?.Emails == null)
                 yield break;
 
-            var emailTitle = Globalization.Translate.Text("/Demo/Personal Info/Email", "Email");
+            var emailTitle = DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Email", "Email");
             yield return new KeyValuePair<string, string>($"{emailTitle}", this.contactFacetsProvider.Emails.PreferredEmail?.SmtpAddress);
             foreach (var emailKey in this.contactFacetsProvider.Emails.Others.Keys)
             {
@@ -158,7 +159,7 @@
             if (this.contactFacetsProvider?.Addresses == null)
                 yield break;
 
-            var addressTitle = Globalization.Translate.Text("/Demo/Personal Info/Address", "Address");
+            var addressTitle = DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Address", "Address");
             yield return new KeyValuePair<string, string>($"{addressTitle})", this.FormatAddress(this.contactFacetsProvider.Addresses.PreferredAddress));
             foreach (var addressKey in this.contactFacetsProvider.Addresses.Others.Keys)
             {

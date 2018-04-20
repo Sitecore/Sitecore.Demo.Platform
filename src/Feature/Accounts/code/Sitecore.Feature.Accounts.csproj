@@ -172,7 +172,7 @@
     </Content>
     <Content Include="Scripts\Accounts\Accounts.js" />
     <Content Include="Views\Accounts\Login.cshtml" />
-    <Content Include="Views\Accounts\_FedAuth.cshtml" />
+    <Content Include="Views\Accounts\FedAuth.cshtml" />
     <Content Include="Views\Accounts\Register.cshtml" />
     <Content Include="Views\Accounts\_Login.cshtml" />
     <Content Include="App_Config\Include\Feature\Feature.Accounts.Serialization.config">
@@ -221,6 +221,7 @@
     <Compile Include="Models\ChangePasswordInfo.cs" />
     <Compile Include="Models\EditProfile.cs" />
     <Compile Include="Models\FedAuthLoginButton.cs" />
+    <Compile Include="Models\FedAuthLoginInfo.cs" />
     <Compile Include="Models\LoginInfo.cs" />
     <Compile Include="Models\LoginResult.cs" />
     <Compile Include="Models\PasswordResetInfo.cs" />

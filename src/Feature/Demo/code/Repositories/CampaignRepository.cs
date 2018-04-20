@@ -12,6 +12,7 @@
     using Sitecore.Marketing.Definitions.Campaigns;
     using Sitecore.Marketing.Taxonomy;
     using Sitecore.Marketing.Taxonomy.Extensions;
+    using Sitecore.Foundation.Dictionary.Repositories;
 
     [Service(typeof(ICampaignRepository))]
     public class CampaignRepository : ICampaignRepository
@@ -36,7 +37,7 @@
 
             return new Campaign
             {
-                Title = campaign?.Name ?? Globalization.Translate.Text("/Demo/Campaigns/Unknown Campaign", "(Unknown)"),
+                Title = campaign?.Name ?? DictionaryPhraseRepository.Current.Get("/Demo/Campaigns/Unknown Campaign", "(Unknown)"),
                 IsActive = true,
                 Date = Tracker.Current.Interaction.StartDateTime,
                 Channel = this.GetChannel(campaign)
@@ -52,7 +53,7 @@
 
                 yield return new Campaign
                 {
-                    Title = campaign?.Name ?? Globalization.Translate.Text("/Demo/Campaigns/Unknown Campaign", "(Unknown)"),
+                    Title = campaign?.Name ?? DictionaryPhraseRepository.Current.Get("/Demo/Campaigns/Unknown Campaign", "(Unknown)"),
                     IsActive = false,
                     Date = cachedCampaign.DateTime,
                     Channel = this.GetChannel(campaign)
