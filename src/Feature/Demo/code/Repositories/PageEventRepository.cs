@@ -5,16 +5,12 @@
     using System.Globalization;
     using System.Linq;
     using Sitecore.Analytics;
-    using Sitecore.Analytics.Model;
-    using Sitecore.Analytics.Tracking;
-    using Sitecore.Common;
-    using Sitecore.Data;
+    using Sitecore.Analytics.Model;       
     using Sitecore.Feature.Demo.Models;
     using Sitecore.Foundation.DependencyInjection;         
-    using Sitecore.Marketing.Definitions;
-    using Sitecore.Marketing.Definitions.Goals;
-    using Sitecore.Marketing.Definitions.PageEvents;
-    using Sitecore.Marketing.Definitions.PageEvents.Data;
+    using Sitecore.Marketing.Definitions;                 
+    using Sitecore.Marketing.Definitions.PageEvents;         
+    using Sitecore.Foundation.Dictionary.Repositories;
 
     [Service]
     public class PageEventRepository
@@ -48,7 +44,7 @@
 
                 yield return new PageEvent
                              {
-                                 Title = goal?.Name ?? Globalization.Translate.Text("/Demo/Goals/Unknown Goal", "(Unknown)"),
+                                 Title = goal?.Name ?? DictionaryPhraseRepository.Current.Get("/Demo/Goals/Unknown Goal", "(Unknown)"),
                                  Date = cachedGoal.DateTime,
                                  EngagementValue = goal?.EngagementValuePoints ?? 0,
                                  IsCurrentVisit = false,

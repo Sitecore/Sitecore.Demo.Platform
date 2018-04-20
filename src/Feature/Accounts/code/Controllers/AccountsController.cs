@@ -73,8 +73,7 @@
 
             return new LoginInfo
             {
-                ReturnUrl = returnUrl ?? link.TargetItem.Url(),
-                LoginButtons = this.FedAuthLoginRepository.GetAll()
+                ReturnUrl = returnUrl ?? link.TargetItem.Url()
             };
         }
 
@@ -311,6 +310,16 @@
 
                 return this.View(changePasswordInfo);
             }
+        }
+
+        public ActionResult FedAuth()
+        {
+            var model = new FedAuthLoginInfo()
+            {
+                LoginButtons = this.FedAuthLoginRepository.GetAll()
+            };
+
+            return this.View(model);
         }
     }
 }

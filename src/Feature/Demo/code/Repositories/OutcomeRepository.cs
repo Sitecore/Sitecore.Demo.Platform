@@ -13,6 +13,7 @@
     using Sitecore.Marketing.Definitions.Outcomes.Model;
     using Sitecore.Marketing.Taxonomy;
     using Sitecore.Marketing.Taxonomy.Extensions;
+    using Sitecore.Foundation.Dictionary.Repositories;
 
     [Service]
     public class OutcomeRepository
@@ -36,7 +37,7 @@
             var definition = GetOutcomeDefinition(outcomeDefinitionId);
             return new Outcome
             {
-                Title = definition?.Name ?? Globalization.Translate.Text("/Demo/Outcomes/Unknown Outcome", "(Unknown)"),
+                Title = definition?.Name ?? DictionaryPhraseRepository.Current.Get("/Demo/Outcomes/Unknown Outcome", "(Unknown)"),
                 Date = timeStamp,
                 IsCurrentVisit = currentInteraction,
                 OutcomeGroup = this.GetOutcomeGroup(definition)
