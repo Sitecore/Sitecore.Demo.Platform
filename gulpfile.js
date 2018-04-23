@@ -34,9 +34,6 @@ gulp.task("default",
             "Publish-xConnect-Project",
             "Deploy-EXM-Campaigns",
             "Deploy-Marketing-Definitions",
-            "Rebuild-Core-Index",
-            "Rebuild-Master-Index",
-            "Rebuild-Web-Index",
             callback);
     });
 
@@ -50,6 +47,21 @@ gulp.task("quick-deploy",
             "Publish-Transforms",
             "Publish-xConnect-Project",
             callback);
+    });
+
+gulp.task("initial",
+    function (callback) {
+            "Nuget-Restore",
+            "Publish-All-Projects",
+            "Apply-Xml-Transform",
+            "Publish-Transforms",
+            "Publish-xConnect-Project",
+            "Deploy-EXM-Campaigns",
+            "Deploy-Marketing-Definitions",
+            "Rebuild-Core-Index",
+            "Rebuild-Master-Index",
+            "Rebuild-Web-Index",
+            callback
     });
 
 gulp.task("deploy-unicorn",
