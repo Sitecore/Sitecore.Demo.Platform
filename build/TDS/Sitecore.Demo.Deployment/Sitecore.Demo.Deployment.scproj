@@ -125,6 +125,9 @@
       <Parameter>hostname=na.habitathomedemo.com&amp;apiKey=97CC4FC13A814081BF6961A3E2128C5B</Parameter>
       <Order>1</Order>
     </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.DeployMarketingDefinitions,Sitecore.Demo.Deployment.Web">          
+      <Order>5</Order>
+    </PostDeployAction>
   </ItemGroup>
   <ItemGroup>
     <BundledProject Include="..\..\..\src\Feature\Accounts\tds\Sitecore.Feature.Accounts.Core\Sitecore.Feature.Accounts.Core.scproj">

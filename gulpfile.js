@@ -33,6 +33,7 @@ gulp.task("default",
             "Publish-Transforms",
             "Publish-xConnect-Project",
             "Deploy-EXM-Campaigns",
+            "Deploy-Marketing-Definitions",
             "Rebuild-Core-Index",
             "Rebuild-Master-Index",
             "Rebuild-Web-Index",
@@ -271,8 +272,8 @@ function(){
     });
 
 gulp.task("Deploy-EXM-Campaigns",
-    function () {       
-        console.log("Deploying EXM Campaigns");      
+    function () {
+        console.log("Deploying EXM Campaigns");
 
         var url = config.instanceUrl + "utilities/deployemailcampaigns.aspx?apiKey=97CC4FC13A814081BF6961A3E2128C5B";
         console.log("Deploying EXM Campaigns at " + url);
@@ -282,8 +283,24 @@ gulp.task("Deploy-EXM-Campaigns",
         }, function (err, res) {
             if (err) {
                 throw err;
-            }  
-        });                  
+            }
+        });
+    });
+
+gulp.task("Deploy-Marketing-Definitions",
+    function () {
+        console.log("Deploying Marketing Definitions");
+
+        var url = config.instanceUrl + "utilities/deploymarketingdefinitions.aspx?apiKey=DF7D20E837254C6FBFA2B854C295CB61";
+        console.log("Deploying Marketing Definitions at " + url);
+        get({
+            url: url,
+            "rejectUnauthorized": false
+        }, function (err, res) {
+            if (err) {
+                throw err;
+            }
+        });
     });
 
 gulp.task("Rebuild-Core-Index",
