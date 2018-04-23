@@ -33,6 +33,9 @@ gulp.task("default",
             "Publish-Transforms",
             "Publish-xConnect-Project",
             "Deploy-EXM-Campaigns",
+            "Rebuild-Core-Index",
+            "Rebuild-Master-Index",
+            "Rebuild-Web-Index",
             callback);
     });
 
@@ -59,6 +62,9 @@ gulp.task("deploy-unicorn",
             "Publish-Transforms",
             "Publish-xConnect-Project",
             "Deploy-EXM-Campaigns",
+            "Rebuild-Core-Index",
+            "Rebuild-Master-Index",
+            "Rebuild-Web-Index",
             callback);
     });
 
@@ -72,6 +78,9 @@ gulp.task("tds",
             "TDS-Build",
             "Publish-xConnect-Project",
             "Deploy-EXM-Campaigns",
+            "Rebuild-Core-Index",
+            "Rebuild-Master-Index",
+            "Rebuild-Web-Index",
             callback
         );
     });                    
@@ -275,4 +284,52 @@ gulp.task("Deploy-EXM-Campaigns",
                 throw err;
             }  
         });                  
+    });
+
+gulp.task("Rebuild-Core-Index",
+    function () {
+        console.log("Rebuilding Index Core");
+
+        var url = config.instanceUrl + "utilities/indexrebuild.aspx?index=sitecore_core_index";
+        
+        get({
+            url: url,
+            "rejectUnauthorized": false
+        }, function (err, res) {
+            if (err) {
+                throw err;
+            }
+        });
+    });
+
+gulp.task("Rebuild-Master-Index",
+    function () {
+        console.log("Rebuilding Index Master");
+
+        var url = config.instanceUrl + "utilities/indexrebuild.aspx?index=sitecore_master_index";
+
+        get({
+            url: url,
+            "rejectUnauthorized": false
+        }, function (err, res) {
+            if (err) {
+                throw err;
+            }
+        });
+    });
+
+gulp.task("Rebuild-Web-Index",
+    function () {
+        console.log("Rebuilding Index Web");
+
+        var url = config.instanceUrl + "utilities/indexrebuild.aspx?index=sitecore_web_index";
+
+        get({
+            url: url,
+            "rejectUnauthorized": false
+        }, function (err, res) {
+            if (err) {
+                throw err;
+            }
+        });
     });

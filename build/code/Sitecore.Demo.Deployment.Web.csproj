@@ -93,6 +93,7 @@
   <ItemGroup>
     <Compile Include="PostDeploySteps\CreateUserPostDeployStep.cs" />
     <Compile Include="PostDeploySteps\DeployEmailCampaigns.cs" />
+    <Compile Include="PostDeploySteps\RebuildIndexPostDeploy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

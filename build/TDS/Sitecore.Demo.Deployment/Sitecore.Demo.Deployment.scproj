@@ -117,15 +117,6 @@
   <ItemGroup>
     <ExcludedAssemblies Include="Sitecore.Demo.Deployment.Web.%2a" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.CreateUserPostDeployStep,Sitecore.Demo.Deployment.Web">
-      <Order>0</Order>
-    </PostDeployAction>
-    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.DeployEmailCampaigns,Sitecore.Demo.Deployment.Web">
-      <Parameter>hostname=habitat.dev.local&amp;apiKey=97CC4FC13A814081BF6961A3E2128C5B</Parameter>
-      <Order>1</Order>
-    </PostDeployAction>
-  </ItemGroup>
   <ItemGroup Condition=" '$(Configuration)' == 'TDS' ">
     <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.CreateUserPostDeployStep,Sitecore.Demo.Deployment.Web">
       <Order>0</Order>
@@ -178,6 +169,27 @@
     <BundledProject Include="..\..\..\src\Project\Habitat\tds\Sitecore.Habitat.Website.Master\Sitecore.Habitat.Website.Master.scproj">
       <ProjectId>{d259ef27-fa71-4d70-a2e4-c6d854cc849f}</ProjectId>
     </BundledProject>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.CreateUserPostDeployStep,Sitecore.Demo.Deployment.Web">
+      <Order>0</Order>
+    </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.DeployEmailCampaigns,Sitecore.Demo.Deployment.Web">
+      <Parameter>hostname=habitat.dev.local&amp;apiKey=97CC4FC13A814081BF6961A3E2128C5B</Parameter>
+      <Order>1</Order>
+    </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.RebuildIndexPostDeploy,Sitecore.Demo.Deployment.Web">
+      <Parameter>hostname=storefront.dev.local&amp;index=sitecore_core_index</Parameter>
+      <Order>2</Order>
+    </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.RebuildIndexPostDeploy,Sitecore.Demo.Deployment.Web">
+      <Parameter>hostname=storefront.dev.local&amp;index=sitecore_master_index</Parameter>
+      <Order>3</Order>
+    </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.RebuildIndexPostDeploy,Sitecore.Demo.Deployment.Web">
+      <Parameter>hostname=storefront.dev.local&amp;index=sitecore_web_index</Parameter>
+      <Order>4</Order>
+    </PostDeployAction>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets') and !Exists('..\..\..\packages\HedgehogDevelopment.TDS.5.7.0.8\build\HedgehogDevelopment.TDS.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
