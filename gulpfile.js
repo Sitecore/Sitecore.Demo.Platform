@@ -33,6 +33,7 @@ gulp.task("default",
             "Publish-Transforms",
             "Publish-xConnect-Project",
             "Deploy-EXM-Campaigns",
+            "Deploy-Marketing-Definitions",
             callback);
     });
 
@@ -48,6 +49,21 @@ gulp.task("quick-deploy",
             callback);
     });
 
+gulp.task("initial",
+    function (callback) {
+            "Nuget-Restore",
+            "Publish-All-Projects",
+            "Apply-Xml-Transform",
+            "Publish-Transforms",
+            "Publish-xConnect-Project",
+            "Deploy-EXM-Campaigns",
+            "Deploy-Marketing-Definitions",
+            "Rebuild-Core-Index",
+            "Rebuild-Master-Index",
+            "Rebuild-Web-Index",
+            callback
+    });
+
 gulp.task("deploy-unicorn",
     function (callback) {
         config.runCleanBuilds = true;
@@ -59,6 +75,9 @@ gulp.task("deploy-unicorn",
             "Publish-Transforms",
             "Publish-xConnect-Project",
             "Deploy-EXM-Campaigns",
+            "Rebuild-Core-Index",
+            "Rebuild-Master-Index",
+            "Rebuild-Web-Index",
             callback);
     });
 
@@ -72,6 +91,9 @@ gulp.task("tds",
             "TDS-Build",
             "Publish-xConnect-Project",
             "Deploy-EXM-Campaigns",
+            "Rebuild-Core-Index",
+            "Rebuild-Master-Index",
+            "Rebuild-Web-Index",
             callback
         );
     });                    
@@ -262,8 +284,8 @@ function(){
     });
 
 gulp.task("Deploy-EXM-Campaigns",
-    function () {       
-        console.log("Deploying EXM Campaigns");      
+    function () {
+        console.log("Deploying EXM Campaigns");
 
         var url = config.instanceUrl + "utilities/deployemailcampaigns.aspx?apiKey=97CC4FC13A814081BF6961A3E2128C5B";
         console.log("Deploying EXM Campaigns at " + url);
@@ -273,6 +295,70 @@ gulp.task("Deploy-EXM-Campaigns",
         }, function (err, res) {
             if (err) {
                 throw err;
-            }  
-        });                  
+            }
+        });
+    });
+
+gulp.task("Deploy-Marketing-Definitions",
+    function () {
+        console.log("Deploying Marketing Definitions");
+
+        var url = config.instanceUrl + "utilities/deploymarketingdefinitions.aspx?apiKey=DF7D20E837254C6FBFA2B854C295CB61";
+        console.log("Deploying Marketing Definitions at " + url);
+        get({
+            url: url,
+            "rejectUnauthorized": false
+        }, function (err, res) {
+            if (err) {
+                throw err;
+            }
+        });
+    });
+
+gulp.task("Rebuild-Core-Index",
+    function () {
+        console.log("Rebuilding Index Core");
+
+        var url = config.instanceUrl + "utilities/indexrebuild.aspx?index=sitecore_core_index";
+        
+        get({
+            url: url,
+            "rejectUnauthorized": false
+        }, function (err, res) {
+            if (err) {
+                throw err;
+            }
+        });
+    });
+
+gulp.task("Rebuild-Master-Index",
+    function () {
+        console.log("Rebuilding Index Master");
+
+        var url = config.instanceUrl + "utilities/indexrebuild.aspx?index=sitecore_master_index";
+
+        get({
+            url: url,
+            "rejectUnauthorized": false
+        }, function (err, res) {
+            if (err) {
+                throw err;
+            }
+        });
+    });
+
+gulp.task("Rebuild-Web-Index",
+    function () {
+        console.log("Rebuilding Index Web");
+
+        var url = config.instanceUrl + "utilities/indexrebuild.aspx?index=sitecore_web_index";
+
+        get({
+            url: url,
+            "rejectUnauthorized": false
+        }, function (err, res) {
+            if (err) {
+                throw err;
+            }
+        });
     });

@@ -49,11 +49,23 @@
       <HintPath>..\..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.ContentSearch, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.ContentSearch.NoReferences.9.0.171219\lib\NET462\Sitecore.ContentSearch.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Kernel, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Kernel.NoReferences.9.0.171219\lib\NET462\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Logging, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Logging.NoReferences.9.0.171219\lib\NET462\Sitecore.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Marketing, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.Marketing.NoReferences.9.0.171219\lib\NET462\Sitecore.Marketing.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Marketing.xMgmt, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.Marketing.xMgmt.NoReferences.9.0.171219\lib\NET462\Sitecore.Marketing.xMgmt.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Update, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Update.NoReferences.9.0.171219\lib\NET462\Sitecore.Update.dll</HintPath>
@@ -80,6 +92,8 @@
     <Content Include="App_Config\Security\Domains.config" />
     <Content Include="App_Config\Sitecore\ContentTesting\Sitecore.ContentTesting.PreemptiveScreenshot.config" />
     <Content Include="Utilities\DeployEmailCampaigns.aspx" />
+    <Content Include="Utilities\DeployMarketingDefinitions.aspx" />
+    <Content Include="Utilities\IndexRebuild.aspx" />
     <None Include="packages.config" />
     <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
@@ -94,6 +108,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\DeployMarketingDefinitions.aspx.cs">
+      <DependentUpon>DeployMarketingDefinitions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DeployMarketingDefinitions.aspx.designer.cs">
+      <DependentUpon>DeployMarketingDefinitions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\IndexRebuild.aspx.cs">
+      <DependentUpon>IndexRebuild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\IndexRebuild.aspx.designer.cs">
+      <DependentUpon>IndexRebuild.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
