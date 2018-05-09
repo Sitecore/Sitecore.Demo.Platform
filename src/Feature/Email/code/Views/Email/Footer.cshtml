@@ -1,11 +1,11 @@
 ﻿@model Sitecore.Mvc.Presentation.RenderingModel
-@using Sitecore.Feature.Email
+@using Sitecore.Feature.Email       
 
 
 <table class="footer" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; padding: 20px 40px; background-color: #151515;" cellspacing="0" cellpadding="0" border="0">
     <tbody>
         <tr>
-            <td style="padding: 10px 0px; width: 20%;">
+            <td style="padding: 10px; width: 20%;">
                 @Html.Sitecore().Field(Templates.Footer.Fields.Logo.ToString(), Model.Item, new { width = "72", height = "23", style = "width: 72px; height: 23px;" })
             </td>
             <td style="width: 50%;"></td>
@@ -22,7 +22,7 @@
                             </td>
                             <td>
                                 <a style="width:30px; height: 30px; display: block; color:#1b8f9c; fill: #1b8f9c;">
-                                    <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                    <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">                                   
                                         <path d="M 419.6 168.6 c -11.7 5.2 -24.2 8.7 -37.4 10.2 c 13.4 -8.1 23.8 -20.8 28.6 -36 c -12.6 7.5 -26.5 12.9 -41.3 15.8 c -11.9 -12.6 -28.8 -20.6 -47.5 -20.6 c -42 0 -72.9 39.2 -63.4 79.9 c -54.1 -2.7 -102.1 -28.6 -134.2 -68 c -17 29.2 -8.8 67.5 20.1 86.9 c -10.7 -0.3 -20.7 -3.3 -29.5 -8.1 c -0.7 30.2 20.9 58.4 52.2 64.6 c -9.2 2.5 -19.2 3.1 -29.4 1.1 c 8.3 25.9 32.3 44.7 60.8 45.2 c -27.4 21.4 -61.8 31 -96.4 27 c 28.8 18.5 63 29.2 99.8 29.2 c 120.8 0 189.1 -102.1 185 -193.6 C 399.9 193.1 410.9 181.7 419.6 168.6 Z"></path>
                                     </svg>
                                 </a>

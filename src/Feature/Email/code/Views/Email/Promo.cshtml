@@ -1,5 +1,5 @@
 ﻿@model Sitecore.Mvc.Presentation.RenderingModel
-@using Sitecore.Feature.Email;
+@using Sitecore.Feature.Email;          
 
 <table class="header" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; padding: 0 40px; background:#ffffff;" cellspacing="0" cellpadding="0" border="0">
     <tbody>
@@ -29,13 +29,19 @@
 <table class="header" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; padding: 20px 40px; background-color: #ffffff;" cellspacing="0" cellpadding="0" border="0">
     <tbody>
         <tr>
-            <td>
-               
-                @Html.Sitecore().BeginField(Templates.Promo.Fields.Link.ToString(), Model.Item, new { haschildren = true })
-                    <button style="cursor: pointer; width: 100%; text-align: center; color:#ffffff; background-color: #1b8f9c; padding: 14px; border: none; text-transform: uppercase; font-weight: bold;" type="submit">
-                        @Html.Sitecore().Field(Templates.Promo.Fields.LinkLabel.ToString(), Model.Item)
-                    </button>
-                @Html.Sitecore().EndField()
+            <td>            
+                <table>
+                    <tr>
+                        <td bgcolor="#1b8f9c" style="cursor: pointer; width: 100%; text-align: center; background-color: #1b8f9c; padding: 12px 18px 12px 18px; border: none;" align="center">
+                            
+                            @Html.Sitecore().BeginField(Templates.Promo.Fields.Link.ToString(), Model.Item, new { haschildren = true, style = "text-transform: uppercase; font-weight: bold; color: #ffffff; padding: 14px; text-decoration: none; display: inline-block;" })     
+                                @Html.Sitecore().Field(Templates.Promo.Fields.LinkLabel.ToString(), Model.Item)
+                            @Html.Sitecore().EndField()
+                            &nbsp;
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
                 &nbsp;  
             </td>
         </tr>
