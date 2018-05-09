@@ -97,10 +97,19 @@
     <ProjectReference Include="..\..\..\src\Foundation\DependencyInjection\tds\Sitecore.Foundation.DependencyInjection.Master\Sitecore.Foundation.DependencyInjection.Master.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Foundation\Dictionary\tds\Sitecore.Foundation.Dictionary.Master\Sitecore.Foundation.Dictionary.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\src\Foundation\SitecoreExtensions\tds\Sitecore.Foundation.SitecoreExtensions.Core\Sitecore.Foundation.SitecoreExtensions.Core.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Foundation\SitecoreExtensions\tds\Sitecore.Foundation.SitecoreExtensions.Master\Sitecore.Foundation.SitecoreExtensions.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Foundation\Support\tds\Sitecore.Foundation.Support.Master\Sitecore.Foundation.Support.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Project\Common\tds\Sitecore.Common.Website.Core\Sitecore.Common.Website.Core.scproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Project\Common\tds\Sitecore.Common.Website.Master\Sitecore.Common.Website.Master.scproj">
@@ -125,8 +134,29 @@
       <Parameter>hostname=na.habitathomedemo.com&amp;apiKey=97CC4FC13A814081BF6961A3E2128C5B</Parameter>
       <Order>1</Order>
     </PostDeployAction>
-    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.DeployMarketingDefinitions,Sitecore.Demo.Deployment.Web">          
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.DeployMarketingDefinitions,Sitecore.Demo.Deployment.Web">
       <Order>5</Order>
+    </PostDeployAction>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.CreateUserPostDeployStep,Sitecore.Demo.Deployment.Web">
+      <Order>0</Order>
+    </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.DeployEmailCampaigns,Sitecore.Demo.Deployment.Web">
+      <Parameter>hostname=habitat.dev.local&amp;apiKey=97CC4FC13A814081BF6961A3E2128C5B</Parameter>
+      <Order>1</Order>
+    </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.RebuildIndexPostDeploy,Sitecore.Demo.Deployment.Web">
+      <Parameter>hostname=storefront.dev.local&amp;index=sitecore_core_index</Parameter>
+      <Order>2</Order>
+    </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.RebuildIndexPostDeploy,Sitecore.Demo.Deployment.Web">
+      <Parameter>hostname=storefront.dev.local&amp;index=sitecore_master_index</Parameter>
+      <Order>3</Order>
+    </PostDeployAction>
+    <PostDeployAction Include="Sitecore.Demo.Deployment.Web.PostDeploySteps.RebuildIndexPostDeploy,Sitecore.Demo.Deployment.Web">
+      <Parameter>hostname=storefront.dev.local&amp;index=sitecore_web_index</Parameter>
+      <Order>4</Order>
     </PostDeployAction>
   </ItemGroup>
   <ItemGroup>
@@ -160,11 +190,20 @@
     <BundledProject Include="..\..\..\src\Foundation\DependencyInjection\tds\Sitecore.Foundation.DependencyInjection.Master\Sitecore.Foundation.DependencyInjection.Master.scproj">
       <ProjectId>{784abeed-9f00-4ae6-8cef-5aef3c161e96}</ProjectId>
     </BundledProject>
+    <BundledProject Include="..\..\..\src\Foundation\Dictionary\tds\Sitecore.Foundation.Dictionary.Master\Sitecore.Foundation.Dictionary.Master.scproj">
+      <ProjectId>{8d9b5a43-9f16-4e25-8f6a-7fd239693e46}</ProjectId>
+    </BundledProject>
     <BundledProject Include="..\..\..\src\Foundation\SitecoreExtensions\tds\Sitecore.Foundation.SitecoreExtensions.Core\Sitecore.Foundation.SitecoreExtensions.Core.scproj">
       <ProjectId>{6add8edf-94b9-4a27-8825-c46530a8933b}</ProjectId>
     </BundledProject>
     <BundledProject Include="..\..\..\src\Foundation\SitecoreExtensions\tds\Sitecore.Foundation.SitecoreExtensions.Master\Sitecore.Foundation.SitecoreExtensions.Master.scproj">
       <ProjectId>{9d46f1f1-c227-4d0e-91a6-8228faf88ba3}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\..\..\src\Foundation\Support\tds\Sitecore.Foundation.Support.Master\Sitecore.Foundation.Support.Master.scproj">
+      <ProjectId>{9a03b12e-14b7-4003-b57c-16bc6f812959}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\..\..\src\Project\Common\tds\Sitecore.Common.Website.Core\Sitecore.Common.Website.Core.scproj">
+      <ProjectId>{4c33bf69-482c-43f6-b459-625ed75319f5}</ProjectId>
     </BundledProject>
     <BundledProject Include="..\..\..\src\Project\Common\tds\Sitecore.Common.Website.Master\Sitecore.Common.Website.Master.scproj">
       <ProjectId>{321a2547-ded0-4f12-bd2b-d80cecb7396f}</ProjectId>
