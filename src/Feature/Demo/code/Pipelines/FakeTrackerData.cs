@@ -1,12 +1,12 @@
 ﻿using Sitecore.Analytics.Model;
 
-namespace Sitecore.Feature.Demo.Pipelines
+namespace Sitecore.HabitatHome.Feature.Demo.Pipelines
 {
     using Sitecore.Analytics;
     using Sitecore.Analytics.Pipelines.ParseReferrer;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Feature.Demo.Services;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Feature.Demo.Services;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.Pipelines;
     using System;
     using System.Net;
@@ -21,7 +21,7 @@ namespace Sitecore.Feature.Demo.Pipelines
             this.DemoStateService = demoStateService;
         }
 
-        private string FAKE_TRACKER_DATA = "Sitecore.Feature.Demo.FakeTrackerData";
+        private string FAKE_TRACKER_DATA = "Sitecore.HabitatHome.Feature.Demo.FakeTrackerData";
 
         public void GetFakeTrackerData(PipelineArgs args)
         {

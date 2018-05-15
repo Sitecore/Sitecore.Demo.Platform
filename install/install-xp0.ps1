@@ -286,7 +286,7 @@ function Install-Sitecore {
         Install-SitecoreConfiguration $sitecore.configurationPath `
             -Package $sitecore.packagePath `
             -LicenseFile $assets.licenseFilePath `
-            -SiteName $sitecore.siteName `
+            -SiteName $site.hostName `
             -XConnectCert $xConnect.certificateName `
             -SqlDbPrefix $site.prefix `
             -SolrCorePrefix $site.prefix `
@@ -308,7 +308,7 @@ function Install-Sitecore {
     try {
         #Set web certificate on Sitecore site
         Install-SitecoreConfiguration $sitecore.sslConfigurationPath `
-            -SiteName $sitecore.siteName `
+            -SiteName $site.hostName `
             -WebRoot $site.WebRoot
     }
     catch {
@@ -381,7 +381,7 @@ function Install-OptionalModules {
         Copy-Package -packagePath $module.packagePath -destination "$packageDestination"
         $packageFileName = Split-Path $module.packagePath -Leaf
 
-        $packageInstallerUrl = "https://$($sitecore.siteName)/InstallPackage.aspx?package=/temp/Packages/"
+        $packageInstallerUrl = "https://$($site.habitatHomeHostName)/InstallPackage.aspx?package=/temp/Packages/"
         $url = $packageInstallerUrl + $packageFileName 
         $request = [system.net.WebRequest]::Create($url)
         $request.Timeout = 2400000

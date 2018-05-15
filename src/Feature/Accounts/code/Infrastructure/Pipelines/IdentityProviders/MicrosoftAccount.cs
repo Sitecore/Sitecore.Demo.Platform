@@ -5,7 +5,7 @@ using System.Web;
 using MicrosoftAccountAuthenticationExtensions = Owin.MicrosoftAccountAuthenticationExtensions;
 
 
-namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
+namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
 {
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.MicrosoftAccount;
@@ -36,8 +36,8 @@ namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
             var identityProvider = this.GetIdentityProvider();
             var authenticationType = this.GetAuthenticationType();
                                                                                                              
-            string clientSecret = Settings.GetSetting("Sitecore.Feature.Accounts.Microsoft.ClientSecret");     //todo: move this to site-specific configuration item   
-            string clientId = Settings.GetSetting("Sitecore.Feature.Accounts.Microsoft.ClientId"); //todo: move this to site-specific configuration item        
+            string clientSecret = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.Microsoft.ClientSecret");     //todo: move this to site-specific configuration item   
+            string clientId = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.Microsoft.ClientId"); //todo: move this to site-specific configuration item        
                 
             var options = new MicrosoftAccountAuthenticationOptions
             {                                

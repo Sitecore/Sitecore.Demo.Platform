@@ -1,10 +1,10 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
 {
     using System;
     using Sitecore.Configuration;
     using Sitecore.Data;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.SitecoreExtensions.Services;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Services;
     using Sitecore.Security;
 
     [Service(typeof(IAccountTrackerService))]
@@ -23,8 +23,8 @@
         public static Guid RegistrationFailedPageEventId => Guid.Parse("{D98AAED9-CF5F-41D6-8A6E-109F60F1E950}");
         public static Guid LoginFailedPageEventId => Guid.Parse("{27E67C84-B055-4D57-ADEB-E73DEFCA22A8}");
         public static Guid EditProfilePageEvent => Guid.Parse("{7A2582D2-7270-4E53-8998-3934B84876C3}");
-        public static Guid LoginGoalId => Guid.Parse(Settings.GetSetting("Sitecore.Feature.Accounts.LoginGoalId", "{66722F52-2D13-4DCC-90FC-EA7117CF2298}"));
-        public static Guid RegistrationGoalId => Guid.Parse(Settings.GetSetting("Sitecore.Feature.Accounts.RegistrationGoalId", "{8FFB183B-DA1A-4C74-8F3A-9729E9FCFF6A}"));
+        public static Guid LoginGoalId => Guid.Parse(Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.LoginGoalId", "{66722F52-2D13-4DCC-90FC-EA7117CF2298}"));
+        public static Guid RegistrationGoalId => Guid.Parse(Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.RegistrationGoalId", "{8FFB183B-DA1A-4C74-8F3A-9729E9FCFF6A}"));
 
         public virtual void TrackLoginAndIdentifyContact(string source, string identifier)
         {

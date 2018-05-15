@@ -74,10 +74,11 @@ Write-Host "Installing WPI, Url Rewrite and Web Deploy 3.6"
 $wpiDestination = $([io.path]::combine($downloadFolder, $webPIPackageFileName))
 if (!(Test-Path $wpiDestination)) {
     Start-BitsTransfer -Source $webPIPackageUrl -Destination $wpiDestination
-    . .\assets\WebPlatformInstaller_amd64_en-US.msi
+    Start-Process -FilePath "assets\WebPlatformInstaller_amd64_en-US.msi" -Wait
 }
 set-alias wpi "$env:ProgramFiles\Microsoft\Web Platform Installer\WebpiCmd-x64.exe"
-wpi /install /Products:"UrlRewrite2, WDeploy36NoSMO"  /AcceptEULA
+wpi /install /Products:"UrlRewrite2"  /AcceptEULA
+wpi /install /Products:"WDeploy36NoSMO"  /AcceptEULA
 
 
 $resources = $json.resources

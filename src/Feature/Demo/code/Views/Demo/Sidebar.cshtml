@@ -1,9 +1,9 @@
-﻿@using Sitecore.Foundation.Dictionary.Extensions
-@model Sitecore.Feature.Demo.Models.SidebarModel
+﻿@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
+@model Sitecore.HabitatHome.Feature.Demo.Models.SidebarModel
 
 @if (Model != null)
 {
-<div class="off-canvas-sidebar off-canvas-sidebar-right">
+<div class="off-canvas-sidebar off-canvas-sidebar-right" id="sidebar">             
     <div class="btn-group-vertical hover" role="group">
         <button type="button" class="btn btn-info sidebar-closed" data-toggle="sidebar" title="@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/Open Visit Details Panel", "Open visit details panel")" data-side="right">
             <i class="fa fa-info-circle" aria-hidden="true"></i>

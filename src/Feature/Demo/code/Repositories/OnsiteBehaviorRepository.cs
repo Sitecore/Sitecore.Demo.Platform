@@ -1,9 +1,9 @@
-﻿namespace Sitecore.Feature.Demo.Repositories
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
     using System.Linq;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Feature.Demo.Services;
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Feature.Demo.Services;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
     [Service]
     public class OnsiteBehaviorRepository

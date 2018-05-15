@@ -5,7 +5,7 @@ using Sitecore.Web.UI.HtmlControls;
 using Sitecore.Web.UI.Sheer;
 using Sitecore.Xml;
 
-namespace Sitecore.Foundation.SitecoreExtensions.Controls
+namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Controls
 {
     public class RelativePathForm : LinkForm
     {

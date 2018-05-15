@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Demo
+﻿namespace Sitecore.HabitatHome.Feature.Demo
 {
     using Sitecore.Data;
 

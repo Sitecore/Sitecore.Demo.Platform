@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Demo.Repositories
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
     using System;
     using System.Collections.Generic;
@@ -6,13 +6,14 @@
     using System.Linq;
     using Sitecore.Analytics;
     using Sitecore.Analytics.Model;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;      
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;      
     using Sitecore.Marketing.Definitions;
     using Sitecore.Marketing.Definitions.Outcomes;
     using Sitecore.Marketing.Definitions.Outcomes.Model;
     using Sitecore.Marketing.Taxonomy;
     using Sitecore.Marketing.Taxonomy.Extensions;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
     [Service]
     public class OutcomeRepository
@@ -36,7 +37,7 @@
             var definition = GetOutcomeDefinition(outcomeDefinitionId);
             return new Outcome
             {
-                Title = definition?.Name ?? Globalization.Translate.Text("/Demo/Outcomes/Unknown Outcome", "(Unknown)"),
+                Title = definition?.Name ?? DictionaryPhraseRepository.Current.Get("/Demo/Outcomes/Unknown Outcome", "(Unknown)"),
                 Date = timeStamp,
                 IsCurrentVisit = currentInteraction,
                 OutcomeGroup = this.GetOutcomeGroup(definition)

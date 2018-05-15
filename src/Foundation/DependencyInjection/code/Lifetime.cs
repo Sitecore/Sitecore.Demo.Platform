@@ -1,6 +1,6 @@
 ﻿using System;                  
 
-namespace Sitecore.Foundation.DependencyInjection
+namespace Sitecore.HabitatHome.Foundation.DependencyInjection
 {
     public enum Lifetime
     {

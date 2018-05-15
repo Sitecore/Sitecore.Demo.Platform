@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.Dictionary.Repositories
+﻿namespace Sitecore.HabitatHome.Foundation.Dictionary.Repositories
 {
   using System;
   using System.Linq;
@@ -6,8 +6,8 @@
   using Sitecore.Data;
   using Sitecore.Data.Items;
   using Sitecore.Diagnostics;
-  using Sitecore.Foundation.Dictionary.Models;
-  using Sitecore.Foundation.Dictionary.Services;
+  using Sitecore.HabitatHome.Foundation.Dictionary.Models;
+  using Sitecore.HabitatHome.Foundation.Dictionary.Services;
   using Sitecore.SecurityModel;
 
   public class DictionaryPhraseRepository : IDictionaryPhraseRepository

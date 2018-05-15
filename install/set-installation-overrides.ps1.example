@@ -28,9 +28,13 @@ $site.suffix = "dev.local"
 $site.webroot = "C:\inetpub\wwwroot"
 $site.hostName = $json.settings.site.prefix + "." + $json.settings.site.suffix
 $site.habitatHomePrefix = $json.settings.site.prefix + "home"
-$site.habitatHomeHostName = $json.settings.habitatHomePrefix + "." + $json.settings.site.suffix
+$site.habitatHomeHostName = $site.habitatHomePrefix + "." + $json.settings.site.suffix
 $site.habitatHomeSslCertificateName = $site.HabitatHomeHostName
 $json.settings.site = $site
+
+$sitecore = $json.settings.sitecore
+$sitecore.siteRoot = Join-Path $site.webRoot -ChildPath $site.hostName
+$json.settings.sitecore = $sitecore
 
 # Solr Parameters
 $solr = $json.settings.solr
@@ -57,6 +61,5 @@ $xConnect.sqlCollectionUser = $site.prefix + "collectionuser"
 $xConnect.sqlCollectionPassword = "Test12345"
 
 $json.settings.xConnect = $xConnect
-
 
 Set-Content $configurationFile  (ConvertTo-Json -InputObject $json -Depth 3)

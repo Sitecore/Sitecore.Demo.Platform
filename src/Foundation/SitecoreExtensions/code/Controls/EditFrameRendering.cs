@@ -1,10 +1,10 @@
-﻿namespace Sitecore.Foundation.SitecoreExtensions.Controls
+﻿namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Controls
 {
   using System;
   using System.IO;
   using System.Web.UI;
   using Sitecore.Web.UI.WebControls;
-  using Sitecore.Foundation.SitecoreExtensions.Extensions;
+  using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
 
   /// <summary>
   ///   Edit frame class.

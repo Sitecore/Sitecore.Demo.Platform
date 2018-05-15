@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.Accounts.Models
+﻿namespace Sitecore.HabitatHome.Foundation.Accounts.Models
 {
     public class ContactFacetData 
     {

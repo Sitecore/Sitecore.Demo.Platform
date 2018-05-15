@@ -1,7 +1,7 @@
-﻿using Sitecore.Foundation.Dictionary.Models;
+﻿using Sitecore.HabitatHome.Foundation.Dictionary.Models;
 using Sitecore.Sites;
 
-namespace Sitecore.Foundation.Dictionary.Repositories
+namespace Sitecore.HabitatHome.Foundation.Dictionary.Repositories
 {
   public interface IDictionaryRepository
   {

@@ -1,6 +1,6 @@
 ﻿using Sitecore.Data.Items;
 
-namespace Sitecore.Foundation.Dictionary.Repositories
+namespace Sitecore.HabitatHome.Foundation.Dictionary.Repositories
 {
   public interface IDictionaryPhraseRepository
   {

@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Accounts.Models
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Models
 {
   public class LoginResult
   {

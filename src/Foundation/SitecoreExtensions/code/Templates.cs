@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.SitecoreExtensions
+﻿namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions
 {
     using Sitecore.Data;
 

@@ -17,10 +17,47 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}" />
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        <r
+          ds="{8B41605D-97C2-40B8-8F31-0EC056BF4681}"
+          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={5A7C9BE2-A782-4CE7-B9C5-8BABA80D5315}&amp;Styles={3D999B16-D69D-4B5D-AC03-77987905060F}&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=13"
+          ph="/main/container-1/container-15"
+          uid="{C7EAA53F-8C19-48D8-8BEE-725FA5494313}" />
+        <r
+          ds="local:/Data/Introduction to Habitat"
+          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;FieldNames={5A7C9BE2-A782-4CE7-B9C5-8BABA80D5315}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=14"
+          ph="/main/container-1"
+          uid="{D8A5D917-6257-4E64-AB02-8B49D73FA62F}" />
+        <r
+          ds="local:/Data/Getting Started"
+          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={47C7F172-920A-444A-AB75-8F3B7D4CB28E}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=16"
+          ph="/main/container-1"
+          uid="{D352FEBA-7FFE-4A10-A5F8-81315C9559CB}" />
+        <r
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="GridParameters&amp;BackgroundImage&amp;Styles={65D8C8D3-730D-4F94-9730-2BE527E66A6C}|{3D999B16-D69D-4B5D-AC03-77987905060F}|{9CB76B6C-2B77-4728-8508-CF7041C7B69C}&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=15"
+          ph="/main/container-1"
+          uid="{FF6845B8-1495-4488-80E0-0D81952C7717}" />
+        <r
+          ds="local:/Data/Carousel"
+          id="{5A21C781-8E74-4DD0-8261-8CCDA1BF0454}"
+          par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles={D62E2B0C-5497-4A20-9A39-9A9D053BCBA1}&amp;Navigation={848DFE42-2B13-430E-A0B9-89CE25730A06}&amp;Transition={D4B706CC-7EEC-4DB9-A87D-123B29803490}&amp;Timeout=2000&amp;PauseOnHover=1&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="main"
+          uid="{BACC5158-2E6E-4D1A-9223-361EAC3F5019}" />
+        <r
+          ds=""
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;BackgroundImage&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="main"
+          uid="{2E630D78-A668-433C-85B2-28AC2A1726B5}" />
+      </d>
     </r>
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator

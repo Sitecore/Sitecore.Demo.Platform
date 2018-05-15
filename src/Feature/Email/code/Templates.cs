@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Sitecore.Feature.Email
+namespace Sitecore.HabitatHome.Feature.Email
 {
     public struct Templates
     {

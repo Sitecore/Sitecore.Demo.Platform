@@ -1,6 +1,6 @@
 ﻿using Sitecore.Data;     
 
-namespace Sitecore.Feature.Forms
+namespace Sitecore.HabitatHome.Feature.Forms
 {
     public struct Templates
     {

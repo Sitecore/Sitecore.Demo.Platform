@@ -1,8 +1,8 @@
-﻿@using Sitecore.Feature.Accounts
-@using Sitecore.Feature.Accounts.Services
-@using Sitecore.Foundation.Dictionary.Extensions
-@using Sitecore.Foundation.SitecoreExtensions.Extensions
-@model Sitecore.Feature.Accounts.Models.LoginInfo
+﻿@using Sitecore.HabitatHome.Feature.Accounts
+@using Sitecore.HabitatHome.Feature.Accounts.Services
+@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@model Sitecore.HabitatHome.Feature.Accounts.Models.LoginInfo
 <div class="login-body">
     @Html.ValidationMessage("invalidCredentials", new {@class = "alert alert-danger"}, "div")
     <div class="form-group @Html.ValidationErrorFor(x => x.Email, "has-error")">

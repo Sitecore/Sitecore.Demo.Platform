@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Accounts.Attributes
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Attributes
 {
   using System;
   using System.ComponentModel.DataAnnotations;

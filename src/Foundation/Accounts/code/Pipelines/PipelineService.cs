@@ -1,7 +1,7 @@
-﻿namespace Sitecore.Foundation.Accounts.Pipelines
+﻿namespace Sitecore.HabitatHome.Foundation.Accounts.Pipelines
 {
     using Sitecore.Analytics;
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
     using Sitecore.Pipelines;
     using Sitecore.Security.Accounts;
 

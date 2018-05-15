@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Sitecore.Foundation.SitecoreExtensions.Extensions
+namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
 {
     using System;
     using Sitecore;

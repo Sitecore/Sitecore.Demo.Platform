@@ -1,8 +1,8 @@
-﻿namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines
 {
-    using Sitecore.Feature.Accounts.Services;
-    using Sitecore.Foundation.Accounts.Pipelines;
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Feature.Accounts.Services;
+    using Sitecore.HabitatHome.Foundation.Accounts.Pipelines;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
     public class TrackRegistered
     {

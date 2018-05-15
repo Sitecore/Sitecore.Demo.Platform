@@ -1,4 +1,4 @@
-namespace Sitecore.Foundation.Accounts.Pipelines
+namespace Sitecore.HabitatHome.Foundation.Accounts.Pipelines
 {
     using System;
 

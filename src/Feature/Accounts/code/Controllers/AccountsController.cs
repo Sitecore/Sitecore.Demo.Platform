@@ -1,19 +1,19 @@
-﻿namespace Sitecore.Feature.Accounts.Controllers
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 {
     using System;
     using System.Linq;
     using System.Web.Mvc;
     using System.Web.Security;
     using Sitecore.Diagnostics;
-    using Sitecore.Feature.Accounts.Attributes;
-    using Sitecore.Feature.Accounts.Models;
-    using Sitecore.Feature.Accounts.Repositories;
-    using Sitecore.Feature.Accounts.Services;
-    using Sitecore.Foundation.Alerts.Extensions;
-    using Sitecore.Foundation.Alerts.Models;
-    using Sitecore.Foundation.Dictionary.Repositories;
-    using Sitecore.Foundation.SitecoreExtensions.Attributes;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.HabitatHome.Feature.Accounts.Attributes;
+    using Sitecore.HabitatHome.Feature.Accounts.Models;
+    using Sitecore.HabitatHome.Feature.Accounts.Repositories;
+    using Sitecore.HabitatHome.Feature.Accounts.Services;
+    using Sitecore.HabitatHome.Foundation.Alerts.Extensions;
+    using Sitecore.HabitatHome.Foundation.Alerts.Models;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Attributes;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.Data.Fields;
 
     public class AccountsController : Controller
@@ -73,8 +73,7 @@
 
             return new LoginInfo
             {
-                ReturnUrl = returnUrl ?? link.TargetItem.Url(),
-                LoginButtons = this.FedAuthLoginRepository.GetAll()
+                ReturnUrl = returnUrl ?? link.TargetItem.Url()
             };
         }
 
@@ -311,6 +310,16 @@
 
                 return this.View(changePasswordInfo);
             }
+        }
+
+        public ActionResult FedAuth()
+        {
+            var model = new FedAuthLoginInfo()
+            {
+                LoginButtons = this.FedAuthLoginRepository.GetAll()
+            };
+
+            return this.View(model);
         }
     }
 }

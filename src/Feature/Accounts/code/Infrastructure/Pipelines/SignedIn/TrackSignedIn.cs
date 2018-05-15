@@ -1,8 +1,8 @@
-﻿namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines.SignedIn
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.SignedIn
 {
     using System.Security.Claims;
     using Sitecore.Analytics;
-    using Sitecore.Feature.Accounts.Services;
+    using Sitecore.HabitatHome.Feature.Accounts.Services;
     using Sitecore.Owin.Authentication.Configuration;
     using Sitecore.Owin.Authentication.Pipelines.CookieAuthentication.SignedIn;
 

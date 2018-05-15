@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.Accounts.Providers
+﻿namespace Sitecore.HabitatHome.Foundation.Accounts.Providers
 {
     using Sitecore.Analytics.Tracking;
     using Sitecore.XConnect.Collection.Model;
@@ -6,7 +6,7 @@
     public interface IContactFacetsProvider
     {
         Contact Contact { get; }
-        XConnect.Collection.Model.KeyBehaviorCache KeyBehaviorCache { get; }
+        XConnect.Collection.Model.Cache.InteractionsCache InteractionsCache { get; }
         PersonalInformation PersonalInfo { get; }
         AddressList Addresses { get; }
         EmailAddressList Emails { get; }
