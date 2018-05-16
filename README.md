@@ -1,51 +1,57 @@
 # Introduction 
 Habitat and the tools and processes in it is a Sitecore solution example built using Sitecore Experience Accelerator (SXA) following the Helix architecture principles.
 
+# Important Notice
+
+### License
+Please read the LICENSE carefully prior to using the code in this repository
+ 
+### Support
+
+The code, samples and/or solutions provided in this repository are ***unsupported by Sitecore PSS***. Support is provided on a best-effort basis via GitHub issues or Slack #demo-sites (see end of README for additional information).
+
+It is assumed that you already have a working instance of Sitecore XP and all prerequisites prior to installing the demo. Support for **product installation** issues should be directed to relevant Community channels or through regular Sitecore support channels. 
+
+### Warranty
+
+The code, samples and/or solutions provided in this repository are for example purposes only and **without warranty (expressed or implied)**. The code has not been extensively tested and is not guaranteed to be bug free.  
+
 # Getting Started
 
 ## Prerequisites
-The list of software / utilities is required as part of the install
- 
 
-### Windows Server 2016
-*IF* you’re running a brand new instance of Windows Server 2016, you can download [features.xml](https://sitecore.box.com/s/365l8988xkr95i0i02funszvuf9him0y) to the machine and then run a script to install the features listed.
+### Sitecore Version
 
-*The following will make the Windows Server 2016 Features “parity” to the generated features.xml.*
-
-**Using PowerShell as Administrator:**
-`Import-Module ServerManager`
-`Import-CliXml <path-to-features.xml> | Install-WindowsFeature`
-
-### Software required
-
-- [MS Build for Visual Studio 2017 with .NET core, .NET 4.6.2 and 4.7.1](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
-- [7Zip, Chrome and Notepad++](https://ninite.com/7zip-chrome-notepadplusplus/) **
-- [Git for Windows](https://github.com/git-for-windows/git/releases/download/v2.16.2.windows.1/Git-2.16.2-64-bit.exe)
-- Java (JRE) 8 U151 from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html "Oracle Download Archive")
-		- The file itself is called **jre-8u151-windows-x64.exe** (CTRL+F to find it quickly)
-		- need a free Oracle account
-	- Add Java bin folder to path
-- [NodeJS](https://nodejs.org/dist/v8.10.0/node-v8.10.0-x64.msi) 
-- VC++ 2015 Redistributable <a href="https://www.microsoft.com/en-us/download/details.aspx?id=53587&irgwc=1&OCID=AID681541_aff_7593_1211691&tduid=(ir_zTS3WeQr7Vf8xSI0HYRvRUkFUkj1QD24eQ9uTU0)(7593(1211691)(TnL5HPStwNw-plWV.mlI6FL23fFCV8WYiQ)(ir)&clickid=zTS3WeQr7Vf8xSI0HYRvRUkFUkj1QD24eQ9uTU0&ircid=7593">here</a>
+Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.0.1** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/90/Sitecore_Experience_Platform_90_Update1.aspx).
 
 
-Restart-Computer once you have installed Java and NodeJS 
 
-** You can click [here: Ninite.com](https://ninite.com/7zip-chrome-notepadplusplus/) to install 7Zip, Chrome and Notepad all at once.
+### Additional modules
+In addition to a base XP 9.0.1 installation, the following modules are required:
 
-## Custom install - before you start
+- Sitecore PowerShell Extensions 4.7.2 for Sitecore 8/9 on [Marketplace](https://marketplace.sitecore.net/services/~/download/3D2CADDAB4A34CEFB1CFD3DD86D198D5.ashx?data=Sitecore%20PowerShell%20Extensions-4.7.2%20for%20Sitecore%208&itemId=6aaea046-83af-4ef1-ab91-87f5f9c1aa57)
+- Sitecore Experience Accelerator for 9.0 versio n1.6 on [dev.sitecore.com](https://dev.sitecore.net/en/Downloads/Sitecore_Experience_Accelerator/16/Sitecore_Experience_Accelerator_16_Initial_Release.aspx)
+- Data Exchange Framework v2.0.1 on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Data_Exchange_Framework/2x/Data_Exchange_Framework_201.aspx) as well as relevant Providers on same page
+	- Sitecore Provider for Data Exchange Framework 2.0.1
+	- SQL Provider for Data Exchange Framework 2.0.1
+	- xConnect Provider for Data Exchange Framework 2.0.1 
+- Data Exchange Framework 2.0.1 Dynamics Connectors on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Dynamics_CRM_Connect/2x/Sitecore_Connect_for_Microsoft_Dynamics_365_for_Sales_201.aspx)
+	- Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1
+	- Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1
 
+
+### Custom install - before you start
 
 The following is a list of default values / assumptions for install locations
 
-**Habitat Project location**		`c:\projects\sitecore.habitat\`
-**Habitat Site domain**				`habitat.dev.local`
+**Project location**		`c:\projects\sitecore.habitathome.content\`
+**Habitat Site domain**				`habitathome.dev.local`
 **Web Root**						`c:\inetpub\wwwroot`
 **Host Suffix**						`dev.local`
 
--- the wildcard host name *home.dev.local is used in the SXA Host Name (Site Grouping). 
+#### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
 
-If you do not use *home.dev.local you will need to modify the Host Name in 
+If you do not use habitathome.dev.local you will need to modify the Host Name in 
 `/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
 The Habitat Home site will not respond / render correctly until this value is modified. 
 
@@ -56,7 +62,6 @@ Create a user version of the following files
 **Sitecore.HabitatHome.Content**
 `/gulp-config.user.js` 
 `/publishsettings.targets.user` 
-`/TDSGlobal.config.user` (only if using TDS)
 `src\Project\Common\code\App_Config\Include\Project\z.Common.Website.DevSettings.user.config`
 
 
@@ -65,7 +70,6 @@ Create a user version of the following files
 All installation instructions assume using PowerShell 5.1 in administrative mode.
 
 ### 1 Clone this repository
-Clone the Sitecore.Habitat repository locally - defaults are configured for **C:\Projects\Sitecore.HabitatHome**. 
 
 #### Setting Git for Long Paths
 
@@ -73,9 +77,12 @@ Clone the Sitecore.Habitat repository locally - defaults are configured for **C:
 
 `git config --system core.longpaths true`
 
+Clone the Sitecore.HabitatHome.Content repository locally - defaults are configured for **C:\Projects\Sitecore.HabitatHome.Content**. 
+
+
 - Clone 
--- **https**:	`git clone https://sitecoredst.visualstudio.com/Demo/_git/Sitecore.HabitatHome.Content` 
--- **ssh**:		`git clone ssh://sitecoredst@vs-ssh.visualstudio.com:22/Demo/_ssh/Sitecore.HabitatHome.Content`
+-- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Content.git` 
+-- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Content.git`
 
 > #### Required if cloning to a folder **different than c:\projects**:
 > 
@@ -83,62 +90,20 @@ Clone the Sitecore.Habitat repository locally - defaults are configured for **C:
 > 
 > **Change DevSettings:**
 
-> Make a copy of `\src\Project\Common\code\App_Config\Include\Project\z.Common.Website.DevSettings.config` and call it z.Common.Website.DevSettings.**user**.config
->  
-> **DO NOT modify the existing configuration file**
-
-
-### 2 Acquire packages
-From the install directory
-
-Execute **`.\get-latest-sitecore.ps1`**
-
-### 3 Install Solr
-
-From the install\solr directory, review and modify the install-solr.ps1 file as required
-Execute **`install-solr.ps1`**
-
-
-> Although it doesn't always happen, if you encounter an issue where **keytool cannot be found**, restart your computer.
- 
-### 4 Set up Installation Configuration file
-- Copy `set-installation-overrides.ps1.example` to `set-installation-overrides.ps1` and modify to match your environment 
-- Ensure you **set the location of the license file** 
-- Ensure the **solr details** in the overrides file **match your solr installation details**
-- Execute **`.\set-installation-defaults.ps1`**
-- Execute **`.\set-installation-overrides.ps1`** (modified from above)
-
-At this point you should have a **`configuration-xp0.json`** file. Review the file for correctness.
-
-### 5 Install Sitecore
-
-- Run **`.\install-xp0.ps1`**
-- This will install all required modules including SPE, SXA and Data Exchange Framework-related modules
-
-> The installation process takes a long time, please ensure you do not inadvertently click on the PowerShell window to make it go into **"Select" mode** (the word 'Select' appears in the PowerShell Window's title bar). If the window is in Select mode it **will not update** and will **prevent new steps from being executed**. 
-> 
-> To exit Select mode simply press Enter from inside the PowerShell window. **Clicking on the PowerShell window is what triggers the Select mode.**
-
-### 6 Give the application pool user permission to your webroot 
-Browse to the root of the IIS (by default c:\inetpub\wwwroot) and give the Application Pool user read/write permissions.
-Using Windows Explorer, navigate to c:\inetpub\wwwroot and in the Windows Security dialog, add IIS APPPOOL\habitat.dev.local (if that's the name of you application pool)
-
-### 7 Deploy Sitecore.HabitatHome
+### 3 Deploy Sitecore.HabitatHome.Content
 
 From the root directory of the solution
 - Run **`npm install`**
-- Run **`.\node_modules\.bin\gulp`** 
+- Run **`.\node_modules\.bin\gulp initial`** 
+> gulp **initial** only needs to be executed successfully during the initial deployment. Subsequent deployments can be made by running the default gulp task (gulp with no parameters). 
 
 > An error (maxBuffer) sometimes occurs the first time running gulp during Sync-Unicorn. 
 > Running gulp a second time resolves the issue (and doesn't take as long)
 
-### 9 Rebuild indexes
+### 4 Rebuild indexes
 Once you've confirmed the site has come up, please rebuild the master index.
 
-# Failed installation
-
-If you have a failed installation and need to clean up your deployment, you can execute the `uninstall-xp0.ps1` located in the install directory.
-
 # Contribute or Issues
-Please post on Microsoft Teams:  **Teams - Sitecore Demo** if you would like contributor access to the repo or if you encounter any issues
+Please post any issues on Slack Community #demo-sites channel or create an issue in GitHub. Contributions are welcome in the form of a pull request.
+
 
