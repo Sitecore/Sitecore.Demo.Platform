@@ -100,6 +100,4 @@ if you are only installing this demo:
 
 
 # Contribute or Issues
-Please post any issues on Slack Community [#demo-sites channel](https://sitecorechat.slack.com/messages/habitathome/) or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Content/issues). Contributions are always welcome!
-
-
+Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Content/issues). Contributions are always welcome!
