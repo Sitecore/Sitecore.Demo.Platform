@@ -1,7 +1,7 @@
-﻿namespace Sitecore.Feature.Demo.Services
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Services
 {
     using Sitecore.Configuration;
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
     using System;
     using System.Web;
 

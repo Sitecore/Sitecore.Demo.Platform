@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sitecore.Feature.Forms.SubmitActions
+namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
 {
     public class AssignPatternActionData
     {

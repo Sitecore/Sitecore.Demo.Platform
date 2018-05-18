@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines
 {
     using System.Web.Mvc;
     using System.Web.Routing;

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Sitecore.Feature.Accounts.Attributes;
-using Sitecore.Foundation.Dictionary.Repositories;
+using Sitecore.HabitatHome.Feature.Accounts.Attributes;
+using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
-namespace Sitecore.Feature.Accounts.Models
+namespace Sitecore.HabitatHome.Feature.Accounts.Models
 {                                                             
     public class LoginInfo
     {

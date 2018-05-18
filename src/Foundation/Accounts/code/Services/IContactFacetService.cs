@@ -1,6 +1,6 @@
-﻿using Sitecore.Foundation.Accounts.Models;                  
+﻿using Sitecore.HabitatHome.Foundation.Accounts.Models;                  
 
-namespace Sitecore.Foundation.Accounts.Services
+namespace Sitecore.HabitatHome.Foundation.Accounts.Services
 {
     public interface IContactFacetService
     {

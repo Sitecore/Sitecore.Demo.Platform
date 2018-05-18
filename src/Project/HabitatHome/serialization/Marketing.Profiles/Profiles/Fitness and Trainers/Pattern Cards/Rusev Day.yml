@@ -1,0 +1,31 @@
+﻿---
+ID: "b762a1f5-06ed-4b42-b768-ff536441bea7"
+Parent: "f5f5daf0-74b1-4220-95dc-0f48f5db9950"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/Fitness and Trainers/Pattern Cards/Rusev Day
+DB: master
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="2a7fc1aa-5734-42d1-82a5-63683208c3f4" name="Fitness and Trainers">
+        <key name="Cardio" value="0" />
+        <key name="High Intensity" value="10" />
+        <key name="Weight" value="10" />
+        <key name="Workout Length" value="3" />
+        <key name="Yoga" value="2" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Rusev Day
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180320T163105Z

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;       
 
-namespace Sitecore.Feature.Accounts.Models
+namespace Sitecore.HabitatHome.Feature.Accounts.Models
 {
     public class FedAuthLoginInfo
     {

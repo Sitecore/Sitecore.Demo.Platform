@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
-using Sitecore.Foundation.Accounts.Models;
-using Sitecore.Foundation.DependencyInjection;
+using Sitecore.HabitatHome.Foundation.Accounts.Models;
+using Sitecore.HabitatHome.Foundation.DependencyInjection;
 using Sitecore.Analytics;
 using Sitecore.Analytics.Model;
 using Sitecore.Analytics.Tracking;
-using Sitecore.Foundation.Accounts.Providers;
+using Sitecore.HabitatHome.Foundation.Accounts.Providers;
 using Sitecore.Configuration;
 using Sitecore.XConnect;
 using Sitecore.XConnect.Client.Configuration;
@@ -14,7 +14,7 @@ using Sitecore.XConnect.Client;
 using Sitecore.Diagnostics;
 using System.Net;
 
-namespace Sitecore.Foundation.Accounts.Services
+namespace Sitecore.HabitatHome.Foundation.Accounts.Services
 {
     [Service(typeof(IContactFacetService))]
     public class ContactFacetService : IContactFacetService

@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Demo.Models
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Models
 {
   public enum ProfilingTypes
   {

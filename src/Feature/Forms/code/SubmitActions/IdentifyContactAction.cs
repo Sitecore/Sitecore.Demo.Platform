@@ -6,16 +6,16 @@ using Sitecore.Diagnostics;
 using Sitecore.ExperienceForms.Models;
 using Sitecore.ExperienceForms.Processing;
 using Sitecore.ExperienceForms.SubmitActions;
-using Sitecore.Feature.Forms.SubmitActions.Models;
-using Sitecore.Foundation.Accounts.Models;
-using Sitecore.Foundation.Accounts.Services;
-using Sitecore.Foundation.SitecoreExtensions.Extensions;
-using Sitecore.Foundation.SitecoreExtensions.Services;
+using Sitecore.HabitatHome.Feature.Forms.SubmitActions.Models;
+using Sitecore.HabitatHome.Foundation.Accounts.Models;
+using Sitecore.HabitatHome.Foundation.Accounts.Services;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Services;
 using Sitecore.SecurityModel;
 using System;
 using System.Linq;
 
-namespace Sitecore.Feature.Forms.SubmitActions
+namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
 {
     public class IdentifyContactAction : AnalyticsActionBase<IdentifyContactActionData>
     {

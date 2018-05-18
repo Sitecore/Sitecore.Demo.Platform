@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Sitecore.ExperienceForms.Models;
 using System;
 
-namespace Sitecore.Feature.Forms.SubmitActions
+namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
 {
     internal static class FormFieldExtensions
     {

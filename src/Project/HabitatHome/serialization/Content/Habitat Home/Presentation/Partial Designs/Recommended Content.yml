@@ -1,0 +1,546 @@
+﻿---
+ID: "46c0e033-fcda-4c84-910b-bd10312b69e1"
+Parent: "6873bf89-86a2-4afd-b231-570bb70c4bd8"
+Template: "eaffc9f9-3684-4650-92f4-78560bed789b"
+Path: /sitecore/content/Habitat Sites/Habitat Home/Presentation/Partial Designs/Recommended Content
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "recommended-content"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 700
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{66E35911-B159-4A47-971B-499955E1BA82}"
+          p:before="*"
+          s:ds=""
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="SplitterSize=1&amp;EnabledPlaceholders=1&amp;Styles1=%7B3D26DFDA-4EA6-4F08-B9FC-33D4C5475DFD%7D&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;ColumnWidth2=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;DynamicPlaceholderId=2"
+          s:ph="/main/container-2/row-1-1" />
+        <r
+          uid="{93F3C09E-2385-4658-A2CA-ACFEEC8D92E2}"
+          p:after="r[@uid='{66E35911-B159-4A47-971B-499955E1BA82}']"
+          s:ds=""
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="SplitterSize=3&amp;EnabledPlaceholders=1%2C2%2C3&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7B4D4B771B-9954-430E-AEE1-E76C54BD50C3%7D&amp;ColumnWidth2=%7B4D4B771B-9954-430E-AEE1-E76C54BD50C3%7D&amp;ColumnWidth3=%7B4D4B771B-9954-430E-AEE1-E76C54BD50C3%7D&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;DynamicPlaceholderId=1"
+          s:ph="/main/container-2/row-2-1" />
+        <r
+          uid="{64AAFCEC-C09E-4C22-9014-4B0392BF65AA}"
+          p:after="r[@uid='{93F3C09E-2385-4658-A2CA-ACFEEC8D92E2}']"
+          s:ds="local:/Data/Sam Smarts/Smart Home Promo 3"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/container-2/row-2-1/column-3-1">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{4A57CB2A-06B1-4B73-A698-F48D9982E0E3}"
+                s:name="Sam Smarts">
+                <conditions>
+                  <or
+                    uid="EE17A57026FF4603BE8AAF07E5FF9538">
+                    <condition
+                      uid="9C0A7180BEF9471091862E87A311E252"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                    <condition
+                      uid="1BBCDFFE3F6B446DBB0CBA8F8726A0FB"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                  </or>
+                </conditions>
+                <actions />
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="A3584BD351C84E6B8E43A1B94F6EB4AB"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="35129DAC56C0408581D0E35EC9D80855"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{500DD560-F86E-413B-8517-AEDA522307B1}" />
+                  <action
+                    uid="506C63D6DBCB414BAFE9046FB53349AB"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{16CEF2F2-7B5B-47F8-B897-24EC27CD0903}"
+          p:after="r[@uid='{64AAFCEC-C09E-4C22-9014-4B0392BF65AA}']"
+          s:ds="local:/Data/Sam Smarts/Smart Home Promo 2"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/container-2/row-2-1/column-2-1">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{C1494AED-C6F6-4CFD-9474-7991D9A3151C}"
+                s:name="Sam Smarts">
+                <conditions>
+                  <or
+                    uid="95900FEBE67B4FF899CA416A46954353">
+                    <condition
+                      uid="59EF142F1DCD40AA99A7BF79601355B0"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                    <condition
+                      uid="20640D0779AC4D2B8DFF27C9DB0C8754"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                  </or>
+                </conditions>
+                <actions />
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="D0094957F10543F7A9F96B0ABEF71EF2"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="4C753112AB8344C898368E8F56E17870"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Default/Demo Promo 2" />
+                  <action
+                    uid="EF31B1A32CCA4C1A8EE9F608B3996244"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{551BF052-547A-471D-BF4E-1A75BC7B0532}"
+          p:after="r[@uid='{16CEF2F2-7B5B-47F8-B897-24EC27CD0903}']"
+          s:ds="local:/Data/Sam Smarts/Smart Home Promo 1"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/container-2/row-2-1/column-1-1">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{7EAFF3A1-C289-44B6-9614-D99A537839C5}"
+                s:name="Sam Smarts">
+                <conditions>
+                  <or
+                    uid="831483CED9544A1794B1F77913D0F738">
+                    <condition
+                      uid="2206234B7C2A4080B158E3C68301A7C0"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                    <condition
+                      uid="A07C80C4B45846E6990CBEB350338871"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                  </or>
+                </conditions>
+                <actions />
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="776DB6782F8F4F789ED442C8BFD7D877"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="399F5DEB41194DD7AF785649B3D60816"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Demo Promo 1" />
+                  <action
+                    uid="E4C2C861F9FA4DA4AF05CEEFD388DBD8"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{986DCD32-A3E8-4EBF-A2CF-10A89EA31522}"
+          p:after="r[@uid='{551BF052-547A-471D-BF4E-1A75BC7B0532}']"
+          s:ds="local:/Data/Sam Smarts/Sam Smarts Text"
+          s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7B4860C1F4-5027-4A56-97A7-035D7B4F6A0C%7D&amp;Styles=%7B88DB8F11-5012-410D-AD5D-BB5AF0E4E565%7D&amp;RenderingIdentifier"
+          s:ph="/main/container-2/row-1-1/column-1-2">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{40E0DC21-C02E-48CD-9075-2BE7544B1E6F}"
+                s:name="Sam Smarts">
+                <conditions>
+                  <or
+                    uid="C230D26898E64411ACA16DDEBBF1D80F">
+                    <condition
+                      uid="E9430FC8732C4848BFFE04FBCBC3FBB1"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                    <condition
+                      uid="414F7B00922E4FFD85659564A5BE04A9"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                  </or>
+                </conditions>
+                <actions />
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="427B0D8369B143B4ACC2043DC60D2A86"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="228C947D030C4D669A578AD7715B38B8"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Default/Title" />
+                  <action
+                    uid="AB66E6011139407284D528E10DF8A474"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{90E82BC6-01EB-435F-AF44-FEE83E5EC738}"
+          p:after="r[@uid='{986DCD32-A3E8-4EBF-A2CF-10A89EA31522}']"
+          s:ds="local:/Data/Start Over Link"
+          s:id="{3972C278-7E7A-4C2B-A293-66AF860F5C3A}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BFC96A8E0-CED2-4B3D-9653-E7E3F0D9144E%7D&amp;Styles&amp;RenderingIdentifier"
+          s:ph="/main/container-2/row-1-1/column-1-2" />
+        <r
+          uid="{581EA596-F7F2-477E-A6AD-A80C187A96C2}"
+          p:after="r[@uid='{90E82BC6-01EB-435F-AF44-FEE83E5EC738}']"
+          s:ds=""
+          s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1"
+          s:ph="/main/container-2" />
+        <r
+          uid="{0301406E-DD77-424D-9DB6-86E142533C4C}"
+          p:after="r[@uid='{581EA596-F7F2-477E-A6AD-A80C187A96C2}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="main" />
+        <r
+          uid="{10FF14AF-65D8-43F8-9A6E-8E3FC7B2BA53}"
+          p:after="r[@uid='{0301406E-DD77-424D-9DB6-86E142533C4C}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7B1E34DFC6-3B3F-4AC0-AC85-6B8F577C6587%7D%7C%7B0186BC56-3141-43D6-BDA0-B595C3A79BF0%7D&amp;BackgroundImage&amp;Styles=%7BFAD080DD-BF2E-423A-BE8F-9A99F0EFE18A%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="main" />
+        <r
+          uid="{69999CBF-8641-43C0-B4B2-DB4630DD933C}"
+          p:after="r[@uid='{10FF14AF-65D8-43F8-9A6E-8E3FC7B2BA53}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="main" />
+        <r
+          uid="{95839D4D-AD8B-4FDD-B948-67AE4648B95E}"
+          p:after="r[@uid='{69999CBF-8641-43C0-B4B2-DB4630DD933C}']"
+          s:ds="local:/Data/Default/Demo Promo 3"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId"
+          s:ph="/main/container-2/row-2-1/column-3-1">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{986CAA83-89BF-4B7D-A44C-4101589483EA}"
+                s:name="Sam Smarts">
+                <conditions>
+                  <or
+                    uid="2785659B7D2243E1A83881DBB82FAFE4">
+                    <condition
+                      uid="7EDA0E388112496DB3EC9A7EE9EFF2B3"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                    <condition
+                      uid="AD6AE51EF8E240088BF2476187195F3B"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="58A58F09D8AA4C46953FBCE5FBE49D11"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="69A6CBC73FBD49C6926B7FE32B9DFCE2"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{EE7399F5-09FD-4F8F-95A4-9C2B33F1BCC6}"
+          p:after="r[@uid='{95839D4D-AD8B-4FDD-B948-67AE4648B95E}']"
+          s:ds="local:/Data/Default/Demo Promo 2"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId"
+          s:ph="/main/container-2/row-2-1/column-2-1">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{469CC8F5-640C-489B-B6F6-4416223CF35A}"
+                s:name="Sam Smarts">
+                <conditions>
+                  <or
+                    uid="89198E8F6C46490E9FD353123F3C7DF7">
+                    <condition
+                      uid="9A9C9DF63B214E8180AE122121D3E0AD"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                    <condition
+                      uid="6BF2B2B36AFF4BE6AD10A34A0F22A2D8"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="6D6FA19BA2434E8C958B1F335FF38A3C"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="2768D38674C44BE4B8CC4CC954A58950"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{E46E5BC9-33D5-4577-A56B-B46A6D810556}"
+          p:after="r[@uid='{EE7399F5-09FD-4F8F-95A4-9C2B33F1BCC6}']"
+          s:ds="local:/Data/Default/Demo Promo 1"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId"
+          s:ph="/main/container-2/row-2-1/column-1-1">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{863B04FA-F08C-4972-88A4-6A86F7731B02}"
+                s:name="Sam Smarts">
+                <conditions>
+                  <or
+                    uid="5865962BA67C404D911C9F6BB096EF3E">
+                    <condition
+                      uid="B172D17DC2034C33A3693C57CFFCEEB0"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                    <condition
+                      uid="D81F1559B15F410EB250EF615F9C834E"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="CEF82625948C4454A4C1D5B35F24530B"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="B421EC10A7C34F4798FCB1B5B0E4C066"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{8EDA6022-0B6D-4A74-99B3-E6EC77BB5054}"
+          p:after="*[1=2]"
+          s:ds="local:/Data/Default/Title"
+          s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+          s:par="GridParameters&amp;FieldNames&amp;Styles&amp;RenderingIdentifier"
+          s:ph="/main/container-2/row-1-1/column-1-2">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{454C340E-7B05-4262-AA4E-C80C1A3D9C68}"
+                s:name="Sam Smarts">
+                <conditions>
+                  <or
+                    uid="8798C58CC9E442C6A92641A40B0C22F4">
+                    <condition
+                      uid="32C721FC7EB34D1A8FDF57798488F732"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                    <condition
+                      uid="B77F0E3E748B49D79C008BCF1027E446"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Sam Smarts" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="1ED0DD6B1E4447F792AE68D883F86DC9"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="903750A2F0064E2DBCCEA3B65BFF8689"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171124T144002Z
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "fr-CA"
+  Fields:
+  - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
+    Hint: __Preview
+    Value: 
+  - ID: "577f1689-7de4-4ad2-a15f-7fdc1759285f"
+    Hint: __Long description
+    Value: 
+  - ID: "9541e67d-ce8c-4225-803d-33f7f29f09ef"
+    Hint: __Short description
+    Value: 
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171124T144002Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4c346442-e859-4efd-89b2-44aedf467d21"
+      Hint: __Valid to
+      Value: 
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
+      Hint: __Content Test
+      Value: 
+    - ID: "76a92454-c8be-479b-b260-26aebced5a1a"
+      Hint: Base Partial Design
+      Value: 
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: 
+    - ID: "b8f42732-9cb8-478d-ae95-07e25345fb0f"
+      Hint: __Hide version
+      Type: checkbox
+      Value: 0
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: おすすめのコンテンツ
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T104531Z
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

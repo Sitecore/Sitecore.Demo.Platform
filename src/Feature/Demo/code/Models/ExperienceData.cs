@@ -1,10 +1,10 @@
-﻿namespace Sitecore.Feature.Demo.Models
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Models
 {
-    using Sitecore.Feature.Demo.Repositories;
-    using Sitecore.Feature.Demo.Services;
-    using Sitecore.Foundation.Accounts.Providers;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.SitecoreExtensions.Services;
+    using Sitecore.HabitatHome.Feature.Demo.Repositories;
+    using Sitecore.HabitatHome.Feature.Demo.Services;
+    using Sitecore.HabitatHome.Foundation.Accounts.Providers;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Services;
 
     [Service(Lifetime = Lifetime.Transient)]
     public class ExperienceData

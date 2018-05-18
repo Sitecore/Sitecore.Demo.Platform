@@ -1,18 +1,18 @@
 ﻿@using System.Web.Mvc.Html
-@using Sitecore.Foundation.Alerts.Models             
-@using Sitecore.Foundation.SitecoreExtensions.Extensions
-@model Sitecore.Feature.Accounts.Models.EditProfile
+@using Sitecore.HabitatHome.Foundation.Alerts.Models             
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@model Sitecore.HabitatHome.Feature.Accounts.Models.EditProfile
 
 @{
     var info = Session.GetAndRemove("EditProfileMessage") as InfoMessage;
     if (info != null)
     {
-        Html.RenderPartial(Sitecore.Foundation.Alerts.Constants.InfoMessageView, info);
+        Html.RenderPartial(Sitecore.HabitatHome.Foundation.Alerts.Constants.InfoMessageView, info);
     }
     var passwordInfo = Session.GetAndRemove("ChangePasswordMessage") as InfoMessage;
     if (passwordInfo != null)
     {
-        Html.RenderPartial(Sitecore.Foundation.Alerts.Constants.InfoMessageView, passwordInfo);
+        Html.RenderPartial(Sitecore.HabitatHome.Foundation.Alerts.Constants.InfoMessageView, passwordInfo);
     }
 }
 <div class="myAccount-page col-sm-9 col-md-8 col-md-offset-1">

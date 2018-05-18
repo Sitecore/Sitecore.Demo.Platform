@@ -1,12 +1,12 @@
-﻿namespace Sitecore.Feature.Demo.Repositories
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
     using System;
     using System.Linq;
     using Sitecore.Analytics.Core;
     using Sitecore.Analytics.Tracking;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.Dictionary.Repositories;
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
     [Service]
     public class PageViewRepository

@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Demo.Services
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Services
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -8,14 +8,15 @@
     using Sitecore.Cintel.Reporting.Contact.ProfilePatternMatch.Processors;
     using Sitecore.Data.Fields;
     using Sitecore.Diagnostics;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.Resources.Media;
 
     [Service(typeof(IProfileProvider))]
     public class ProfileProvider : IProfileProvider
     {
+        #pragma warning disable 0618
         public IEnumerable<ProfileItem> GetSiteProfiles()
         {
             var settingsItem = Context.Site.GetContextItem(Templates.ProfilingSettings.ID);
@@ -79,5 +80,6 @@
                 MaxWidth = 50
             });
         }
+        #pragma warning restore 0618
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Demo.Repositories
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
     using System;
     using System.Collections.Generic;
@@ -6,13 +6,13 @@
     using Sitecore.Analytics;
     using Sitecore.Common;
     using Sitecore.Data;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;        
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;        
     using Sitecore.Marketing.Definitions;
     using Sitecore.Marketing.Definitions.Campaigns;
     using Sitecore.Marketing.Taxonomy;
     using Sitecore.Marketing.Taxonomy.Extensions;
-    using Sitecore.Foundation.Dictionary.Repositories;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
     [Service(typeof(ICampaignRepository))]
     public class CampaignRepository : ICampaignRepository

@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Sitecore.Feature.Demo.Pipelines
+namespace Sitecore.HabitatHome.Feature.Demo.Pipelines
 {
     public class RegisterWebApiRoutes
     {

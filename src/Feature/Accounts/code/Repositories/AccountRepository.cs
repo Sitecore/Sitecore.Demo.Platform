@@ -1,11 +1,11 @@
-﻿namespace Sitecore.Feature.Accounts.Repositories
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Repositories
 {
     using System;
     using System.Web.Security;
     using Sitecore.Diagnostics;
-    using Sitecore.Feature.Accounts.Services;
-    using Sitecore.Foundation.Accounts.Pipelines;
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Feature.Accounts.Services;
+    using Sitecore.HabitatHome.Foundation.Accounts.Pipelines;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
     using Sitecore.Pipelines;
     using Sitecore.Security.Accounts;
     using Sitecore.Security.Authentication;

@@ -1,9 +1,9 @@
-﻿namespace Sitecore.Feature.Accounts.Attributes
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Attributes
 {
     using System.Web.Mvc;
     using Microsoft.Extensions.DependencyInjection;
     using Sitecore.DependencyInjection;
-    using Sitecore.Feature.Accounts.Services;
+    using Sitecore.HabitatHome.Feature.Accounts.Services;
 
     public class RedirectAuthenticatedAttribute : ActionFilterAttribute
     {

@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.SitecoreExtensions.Services
+﻿namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Services
 {
     using System;
     using System.Globalization;
@@ -6,7 +6,7 @@
     using Sitecore.Analytics.Tracking;
     using Sitecore.Configuration;
     using Sitecore.Diagnostics;
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
     using Sitecore.Marketing.Definitions;
     using Sitecore.Marketing.Definitions.Goals;
     using Sitecore.Marketing.Definitions.Outcomes.Model;

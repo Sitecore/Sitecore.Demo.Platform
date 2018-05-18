@@ -1,9 +1,9 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
 {
     using System;
     using System.Web;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
 
     [Service(typeof(IGetRedirectUrlService))]
     public class GetRedirectUrlService : IGetRedirectUrlService

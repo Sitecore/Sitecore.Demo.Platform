@@ -1,6 +1,6 @@
 ﻿using System;     
 
-namespace Sitecore.Foundation.SitecoreExtensions.Pipelines.RenderField
+namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Pipelines.RenderField
 {
     public class RenderRelativeLink
     {

@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.Alerts.Models
+﻿namespace Sitecore.HabitatHome.Foundation.Alerts.Models
 {
     public class InfoMessage
     {

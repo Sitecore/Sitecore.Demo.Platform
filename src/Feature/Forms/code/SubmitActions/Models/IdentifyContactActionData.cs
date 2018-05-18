@@ -1,6 +1,6 @@
 ﻿using System;           
 
-namespace Sitecore.Feature.Forms.SubmitActions.Models
+namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions.Models
 {
     public class IdentifyContactActionData
     {

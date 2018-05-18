@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.DependencyInjection.Infrastructure
+﻿namespace Sitecore.HabitatHome.Foundation.DependencyInjection.Infrastructure
 {
     using Microsoft.Extensions.DependencyInjection;
     using Sitecore.DependencyInjection;
@@ -7,9 +7,9 @@
     {
         public void Configure(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddMvcControllers("Sitecore.Feature.*");
-            serviceCollection.AddClassesWithServiceAttribute("Sitecore.Feature.*");
-            serviceCollection.AddClassesWithServiceAttribute("Sitecore.Foundation.*");
+            serviceCollection.AddMvcControllers("Sitecore.HabitatHome.Feature.*");
+            serviceCollection.AddClassesWithServiceAttribute("Sitecore.HabitatHome.Feature.*");
+            serviceCollection.AddClassesWithServiceAttribute("Sitecore.HabitatHome.Foundation.*");
         }
     }
 }

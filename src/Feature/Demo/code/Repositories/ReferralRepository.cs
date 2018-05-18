@@ -1,12 +1,12 @@
-﻿namespace Sitecore.Feature.Demo.Repositories
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
     using Sitecore.Analytics;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
     [Service]
     public class ReferralRepository

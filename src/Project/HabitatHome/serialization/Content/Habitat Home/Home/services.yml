@@ -1,0 +1,63 @@
+﻿---
+ID: "3e54a390-bffd-40e6-9af7-e951a806e691"
+Parent: "10083ca0-5093-4d67-99db-2579abb421d3"
+Template: "69dd5f28-429f-46b6-b55c-9da3500a7369"
+Path: /sitecore/content/Habitat Sites/Habitat Home/home/services
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1050
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Services
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180323T185620Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Services
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "74687d7c-2ef8-47ef-a779-9a8040bb2d1a"
+      Hint: Navigation Secondary Promotions
+      Type: Treelist
+      Value: |
+        {39F4D78E-C5F1-4092-BC8C-CE270CBE7CA0}
+        {7993B27B-B31E-4E84-8566-BCC291B3B418}
+        {DDF8FE4E-B5ED-4975-8FC6-DDF68C479F6A}
+    - ID: "c78d6b36-329e-4dc9-873a-39f4b0ea9a28"
+      Hint: Navigation Promotions
+      Type: Treelist
+      Value: |
+        {292595C9-5D69-4C82-B67E-8132352E9B5F}
+        {281076EC-4D19-4EF9-97B8-DFBB77B319FB}
+        {F753DBAC-A0CB-4FFE-8953-5C1124D32479}
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Services
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180419T204917Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous

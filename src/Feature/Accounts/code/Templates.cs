@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Accounts
+﻿namespace Sitecore.HabitatHome.Feature.Accounts
 {
     using Sitecore.Data;
 

@@ -1,9 +1,9 @@
-namespace Sitecore.Feature.Demo.Models
+namespace Sitecore.HabitatHome.Feature.Demo.Models
 {
     using System.Linq;
     using Sitecore.Analytics.Model;
     using Sitecore.Data.Items;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.Text;
     using static Configuration.Factory;
 

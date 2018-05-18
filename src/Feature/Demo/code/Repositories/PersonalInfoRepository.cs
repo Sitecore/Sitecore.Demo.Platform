@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Demo.Repositories
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
     using System;
     using System.Collections.Generic;
@@ -7,12 +7,12 @@
     using Sitecore.Analytics.Model;
     using Sitecore.Analytics.Model.Entities;
     using Sitecore.Analytics.Tracking;
-    using Sitecore.Feature.Demo.Models;           
-    using Sitecore.Foundation.DependencyInjection;           
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.HabitatHome.Feature.Demo.Models;           
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;           
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.XConnect.Collection.Model;
-    using Sitecore.Foundation.Accounts.Providers;
-    using Sitecore.Foundation.Dictionary.Repositories;
+    using Sitecore.HabitatHome.Foundation.Accounts.Providers;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
     [Service]
     public class PersonalInfoRepository

@@ -1,10 +1,10 @@
-﻿namespace Sitecore.Feature.Demo.Controllers
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Controllers
 {
     using Sitecore.Analytics;
     using Sitecore.ExperienceEditor.Utils;
     using Sitecore.ExperienceExplorer.Core.State;
-    using Sitecore.Feature.Demo.Repositories;
-    using Sitecore.Foundation.SitecoreExtensions.Attributes;
+    using Sitecore.HabitatHome.Feature.Demo.Repositories;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Attributes;
     using Sitecore.Sites;
     using Sitecore.XA.Foundation.Mvc.Controllers;
     using System.Net;

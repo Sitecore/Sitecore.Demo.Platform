@@ -1,9 +1,0 @@
-<connectionStrings xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  <add name="reporting" xdt:Locator="Match(name)" xdt:Transform="Remove" />
-  <add name="xdb.processing.pools" xdt:Locator="Match(name)" xdt:Transform="Remove" />
-  <add name="xdb.processing.tasks" xdt:Locator="Match(name)" xdt:Transform="Remove" />
-  <add name="xdb.marketingautomation" xdt:Locator="Match(name)" xdt:Transform="Remove" />
-  <add name="EXM.CryptographicKey" connectionString="" xdt:Locator="Match(name)" xdt:Transform="InsertIfMissing"/>
-  <add name="EXM.AuthenticationKey" connectionString="" xdt:Locator="Match(name)" xdt:Transform="InsertIfMissing"/>
-  <add name="EXM.InternalApiKey" connectionString="" xdt:Locator="Match(name)" xdt:Transform="InsertIfMissing"/>
-</connectionStrings>
