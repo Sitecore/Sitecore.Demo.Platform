@@ -14,6 +14,8 @@ var get = require("simple-get");
 var config;
 if (fs.existsSync("./gulp-config.user.js")) {
     config = require("./gulp-config.user.js")();
+} else if (fs.existsSync("./gulp-config.sc-internal.js")) {
+    config = require("./gulp-config.sc-internal.js")();
 } else {
     config = require("./gulp-config.js")();
 }
@@ -31,10 +33,14 @@ gulp.task("default",
             "Nuget-Restore",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
+            "Sync-Unicorn",
             "Publish-Transforms",
             "Publish-xConnect-Project",
             "Deploy-EXM-Campaigns",
             "Deploy-Marketing-Definitions",
+            "Rebuild-Core-Index",
+            "Rebuild-Master-Index",
+            "Rebuild-Web-Index",
             callback);
     });
 
@@ -51,41 +57,7 @@ gulp.task("quick-deploy",
             callback);
     });
 
-gulp.task("initial",
-    function (callback) {
-        return runSequence(
-            "Copy-Sitecore-Lib",
-            "Nuget-Restore",
-            "Publish-All-Projects",
-            "Apply-Xml-Transform",
-            "Publish-Transforms",
-            "Publish-xConnect-Project",
-            "Deploy-EXM-Campaigns",
-            "Deploy-Marketing-Definitions",
-            "Rebuild-Core-Index",
-            "Rebuild-Master-Index",
-            "Rebuild-Web-Index",
-            callback);
-    });
 
-gulp.task("deploy-unicorn",
-    function (callback) {
-        config.runCleanBuilds = true;
-        return runSequence(
-            "Copy-Sitecore-Lib",
-            "Nuget-Restore",
-            "Publish-All-Projects",
-            "Apply-Xml-Transform",
-            "Sync-Unicorn",
-            "Publish-Transforms",
-            "Publish-xConnect-Project",
-            "Deploy-EXM-Campaigns",
-            "Rebuild-Core-Index",
-            "Rebuild-Master-Index",
-            "Rebuild-Web-Index",
-            callback);
-    });
-                    
 /*****************************
   Initial setup
 *****************************/
@@ -121,8 +93,9 @@ gulp.task("Apply-Xml-Transform",
         ];
         return gulp.src(layerPathFilters)
             .pipe(foreach(function (stream, file) {
-                var fileToTransform = file.path.replace(/.+code\\(.+)\.xdt/, "$1");
-                util.log("Applying configuration transform: " + file.path);
+                var fileToTransform = file.path.replace(/.+code\\(.+)\.xdt/, "$1")
+                    .replace("\.sc-internal", "");
+                util.log("Applying configuration transform: " + file.path);         
                 return gulp.src("./scripts/applytransform.targets")
                     .pipe(msbuild({
                         targets: ["ApplyTransform"],
@@ -251,7 +224,7 @@ gulp.task("Deploy-EXM-Campaigns",
     function () {
         console.log("Deploying EXM Campaigns");
 
-        var url = config.instanceUrl + "utilities/deployemailcampaigns.aspx?apiKey=97CC4FC13A814081BF6961A3E2128C5B";
+        var url = config.instanceUrl + "utilities/deployemailcampaigns.aspx?apiKey=" + config.messageStatisticsApiKey;
         console.log("Deploying EXM Campaigns at " + url);
         get({
             url: url,
@@ -267,7 +240,7 @@ gulp.task("Deploy-Marketing-Definitions",
     function () {
         console.log("Deploying Marketing Definitions");
 
-        var url = config.instanceUrl + "utilities/deploymarketingdefinitions.aspx?apiKey=DF7D20E837254C6FBFA2B854C295CB61";
+        var url = config.instanceUrl + "utilities/deploymarketingdefinitions.aspx?apiKey=" + config.marketingDefinitionsApiKey;
         console.log("Deploying Marketing Definitions at " + url);
         get({
             url: url,
