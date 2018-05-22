@@ -93,8 +93,9 @@ gulp.task("Apply-Xml-Transform",
         ];
         return gulp.src(layerPathFilters)
             .pipe(foreach(function (stream, file) {
-                var fileToTransform = file.path.replace(/.+code\\(.+)\.xdt/, "$1");
-                util.log("Applying configuration transform: " + file.path);
+                var fileToTransform = file.path.replace(/.+code\\(.+)\.xdt/, "$1")
+                    .replace("\.sc-internal", "");
+                util.log("Applying configuration transform: " + file.path);         
                 return gulp.src("./scripts/applytransform.targets")
                     .pipe(msbuild({
                         targets: ["ApplyTransform"],
