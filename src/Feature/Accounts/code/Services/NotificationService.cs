@@ -1,6 +1,6 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
 {
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
     [Service(typeof(INotificationService))]
     public class NotificationService : INotificationService

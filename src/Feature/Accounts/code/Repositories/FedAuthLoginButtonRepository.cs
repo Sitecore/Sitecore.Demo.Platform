@@ -1,15 +1,15 @@
-﻿namespace Sitecore.Feature.Accounts.Repositories
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Repositories
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using Sitecore.Abstractions;
     using Sitecore.Data;
-    using Sitecore.Feature.Accounts.Models;
-    using Sitecore.Feature.Accounts.Services;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.Dictionary.Repositories;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.HabitatHome.Feature.Accounts.Models;
+    using Sitecore.HabitatHome.Feature.Accounts.Services;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.Pipelines.GetSignInUrlInfo;
 
     [Service(typeof(IFedAuthLoginButtonRepository))]

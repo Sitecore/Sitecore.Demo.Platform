@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.SitecoreExtensions.Extensions
+﻿namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
 {
     using System;
     using System.Collections.Generic;
@@ -10,7 +10,7 @@
     using Sitecore.Data.Items;
     using Sitecore.Data.Managers;
     using Sitecore.Diagnostics;
-    using Sitecore.Foundation.SitecoreExtensions.Services;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Services;
     using Sitecore.Links;
     using Sitecore.Resources.Media;
 
@@ -218,6 +218,11 @@
 
         public static bool FieldHasValue(this Item item, ID fieldID)
         {
+            if(item == null)
+            {
+                return false;
+            }
+
             return item.Fields[fieldID] != null && !string.IsNullOrWhiteSpace(item.Fields[fieldID].Value);
         }
 

@@ -1,11 +1,11 @@
-﻿namespace Sitecore.Foundation.Dictionary.Services
+﻿namespace Sitecore.HabitatHome.Foundation.Dictionary.Services
 {
     using System;
     using System.Linq;
     using Sitecore.Data;
     using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
-    using Sitecore.Foundation.Dictionary.Models;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Models;
     using Sitecore.SecurityModel;
 
     internal static class CreateDictionaryEntryService

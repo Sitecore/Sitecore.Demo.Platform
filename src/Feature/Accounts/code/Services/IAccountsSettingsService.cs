@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
 {
     using System;
     using System.Net.Mail;

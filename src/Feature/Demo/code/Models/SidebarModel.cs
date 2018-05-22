@@ -1,6 +1,6 @@
-﻿namespace Sitecore.Feature.Demo.Models
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Models
 {
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
     using Sitecore.XA.Foundation.Mvc.Models;
 
     [Service(Lifetime = Lifetime.Transient)]

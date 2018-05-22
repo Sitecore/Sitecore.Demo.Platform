@@ -1,9 +1,9 @@
-﻿using Sitecore.Foundation.DependencyInjection;
+﻿using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
-namespace Sitecore.Feature.Demo.Repositories
+namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.SitecoreExtensions.Services;
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Services;
     using Sitecore.XA.Foundation.Mvc.Repositories.Base;
 
     [Service(typeof(ISidebarRepository))]

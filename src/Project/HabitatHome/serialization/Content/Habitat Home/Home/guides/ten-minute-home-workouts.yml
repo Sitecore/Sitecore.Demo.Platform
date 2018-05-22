@@ -1,0 +1,113 @@
+﻿---
+ID: "8a33684a-7711-4445-a119-bd1efec890b6"
+Parent: "64f922b1-d57d-4afa-ae26-9d59502f69a6"
+Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
+Path: "/sitecore/content/Habitat Sites/Habitat Home/home/guides/ten-minute-home-workouts"
+DB: master
+SharedFields:
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: 20180322T190500Z
+- ID: "7bd35dcd-61bb-42e0-8bf5-07803af6eede"
+  Hint: Author
+  Value: "{CCA66699-B6C8-43D1-BF33-68492C373174}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Ten Minute Home Workouts
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{08FA49AC-BD56-465B-91ED-223988D83C75}"
+              p:before="*"
+              s:ds="local:/Data/Hero - Ten Minute Workouts"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={C7A7E725-BC84-45AE-AD50-0659F9AB7F98}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-content-container/container-1" />
+            <r
+              uid="{11E5AE23-1B6B-4456-B7BD-385E3309DF81}"
+              p:after="r[@uid='{08FA49AC-BD56-465B-91ED-223988D83C75}']"
+              s:ds="local:/Data/Text 1"
+              s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+              s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={B3CF5C8B-D6AA-4A97-9CB9-8048F269B9B6}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+              s:ph="/main/sxa-recommended-content/container-1" />
+            <r
+              uid="{381DAE97-9A2B-4912-8EEE-03B598686ED9}"
+              p:after="r[@uid='{11E5AE23-1B6B-4456-B7BD-385E3309DF81}']"
+              s:ds="local:/Data/Video - Workout 1"
+              s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+              s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+              s:ph="/main/sxa-article-content/container-1" />
+            <r
+              uid="{880613AE-CA6E-4FF1-9EB1-7FF0B27A2267}"
+              p:after="r[@uid='{381DAE97-9A2B-4912-8EEE-03B598686ED9}']"
+              s:ds="local:/Data/Text 2"
+              s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+              s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+              s:ph="/main/sxa-article-content/container-1" />
+            <r
+              uid="{B203D6F8-CA08-41E3-8CF6-BBACBC67D59B}"
+              p:after="*[1=2]"
+              s:ds="local:/Data/Video - Workout 2"
+              s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+              s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+              s:ph="/main/sxa-article-content/container-1" />
+          </d>
+        </r>
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{D590210C-4B80-4014-B82E-3DD16DB7331C}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180322T190045Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FF509B64-B6D4-4FB7-9718-C4218B992740}"
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Ten Minute Home Workouts
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: "<p>Cake icing brownie pudding macaroon drag&eacute;e. Candy canes chocolate lollipop souffl&eacute; fruitcake dessert candy pastry. Chocolate bar chupa chups cupcake tiramisu apple pie jujubes cake toffee. Liquorice chocolate cake cotton candy candy chocolate bar. Icing tiramisu sugar plum sweet roll croissant. Tiramisu biscuit cake cotton candy sugar plum sweet macaroon. Cupcake chocolate cake biscuit oat cake jujubes sweet roll tiramisu bear claw jelly beans. Macaroon brownie tootsie roll pie gummies lollipop jelly tootsie roll pie. Dessert jujubes donut. Pastry halvah liquorice oat cake topping wafer biscuit. Liquorice carrot cake pudding carrot cake halvah liquorice topping. Danish drag&eacute;e chocolate bar jelly-o danish.</p>"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Smart Gym
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{D590210C-4B80-4014-B82E-3DD16DB7331C}" />
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Summary
+      Value: Raise your heart rate even when time is short with these high intensity workouts from trainer Sydney Cummings.
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Ten Minute Home Workouts
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Ten Minute Home Workouts
+  Versions:

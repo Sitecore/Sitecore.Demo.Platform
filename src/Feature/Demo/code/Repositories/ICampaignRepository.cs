@@ -1,7 +1,7 @@
-﻿namespace Sitecore.Feature.Demo.Repositories
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
   using System.Collections.Generic;
-  using Sitecore.Feature.Demo.Models;
+  using Sitecore.HabitatHome.Feature.Demo.Models;
 
   public interface ICampaignRepository
   {

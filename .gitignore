@@ -14,12 +14,7 @@ build/assets/**/*
 *DS_Store
 *.sln.ide
 license.xml
-lib/Sitecore/*
-!lib/Sitecore/readme.MD
-!lib/Modules/*
-lib/System/*
-!lib/System/readme.MD	
-lib/LocalRepository/*
+lib/Modules/*
 .sonar
 vars.user.cmd
 .vs
@@ -50,3 +45,4 @@ install-xp0.json
 configuration-xp0.json
 set-installation-overrides.ps1
 *.crt
+*.msi

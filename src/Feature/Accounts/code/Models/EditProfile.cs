@@ -1,8 +1,8 @@
-﻿namespace Sitecore.Feature.Accounts.Models
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using Sitecore.Foundation.Dictionary.Repositories;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
     public class EditProfile
     {

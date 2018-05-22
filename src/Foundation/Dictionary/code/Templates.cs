@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.Dictionary
+﻿namespace Sitecore.HabitatHome.Foundation.Dictionary
 {
   using Sitecore.Data;
 

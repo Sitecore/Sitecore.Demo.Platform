@@ -1,0 +1,61 @@
+﻿---
+ID: "538b1ea5-a02f-4f19-b968-d54e1f3cba33"
+Parent: "6757297d-bd05-420b-8b92-a69344d55654"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/Electronics Category/Pattern Cards/Audrey Audio
+DB: master
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="54d63273-947a-4927-b21a-0022625315e1" name="Electronics Category">
+        <key name="Appliances" value="0" />
+        <key name="Audio" value="10" />
+        <key name="Cameras" value="0" />
+        <key name="Computers" value="0" />
+        <key name="Fitness Tech" value="0" />
+        <key name="Games" value="0" />
+        <key name="Phones" value="0" />
+        <key name="Tablets" value="0" />
+        <key name="TVs" value="0" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{E71BBCE5-E242-4755-B594-F85F37C07BEF}" />
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Audrey Audio
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180104T201839Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Audrey オーディオ
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Audrey オーディオ
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T104648Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

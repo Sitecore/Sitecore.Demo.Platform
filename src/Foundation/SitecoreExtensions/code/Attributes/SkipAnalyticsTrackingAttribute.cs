@@ -1,7 +1,7 @@
 ﻿using Sitecore.Analytics;   
 using System.Web.Mvc;
 
-namespace Sitecore.Foundation.SitecoreExtensions.Attributes
+namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Attributes
 {
     public class SkipAnalyticsTrackingAttribute : ActionFilterAttribute
     {

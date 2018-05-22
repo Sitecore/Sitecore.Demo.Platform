@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.Alerts
+﻿namespace Sitecore.HabitatHome.Foundation.Alerts
 {
     public class Constants
     {

@@ -1,11 +1,12 @@
-﻿namespace Sitecore.Feature.Demo.Repositories
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
     using System;
     using System.Linq;
     using Sitecore.Analytics.Core;
     using Sitecore.Analytics.Tracking;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;     
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
     [Service]
     public class PageViewRepository
@@ -43,7 +44,7 @@
             var pageName = RemoveLanguage(page)?.Replace("//", "/").Remove(0, 1).Replace(".aspx", "");
             if (string.IsNullOrEmpty(pageName) || this.IsLanguage(pageName))
             {
-                pageName = Globalization.Translate.Text("/Demo/PageView/Home", "Home");
+                pageName = DictionaryPhraseRepository.Current.Get("/Demo/PageView/Home", "Home");
             }
             return pageName;
         }

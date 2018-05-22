@@ -1,6 +1,6 @@
 ﻿using FacebookAuthenticationExtensions = Owin.FacebookAuthenticationExtensions;
 
-namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
+namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
 {
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Facebook;
@@ -33,8 +33,8 @@ namespace Sitecore.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
                 Caption = identityProvider.Caption,
                 AuthenticationType = authenticationType,
                 AuthenticationMode = AuthenticationMode.Passive,
-                AppId = Settings.GetSetting("Sitecore.Feature.Accounts.Facebook.AppId"),   //todo: move this to site-specific configuration item
-                AppSecret = Settings.GetSetting("Sitecore.Feature.Accounts.Facebook.AppSecret"),  //todo: move this to site-specific configuration item
+                AppId = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.Facebook.AppId"),   //todo: move this to site-specific configuration item
+                AppSecret = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.Facebook.AppSecret"),  //todo: move this to site-specific configuration item
                 Provider = new FacebookAuthenticationProvider
                 {
                     OnAuthenticated = context =>

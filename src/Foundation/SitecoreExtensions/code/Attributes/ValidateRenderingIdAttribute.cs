@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.SitecoreExtensions.Attributes
+﻿namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Attributes
 {
     using Sitecore.Mvc.Presentation;
     using System;

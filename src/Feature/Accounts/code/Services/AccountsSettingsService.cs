@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
 {
     using System;
     using System.Net.Mail;
@@ -8,14 +8,14 @@
     using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
     using Sitecore.Exceptions;
-    using Sitecore.Foundation.DependencyInjection;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
     using System.Linq;
 
     [Service(typeof(IAccountsSettingsService))]
     public class AccountsSettingsService : IAccountsSettingsService
     {
-        public static readonly string PageNotFoundUrl = Settings.GetSetting("Sitecore.Feature.Accounts.PageNotFoundUrl", "/404");
+        public static readonly string PageNotFoundUrl = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.PageNotFoundUrl", "/404");
         public static AccountsSettingsService Instance => new AccountsSettingsService();
 
         public virtual string GetPageLink(Item contextItem, ID fieldID)

@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Foundation.SitecoreExtensions.Extensions
+﻿namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
 {
     using System;
     using System.Linq.Expressions;
@@ -8,8 +8,8 @@
     using Sitecore.Data;
     using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
-    using Sitecore.Foundation.SitecoreExtensions.Attributes;
-    using Sitecore.Foundation.SitecoreExtensions.Controls;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Attributes;
+    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Controls;
     using Sitecore.Mvc;
     using Sitecore.Mvc.Helpers;
 

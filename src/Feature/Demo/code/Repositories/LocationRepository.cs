@@ -1,9 +1,9 @@
-namespace Sitecore.Feature.Demo.Repositories
+namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
     using Sitecore.Analytics;
     using Sitecore.Analytics.Tracking;
-    using Sitecore.Feature.Demo.Models;
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
     using System.Globalization;
 
     [Service]

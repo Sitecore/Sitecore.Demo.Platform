@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Demo.Services
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Services
 {
     using System.Collections;
     using System.Collections.Generic;
@@ -10,6 +10,7 @@
 
     internal class BehaviorProfileDecorator : IProfileData
     {
+        #pragma warning disable 0618
         private readonly ProfileItem profile;
         private readonly IBehaviorProfileContext behaviorProfile;
 
@@ -52,5 +53,7 @@
                 return profileKey == null ? 0 : this.behaviorProfile.GetScore(profileKey.ID);
             }
         }
+        
+        #pragma warning restore 0618
     }
 }

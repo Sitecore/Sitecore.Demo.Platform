@@ -1,6 +1,6 @@
 ----item----
 version: 1
-id: {F57E2F30-9F5F-4BAC-8839-DE93C47E3B7D}
+id: {29FFF114-BD72-4800-8788-C89A1A94B971}
 database: master
 path: /sitecore/media library/Themes/Habitat Sites/Habitat Home Raspberry/styles/optimized-min
 parent: {233C4C95-F7DF-4C6E-9D4D-13D0128824F7}
@@ -8,7 +8,7 @@ name: optimized-min
 master: {00000000-0000-0000-0000-000000000000}
 template: {B43AB8D5-E123-42DD-8042-DE869CC98C4F}
 templatekey: Optimized File
-created: 20180223T194901Z
+created: 20180403T204759Z
 
 ----field----
 field: {40E50ED9-BA07-4702-992E-A912738D32DC}
@@ -778,7 +778,7 @@ People/32x32/package.png
 ----version----
 language: en
 version: 1
-revision: 76a8941c-96ff-40b2-98db-20114eaae29b
+revision: 48c8efe8-3ce3-41a5-a7f0-2dd6c602845b
 
 ----field----
 field: {3F4B20E9-36E6-4D45-A423-C86567373F82}
@@ -795,91 +795,124 @@ content-length: 37
 
 Experience accelerator optimized file
 ----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 18
-
-extranet\Anonymous
-----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20180223T194901Z
-----field----
-field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
-name: __Created by
-key: __created by
-content-length: 18
-
-extranet\Anonymous
+20180403T204759Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-76a8941c-96ff-40b2-98db-20114eaae29b
+48c8efe8-3ce3-41a5-a7f0-2dd6c602845b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180223T194901Z
+20180403T204800Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 14
 
-extranet\Anonymous
+sitecore\admin
 ----version----
 language: fr-CA
 version: 1
-revision: c81327f1-fb7d-4143-b7fa-a47bb9c18cfd
+revision: 9dfd5e2d-1432-4416-958b-54a549b47bf3
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
 key: __owner
-content-length: 18
+content-length: 14
 
-extranet\Anonymous
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20180223T194901Z
+20180403T204759Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
 key: __created by
-content-length: 18
+content-length: 14
 
-extranet\Anonymous
+sitecore\admin
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-c81327f1-fb7d-4143-b7fa-a47bb9c18cfd
+9dfd5e2d-1432-4416-958b-54a549b47bf3
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20180223T194901Z
+20180403T204800Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
 key: __updated by
-content-length: 18
+content-length: 14
 
-extranet\Anonymous
+sitecore\admin
+----version----
+language: ja-JP
+version: 1
+revision: 594e27c9-990f-40e5-aa5e-6f2d364df4d5
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20180403T204800Z
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+594e27c9-990f-40e5-aa5e-6f2d364df4d5
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20180403T204800Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

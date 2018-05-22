@@ -1,0 +1,46 @@
+﻿---
+ID: "872a22d8-312a-4115-a5c6-b6a46764bf46"
+Parent: "0de95ae4-41ab-4d01-9eb0-67441b7c2450"
+Template: "cf9c8a2a-2794-4fea-980a-ef8426f3d6c3"
+Path: /sitecore/content/Email
+DB: master
+BranchID: "f8fae92a-4f10-470c-ad5c-7ed9e6b636af"
+SharedFields:
+- ID: "1b963507-6176-4336-a14d-d5070c3b0286"
+  Hint: Base URL
+  Value: "https://habitathome.dev.local"
+- ID: "1ec023fb-dbb4-4a7b-837d-55f9614737b8"
+  Hint: POP3 Password
+  Value: b
+- ID: "52d572ad-9678-423f-96e2-477528418ba1"
+  Hint: "Global Opt-out List"
+  Value: "{CDCDD641-7FFF-472E-A050-0EB117394039}"
+- ID: "afb3e366-dab4-4e10-b61f-bc3776542bb8"
+  Hint: POP3 User Name
+  Value: admin
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\EXM Users|pd|^*|+item:read|pe|^*|+item:read|ar|sitecore\EXM Advanced Users|pd|+item:delete|+item:admin|+item:create|+item:rename|^*|+item:read|+item:write|pe|+item:delete|+item:admin|+item:create|+item:rename|^*|+item:read|+item:write|
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{DB7A8703-C5AE-41FF-8B23-264195634B9E}"
+- ID: "ff64b61e-e68d-4be1-bfd1-aae311f4aca1"
+  Hint: Embed Images
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Email
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0f383cd8-c031-4a9d-9ed0-d55217f91287"
+      Hint: From Address
+      Value: noreply@habitathomedemo.com
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180103T182134Z

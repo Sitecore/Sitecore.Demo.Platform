@@ -10,9 +10,9 @@ using System.Xml;
 using Sitecore.ExperienceForms.SubmitActions;
 using Sitecore.Analytics;
 using Sitecore.Analytics.Tracking;
-using Sitecore.Foundation.SitecoreExtensions.Extensions;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
 
-namespace Sitecore.Feature.Forms.SubmitActions
+namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
 {
     public class AssignPatternCardAction : AnalyticsActionBase<AssignPatternActionData>
     {

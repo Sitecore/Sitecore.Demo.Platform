@@ -1,10 +1,10 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
 {   
-    using Sitecore.Foundation.Accounts.Providers;
-    using Sitecore.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.Accounts.Providers;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
     using Sitecore.Security;                        
-    using Sitecore.Foundation.Accounts.Services;
-    using Sitecore.Foundation.Accounts.Models;
+    using Sitecore.HabitatHome.Foundation.Accounts.Services;
+    using Sitecore.HabitatHome.Foundation.Accounts.Models;
 
     [Service(typeof(IUpdateContactFacetsService))]
     public class UpdateContactFacetsService : IUpdateContactFacetsService

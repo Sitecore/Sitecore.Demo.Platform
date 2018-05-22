@@ -1,8 +1,8 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Sitecore.Feature.Accounts.Models;
+    using Sitecore.HabitatHome.Feature.Accounts.Models;
     using Sitecore.Security;
     using Sitecore.Security.Accounts;
 

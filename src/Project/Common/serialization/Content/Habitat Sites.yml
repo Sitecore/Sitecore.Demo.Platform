@@ -27,6 +27,7 @@ SharedFields:
     {8C355371-AFE7-45A9-99E4-B3329AA67701}
     {49D671A6-6446-4495-B792-96ADDC2E9993}
     {FE1854C1-4382-4FC1-9109-5B522E7EA95F}
+    {D8162781-25B9-4694-A371-89640DBFD301}
 - ID: "800dc4ed-0846-45ba-b112-19902af240f6"
   Hint: SharedMediaLibrary
   Value: "{A1DA5F27-DA3E-44FE-82A1-EC3C5EFF5B00}"
@@ -58,3 +59,18 @@ Languages:
       Hint: SharedSites
       Type: Treelist
       Value: "{8A30C3C8-3842-41C8-9FB3-F1A416CE873C}"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat サイト
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T104415Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
