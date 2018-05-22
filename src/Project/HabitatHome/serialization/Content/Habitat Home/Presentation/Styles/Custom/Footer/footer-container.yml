@@ -1,16 +1,17 @@
 ﻿---
-ID: "10887df1-7e9c-4d9c-bda7-0f291f806c76"
-Parent: "d3829de5-375d-47e6-a40e-badbf5ba0cc2"
+ID: "b63f5250-e107-43b7-824f-352579dac0e5"
+Parent: "c84d326f-7236-49dc-8144-287ca699db58"
 Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
-Path: /sitecore/content/Habitat Sites/Habitat Home/Presentation/Styles/Custom/copyrights
+Path: "/sitecore/content/Habitat Sites/Habitat Home/Presentation/Styles/Custom/Footer/footer-container"
 DB: master
 SharedFields:
 - ID: "09147fb2-ebfb-4949-8c8e-26a424409d5e"
   Hint: Value
-  Value: copyrights
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 500
+  Value: "footer-container"
+- ID: "69bb49f3-da64-4b0e-abd6-184b832ff6ab"
+  Hint: Allowed Renderings
+  Type: TreelistEx
+  Value: "{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
 Languages:
 - Language: en
   Versions:
@@ -18,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171109T164451Z
+      Value: 20171109T161325Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -42,7 +43,7 @@ Languages:
       Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171109T164451Z
+      Value: 20171109T161325Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: 
@@ -67,3 +68,14 @@ Languages:
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180521T190847Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
