@@ -4,9 +4,6 @@ build/**/[Bb]in/
 specs/**/[Bb]in/
 .nuget/
 _ReSharper.*
-packages/
-artifacts/
-build/assets/**/*
 *.user
 *.cache
 *.suo
@@ -31,18 +28,3 @@ settings.user.ps1
 *.user.config
 *.user.js
 *.user.targets
-# Hedgehog Team Development for Sitecore
-*.scproj.user
-IconCache/
-T4RenderCache/
-BuiltFiles_*.txt
-/src/**/tds/*/Report/*
-*.p12
-*.jks
-deploy/
-*.pubxml
-install-xp0.json
-configuration-xp0.json
-set-installation-overrides.ps1
-*.crt
-*.msi
