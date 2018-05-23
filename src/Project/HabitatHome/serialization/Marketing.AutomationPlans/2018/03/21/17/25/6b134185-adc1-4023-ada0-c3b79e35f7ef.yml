@@ -1,0 +1,51 @@
+﻿---
+ID: "6b134185-adc1-4023-ada0-c3b79e35f7ef"
+Parent: "92d4fedf-3a33-40cc-bc7c-e9aca1ba9011"
+Template: "d4d43c33-3661-4630-af63-0754cab7b110"
+Path: "/sitecore/system/Marketing Control Panel/Automation Plans/2018/03/21/17/25/6b134185-adc1-4023-ada0-c3b79e35f7ef"
+DB: master
+SharedFields:
+- ID: "1766652d-080b-409c-abbf-3a90e0f801f5"
+  Hint: Start Date
+  Value: 20180321T172500Z
+- ID: "2c41a32f-86a9-4f43-8550-bf0af266e3f2"
+  Hint: End Date
+  Value: 20180430T040000Z
+- ID: "3fb918c8-08ec-4879-8062-088bbf71ee72"
+  Hint: Plan Data
+  Value: |
+    {"ReentryMode":0,"ContextKeyFactoryType":null,"EntryActivityId":"5ab0c215-5fba-655d-054a-87b23f4c6b67","Alias":"6b134185-adc1-4023-ada0-c3b79e35f7ef","IgnoreIsActiveProperty":true,"Activities":{"5ab0c215-5fba-655d-054a-87b23f4c6b67":{"Paths":{"default":"85f8e873-b035-d743-7531-5cc44c76132f"},"Id":"5ab0c215-5fba-655d-054a-87b23f4c6b67","ActivityTypeId":"8c92d3c1-2c38-4e8a-92d1-9590e17cce89","Parameters":{"EventIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"GoalIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["2a2ebecc-d066-4fbc-8701-bba74aac9f2e"]},"OutcomeIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"TestOperation":0,"UseCondition":false}},"85f8e873-b035-d743-7531-5cc44c76132f":{"Paths":{"default":"dbf07101-773e-efb2-0591-d77af3045cbe"},"Id":"85f8e873-b035-d743-7531-5cc44c76132f","ActivityTypeId":"c2a5ef3a-dde9-4309-8921-5a6fd011d0ba","Parameters":{}},"dbf07101-773e-efb2-0591-d77af3045cbe":{"Paths":{"default":"494c88ca-1e49-4675-c12b-67e92469a54f"},"Id":"dbf07101-773e-efb2-0591-d77af3045cbe","ActivityTypeId":"c2a5ef3a-dde9-4309-8921-5a6fd011d0ba","Parameters":{"Lists":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["b54df341-0fc9-4d3a-ff60-54bd27cce8b0","d75d7263-ef13-44d1-ebab-c0c289de4499"]}}},"494c88ca-1e49-4675-c12b-67e92469a54f":{"Paths":{"default":"95835e19-7463-079d-52ac-0c60baec1be6"},"Id":"494c88ca-1e49-4675-c12b-67e92469a54f","ActivityTypeId":"9046a4aa-07d9-4377-8a6e-1db27765b2ba","Parameters":{"Name":"Delay","ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"00:01:00","WaitUntil":null}}},"95835e19-7463-079d-52ac-0c60baec1be6":{"Paths":{"default":"60581e6c-7cf7-4729-78c3-2ff62e62a750"},"Id":"95835e19-7463-079d-52ac-0c60baec1be6","ActivityTypeId":"51774db5-b90b-4189-9613-104039723a0b","Parameters":{"MessageId":"caf67df7-5ec9-4480-9cd5-5346648b55eb"}},"60581e6c-7cf7-4729-78c3-2ff62e62a750":{"Paths":{},"Id":"60581e6c-7cf7-4729-78c3-2ff62e62a750","ActivityTypeId":"a47371c2-8921-421f-8902-f3eccd229d56","Parameters":{}}},"UniversalActivities":{}}
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T172535Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: "Social - Foodie"
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "e259e500-b38e-41fe-82db-8b604bcf9e75"
+      Hint: Description
+      Value: Clicked Social Post... Landed on Habitat Home (Foodie)
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180324T013810Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
