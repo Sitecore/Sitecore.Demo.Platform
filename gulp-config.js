@@ -5,9 +5,6 @@ module.exports = function () {
         instanceUrl: "https://habitat.dev.local/",
         xConnectRoot: "C:\\inetpub\\wwwroot\\habitat_xconnect.dev.local\\",
         sitecoreLibraries: instanceRoot + "\\bin",
-        licensePath: instanceRoot + "\\App_Data\\license.xml",
-        packageXmlBasePath: ".\\src\\Project\\Habitat\\code\\App_Data\\packages\\habitat.xml",
-        packagePath: instanceRoot + "\\App_Data\\packages",
         solutionName: "HabitatHome",                          
         buildConfiguration: "Debug",
         buildToolsVersion: 15.0,
@@ -15,7 +12,9 @@ module.exports = function () {
         buildVerbosity: "minimal",
         buildPlatform: "Any CPU",
         publishPlatform: "AnyCpu",
-        runCleanBuilds: false
+        runCleanBuilds: false,
+        messageStatisticsApiKey: "97CC4FC13A814081BF6961A3E2128C5B",
+        marketingDefinitionsApiKey: "DF7D20E837254C6FBFA2B854C295CB61"
     };
     return config;
 }
