@@ -1,0 +1,58 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using Sitecore.HabitatHome.Feature.Accounts
+@using Sitecore.HabitatHome.Feature.Accounts.Services
+@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Configuration
+@model Sitecore.HabitatHome.Feature.Accounts.Models.LoginInfo
+
+@using (Html.BeginRouteForm(MvcSettings.SitecoreRouteName, FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.Hidden("ReturnUrl", Model.ReturnUrl)
+    @Html.AddUniqueFormId()
+    @Html.ValidationSummary(true)
+    <div class="form-group @Html.ValidationErrorFor(x => x.Email, "has-error")">
+        @Html.LabelFor(x => x.Email, new
+                                     {
+                                         @class = "control-label"
+                                     })
+        @Html.TextBoxFor(x => x.Email, new
+                                       {
+                                           @class = "form-control",
+                                           id = "loginEmail",
+                                           placeholder = Html.Sitecore().Dictionary("/Accounts/Login/Login E-mail Placeholder", "Enter your e-mail")
+                                       })
+        @Html.ValidationMessageFor(x => x.Email, "", new
+                                                     {
+                                                         @class = "help-block"
+                                                     }, "p")
+    </div>
+    <div class="form-group @Html.ValidationErrorFor(x => x.Password, "has-error")">
+        @Html.LabelFor(x => x.Password, new
+                                        {
+                                            @class = "control-label"
+                                        })
+        @Html.PasswordFor(x => x.Password, new
+                                           {
+                                               @class = "form-control",
+                                               id = "loginPassword",
+                                               placeholder = Html.Sitecore().Dictionary("/Accounts/Login/Login Password Placeholder", "Enter your password")
+                                           })
+        @Html.ValidationMessageFor(x => x.Password, "", new
+                                                        {
+                                                            @class = "help-block"
+                                                        }, "p")
+    </div>
+    @Html.ValidationMessage("invalidCredentials", new
+                                                  {
+                                                      @class = "alert alert-danger"
+                                                  }, "div")
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="submit" class="btn btn-primary btn-block" value="@Html.Sitecore().Dictionary("/Accounts/Login/Login", "Login")"/>
+        </div>
+    </div>
+    <a href="@AccountsSettingsService.Instance.GetPageLinkOrDefault(Sitecore.Context.Item, Templates.AccountsSettings.Fields.ForgotPasswordPage)" class="btn btn-link">@Html.Sitecore().DictionaryField("/Accounts/Login/Forgot Your Password", "Forgot your password?")</a>
+}

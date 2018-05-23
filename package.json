@@ -1,0 +1,32 @@
+{
+  "name": "habitat",
+  "version": "9.0.0",
+  "description": "Sitecore Habitat Node Dependencies",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "xml2js": "^0.4.16",
+    "async": "^1.5.2",
+    "run-sequence": "^1.1.4",
+    "gulp-msbuild": "^0.4.4",
+    "gulp-foreach": "^0.1.0",
+    "gulp-debug": "^2.1.2",
+    "simple-get": "^2.7.0"
+  },
+  "devDependencies": {
+    "gulp-nuget-restore": "^0.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sitecoredst.visualstudio.com/Demo/_git/Sitecore.Habitat"
+  },
+  "author": "Sitecore Corporation A/S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://sitecoredst.visualstudio.com/Demo"
+  },
+  "homepage": "https://sitecoredst.visualstudio.com/Demo"
+}

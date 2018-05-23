@@ -1,0 +1,110 @@
+﻿@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
+@model Sitecore.HabitatHome.Feature.Demo.Models.PersonalInfo
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <a role="button" href="#personalInfoPanel" class="panel-title" data-parent="#experiencedata">
+                <span class="fa fa-user"></span>
+                @Html.Sitecore().DictionaryField("/Demo/Personal Info/Title", "Personal Information")
+                <i class="fa fa-chevron-down pull-right" aria-hidden="true"></i>
+            </a>
+        </h3>
+    </div>
+    <div id="personalInfoPanel" class="panel-collapse">
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <span class="fa fa-user"></span>
+                </div>
+                <div class="media-body ">
+                    <h4 class="media-title">
+                        @if (!string.IsNullOrWhiteSpace(Model.FullName))
+                        {
+                            @Model.FullName
+                        }
+                        else if (Model.IsIdentified)
+                        {
+                            @Html.Sitecore().DictionaryField("/Demo/Personal Info/Identified User", "You are known")
+                        }
+                        else
+                        {
+                            @Html.Sitecore().DictionaryField("/Demo/Personal Info/Anonymous User", "You are anonymous")
+                        }
+                    </h4>
+                    @if (Model.PhotoUrl != null)
+                    {
+                        <div>
+                            <img src="@Model.PhotoUrl" width="50" />
+                        </div>
+                    }
+                    <dl class="small">
+                        @foreach (var property in Model.Properties)
+                        {
+                            <dt>@property.Key</dt>
+                            <dd>@property.Value</dd>
+                        }
+                    </dl>
+                </div>
+            </div>
+            @if (Model.Location != null)
+            {
+                <div class="media">
+                    <div class="media-left">
+                        <span class="fa fa-globe"></span>
+                    </div>
+                    <div class="media-body ">
+                        <h4 class="media-title">
+                            @Html.Sitecore().DictionaryField("/Demo/Referral/Location", "Location")
+                        </h4>
+                        <dl>
+                            @if (!string.IsNullOrEmpty(Model.Location.City) || !string.IsNullOrEmpty(Model.Location.Region) || !string.IsNullOrEmpty(Model.Location.Country))
+                            {
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Location Place", "Place")</dt>
+                                <dd>@string.Join(", ", Model.Location.City, Model.Location.Region, Model.Location.Country)</dd>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.Location.BusinessName))
+                            {
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Location Business", "Business")</dt>
+                                <dd>@Model.Location.BusinessName</dd>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.Location.Url))
+                            {
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Location Url", "Url")</dt>
+                                <dd><a href="@Model.Location.Url">@Model.Location.Url</a></dd>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.Location.Latitude) && !string.IsNullOrEmpty(Model.Location.Longitude))
+                            {
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Location Map", "Map")</dt>
+                                <dd><a href="https://maps.google.com/?q=@Model.Location.Latitude,@Model.Location.Longitude" target="_blank">@Html.Sitecore().DictionaryField("/Demo/Referral/Location Map Link", "Map Link (external)")</a></dd>
+                            }
+                        </dl>
+                    </div>
+                </div>
+            }
+            @if (Model.Device != null)
+            {
+                <div class="media">
+                    <div class="media-left">
+                        <span class="fa fa-tablet"></span>
+                    </div>
+                    <div class="media-body ">
+                        <h4 class="media-title">
+                            @Html.Sitecore().DictionaryField("/Demo/Referral/Device", "Device")
+                        </h4>
+                        <div class="text-nowrap">
+                            <dl>
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Device Title", "Device")</dt>
+                                <dd>@Model.Device.Title</dd>
+                                <dt>@Html.Sitecore().DictionaryField("/Demo/Referral/Device Browser", "Browser")</dt>
+                                <dd>@Model.Device.Browser</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
