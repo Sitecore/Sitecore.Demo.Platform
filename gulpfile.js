@@ -212,12 +212,15 @@ gulp.task("Publish-Feature-Projects",
 
 gulp.task("Publish-Project-Projects",
     function () {
-        return publishProjects("./src/Project");
+        publishProjects("./src/Project/Common");
+        publishProjects("./src/Project/Habitat");
+        publishProjects("./src/Project/HabitatHome");
+        return;
     });
 
 gulp.task("Publish-xConnect-Project",
     function () {
-        return publishProjects("./src/xConnect", config.xConnectRoot);
+        return publishProjects("./src/Project/xConnect", config.xConnectRoot);
     });
 
 gulp.task("Deploy-EXM-Campaigns",
