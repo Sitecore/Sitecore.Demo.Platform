@@ -25,8 +25,6 @@ The code, samples and/or solutions provided in this repository are for example p
 
 Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.0.1** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/90/Sitecore_Experience_Platform_90_Update1.aspx).
 
-
-
 ### Additional modules
 In addition to a base XP 9.0.1 installation, the following modules are required:
 
@@ -39,6 +37,13 @@ In addition to a base XP 9.0.1 installation, the following modules are required:
 - Data Exchange Framework 2.0.1 Dynamics Connectors on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Dynamics_CRM_Connect/2x/Sitecore_Connect_for_Microsoft_Dynamics_365_for_Sales_201.aspx)
 	- Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1
 	- Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1
+
+### Build / Deployment
+
+In order to deploy the assets, you need either Visual Studio 2017 or MSBuild Tools for Visual Studio 2017.
+
+Node.JS is also required
+
 
 
 ### Custom install - before you start
@@ -82,12 +87,12 @@ Clone the Sitecore.HabitatHome.Content repository locally - defaults are configu
 -- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Content.git` 
 -- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Content.git`
 
-### 3 Deploy Sitecore.HabitatHome.Content
+### 2 Deploy Sitecore.HabitatHome.Content
 
 From the root of the solution
 - Run **`npm install`**
 
-**if you plan on installing the Commerce demo:**
+**if you plan on installing the Commerce (XC) demo:**
 - Run **`.\node_modules\.bin\gulp quick-deploy`** 
 
 if you are only installing this demo:
