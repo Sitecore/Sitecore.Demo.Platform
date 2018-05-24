@@ -101,8 +101,6 @@ From the root of the solution
 if you are only installing this demo:
 - Run **`.\node_modules\.bin\gulp`**
 
-> gulp **initial** only needs to be executed successfully during the initial deployment. Subsequent deployments can be made by running the default gulp task (gulp with no parameters). 
-
 > An error (maxBuffer) sometimes occurs the first time running gulp during Sync-Unicorn. 
 > Running gulp a second time resolves the issue (and doesn't take as long)
 
