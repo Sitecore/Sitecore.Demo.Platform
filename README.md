@@ -37,6 +37,9 @@ In addition to a base XP 9.0.1 installation, the following modules are required:
 - Data Exchange Framework 2.0.1 Dynamics Connectors on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Dynamics_CRM_Connect/2x/Sitecore_Connect_for_Microsoft_Dynamics_365_for_Sales_201.aspx)
 	- Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1
 	- Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1
+	
+### SSL Only
+The demo is configured for **HTTPS/SSL**. Please ensure that you create an HTTPS binding with appropriate self-signed certificates.
 
 ### Build / Deployment
 
@@ -96,9 +99,7 @@ From the root of the solution
 - Run **`.\node_modules\.bin\gulp quick-deploy`** 
 
 if you are only installing this demo:
-- Run **`.\node_modules\.bin\gulp initial`**
-
-> gulp **initial** only needs to be executed successfully during the initial deployment. Subsequent deployments can be made by running the default gulp task (gulp with no parameters). 
+- Run **`.\node_modules\.bin\gulp`**
 
 > An error (maxBuffer) sometimes occurs the first time running gulp during Sync-Unicorn. 
 > Running gulp a second time resolves the issue (and doesn't take as long)
