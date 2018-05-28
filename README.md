@@ -109,6 +109,7 @@ if you are only installing this demo:
 > An error (maxBuffer) sometimes occurs the first time running gulp during Sync-Unicorn. 
 > Running gulp a second time resolves the issue (and doesn't take as long)
 
+> if using **Visual Studio task runner**, please see [this workaround](https://stackoverflow.com/questions/45580456/visual-studio-task-runner-error-with-es6)
 ### 3 Validating deployment
 
 
