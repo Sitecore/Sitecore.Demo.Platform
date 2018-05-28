@@ -37,7 +37,10 @@ In addition to a base XP 9.0.1 installation, the following modules are required:
 - Data Exchange Framework 2.0.1 Dynamics Connectors on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Dynamics_CRM_Connect/2x/Sitecore_Connect_for_Microsoft_Dynamics_365_for_Sales_201.aspx)
 	- [Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/819FB4C75CC74A8C984C343BEF7B53F1.ashx)
 	- [Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1](https://dev.sitecore.net/~/media/ADBAF4CC6736499EBA0EBA6A9767D825.ashx)
-	
+
+### Additional Windows Components
+- Url Rewrite 2.1 
+	- Can be installed using Web Platform Installer in IIS Manager
 ### SSL Only
 The demo is configured for **HTTPS/SSL**. Please ensure that you create an HTTPS binding with appropriate self-signed certificates.
 
@@ -57,6 +60,8 @@ The following is a list of default values / assumptions for install locations
 **Habitat Site domain**				`habitathome.dev.local`
 **Web Root**						`c:\inetpub\wwwroot`
 **Host Suffix**						`dev.local`
+**xConnectRoot** 	`habitat_xconnect.dev.local`
+
 
 #### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
 
@@ -66,7 +71,7 @@ The Habitat Home site will not respond / render correctly until this value is mo
 
 If you do **not want to use the default settings**, you need to adjust the appropriate values in the following files:
 
-`/gulp-config..js` 
+`/gulp-config.js` 
 `/publishsettings.targets` 
 `src\Project\Common\code\App_Config\Include\Project\z.Common.Website.DevSettings.config`
 
