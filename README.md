@@ -29,14 +29,20 @@ Prior to attempting the demo installation, ensure you have a working **Sitecore 
 In addition to a base XP 9.0.1 installation, the following modules are required:
 
 - Sitecore PowerShell Extensions 4.7.2 for Sitecore 8/9 on [Marketplace](https://marketplace.sitecore.net/services/~/download/3D2CADDAB4A34CEFB1CFD3DD86D198D5.ashx?data=Sitecore%20PowerShell%20Extensions-4.7.2%20for%20Sitecore%208&itemId=6aaea046-83af-4ef1-ab91-87f5f9c1aa57)
-- Sitecore Experience Accelerator for 9.0 versionn 1.6 on [dev.sitecore.com](https://dev.sitecore.net/en/Downloads/Sitecore_Experience_Accelerator/16/Sitecore_Experience_Accelerator_16_Initial_Release.aspx)
-- Data Exchange Framework v2.0.1 on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Data_Exchange_Framework/2x/Data_Exchange_Framework_201.aspx) as well as relevant Providers on same page
-	- Sitecore Provider for Data Exchange Framework 2.0.1
-	- SQL Provider for Data Exchange Framework 2.0.1
-	- xConnect Provider for Data Exchange Framework 2.0.1 
+- Sitecore Experience Accelerator for 9.0 version 1.6 on [dev.sitecore.com](https://dev.sitecore.net/en/Downloads/Sitecore_Experience_Accelerator/16/Sitecore_Experience_Accelerator_16_Initial_Release.aspx)
+- [Data Exchange Framework v2.0.1](https://dev.sitecore.net/~/media/C50B044E45FE4C4DA9E675CBEED3AA09.ashx) on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Data_Exchange_Framework/2x/Data_Exchange_Framework_201.aspx) as well as relevant Providers on same page
+	- [Sitecore Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/D57A1FBB98ED4125B78D740E5B5F1772.ashx)
+	- [SQL Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/F243222B9A95497BAB6B591D39560E95.ashx)
+	- [xConnect Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/C61F1265BB494CAFA4229FC9FC704AB0.ashx) 
 - Data Exchange Framework 2.0.1 Dynamics Connectors on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Dynamics_CRM_Connect/2x/Sitecore_Connect_for_Microsoft_Dynamics_365_for_Sales_201.aspx)
-	- Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1
-	- Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1
+	- [Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/819FB4C75CC74A8C984C343BEF7B53F1.ashx)
+	- [Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1](https://dev.sitecore.net/~/media/ADBAF4CC6736499EBA0EBA6A9767D825.ashx)
+
+### Additional Windows Components
+- Url Rewrite 2.1 
+	- Can be installed using Web Platform Installer in IIS Manager
+### SSL Only
+The demo is configured for **HTTPS/SSL**. Please ensure that you create an HTTPS binding with appropriate self-signed certificates.
 
 ### Build / Deployment
 
@@ -54,6 +60,8 @@ The following is a list of default values / assumptions for install locations
 **Habitat Site domain**				`habitathome.dev.local`
 **Web Root**						`c:\inetpub\wwwroot`
 **Host Suffix**						`dev.local`
+**xConnectRoot** 	`habitat_xconnect.dev.local`
+
 
 #### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
 
@@ -63,7 +71,7 @@ The Habitat Home site will not respond / render correctly until this value is mo
 
 If you do **not want to use the default settings**, you need to adjust the appropriate values in the following files:
 
-`/gulp-config..js` 
+`/gulp-config.js` 
 `/publishsettings.targets` 
 `src\Project\Common\code\App_Config\Include\Project\z.Common.Website.DevSettings.config`
 
@@ -96,12 +104,21 @@ From the root of the solution
 - Run **`.\node_modules\.bin\gulp quick-deploy`** 
 
 if you are only installing this demo:
-- Run **`.\node_modules\.bin\gulp initial`**
-
-> gulp **initial** only needs to be executed successfully during the initial deployment. Subsequent deployments can be made by running the default gulp task (gulp with no parameters). 
+- Run **`.\node_modules\.bin\gulp`**
 
 > An error (maxBuffer) sometimes occurs the first time running gulp during Sync-Unicorn. 
 > Running gulp a second time resolves the issue (and doesn't take as long)
+
+> if using **Visual Studio task runner**, please see [this workaround](https://stackoverflow.com/questions/45580456/visual-studio-task-runner-error-with-es6)
+### 3 Validating deployment
+
+
+
+1. Browse to https://habitathome.dev.local (or whatever hostname you selected)
+	1. You should see the Habitat Home landing page with a full-width carousel
+	2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that your Host Name was configured correctly in `/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home`
+1. Browse to https://habitat.dev.local
+	1. You should see the Habitat landing page (not Habitat Home)
 
 
 # Contribute or Issues
