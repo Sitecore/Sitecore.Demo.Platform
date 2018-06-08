@@ -31,7 +31,7 @@ SharedFields:
           p:after="r[@uid='{0301406E-DD77-424D-9DB6-86E142533C4C}']"
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;BackgroundImage&amp;Styles={DF262DBA-9499-4F97-A9C9-B7885C140ED8}|{FAD080DD-BF2E-423A-BE8F-9A99F0EFE18A}&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:par="GridParameters&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D%7C%7BFAD080DD-BF2E-423A-BE8F-9A99F0EFE18A%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
           s:ph="main" />
         <r
           uid="{69999CBF-8641-43C0-B4B2-DB4630DD933C}"
@@ -55,208 +55,8 @@ SharedFields:
           s:par="SplitterSize=1&amp;EnabledPlaceholders=1,2,3&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1={4D4B771B-9954-430E-AEE1-E76C54BD50C3}&amp;ColumnWidth2={4D4B771B-9954-430E-AEE1-E76C54BD50C3}&amp;ColumnWidth3={4D4B771B-9954-430E-AEE1-E76C54BD50C3}&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=2"
           s:ph="/main/container-2" />
         <r
-          uid="{64AAFCEC-C09E-4C22-9014-4B0392BF65AA}"
-          p:after="r[@uid='{66E35911-B159-4A47-971B-499955E1BA82}']"
-          s:ds="local:/Data/Sam Smarts/Smart Home Promo 3"
-          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
-          s:ph="/main/container-2/column-3-2">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{4A57CB2A-06B1-4B73-A698-F48D9982E0E3}"
-                s:name="Sam Smarts">
-                <conditions>
-                  <or
-                    uid="EE17A57026FF4603BE8AAF07E5FF9538">
-                    <condition
-                      uid="9C0A7180BEF9471091862E87A311E252"
-                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                    <condition
-                      uid="1BBCDFFE3F6B446DBB0CBA8F8726A0FB"
-                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                  </or>
-                </conditions>
-                <actions />
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="A3584BD351C84E6B8E43A1B94F6EB4AB"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="35129DAC56C0408581D0E35EC9D80855"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="{500DD560-F86E-413B-8517-AEDA522307B1}" />
-                  <action
-                    uid="506C63D6DBCB414BAFE9046FB53349AB"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
-          uid="{16CEF2F2-7B5B-47F8-B897-24EC27CD0903}"
-          p:after="r[@uid='{64AAFCEC-C09E-4C22-9014-4B0392BF65AA}']"
-          s:ds="local:/Data/Sam Smarts/Smart Home Promo 2"
-          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          s:ph="/main/container-2/column-2-2">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{C1494AED-C6F6-4CFD-9474-7991D9A3151C}"
-                s:name="Sam Smarts">
-                <conditions>
-                  <or
-                    uid="95900FEBE67B4FF899CA416A46954353">
-                    <condition
-                      uid="59EF142F1DCD40AA99A7BF79601355B0"
-                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                    <condition
-                      uid="20640D0779AC4D2B8DFF27C9DB0C8754"
-                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                  </or>
-                </conditions>
-                <actions />
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="D0094957F10543F7A9F96B0ABEF71EF2"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="4C753112AB8344C898368E8F56E17870"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Default/Demo Promo 2" />
-                  <action
-                    uid="EF31B1A32CCA4C1A8EE9F608B3996244"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
-          uid="{551BF052-547A-471D-BF4E-1A75BC7B0532}"
-          p:after="r[@uid='{16CEF2F2-7B5B-47F8-B897-24EC27CD0903}']"
-          s:ds="local:/Data/Sam Smarts/Smart Home Promo 1"
-          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/container-2/column-1-2">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{7EAFF3A1-C289-44B6-9614-D99A537839C5}"
-                s:name="Sam Smarts">
-                <conditions>
-                  <or
-                    uid="831483CED9544A1794B1F77913D0F738">
-                    <condition
-                      uid="2206234B7C2A4080B158E3C68301A7C0"
-                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                    <condition
-                      uid="A07C80C4B45846E6990CBEB350338871"
-                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                  </or>
-                </conditions>
-                <actions />
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="776DB6782F8F4F789ED442C8BFD7D877"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="399F5DEB41194DD7AF785649B3D60816"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Demo Promo 1" />
-                  <action
-                    uid="E4C2C861F9FA4DA4AF05CEEFD388DBD8"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
-          uid="{986DCD32-A3E8-4EBF-A2CF-10A89EA31522}"
-          p:after="r[@uid='{551BF052-547A-471D-BF4E-1A75BC7B0532}']"
-          s:ds="local:/Data/Sam Smarts/Sam Smarts Text"
-          s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7B4860C1F4-5027-4A56-97A7-035D7B4F6A0C%7D&amp;Styles=%7B88DB8F11-5012-410D-AD5D-BB5AF0E4E565%7D&amp;Reset Caching Options&amp;RenderingIdentifier"
-          s:ph="/main/container-2/container-">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{40E0DC21-C02E-48CD-9075-2BE7544B1E6F}"
-                s:name="Sam Smarts">
-                <conditions>
-                  <or
-                    uid="C230D26898E64411ACA16DDEBBF1D80F">
-                    <condition
-                      uid="E9430FC8732C4848BFFE04FBCBC3FBB1"
-                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                    <condition
-                      uid="414F7B00922E4FFD85659564A5BE04A9"
-                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                  </or>
-                </conditions>
-                <actions />
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="427B0D8369B143B4ACC2043DC60D2A86"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="228C947D030C4D669A578AD7715B38B8"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Default/Title" />
-                  <action
-                    uid="AB66E6011139407284D528E10DF8A474"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
           uid="{90E82BC6-01EB-435F-AF44-FEE83E5EC738}"
-          p:after="r[@uid='{986DCD32-A3E8-4EBF-A2CF-10A89EA31522}']"
+          p:after="r[@uid='{66E35911-B159-4A47-971B-499955E1BA82}']"
           s:ds="local:/Data/Start Over Link"
           s:id="{3972C278-7E7A-4C2B-A293-66AF860F5C3A}"
           s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BFC96A8E0-CED2-4B3D-9653-E7E3F0D9144E%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
@@ -271,26 +71,26 @@ SharedFields:
           <rls>
             <ruleset>
               <rule
-                uid="{986CAA83-89BF-4B7D-A44C-4101589483EA}"
-                s:name="Sam Smarts">
+                uid="{A29DC3CB-E298-49F6-9982-0072E16750A6}"
+                s:name="Smart and Connected">
                 <conditions>
                   <or
-                    uid="2785659B7D2243E1A83881DBB82FAFE4">
+                    uid="DF539029960E4B1685B8D781EC4C75ED">
                     <condition
-                      uid="7EDA0E388112496DB3EC9A7EE9EFF2B3"
-                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                    <condition
-                      uid="AD6AE51EF8E240088BF2476187195F3B"
+                      uid="A04F4C9A79654AB6901305B3A7F40213"
                       s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
                       s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
+                      s:PatternName="Smart and Connected" />
+                    <condition
+                      uid="366ECDCF3FB941D1AE56D4E3A0937948"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
                   </or>
                 </conditions>
                 <actions>
                   <action
-                    uid="58A58F09D8AA4C46953FBCE5FBE49D11"
+                    uid="9A956974C4C54B638156B821EE1F70A7"
                     s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
                 </actions>
               </rule>
@@ -317,26 +117,26 @@ SharedFields:
           <rls>
             <ruleset>
               <rule
-                uid="{469CC8F5-640C-489B-B6F6-4416223CF35A}"
-                s:name="Sam Smarts">
+                uid="{A78720AB-7634-4EDF-8324-7151340BFC7D}"
+                s:name="Smart and Connected">
                 <conditions>
                   <or
-                    uid="89198E8F6C46490E9FD353123F3C7DF7">
+                    uid="85DEE2845E454E9AB54BD9E1DD0BF056">
                     <condition
-                      uid="9A9C9DF63B214E8180AE122121D3E0AD"
-                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                    <condition
-                      uid="6BF2B2B36AFF4BE6AD10A34A0F22A2D8"
+                      uid="53FD86A1830C40BEB65EB91BB0216C82"
                       s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
                       s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
+                      s:PatternName="Smart and Connected" />
+                    <condition
+                      uid="03157CDDEB0B45119A5CC5BDA6988E95"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
                   </or>
                 </conditions>
                 <actions>
                   <action
-                    uid="6D6FA19BA2434E8C958B1F335FF38A3C"
+                    uid="0074973188174320AFD8211BF9EF7114"
                     s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
                 </actions>
               </rule>
@@ -363,26 +163,26 @@ SharedFields:
           <rls>
             <ruleset>
               <rule
-                uid="{863B04FA-F08C-4972-88A4-6A86F7731B02}"
-                s:name="Sam Smarts">
+                uid="{387313F7-0373-4F2C-BB3F-537BAF66E963}"
+                s:name="Smart and Connected">
                 <conditions>
                   <or
-                    uid="5865962BA67C404D911C9F6BB096EF3E">
+                    uid="55E54CFB44E5453DBA13652B0C74C65B">
                     <condition
-                      uid="B172D17DC2034C33A3693C57CFFCEEB0"
+                      uid="FA3745BC202548C3A8E2AECDC465CF75"
                       s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
                       s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
+                      s:PatternName="Smart and Connected" />
                     <condition
-                      uid="D81F1559B15F410EB250EF615F9C834E"
+                      uid="D114CE5684B94556BE04B39BAD188F9F"
                       s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
                       s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
+                      s:PatternName="Smart and Connected" />
                   </or>
                 </conditions>
                 <actions>
                   <action
-                    uid="CEF82625948C4454A4C1D5B35F24530B"
+                    uid="53FB0927B0414B77B55858BAFC568FE9"
                     s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
                 </actions>
               </rule>
@@ -401,37 +201,13 @@ SharedFields:
         </r>
         <r
           uid="{8EDA6022-0B6D-4A74-99B3-E6EC77BB5054}"
-          p:after="*[1=2]"
+          p:after="r[@uid='{E46E5BC9-33D5-4577-A56B-B46A6D810556}']"
           s:ds="local:/Data/Default/Title"
           s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
           s:par="GridParameters&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
           s:ph="/main/container-2/container-">
           <rls>
             <ruleset>
-              <rule
-                uid="{454C340E-7B05-4262-AA4E-C80C1A3D9C68}"
-                s:name="Sam Smarts">
-                <conditions>
-                  <or
-                    uid="8798C58CC9E442C6A92641A40B0C22F4">
-                    <condition
-                      uid="32C721FC7EB34D1A8FDF57798488F732"
-                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                    <condition
-                      uid="B77F0E3E748B49D79C008BCF1027E446"
-                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Sam Smarts" />
-                  </or>
-                </conditions>
-                <actions>
-                  <action
-                    uid="1ED0DD6B1E4447F792AE68D883F86DC9"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
               <rule
                 uid="{00000000-0000-0000-0000-000000000000}"
                 s:name="Default">
@@ -441,6 +217,141 @@ SharedFields:
                     s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
                 </conditions>
                 <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{73F5361A-1FD2-4DA3-8FB4-3A7F777DB01C}"
+          p:after="r[@uid='{8EDA6022-0B6D-4A74-99B3-E6EC77BB5054}']"
+          s:ds="local:/Data/Sam Smarts/Smart Home Promo 3"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId"
+          s:ph="/main/container-2/column-3-2">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{BA3E0CB0-E0AE-4944-AC3A-820EDE711422}"
+                s:name="Smart and Connected">
+                <conditions>
+                  <or
+                    uid="C3A2AAD6F30E46C091D7AA50BD8F866B">
+                    <condition
+                      uid="49F6818F02A440F094FCB2116DADA229"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
+                    <condition
+                      uid="404856774AFB4C3BB94783DF689581A3"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="802C22E52EFA46B2AB055D45CE5816FA"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="D64A99C6B0C0434C8E4BFC7AD677111D"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{706385E5-0DE3-4042-9FB4-F283FFF5560E}"
+          p:after="r[@uid='{73F5361A-1FD2-4DA3-8FB4-3A7F777DB01C}']"
+          s:ds="local:/Data/Sam Smarts/Smart Home Promo 2"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId"
+          s:ph="/main/container-2/column-2-2">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{777AAF67-3E02-4A6D-8A4D-422C105BA0F5}"
+                s:name="Smart and Connected">
+                <conditions>
+                  <or
+                    uid="17F3A2EAC13C4063B13123F77A660ABE">
+                    <condition
+                      uid="EB249EEDDE4D44F58F5030412DD5BE6E"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
+                    <condition
+                      uid="EBCA440FB3FC4397AECDBBC3411474D9"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="3AAFF3CD76C14AF3BAAA7BB4FBD96515"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="A8598EBF558744BC8D91B14719182331"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{D9D55AC9-2942-4874-A3EB-A42F8857A1E5}"
+          p:after="*[1=2]"
+          s:ds="local:/Data/Sam Smarts/Smart Home Promo 1"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BD4ED2EB5-16E0-459E-8C2F-989B88BA6786%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId"
+          s:ph="/main/container-2/column-1-2">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{E944C670-7922-4713-97E6-FF32110EAA57}"
+                s:name="Smart and Connected">
+                <conditions>
+                  <or
+                    uid="795EC69C0E4E47ECA05DD1861D510ABB">
+                    <condition
+                      uid="49B7519D3A43485196A7A4A883EC430C"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
+                    <condition
+                      uid="31AA56633DAF44CEBC28F1AFA3E134E5"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="C4FD6F0408684FF5A3377DEB6B7A5CA4"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="C27DA79D77644E26BF33AA2E6C555D00"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
               </rule>
             </ruleset>
           </rls>
