@@ -13,6 +13,18 @@
     Default value: On
     -->
         <add key="unicorn:define" value="On" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+
+        <!-- THIRD PARTY INTEGRATIONS: SUPPORTED VALUES                 
+         None (disables all)
+         Dynamics (CRM integration with Data Exchange Framework)
+         Facebook (Fed Auth with Facebook)
+         MS (Fed Auth with Microsoft)        
+         
+         example: <add key="integrations:define" value="Dynamics,Facebook,MS" />  
+   
+   Default value: None
+    -->
+        <add key="integrations:define" value="None" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />     
     </appSettings>
 
     <system.webServer>

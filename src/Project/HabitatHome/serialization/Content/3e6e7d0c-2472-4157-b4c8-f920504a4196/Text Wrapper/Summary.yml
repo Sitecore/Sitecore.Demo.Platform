@@ -8,6 +8,29 @@ SharedFields:
 - ID: "4753764c-c05a-4623-841b-97f85135241c"
   Hint: FieldName
   Value: Summary
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{2EFDC6AD-9F36-43DE-82A7-3851AFD80C1C}">
+        <conditions>
+          <or
+            uid="618EEF892C2A4BD787FDF0539FD0121F">
+            <condition
+              id="{659CC5E0-6356-44DD-B562-6C590525121C}"
+              uid="D75F364C90474BFC8081415DB67414BB"
+              Value="{B8E0B251-233D-4FA9-9DF9-5D38450E00D9}" />
+            <condition
+              id="{B5429D19-5CF6-4BD9-BC0B-F0B323C4306D}"
+              uid="EB62AA82B371402E8021D15F2012A0E4"
+              operatorid="{10537C58-1684-4CAB-B4C0-40C10907CE31}"
+              value="master" />
+          </or>
+        </conditions>
+      </rule>
+    </ruleset>
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 200
@@ -19,3 +42,14 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180307T041717Z
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180608T051631Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
