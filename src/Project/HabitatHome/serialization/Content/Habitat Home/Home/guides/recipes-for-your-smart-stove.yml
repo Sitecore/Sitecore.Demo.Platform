@@ -80,7 +80,7 @@ SharedFields:
       <profile
         id="552dd90f-a527-438e-ac33-32d236244123"
         name="Topic Interest Category"
-        presets="smart and connected|100||">
+        presets="foodie|100||">
         <key
           name="Child Safety"
           value="0" />
@@ -98,6 +98,12 @@ SharedFields:
           value="0" />
         <key
           name="Smart and Connected"
+          value="0" />
+        <key
+          name="Fitness"
+          value="0" />
+        <key
+          name="Foodie"
           value="10" />
       </profile>
     </tracking>
@@ -195,6 +201,17 @@ SharedFields:
       </d>
     </r>
 Languages:
+- Language: "de-DE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180330T210528Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -206,7 +223,7 @@ Languages:
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
       Hint: Image
       Value: |
-        <image mediaid="{E6455AF9-64B4-4F4A-BCE6-8282ED9B36CF}" />
+        <image mediaid="{D5B98824-B2DC-4319-9DC8-49F4FF0D86F7}" ></image>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171121T210710Z
@@ -243,7 +260,7 @@ Languages:
       Value: smart stove, recipe, kitchen appliances, connected home, beef wellington, recipe video
     - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
       Hint: Subtitle
-      Value: High intensity
+      Value: delicious and nutritious
     - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
       Hint: OpenGraphDescription
       Value: To take advantage of the new smart stoves on the market, we are showcasing a fantastic recipe that will be fun to make and satisfying to eat. It offers home chefs the chance to use the exciting features available in the connected stove.
@@ -253,13 +270,13 @@ Languages:
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image
       Value: |
-        <image mediaid="{077BB138-1D40-43F0-9FB5-B222AE0A8D84}" alt="recipe for smart stove nav thumbail" height="" width="" hspace="" vspace="" />
+        <image mediaid="{A59106C4-5F65-4D75-B83E-A6F62024E3AA}" alt="recipe for smart stove nav thumbail" height="" width="" hspace="" vspace="" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
       Hint: Summary
-      Value: <p>Make the most of the time you've got. These workouts are short and intense for those days when you have less time.</p>
+      Value: <p>Impressive and faster than you would think. Dazzle your friends and family with this delicious <br />recipe straight from our experts.</p>
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
-      Value: Ten Minute Workouts at Home
+      Value: Beef Wellington
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -284,7 +301,7 @@ Languages:
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
       Hint: Image
       Value: |
-        <image mediaid="{C8776A82-BB4C-4509-9D64-DAF6F10F7717}" />
+        <image mediaid="{C8776A82-BB4C-4509-9D64-DAF6F10F7717}" alt="Recipes-for-smart-stove" height="" width="" hspace="" vspace="" />
     - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
       Hint: Page Design
       Value: 
@@ -293,7 +310,7 @@ Languages:
       Value: 20171121T210710Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{FF509B64-B6D4-4FB7-9718-C4218B992740}"
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
     - ID: "45ce257a-6060-4c4a-9a0f-ae77bf705b25"
       Hint: TwitterSite
       Value: 
@@ -372,6 +389,17 @@ Languages:
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: Une recette pour votre cuisinière intelligente
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180329T160046Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -383,13 +411,13 @@ Languages:
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
       Hint: Image
       Value: |
-        <image mediaid="{C8776A82-BB4C-4509-9D64-DAF6F10F7717}" />
+        <image mediaid="{C8776A82-BB4C-4509-9D64-DAF6F10F7717}" alt="Recipes-for-smart-stove" height="" width="" hspace="" vspace="" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180321T104448Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{FF509B64-B6D4-4FB7-9718-C4218B992740}"
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
     - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
       Hint: TwitterTitle
       Value: A Recipe for Your Smart Stove
