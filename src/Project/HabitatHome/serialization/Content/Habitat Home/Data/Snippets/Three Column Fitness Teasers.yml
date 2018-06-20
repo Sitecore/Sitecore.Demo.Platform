@@ -7,7 +7,7 @@ DB: master
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 200
+  Value: 2950
 - ID: "c80e6f3c-5bcd-426b-b1eb-6d10672e985d"
   Hint: Data Source Selection Behavior
   Value: AskUser
@@ -15,16 +15,45 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{411E4948-E7F2-4D86-BEAD-451F79D83BCF}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{2F9872D5-856F-412C-AEB3-A7B218304779}"
+          p:before="*"
+          s:ds="{18B14CF7-BAAF-4D13-931A-E8369B6F882E}"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters&amp;BackgroundImage&amp;Styles={45645D8F-56A4-460A-B5FB-51709FEFCE52}|{62BB4AA0-351C-43D1-A474-9F52EA6ECF07}|{3D258225-9410-4FAF-A516-43490258337D}&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="section-content" />
         <r
           uid="{8ACA1967-01B3-4F59-BB90-C931B9E9CE81}"
-          ds="/sitecore/content/Habitat Sites/Habitat Home/home/guides/importance-of-stretching"
-          id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
-          par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={3E6E7D0C-2472-4157-B4C8-F920504A4196}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
-          ph="/section-content/container-1/column-3-2" />
+          p:after="r[@uid='{2F9872D5-856F-412C-AEB3-A7B218304779}']"
+          s:ds="/sitecore/content/Habitat Sites/Habitat Home/home/guides/importance-of-stretching"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={3E6E7D0C-2472-4157-B4C8-F920504A4196}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:ph="/section-content/container-1/column-3-2" />
+        <r
+          uid="{1E33D083-15B8-4A94-9AD3-418A558B2200}"
+          p:after="r[@uid='{8ACA1967-01B3-4F59-BB90-C931B9E9CE81}']"
+          s:ds="/sitecore/content/Habitat Sites/Habitat Home/home/guides/ten-minute-home-workouts"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={3E6E7D0C-2472-4157-B4C8-F920504A4196}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/section-content/container-1/column-2-2" />
+        <r
+          uid="{A2CF8491-0BA7-4858-8E66-8596F4903AB7}"
+          p:after="r[@uid='{1E33D083-15B8-4A94-9AD3-418A558B2200}']"
+          s:ds="/sitecore/content/Habitat Sites/Habitat Home/home/guides/best-in-wearable-fitness-technology"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={3E6E7D0C-2472-4157-B4C8-F920504A4196}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/section-content/container-1/column-1-2" />
+        <r
+          uid="{3CB4EC45-C979-472A-905B-CAA07F72B9A7}"
+          p:after="*[1=2]"
+          s:ds="{18B14CF7-BAAF-4D13-931A-E8369B6F882E}"
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1,2,3&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1={4D4B771B-9954-430E-AEE1-E76C54BD50C3}&amp;ColumnWidth2={4D4B771B-9954-430E-AEE1-E76C54BD50C3}&amp;ColumnWidth3={4D4B771B-9954-430E-AEE1-E76C54BD50C3}&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=2"
+          s:ph="/section-content/container-1" />
       </d>
     </r>
 Languages:
