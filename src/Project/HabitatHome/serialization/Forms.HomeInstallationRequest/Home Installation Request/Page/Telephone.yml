@@ -34,7 +34,7 @@ SharedFields:
   Value: 0
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 200
+  Value: 300
 - ID: "d99833ea-238a-4505-90ef-c69bf3eba946"
   Hint: Is Tracking Enabled
   Type: Checkbox
@@ -45,12 +45,7 @@ Languages:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180116T195956Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\admin
+      Value: "20180611T211838:636643487181578661Z"
     - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
       Hint: Title
       Value: Phone Number
@@ -60,35 +55,3 @@ Languages:
     - ID: "b775bca9-2605-4d60-b367-a0c354be2504"
       Hint: Default Value
       Value: 
-- Language: "fr-CA"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180130T184708Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\admin
-    - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
-      Hint: Title
-      Value: Numéro de téléphone
-- Language: "ja-JP"
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: 電話番号
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180321T104945Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\admin
-    - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
-      Hint: Title
-      Value: 電話番号
