@@ -3,9 +3,19 @@ Username: |
   sitecore\minnie
 Email: minnie.m@demo.com
 Comment: Demo Content Author
-Created: "2018-04-16T14:54:16.0000000Z"
+Created: "2018-04-16T14:37:22.0000000Z"
 IsApproved: True
 Properties:
+- Key: |
+    /sitecore\minnie/Content Editor/Sections/Collapsed
+  Value: "?Page Meta Properties=1"
+  ValueType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  IsCustom: True
+- Key: |
+    /sitecore\minnie/Page Editor/Show/Treecrumb
+  Value: on
+  ValueType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  IsCustom: True
 - Key: |
     /sitecore\minnie/Panes/PC6EBE5E6BCE34BABA5F916382F8369FE
   Value: visible
@@ -14,6 +24,11 @@ Properties:
 - Key: |
     /sitecore\minnie/Ribbon/My Strip
   Value: "{D33A0641-9F1C-4984-8342-0655C3D0F123}"
+  ValueType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  IsCustom: True
+- Key: |
+    /sitecore\minnie/Sections/C6EBE5E6BCE34BABA5F916382F8369FE_FF509B64B6D44FB79718C4218B992740_section/Collapsed
+  Value: true
   ValueType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
   IsCustom: True
 - Key: FullName
