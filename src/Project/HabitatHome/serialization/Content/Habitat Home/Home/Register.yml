@@ -15,6 +15,9 @@ SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 1500
+- ID: "d4952280-2d7d-4bf4-a99a-ea36dad0f0a7"
+  Hint: Body Css Class
+  Value: "register-page"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
@@ -24,18 +27,11 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          uid="{D5042C92-0507-4B67-B1FC-60E4748326C1}"
-          p:before="*"
-          s:ds="local:/Data/Facebook Login Promo"
-          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7B37AF3984-2F68-47EC-BAFB-B7A831F910CA%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-content-container/container-1/container-1" />
-        <r
           uid="{A91FD2E7-189C-45D6-99F0-BA2F2F4572E1}"
-          p:after="r[@uid='{D5042C92-0507-4B67-B1FC-60E4748326C1}']"
+          p:before="*"
           s:ds=""
           s:id="{99A633FC-B9A9-44A0-B78A-BCBB08DD02C9}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
           s:ph="/main/sxa-content-container/container-1/container-1" />
         <r
           uid="{B52CB16B-6400-4872-9C47-83411631A533}"
@@ -49,7 +45,7 @@ SharedFields:
           p:after="*[1=2]"
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7B1E34DFC6-3B3F-4AC0-AC85-6B8F577C6587%7D%7C%7B0186BC56-3141-43D6-BDA0-B595C3A79BF0%7D&amp;BackgroundImage&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:par="GridParameters&amp;BackgroundImage&amp;Styles={7390C99D-8055-4E89-9C82-84CA91700184}|{DF262DBA-9499-4F97-A9C9-B7885C140ED8}|{09FB530A-31C0-4644-B3A4-A5DEBA744EDB}&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
           s:ph="/main/sxa-content-container/container-1" />
       </d>
     </r>
@@ -65,6 +61,9 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171115T192426Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
       Value: Register

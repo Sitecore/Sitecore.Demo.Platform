@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
@@ -49,8 +50,15 @@ namespace Sitecore.HabitatHome.Foundation.Workflow.Actions
 
             AddRecipientsToMail(mailMessage, approversRole);
 
-            SmtpClient smtpClient = new SmtpClient(mailServer);
-            smtpClient.Send(mailMessage);
+            try
+            {
+                SmtpClient smtpClient = new SmtpClient(mailServer);
+                smtpClient.Send(mailMessage);
+            }
+            catch (Exception ex)
+            {                      
+                Log.Error($"Failed to send mail: {ex.Message}", ex, typeof(SubmissionNotification));
+            }
         }
 
         /// <summary>

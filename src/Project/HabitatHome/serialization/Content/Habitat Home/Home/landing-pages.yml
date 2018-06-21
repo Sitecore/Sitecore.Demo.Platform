@@ -13,7 +13,8 @@ SharedFields:
   Type: TreelistEx
   Value: |
     {568D0B5C-ECCB-4A2F-A301-79C7761CDA36}
-    {C2786E73-44C7-43BE-954B-1B35AEBA4BD0}
+    {11FB6401-0D14-40BE-851C-662853E8F0A9}
+    {88AFE195-BCA1-49DD-9AA2-67F0D9A0DAA5}
 - ID: "1fbc6a49-6281-48ee-87e9-a3970b145adb"
   Hint: NavigationFilter
   Type: Checklist
@@ -24,6 +25,21 @@ SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 2000
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{1F8D1BCF-62C8-458A-AEC6-95175D2FC703}"
+          s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          s:par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;FieldNames&amp;Styles={31A54599-7CA6-4FAE-A51E-120E7BF08FAC}&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="/main/sxa-content-container/container-1" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Fields:
@@ -42,6 +58,9 @@ Languages:
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
       Value: Landing Pages
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: <p>&nbsp;Use this section of pages to create landing pages for demo scenarios.&nbsp;</p>
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
