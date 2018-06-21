@@ -8,6 +8,29 @@ SharedFields:
 - ID: "4753764c-c05a-4623-841b-97f85135241c"
   Hint: FieldName
   Value: PromoText2
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{594B00D5-5A02-4D5D-809C-1DDC75A0A190}">
+        <conditions>
+          <or
+            uid="28DA379BDDA247B981E611ACCFEEF8B3">
+            <condition
+              id="{659CC5E0-6356-44DD-B562-6C590525121C}"
+              uid="EDD9A1AA838543E1958EBD0027634283"
+              Value="{B8E0B251-233D-4FA9-9DF9-5D38450E00D9}" />
+            <condition
+              id="{B5429D19-5CF6-4BD9-BC0B-F0B323C4306D}"
+              uid="D9EE1EDC38EE48988A5B7FD4648953C9"
+              operatorid="{10537C58-1684-4CAB-B4C0-40C10907CE31}"
+              value="master" />
+          </or>
+        </conditions>
+      </rule>
+    </ruleset>
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 300
@@ -76,3 +99,14 @@ Languages:
     - ID: "fd5230d8-e68d-4e17-9d85-ea676f27ac3a"
       Hint: Prefix
       Value: 
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180608T051633Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
