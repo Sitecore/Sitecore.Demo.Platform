@@ -16,7 +16,22 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{CD1D28C4-5E15-4077-9049-34764921C97B}" />
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link text="Cameras" anchor="" linktype="internal" class="" title=""  querystring="" id="{E9F2E3A7-0575-0632-B67E-5E65092230C3}" />
+        <link linktype="internal" text="Cameras" querystring="" target="" id="{E9F2E3A7-0575-0632-B67E-5E65092230C3}" />
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180611T194459Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous

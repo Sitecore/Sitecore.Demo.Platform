@@ -15,12 +15,7 @@ SharedFields:
     <ruleset>
       <rule
         uid="{0A063A55-0202-417F-B62A-C6AC619500F7}">
-        <conditions>
-          <condition
-            id="{659CC5E0-6356-44DD-B562-6C590525121C}"
-            uid="6AD16BFD267F46E18B780BA719F5908E"
-            Value="{B8E0B251-233D-4FA9-9DF9-5D38450E00D9}" />
-        </conditions>
+        <conditions />
       </rule>
     </ruleset>
 Languages:
@@ -31,13 +26,24 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180307T044034Z
-- Language: "fr-FR"
+- Language: "fr-CA"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180608T051632Z
+      Value: 20180612T195924Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180608T051606Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
