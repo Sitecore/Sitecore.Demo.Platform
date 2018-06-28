@@ -101,42 +101,7 @@ SharedFields:
           value="2" />
       </profile>
     </tracking>
-- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
-  Hint: __Renderings
-  Type: layout
-  Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
-      <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
-        <r
-          uid="{D5DBDAA7-F4D5-4618-B62A-FAFB3F0AF373}"
-          p:before="*"
-          s:ds="local:/Data/Additional Article Copy"
-          s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
-          s:par="GridParameters&amp;FieldNames=%7BB3CF5C8B-D6AA-4A97-9CB9-8048F269B9B6%7D&amp;Styles&amp;RenderingIdentifier"
-          s:ph="/main/sxa-article-content/container-1" />
-        <r
-          uid="{8E29D291-42BA-4EF9-AAB4-CA972B09097D}"
-          p:after="*[1=2]"
-          s:ds="local:/Data/Hero"
-          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BD70D540C-DAA4-4272-BD2E-92474D473F10%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-content-container/container-1" />
-      </d>
-    </r>
 Languages:
-- Language: "de-DE"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180330T210526Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -148,7 +113,7 @@ Languages:
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
       Hint: Image
       Value: |
-        <image mediaid="{60A12889-6FFB-4F4C-84AC-194789D2D17B}" height="" hspace="" width="" alt="home theater hero" vspace="" ></image>
+        <image mediaid="{11429EC9-1E51-4694-B09C-44ECC88D3F89}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171112T204932Z
@@ -178,16 +143,25 @@ Languages:
     - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
       Hint: Subtitle
       Value: Stay Flexible
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <p><strong>Configure your surround sound system</strong></p>
+        <p>Without stunning sound quality, a home theater is just a dark room with a big TV. Choose components wisely.</p><p><br /></p>
+        <p>The heart of the audio system, an A/V receiver, routes the video source to the TV or projection screen and the audio to the speakers. Position the receiver in an easy-to-reach location so you can easily mix and change cables. The Habitat Aura 200-Watt 7.2-Channel, Network-Ready 4K UHD Receiver offers 100 watts per channel—more than enough power for your movies, music, games, and more.</p><p><br /></p>
+        <p>When choosing speakers, listen to several models to find a package that suits your taste. You can configure the speakers for 5.1 surround sound—the standard—or 7.1, which gives you even more presence. Look for certified DTS or Dolby Digital surround, multiple audio and A/V connections, and at least 100 watts of sound per channel.</p><p><br /></p>
+        <p>Habitat Aura high-performance speakers provide stunning audio for an amazing home theater experience. As a space-saving alternative, consider a sound bar, which delivers surround-sound quality in a diminutive package.</p><p><br /></p>
+        <p style="margin-bottom: 15px;">Unwind with friends and family by watching a new release in your expertly designed home theater. Let Habitat's A/V experts help you design the ultimate movie night.</p>
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image
       Value: |
         <image mediaid="{02C21C81-5FE3-483E-8EE1-E49D8D8E0B2D}" height="" hspace="" width="" alt="home theater nav thumbnail" vspace="" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: <p>Keep yourself limber and experience the benefits of stretching, which include increased flexibility and improvements to your circulation</p>
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
-      Value: The Importance of  Stretching
+      Value: Setting Up the Perfect Home Theater
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -288,7 +262,7 @@ Languages:
       Hint: __Valid from
       Value: 
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: |
         <p>Autrefois consid&eacute;r&eacute;s comme un luxe, les cin&eacute;mas maison ont connu une popularit&eacute; croissante au cours des cinq derni&egrave;res ann&eacute;es.</p>
         <p>Les experts en recherche de Habitat Home pr&eacute;voient que le march&eacute; du cin&eacute;ma maison conna&icirc;tra une croissance annuelle de huit pour cent, avec des ventes de plus de 28 milliards de dollars d'ici 2020.</p>
@@ -304,17 +278,6 @@ Languages:
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: "Comment créer le cinéma-maison parfait"
-- Language: "fr-FR"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180329T160044Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -358,7 +321,7 @@ Languages:
       Value: |
         <image mediaid="{02C21C81-5FE3-483E-8EE1-E49D8D8E0B2D}" alt="home theater nav thumbnail" height="" width="" hspace="" vspace="" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: |
         <p>かつて贅沢と見なされれていたホームシアターは過去5年間で人気が高まっています。</p>
         <p>Habitat のリサーチ・エキスパートは、ホームシアター市場が年間8％成長し、2020年までに売上高が280億ドルを超えると予測しています。</p>

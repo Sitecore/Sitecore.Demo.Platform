@@ -5,6 +5,9 @@ Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
 Path: /sitecore/content/Habitat Sites/Habitat Home/Data/Snippets/Three Column Fitness Teasers
 DB: master
 SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 2950
@@ -64,6 +67,20 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180607T132826Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180620T061333Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
 - Language: "ja-JP"
   Versions:
   - Version: 1

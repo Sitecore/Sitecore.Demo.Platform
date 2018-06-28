@@ -1,0 +1,70 @@
+﻿---
+ID: "7128d032-83f5-48cf-a27a-59a6ab00e982"
+Parent: "2cbc9016-898e-4ae3-b173-9d762f1825f9"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Habitat Sites/Habitat Home/Data/Snippets/Newsletter Signup
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{411E4948-E7F2-4D86-BEAD-451F79D83BCF}">
+        <r
+          uid="{22CCF0C6-ACB1-424A-B51B-A345A9F0969B}"
+          ds="/sitecore/Forms/Onboarding Sign Up"
+          id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+          par=""
+          ph="/section-content/sitecoreFormsWrapper-1" />
+        <r
+          uid="{B7AA5409-2968-4533-9990-EBE49CCEE78A}"
+          id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
+          par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;Styles={460B5E75-23EF-430C-94C4-F86DB2DB5EDF}&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="section-content"
+          ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{8F91609B-123E-4936-9950-C843C8026855}"
+                name="Form Completed">
+                <conditions>
+                  <condition
+                    uid="BD039D23F02942A3A2039D7FEB3825E6"
+                    id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
+                    GoalId="{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}"
+                    NumberOfElapsedDays="35"
+                    NumberOfElapsedDaysOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    NumberOfPastInteractions="1" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="460199F466C44C998F3EC51B3923450C"
+                    id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                name="Default">
+                <conditions>
+                  <condition
+                    uid="EF3DDA2E2CDD441DA81BF4AAFCE4E33B"
+                    id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Value: "20180621T195031:636652074313255577Z"
