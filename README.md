@@ -38,6 +38,8 @@ In addition to a base XP 9.0.1 installation, the following modules are required:
 	- [Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/819FB4C75CC74A8C984C343BEF7B53F1.ashx)
 	- [Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1](https://dev.sitecore.net/~/media/ADBAF4CC6736499EBA0EBA6A9767D825.ashx)
 
+*IMPORTANT: Publish site after installing all required modules*
+
 ### Additional Windows Components
 - Url Rewrite 2.1 
 	- Can be installed using Web Platform Installer in IIS Manager
