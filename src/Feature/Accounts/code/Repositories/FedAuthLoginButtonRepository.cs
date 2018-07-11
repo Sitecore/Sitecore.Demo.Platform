@@ -1,38 +1,38 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Repositories
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Sitecore.Abstractions;
-    using Sitecore.Data;
-    using Sitecore.HabitatHome.Feature.Accounts.Models;
-    using Sitecore.HabitatHome.Feature.Accounts.Services;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;
-    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
-    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
-    using Sitecore.Pipelines.GetSignInUrlInfo;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Sitecore.Abstractions;
+using Sitecore.Data;
+using Sitecore.HabitatHome.Feature.Accounts.Models;
+using Sitecore.HabitatHome.Feature.Accounts.Services;
+using Sitecore.HabitatHome.Foundation.DependencyInjection;
+using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;                 
+using Sitecore.Pipelines.GetSignInUrlInfo;
 
+namespace Sitecore.HabitatHome.Feature.Accounts.Repositories
+{
     [Service(typeof(IFedAuthLoginButtonRepository))]
     public class FedAuthLoginButtonRepository : IFedAuthLoginButtonRepository
     {
+
+        private readonly BaseCorePipelineManager _pipelineManager;
+        private readonly IAccountsSettingsService _accountsSettingsService;
+
         public FedAuthLoginButtonRepository(BaseCorePipelineManager pipelineManager, IAccountsSettingsService accountsSettingsService)
         {
-            this.PipelineManager = pipelineManager;
-            this.AccountsSettingsService = accountsSettingsService;
+            _pipelineManager = pipelineManager;
+            _accountsSettingsService = accountsSettingsService;
         }
-
-        public BaseCorePipelineManager PipelineManager { get; }
-        public IAccountsSettingsService AccountsSettingsService { get; }
-
         public IEnumerable<FedAuthLoginButton> GetAll()
         {
-            var returnUrl = this.AccountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage);
+            var returnUrl = _accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage);
             var args = new GetSignInUrlInfoArgs(Context.Site.Name, returnUrl);
-            GetSignInUrlInfoPipeline.Run(this.PipelineManager, args);
+            GetSignInUrlInfoPipeline.Run(_pipelineManager, args);
             if (args.Result == null)
             {
                 throw new InvalidOperationException("Could not retrieve federated authentication logins");
             }
+
             return args.Result.Select(CreateFedAuthLoginButton).ToArray();
         }
 

@@ -14,7 +14,7 @@ SharedFields:
 - ID: "3fb918c8-08ec-4879-8062-088bbf71ee72"
   Hint: Plan Data
   Value: |
-    {"ReentryMode":0,"ContextKeyFactoryType":null,"EntryActivityId":"7637f1bd-bcd0-826b-7146-8698712616e8","Alias":"1cbaa182-1194-421b-b403-86a07afce3ee","IgnoreIsActiveProperty":true,"Activities":{"7637f1bd-bcd0-826b-7146-8698712616e8":{"Paths":{"default":"9237a943-c6aa-e3b7-b402-fee21d114b9d"},"Id":"7637f1bd-bcd0-826b-7146-8698712616e8","ActivityTypeId":"8c92d3c1-2c38-4e8a-92d1-9590e17cce89","Parameters":{"EventIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"GoalIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["a81fc0a2-bfba-439b-b412-ee6f07379f14"]},"OutcomeIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"TestOperation":0,"UseCondition":false}},"9237a943-c6aa-e3b7-b402-fee21d114b9d":{"Paths":{"false":"5cc68ad8-ace1-3539-4063-99bf84c22e74","true":"c1ad5278-e14a-606e-7480-248c97de3d32"},"Id":"9237a943-c6aa-e3b7-b402-fee21d114b9d","ActivityTypeId":"bb714802-ce83-491f-963f-16fb11c61bf2","Parameters":{"Goals":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["a39866ff-6b67-49a1-9d42-34890abb4815"]},"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"1.00:00:00","WaitUntil":null},"MatchAll":false,"Name":"Goal triggered"}},"c1ad5278-e14a-606e-7480-248c97de3d32":{"Paths":{"default":"5cc68ad8-ace1-3539-4063-99bf84c22e74"},"Id":"c1ad5278-e14a-606e-7480-248c97de3d32","ActivityTypeId":"51774db5-b90b-4189-9613-104039723a0b","Parameters":{"MessageId":"5f21f55a-900b-4783-92c7-de1a420c8bc6"}},"5cc68ad8-ace1-3539-4063-99bf84c22e74":{"Paths":{},"Id":"5cc68ad8-ace1-3539-4063-99bf84c22e74","ActivityTypeId":"a47371c2-8921-421f-8902-f3eccd229d56","Parameters":{}}},"UniversalActivities":{}}
+    {"ReentryMode":0,"ContextKeyFactoryType":null,"EntryActivityId":"7637f1bd-bcd0-826b-7146-8698712616e8","Alias":"1cbaa182-1194-421b-b403-86a07afce3ee","IgnoreIsActiveProperty":false,"Activities":{"7637f1bd-bcd0-826b-7146-8698712616e8":{"Paths":{"default":"9237a943-c6aa-e3b7-b402-fee21d114b9d"},"Id":"7637f1bd-bcd0-826b-7146-8698712616e8","ActivityTypeId":"8c92d3c1-2c38-4e8a-92d1-9590e17cce89","Parameters":{"EventIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"GoalIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["a81fc0a2-bfba-439b-b412-ee6f07379f14"]},"OutcomeIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"TestOperation":0,"UseCondition":false}},"9237a943-c6aa-e3b7-b402-fee21d114b9d":{"Paths":{"false":"5cc68ad8-ace1-3539-4063-99bf84c22e74","true":"c1ad5278-e14a-606e-7480-248c97de3d32"},"Id":"9237a943-c6aa-e3b7-b402-fee21d114b9d","ActivityTypeId":"bb714802-ce83-491f-963f-16fb11c61bf2","Parameters":{"Goals":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["a39866ff-6b67-49a1-9d42-34890abb4815"]},"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"1.00:00:00","WaitUntil":null},"MatchAll":false,"Name":"Goal triggered"}},"c1ad5278-e14a-606e-7480-248c97de3d32":{"Paths":{"default":"5cc68ad8-ace1-3539-4063-99bf84c22e74"},"Id":"c1ad5278-e14a-606e-7480-248c97de3d32","ActivityTypeId":"51774db5-b90b-4189-9613-104039723a0b","Parameters":{"MessageId":"5f21f55a-900b-4783-92c7-de1a420c8bc6"}},"5cc68ad8-ace1-3539-4063-99bf84c22e74":{"Paths":{},"Id":"5cc68ad8-ace1-3539-4063-99bf84c22e74","ActivityTypeId":"a47371c2-8921-421f-8902-f3eccd229d56","Parameters":{}}},"UniversalActivities":{}}
 - ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
   Hint: Custom Values
   Value: "{}"
@@ -28,13 +28,17 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180321T212200Z
+      Value: 20180324T013812Z
     - ID: "365f1971-b028-4065-bc11-ce1f471452af"
       Hint: Name
       Value: "Search - Fitness"
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
 - Language: "ja-JP"
   Versions:
   - Version: 1
@@ -42,6 +46,12 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180324T013812Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: "1cbaa182-1194-421b-b403-86a07afce3ee"
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

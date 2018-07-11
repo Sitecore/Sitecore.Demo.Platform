@@ -1,9 +1,9 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines
-{
-    using System.Web.Mvc;
-    using System.Web.Routing;
-    using Sitecore.Pipelines;
+﻿using System.Web.Mvc;
+using System.Web.Routing;
+using Sitecore.Pipelines;
 
+namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines
+{
     public class RegisterWebApiRoutes
     {
         public void Process(PipelineArgs args)

@@ -4,7 +4,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion></ProductVersion>
+    <ProductVersion>
+    </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{73A57FBE-7088-4344-87DC-23B01B504EC9}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -20,7 +21,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -48,12 +50,12 @@
     <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.3" />
     <PackageReference Include="Microsoft.Net.Compilers" Version="1.3.2" />
     <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
-    <PackageReference Include="Sitecore.Kernel.NoReferences" Version="9.0.171219" />
-    <PackageReference Include="Sitecore.Logging.NoReferences" Version="9.0.171219" />
-    <PackageReference Include="Sitecore.Mvc.Analytics.NoReferences" Version="9.0.171219" />
-    <PackageReference Include="Sitecore.Mvc.NoReferences" Version="9.0.171219" />
-    <PackageReference Include="Sitecore.Update.NoReferences" Version="9.0.171219" />
-    <PackageReference Include="Sitecore.Zip.NoReferences" Version="9.0.171219" />
+    <PackageReference Include="Sitecore.Kernel.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Logging.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Mvc.Analytics.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Mvc.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Update.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Zip.NoReferences" Version="9.0.180604" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -73,7 +75,6 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Project\Habitat.Website.config" />
     <Content Include="App_Config\Include\Project\Habitat.Website.Serialization.config" />
-    <Content Include="sitecore.habitathome.version.txt" />
     <Content Include="sitecore\shell\Applications\Page Modes\LayoutDefinition.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -118,7 +119,8 @@
           <IISUrl>http://localhost:14872/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl></CustomServerUrl>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

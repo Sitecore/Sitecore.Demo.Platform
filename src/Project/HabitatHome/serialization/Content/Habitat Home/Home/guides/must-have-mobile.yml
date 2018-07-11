@@ -87,25 +87,13 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          uid="{910C3CF1-CA5A-4469-99A2-A451B7CC4132}"
-          s:ds="local:/Data/Hero"
-          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-content-container/container-1" />
+          uid="{D749C554-A1E3-40C4-B985-9B2CBF74FC4F}"
+          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/sxa-article-content/author-1-" />
       </d>
     </r>
 Languages:
-- Language: "de-DE"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180330T210520Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -139,11 +127,10 @@ Languages:
     - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
       Hint: Content
       Value: |
-        <p>When you're traveling for business, you need to stay connected and productive at all times. Business travelers need portable yet highly functional products that allow them to conduct business in the air, in the hotel room, or on the conference room floor. </p>
-        <p>A Habitat customer survey showed the average executive travels 268 miles during a business trip and 945 miles by air. When you factor in overnight stays, that's dozens of valuable hours away from the office. </p>
+        <p><span style="font-size: 20px;">A Habitat customer survey showed the average executive travels 268 miles during a business trip and 945 miles by air. When you factor in overnight stays, that's dozens of valuable hours away from the office.</span><br /></p>
         <p>To maintain productivity on the road, Habitat recommends the following essential mobile devices and accessories.</p>
         <p><strong>Smartphones</strong> </p>
-        <p>Choose a smartphone with a quality display, a long battery life, and compatibility with a wide range of peripherals. The Habitat Helix Odyssey smartphone offers 16GB of RAM and up to 64GB of storage. The Habitat Republic runs on Android, which gives you easy compatibility with Google Drive and other Google tools&mdash;a plus for offices that operate on Google applications.</p>
+        <p>Choose a smartphone with a quality display, a long battery life, and compatibility with a wide range of peripherals. The Habitat Helix Odyssey smartphone offers 16GB of RAM and up to 64GB of storage. The Habitat Republic runs on Android, which gives you easy compatibility with Google Drive and other Google tools—a plus for offices that operate on Google applications.</p>
         <p><strong>Headphones</strong></p>
         <p>If you're flying for a business meeting, trust us, you'll want a pair of high-quality headphones. Look for a pair of noise-canceling headphones compatible with your laptop, smartphone, and tablet. Habitat's Studio X wireless headphones block out noise so you can work or rest without distraction. In-ear headphones offer similar noise-canceling power in a compact package.</p>
         <p><strong>Tablets</strong></p>
@@ -151,7 +138,7 @@ Languages:
         <p>Habitat's Gesture Tablets range from an ultra-portable seven-inch model to a work-friendly 10.8-inch model. Up to 64GB of memory, a front- and rear camera (good for Skype calls and video conferences), and a multi-user mode make the Gesture a reliable travel companion.
         </p>
         <p><strong>Accessories</strong></p>
-        <p>Don't leave home without a few necessary accessories. Habitat business consultants suggest buying an external power source to keep your smartphone charged all day&mdash;a must when traveling.</p>
+        <p>Don't leave home without a few necessary accessories. Habitat business consultants suggest buying an external power source to keep your smartphone charged all day—a must when traveling.</p>
         <p>A portable hard drive or thumb drive allows you to save important documents as an archive or to print when you arrive to the hotel. </p>
         <p>With a portable hotspot, you'll never have to pay for WiFi or search frantically for the nearest Starbucks. That means you really can work anywhere without interruption.</p>
         <p>Business travel is an unavoidable necessity for most professionals. With Habitat's wide range of mobile devices and accessories, you can stay productive no matter where your work takes you.</p>
@@ -173,8 +160,9 @@ Languages:
       Value: |
         <image mediaid="{5C1251F2-1854-4DA4-A979-C68170F12468}" alt="must have mobile thumbnail" height="" width="" hspace="" vspace="" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
-      Value: <p>When you're traveling for business, you need to stay connected and productive at all times.&nbsp;To maintain productivity on the road, Habitat recommends the following essential mobile devices and accessories.</p>
+      Hint: Introduction
+      Value: |
+        <p style="font-weight: 400; font-style: normal; font-size: 20px; font-family: ProximaNova, sans-serif;">When you're traveling for business, you need to stay connected and productive at all times. Business travelers need portable yet highly functional products that allow them to conduct business in the air, in the hotel room, or on the conference room floor.</p>
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl
       Value: |
@@ -206,7 +194,16 @@ Languages:
     - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
       Hint: __Final Renderings
       Type: Layout
-      Value: 
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{910C3CF1-CA5A-4469-99A2-A451B7CC4132}"
+              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7d&amp;DynamicPlaceholderId=1" />
+          </d>
+        </r>
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
       Hint: Image
       Value: |
@@ -295,7 +292,7 @@ Languages:
       Hint: __Valid from
       Value: 
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: <p>Lorsque vous faites des voyages d'affaires, vous devez rester connect&eacute; et productif en tout temps. Pour maintenir la productivit&eacute; sur la route, Habitat Home recommande les appareils et accessoires mobiles essentiels suivants.</p>
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl
@@ -311,17 +308,6 @@ Languages:
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: Appareils mobiles essentiels et accessoires pour les cadres
-- Language: "fr-FR"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180329T160035Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -389,7 +375,7 @@ Languages:
       Value: |
         <image mediaid="{5C1251F2-1854-4DA4-A979-C68170F12468}" alt="must have mobile thumbnail" height="" width="" hspace="" vspace="" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: <p>ビジネスのために旅行するときは、常に接続して生産性を維持する必要があります。&nbsp; 移動中の生産性を維持するため、Habitatは次の必須のモバイルデバイスとアクセサリを推奨します。</p>
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl
