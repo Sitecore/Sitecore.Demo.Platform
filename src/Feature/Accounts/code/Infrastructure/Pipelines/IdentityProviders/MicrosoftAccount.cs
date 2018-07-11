@@ -1,26 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.MicrosoftAccount;
+using Sitecore.Configuration;
+using Sitecore.Diagnostics;
+using Sitecore.Owin.Authentication.Configuration;
+using Sitecore.Owin.Authentication.Extensions;
+using Sitecore.Owin.Authentication.Pipelines.IdentityProviders;
+using Sitecore.Owin.Authentication.Services;
+using System.Threading.Tasks;
 using MicrosoftAccountAuthenticationExtensions = Owin.MicrosoftAccountAuthenticationExtensions;
 
-
 namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
-{
-    using Microsoft.Owin.Security;
-    using Microsoft.Owin.Security.MicrosoftAccount;
-    using Microsoft.Owin.Security.Notifications;
-    using Microsoft.IdentityModel.Protocols;
-    using Sitecore.Configuration;
-    using Sitecore.Diagnostics;
-    using Sitecore.Owin.Authentication.Configuration;
-    using Sitecore.Owin.Authentication.Extensions;
-    using Sitecore.Owin.Authentication.Pipelines.IdentityProviders;
-    using Sitecore.Owin.Authentication.Services;
-    using System.Security.Claims;
-    using System.Threading.Tasks;                     
-    using Microsoft.Owin.Security.Cookies;             
-
+{        
     public class MicrosoftAccount : IdentityProvidersProcessor
     {
         public MicrosoftAccount(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration) : base(federatedAuthenticationConfiguration)

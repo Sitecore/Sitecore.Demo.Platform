@@ -1,52 +1,45 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web.Mvc;
-    using Sitecore.Data;
-    using Sitecore.Data.Items;
-    using Sitecore.HabitatHome.Feature.Accounts.Models;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;
-    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
-    using Sitecore.Security;
-    using Sitecore.Security.Accounts;
-    using Sitecore.SecurityModel;
+﻿using Sitecore.HabitatHome.Feature.Accounts.Models;
+using Sitecore.HabitatHome.Foundation.DependencyInjection;
+using Sitecore.Security;
+using Sitecore.Security.Accounts;
+using System.Collections.Generic;
 
+namespace Sitecore.HabitatHome.Feature.Accounts.Services
+{
     [Service(typeof(IUserProfileService))]
     public class UserProfileService : IUserProfileService
     {
-        private readonly IProfileSettingsService profileSettingsService;
-        private readonly IUserProfileProvider userProfileProvider;
-        private readonly IUpdateContactFacetsService updateContactFacetsService;
-        private readonly IAccountTrackerService accountTrackerService;
+        private readonly IProfileSettingsService _profileSettingsService;
+        private readonly IUserProfileProvider _userProfileProvider;
+        private readonly IUpdateContactFacetsService _updateContactFacetsService;
+        private readonly IAccountTrackerService _accountTrackerService;
 
         public UserProfileService(IProfileSettingsService profileSettingsService, IUserProfileProvider userProfileProvider, IUpdateContactFacetsService updateContactFacetsService, IAccountTrackerService accountTrackerService)
         {
-            this.profileSettingsService = profileSettingsService;
-            this.userProfileProvider = userProfileProvider;
-            this.updateContactFacetsService = updateContactFacetsService;
-            this.accountTrackerService = accountTrackerService;
+            _profileSettingsService = profileSettingsService;
+            _userProfileProvider = userProfileProvider;
+            _updateContactFacetsService = updateContactFacetsService;
+            _accountTrackerService = accountTrackerService;
         }
 
         public virtual string GetUserDefaultProfileId()
         {
-            return this.profileSettingsService.GetUserDefaultProfile()?.ID?.ToString();
+            return _profileSettingsService.GetUserDefaultProfile()?.ID?.ToString();
         }
 
         public virtual EditProfile GetEmptyProfile()
         {
             return new EditProfile
                    {
-                       InterestTypes = this.profileSettingsService.GetInterests()
+                       InterestTypes = _profileSettingsService.GetInterests()
                    };
         }
 
         public virtual EditProfile GetProfile(User user)
         {
-            this.SetProfileIfEmpty(user);
+            SetProfileIfEmpty(user);
 
-            var properties = this.userProfileProvider.GetCustomProperties(user.Profile);
+            var properties = _userProfileProvider.GetCustomProperties(user.Profile);
 
             var model = new EditProfile
                         {
@@ -55,7 +48,7 @@
                             LastName = user.Profile.GetCustomProperty("LastName") ?? "",
                             PhoneNumber = user.Profile.GetCustomProperty("Phone") ?? "",
                             Interest = properties.ContainsKey(Constants.UserProfile.Fields.Interest) ? properties[Constants.UserProfile.Fields.Interest] : "",
-                            InterestTypes = this.profileSettingsService.GetInterests()
+                            InterestTypes = _profileSettingsService.GetInterests()
                         };
 
             return model;
@@ -73,21 +66,24 @@
                                  [nameof(userProfile.FullName)] = $"{model.FirstName} {model.LastName}".Trim()
                              };
 
-            this.userProfileProvider.SetCustomProfile(userProfile, properties);
-            this.updateContactFacetsService.UpdateContactFacets(userProfile);
-            accountTrackerService.TrackEditProfile(userProfile);
+            _userProfileProvider.SetCustomProfile(userProfile, properties);
+            _updateContactFacetsService.UpdateContactFacets(userProfile);
+            _accountTrackerService.TrackEditProfile(userProfile);
         }
 
         public IEnumerable<string> GetInterests()
         {
-            return this.profileSettingsService.GetInterests();
+            return _profileSettingsService.GetInterests();
         }
+
         private void SetProfileIfEmpty(User user)
         {
             if (Context.User.Profile.ProfileItemId != null)
+            {
                 return;
+            }
 
-            user.Profile.ProfileItemId = this.GetUserDefaultProfileId();
+            user.Profile.ProfileItemId = GetUserDefaultProfileId();
             user.Profile.Save();
         }
     }

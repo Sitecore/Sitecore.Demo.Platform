@@ -1,16 +1,16 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
-{
-    using System.Collections.Generic;
-    using System.Linq;
-    using Sitecore.Configuration;
-    using Sitecore.Data;
-    using Sitecore.Data.Managers;
-    using Sitecore.Data.Templates;
-    using Sitecore.Diagnostics;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;
-    using Sitecore.Security;
-    using Sitecore.SecurityModel;
+﻿using Sitecore.Configuration;
+using Sitecore.Data;
+using Sitecore.Data.Managers;
+using Sitecore.Data.Templates;
+using Sitecore.Diagnostics;
+using Sitecore.HabitatHome.Foundation.DependencyInjection;
+using Sitecore.Security;
+using Sitecore.SecurityModel;
+using System.Collections.Generic;
+using System.Linq;
 
+namespace Sitecore.HabitatHome.Feature.Accounts.Services
+{
     [Service(typeof(IUserProfileProvider))]
     public class UserProfileProvider : IUserProfileProvider
     {
@@ -18,7 +18,7 @@
         {
             Assert.ArgumentNotNull(userProfile, nameof(userProfile));
 
-            var template = this.GetProfileTemplate(userProfile.ProfileItemId);
+            var template = GetProfileTemplate(userProfile.ProfileItemId);
 
             return template?.GetFields(true).ToDictionary(k => k.Name, v => userProfile[v.Name]) ?? new Dictionary<string, string>();
         }
@@ -53,6 +53,7 @@
                 {
                     return null;
                 }
+
                 var database = Database.GetDatabase(Settings.ProfileItemDatabase);
                 var item = database?.GetItem(profileId);
 

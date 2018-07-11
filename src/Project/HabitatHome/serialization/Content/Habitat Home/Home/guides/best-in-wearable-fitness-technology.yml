@@ -23,128 +23,10 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          uid="{4AACF56A-384C-4C85-AA47-2A80FA7EBF6B}"
-          p:before="*"
-          s:ds="local:/Data/Text 3"
-          s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
-          s:ph="/main/sxa-article-content/container-1/container-8" />
-        <r
-          uid="{F27E6074-78DC-4090-8054-977BA8530943}"
-          p:after="r[@uid='{4AACF56A-384C-4C85-AA47-2A80FA7EBF6B}']"
-          s:ds="{9BE164EF-7142-4497-85CA-FB53F509516C}"
-          s:id="{C4222625-2637-43FE-82D7-341009A277CA}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
-          s:ph="/main/sxa-article-content/container-1/Container-26/column-2-7" />
-        <r
-          uid="{5D6D60F2-4864-42A1-9407-073DC0C0B0C2}"
-          p:after="r[@uid='{F27E6074-78DC-4090-8054-977BA8530943}']"
-          s:ds="{E679D02C-76B3-4B37-ADF1-7F8E510FC44E}"
-          s:id="{63B19D58-0764-495A-80CB-4B06C99C3F70}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
-          s:ph="/main/sxa-article-content/container-1/Container-26/column-2-7" />
-        <r
-          uid="{468C5377-5E82-4585-AF29-35A4F5F581F0}"
-          p:after="r[@uid='{5D6D60F2-4864-42A1-9407-073DC0C0B0C2}']"
-          s:ds="{17426A3E-78CA-4F99-813E-E8911E1EABEC}"
-          s:id="{93BC3DB7-582A-48EE-ADE8-F410561FA411}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
-          s:ph="/main/sxa-article-content/container-1/Container-26/column-2-7" />
-        <r
-          uid="{D34AAF30-2833-4034-A2A3-E75EC0B9BBF4}"
-          p:after="r[@uid='{468C5377-5E82-4585-AF29-35A4F5F581F0}']"
-          s:id="{24A792CF-1F2A-4A0D-9CEE-89B6BC696C55}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}"
-          s:ph="/main/sxa-article-content/container-1/Container-26/column-1-7" />
-        <r
-          uid="{97DE1FA1-907A-435A-9EC2-0A4D5E62B3DE}"
-          p:after="r[@uid='{D34AAF30-2833-4034-A2A3-E75EC0B9BBF4}']"
-          s:ds=""
-          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
-          s:par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=7"
-          s:ph="/main/sxa-article-content/container-1/Container-26" />
-        <r
-          uid="{1F25D62B-72C8-4387-B257-37A8ECDC45CC}"
-          p:after="r[@uid='{97DE1FA1-907A-435A-9EC2-0A4D5E62B3DE}']"
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;BackgroundImage&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=8"
-          s:ph="/main/sxa-article-content/container-1">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{45B8E9C9-D9D2-4644-82E5-2B08A01B12F8}"
-                s:name="Show when platinum in cart">
-                <conditions>
-                  <condition
-                    uid="C16D9D46C5D847A69A99048BF0A92215"
-                    s:id="{9D3B7B5B-48BA-4B54-A522-166FFDEAC33D}"
-                    s:ProductId="8042103"
-                    s:operatorid="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                    s:ProductQuantity="1" />
-                </conditions>
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="C547D63BF0F84438A82714DAB8E41DD1"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="6A8CC8ACD984404E97DCE939C83763B2"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
-          uid="{7B88D053-7433-49B3-B3B2-CC2165CE5CAA}"
-          p:after="r[@uid='{1F25D62B-72C8-4387-B257-37A8ECDC45CC}']"
-          s:ds="{213AE470-B319-1CD0-8E28-2D9263E8AE30}"
-          s:id="{A4946E81-2A46-48D6-988D-81033CC7044B}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=6"
-          s:ph="/main/sxa-article-content/container-1">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{9253CEDE-3CB4-4C1E-8B69-22F461D9F0E1}"
-                s:name="Show with Platinum Trainer in cart">
-                <conditions>
-                  <condition
-                    uid="A36A43D316344AC691199BE8C6C61B56"
-                    s:id="{9D3B7B5B-48BA-4B54-A522-166FFDEAC33D}"
-                    s:ProductId="8042103"
-                    s:operatorid="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                    s:ProductQuantity="1" />
-                </conditions>
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="72B783883F1B4671A0E1CA1AA639E801"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="9F9FE413D45C439B8BBEBDD51E5E3E4B"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
-          uid="{A5782BFA-639A-4B78-8A5E-173C071B5339}"
-          p:after="*[1=2]"
-          s:ds="local:/Data/Hero - Best Fitness Tech"
-          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-content-container/container-1" />
+          uid="{810C04A1-FCBC-4BE6-ACB3-1C82F0C6270E}"
+          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/sxa-article-content/author-1-" />
       </d>
     </r>
 Languages:
@@ -172,8 +54,7 @@ Languages:
     - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
       Hint: Content
       Value: |
-        <p>With the right equipment, every goal is within reach. The latest in wearable fitness technology can help you succeed by measuring every day activities.&nbsp;</p>
-        <p>Cotton candy jelly cupcake candy canes pastry marzipan. Caramels donut fruitcake pudding chocolate cake ice cream. Apple pie bonbon icing bear claw jelly bonbon chocolate tootsie roll. Lollipop oat cake jelly-o candy canes caramels apple pie chupa chups jelly biscuit. Caramels gummi bears lemon drops muffin cheesecake gingerbread. Jelly beans sweet roll chocolate fruitcake topping. Topping wafer cheesecake fruitcake chupa chups marshmallow cake. Danish candy canes halvah chocolate cake sweet roll gummi bears donut fruitcake. Caramels gingerbread wafer jelly cotton candy brownie drag&eacute;e. Jelly beans fruitcake sweet chocolate croissant danish brownie macaroon. Lemon drops candy gummies. Icing gingerbread pudding jelly beans cotton candy wafer carrot cake danish toffee. Cotton candy tart caramels pudding ice cream caramels macaroon macaroon. Cake powder candy cookie icing dessert ice cream lemon drops wafer.</p>
+        <p><span style="font-size: 20px;">Cotton candy jelly cupcake candy canes pastry marzipan. Caramels donut fruitcake pudding chocolate cake ice cream. Apple pie bonbon icing bear claw jelly bonbon chocolate tootsie roll. Lollipop oat cake jelly-o candy canes caramels apple pie chupa chups jelly biscuit. Caramels gummi bears lemon drops muffin cheesecake gingerbread. Jelly beans sweet roll chocolate fruitcake topping. Topping wafer cheesecake fruitcake chupa chups marshmallow cake. Danish candy canes halvah chocolate cake sweet roll gummi bears donut fruitcake. Caramels gingerbread wafer jelly cotton candy brownie dragée. Jelly beans fruitcake sweet chocolate croissant danish brownie macaroon. Lemon drops candy gummies. Icing gingerbread pudding jelly beans cotton candy wafer carrot cake danish toffee. Cotton candy tart caramels pudding ice cream caramels macaroon macaroon. Cake powder candy cookie icing dessert ice cream lemon drops wafer.</span><br /></p>
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -181,12 +62,15 @@ Languages:
     - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
       Hint: Subtitle
       Value: New Year, new you
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <span style="font-family: ProximaNova, sans-serif; font-size: 20px; font-style: normal; font-weight: 400;">Cotton candy jelly cupcake candy canes pastry marzipan. Caramels donut fruitcake pudding chocolate cake ice cream. Apple pie bonbon icing bear claw jelly bonbon chocolate tootsie roll. Lollipop oat cake jelly-o candy canes caramels apple pie chupa chups jelly biscuit. Caramels gummi bears lemon drops muffin cheesecake gingerbread. Jelly beans sweet roll chocolate fruitcake topping. Topping wafer cheesecake fruitcake chupa chups marshmallow cake. Danish candy canes halvah chocolate cake sweet roll gummi bears donut fruitcake. Caramels gingerbread wafer jelly cotton candy brownie dragée. Jelly beans fruitcake sweet chocolate croissant danish brownie macaroon. Lemon drops candy gummies. Icing gingerbread pudding jelly beans cotton candy wafer carrot cake danish toffee. Cotton candy tart caramels pudding ice cream caramels macaroon macaroon. Cake powder candy cookie icing dessert ice cream lemon drops wafer.</span>
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image
-      Value: |
-        <image mediaid="{42EBDC45-C036-49DE-997F-402A0DCD840D}" alt="Wearable technology product" height="" width="" hspace="" vspace="" />
+      Value: 
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: <p>With the right equipment, every goal is within reach. The latest in wearable fitness technology can help you succeed.&nbsp;</p>
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
@@ -212,34 +96,54 @@ Languages:
               p:before="*"
               s:ds="{7FFDAD1C-50A6-4CE7-81C5-259DCD6D1FC1}"
               s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
-              s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={3E6E7D0C-2472-4157-B4C8-F920504A4196}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b3E6E7D0C-2472-4157-B4C8-F920504A4196%7d&amp;DynamicPlaceholderId=5"
               s:ph="/main/sxa-article-content/container-1/column-2-2" />
             <r
               uid="{C6BFA351-243B-40B3-86C1-DEB4433878BF}"
               p:after="r[@uid='{EB62C74D-F2B2-4D1E-94C2-E0254538FA25}']"
               s:ds="{8A33684A-7711-4445-A119-BD1EFEC890B6}"
               s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
-              s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={3E6E7D0C-2472-4157-B4C8-F920504A4196}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b3E6E7D0C-2472-4157-B4C8-F920504A4196%7d&amp;DynamicPlaceholderId=4"
               s:ph="/main/sxa-article-content/container-1/column-1-2" />
             <r
               uid="{5796A68A-5B48-4295-AB5C-FC1C6C2984E8}"
               p:after="r[@uid='{C6BFA351-243B-40B3-86C1-DEB4433878BF}']"
               s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
-              s:par="SplitterSize=2&amp;EnabledPlaceholders=1,2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1={FB140AEF-DE33-4088-9F1D-406C6BA32A8E}&amp;ColumnWidth2={FB140AEF-DE33-4088-9F1D-406C6BA32A8E}&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=3"
+              s:par="EnabledPlaceholders=1%2c2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;DynamicPlaceholderId=3"
               s:ph="/main/sxa-recommended-content/container-1" />
             <r
               uid="{48F28386-988F-487B-9453-9917F8F67B2D}"
               p:after="r[@uid='{5796A68A-5B48-4295-AB5C-FC1C6C2984E8}']"
               s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
-              s:par="SplitterSize=2&amp;EnabledPlaceholders=1,2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1={FB140AEF-DE33-4088-9F1D-406C6BA32A8E}&amp;ColumnWidth2={FB140AEF-DE33-4088-9F1D-406C6BA32A8E}&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=2"
+              s:par="EnabledPlaceholders=1%2c2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;DynamicPlaceholderId=2"
               s:ph="/main/sxa-article-content/container-1" />
             <r
+              uid="{4AACF56A-384C-4C85-AA47-2A80FA7EBF6B}"
+              s:par="" />
+            <r
+              uid="{F27E6074-78DC-4090-8054-977BA8530943}"
+              s:par="" />
+            <r
+              uid="{5D6D60F2-4864-42A1-9407-073DC0C0B0C2}"
+              s:par="" />
+            <r
+              uid="{468C5377-5E82-4585-AF29-35A4F5F581F0}"
+              s:par="" />
+            <r
+              uid="{D34AAF30-2833-4034-A2A3-E75EC0B9BBF4}"
+              s:par="" />
+            <r
+              uid="{97DE1FA1-907A-435A-9EC2-0A4D5E62B3DE}"
+              s:par="EnabledPlaceholders=1%2c2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;DynamicPlaceholderId=7" />
+            <r
+              uid="{1F25D62B-72C8-4387-B257-37A8ECDC45CC}"
+              s:par="DynamicPlaceholderId=8" />
+            <r
+              uid="{7B88D053-7433-49B3-B3B2-CC2165CE5CAA}"
+              s:par="" />
+            <r
               uid="{A5782BFA-639A-4B78-8A5E-173C071B5339}"
-              p:after="*[1=2]"
-              s:ds="local:/Data/Hero - Best Fitness Tech"
-              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-              s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-              s:ph="/main/sxa-content-container/container-1" />
+              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;DynamicPlaceholderId=1" />
           </d>
         </r>
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
@@ -272,29 +176,18 @@ Languages:
       Value: |
         <image mediaid="{42EBDC45-C036-49DE-997F-402A0DCD840D}" alt="Fitness Tracker" height="" width="" hspace="" vspace="" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: With the right equipment, every goal is within reach. The latest in wearable fitness technology can help you succeed.&nbsp;
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: Best In Wearable Fitness Tech
-- Language: "fr-FR"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180330T210522Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: "ja-JP"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180607T035614Z
+      Value: 20180628T022827Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

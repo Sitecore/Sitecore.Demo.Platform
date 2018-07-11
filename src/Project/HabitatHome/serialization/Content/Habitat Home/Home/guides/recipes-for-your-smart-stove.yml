@@ -111,107 +111,39 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
-          uid="{0AB31C07-D5E8-4B00-B14A-942DE0612422}"
-          p:before="*"
-          s:ds="{7493C92D-DA35-44A7-B8D8-CB3A6BF9D561}"
-          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
-          s:par=""
-          s:ph="/main/sxa-recommended-content/container-1/sitecoreFormsWrapper-1" />
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          ph="/main/sxa-article-content/author-1-"
+          uid="{58858822-9F0A-44CC-877E-07A49113E34E}" />
         <r
-          uid="{E69A27B2-10D4-47FA-B468-E242C60C83B6}"
-          p:after="r[@uid='{0AB31C07-D5E8-4B00-B14A-942DE0612422}']"
-          s:ds=""
-          s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
-          s:par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;Styles={460B5E75-23EF-430C-94C4-F86DB2DB5EDF}&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-recommended-content/container-1">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{8A47F68F-CE26-4BD8-9DC5-C59FC7521F09}"
-                s:name="Form Completed">
-                <conditions>
-                  <condition
-                    uid="877B54C1986C4C848E1A6A1CD2912F85"
-                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
-                    s:GoalId="{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}"
-                    s:NumberOfElapsedDaysOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                    s:NumberOfElapsedDays="365"
-                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                    s:NumberOfPastInteractions="1" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="F6BEC1C73EDF404096AE775D7201A165"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="058904DE597E4566846DA110FEF722E3"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions />
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
+          ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          ph="/main/sxa-recommended-content/container-1"
+          uid="{0CB9F526-C892-4F67-A043-B30C21ADCCAF}" />
         <r
-          uid="{84F2DD9F-3AF7-45DB-9AF8-0AD70C480328}"
-          p:after="r[@uid='{E69A27B2-10D4-47FA-B468-E242C60C83B6}']"
-          s:ds="local:/Data/Hero"
-          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-content-container/container-1" />
+          ds="{B8B17220-5408-483E-BD00-AFA82E1D66A8}"
+          id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+          par=""
+          ph="/main/sxa-article-content/container-1/container-2"
+          uid="{5B71B7D7-9A95-42F3-BF2C-C47276A17B02}" />
         <r
-          uid="{5B71B7D7-9A95-42F3-BF2C-C47276A17B02}"
-          p:after="r[@uid='{84F2DD9F-3AF7-45DB-9AF8-0AD70C480328}']"
-          s:ds="{B8B17220-5408-483E-BD00-AFA82E1D66A8}"
-          s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles&amp;RenderingIdentifier"
-          s:ph="/main/sxa-article-content/container-1/container-2" />
-        <r
-          uid="{33A18287-F717-4A2A-957D-F9D3B7BBE518}"
-          p:after="r[@uid='{5B71B7D7-9A95-42F3-BF2C-C47276A17B02}']"
-          s:ds=""
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          s:ph="/main/sxa-article-content/container-1" />
-        <r
-          uid="{B6588ACB-0EAE-4D6A-9055-1360648ED846}"
-          p:after="r[@uid='{33A18287-F717-4A2A-957D-F9D3B7BBE518}']"
-          s:ds="local:/Data/Text 2"
-          s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BB3CF5C8B-D6AA-4A97-9CB9-8048F269B9B6%7D&amp;Styles&amp;RenderingIdentifier"
-          s:ph="/main/sxa-article-content/container-1/container-1" />
-        <r
-          uid="{9C2B394A-9994-4D17-B486-E5AFE3442DB9}"
-          p:after="*[1=2]"
-          s:ds=""
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-article-content/container-1" />
+          ds=""
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="DynamicPlaceholderId=2"
+          ph="/main/sxa-article-content/container-1"
+          uid="{33A18287-F717-4A2A-957D-F9D3B7BBE518}" />
       </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
-- Language: "de-DE"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180330T210528Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -267,12 +199,57 @@ Languages:
     - ID: "7d988161-3991-465a-a88c-280bc65542a0"
       Hint: OpenGraphTitle
       Value: A Recipe for Your Smart Stove
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <h1>The Ultimate Beef Wellington</h1>
+        <p><a href="-/media/7BC92BB8C37F4837867E2F4AC4E91DB2.ashx">Download a PDF of the recipe here</a>.</p>
+        <h3>Ingredients</h3>
+        <p><em>Serves 12 </em></p>
+        <ul>
+            <li>3 lb center-cut beef tenderloin</li>
+            <li>kosher salt, to taste</li>
+            <li>black pepper, to taste</li>
+            <li>2 tablespoons canola oil</li>
+            <li>&frac14; cup English mustard</li>
+            <li>1 tablespoon butter</li>
+            <li>2 shallots, minced</li>
+            <li>2 lb cremini mushroom, minced</li>
+            <li>5 cloves garlic, minced</li>
+            <li>&frac12; lb prosciutto, thinly sliced, or ham</li>
+            <li>1 sheet puff pastry</li>
+            <li>2 eggs, beaten<br />
+            <br />
+            </li>
+        </ul>
+        <h3>Preparation</h3>
+        <ol>
+            <li>Preheat oven to 400&deg;F (200&deg;C).</li>
+            <li>Let the beef tenderloin come to room temperature. Season with kosher salt and pepper on all sides.</li>
+            <li>Add canola oil to a large pan on high heat. Once the oil is hot, add the tenderloin. Without moving the tenderloin, cook until a dark brown crust forms, about 3 minutes. Repeat searing on all sides, including the tenderloin ends.</li>
+            <li>Remove the tenderloin from the pan and transfer to a cutting board or wire rack and remove ties.</li>
+            <li>Brush the mustard on all sides of the meat while it&rsquo;s still warm. Let the meat rest for while making the duxelles (mushrooms cooked and reduced until dry).</li>
+            <li>To the same pan, add the butter, mushrooms, minced shallot, and minced garlic over medium heat. Cook, stirring occasionally until all the liquid evaporates and the mushroom mixture becomes a thick, dry-like paste.</li>
+            <li>Remove the mushrooms from the pan and let cool completely.</li>
+            <li>Place a large layer of overlapping sheets of plastic wrap on your work surface that is twice the length and width of the tenderloin.</li>
+            <li>Lay overlapping strips of prosciutto on the plastic into an even square layer.</li>
+            <li>Spread a layer of the mushrooms evenly over the prosciutto.</li>
+            <li>Tightly and evenly wrap the tenderloin with the prosciutto, using the plastic wrap to wrap it even tighter and seal ends. Tie the ends of the plastic wrap together to hold the Wellington&rsquo;s shape.</li>
+            <li>Place in the refrigerator for 15 minutes.</li>
+            <li>Place a new layer of plastic wrap on the work surface and lay a sheet of puff pastry over it. Unwrap the prosciutto-wrapped beef tenderloin onto the puff pastry, wrapping until the ends meet.</li>
+            <li>Cut off any extra puff pastry, making sure there is no overlap.</li>
+            <li>Wrap the puff pastry in plastic wrap, tying the ends together to form a log shape. Place in the refrigerator for 15 minutes.</li>
+            <li>Place the beef Wellington on a greased, parchment paper-lined baking sheet. Brush the surface with the beaten eggs. With a fork, score a decorative design onto the surface of the puff pastry.</li>
+            <li>Decorate with additional pastry (optional). Sprinkle with kosher salt.</li>
+            <li>Bake for 40 minutes or until the puff pastry is a dark golden brown and the internal temperature of the beef is 135&deg;F (57&deg;C) for medium-rare.</li>
+            <li>Enjoy!</li>
+        </ol>
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image
       Value: |
         <image mediaid="{A59106C4-5F65-4D75-B83E-A6F62024E3AA}" alt="recipe for smart stove nav thumbail" height="" width="" hspace="" vspace="" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: <p>Impressive and faster than you would think. Dazzle your friends and family with this delicious <br />recipe straight from our experts.</p>
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
@@ -375,7 +352,7 @@ Languages:
       Hint: __Valid from
       Value: 
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: Pour profiter des nouveaux po&ecirc;les intelligents sur le march&eacute;, nous pr&eacute;sentons une recette fantastique qui sera amusante &agrave; faire et satisfaisante &agrave; manger. Il offre aux cuisiniers &agrave; domicile la possibilit&eacute; d'utiliser les fonctionnalit&eacute;s int&eacute;ressantes disponibles dans le po&ecirc;le connect&eacute;.
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl
@@ -389,17 +366,6 @@ Languages:
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: Une recette pour votre cuisinière intelligente
-- Language: "fr-FR"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180329T160046Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -460,7 +426,7 @@ Languages:
       Value: |
         <image mediaid="{077BB138-1D40-43F0-9FB5-B222AE0A8D84}" alt="recipe for smart stove nav thumbail" height="" width="" hspace="" vspace="" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: <p>市場で新しいスマートストーブを利用するために、私たちは食べることが楽しく満足できる幻想的なレシピを紹介しています。 家庭のシェフには、接続されたコンロで利用可能なエキサイティングな機能を使用するチャンスがあります。</p>
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title

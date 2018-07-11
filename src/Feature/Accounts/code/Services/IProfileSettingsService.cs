@@ -1,11 +1,11 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
-{
-  using System.Collections.Generic;
-  using Sitecore.Data.Items;
+﻿using System.Collections.Generic;
+using Sitecore.Data.Items;
 
-  public interface IProfileSettingsService
-  {
-    IEnumerable<string> GetInterests();
-    Item GetUserDefaultProfile();
-  }
+namespace Sitecore.HabitatHome.Feature.Accounts.Services
+{
+    public interface IProfileSettingsService
+    {
+        IEnumerable<string> GetInterests();
+        Item GetUserDefaultProfile();
+    }
 }

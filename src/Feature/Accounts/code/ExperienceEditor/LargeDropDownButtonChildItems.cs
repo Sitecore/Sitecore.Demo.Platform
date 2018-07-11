@@ -2,8 +2,7 @@
 using Sitecore.SecurityModel;    
 
 namespace Sitecore.HabitatHome.Feature.Accounts.ExperienceEditor
-{
-
+{       
     public class LargeDropDownButtonChildItems : Sitecore.ExperienceEditor.Speak.Ribbon.Requests.LargeDropDownButton.LargeDropDownButtonChildItems
     {
         public override PipelineProcessorResponseValue ProcessRequest()
