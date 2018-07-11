@@ -86,92 +86,27 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
-          uid="{CF1C9502-4F13-4802-AE50-9D3F3F3EE8AC}"
-          p:before="*"
-          s:ds="{7493C92D-DA35-44A7-B8D8-CB3A6BF9D561}"
-          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
-          s:par=""
-          s:ph="/main/sxa-recommended-content/container-1/sitecoreFormsWrapper-1" />
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-article-content/author-1-"
+          uid="{FAAD95E3-7370-40E8-9C7A-29E2CA134740}" />
         <r
-          uid="{82E84BAB-5CAD-4EA8-B08D-A0FD11E05A08}"
-          p:after="r[@uid='{CF1C9502-4F13-4802-AE50-9D3F3F3EE8AC}']"
-          s:ds=""
-          s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
-          s:par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;Styles={460B5E75-23EF-430C-94C4-F86DB2DB5EDF}&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-recommended-content/container-1">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{F7DD46E9-8055-4194-A176-D9AE8F881C06}"
-                s:name="Form Completed">
-                <conditions>
-                  <condition
-                    uid="C635DC4A34E54F1D9470F3DD49B0447A"
-                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
-                    s:GoalId="{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}"
-                    s:NumberOfElapsedDaysOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                    s:NumberOfElapsedDays="365"
-                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                    s:NumberOfPastInteractions="1" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="0539A576CFD446CF9134E5D887D29682"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="1E5E525ADE464DB9989E12393AD1CA16"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions />
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
-          uid="{458EE439-4841-4AF6-BD0B-C713B4A20315}"
-          p:after="r[@uid='{82E84BAB-5CAD-4EA8-B08D-A0FD11E05A08}']"
-          s:ds=""
-          s:id="{5B9272A5-E147-4C16-B9F7-41CCDCB4CB5D}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;Styles&amp;RenderingIdentifier"
-          s:ph="/main/sxa-article-content/container-1" />
-        <r
-          uid="{D8D5CBA8-2BBA-4D5F-883F-394DBB7664E7}"
-          p:after="r[@uid='{458EE439-4841-4AF6-BD0B-C713B4A20315}']"
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-article-content/container-1" />
-        <r
-          uid="{6816BF18-19C8-4621-AD92-F289449398B2}"
-          p:after="*[1=2]"
-          s:ds="local:/Data/Hero"
-          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-content-container/container-1" />
+          ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="/main/sxa-article-content/container-1"
+          uid="{B261CE71-CFC6-452B-918F-2FD1326AD8AF}" />
       </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
-- Language: "de-DE"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180330T210516Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -245,7 +180,7 @@ Languages:
       Value: |
         <image mediaid="{0F50A67E-B439-436D-A5D8-5DEF0B7A6BB7}" alt="connected home thumbnail" height="" width="" hspace="" vspace="" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: |
         <p>Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Habitat has a few "smart" suggestions.</p>
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
@@ -279,7 +214,25 @@ Languages:
     - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
       Hint: __Final Renderings
       Type: Layout
-      Value: 
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{82E84BAB-5CAD-4EA8-B08D-A0FD11E05A08}"
+              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;DynamicPlaceholderId=1" />
+            <r
+              uid="{458EE439-4841-4AF6-BD0B-C713B4A20315}"
+              s:par="" />
+            <r
+              uid="{D8D5CBA8-2BBA-4D5F-883F-394DBB7664E7}"
+              s:par="DynamicPlaceholderId=1" />
+            <r
+              uid="{6816BF18-19C8-4621-AD92-F289449398B2}"
+              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7d&amp;DynamicPlaceholderId=1" />
+          </d>
+        </r>
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
       Hint: Image
       Value: |
@@ -371,7 +324,7 @@ Languages:
       Hint: __Valid from
       Value: 
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: |
         <p>Les maisons connect&eacute;es visent &agrave; rendre nos vies plus confortables et nos maisons plus &eacute;conomes en &eacute;nergie. Avec une telle gamme de produits intelligents disponibles tels les &eacute;lectrom&eacute;nagers, les commutateurs et ampoules, par o&ugrave; commencer? Habitat Home a quelques suggestions "intelligentes".</p>
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
@@ -388,17 +341,6 @@ Languages:
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: Concevez votre maison intelligente
-- Language: "fr-FR"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180329T160028Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -471,7 +413,7 @@ Languages:
       Value: |
         <image mediaid="{0F50A67E-B439-436D-A5D8-5DEF0B7A6BB7}" alt="connected home thumbnail" height="" width="" hspace="" vspace="" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: <p>コネクテッドホームは、私たちの生活をより快適にし、家庭をよりエネルギー効率的にすることを目指しています。 スマート・アプライアンスやマットレス・カバーからスイッチや電球まで、幅広い製品がありますが、どこから始めますか？ ハビタットには「スマートな」提案がいくつかあります。</p>
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl

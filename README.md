@@ -38,6 +38,8 @@ In addition to a base XP 9.0.1 installation, the following modules are required:
 	- [Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/819FB4C75CC74A8C984C343BEF7B53F1.ashx)
 	- [Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1](https://dev.sitecore.net/~/media/ADBAF4CC6736499EBA0EBA6A9767D825.ashx)
 
+*IMPORTANT: Publish site after installing all required modules*
+
 ### Additional Windows Components
 - Url Rewrite 2.1 
 	- Can be installed using Web Platform Installer in IIS Manager
@@ -80,7 +82,7 @@ If you do **not want to use the default settings**, you need to adjust the appro
 
 All installation instructions assume using PowerShell 5.1 in administrative mode.
 
-### 1 Clone this repository
+### 1. Clone this repository
 
 #### Setting Git for Long Paths
 
@@ -95,7 +97,7 @@ Clone the Sitecore.HabitatHome.Content repository locally - defaults are configu
 -- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Content.git` 
 -- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Content.git`
 
-### 2 Deploy Sitecore.HabitatHome.Content
+### 2. Deploy Sitecore.HabitatHome.Content
 
 From the root of the solution
 - Run **`npm install`**
@@ -110,7 +112,7 @@ if you are only installing this demo:
 > Running gulp a second time resolves the issue (and doesn't take as long)
 
 > if using **Visual Studio task runner**, please see [this workaround](https://stackoverflow.com/questions/45580456/visual-studio-task-runner-error-with-es6)
-### 3 Validating deployment
+### 3. Validating deployment
 
 
 
@@ -120,6 +122,13 @@ if you are only installing this demo:
 1. Browse to https://habitat.dev.local
 	1. You should see the Habitat landing page (not Habitat Home)
 
+
+## Additional Settings
+### 1. Disable Unicorn Serialization
+When Unicorn is active, the Content Editor will display warnings that certain items are controlled by Unicorn. If you wish to disable Unicorn serialization, open the Web.config file in your webroot and update the following appSetting
+
+    <add key="unicorn:define" value="Off"/>
+This appSetting is `On` by default. Setting it to `Off` ensures that none of the Unicorn serialization configuration files are loaded.
 
 # Contribute or Issues
 Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Content/issues). Contributions are always welcome!

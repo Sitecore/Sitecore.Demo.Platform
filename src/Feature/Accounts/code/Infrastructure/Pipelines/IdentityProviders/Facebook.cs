@@ -1,18 +1,17 @@
-﻿using FacebookAuthenticationExtensions = Owin.FacebookAuthenticationExtensions;
+﻿using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Facebook;
+using Sitecore.Configuration;
+using Sitecore.Diagnostics;
+using Sitecore.Owin.Authentication.Configuration;
+using Sitecore.Owin.Authentication.Extensions;
+using Sitecore.Owin.Authentication.Pipelines.IdentityProviders;
+using Sitecore.Owin.Authentication.Services;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using FacebookAuthenticationExtensions = Owin.FacebookAuthenticationExtensions;
 
 namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
 {
-    using Microsoft.Owin.Security;
-    using Microsoft.Owin.Security.Facebook;
-    using Sitecore.Configuration;
-    using Sitecore.Diagnostics;
-    using Sitecore.Owin.Authentication.Configuration;
-    using Sitecore.Owin.Authentication.Extensions;
-    using Sitecore.Owin.Authentication.Pipelines.IdentityProviders;
-    using Sitecore.Owin.Authentication.Services;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-
     public class Facebook : IdentityProvidersProcessor
     {
         public Facebook(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration) : base(federatedAuthenticationConfiguration)
@@ -25,8 +24,8 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.Identit
         {
             Assert.ArgumentNotNull(args, nameof(args));                               
 
-            var identityProvider = this.GetIdentityProvider();
-            var authenticationType = this.GetAuthenticationType();
+            var identityProvider = GetIdentityProvider();
+            var authenticationType = GetAuthenticationType();
 
             var options = new FacebookAuthenticationOptions
             {
@@ -88,14 +87,21 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.Identit
             {
                 value = context.User["picture"]?["data"]?["url"]?.ToString();
                 if (value == null)
+                {
                     return;
+                }
+
                 context.Identity.AddClaim(new Claim("picture_url", value));
                 context.Identity.AddClaim(new Claim("picture_mime", "image/jpg"));
+
                 return;
             }
 
             if (value == null)
+            {
                 return;
+            }
+
             context.Identity.AddClaim(new Claim(claimName, value));
         }
     }

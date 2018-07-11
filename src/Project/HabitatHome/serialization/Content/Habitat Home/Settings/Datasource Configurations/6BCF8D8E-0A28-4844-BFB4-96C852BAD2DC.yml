@@ -1,0 +1,30 @@
+﻿---
+ID: "736a720b-a421-4aa8-b9e3-c1ca61262363"
+Parent: "ea2399e4-87ec-45ed-90e7-c22136cc2c88"
+Template: "62aa32c6-5c12-4d5d-899d-19375d69bb41"
+Path: "/sitecore/content/Habitat Sites/Habitat Home/Settings/Datasource Configurations/6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC"
+DB: master
+SharedFields:
+- ID: "68bfa8e2-0f2e-4afa-b95b-a44b6b75ffcb"
+  Hint: CompatibleRenderings
+  Type: Treelist
+  Value: "{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+- ID: "a69fef91-cd50-4b8c-917a-3b5435029570"
+  Hint: DatasourceLocation
+  Type: Treelist
+  Value: "{DEA8D1CD-D2DF-4009-88B4-97D6CD53E3A5}"
+- ID: "dffbdfad-2fae-47c2-8058-1293968f91ea"
+  Hint: DatasourceTemplate
+  Value: /sitecore/templates/Feature/Habitat Sites/Page Content/Hero
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Hero
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180702T201121Z
