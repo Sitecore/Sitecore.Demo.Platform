@@ -82,119 +82,27 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
-          uid="{D645124F-81C9-4191-BBDB-DE75BE08313E}"
-          p:before="*"
-          s:ds="{7493C92D-DA35-44A7-B8D8-CB3A6BF9D561}"
-          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
-          s:par=""
-          s:ph="/main/sxa-recommended-content/container-1/sitecoreFormsWrapper-1">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{84C35AEC-03AC-4A32-826F-A80C08AE0F47}"
-                s:name="Smart Emails Already Complete">
-                <conditions>
-                  <or
-                    uid="8B9100D015B94A64AF0010A5A38B3837">
-                    <condition
-                      uid="0BC1A110329F44DB8B94BB0149A02045"
-                      s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
-                      s:GoalId="{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}" />
-                    <condition
-                      uid="E4A558F9CD024EFAB056D106567FF5A6"
-                      s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
-                      s:GoalId="{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}"
-                      s:NumberOfElapsedDaysOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                      s:NumberOfElapsedDays="1"
-                      s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                      s:NumberOfPastInteractions="1" />
-                  </or>
-                </conditions>
-                <actions>
-                  <action
-                    uid="31349DE0B41A42EAABDFC4EBFDA6082F"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="96F5AB9034FC49D4A79409725CB02507"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions />
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-article-content/author-1-"
+          uid="{F79BC40E-8D52-49D8-A5C0-D1F51CF24192}" />
         <r
-          uid="{E2DDD6DC-4AC9-438A-915B-0A02C6DD9781}"
-          p:after="r[@uid='{D645124F-81C9-4191-BBDB-DE75BE08313E}']"
-          s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles={460B5E75-23EF-430C-94C4-F86DB2DB5EDF}&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-recommended-content/container-1">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{246E9EA9-47EA-4A14-92BE-09728D3C2270}"
-                s:name="Form Completed">
-                <conditions>
-                  <condition
-                    uid="15B3AE7149B94F57A8AE191D5C970628"
-                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
-                    s:GoalId="{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}"
-                    s:NumberOfElapsedDaysOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                    s:NumberOfElapsedDays="365"
-                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                    s:NumberOfPastInteractions="1" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="6AA2EF2B9B8841BC8EF912725D09FB44"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="611A309FC787456BBCBD23BFA28EE5D9"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions />
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
-          uid="{5CFF0F78-667E-4110-82BC-02BA10D20CD8}"
-          p:after="*[1=2]"
-          s:ds="local:/Data/Hero"
-          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-content-container/container-1" />
+          ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="/main/sxa-article-content/container-1"
+          uid="{A48E7764-4E03-4FE7-A8E1-BFC5DA7FD2B6}" />
       </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
-- Language: "de-DE"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180330T210535Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -237,7 +145,7 @@ Languages:
       Hint: OpenGraphTitle
       Value: Home Automation with Android and Arduino
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: "<p>Have you always dreamed of automating your home? Do you want to control the lights, fans, and appliances from your smartphone?Our DIY home automation project outlined in this article will show you how to automate your home using an Android smartphone and Arduino.&nbsp;</p>"
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl
@@ -270,7 +178,16 @@ Languages:
     - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
       Hint: __Final Renderings
       Type: Layout
-      Value: 
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{E2DDD6DC-4AC9-438A-915B-0A02C6DD9781}"
+              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;DynamicPlaceholderId=1" />
+          </d>
+        </r>
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
       Hint: Image
       Value: |
@@ -343,7 +260,7 @@ Languages:
       Hint: __Valid from
       Value: 
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: "Avez-vous toujours r&ecirc;v&eacute; d'automatiser votre maison? Voulez-vous contr&ocirc;ler les lumi&egrave;res, les ventilateurs et les appareils de votre t&eacute;l&eacute;phone intelligent? Peut-&ecirc;tre que vous voulez simplement un didacticiel au sujet des appareils branch&eacute;s et commencer avec eux? Notre projet domotique d&eacute;crit dans cet article vous montrera comment automatiser votre maison en utilisant un t&eacute;l&eacute;phone intelligent Android et un module Arduino."
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl
@@ -359,17 +276,6 @@ Languages:
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: Automatisation avec Android et Arduino 
-- Language: "fr-FR"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180329T160041Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -415,7 +321,7 @@ Languages:
       Hint: OpenGraphTitle
       Value: Android と Arduino のホームオートメーション
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: あなたはいつも自宅を自動化することを夢見てきましたか？ あなたはスマートフォンからライト、ファン、アプライアンスをコントロールしたいですか？この記事で概説しているDIYのホームオートメーションプロジェクトでは、AndroidスマートフォンとArduinoを使って自宅を自動化する方法を紹介します。&nbsp;
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl

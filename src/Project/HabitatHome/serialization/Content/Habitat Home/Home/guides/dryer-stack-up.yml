@@ -105,106 +105,39 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
-          uid="{E0C8AD43-E5C1-4EE1-A859-E93DCD9E9AB5}"
-          p:before="*"
-          s:ds="local:/Data/Hero"
-          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
-          s:ph="/main/sxa-content-container/container-1" />
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          ph="/main/sxa-article-content/author-1-"
+          uid="{28DEAF7A-F645-4B19-821A-D141C144E527}" />
         <r
-          uid="{002DE968-8146-422B-8DF8-B3C89FF300BE}"
-          p:after="r[@uid='{E0C8AD43-E5C1-4EE1-A859-E93DCD9E9AB5}']"
-          s:ds="{7493C92D-DA35-44A7-B8D8-CB3A6BF9D561}"
-          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
-          s:par=""
-          s:ph="/main/sxa-recommended-content/container-1/container-2/sitecoreFormsWrapper-1" />
+          ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          ph="/main/sxa-recommended-content/container-1"
+          uid="{851693FF-1CC5-49C5-A27B-E63271BFBC03}" />
         <r
-          uid="{CAB127A7-3E8C-4BDB-B8A6-B7031B9F81E4}"
-          p:after="r[@uid='{002DE968-8146-422B-8DF8-B3C89FF300BE}']"
-          s:ds=""
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage=%3Cimage%20mediaid%3D%22%7B4F832EF4-CF4E-4A61-A577-5F722E01DC97%7D%22%20%2F%3E&amp;Styles=%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7B197D1CF1-D544-4A23-A62E-51C60888D8B8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          s:ph="/main/sxa-recommended-content/container-1" />
+          ds=""
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage=%3Cimage%20mediaid%3D%22%7B4F832EF4-CF4E-4A61-A577-5F722E01DC97%7D%22%20%2F%3E&amp;Styles=%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-article-content/container-1"
+          uid="{CAB127A7-3E8C-4BDB-B8A6-B7031B9F81E4}" />
         <r
-          uid="{C95F089A-273E-4AB8-B6BC-C2CE2300B01C}"
-          p:after="r[@uid='{CAB127A7-3E8C-4BDB-B8A6-B7031B9F81E4}']"
-          s:ds="local:/Data/Promo - Dryer Whitepaper"
-          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7B37AF3984-2F68-47EC-BAFB-B7A831F910CA%7D&amp;Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
-          s:ph="/main/sxa-recommended-content/container-1/container-2" />
-        <r
-          uid="{E5C95894-0BD9-412B-9E31-8E95001FC4C8}"
-          p:after="r[@uid='{C95F089A-273E-4AB8-B6BC-C2CE2300B01C}']"
-          s:ds="local:/Data/Text 1"
-          s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
-          s:ph="/main/sxa-recommended-content/container-1/container-2" />
-        <r
-          uid="{31D6FEF4-27F4-4793-83B3-231ABFC862E6}"
-          p:after="r[@uid='{E5C95894-0BD9-412B-9E31-8E95001FC4C8}']"
-          s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles={460B5E75-23EF-430C-94C4-F86DB2DB5EDF}&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-recommended-content/container-1/container-2">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{04EB949D-0E7B-42BB-9536-AF0372D6734E}"
-                s:name="Form Completed">
-                <conditions>
-                  <condition
-                    uid="B3152D2180E442DA8163E65788A76DDD"
-                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
-                    s:GoalId="{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}"
-                    s:NumberOfElapsedDaysOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                    s:NumberOfElapsedDays="365"
-                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                    s:NumberOfPastInteractions="1" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="8D1D169914BA4771AFC68A24C6E50A7A"
-                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
-                </actions>
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="C340DC1B1FB24691AF7DA9F7A69D638B"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions />
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
-          uid="{C8769606-FCE0-432A-82F7-BDECBB9CF460}"
-          p:after="*[1=2]"
-          s:ds=""
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage=%3Cimage%20mediaid%3D%22%7BB1DBF80D-7B64-4823-8F3A-6BD9A835EBC6%7D%22%20%2F%3E&amp;Styles=%7B02E8B498-5953-427B-A29D-68291DCEC9F4%7D%7C%7B45645D8F-56A4-460A-B5FB-51709FEFCE52%7D%7C%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-recommended-content/container-3" />
+          ds="local:/Data/Promo - Dryer Whitepaper"
+          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          par="Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B37AF3984-2F68-47EC-BAFB-B7A831F910CA%7D&amp;DynamicPlaceholderId=3&amp;GridParameters&amp;Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options"
+          ph="/main/sxa-article-content/container-1/container-2"
+          uid="{C95F089A-273E-4AB8-B6BC-C2CE2300B01C}" />
       </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
-- Language: "de-DE"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180330T210521Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -259,8 +192,62 @@ Languages:
     - ID: "7d988161-3991-465a-a88c-280bc65542a0"
       Hint: OpenGraphTitle
       Value: "How Does Your Dryer Stack Up?"
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <div>
+        <strong>Choosing the right type of dryer</strong>
+        </div>
+        <div>
+        There are several factors to take into consideration while shopping for a new dryer. How much do you want to pay up front? How much do you want to pay the power company each month? How much space do you have available? How important is the dryer's appearance to you? What sort of features do you want your dryer to have?
+        </div>
+        <div>
+        &nbsp;
+        </div>
+        <div>
+        This guide will cover all of these angles, but first, you need to determine which type of dryer is best for your home. Fortunately, there are only two options, and in many cases, the decision will be a fairly easy one.
+        </div>
+        <div>
+        &nbsp;
+        </div>
+        <div>
+        <strong>Should you get an electric or gas model?</strong>
+        </div>
+        <div>
+        With the exception of your refrigerator, the odds are good that nothing in your home will use more energy than your dryer, and this is true for both electric and gas models. However, there are differences between the way each type of dryer uses energy that can have a big impact on the true cost of owning and operating one over the other. Understanding these differences is the key to making an informed decision.
+        </div>
+        <div>
+        &nbsp;
+        </div>
+        <div>
+        All dryers use electricity to spin the central chamber, or drum, and keep your clothing in motion throughout the cycle. Electric dryers also use electricity to power the heater and fan that continually blows hot air through the machine. Gas dryers power these components using natural gas or propane. They tend to cost a little more up front (typically about $100 more than comparable electric dryers), but since they warm up faster, they also tend to cost a little less to operate. Of course, this depends on the energy rates in your area, as well as the time of year, so be sure and do a little research before you commit one way or the other.
+        </div>
+        <div>
+        &nbsp;
+        </div>
+        <div>
+        <strong>Installation</strong>
+        </div>
+        <div>
+        Electric dryers require a dedicated 240-volt circuit, which almost every laundry room will have. Gas dryers, on the other hand, require a separate gas hookup, and laundry rooms are a little less likely to have one of these. If yours doesn't and you decide to buy a gas dryer, you'll need to factor in the cost of having a gas line professionally installed. Be aware that this can cost upward of several hundred dollars -- in many cases, this can outweigh the long-term energy bill savings, or at least render them negligible. And even if you already have a gas line ready to go, you still might be wise to have your new gas dryer installed by a trusted professional. The consequences of a faulty installation can include fire, carbon-monoxide poisoning or even an explosion.
+        </div>
+        <div>
+        &nbsp;
+        </div>
+        <div>
+        <strong>The bottom line</strong>
+        </div>
+        <div>
+        If you're looking for an affordable dryer that you can simply plug into an existing laundry room in your house or rental, then an electric dryer is probably what you want. Even if you have a gas line already set up, you may still want to consider an electric dryer if you think there's a chance you might be moving in the next couple of years.
+        </div>
+        <div>
+        &nbsp;
+        </div>
+        <div>
+        However, if you're comfortable in your home and you have a gas line ready to go (or can afford to install one), then go for the gas dryer. You'll enjoy the slightly faster cycles, and the chances are good that you'll save at least a little bit of money over the long haul.
+        </div>
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: "<p>Dryers have come a long way from the noisy, ugly, cubes of laundry days past. These days, you'll find bigger, bolder, more energy-efficient machines boasting game-changing smart features, entirely new levels of functionality, and designs so attractive, you'll feel guilty stashing them in the basement.</p>"
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl
@@ -368,7 +355,7 @@ Languages:
       Hint: __Valid from
       Value: 
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: "Les s&eacute;cheuses laides et bruyantes en forme de cube sont choses du pass&eacute;. Ces jours-ci, vous trouverez des machines plus grandes, plus audacieuses, plus &eacute;co&eacute;nerg&eacute;tiques, dot&eacute;es de fonctionnalit&eacute;s intelligentes, de nouveaux niveaux de fonctionnalit&eacute; et de designs si attrayants que vous vous sentirez coupable de les planquer au sous-sol."
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl
@@ -384,17 +371,6 @@ Languages:
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: "Comment votre sécheuse se compare-t-elle?"
-- Language: "fr-FR"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180329T160052Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -450,7 +426,7 @@ Languages:
       Hint: OpenGraphTitle
       Value: 乾燥機の課題はありませんか？
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
-      Hint: Summary
+      Hint: Introduction
       Value: 乾燥機は洗濯日数の騒々しい、醜いキューブから長い道のりを歩んできました。 最近では、ゲームを変えるスマートな機能、まったく新しいレベルの機能性、そして魅力的なデザインを誇る、より大きくて大胆でエネルギー効率の高いマシンを見つけることができます。
     - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
       Hint: OpenGraphImageUrl
