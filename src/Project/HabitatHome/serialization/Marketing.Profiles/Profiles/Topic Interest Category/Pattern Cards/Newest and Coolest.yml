@@ -1,24 +1,23 @@
 ﻿---
-ID: "25512e64-7be1-40ae-85ce-865dfff36aa4"
-Parent: "6757297d-bd05-420b-8b92-a69344d55654"
+ID: "48839f37-693c-46a7-ad59-004c7a772bf3"
+Parent: "d71b4922-c5fd-4fa2-866b-00af2f8cea4a"
 Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
-Path: /sitecore/system/Marketing Control Panel/Profiles/Electronics Category/Pattern Cards/Paul Phones
+Path: /sitecore/system/Marketing Control Panel/Profiles/Topic Interest Category/Pattern Cards/Newest and Coolest
 DB: master
 SharedFields:
 - ID: "6da71ad3-5849-4482-9317-d21390e5a348"
   Hint: Pattern
   Value: |
     <tracking>
-      <profile id="54d63273-947a-4927-b21a-0022625315e1" name="Electronics Category">
-        <key name="Appliances" value="0" />
-        <key name="Audio" value="0" />
-        <key name="Cameras" value="0" />
-        <key name="Computers" value="0" />
-        <key name="Fitness Tech" value="0" />
-        <key name="Games" value="0" />
-        <key name="Phones" value="10" />
-        <key name="Tablets" value="0" />
-        <key name="TVs" value="0" />
+      <profile id="552dd90f-a527-438e-ac33-32d236244123" name="Topic Interest Category">
+        <key name="Child Safety" value="0" />
+        <key name="Energy Savings" value="0" />
+        <key name="Newest and Coolest" value="10" />
+        <key name="Overclocking" value="0" />
+        <key name="Reliability" value="0" />
+        <key name="Smart and Connected" value="0" />
+        <key name="Fitness" value="0" />
+        <key name="Foodie" value="0" />
       </profile>
     </tracking>
 Languages:
@@ -27,16 +26,16 @@ Languages:
   - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
     Hint: Image
     Value: |
-      <image mediaid="{D2F32E72-AEDB-4D99-B918-EFDE43800620}" />
+      <image mediaid="{D3762A03-73CB-41AC-8E74-D96343EF0F55}" />
   - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
     Hint: Name
-    Value: Paul Phones
+    Value: Newest and Coolest
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180104T201841Z
+      Value: 20180104T201849Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -45,16 +44,16 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Paul スマートフォン
+    Value: Nancy 最新デバイス
   - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
     Hint: Name
-    Value: Paul スマートフォン
+    Value: Nancy 最新デバイス
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180321T104649Z
+      Value: 20180321T104654Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

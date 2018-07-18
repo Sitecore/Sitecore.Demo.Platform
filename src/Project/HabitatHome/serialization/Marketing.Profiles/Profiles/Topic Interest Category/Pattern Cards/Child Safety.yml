@@ -1,12 +1,12 @@
 ﻿---
-ID: "14fee003-01f1-4394-b76b-86c2ec6ae23f"
-Parent: "9945cbd6-6871-4cf6-b9a7-f93bd0a459c5"
-Template: "0fc09ea4-8d87-4b0e-a5c9-8076ae863d9c"
-Path: /sitecore/system/Marketing Control Panel/Profiles/Topic Interest Category/Profile Cards/Child Safety
+ID: "a31ec626-56a0-41d8-a023-c4fe73638f4e"
+Parent: "d71b4922-c5fd-4fa2-866b-00af2f8cea4a"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/Topic Interest Category/Pattern Cards/Child Safety
 DB: master
 SharedFields:
-- ID: "85970ab7-22ea-4206-be86-c0167178860b"
-  Hint: Profile Card Value
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
   Value: |
     <tracking>
       <profile id="552dd90f-a527-438e-ac33-32d236244123" name="Topic Interest Category">
@@ -16,7 +16,7 @@ SharedFields:
         <key name="Entertainment" value="3" />
         <key name="Fitness" value="0" />
         <key name="Newest and Coolest" value="2" />
-        <key name="Reliability" value="6" />
+        <key name="Reliability" value="5" />
         <key name="Safety" value="10" />
         <key name="Smart and Connected" value="3" />
       </profile>
@@ -24,7 +24,7 @@ SharedFields:
 Languages:
 - Language: en
   Fields:
-  - ID: "a26fc256-1db0-44aa-ba3d-1c830bf882a2"
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
     Hint: Name
     Value: Child Safety
   Versions:
@@ -32,4 +32,4 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180629T155146Z
+      Value: 20180629T155430Z

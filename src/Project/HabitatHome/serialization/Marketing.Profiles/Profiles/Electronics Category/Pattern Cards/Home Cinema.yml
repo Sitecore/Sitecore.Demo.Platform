@@ -2,7 +2,7 @@
 ID: "cdcade11-e1f4-4792-8fa3-9f95c6954772"
 Parent: "6757297d-bd05-420b-8b92-a69344d55654"
 Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
-Path: /sitecore/system/Marketing Control Panel/Profiles/Electronics Category/Pattern Cards/Howard Home Cinema
+Path: /sitecore/system/Marketing Control Panel/Profiles/Electronics Category/Pattern Cards/Home Cinema
 DB: master
 SharedFields:
 - ID: "6da71ad3-5849-4482-9317-d21390e5a348"
@@ -24,9 +24,13 @@ SharedFields:
 Languages:
 - Language: en
   Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{C1337CD2-E12D-4DA5-BBA3-49877678023B}" />
   - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
     Hint: Name
-    Value: Howard Home Cinema
+    Value: Home Cinema
   Versions:
   - Version: 1
     Fields:

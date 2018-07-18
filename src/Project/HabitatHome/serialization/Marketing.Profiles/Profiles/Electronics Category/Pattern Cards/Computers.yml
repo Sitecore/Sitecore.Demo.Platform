@@ -1,21 +1,24 @@
 ﻿---
-ID: "4ba9ed42-13d5-440d-8dae-fbed6e7c9713"
-Parent: "5b89e5df-2569-4a72-af25-ce62720e8147"
+ID: "2ececc9a-fc04-41bf-8ab9-aa5af9c63e46"
+Parent: "6757297d-bd05-420b-8b92-a69344d55654"
 Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
-Path: /sitecore/system/Marketing Control Panel/Profiles/Target Room Category/Pattern Cards/Octavious Office
+Path: /sitecore/system/Marketing Control Panel/Profiles/Electronics Category/Pattern Cards/Computers
 DB: master
 SharedFields:
 - ID: "6da71ad3-5849-4482-9317-d21390e5a348"
   Hint: Pattern
   Value: |
     <tracking>
-      <profile id="538a727f-87c6-4249-810d-0a90ee6ae6db" name="Target Room Category">
-        <key name="Bedroom" value="0" />
-        <key name="Kitchen" value="0" />
-        <key name="Laundry" value="0" />
-        <key name="Living Space" value="0" />
-        <key name="Office" value="10" />
-        <key name="Theater" value="0" />
+      <profile id="54d63273-947a-4927-b21a-0022625315e1" name="Electronics Category">
+        <key name="Appliances" value="0" />
+        <key name="Audio" value="0" />
+        <key name="Cameras" value="0" />
+        <key name="Computers" value="10" />
+        <key name="Fitness Tech" value="0" />
+        <key name="Games" value="0" />
+        <key name="Phones" value="0" />
+        <key name="Tablets" value="0" />
+        <key name="TVs" value="0" />
       </profile>
     </tracking>
 Languages:
@@ -24,16 +27,16 @@ Languages:
   - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
     Hint: Image
     Value: |
-      <image mediaid="{88A5DC97-5581-4178-B333-761DD90A2135}" />
+      <image mediaid="{E532E6D0-9E5E-4BBB-AD65-756C3CD9243E}" />
   - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
     Hint: Name
-    Value: Octavious Office
+    Value: Computers
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180104T201845Z
+      Value: 20180104T201840Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -42,16 +45,16 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Octavious オフィス
+    Value: Carl コンピューター
   - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
     Hint: Name
-    Value: Octavious オフィス
+    Value: Carl コンピューター
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180321T104652Z
+      Value: 20180321T104648Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

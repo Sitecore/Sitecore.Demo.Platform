@@ -1,21 +1,24 @@
 ﻿---
-ID: "3927b0e4-e7a9-4ead-8f6f-e7ea2c806c47"
-Parent: "d71b4922-c5fd-4fa2-866b-00af2f8cea4a"
+ID: "7c0d0b32-e1b3-4969-890f-3793c1cfdb6a"
+Parent: "6757297d-bd05-420b-8b92-a69344d55654"
 Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
-Path: /sitecore/system/Marketing Control Panel/Profiles/Topic Interest Category/Pattern Cards/Oliver Overclocking
+Path: /sitecore/system/Marketing Control Panel/Profiles/Electronics Category/Pattern Cards/Games
 DB: master
 SharedFields:
 - ID: "6da71ad3-5849-4482-9317-d21390e5a348"
   Hint: Pattern
   Value: |
     <tracking>
-      <profile id="552dd90f-a527-438e-ac33-32d236244123" name="Topic Interest Category">
-        <key name="Child Safety" value="0" />
-        <key name="Energy Savings" value="0" />
-        <key name="Newest and Coolest" value="0" />
-        <key name="Overclocking" value="10" />
-        <key name="Reliability" value="0" />
-        <key name="Smart and Connected" value="0" />
+      <profile id="54d63273-947a-4927-b21a-0022625315e1" name="Electronics Category">
+        <key name="Appliances" value="0" />
+        <key name="Audio" value="0" />
+        <key name="Cameras" value="0" />
+        <key name="Computers" value="0" />
+        <key name="Fitness Tech" value="0" />
+        <key name="Games" value="10" />
+        <key name="Phones" value="0" />
+        <key name="Tablets" value="0" />
+        <key name="TVs" value="0" />
       </profile>
     </tracking>
 Languages:
@@ -24,16 +27,16 @@ Languages:
   - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
     Hint: Image
     Value: |
-      <image mediaid="{DE3CD262-E12E-4BE3-A167-2E5AC24852B9}" />
+      <image mediaid="{52ECB3D0-45C5-4B0F-AB81-196651A7A8D3}" />
   - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
     Hint: Name
-    Value: Oliver Overclocking
+    Value: Games
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180104T201849Z
+      Value: 20180104T201840Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -42,16 +45,16 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Oliver 時間の節約
+    Value: Gabriel ゲーム
   - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
     Hint: Name
-    Value: Oliver 時間の節約
+    Value: Gabriel ゲーム
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180321T104654Z
+      Value: 20180321T104649Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

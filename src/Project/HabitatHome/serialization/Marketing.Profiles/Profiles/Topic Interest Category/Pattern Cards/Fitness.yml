@@ -1,8 +1,8 @@
 ﻿---
-ID: "b7a02eed-a729-42b0-978b-2c6ef479fc8f"
+ID: "753836a7-aea0-4572-89e7-0dbc55a631fd"
 Parent: "d71b4922-c5fd-4fa2-866b-00af2f8cea4a"
 Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
-Path: /sitecore/system/Marketing Control Panel/Profiles/Topic Interest Category/Pattern Cards/Frank Foodie
+Path: /sitecore/system/Marketing Control Panel/Profiles/Topic Interest Category/Pattern Cards/Fitness
 DB: master
 SharedFields:
 - ID: "6da71ad3-5849-4482-9317-d21390e5a348"
@@ -12,8 +12,8 @@ SharedFields:
       <profile id="552dd90f-a527-438e-ac33-32d236244123" name="Topic Interest Category">
         <key name="Child Safety" value="0" />
         <key name="Energy Savings" value="0" />
-        <key name="Fitness" value="0" />
-        <key name="Foodie" value="10" />
+        <key name="Fitness" value="10" />
+        <key name="Foodie" value="0" />
         <key name="Newest and Coolest" value="0" />
         <key name="Overclocking" value="0" />
         <key name="Reliability" value="0" />
@@ -23,12 +23,16 @@ SharedFields:
 Languages:
 - Language: en
   Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{34510C0D-20F1-4BA1-B14E-D475292196A8}" />
   - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
     Hint: Name
-    Value: Frank Foodie
+    Value: Fitness
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180316T182343Z
+      Value: 20180316T182407Z
