@@ -50,76 +50,81 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
-          uid="{A4A00EAF-C779-48A6-A9E5-917924CC455D}"
-          p:before="*"
-          s:ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
-          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
-          s:ph="/main/sxa-recommended-content/container-1" />
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          ph="/main/sxa-article-content/author-1-"
+          uid="{A4211DCF-2282-4492-A8C8-E25F428F07F7}" />
         <r
-          uid="{A287189C-D6B9-4414-9958-70626DF4F0CE}"
-          p:after="r[@uid='{A4A00EAF-C779-48A6-A9E5-917924CC455D}']"
-          s:ds="local:/Data/Smart Home Whitepaper"
-          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="Caching=0|0|0|0|0|0|0|0&amp;FieldNames={837DA9F8-E307-4615-9B66-7F3B97E1470B}&amp;DynamicPlaceholderId=2"
-          s:ph="/main/sxa-article-content/container-1">
+          ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          ph="/main/sxa-recommended-content/container-1"
+          uid="{A4A00EAF-C779-48A6-A9E5-917924CC455D}" />
+        <r
+          ds="local:/Data/Smart Home Whitepaper"
+          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          par="Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B837DA9F8-E307-4615-9B66-7F3B97E1470B%7D&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-article-content/container-1"
+          uid="{A287189C-D6B9-4414-9958-70626DF4F0CE}">
           <rls>
             <ruleset>
               <rule
                 uid="{E142B8D0-D8B3-4422-8C64-2962399FF747}"
-                s:name="BOF Lead">
+                name="BOF Lead">
                 <conditions>
                   <or
                     uid="6B4A1092A7B947DB878FA75BBF317CB4">
                     <condition
                       uid="2C7546A60D1247D683139F3301F26B12"
-                      s:id="{61370693-189D-44A0-ABC5-2592DBD579ED}"
-                      s:operatorid="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                      s:no="2" />
+                      id="{61370693-189D-44A0-ABC5-2592DBD579ED}"
+                      operatorid="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                      no="2" />
                     <condition
                       uid="2FF6C339C1694A7486B5F017739A6DBD"
-                      s:id="{03C88BC4-8583-4AB9-A7CB-428E13E7C325}"
-                      s:operatorid="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                      s:value="20" />
+                      id="{03C88BC4-8583-4AB9-A7CB-428E13E7C325}"
+                      operatorid="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                      value="20" />
                   </or>
                 </conditions>
                 <actions>
                   <action
                     uid="7FEA9F359287464193FD8076B94DE80E"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Home Installation CTA" />
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    DataSource="local:/Data/Home Installation CTA" />
                 </actions>
               </rule>
               <rule
                 uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
+                name="Default">
                 <conditions>
                   <condition
                     uid="F79E5C9C5D5B448EA3A6675D267D80E8"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
                 </conditions>
                 <actions>
                   <action
                     uid="2142AF60F19D440195F96FF9F8B4B25B"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Smart Home Whitepaper" />
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    DataSource="local:/Data/Smart Home Whitepaper" />
                 </actions>
               </rule>
             </ruleset>
           </rls>
         </r>
         <r
-          uid="{90D035D0-9D61-48CF-AF7B-A2430202F772}"
-          p:after="*[1=2]"
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="DynamicPlaceholderId=2"
-          s:ph="/main/sxa-content-container/container-1" />
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="DynamicPlaceholderId=2"
+          ph="/main/sxa-content-container/container-1"
+          uid="{90D035D0-9D61-48CF-AF7B-A2430202F772}" />
       </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en

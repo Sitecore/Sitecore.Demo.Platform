@@ -1,9 +1,9 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Models
-{
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
+namespace Sitecore.HabitatHome.Feature.Accounts.Models
+{                                                                      
     public class EditProfile
     {
         [Display(Name = nameof(EmailCaption), ResourceType = typeof(EditProfile))]

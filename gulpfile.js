@@ -28,8 +28,7 @@ habitatHome.header("The Habitat Home source code, tools and processes are exampl
 gulp.task("default",
     function (callback) {
         config.runCleanBuilds = true;
-        return runSequence(
-            "Copy-Sitecore-Lib",
+        return runSequence(       
             "Nuget-Restore",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
@@ -47,8 +46,7 @@ gulp.task("default",
 gulp.task("quick-deploy",
     function (callback) {
         config.runCleanBuilds = true;
-        return runSequence(
-            "Copy-Sitecore-Lib",
+        return runSequence(              
             "Nuget-Restore",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
@@ -60,14 +58,7 @@ gulp.task("quick-deploy",
 
 /*****************************
   Initial setup
-*****************************/
-gulp.task("Copy-Sitecore-Lib", function () {
-    console.log("Copying Sitecore SXA Libraries");
-
-    fs.statSync(config.sitecoreLibraries);
-    var files = config.sitecoreLibraries + "/**/Sitecore.XA.*";
-    return gulp.src(files).pipe(gulp.dest("./lib/Modules/SXA"));
-});
+*****************************/       
 
 gulp.task("Nuget-Restore",
     function (callback) {

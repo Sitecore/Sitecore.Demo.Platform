@@ -1,8 +1,8 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Models
-{
-  using System.ComponentModel.DataAnnotations;
-  using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
+﻿using System.ComponentModel.DataAnnotations;
+using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
+namespace Sitecore.HabitatHome.Feature.Accounts.Models
+{
   public class PasswordResetInfo
   {
     [Display(Name = nameof(EmailCaption), ResourceType = typeof(PasswordResetInfo))]

@@ -1,32 +1,32 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
-{
-    using System;
-    using System.Net.Mail;
-    using Sitecore.Configuration;
-    using Sitecore.Data;
-    using Sitecore.Data.Fields;
-    using Sitecore.Data.Items;
-    using Sitecore.Diagnostics;
-    using Sitecore.Exceptions;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;
-    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
-    using System.Linq;
+﻿using System;
+using System.Net.Mail;
+using Sitecore.Configuration;
+using Sitecore.Data;
+using Sitecore.Data.Fields;
+using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
+using Sitecore.Exceptions;
+using Sitecore.HabitatHome.Foundation.DependencyInjection;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
+using System.Linq;
 
+namespace Sitecore.HabitatHome.Feature.Accounts.Services
+{
     [Service(typeof(IAccountsSettingsService))]
     public class AccountsSettingsService : IAccountsSettingsService
     {
         public static readonly string PageNotFoundUrl = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.PageNotFoundUrl", "/404");
         public static AccountsSettingsService Instance => new AccountsSettingsService();
 
-        public virtual string GetPageLink(Item contextItem, ID fieldID)
+        public virtual string GetPageLink(Item contextItem, ID fieldId)
         {
-            var item = this.GetAccountsSettingsItem();
+            var item = GetAccountsSettingsItem();
             if (item == null)
             {
                 throw new Exception("Page with accounts settings isn't specified");
             }
 
-            InternalLinkField link = item.Fields[fieldID];
+            InternalLinkField link = item.Fields[fieldId];
             if (link.TargetItem == null)
             {
                 throw new Exception($"{link.InnerField.Name} link isn't set");
@@ -40,7 +40,7 @@
         {
             try
             {
-                return this.GetPageLink(contextItem, field);
+                return GetPageLink(contextItem, field);
             }
             catch (Exception ex)
             {
@@ -51,7 +51,7 @@
 
         public virtual Guid? GetRegistrationOutcome(Item contextItem)
         {
-            var item = this.GetAccountsSettingsItem();
+            var item = GetAccountsSettingsItem();
 
             if (item == null)
             {
@@ -64,7 +64,7 @@
 
         public MailMessage GetForgotPasswordMailTemplate()
         {
-            var settingsItem = this.GetAccountsSettingsItem();
+            var settingsItem = GetAccountsSettingsItem();
             LinkField link = settingsItem.Fields[Templates.AccountsSettings.Fields.ForgotPasswordMailTemplate];
             var mailTemplateItem = link.TargetItem;
 

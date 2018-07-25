@@ -7,7 +7,7 @@ DB: master
 BranchID: "9a4aad67-383b-4504-93b9-d3502be2b59d"
 SharedFields:
 - ID: "1230d2cb-4948-4d43-8a3b-b39978f6f1b3"
-  Hint: Features
+  Hint: Modules
   Type: Treelist
   Value: |
     {85C5F396-A8AB-44CE-A4EA-DFC39CC885ED}
@@ -28,6 +28,10 @@ SharedFields:
     {49D671A6-6446-4495-B792-96ADDC2E9993}
     {FE1854C1-4382-4FC1-9109-5B522E7EA95F}
     {D8162781-25B9-4694-A371-89640DBFD301}
+- ID: "7d29b525-8118-45c6-a89b-773a6a576ec7"
+  Hint: SharedSites
+  Type: Treelist
+  Value: "{8A30C3C8-3842-41C8-9FB3-F1A416CE873C}"
 - ID: "800dc4ed-0846-45ba-b112-19902af240f6"
   Hint: SharedMediaLibrary
   Value: "{A1DA5F27-DA3E-44FE-82A1-EC3C5EFF5B00}"
@@ -55,10 +59,6 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\virtualssuser
-    - ID: "7d29b525-8118-45c6-a89b-773a6a576ec7"
-      Hint: SharedSites
-      Type: Treelist
-      Value: "{8A30C3C8-3842-41C8-9FB3-F1A416CE873C}"
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"

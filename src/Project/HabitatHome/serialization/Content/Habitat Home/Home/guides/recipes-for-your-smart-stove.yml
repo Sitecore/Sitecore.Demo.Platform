@@ -111,32 +111,37 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
-          uid="{0CB9F526-C892-4F67-A043-B30C21ADCCAF}"
-          p:before="*"
-          s:ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
-          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
-          s:ph="/main/sxa-recommended-content/container-1" />
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          ph="/main/sxa-article-content/author-1-"
+          uid="{58858822-9F0A-44CC-877E-07A49113E34E}" />
         <r
-          uid="{5B71B7D7-9A95-42F3-BF2C-C47276A17B02}"
-          p:after="r[@uid='{0CB9F526-C892-4F67-A043-B30C21ADCCAF}']"
-          s:ds="{B8B17220-5408-483E-BD00-AFA82E1D66A8}"
-          s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
-          s:par=""
-          s:ph="/main/sxa-article-content/container-1/container-2" />
+          ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          ph="/main/sxa-recommended-content/container-1"
+          uid="{0CB9F526-C892-4F67-A043-B30C21ADCCAF}" />
         <r
-          uid="{33A18287-F717-4A2A-957D-F9D3B7BBE518}"
-          p:after="*[1=2]"
-          s:ds=""
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="DynamicPlaceholderId=2"
-          s:ph="/main/sxa-article-content/container-1" />
+          ds="{B8B17220-5408-483E-BD00-AFA82E1D66A8}"
+          id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+          par=""
+          ph="/main/sxa-article-content/container-1/container-2"
+          uid="{5B71B7D7-9A95-42F3-BF2C-C47276A17B02}" />
+        <r
+          ds=""
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="DynamicPlaceholderId=2"
+          ph="/main/sxa-article-content/container-1"
+          uid="{33A18287-F717-4A2A-957D-F9D3B7BBE518}" />
       </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en
