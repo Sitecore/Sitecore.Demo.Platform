@@ -10,15 +10,15 @@ SharedFields:
   Value: |
     <tracking>
       <profile id="552dd90f-a527-438e-ac33-32d236244123" name="Topic Interest Category">
-        <key name="Fitness" value="0" />
-        <key name="Newest and Coolest" value="0" />
-        <key name="Reliability" value="0" />
-        <key name="Smart and Connected" value="0" />
         <key name="Children" value="0" />
         <key name="Cleaning" value="0" />
         <key name="Cooking" value="10" />
         <key name="Entertainment" value="0" />
+        <key name="Fitness" value="0" />
+        <key name="Newest and Coolest" value="0" />
+        <key name="Reliability" value="0" />
         <key name="Safety" value="0" />
+        <key name="Smart and Connected" value="0" />
       </profile>
     </tracking>
 Languages:
@@ -37,6 +37,17 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180316T182343Z
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180713T183457Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
 - Language: "ja-JP"
   Versions:
   - Version: 1
