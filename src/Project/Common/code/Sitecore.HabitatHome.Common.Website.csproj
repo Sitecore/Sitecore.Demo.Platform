@@ -88,6 +88,7 @@
     <Content Include="Utilities\DeployMarketingDefinitions.aspx" />
     <Content Include="Utilities\IndexRebuild.aspx" />
     <Content Include="App_Config\Include\Project\z.Common.Website.DevSettings.config" />
+    <Content Include="App_Config\Include\zz.Foundation.Overrides\Foundation.Search.Solr.Web.config" />
     <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -116,6 +117,7 @@
       <DependentUpon>IndexRebuild.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
