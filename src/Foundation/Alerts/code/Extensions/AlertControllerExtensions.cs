@@ -1,7 +1,8 @@
-﻿namespace Sitecore.HabitatHome.Foundation.Alerts.Extensions
+﻿using System.Web.Mvc;
+using Sitecore.HabitatHome.Foundation.Alerts.Models;
+
+namespace Sitecore.HabitatHome.Foundation.Alerts.Extensions
 {
-    using System.Web.Mvc;
-    using Sitecore.HabitatHome.Foundation.Alerts.Models;
 
     public static class AlertControllerExtensions
     {

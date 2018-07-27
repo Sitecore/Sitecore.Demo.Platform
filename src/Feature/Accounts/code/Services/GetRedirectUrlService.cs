@@ -1,27 +1,27 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
-{
-    using System;
-    using System.Web;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;
-    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
+﻿using System;
+using System.Web;
+using Sitecore.HabitatHome.Foundation.DependencyInjection;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
 
+namespace Sitecore.HabitatHome.Feature.Accounts.Services
+{                                                                             
     [Service(typeof(IGetRedirectUrlService))]
     public class GetRedirectUrlService : IGetRedirectUrlService
     {
-        private readonly IAccountsSettingsService accountsSettingsService;
+        private readonly IAccountsSettingsService _accountsSettingsService;
         private const string ReturnUrlQuerystring = "ReturnUrl";
 
         public GetRedirectUrlService(IAccountsSettingsService accountsSettingsService)
         {
-            this.accountsSettingsService = accountsSettingsService;
+            _accountsSettingsService = accountsSettingsService;
         }
 
         public string GetRedirectUrl(AuthenticationStatus status, string returnUrl = null)
         {
-            var redirectUrl = this.GetDefaultRedirectUrl(status);
+            string redirectUrl = GetDefaultRedirectUrl(status);
             if (!string.IsNullOrEmpty(returnUrl))
             {
-                redirectUrl = this.AddReturnUrl(redirectUrl, returnUrl);
+                redirectUrl = AddReturnUrl(redirectUrl, returnUrl);
             }
 
             return redirectUrl;
@@ -37,9 +37,9 @@
             switch (status)
             {
                 case AuthenticationStatus.Unauthenticated:
-                    return this.accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.LoginPage, Context.Site.GetStartItem());
+                    return _accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.LoginPage, Context.Site.GetStartItem());
                 case AuthenticationStatus.Authenticated:
-                    return this.accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage, Context.Site.GetStartItem());
+                    return _accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage, Context.Site.GetStartItem());
                 default:
                     throw new ArgumentOutOfRangeException(nameof(status), status, null);
             }

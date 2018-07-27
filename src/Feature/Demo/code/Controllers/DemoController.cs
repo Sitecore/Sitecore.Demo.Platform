@@ -32,7 +32,7 @@
 
             var explorerContext = DependencyResolver.Current.GetService<IExplorerContext>();
             var isInExperienceExplorer = explorerContext?.IsExplorerMode() ?? false;
-            if (Context.Site.DisplayMode != DisplayMode.Normal || WebEditUtility.IsDebugActive(Context.Site) || isInExperienceExplorer)
+            if (Sitecore.Context.Site.DisplayMode != DisplayMode.Normal || WebEditUtility.IsDebugActive(Sitecore.Context.Site) || isInExperienceExplorer)
             {
                 return null;
             }

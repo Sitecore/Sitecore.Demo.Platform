@@ -1,22 +1,22 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
+﻿using System;
+using Sitecore.Configuration;
+using Sitecore.HabitatHome.Foundation.DependencyInjection;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Services;
+using Sitecore.Security;
+
+namespace Sitecore.HabitatHome.Feature.Accounts.Services
 {
-    using System;
-    using Sitecore.Configuration;
-    using Sitecore.Data;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;
-    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Services;
-    using Sitecore.Security;
 
     [Service(typeof(IAccountTrackerService))]
     public class AccountTrackerService : IAccountTrackerService
     {
-        private readonly IAccountsSettingsService accountsSettingsService;
-        private readonly ITrackerService trackerService;
+        private readonly IAccountsSettingsService _accountsSettingsService;
+        private readonly ITrackerService _trackerService;
 
         public AccountTrackerService(IAccountsSettingsService accountsSettingsService, ITrackerService trackerService)
         {
-            this.accountsSettingsService = accountsSettingsService;
-            this.trackerService = trackerService;
+            _accountsSettingsService = accountsSettingsService;
+            _trackerService = trackerService;
         }
 
         public static Guid LogoutPageEventId => Guid.Parse("{D23A32CD-F893-495E-86F0-9FE852987376}");
@@ -28,41 +28,41 @@
 
         public virtual void TrackLoginAndIdentifyContact(string source, string identifier)
         {
-            this.trackerService.TrackGoal(LoginGoalId, source);
-            this.trackerService.IdentifyContact(source, identifier);
+            _trackerService.TrackGoal(LoginGoalId, source);
+            _trackerService.IdentifyContact(source, identifier);
         }
 
         public void TrackLogout(string userName)
         {
-            this.trackerService.TrackPageEvent(LogoutPageEventId, data: userName);
+            _trackerService.TrackPageEvent(LogoutPageEventId, data: userName);
         }
 
         public virtual void TrackRegistration()
         {
-            this.trackerService.TrackGoal(RegistrationGoalId);
-            this.TrackRegistrationOutcome();
+            _trackerService.TrackGoal(RegistrationGoalId);
+            TrackRegistrationOutcome();
         }
 
         public virtual void TrackRegistrationFailed(string email)
         {
-            this.trackerService.TrackPageEvent(RegistrationFailedPageEventId, data: email);
+            _trackerService.TrackPageEvent(RegistrationFailedPageEventId, data: email);
         }
         public virtual void TrackLoginFailed(string userName)
         {
-            this.trackerService.TrackPageEvent(LoginFailedPageEventId, data: userName);
+            _trackerService.TrackPageEvent(LoginFailedPageEventId, data: userName);
         }
 
         public void TrackEditProfile(UserProfile userProfile)
         {
-            this.trackerService.TrackPageEvent(EditProfilePageEvent, data: userProfile.UserName);
+            _trackerService.TrackPageEvent(EditProfilePageEvent, data: userProfile.UserName);
         }
 
         public void TrackRegistrationOutcome()
         {
-            var outcomeId = this.accountsSettingsService.GetRegistrationOutcome(Context.Item);
+            var outcomeId = this._accountsSettingsService.GetRegistrationOutcome(Context.Item);
             if (outcomeId.HasValue)
             {
-                this.trackerService.TrackOutcome(outcomeId.Value);
+                _trackerService.TrackOutcome(outcomeId.Value);
             }
         }
     }
