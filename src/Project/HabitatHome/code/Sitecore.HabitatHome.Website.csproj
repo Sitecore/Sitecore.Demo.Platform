@@ -53,6 +53,11 @@
     <PackageReference Include="Sitecore.Mvc.NoReferences" Version="9.0.171219" />
     <PackageReference Include="Sitecore.Update.NoReferences" Version="9.0.171219" />
     <PackageReference Include="Sitecore.Zip.NoReferences" Version="9.0.171219" />
+    <PackageReference Include="Sitecore.Kernel.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Logging.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Mvc.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Update.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Zip.NoReferences" Version="9.0.180604" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +81,7 @@
     <Content Include="App_Config\Include\Project\HabitatHome.Website.Serialization.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="sitecore.habitathome.version.txt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

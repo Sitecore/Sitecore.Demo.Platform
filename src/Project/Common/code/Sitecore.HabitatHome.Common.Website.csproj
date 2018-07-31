@@ -52,6 +52,22 @@
     <PackageReference Include="Sitecore.Marketing.xMgmt.NoReferences" Version="9.0.171219" />
     <PackageReference Include="Sitecore.Update.NoReferences" Version="9.0.171219" />
     <PackageReference Include="Sitecore.Zip.NoReferences" Version="9.0.171219" />
+    <PackageReference Include="Sitecore.ContentSearch.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Kernel.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Logging.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Marketing.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Marketing.xMgmt.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.Update.NoReferences" Version="9.0.180604" />
+    <PackageReference Include="Sitecore.XA.Foundation.Abstractions">
+      <Version>3.7.0.643</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.XA.Foundation.Multisite">
+      <Version>3.7.0.643</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.XA.Foundation.SitecoreExtensions">
+      <Version>3.7.0.643</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Zip.NoReferences" Version="9.0.180604" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +93,8 @@
     <Content Include="Utilities\DeployMarketingDefinitions.aspx" />
     <Content Include="Utilities\IndexRebuild.aspx" />
     <Content Include="App_Config\Include\Project\z.Common.Website.DevSettings.config" />
+    <Content Include="App_Config\Include\zz.Foundation.Overrides\Foundation.Search.Solr.Web.config" />
+    <Content Include="App_Config\Include\Project\Common.Website.SPE.config" />
     <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -105,6 +123,7 @@
       <DependentUpon>IndexRebuild.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

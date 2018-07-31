@@ -23,13 +23,13 @@ The code, samples and/or solutions provided in this repository are for example p
 
 ### Sitecore Version
 
-Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.0.1** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/90/Sitecore_Experience_Platform_90_Update1.aspx).
+Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.0.2** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/90/Sitecore_Experience_Platform_90_Update2.aspx).
 
 ### Additional modules
-In addition to a base XP 9.0.1 installation, the following modules are required:
+In addition to a base XP 9.0.2 installation, the following modules are required:
 
 - Sitecore PowerShell Extensions 4.7.2 for Sitecore 8/9 on [Marketplace](https://marketplace.sitecore.net/services/~/download/3D2CADDAB4A34CEFB1CFD3DD86D198D5.ashx?data=Sitecore%20PowerShell%20Extensions-4.7.2%20for%20Sitecore%208&itemId=6aaea046-83af-4ef1-ab91-87f5f9c1aa57)
-- Sitecore Experience Accelerator for 9.0 version 1.6 on [dev.sitecore.com](https://dev.sitecore.net/en/Downloads/Sitecore_Experience_Accelerator/16/Sitecore_Experience_Accelerator_16_Initial_Release.aspx)
+- Sitecore Experience Accelerator for 9.0 version 1.7.1 on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/17/Sitecore_Experience_Accelerator_17_Update1.aspx)
 - [Data Exchange Framework v2.0.1](https://dev.sitecore.net/~/media/C50B044E45FE4C4DA9E675CBEED3AA09.ashx) on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Data_Exchange_Framework/2x/Data_Exchange_Framework_201.aspx) as well as relevant Providers on same page
 	- [Sitecore Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/D57A1FBB98ED4125B78D740E5B5F1772.ashx)
 	- [SQL Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/F243222B9A95497BAB6B591D39560E95.ashx)
@@ -37,6 +37,16 @@ In addition to a base XP 9.0.1 installation, the following modules are required:
 - Data Exchange Framework 2.0.1 Dynamics Connectors on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Dynamics_CRM_Connect/2x/Sitecore_Connect_for_Microsoft_Dynamics_365_for_Sales_201.aspx)
 	- [Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/819FB4C75CC74A8C984C343BEF7B53F1.ashx)
 	- [Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1](https://dev.sitecore.net/~/media/ADBAF4CC6736499EBA0EBA6A9767D825.ashx)
+
+### Optional Modules
+Some gulp tasks have been included to help with repetitive tasks. These tasks require the SPE Remoting Module.
+
+- SPE Remoting 4.7 [Marketplace](https://marketplace.sitecore.net/services/~/download/9624E65780594246A30FCB2F79770ECA.ashx?data=SPE%20Remoting-4.7&itemId=6aaea046-83af-4ef1-ab91-87f5f9c1aa57)
+The "SPE" folder is assumed to be in the ~Documents\WindowsPowerShell\Modules folder 
+
+*SECURITY WARNING* - The default configuration for the Habitat Home demo uses admin/b and allows this user to access SPE Remoting.
+
+*IMPORTANT: Publish site after installing all required modules*
 
 ### Additional Windows Components
 - Url Rewrite 2.1 
@@ -80,7 +90,7 @@ If you do **not want to use the default settings**, you need to adjust the appro
 
 All installation instructions assume using PowerShell 5.1 in administrative mode.
 
-### 1 Clone this repository
+### 1. Clone this repository
 
 #### Setting Git for Long Paths
 
@@ -95,7 +105,7 @@ Clone the Sitecore.HabitatHome.Content repository locally - defaults are configu
 -- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Content.git` 
 -- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Content.git`
 
-### 2 Deploy Sitecore.HabitatHome.Content
+### 2. Deploy Sitecore.HabitatHome.Content
 
 From the root of the solution
 - Run **`npm install`**
@@ -110,7 +120,7 @@ if you are only installing this demo:
 > Running gulp a second time resolves the issue (and doesn't take as long)
 
 > if using **Visual Studio task runner**, please see [this workaround](https://stackoverflow.com/questions/45580456/visual-studio-task-runner-error-with-es6)
-### 3 Validating deployment
+### 3. Validating deployment
 
 
 
@@ -120,6 +130,13 @@ if you are only installing this demo:
 1. Browse to https://habitat.dev.local
 	1. You should see the Habitat landing page (not Habitat Home)
 
+
+## Additional Settings
+### 1. Disable Unicorn Serialization
+When Unicorn is active, the Content Editor will display warnings that certain items are controlled by Unicorn. If you wish to disable Unicorn serialization, open the Web.config file in your webroot and update the following appSetting
+
+    <add key="unicorn:define" value="Off"/>
+This appSetting is `On` by default. Setting it to `Off` ensures that none of the Unicorn serialization configuration files are loaded.
 
 # Contribute or Issues
 Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Content/issues). Contributions are always welcome!

@@ -1,25 +1,23 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines
-{
-    using Sitecore.HabitatHome.Feature.Accounts.Services;
-    using Sitecore.HabitatHome.Foundation.Accounts.Pipelines;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+﻿using Sitecore.HabitatHome.Feature.Accounts.Services;
+using Sitecore.HabitatHome.Foundation.Accounts.Pipelines;    
 
+namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines
+{            
     public class TrackRegistered
     {
-        private readonly IAccountTrackerService accountTrackerService;
-        private readonly IUpdateContactFacetsService updateContactFacetsService;
+        private readonly IAccountTrackerService _accountTrackerService;
+        private readonly IUpdateContactFacetsService _updateContactFacetsService;
 
         public TrackRegistered(IAccountTrackerService accountTrackerService, IUpdateContactFacetsService updateContactFacetsService)
         {
-            this.accountTrackerService = accountTrackerService;
-            this.updateContactFacetsService = updateContactFacetsService;
+            _accountTrackerService = accountTrackerService;
+            _updateContactFacetsService = updateContactFacetsService;
         }
 
         public void Process(AccountsPipelineArgs args)
         {
-            this.updateContactFacetsService.UpdateContactFacets(args.User.Profile);
-            this.accountTrackerService.TrackRegistration();
-        }
-
+            _updateContactFacetsService.UpdateContactFacets(args.User.Profile);
+            _accountTrackerService.TrackRegistration();
+        }             
     }
 }

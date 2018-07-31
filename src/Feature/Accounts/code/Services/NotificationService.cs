@@ -1,20 +1,20 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
-{
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+﻿using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
+namespace Sitecore.HabitatHome.Feature.Accounts.Services
+{
     [Service(typeof(INotificationService))]
     public class NotificationService : INotificationService
     {
-        private readonly IAccountsSettingsService siteSettings;
+        private readonly IAccountsSettingsService _siteSettings;
 
         public NotificationService(IAccountsSettingsService siteSettings)
         {
-            this.siteSettings = siteSettings;
+            this._siteSettings = siteSettings;
         }
 
         public void SendPassword(string email, string newPassword)
         {
-            var mail = this.siteSettings.GetForgotPasswordMailTemplate();
+            var mail = this._siteSettings.GetForgotPasswordMailTemplate();
             mail.To.Add(email);
             mail.Body = mail.Body.Replace("$password$", newPassword);
 

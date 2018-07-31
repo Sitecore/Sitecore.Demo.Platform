@@ -2,7 +2,8 @@ var gulp = require("gulp");
 var fs = require("fs");
 var unicorn = require("./scripts/unicorn.js");
 var habitat = require("./scripts/habitat.js");
-var habitatHome = require("./scripts/habitat-home.js");      
+var spe = require("./scripts/spe.js");
+var habitatHome = require("./scripts/habitat-home.js");
 var runSequence = require("run-sequence");
 var nugetRestore = require("gulp-nuget-restore");
 var msbuild = require("gulp-msbuild");
@@ -29,7 +30,6 @@ gulp.task("default",
     function (callback) {
         config.runCleanBuilds = true;
         return runSequence(
-            "Copy-Sitecore-Lib",
             "Nuget-Restore",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
@@ -48,7 +48,6 @@ gulp.task("quick-deploy",
     function (callback) {
         config.runCleanBuilds = true;
         return runSequence(
-            "Copy-Sitecore-Lib",
             "Nuget-Restore",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
@@ -61,29 +60,22 @@ gulp.task("quick-deploy",
 /*****************************
   Initial setup
 *****************************/
-gulp.task("Copy-Sitecore-Lib", function () {
-    console.log("Copying Sitecore SXA Libraries");
-
-    fs.statSync(config.sitecoreLibraries);
-    var files = config.sitecoreLibraries + "/**/Sitecore.XA.*";
-    return gulp.src(files).pipe(gulp.dest("./lib/Modules/SXA"));
-});
 
 gulp.task("Nuget-Restore",
     function (callback) {
         var solution = "./" + config.solutionName + ".sln";
         return gulp.src(solution).pipe(nugetRestore());
     });
-             
+
 gulp.task("Publish-All-Projects",
     function (callback) {
         return runSequence(
             "Build-Solution",
             "Publish-Foundation-Projects",
             "Publish-Feature-Projects",
-            "Publish-Project-Projects",   
+            "Publish-Project-Projects",
             callback);
-    });                         
+    });
 
 gulp.task("Apply-Xml-Transform",
     function () {
@@ -95,7 +87,7 @@ gulp.task("Apply-Xml-Transform",
             .pipe(foreach(function (stream, file) {
                 var fileToTransform = file.path.replace(/.+code\\(.+)\.xdt/, "$1")
                     .replace("\.sc-internal", "");
-                util.log("Applying configuration transform: " + file.path);         
+                util.log("Applying configuration transform: " + file.path);
                 return gulp.src("./scripts/applytransform.targets")
                     .pipe(msbuild({
                         targets: ["ApplyTransform"],
@@ -124,10 +116,20 @@ gulp.task("Sync-Unicorn",
         options.authenticationConfigFile = config.websiteRoot + "/App_config/Include/Unicorn.SharedSecret.config";
         options.maxBuffer = Infinity;
 
-        unicorn(function () { return callback() }, options);
+        unicorn(function () {
+            return callback()
+        }, options);
     });
 
+gulp.task("Set-Hostname",
+    function (callback) {
+        var options = {};
+        options.siteHostName = config.instanceUrl.replace("https://", "").replace("/", "");
+        spe(function () {
+            return callback()
+        }, options);
 
+    });
 gulp.task("Publish-Transforms",
     function () {
         return gulp.src("./src/**/code/**/*.xdt")
@@ -159,7 +161,7 @@ gulp.task("Build-Solution",
                 }
             }));
     });
-                  
+
 /*****************************
   Publish
 *****************************/
@@ -167,7 +169,9 @@ var publishStream = function (stream, dest) {
     var targets = ["Build"];
 
     return stream
-        .pipe(debug({ title: "Building project:" }))
+        .pipe(debug({
+            title: "Building project:"
+        }))
         .pipe(msbuild({
             targets: targets,
             configuration: config.buildConfiguration,
