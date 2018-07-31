@@ -1,5 +1,5 @@
 ﻿<Settings>
-  <!--
+    <!--
     Provides default configuration for component services for the application    
         
     NOTE:
@@ -10,39 +10,48 @@
         Options   (Optional): If the type contains a constructor that receives IConfiguration, you can provide
                               additional values here to match the resulting type of options for that type.
   -->
-  <Sitecore>
-    <XConnect>
-      <!-- SearchIndexer role requires Collection and CollectionSearch role services -->
-      <SearchIndexer>
-        <Services>
-          <IndexerSettings>
-            <Type>Sitecore.Xdb.Collection.Indexing.IndexerSettings, Sitecore.Xdb.Collection</Type>
-            <LifeTime>Singleton</LifeTime>
-            <Options>
-                <!-- Indexer will split change set on chunks to improve memory consumption. Setting this option to 0, a negative value or removing the element completely, results in no splitting.-->
-              <SplitRecordsThreshold>25000</SplitRecordsThreshold>
-              <IndexPIISensitiveData>false</IndexPIISensitiveData>
-              <IndexAnonymousContactData>true</IndexAnonymousContactData>
-            </Options>
-          </IndexerSettings>
-          <IIndexer>
-            <Type>Sitecore.Xdb.Collection.Indexing.DecoratedIndexer, Sitecore.Xdb.Collection</Type>
-            <As>Sitecore.Xdb.Collection.Indexing.IIndexer, Sitecore.Xdb.Collection</As>
-            <LifeTime>Singleton</LifeTime>
-          </IIndexer>
-          <IIndexRebuildFlow>
-            <Type>Sitecore.Xdb.Collection.Indexing.IndexRebuildFlow, Sitecore.Xdb.Collection</Type>
-            <As>Sitecore.Xdb.Collection.Indexing.IIndexRebuildFlow, Sitecore.Xdb.Collection</As>
-            <LifeTime>Singleton</LifeTime>
-            <Options>
-              <IncomingDataLagOnCompletion>0.00:00:05</IncomingDataLagOnCompletion>
-              <!--Enable ParallelizationDegree setting to override default value which is (processorCount*4)-->
-              <!--<ParallelizationDegree>16</ParallelizationDegree>-->
-              <BatchSize>1000</BatchSize>
-            </Options>
-          </IIndexRebuildFlow>
-        </Services>
-      </SearchIndexer>
-    </XConnect>
-  </Sitecore>
+    <Sitecore>
+        <XConnect>
+            <!-- SearchIndexer role requires Collection and CollectionSearch role services -->
+            <SearchIndexer>
+                <Services>
+                    <IndexerSettings>
+                        <Type>Sitecore.Xdb.Collection.Indexing.IndexerSettings, Sitecore.Xdb.Collection</Type>
+                        <LifeTime>Singleton</LifeTime>
+                        <Options>
+                            <!-- Indexer will split change set on chunks to improve memory consumption. Setting this option to 0, a negative value or removing the element completely, results in no splitting.-->
+                            <SplitRecordsThreshold>25000</SplitRecordsThreshold>
+                            <IndexPIISensitiveData>true</IndexPIISensitiveData>
+                            <IndexAnonymousContactData>true</IndexAnonymousContactData>
+                        </Options>
+                    </IndexerSettings>
+                    <IIndexer>
+                        <Type>Sitecore.Xdb.Collection.Indexing.DecoratedIndexer, Sitecore.Xdb.Collection</Type>
+                        <As>Sitecore.Xdb.Collection.Indexing.IIndexer, Sitecore.Xdb.Collection</As>
+                        <LifeTime>Singleton</LifeTime>
+                    </IIndexer>
+                    <IIndexerInitializer>
+                        <Type>Sitecore.Xdb.Collection.Indexing.DefaultIndexInitializer, Sitecore.Xdb.Collection</Type>
+                        <As>Sitecore.Xdb.Collection.Indexing.IIndexInitializer, Sitecore.Xdb.Collection</As>
+                        <LifeTime>Singleton</LifeTime>
+                    </IIndexerInitializer>
+                    <IIndexRebuildFlow>
+                        <Type>Sitecore.Xdb.Collection.Indexing.IndexRebuildFlow, Sitecore.Xdb.Collection</Type>
+                        <As>Sitecore.Xdb.Collection.Indexing.IIndexRebuildFlow, Sitecore.Xdb.Collection</As>
+                        <LifeTime>Singleton</LifeTime>
+                        <Options>
+                            <IncomingDataLagOnCompletion>0.00:00:05</IncomingDataLagOnCompletion>
+                            <!--Enable ParallelizationDegree setting to override default value which is (processorCount)-->
+                            <!--<ParallelizationDegree>16</ParallelizationDegree>-->
+                            <BatchSize>5000</BatchSize>
+                        </Options>
+                    </IIndexRebuildFlow>
+                    <IIndexRebuilderCountersDecorator>
+                        <Type>Sitecore.XConnect.Configuration.ServiceDecorator`2[[Sitecore.Xdb.Collection.Indexing.IIndexRebuilder, Sitecore.Xdb.Collection], [Sitecore.Xdb.Collection.Indexing.IndexRebuilderCountersDecorator, Sitecore.Xdb.Collection]], Sitecore.XConnect.Configuration</Type>
+                        <LifeTime>Singleton</LifeTime>
+                    </IIndexRebuilderCountersDecorator>
+                </Services>
+            </SearchIndexer>
+        </XConnect>
+    </Sitecore>
 </Settings>
