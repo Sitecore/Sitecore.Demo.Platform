@@ -1,17 +1,19 @@
-﻿using System;
-using System.Linq;
-using Sitecore.HabitatHome.Foundation.Accounts.Models;
-using Sitecore.HabitatHome.Foundation.DependencyInjection;
+﻿using Newtonsoft.Json;
 using Sitecore.Analytics;
 using Sitecore.Analytics.Model;
 using Sitecore.Analytics.Tracking;
-using Sitecore.HabitatHome.Foundation.Accounts.Providers;
 using Sitecore.Configuration;
-using Sitecore.XConnect;
-using Sitecore.XConnect.Client.Configuration;
-using Sitecore.XConnect.Collection.Model;
-using Sitecore.XConnect.Client;
 using Sitecore.Diagnostics;
+using Sitecore.HabitatHome.Foundation.Accounts.Models;
+using Sitecore.HabitatHome.Foundation.Accounts.Providers;
+using Sitecore.HabitatHome.Foundation.DependencyInjection;
+using Sitecore.XConnect;
+using Sitecore.XConnect.Client;
+using Sitecore.XConnect.Client.Configuration;
+using Sitecore.XConnect.Client.Serialization;
+using Sitecore.XConnect.Collection.Model;
+using System;
+using System.Linq;
 using System.Net;
 
 namespace Sitecore.HabitatHome.Foundation.Accounts.Services
@@ -63,6 +65,95 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
                 catch (XdbExecutionException ex)
                 {
                     Log.Error($"Could not update the xConnect contact facets", ex, this);
+                }
+            }
+        }
+
+        public string ExportContactData()
+        {
+            var id = this.GetContactId();
+            if (id == null)
+            {
+                return string.Empty;
+            }
+
+            var contactReference = new IdentifiedContactReference(id.Source, id.Identifier);
+
+            using (var client = SitecoreXConnectClientConfiguration.GetClient())
+            {
+                try
+                {
+                    var contactFacets = client.Model.Facets.Where(c => c.Target == EntityType.Contact).Select(x => x.Name);
+
+                    var interactionFacets = client.Model.Facets.Where(c => c.Target == EntityType.Interaction).Select(x => x.Name);
+
+                    var contact = client.Get(contactReference, new ContactExpandOptions(contactFacets.ToArray())
+                    {
+                        Interactions = new RelatedInteractionsExpandOptions(interactionFacets.ToArray())
+                        {
+                            EndDateTime = DateTime.MaxValue,
+                            StartDateTime = DateTime.MinValue
+                        }
+                    });
+
+                    if (contact == null)
+                    {
+                        return string.Empty;
+                    }
+
+                    var serializerSettings = new JsonSerializerSettings
+                    {
+                        ContractResolver = new XdbJsonContractResolver(client.Model,
+                            serializeFacets: true,
+                            serializeContactInteractions: true),
+                        Formatting = Formatting.Indented,
+                        DateTimeZoneHandling = DateTimeZoneHandling.Utc,
+                        DefaultValueHandling = DefaultValueHandling.Ignore
+                    };
+
+                    string exportedData = JsonConvert.SerializeObject(contact, serializerSettings);
+
+                    return exportedData;
+                }
+                catch (XdbExecutionException ex)
+                {
+                    Log.Error($"Could not export the xConnect contact & interaction data", ex, this);
+                    return string.Empty;
+                }
+            }
+        }
+
+        public bool DeleteContact()
+        {
+            var id = this.GetContactId();
+            if (id == null)
+            {
+                return false;
+            }
+
+            var contactReference = new IdentifiedContactReference(id.Source, id.Identifier);
+
+            using (var client = SitecoreXConnectClientConfiguration.GetClient())
+            {
+                try
+                {
+                    var contact = client.Get(contactReference, new Sitecore.XConnect.ContactExpandOptions() { });
+
+                    if (contact == null)
+                    {
+                        return false;
+                    }
+
+                    client.ExecuteRightToBeForgotten(contact);
+
+                    client.Submit();
+
+                    return true;
+                }
+                catch (XdbExecutionException ex)
+                {
+                    Log.Error($"Could not delete the xConnect contact", ex, this);
+                    return false;
                 }
             }
         }

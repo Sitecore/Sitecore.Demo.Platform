@@ -16,5 +16,9 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Services
         void SaveProfile(UserProfile userProfile, EditProfile model);
 
         IEnumerable<string> GetInterests();
+
+        string ExportData(UserProfile userProfile);
+
+        void DeleteProfile(UserProfile userProfile);
     }
 }

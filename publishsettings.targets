@@ -1,6 +1,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <publishUrl>https://habitathome.dev.local</publishUrl>
+        <publishUrl>https://sc9u2.sc</publishUrl>
         <ExcludeFilesFromDeployment>packages.config</ExcludeFilesFromDeployment>
     </PropertyGroup>
     <Import Project="./publishsettings.targets.user" Condition="exists('./publishsettings.targets.user')" /> 

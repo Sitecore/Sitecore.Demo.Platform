@@ -17,5 +17,9 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Services
         void TrackLoginFailed(string userName);
 
         void TrackEditProfile(UserProfile userProfile);
+
+        void TrackExportData(UserProfile userProfile);
+
+        void TrackDeleteProfile(UserProfile userProfile);
     }
 }
