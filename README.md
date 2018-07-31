@@ -38,6 +38,12 @@ In addition to a base XP 9.0.2 installation, the following modules are required:
 	- [Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/819FB4C75CC74A8C984C343BEF7B53F1.ashx)
 	- [Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1](https://dev.sitecore.net/~/media/ADBAF4CC6736499EBA0EBA6A9767D825.ashx)
 
+### Optional Modules
+Some gulp tasks have been included to help with repetitive tasks. These tasks require the SPE Remoting Module.
+
+- SPE Remoting 4.7 [Marketplace](https://marketplace.sitecore.net/services/~/download/9624E65780594246A30FCB2F79770ECA.ashx?data=SPE%20Remoting-4.7&itemId=6aaea046-83af-4ef1-ab91-87f5f9c1aa57)
+The "SPE" folder is assumed to be in the ~Documents\WindowsPowerShell\Modules folder 
+*SECURITY WARNING* - The default configuration for the Habitat Home demo
 *IMPORTANT: Publish site after installing all required modules*
 
 ### Additional Windows Components
