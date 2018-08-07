@@ -43,7 +43,9 @@ Some gulp tasks have been included to help with repetitive tasks. These tasks re
 
 - SPE Remoting 4.7 [Marketplace](https://marketplace.sitecore.net/services/~/download/9624E65780594246A30FCB2F79770ECA.ashx?data=SPE%20Remoting-4.7&itemId=6aaea046-83af-4ef1-ab91-87f5f9c1aa57)
 The "SPE" folder is assumed to be in the ~Documents\WindowsPowerShell\Modules folder 
-*SECURITY WARNING* - The default configuration for the Habitat Home demo
+
+*SECURITY WARNING* - The default configuration for the Habitat Home demo uses admin/b and allows this user to access SPE Remoting.
+
 *IMPORTANT: Publish site after installing all required modules*
 
 ### Additional Windows Components
