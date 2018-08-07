@@ -190,7 +190,8 @@ var publishStream = function (stream, dest) {
                 BuildProjectReferences: "false",
                 DeleteExistingFiles: "false",
                 publishUrl: dest
-            }
+            },
+            customArgs: ["/restore"]
         }));
 };
 
