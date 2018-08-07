@@ -6,9 +6,9 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines
     public class TrackRegistered
     {
         private readonly IAccountTrackerService _accountTrackerService;
-        private readonly IUpdateContactFacetsService _updateContactFacetsService;
+        private readonly IContactFacetsService _updateContactFacetsService;
 
-        public TrackRegistered(IAccountTrackerService accountTrackerService, IUpdateContactFacetsService updateContactFacetsService)
+        public TrackRegistered(IAccountTrackerService accountTrackerService, IContactFacetsService updateContactFacetsService)
         {
             _accountTrackerService = accountTrackerService;
             _updateContactFacetsService = updateContactFacetsService;

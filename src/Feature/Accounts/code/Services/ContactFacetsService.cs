@@ -5,12 +5,12 @@ using Sitecore.Security;
 
 namespace Sitecore.HabitatHome.Feature.Accounts.Services
 {
-    [Service(typeof(IUpdateContactFacetsService))]
-    public class UpdateContactFacetsService : IUpdateContactFacetsService
+    [Service(typeof(IContactFacetsService))]
+    public class ContactFacetsService : IContactFacetsService
     {                                                                       
         private readonly IContactFacetService _contactFacetService;
 
-        public UpdateContactFacetsService(IContactFacetService contactFacetService)
+        public ContactFacetsService(IContactFacetService contactFacetService)
         {                                                     
             _contactFacetService = contactFacetService;
         }
@@ -32,6 +32,16 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Services
             };       
 
             _contactFacetService.UpdateContactFacets(data);       
+        }
+
+        public string ExportContactData()
+        {
+            return _contactFacetService.ExportContactData();
+        }
+
+        public bool DeleteContact()
+        {
+            return _contactFacetService.DeleteContact();
         }
     }
 }

@@ -15,7 +15,7 @@ using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
 using Sitecore.Data.Fields;
 
 namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
-{                                                       
+{
     public class AccountsController : Controller
     {
         private readonly IFedAuthLoginButtonRepository _fedAuthLoginRepository;
@@ -33,7 +33,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
             _accountsSettingsService = accountsSettingsService;
             _getRedirectUrlService = getRedirectUrlService;
             _userProfileService = userProfileService;
-        }                                            
+        }
 
         public static string UserAlreadyExistsError => DictionaryPhraseRepository.Current.Get("/Accounts/Register/User Already Exists", "A user with specified e-mail address already exists");
 
@@ -67,7 +67,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
             if (link.TargetItem == null)
             {
                 throw new Exception("Account Settings: After Login Page link isn't set.");
-            }                                                        
+            }
 
             return new LoginInfo
             {
@@ -90,7 +90,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 
             try
             {
-                _accountRepository.RegisterUser(registrationInfo, _userProfileService.GetUserDefaultProfileId());                
+                _accountRepository.RegisterUser(registrationInfo, _userProfileService.GetUserDefaultProfileId());
 
                 string link = _getRedirectUrlService.GetRedirectUrl(AuthenticationStatus.Authenticated);
                 return Redirect(link);
@@ -115,7 +115,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
             return View();
         }
 
-        [HttpPost]              
+        [HttpPost]
         [ValidateRenderingId]
         public ActionResult Login(LoginInfo loginInfo)
         {
@@ -136,7 +136,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
             var user = _accountRepository.Login(loginInfo.Email, loginInfo.Password);
             if (user == null)
             {
-                ModelState.AddModelError("invalidCredentials", DictionaryPhraseRepository.Current.Get("/Accounts/Login/User Not Found", "Username or password is not valid."));                
+                ModelState.AddModelError("invalidCredentials", DictionaryPhraseRepository.Current.Get("/Accounts/Login/User Not Found", "Username or password is not valid."));
                 return View(model);
             }
 
@@ -237,7 +237,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
                 return View(_userProfileService.GetEmptyProfile());
             }
 
-            var profile = _userProfileService.GetProfile(Context.User);   
+            var profile = _userProfileService.GetProfile(Context.User);
             return View(profile);
         }
 
@@ -266,8 +266,8 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 
         [RedirectUnauthenticated]
         public ActionResult ChangePassword()
-        {                                                                           
-            ChangePasswordInfo passwordInfo = new ChangePasswordInfo();           
+        {
+            ChangePasswordInfo passwordInfo = new ChangePasswordInfo();
             return View(passwordInfo);
         }
 
@@ -313,6 +313,40 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
             };
 
             return View(model);
+        }
+
+        public ActionResult DataProtection()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [RedirectUnauthenticated]
+        public ActionResult ExportData()
+        {
+            if (Context.User.Profile.Email != null)
+            {
+                var exportedData = _userProfileService.ExportData(Context.User.Profile);
+
+                if (!string.IsNullOrEmpty(exportedData))
+                {
+                    return Json(exportedData, JsonRequestBehavior.AllowGet);
+                }
+            }
+
+            return Json("", JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [RedirectUnauthenticated]
+        public ActionResult DeleteAccount()
+        {
+            if (Context.User.Profile.Email != null)
+            {
+                _userProfileService.DeleteProfile(Context.User.Profile);
+            }
+
+            return Redirect(Context.Site.GetRootItem().Url());
         }
     }
 }
