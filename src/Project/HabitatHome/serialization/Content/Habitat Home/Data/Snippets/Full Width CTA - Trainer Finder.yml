@@ -5,6 +5,9 @@ Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
 Path: "/sitecore/content/Habitat Sites/Habitat Home/Data/Snippets/Full Width CTA - Trainer Finder"
 DB: master
 SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
 - ID: "c80e6f3c-5bcd-426b-b1eb-6d10672e985d"
   Hint: Data Source Selection Behavior
   Value: AskUser
@@ -26,9 +29,11 @@ SharedFields:
         <r
           uid="{A83822E9-8054-4007-B80D-B2CEA0FBF56F}"
           p:after="*[1=2]"
-          s:ds="{30F50135-9BCA-436A-9C02-F3DD35A75411}"
+          s:cnd=""
+          s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;BackgroundImage=&lt;image mediaid=&quot;{A7C5267D-4B44-4A50-B1E2-994E9CD5E327}&quot; /&gt;&amp;Styles={45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B}|{F5947911-00C7-4F00-84F4-3D748376BB32}&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:mvt=""
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage=%3Cimage%20mediaid%3D%22%7BA7C5267D-4B44-4A50-B1E2-994E9CD5E327%7D%22%20%2F%3E&amp;Styles=%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
           s:ph="section-content" />
       </d>
     </r>
@@ -47,12 +52,15 @@ Languages:
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
               uid="{A83822E9-8054-4007-B80D-B2CEA0FBF56F}"
-              s:par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;BackgroundImage=&lt;image mediaid=&quot;{5F782DD5-DFA1-4BD1-9FBB-26D4C9BA83CD}&quot; /&gt;&amp;Styles={45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B}|{F5947911-00C7-4F00-84F4-3D748376BB32}&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1&amp;Personalization&amp;Tests" />
+              s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage=%3Cimage%20mediaid%3D%22%7B5F782DD5-DFA1-4BD1-9FBB-26D4C9BA83CD%7D%22%20%2F%3E&amp;Styles=%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1" />
           </d>
         </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180607T133357Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
 - Language: "fr-CA"
   Versions:
   - Version: 1
