@@ -2,7 +2,7 @@ param(
     [string]$instanceUrl,
     [string]$adminUsername,
     [string]$adminPassword,
-	[string]$username,
+    [string]$username,
     [string]$role
 )
 

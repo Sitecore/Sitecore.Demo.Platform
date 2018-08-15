@@ -2,7 +2,7 @@ param(
     [string]$instanceUrl,
     [string]$adminUsername,
     [string]$adminPassword,
-	[string]$username
+    [string]$username
 )
 
 $ErrorActionPreference = 'Stop'
@@ -13,5 +13,5 @@ Write-Host ("Connecting to {0}" -f $instanceUrl)
 $session = New-ScriptSession -Username $adminUsername -Password $adminPassword -ConnectionUri $("https://" + $instanceUrl)
 
 Invoke-RemoteScript -Session $session -ScriptBlock { 
-     Set-User -Identity $using:username -IsAdministrator $true
+    Set-User -Identity $using:username -IsAdministrator $true
 }
