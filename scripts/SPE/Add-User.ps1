@@ -1,5 +1,5 @@
 param(
-    [string]$instanceUrl,
+    [string]$instanceUrl = "habitathome.dev.local",
     [string]$adminUsername,
     [string]$adminPassword,
     [string]$newUsername,
