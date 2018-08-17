@@ -21,6 +21,10 @@ Languages:
       Value: |
         <link text="Guides" anchor="" linktype="internal" class="" title=""  querystring="" id="{64F922B1-D57D-4AFA-AE26-9D59502F69A6}" />
 - Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ガイド
   Versions:
   - Version: 1
     Fields:
@@ -31,3 +35,7 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="ガイド" linktype="rel" url="/Habitat Sites/Habitat Home/home/guides" anchor="" />
