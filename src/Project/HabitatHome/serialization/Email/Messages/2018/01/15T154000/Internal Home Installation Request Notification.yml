@@ -23,7 +23,7 @@ SharedFields:
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only
   Type: Checkbox
-  Value: 1
+  Value: 0
 - ID: "af0fe26a-a78b-491d-885c-03d95bc17342"
   Hint: State
   Value: Active
@@ -59,6 +59,26 @@ Languages:
         
         
         
+    - ID: "d6d7cf71-876a-4572-837d-cf995c05ea15"
+      Hint: Subject
+      Value: A home installation request has been submitted
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Home 設置リクエスト
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180817T105753Z
+    - ID: "8436a90c-85c0-4f16-8373-393c4c0a82c6"
+      Hint: From Name
+      Value: Habitat Home 設置リクエスト
+    - ID: "b6fb0df3-bbb7-4e5a-ba3c-c7be67c46c3a"
+      Hint: Body
+      Value: "The request for home installation information was submitted by:$fullname$$email$$phone$"
     - ID: "d6d7cf71-876a-4572-837d-cf995c05ea15"
       Hint: Subject
       Value: A home installation request has been submitted
