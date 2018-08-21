@@ -18,7 +18,7 @@
 
       <!-- Note: Please configure your own Azure CDN profile and endpoint to be added. Please see the "\docs\foundations\cdn.md file for setup instructions." -->
       <setting name="Media.MediaLinkServerUrl" >
-        <patch:attribute name="value">https://[yourAzureCdnEndpoint].azureedge.net</patch:attribute>
+        <patch:attribute name="value">//[yourAzureCdnEndpoint].azureedge.net</patch:attribute>
       </setting>
 
       <setting name="MediaResponse.Cacheability">
