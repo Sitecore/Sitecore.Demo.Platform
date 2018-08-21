@@ -88,6 +88,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreativeExchange", "Creativ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.Foundation.CreativeExchange", "src\Foundation\CreativeExchange\code\Sitecore.HabitatHome.Foundation.CreativeExchange.csproj", "{BBE91453-8EBE-4E9D-89A6-98357C1D973D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cdn", "Cdn", "{4A4742BF-35F8-4944-B955-042C0DED94DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.Foundation.Cdn", "src\Foundation\Cdn\code\Sitecore.HabitatHome.Foundation.Cdn.csproj", "{FFE9AC9F-8E9C-4599-AF7B-6FCA32130F42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -162,6 +166,10 @@ Global
 		{BBE91453-8EBE-4E9D-89A6-98357C1D973D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBE91453-8EBE-4E9D-89A6-98357C1D973D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBE91453-8EBE-4E9D-89A6-98357C1D973D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE9AC9F-8E9C-4599-AF7B-6FCA32130F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE9AC9F-8E9C-4599-AF7B-6FCA32130F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE9AC9F-8E9C-4599-AF7B-6FCA32130F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE9AC9F-8E9C-4599-AF7B-6FCA32130F42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -201,6 +209,8 @@ Global
 		{5D1C63AD-D212-4DD0-89BB-7ABF00AC2D13} = {89116000-EE14-4688-A4AF-80BC3CF9C79B}
 		{4027DC30-615E-4A0C-9547-886CA456A32A} = {78EA0067-9C56-4E62-B428-A84F35EDB7BF}
 		{BBE91453-8EBE-4E9D-89A6-98357C1D973D} = {4027DC30-615E-4A0C-9547-886CA456A32A}
+		{4A4742BF-35F8-4944-B955-042C0DED94DB} = {78EA0067-9C56-4E62-B428-A84F35EDB7BF}
+		{FFE9AC9F-8E9C-4599-AF7B-6FCA32130F42} = {4A4742BF-35F8-4944-B955-042C0DED94DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}

@@ -1,0 +1,30 @@
+﻿<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:set="http://www.sitecore.net/xmlconfig/set/">
+  <sitecore>
+
+    <mediaLibrary>
+      <mediaProvider>
+        <patch:attribute name="type">Sitecore.Foundation.CDN.Infrastructure.MediaProvider, Sitecore.Foundation.CDN</patch:attribute>
+      </mediaProvider>
+    </mediaLibrary>
+
+    <settings>
+
+      <!-- NOTE: To disable the CDN, please rename this file to .disabled. The CDN.Enabled setting is not a feature switch for all CDN related settings in this file! -->
+      <setting name="CDN.Enabled" value="true"/>
+
+      <setting name="Media.AlwaysIncludeServerUrl">
+        <patch:attribute name="value">true</patch:attribute>
+      </setting>
+
+      <!-- Note: Please configure your own Azure CDN profile and endpoint to be added. Please see the "\docs\foundations\cdn.md file for setup instructions." -->
+      <setting name="Media.MediaLinkServerUrl" >
+        <patch:attribute name="value">https://[yourAzureCdnEndpoint].azureedge.net</patch:attribute>
+      </setting>
+
+      <setting name="MediaResponse.Cacheability">
+        <patch:attribute name="value">public</patch:attribute>
+      </setting>
+
+    </settings>
+  </sitecore>
+</configuration>
