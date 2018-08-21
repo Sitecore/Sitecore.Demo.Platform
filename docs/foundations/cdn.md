@@ -20,3 +20,7 @@ A CDN provider cannot be shared amongst multiple websites or users so you are re
       
 - The CDN functionality can be enabled by renaming the "*Foundation.CDN.config.disabled*" config file to "*Foundation.CDN.config*"
 - NOTE: To disable the CDN, please rename this file to .disabled. The CDN.Enabled setting is not a feature switch for all CDN related settings in this file!
+
+## Degugging Help ##
+
+- Azure CDN endpoints do not serve assets if a website is running a non-secure SSL certificate. You will see either a 404 or 503 response in this situation. This can make it difficult to use a public IP address for your demo site as you will need a SSL cert.
