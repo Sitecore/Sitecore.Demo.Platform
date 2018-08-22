@@ -11,14 +11,14 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Services
     {
         private readonly IProfileSettingsService _profileSettingsService;
         private readonly IUserProfileProvider _userProfileProvider;
-        private readonly IUpdateContactFacetsService _updateContactFacetsService;
+        private readonly IContactFacetsService _contactFacetsService;
         private readonly IAccountTrackerService _accountTrackerService;
 
-        public UserProfileService(IProfileSettingsService profileSettingsService, IUserProfileProvider userProfileProvider, IUpdateContactFacetsService updateContactFacetsService, IAccountTrackerService accountTrackerService)
+        public UserProfileService(IProfileSettingsService profileSettingsService, IUserProfileProvider userProfileProvider, IContactFacetsService contactFacetsService, IAccountTrackerService accountTrackerService)
         {
             _profileSettingsService = profileSettingsService;
             _userProfileProvider = userProfileProvider;
-            _updateContactFacetsService = updateContactFacetsService;
+            _contactFacetsService = contactFacetsService;
             _accountTrackerService = accountTrackerService;
         }
 
@@ -67,13 +67,27 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Services
                              };
 
             _userProfileProvider.SetCustomProfile(userProfile, properties);
-            _updateContactFacetsService.UpdateContactFacets(userProfile);
+            _contactFacetsService.UpdateContactFacets(userProfile);
             _accountTrackerService.TrackEditProfile(userProfile);
         }
 
         public IEnumerable<string> GetInterests()
         {
             return _profileSettingsService.GetInterests();
+        }
+
+        public virtual string ExportData(UserProfile userProfile)
+        {
+            _accountTrackerService.TrackExportData(userProfile);
+            return _contactFacetsService.ExportContactData();
+        }
+
+
+        public virtual void DeleteProfile(UserProfile userProfile)
+        {
+            _contactFacetsService.DeleteContact();
+            userProfile.ProfileUser.Delete();
+            _accountTrackerService.TrackExportData(userProfile);
         }
 
         private void SetProfileIfEmpty(User user)

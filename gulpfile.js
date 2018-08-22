@@ -2,7 +2,6 @@ var gulp = require("gulp");
 var fs = require("fs");
 var unicorn = require("./scripts/unicorn.js");
 var habitat = require("./scripts/habitat.js");
-var spe = require("./scripts/spe.js");
 var habitatHome = require("./scripts/habitat-home.js");
 var runSequence = require("run-sequence");
 var nugetRestore = require("gulp-nuget-restore");
@@ -121,15 +120,7 @@ gulp.task("Sync-Unicorn",
         }, options);
     });
 
-gulp.task("Set-Hostname",
-    function (callback) {
-        var options = {};
-        options.siteHostName = config.instanceUrl.replace("https://", "").replace("/", "");
-        spe(function () {
-            return callback()
-        }, options);
 
-    });
 gulp.task("Publish-Transforms",
     function () {
         return gulp.src("./src/**/code/**/*.xdt")
@@ -190,7 +181,8 @@ var publishStream = function (stream, dest) {
                 BuildProjectReferences: "false",
                 DeleteExistingFiles: "false",
                 publishUrl: dest
-            }
+            },
+            customArgs: ["/restore"]
         }));
 };
 

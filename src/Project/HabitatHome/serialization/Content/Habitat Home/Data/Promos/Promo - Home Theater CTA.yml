@@ -1,0 +1,32 @@
+﻿---
+ID: "cf8553c3-ff34-4fcf-bf42-3a7e8da42814"
+Parent: "006c1e3c-51c2-4bb5-b212-c6280f436889"
+Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
+Path: "/sitecore/content/Habitat Sites/Habitat Home/Data/Promos/Promo - Home Theater CTA"
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: <p>Free Consultation</p>
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{481E4DC6-5187-408F-9A48-E8F73DDFE0DD}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180806T182539Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: "<p>Meet with one of our Habitat Home experts to align your desires with your dream home theater!</p>"
+    - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
+      Hint: PromoLink
+      Value: |
+        <link linktype="internal" text="Schedule Now" querystring="" target="" id="{B27DE97B-A3B8-481D-893F-D231B8567C03}" />

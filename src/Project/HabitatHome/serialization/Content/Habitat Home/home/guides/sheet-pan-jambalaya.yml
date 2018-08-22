@@ -20,6 +20,38 @@ SharedFields:
   Value: |
     <tracking>
       <profile
+        id="552dd90f-a527-438e-ac33-32d236244123"
+        name="Topic Interest Category"
+        presets="cooking|100||">
+        <key
+          name="Fitness"
+          value="0" />
+        <key
+          name="Newest and Coolest"
+          value="0" />
+        <key
+          name="Reliability"
+          value="0" />
+        <key
+          name="Smart and Connected"
+          value="0" />
+        <key
+          name="Children"
+          value="0" />
+        <key
+          name="Cleaning"
+          value="0" />
+        <key
+          name="Cooking"
+          value="10" />
+        <key
+          name="Entertainment"
+          value="0" />
+        <key
+          name="Safety"
+          value="0" />
+      </profile>
+      <profile
         id="54d63273-947a-4927-b21a-0022625315e1"
         name="Electronics Category"
         presets="appliances|100||">
@@ -73,34 +105,8 @@ SharedFields:
         <key
           name="Theater"
           value="0" />
-      </profile>
-      <profile
-        id="552dd90f-a527-438e-ac33-32d236244123"
-        name="Topic Interest Category"
-        presets="foodie|100||">
         <key
-          name="Child Safety"
-          value="0" />
-        <key
-          name="Energy Savings"
-          value="0" />
-        <key
-          name="Fitness"
-          value="0" />
-        <key
-          name="Foodie"
-          value="10" />
-        <key
-          name="Newest and Coolest"
-          value="0" />
-        <key
-          name="Overclocking"
-          value="0" />
-        <key
-          name="Reliability"
-          value="0" />
-        <key
-          name="Smart and Connected"
+          name="Gym"
           value="0" />
       </profile>
     </tracking>
@@ -138,13 +144,28 @@ Languages:
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Sheet Pan Jambalaya
     - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
       Hint: StickyNotes
       Value: |
         {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: |
+        Get all the southern flavor and personality with only a fraction of the effort.
+        
+        
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
       Value: Sheet Pan Jambalaya
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: |
+        Get all the southern flavor and personality with only a fraction of the effort.
+        
+        
     - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
       Hint: Content
       Value: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa odio, dignissim et laoreet id, accumsan non odio. Proin tincidunt porttitor sapien. Quisque vel arcu sapien. Nunc pellentesque gravida magna, a scelerisque odio iaculis quis. Aenean tristique, ante eu tincidunt aliquet, odio eros tincidunt quam, non blandit mauris dolor eu justo. Mauris mattis at metus ut ornare. Nulla semper lobortis convallis. Donec iaculis et odio tincidunt scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque et posuere justo.</p>
@@ -152,9 +173,21 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: kitchen appliances, recipes
     - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
       Hint: Subtitle
-      Value: Foodie Feast
+      Value: Habitat Health
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: |
+        Get all the southern flavor and personality with only a fraction of the effort.
+        
+        
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Sheet Pan Jambalaya
     - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
       Hint: Additional Content
       Value: |

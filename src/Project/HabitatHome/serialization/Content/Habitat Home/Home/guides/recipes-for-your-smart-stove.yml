@@ -23,6 +23,38 @@ SharedFields:
   Value: |
     <tracking>
       <profile
+        id="552dd90f-a527-438e-ac33-32d236244123"
+        name="Topic Interest Category"
+        presets="cooking|100||">
+        <key
+          name="Newest and Coolest"
+          value="0" />
+        <key
+          name="Reliability"
+          value="0" />
+        <key
+          name="Smart and Connected"
+          value="0" />
+        <key
+          name="Fitness"
+          value="0" />
+        <key
+          name="Children"
+          value="0" />
+        <key
+          name="Cleaning"
+          value="0" />
+        <key
+          name="Cooking"
+          value="10" />
+        <key
+          name="Entertainment"
+          value="0" />
+        <key
+          name="Safety"
+          value="0" />
+      </profile>
+      <profile
         id="54d63273-947a-4927-b21a-0022625315e1"
         name="Electronics Category"
         presets="appliances|100||">
@@ -76,35 +108,9 @@ SharedFields:
         <key
           name="Theater"
           value="0" />
-      </profile>
-      <profile
-        id="552dd90f-a527-438e-ac33-32d236244123"
-        name="Topic Interest Category"
-        presets="foodie|100||">
         <key
-          name="Child Safety"
+          name="Gym"
           value="0" />
-        <key
-          name="Energy Savings"
-          value="0" />
-        <key
-          name="Newest and Coolest"
-          value="0" />
-        <key
-          name="Overclocking"
-          value="0" />
-        <key
-          name="Reliability"
-          value="0" />
-        <key
-          name="Smart and Connected"
-          value="0" />
-        <key
-          name="Fitness"
-          value="0" />
-        <key
-          name="Foodie"
-          value="10" />
       </profile>
     </tracking>
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
@@ -189,7 +195,7 @@ Languages:
         sitecore\admin
     - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
       Hint: MetaKeywords
-      Value: smart stove, recipe, kitchen appliances, connected home, beef wellington, recipe video
+      Value: smart stove, recipe, kitchen appliances, smart home, beef wellington, recipe video
     - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
       Hint: Subtitle
       Value: delicious and nutritious

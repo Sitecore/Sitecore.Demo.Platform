@@ -9,10 +9,10 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.SignedI
     public class TrackSignedIn : SignedInProcessor
     {
         private readonly IAccountTrackerService _accountTrackerService;
-        private readonly IUpdateContactFacetsService _updateContactFacetsService;
+        private readonly IContactFacetsService _updateContactFacetsService;
         private readonly FederatedAuthenticationConfiguration _federatedAuthenticationConfiguration;
 
-        public TrackSignedIn(IAccountTrackerService accountTrackerService, IUpdateContactFacetsService updateContactFacetsService, FederatedAuthenticationConfiguration federatedAuthenticationConfiguration)
+        public TrackSignedIn(IAccountTrackerService accountTrackerService, IContactFacetsService updateContactFacetsService, FederatedAuthenticationConfiguration federatedAuthenticationConfiguration)
         {
             _accountTrackerService = accountTrackerService;
             _updateContactFacetsService = updateContactFacetsService;

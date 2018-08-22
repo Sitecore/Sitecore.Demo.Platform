@@ -11,6 +11,9 @@ SharedFields:
 - ID: "7bd35dcd-61bb-42e0-8bf5-07803af6eede"
   Hint: Author
   Value: "{CCA66699-B6C8-43D1-BF33-68492C373174}"
+- ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
+  Hint: SxaTags
+  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}"
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
@@ -20,58 +23,14 @@ SharedFields:
   Value: |
     <tracking>
       <profile
-        id="54d63273-947a-4927-b21a-0022625315e1"
-        name="Electronics Category"
-        presets="fitness tech|100||">
-        <key
-          name="Appliances"
-          value="0" />
-        <key
-          name="Audio"
-          value="0" />
-        <key
-          name="Cameras"
-          value="0" />
-        <key
-          name="Computers"
-          value="0" />
-        <key
-          name="Fitness Tech"
-          value="10" />
-        <key
-          name="Games"
-          value="0" />
-        <key
-          name="Phones"
-          value="0" />
-        <key
-          name="Tablets"
-          value="0" />
-        <key
-          name="TVs"
-          value="0" />
-      </profile>
-      <profile
         id="552dd90f-a527-438e-ac33-32d236244123"
         name="Topic Interest Category"
         presets="fitness|100||">
         <key
-          name="Child Safety"
-          value="0" />
-        <key
-          name="Energy Savings"
-          value="0" />
-        <key
           name="Fitness"
           value="10" />
         <key
-          name="Foodie"
-          value="0" />
-        <key
           name="Newest and Coolest"
-          value="0" />
-        <key
-          name="Overclocking"
           value="0" />
         <key
           name="Reliability"
@@ -79,6 +38,41 @@ SharedFields:
         <key
           name="Smart and Connected"
           value="0" />
+        <key
+          name="Children"
+          value="0" />
+        <key
+          name="Cleaning"
+          value="0" />
+        <key
+          name="Cooking"
+          value="0" />
+        <key
+          name="Entertainment"
+          value="0" />
+        <key
+          name="Safety"
+          value="0" />
+      </profile>
+      <profile
+        id="2a7fc1aa-5734-42d1-82a5-63683208c3f4"
+        name="Fitness and Trainers"
+        presets="judi sheppard missett|100||">
+        <key
+          name="Cardio"
+          value="10" />
+        <key
+          name="High Intensity"
+          value="7" />
+        <key
+          name="Weight"
+          value="4" />
+        <key
+          name="Workout Length"
+          value="4" />
+        <key
+          name="Yoga"
+          value="1" />
       </profile>
     </tracking>
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
@@ -115,9 +109,18 @@ Languages:
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Importance of Stretching
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Stretching can lead to better posture, fewer aches and pains, greater confidence, and a cheerier outlook on life.
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
       Value: Importance of Stretching
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Stretching can lead to better posture, fewer aches and pains, greater confidence, and a cheerier outlook on life.
     - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
       Hint: Content
       Value: |
@@ -128,9 +131,18 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: fitness, cardio, wearable, training
     - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
       Hint: Subtitle
       Value: Smart Gym
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Stretching can lead to better posture, fewer aches and pains, greater confidence, and a cheerier outlook on life.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Importance of Stretching
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image
       Value: |
