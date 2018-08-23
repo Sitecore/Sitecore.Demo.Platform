@@ -46,8 +46,6 @@ The "SPE" folder is assumed to be in the ~Documents\WindowsPowerShell\Modules fo
 
 *SECURITY WARNING* - The default configuration for the Habitat Home demo uses admin/b and allows this user to access SPE Remoting.
 
-*IMPORTANT: Publish site after installing all required modules*
-
 ### Additional Windows Components
 - Url Rewrite 2.1 
 	- Can be installed using Web Platform Installer in IIS Manager
@@ -106,6 +104,8 @@ Clone the Sitecore.HabitatHome.Content repository locally - defaults are configu
 -- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Content.git`
 
 ### 2. Deploy Sitecore.HabitatHome.Content
+
+### *IMPORTANT: Publish site BEFORE trying to gulp Habitat Home*
 
 From the root of the solution
 - Run **`npm install`**
