@@ -1,0 +1,94 @@
+﻿---
+ID: "97a356e7-d1ca-47ef-91f7-a311f240a76f"
+Parent: "1416f7f3-d741-46ed-8924-63a5b08d768c"
+Template: "3f12d78c-b7b7-4157-98fc-da3322ee1a5b"
+Path: /sitecore/content/Email/Messages/2018/04/02T155050/Sheet Pan Jambalaya to Foodie Feast Users/Message Root
+DB: master
+BranchID: "06a7ea2b-a5c7-4091-8e4b-35001a173758"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{48D55F1B-C559-411D-AC73-A51DF6C02247}">
+        <r
+          ds="{2A8F4705-B4A2-498C-A5F5-1931BAAAB04F}"
+          id="{69EB7A6D-ACEF-4D06-A923-804918AA245E}"
+          par=""
+          ph="ec-title"
+          uid="{C472E7DB-2977-4A4A-9F58-CF271AAE45F3}" />
+        <r
+          ds="{2B8F9652-1A0B-478A-93D6-A9800A8657F4}"
+          id="{87A142FF-6DA2-40E1-93B2-93BAB4560EE6}"
+          par=""
+          ph="ec-header"
+          uid="{15E98787-AEC1-4007-81CC-069D310D7209}" />
+        <r
+          ds="{2A8F4705-B4A2-498C-A5F5-1931BAAAB04F}"
+          id="{26A4BFDF-B274-46A0-BB76-D4E025B40C47}"
+          par=""
+          ph="ec-main"
+          uid="{A5ECCE8C-CBD2-4669-BA39-5CAD038864FA}" />
+        <r
+          ds="{81FB4865-E3BC-4D2C-8DC0-A71DCA350656}"
+          id="{6BDA85A1-1CB2-4F84-A777-67025160523F}"
+          par=""
+          ph="ec-main"
+          uid="{F71D3F57-B8AB-48AC-8D72-EEF37982A3B8}" />
+        <r
+          ds="{B5A212D0-AFC7-428C-93C5-89380C382E95}"
+          id="{D7040DF2-C910-4353-80E8-53EFAB32495C}"
+          par=""
+          ph="ec-footer"
+          uid="{D6FCB945-D468-40E3-BCFF-3C888A8F33B2}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D369FEE5-9F71-4A85-BE2D-263D50D4B259}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{F71D3F57-B8AB-48AC-8D72-EEF37982A3B8}">
+              <p:d />
+            </r>
+            <r
+              uid="{33AF3319-6275-46C5-AB53-AD383B2E36D1}"
+              p:after="r[@uid='{A5ECCE8C-CBD2-4669-BA39-5CAD038864FA}']"
+              s:ds="{14CD7D35-4268-4C34-A3B3-3F44C6521937}"
+              s:id="{44E124F4-DE27-4611-8002-F5F8668991DB}"
+              s:par=""
+              s:ph="ec-main" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180409T161004Z
+    - ID: "c0bfd467-0b74-4efe-b7c9-1ecf7f0e5370"
+      Hint: Subject
+      Value: "It's a Foodie Feast! Sheet Pan Jambalya!"
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180820T142413Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
