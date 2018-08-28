@@ -59,6 +59,13 @@ gulp.task("quick-deploy",
 /*****************************
   Initial setup
 *****************************/
+gulp.task("Copy-Sitecore-Lib", function (callback) {
+    console.log("Copying Sitecore XA Libraries");
+
+    fs.statSync(config.sitecoreLibraries);
+    const sxa = config.sitecoreLibraries + "/**/Sitecore.XA.*";
+    return gulp.src(sxa).pipe(gulp.dest("./lib/Modules/SXA"));
+});
 
 gulp.task("Nuget-Restore",
     function (callback) {
