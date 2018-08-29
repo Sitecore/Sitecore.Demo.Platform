@@ -48,6 +48,12 @@
     <When Condition=" '$(Configuration)'=='vNext' ">
       <ItemGroup>
         <PackageReference Include="Sitecore.Kernel" Version="12.0.0-r*" />
+        <PackageReference Include="Sitecore.CodeQuality.Analyzers" Version="2.*" PrivateAssets="All" />
+      </ItemGroup>
+      <ItemGroup>
+        <Reference Include="Sitecore.XA.Feature.CreativeExchange">
+          <HintPath>..\..\..\..\lib\Modules\SXA\Sitecore.XA.Feature.CreativeExchange.dll</HintPath>
+        </Reference>
       </ItemGroup>
     </When>
     <Otherwise>
@@ -104,6 +110,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
+    <NoWarn>NU1603</NoWarn>
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>

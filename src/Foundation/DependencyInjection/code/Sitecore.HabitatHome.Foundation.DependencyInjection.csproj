@@ -47,7 +47,11 @@
   <Choose>
     <When Condition=" '$(Configuration)'=='vNext' ">
       <ItemGroup>
+        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+        <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.4" />
+        <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.4" />
         <PackageReference Include="Sitecore.Kernel" Version="12.0.0-r*" />
+        <PackageReference Include="Sitecore.CodeQuality.Analyzers" Version="2.*" PrivateAssets="All" />
       </ItemGroup>
     </When>
     <Otherwise>
@@ -119,17 +123,8 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TDS|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
+    <NoWarn>NU1603</NoWarn>
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>

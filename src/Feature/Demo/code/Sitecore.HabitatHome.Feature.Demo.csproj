@@ -44,7 +44,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-
   <Choose>
     <When Condition=" '$(Configuration)'=='vNext' ">
       <ItemGroup>
@@ -55,7 +54,6 @@
         <PackageReference Include="Sitecore.CES.DeviceDetection" Version="3.0.0-r*" />
         <PackageReference Include="Sitecore.Cintel" Version="4.0.0-r*" />
         <PackageReference Include="Sitecore.ExperienceAnalytics.Core" Version="4.0.0-r*" />
-        <PackageReference Include="Sitecore.ExperienceAnalytics" Version="4.0.0-r*" />
         <PackageReference Include="Sitecore.ExperienceEditor" Version="5.0.0-r*" />
         <PackageReference Include="Sitecore.ExperienceExplorer.Core" Version="4.0.0-r*" />
         <PackageReference Include="Sitecore.Kernel" Version="12.0.0-r*" />
@@ -64,15 +62,22 @@
         <PackageReference Include="Sitecore.Marketing.Taxonomy" Version="13.0.0-r*" />
         <PackageReference Include="Sitecore.Mvc.Analytics" Version="12.0.0-r*" />
         <PackageReference Include="Sitecore.Mvc" Version="3.0.0-r*" />
-        <PackageReference Include="Sitecore.XA.Foundation.IoC" Version="3.7.0.643"/>
-        <PackageReference Include="Sitecore.XA.Foundation.Mvc" Version="3.7.0.643"/>
         <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="2.0.0-r*" />
         <PackageReference Include="Sitecore.XConnect.Client" Version="2.0.0-r*" />
         <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="2.0.0-r*" />
         <PackageReference Include="Sitecore.XConnect.Diagnostics" Version="2.0.0-r*" />
         <PackageReference Include="Sitecore.XConnect" Version="2.0.0-r*" />
         <PackageReference Include="Sitecore.XConnect.Search" Version="2.0.0-r*" />
-        <PackageReference Include="Sitecore.Xdb.MarketingAutomation.Tracking" Version="3.0.0-r*" />
+        <PackageReference Include="Sitecore.Xdb.MarketingAutomation.Tracking" Version="2.0.0-r*" />
+        <PackageReference Include="Sitecore.CodeQuality.Analyzers" Version="2.*" PrivateAssets="All" />
+      </ItemGroup>
+      <ItemGroup>
+        <Reference Include="Sitecore.XA.Foundation.IoC">
+          <HintPath>..\..\..\..\lib\Modules\SXA\Sitecore.XA.Foundation.IoC.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XA.Foundation.Mvc">
+          <HintPath>..\..\..\..\lib\Modules\SXA\Sitecore.XA.Foundation.Mvc.dll</HintPath>
+        </Reference>
       </ItemGroup>
     </When>
     <Otherwise>
@@ -111,9 +116,9 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
-
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -218,18 +223,10 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TDS|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+ 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
+    <NoWarn>NU1603</NoWarn>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>

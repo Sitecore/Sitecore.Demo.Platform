@@ -53,6 +53,7 @@
         <PackageReference Include="Sitecore.Mvc" Version="3.0.0-r*" />
         <PackageReference Include="Sitecore.Update" Version="4.0.0-r*" />
         <PackageReference Include="Sitecore.Zip" Version="12.0.0-r*" />
+        <PackageReference Include="Sitecore.CodeQuality.Analyzers" Version="2.*" PrivateAssets="All" />
       </ItemGroup>
     </When>
     <Otherwise>
@@ -124,6 +125,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
+    <NoWarn>NU1603</NoWarn>
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>

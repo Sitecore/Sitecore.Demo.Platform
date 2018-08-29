@@ -14,7 +14,8 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.Identit
 {
     public class Facebook : IdentityProvidersProcessor
     {
-        public Facebook(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration) : base(federatedAuthenticationConfiguration)
+        //TODO: Add proper parameters
+        public Facebook(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration) : base(federatedAuthenticationConfiguration, null, null)
         {
         }
 

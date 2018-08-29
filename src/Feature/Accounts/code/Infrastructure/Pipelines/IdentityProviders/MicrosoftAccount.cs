@@ -13,7 +13,8 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.Identit
 {        
     public class MicrosoftAccount : IdentityProvidersProcessor
     {
-        public MicrosoftAccount(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration) : base(federatedAuthenticationConfiguration)
+        //TODO: Fix with proper parameters
+        public MicrosoftAccount(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration) : base(federatedAuthenticationConfiguration,null,null)
         {
         }
 
