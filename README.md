@@ -68,7 +68,7 @@ The following is a list of default values / assumptions for install locations
 **Habitat Site domain**				`habitathome.dev.local`
 **Web Root**						`c:\inetpub\wwwroot`
 **Host Suffix**						`dev.local`
-**xConnectRoot** 	`habitat_xconnect.dev.local`
+**xConnectRoot** 	`habitathome_xconnect.dev.local`
 
 
 #### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
@@ -127,7 +127,7 @@ if you are only installing this demo:
 1. Browse to https://habitathome.dev.local (or whatever hostname you selected)
 	1. You should see the Habitat Home landing page with a full-width carousel
 	2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that your Host Name was configured correctly in `/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home`
-1. Browse to https://habitat.dev.local
+1. Browse to https://habitathome.dev.local
 	1. You should see the Habitat landing page (not Habitat Home)
 
 
