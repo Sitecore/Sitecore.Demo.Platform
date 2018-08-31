@@ -5,7 +5,9 @@
 #addin "Newtonsoft.Json"
 
 
-using System.Text.RegularExpressions;
+#load "local:?path=CakeScripts/helper-methods.cake"
+
+
 var target = Argument<string>("Target", "Default");
 var configuration = new Configuration();
 var cakeConsole = new CakeConsole();
@@ -29,7 +31,6 @@ Setup(context =>
 Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
-.IsDependentOn("Nuget-Restore")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
@@ -45,7 +46,6 @@ Task("Default")
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
-.IsDependentOn("Nuget-Restore")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Publish-Transforms")
@@ -60,8 +60,6 @@ Task("Clean").Does(() => {
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
 });
 
-Task("Nuget-Restore").Does(() => NuGetRestore(configuration.SolutionFile));
-
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
 .IsDependentOn("Publish-Foundation-Projects")
@@ -70,11 +68,7 @@ Task("Publish-All-Projects")
 
 
 Task("Build-Solution").Does(() => {
-    MSBuild(configuration.SolutionFile, cfg => cfg.SetConfiguration(configuration.BuildConfiguration)
-                                                  .SetVerbosity(Verbosity.Minimal)
-                                                  .SetMSBuildPlatform(MSBuildPlatform.Automatic)
-                                                  .SetPlatformTarget(PlatformTarget.MSIL)
-                                                  .UseToolVersion(MSBuildToolVersion.VS2017));
+    MSBuild(configuration.SolutionFile, cfg => InitializeMSBuildSettings(cfg));
 });
 
 Task("Publish-Foundation-Projects").Does(() => {
@@ -113,23 +107,23 @@ Task("Apply-Xml-Transform").Does(() => {
 Task("Publish-Transforms").Does(() => {
     var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
     var destination = $@"{configuration.WebsiteRoot}\temp\transforms";
-    var directoryPath = new DirectoryPath(configuration.SourceFolder);
+
+    CreateFolder(destination);
 
     try
     {
+        var files = new List<string>();
         foreach(var layer in layers)
         {
-            var xdtFiles = GetTransformFiles(layer);
-            foreach(var xdtFile in xdtFiles)
-            {
-                var destinationFile = xdtFile.FullPath.Replace(directoryPath.FullPath, destination);
-                CopyFile(xdtFile, new FilePath(destinationFile));
-            }
+            var xdtFiles = GetTransformFiles(layer).Select(x => x.FullPath).ToList();
+            files.AddRange(xdtFiles);
         }   
+
+        CopyFiles(files, destination, preserveFolderStructure: true);
     }
     catch (System.Exception ex)
     {
-        cakeConsole.WriteError(ex.Message);
+        WriteError(ex.Message);
     }
 });
 
@@ -193,109 +187,6 @@ Task("Rebuild-Web-Index").Does(() => {
     RebuildIndex("sitecore_web_index");
 });
 
-/*===============================================
-================= HELPER METHODS ================
-===============================================*/
 
-public class Configuration
-{
-    public string WebsiteRoot {get;set;}
-    public string XConnectRoot {get;set;}
-    public string InstanceUrl {get;set;}
-    public string SolutionName {get;set;}
-    public string ProjectFolder {get;set;}
-    public string BuildConfiguration {get;set;}
-    public string MessageStatisticsApiKey {get;set;}
-    public string MarketingDefinitionsApiKey {get;set;}
-
-    public string SourceFolder => $"{ProjectFolder}\\src";
-    public string FoundationSrcFolder => $"{SourceFolder}\\Foundation";
-    public string FeatureSrcFolder => $"{SourceFolder}\\Feature";
-    public string ProjectSrcFolder => $"{SourceFolder}\\Project";
-
-    public string SolutionFile => $"{ProjectFolder}\\{SolutionName}";
-}
-
-private void PrintHeader(ConsoleColor foregroundColor)
-{
-    cakeConsole.ForegroundColor = foregroundColor;
-    cakeConsole.WriteLine("     "); 
-    cakeConsole.WriteLine("     "); 
-    cakeConsole.WriteLine(@"   ) )       /\\                  ");
-    cakeConsole.WriteLine(@"  =====     /  \\                 ");                     
-    cakeConsole.WriteLine(@" _|___|____/ __ \\____________    ");
-    cakeConsole.WriteLine(@"|:::::::::/ ==== \\:::::::::::|   ");
-    cakeConsole.WriteLine(@"|:::::::::/ ====  \\::::::::::|   ");
-    cakeConsole.WriteLine(@"|::::::::/__________\:::::::::|  ");
-    cakeConsole.WriteLine(@"|_________|  ____  |_________|                                                               ");
-    cakeConsole.WriteLine(@"| ______  | / || \\ | _______ |            _   _       _     _ _        _     _   _");
-    cakeConsole.WriteLine(@"||  |   | | ====== ||   |   ||           | | | |     | |   (_) |      | |   | | | |");
-    cakeConsole.WriteLine(@"||--+---| | |    | ||---+---||           | |_| | __ _| |__  _| |_ __ _| |_  | |_| | ___  _ __ ___   ___");
-    cakeConsole.WriteLine(@"||__|___| | |   o| ||___|___||           |  _  |/ _` | '_ \\| | __/ _` | __| |  _  |/ _ \\| '_ ` _ \\ / _ \\");
-    cakeConsole.WriteLine(@"|======== | |____| |=========|           | | | | (_| | |_) | | || (_| | |_  | | | | (_) | | | | | |  __/");
-    cakeConsole.WriteLine(@"(^^-^^^^^- |______|-^^^--^^^)            \\_| |_/\\__,_|_.__/|_|\\__\\__,_|\\__| \\_| |_/\\___/|_| |_| |_|\\___|");
-    cakeConsole.WriteLine(@"(,, , ,, , |______|,,,, ,, ,)");
-    cakeConsole.WriteLine(@"','',,,,'  |______|,,,',',;;");
-    cakeConsole.WriteLine(@"     "); 
-    cakeConsole.WriteLine(@"     "); 
-    cakeConsole.WriteLine(@" --------------------  ------------------");
-    cakeConsole.WriteLine("   " + "The Habitat Home source code, tools and processes are examples of Sitecore Features.");
-    cakeConsole.WriteLine("   " + "Habitat Home is not supported by Sitecore and should be used at your own risk.");
-    cakeConsole.WriteLine("     "); 
-    cakeConsole.WriteLine("     ");
-    cakeConsole.ResetColor();
-}
-
-private void PublishProjects(string rootFolder, string websiteRoot)
-{
-    var projects = GetFiles($"{rootFolder}\\**\\code\\*.csproj");
-
-    foreach (var project in projects)
-    {
-        MSBuild(project, cfg => cfg.SetConfiguration(configuration.BuildConfiguration)
-                                   .SetVerbosity(Verbosity.Minimal)
-                                   .SetMSBuildPlatform(MSBuildPlatform.Automatic)
-                                   .SetPlatformTarget(PlatformTarget.MSIL)
-                                   .UseToolVersion(MSBuildToolVersion.VS2017)
-                                   .WithTarget("Clean")
-                                   .WithTarget("Build")
-                                   .WithProperty("DeployOnBuild", "true")
-                                   .WithProperty("DeployDefaultTarget", "WebPublish")
-                                   .WithProperty("WebPublishMethod", "FileSystem")
-                                   .WithProperty("DeleteExistingFiles", "false")
-                                   .WithProperty("publishUrl", websiteRoot)
-                                   .WithProperty("BuildProjectReferences", "false"));
-    }
-}
-
-private FilePathCollection GetTransformFiles(string rootFolder)
-{
-    Func<IFileSystemInfo, bool> exclude_obj_bin_folder =fileSystemInfo => !fileSystemInfo.Path.FullPath.Contains("/obj/") || !fileSystemInfo.Path.FullPath.Contains("/bin/");
-
-    var xdtFiles = GetFiles($"{rootFolder}\\**\\*.xdt", exclude_obj_bin_folder);
-
-    return xdtFiles;
-}
-
-private void Transform(string rootFolder) {
-    var xdtFiles = GetTransformFiles(rootFolder);
-
-    foreach (var file in xdtFiles)
-    {
-        Information($"Applying configuration transform:{file.FullPath}");
-        var fileToTransform = Regex.Replace(file.FullPath, ".+code/(.+)/*.xdt", "$1");
-        var sourceTransform = $"{configuration.WebsiteRoot}\\{fileToTransform}";
-        
-        XdtTransformConfig(sourceTransform			                // Source File
-                            , file.FullPath			                // Tranforms file (*.xdt)
-                            , sourceTransform);		                // Target File
-    }
-}
-
-private void RebuildIndex(string indexName)
-{
-    var url = $"{configuration.InstanceUrl}utilities/indexrebuild.aspx?index={indexName}";
-    string responseBody = HttpGet(url);
-}
 
 RunTarget(target);
