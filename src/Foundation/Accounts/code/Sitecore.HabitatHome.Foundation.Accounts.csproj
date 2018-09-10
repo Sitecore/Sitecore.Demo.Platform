@@ -58,6 +58,42 @@
         <PackageReference Include="Sitecore.CodeQuality.Analyzers" Version="2.*" PrivateAssets="All" />
       </ItemGroup>
     </When>
+    <When Condition=" '$(Configuration)'=='preview' ">
+      <ItemGroup>
+        <Reference Include="Sitecore.Analytics">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Analytics.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Analytics.Core">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Analytics.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Analytics.Model">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Analytics.Model.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Analytics.XConnect">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Analytics.XConnect.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Kernel">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XConnect">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XConnect.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XConnect.Client.Configuration">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XConnect.Client.Configuration.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XConnect.Client">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XConnect.Client.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XConnect.Collection.Model">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XConnect.Collection.Model.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.3" />
+        <PackageReference Include="Microsoft.Net.Compilers" Version="1.3.2" />
+        <PackageReference Include="Newtonsoft.Json" Version="11.0.0" />
+      </ItemGroup>
+    </When>
     <Otherwise>
       <ItemGroup>
         <PackageReference Include="Sitecore.Analytics.Core.NoReferences" Version="9.0.180604" />
@@ -133,6 +169,15 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
     <NoWarn>NU1603</NoWarn>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'preview|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>

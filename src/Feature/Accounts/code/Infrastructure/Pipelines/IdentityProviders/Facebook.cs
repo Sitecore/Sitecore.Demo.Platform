@@ -8,6 +8,8 @@ using Sitecore.Owin.Authentication.Pipelines.IdentityProviders;
 using Sitecore.Owin.Authentication.Services;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.Owin.Infrastructure;
+using Sitecore.Abstractions;
 using FacebookAuthenticationExtensions = Owin.FacebookAuthenticationExtensions;
 
 namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
@@ -15,7 +17,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.Identit
     public class Facebook : IdentityProvidersProcessor
     {
         //TODO: Add proper parameters
-        public Facebook(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration) : base(federatedAuthenticationConfiguration, null, null)
+        public Facebook(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration, ICookieManager cookieManager, BaseSettings baseSettings) : base(federatedAuthenticationConfiguration, cookieManager, baseSettings)
         {
         }
 

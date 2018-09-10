@@ -47,7 +47,6 @@ gulp.task("quick-deploy",
     function (callback) {
         config.runCleanBuilds = true;
         return runSequence(
-            "Nuget-Restore",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
             "Publish-Transforms",
@@ -156,7 +155,8 @@ gulp.task("Build-Solution",
                 toolsVersion: config.buildToolsVersion,
                 properties: {
                     Platform: config.buildPlatform
-                }
+                },
+            customArgs: ["/restore"]
             }));
     });
 

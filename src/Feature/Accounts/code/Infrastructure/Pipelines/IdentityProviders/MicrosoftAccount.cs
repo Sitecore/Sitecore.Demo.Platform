@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin.Security;
+﻿using Microsoft.Owin.Infrastructure;
+using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.MicrosoftAccount;
 using Sitecore.Configuration;
 using Sitecore.Diagnostics;
@@ -7,6 +8,7 @@ using Sitecore.Owin.Authentication.Extensions;
 using Sitecore.Owin.Authentication.Pipelines.IdentityProviders;
 using Sitecore.Owin.Authentication.Services;
 using System.Threading.Tasks;
+using Sitecore.Abstractions;
 using MicrosoftAccountAuthenticationExtensions = Owin.MicrosoftAccountAuthenticationExtensions;
 
 namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.IdentityProviders
@@ -14,7 +16,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.Identit
     public class MicrosoftAccount : IdentityProvidersProcessor
     {
         //TODO: Fix with proper parameters
-        public MicrosoftAccount(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration) : base(federatedAuthenticationConfiguration,null,null)
+        public MicrosoftAccount(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration,ICookieManager cookieManager,BaseSettings baseSettings) : base(federatedAuthenticationConfiguration,cookieManager,baseSettings)
         {
         }
 

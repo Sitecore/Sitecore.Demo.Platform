@@ -6,7 +6,7 @@ module.exports = function () {
         xConnectRoot: "C:\\inetpub\\wwwroot\\habitathome_xconnect.dev.local\\",
         sitecoreLibraries: instanceRoot + "\\bin",
         solutionName: "HabitatHome",                          
-        buildConfiguration: "Debug",
+        buildConfiguration: "preview",
         buildToolsVersion: 15.0,
         buildMaxCpuCount: 1,
         buildVerbosity: "minimal",
