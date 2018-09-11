@@ -23,10 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		gulp-config.js = gulp-config.js
-		gulpfile.js = gulpfile.js
+		build.cake = build.cake
+		build.ps1 = build.ps1
+		cake-config.json = cake-config.json
 		nuget.config = nuget.config
-		package.json = package.json
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -87,6 +87,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreativeExchange", "CreativeExchange", "{4027DC30-615E-4A0C-9547-886CA456A32A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.Foundation.CreativeExchange", "src\Foundation\CreativeExchange\code\Sitecore.HabitatHome.Foundation.CreativeExchange.csproj", "{BBE91453-8EBE-4E9D-89A6-98357C1D973D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CakeScripts", "CakeScripts", "{5B7F7CF9-ABD0-4C20-AA3E-238069EC95DA}"
+	ProjectSection(SolutionItems) = preProject
+		CakeScripts\helper-methods.cake = CakeScripts\helper-methods.cake
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -271,6 +276,7 @@ Global
 		{5D1C63AD-D212-4DD0-89BB-7ABF00AC2D13} = {89116000-EE14-4688-A4AF-80BC3CF9C79B}
 		{4027DC30-615E-4A0C-9547-886CA456A32A} = {78EA0067-9C56-4E62-B428-A84F35EDB7BF}
 		{BBE91453-8EBE-4E9D-89A6-98357C1D973D} = {4027DC30-615E-4A0C-9547-886CA456A32A}
+		{5B7F7CF9-ABD0-4C20-AA3E-238069EC95DA} = {25781A7E-9FF0-4FF5-9BD1-0E25BF8C2AF6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
