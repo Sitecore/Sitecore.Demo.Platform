@@ -44,11 +44,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-
   <Choose>
     <When Condition=" '$(Configuration)'=='vNext' ">
       <ItemGroup>
         <PackageReference Include="Sitecore.Kernel" Version="12.0.0-r*" />
+        <PackageReference Include="Sitecore.CodeQuality.Analyzers" Version="2.*" PrivateAssets="All" />
+      </ItemGroup>
+    </When>
+    <When Condition=" '$(Configuration)'=='preview' ">
+      <ItemGroup>
+        <Reference Include="Sitecore.Kernel">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
+        </Reference>
       </ItemGroup>
     </When>
     <Otherwise>
@@ -111,6 +118,16 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
+    <NoWarn>NU1603</NoWarn>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'preview|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>

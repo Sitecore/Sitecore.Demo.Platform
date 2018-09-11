@@ -58,10 +58,6 @@ The demo is configured for **HTTPS/SSL**. Please ensure that you create an HTTPS
 
 In order to deploy the assets, you need either Visual Studio 2017 or MSBuild Tools for Visual Studio 2017.
 
-Node.JS is also required
-
-
-
 ### Custom install - before you start
 
 The following is a list of default values / assumptions for install locations
@@ -81,8 +77,7 @@ The Habitat Home site will not respond / render correctly until this value is mo
 
 If you do **not want to use the default settings**, you need to adjust the appropriate values in the following files:
 
-`/gulp-config.js` 
-`/publishsettings.targets` 
+`/cake-config.json` 
 `src\Project\Common\code\App_Config\Include\Project\z.Common.Website.DevSettings.config`
 
 
@@ -107,14 +102,14 @@ Clone the Sitecore.HabitatHome.Content repository locally - defaults are configu
 
 ### 2. Deploy Sitecore.HabitatHome.Content
 
-From the root of the solution
-- Run **`npm install`**
 
 **if you plan on installing the Commerce (XC) demo:**
-- Run **`.\node_modules\.bin\gulp quick-deploy`** 
+
+- Run **`.\build.ps1 -Target "Quick-Deploy"`** 
 
 if you are only installing this demo:
-- Run **`.\node_modules\.bin\gulp`**
+
+- Run **`.\build.ps1`**
 
 > An error (maxBuffer) sometimes occurs the first time running gulp during Sync-Unicorn. 
 > Running gulp a second time resolves the issue (and doesn't take as long)

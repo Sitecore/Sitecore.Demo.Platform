@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Sitecore.HabitatHome.Feature.Accounts.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,14 +44,22 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Sitecore.HabitatHome.Feature.Accounts.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Choose>
     <When Condition=" '$(Configuration)'=='vNext' ">
       <ItemGroup>
+        <PackageReference Include="Microsoft.Owin" Version="4.0.0" />
+        <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.0.0" />
+        <PackageReference Include="Microsoft.Owin.Security" Version="4.0.0" />
+        <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="4.0.0" />
+        <PackageReference Include="Microsoft.Owin.Security.Facebook" Version="4.0.0" />
+        <PackageReference Include="Microsoft.Owin.Security.MicrosoftAccount" Version="4.0.0" />
+        <PackageReference Include="Microsoft.Owin.Security.OpenIdConnect" Version="4.0.0" />
         <PackageReference Include="Sitecore.Analytics.Core" Version="12.0.0-r*" />
         <PackageReference Include="Sitecore.Analytics.Model" Version="12.0.0-r*" />
         <PackageReference Include="Sitecore.Analytics" Version="12.0.0-r*" />
-        <PackageReference Include="Sitecore.ExperienceEditor.Speak." Version="5.0.0-r*" />
+        <PackageReference Include="Sitecore.ExperienceEditor.Speak" Version="5.0.0-r*" />
         <PackageReference Include="Sitecore.ExperienceEditor.Speak.Ribbon" Version="5.0.0-r*" />
         <PackageReference Include="Sitecore.ExperienceExplorer.Core" Version="4.0.0-r*" />
         <PackageReference Include="Sitecore.ExperienceExplorer.Web" Version="4.0.0-r*" />
@@ -59,13 +68,88 @@
         <PackageReference Include="Sitecore.Owin.Authentication" Version="2.0.0-r*" />
         <PackageReference Include="Sitecore.Owin" Version="2.0.0-r*" />
         <PackageReference Include="Sitecore.Speak.Client" Version="4.0.0-r*" />
+        <PackageReference Include="Sitecore.CodeQuality.Analyzers" Version="2.*" PrivateAssets="All" />
+      </ItemGroup>
+    </When>
+    <When Condition=" '$(Configuration)'=='preview' ">
+      <ItemGroup>
+        <Reference Include="Sitecore.Analytics">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Analytics.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Analytics.Core">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Analytics.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Analytics.Model">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Analytics.Model.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XA.Foundation.IoC">
+          <HintPath>..\..\..\..\lib\Modules\SXA\Sitecore.XA.Foundation.IoC.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XA.Foundation.Mvc">
+          <HintPath>..\..\..\..\lib\Modules\SXA\Sitecore.XA.Foundation.Mvc.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.ExperienceEditor.Speak">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.ExperienceEditor.Speak.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.ExperienceEditor.Speak.Ribbon">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.ExperienceEditor.Speak.Ribbon.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.ExperienceExplorer.Core">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.ExperienceExplorer.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.ExperienceExplorer.Web">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.ExperienceExplorer.Web.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Kernel">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
+        </Reference>
+        <Reference Include="S itecore.Mvc">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Owin.Authentication">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Owin.Authentication.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Owin">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Owin.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Speak.Client">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Speak.Client.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+        <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.4" />
+        <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.4" />
+        <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.*" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
+        <PackageReference Include="Microsoft.IdentityModel.Protocol.Extensions" Version="1.*" />
+        <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="5.2.*" />
+        <PackageReference Include="Microsoft.Net.Compilers" Version="2.*" />
+        <PackageReference Include="Microsoft.Owin" Version="4.*" />
+        <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.*" />
+        <PackageReference Include="Microsoft.Owin.Security" Version="4.*" />
+        <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="4.*" />
+        <PackageReference Include="Microsoft.Owin.Security.Facebook" Version="4.*" />
+        <PackageReference Include="Microsoft.Owin.Security.MicrosoftAccount" Version="4.*" />
+        <PackageReference Include="Microsoft.Owin.Security.OpenIdConnect" Version="4.*" />
+        <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.*" />
+        <PackageReference Include="Newtonsoft.Json" Version="11.*" />
+        <PackageReference Include="Owin" Version="1.*" />
+        <PackageReference Include="System.ComponentModel" Version="4.*" />
+        <PackageReference Include="System.Diagnostics.Debug" Version="4.*" />
+        <PackageReference Include="System.Globalization" Version="4.*" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.2.*" />
+        <PackageReference Include="System.Linq" Version="4.*" />
+        <PackageReference Include="System.Linq.Expressions" Version="4.*" />
+        <PackageReference Include="System.Reflection" Version="4.*" />
+        <PackageReference Include="System.Resources.ResourceManager" Version="4.*" />
       </ItemGroup>
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
-        <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.3" />
-        <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.3" />
+        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+        <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.4" />
+        <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.4" />
         <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.3" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
         <PackageReference Include="Microsoft.IdentityModel.Protocol.Extensions" Version="1.0.4.403061554" />
@@ -234,17 +318,6 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TDS|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <WarningLevel>3</WarningLevel>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
@@ -252,7 +325,16 @@
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Sitecore.HabitatHome.Feature.Accounts.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'preview|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Sitecore.HabitatHome.Feature.Accounts.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

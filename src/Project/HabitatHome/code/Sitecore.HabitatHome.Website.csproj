@@ -53,13 +53,44 @@
         <PackageReference Include="Sitecore.Mvc" Version="3.0.0-r*" />
         <PackageReference Include="Sitecore.Update" Version="4.0.0-r*" />
         <PackageReference Include="Sitecore.Zip" Version="12.0.0-r*" />
+        <PackageReference Include="Sitecore.CodeQuality.Analyzers" Version="2.*" PrivateAssets="All" />
+      </ItemGroup>
+    </When>
+    <When Condition=" '$(Configuration)'=='preview' ">
+      <ItemGroup>
+        <Reference Include="Sitecore.Kernel">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Logging">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Logging.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Mvc">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Mvc.Analytics">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Mvc.Analytics.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Update">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Update.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Zip">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Zip.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+        <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.4" />
+        <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.4" />
+        <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.3" />
+        <PackageReference Include="Microsoft.Net.Compilers" Version="2.*" />
+        <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
       </ItemGroup>
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
-        <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.3" />
-        <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.3" />
+        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+        <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.4" />
+        <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.4" />
         <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.3" />
         <PackageReference Include="Microsoft.Net.Compilers" Version="1.3.2" />
         <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
@@ -119,7 +150,8 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TDS|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
+    <NoWarn>NU1603</NoWarn>
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -128,7 +160,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'preview|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
