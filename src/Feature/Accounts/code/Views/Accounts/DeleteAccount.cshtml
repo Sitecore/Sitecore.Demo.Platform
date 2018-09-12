@@ -1,0 +1,21 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using Sitecore.HabitatHome.Foundation.Alerts.Models
+@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Configuration
+@model Sitecore.HabitatHome.Feature.Accounts.Models.DeleteAccount
+
+@using (Html.BeginRouteForm(MvcSettings.SitecoreRouteName, FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.AddUniqueFormId()
+
+    @Html.HiddenFor(m => m.AccountToBeDeleted);
+    <div class="form-group">
+        @Html.Sitecore().Dictionary("/Accounts/Delete Account/Information", "By clicking below button, you approve deletion of your account. Be cautious that this opperation cannot be undone!")
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-danger btn-md btn-block" value="@Html.Sitecore().Dictionary("/Accounts/Delete Account/Delete Account", "Delete Account")" onclick="return confirm('@Html.Sitecore().Dictionary("/Accounts/Delete Account/Are you sure", "Are you sure to delete account? Your data will be lost!")');" />
+    </div>
+}

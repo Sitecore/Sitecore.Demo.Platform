@@ -13,6 +13,7 @@ using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Attributes;
 using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
 using Sitecore.Data.Fields;
+using System.Text;
 
 namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 {
@@ -315,38 +316,58 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
             return View(model);
         }
 
-        public ActionResult DataProtection()
+        [RedirectUnauthenticated]
+        public ActionResult ExportData()
         {
-            return View();
+            return View(new ExportAccount() { AccountToBeExported = true });
         }
 
         [HttpPost]
         [RedirectUnauthenticated]
-        public ActionResult ExportData()
+        public ActionResult ExportData(ExportAccount exportAccount)
         {
-            if (Context.User.Profile.Email != null)
+            if (Context.User.Profile.Email != null && exportAccount.AccountToBeExported)
             {
                 var exportedData = _userProfileService.ExportData(Context.User.Profile);
 
                 if (!string.IsNullOrEmpty(exportedData))
                 {
-                    return Json(exportedData, JsonRequestBehavior.AllowGet);
+                    return RedirectToAction("ExportedDataDownload", new { fileString = exportedData });
                 }
             }
 
-            return Json("", JsonRequestBehavior.AllowGet);
+            return View(new ExportAccount() { AccountToBeExported = true });
+        }
+
+        [HttpGet]
+        public ActionResult ExportedDataDownload(string fileString)
+        {
+            return File(Encoding.UTF8.GetBytes(fileString), "application/json", "ExportedContactData.json");
+        }
+
+        [RedirectUnauthenticated]
+        public ActionResult DeleteAccount()
+        {
+            return View(new DeleteAccount() { AccountToBeDeleted = true });
         }
 
         [HttpPost]
         [RedirectUnauthenticated]
-        public ActionResult DeleteAccount()
+        public ActionResult DeleteAccount(DeleteAccount deleteAccount)
         {
-            if (Context.User.Profile.Email != null)
+            if (deleteAccount.AccountToBeDeleted)
             {
-                _userProfileService.DeleteProfile(Context.User.Profile);
+
+                if (Context.User.Profile.Email != null)
+                {
+                    _userProfileService.DeleteProfile(Context.User.Profile);
+                    _accountRepository.Logout();
+                }
+
+                return Redirect(Context.Site.GetRootItem().Url());
             }
 
-            return Redirect(Context.Site.GetRootItem().Url());
+            return View(new DeleteAccount() { AccountToBeDeleted = true });
         }
     }
 }
