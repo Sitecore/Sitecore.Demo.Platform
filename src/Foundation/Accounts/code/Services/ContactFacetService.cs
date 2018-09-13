@@ -200,18 +200,7 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
                 return false;
             }
             var emails = contact.Emails();
-            if (emails == null)
-            {
-                emails = new EmailAddressList(new EmailAddress(email, false), null);
-            }
-            else
-            {
-                if (emails.PreferredEmail?.SmtpAddress == email)
-                {
-                    return false;
-                }
-                emails.PreferredEmail = new EmailAddress(email, false);
-            }
+            emails = new EmailAddressList(new EmailAddress(email, true), "Work Email");
             client.SetFacet(contact, EmailAddressList.DefaultFacetKey, emails);
             return true;
         }
@@ -224,18 +213,7 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
                 return false;
             }
             var phoneNumbers = contact.PhoneNumbers();
-            if (phoneNumbers == null)
-            {
-                phoneNumbers = new PhoneNumberList(new PhoneNumber(null, phoneNumber), null);
-            }
-            else
-            {
-                if (phoneNumbers.PreferredPhoneNumber?.Number == phoneNumber)
-                {
-                    return false;
-                }
-                phoneNumbers.PreferredPhoneNumber = new PhoneNumber(null, phoneNumber);
-            }
+            phoneNumbers = new PhoneNumberList(new PhoneNumber("", phoneNumber), "Work Phone");
             client.SetFacet(contact, PhoneNumberList.DefaultFacetKey, phoneNumbers);
             return true;
         }
