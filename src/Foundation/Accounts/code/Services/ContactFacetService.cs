@@ -199,9 +199,8 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
             {
                 return false;
             }
-            var emails = contact.Emails();
-            emails = new EmailAddressList(new EmailAddress(email, true), "Work Email");
-            client.SetFacet(contact, EmailAddressList.DefaultFacetKey, emails);
+            var emailFacet = new EmailAddressList(new EmailAddress(email, true), "Work Email");
+            client.SetFacet(contact, EmailAddressList.DefaultFacetKey, emailFacet);
             return true;
         }
 
@@ -212,9 +211,8 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
             {
                 return false;
             }
-            var phoneNumbers = contact.PhoneNumbers();
-            phoneNumbers = new PhoneNumberList(new PhoneNumber("", phoneNumber), "Work Phone");
-            client.SetFacet(contact, PhoneNumberList.DefaultFacetKey, phoneNumbers);
+            var phoneNumberFacet = new PhoneNumberList(new PhoneNumber(String.Empty, phoneNumber), "Work Phone");
+            client.SetFacet(contact, PhoneNumberList.DefaultFacetKey, phoneNumberFacet);
             return true;
         }
 
