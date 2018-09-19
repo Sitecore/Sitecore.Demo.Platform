@@ -30,6 +30,7 @@ Setup(context =>
 Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
+.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
@@ -42,9 +43,11 @@ Task("Default")
 .IsDependentOn("Rebuild-Master-Index")
 .IsDependentOn("Rebuild-Web-Index");
 
+
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
+.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Publish-Transforms")
@@ -186,23 +189,13 @@ Task("Rebuild-Web-Index").Does(() => {
     RebuildIndex("sitecore_web_index");
 });
 
-Task("Copy-Sitecore-Lib").Does(()=> {
-    
-    var binFolderPath = $"{configuration.WebsiteRoot}/bin/";
-    var sitecoreFilter = "Sitecore*.dll";
-    var sxaFilter = "Sitecore.XA*.dll";
-    var sitecoreDestination = "./lib/Sitecore";
-    var sxaDestination = "./lib/Modules/SXA";
-    // CopyFiles(
-    //     StartPowershellScript("Get-ChildItem", args => {
-    //         args.Append("Path",$"{binFolderPath}/*")
-    //             .Append ("Include",$"{sitecoreFilter}")
-    //             .Append("Exclude",$"{sxaFilter}");
-    //     }
-    //     )
-    //     ,sitecoreDestination
-    //     );
-    //CopyFile(StartPowershellScript(Get-ChildItem -Path $"{binFolderPath}/*" -Include $"{sxaFilter}"), sxaDestination);
+Task("Copy-Sitecore-Lib")
+    .WithCriteria(()=>(configuration.BuildConfiguration == "preview"))
+    .Does(()=> {
+        var files = GetFiles($"{configuration.WebsiteRoot}/bin/Sitecore*.dll");
+        var destination = "./lib/Sitecore";
+        EnsureDirectoryExists(destination);
+        CopyFiles(files, destination);
 
 }); 
 
