@@ -23,6 +23,22 @@ SharedFields:
           <rls>
             <ruleset>
               <rule
+                uid="{61E70962-5EBD-4DEC-BDC8-61928587EA61}"
+                s:name="Module Not Installed">
+                <conditions>
+                  <condition
+                    uid="3A2B849C62344608BFAAF8CA7C3C4F5C"
+                    s:id="{5CD2292C-32AC-4976-AA4F-A741555D22F8}"
+                    s:except="true"
+                    s:query="/sitecore/system/Modules/Stackla" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="BDC0A3988AAC40198E3615AAFD6574DA"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
                 uid="{FA7960EF-BF6B-46B5-96B3-26192264E0F8}"
                 s:name="Fitness">
                 <conditions>
@@ -67,6 +83,22 @@ SharedFields:
           s:ph="section-content">
           <rls>
             <ruleset>
+              <rule
+                uid="{BAAD412A-C9A0-4FE7-A6F2-343F84483948}"
+                s:name="Module Not Installed">
+                <conditions>
+                  <condition
+                    uid="909426FC764F4BF0AA8CBACDD1782F6F"
+                    s:id="{5CD2292C-32AC-4976-AA4F-A741555D22F8}"
+                    s:query="/sitecore/system/Modules/Stackla"
+                    s:except="true" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="C40C5931C18344F28F31A94340B17CEC"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
               <rule
                 uid="{C9DD02BB-9E34-4611-8298-2B662C36598D}"
                 s:name="Foodie">
