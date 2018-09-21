@@ -101,7 +101,6 @@ public void Transform(string rootFolder) {
     {
         Information($"Applying configuration transform:{file.FullPath}");
         var fileToTransform = Regex.Replace(file.FullPath, ".+code/(.+)/*.xdt", "$1");
-        var fileToTransform = Regex.Replace(file.FullPath, ".+code/(.+)/*.xdt", "$1");
         fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
         var sourceTransform = $"{configuration.WebsiteRoot}\\{fileToTransform}";
         
