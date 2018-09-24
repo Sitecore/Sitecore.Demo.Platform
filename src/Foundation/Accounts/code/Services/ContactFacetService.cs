@@ -195,24 +195,44 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
         private bool SetEmail(ContactFacetData data, XConnect.Contact contact, XConnectClient client)
         {
             var email = data.EmailAddress;
+            var emailKey = data.EmailKey;
             if (string.IsNullOrEmpty(email))
             {
                 return false;
             }
-            var emailFacet = new EmailAddressList(new EmailAddress(email, true), "Work Email");
-            client.SetFacet(contact, EmailAddressList.DefaultFacetKey, emailFacet);
+
+            if (contact.Emails() != null)
+            {
+                contact.Emails().PreferredEmail = new EmailAddress(email, true);
+                contact.Emails().PreferredKey = emailKey;
+            }
+            else
+            {
+                client.SetFacet(contact, EmailAddressList.DefaultFacetKey, new EmailAddressList(new EmailAddress(email, true), emailKey));
+            }
+
             return true;
         }
 
         private bool SetPhone(ContactFacetData data, XConnect.Contact contact, XConnectClient client)
         {
             var phoneNumber = data.PhoneNumber;
+            var phoneKey = data.PhoneKey;
             if (string.IsNullOrEmpty(phoneNumber))
             {
                 return false;
             }
-            var phoneNumberFacet = new PhoneNumberList(new PhoneNumber(String.Empty, phoneNumber), "Work Phone");
-            client.SetFacet(contact, PhoneNumberList.DefaultFacetKey, phoneNumberFacet);
+
+            if (contact.PhoneNumbers() != null)
+            {
+                contact.PhoneNumbers().PreferredPhoneNumber = new Sitecore.XConnect.Collection.Model.PhoneNumber(string.Empty, phoneNumber);
+                contact.PhoneNumbers().PreferredKey = phoneKey;
+            }
+            else
+            {
+                client.SetFacet(contact, PhoneNumberList.DefaultFacetKey, new PhoneNumberList(new PhoneNumber(string.Empty, phoneNumber), phoneKey));
+            }
+
             return true;
         }
 
