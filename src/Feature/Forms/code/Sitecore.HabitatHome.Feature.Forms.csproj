@@ -118,6 +118,8 @@
     <Compile Include="SubmitActions\Models\AssignPatternActionData.cs" />
     <Compile Include="SubmitActions\AssignPatternCardAction.cs" />
     <Compile Include="SubmitActions\Models\IdentifyContactActionData.cs" />
+    <Compile Include="SubmitActions\Models\QueueForCrmSyncActionData.cs" />
+    <Compile Include="SubmitActions\QueueForCrmSyncAction.cs" />
     <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
