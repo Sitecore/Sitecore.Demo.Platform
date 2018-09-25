@@ -53,19 +53,11 @@
         <PackageReference Include="Sitecore.Marketing" Version="13.0.0-r*" />
         <PackageReference Include="Sitecore.Marketing.xMgmt" Version="13.1.0-r*" />
         <PackageReference Include="Sitecore.Update" Version="4.0.0-r*" />
+        <PackageReference Include="Sitecore.XA.Foundation.Abstractions" Version="4.8.0.*"/>
+        <PackageReference Include="Sitecore.XA.Foundation.Multisite" Version="4.8.0.*"/>
+        <PackageReference Include="Sitecore.XA.Foundation.SitecoreExtensions" Version="4.8.0.*"/>
         <PackageReference Include="Sitecore.Zip" Version="12.0.0-r*" />
         <PackageReference Include="Sitecore.CodeQuality.Analyzers" Version="2.*" PrivateAssets="All" />
-      </ItemGroup>
-      <ItemGroup>
-        <Reference Include="Sitecore.XA.Foundation.Abstractions">
-          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XA.Foundation.Abstractions.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.XA.Foundation.Multisite">
-          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XA.Foundation.Multisite.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.XA.Foundation.SitecoreExtensions">
-          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XA.Foundation.SitecoreExtensions.dll</HintPath>
-        </Reference>
       </ItemGroup>
     </When>
     <When Condition=" '$(Configuration)'=='preview' ">

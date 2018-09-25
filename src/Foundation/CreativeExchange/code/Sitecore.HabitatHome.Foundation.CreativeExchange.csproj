@@ -49,11 +49,7 @@
       <ItemGroup>
         <PackageReference Include="Sitecore.Kernel" Version="12.0.0-r*" />
         <PackageReference Include="Sitecore.CodeQuality.Analyzers" Version="2.*" PrivateAssets="All" />
-      </ItemGroup>
-      <ItemGroup>
-        <Reference Include="Sitecore.XA.Feature.CreativeExchange">
-          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XA.Feature.CreativeExchange.dll</HintPath>
-        </Reference>
+        <PackageReference Include="Sitecore.XA.Feature.CreativeExchange" Version="4.8.0.*"/>
       </ItemGroup>
     </When>
     <When Condition=" '$(Configuration)'=='preview' ">
