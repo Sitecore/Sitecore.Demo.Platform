@@ -67,7 +67,7 @@ public void PrintHeader(ConsoleColor foregroundColor)
     cakeConsole.WriteLine("     ");
     cakeConsole.ResetColor();
 }
- 
+
 public void PublishProjects(string rootFolder, string websiteRoot)
 {
     var projects = GetFiles($"{rootFolder}\\**\\code\\*.csproj");
