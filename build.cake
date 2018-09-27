@@ -7,6 +7,7 @@
 
 #load "local:?path=CakeScripts/helper-methods.cake"
 
+
 var target = Argument<string>("Target", "Default");
 var configuration = new Configuration();
 var cakeConsole = new CakeConsole();
@@ -30,7 +31,6 @@ Setup(context =>
 Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
-.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
@@ -43,13 +43,12 @@ Task("Default")
 .IsDependentOn("Rebuild-Master-Index")
 .IsDependentOn("Rebuild-Web-Index");
 
-
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
-.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
+.IsDependentOn("Modify-Unicorn-Source-Folder")
 .IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project");
 
@@ -189,15 +188,6 @@ Task("Rebuild-Web-Index").Does(() => {
     RebuildIndex("sitecore_web_index");
 });
 
-Task("Copy-Sitecore-Lib")
-    .WithCriteria(()=>(configuration.BuildConfiguration == "preview"))
-    .Does(()=> {
-        var files = GetFiles($"{configuration.WebsiteRoot}/bin/Sitecore*.dll");
-        var destination = "./lib/Sitecore";
-        EnsureDirectoryExists(destination);
-        CopyFiles(files, destination);
-
-}); 
 
 
 RunTarget(target);
