@@ -23,10 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		gulp-config.js = gulp-config.js
-		gulpfile.js = gulpfile.js
+		build.cake = build.cake
+		cake-config.json = cake-config.json
 		nuget.config = nuget.config
-		package.json = package.json
 		README.md = README.md
 	EndProjectSection
 EndProject
