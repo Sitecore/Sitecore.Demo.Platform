@@ -31,11 +31,12 @@ Setup(context =>
 Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
+.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Publish-Transforms")
+.IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Deploy-EXM-Campaigns")
 .IsDependentOn("Deploy-Marketing-Definitions")
@@ -46,6 +47,7 @@ Task("Default")
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
+.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
@@ -60,6 +62,14 @@ Task("Clean").Does(() => {
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
 });
+Task("Copy-Sitecore-Lib")
+    .WithCriteria(()=>(configuration.BuildConfiguration == "preview"))
+    .Does(()=> {
+        var files = GetFiles($"{configuration.WebsiteRoot}/bin/Sitecore*.dll");
+        var destination = "./lib/Sitecore";
+        EnsureDirectoryExists(destination);
+        CopyFiles(files, destination);
+}); 
 
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
