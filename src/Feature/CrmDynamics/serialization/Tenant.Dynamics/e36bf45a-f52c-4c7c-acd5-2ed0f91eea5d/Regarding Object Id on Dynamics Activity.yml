@@ -1,0 +1,32 @@
+﻿---
+ID: "ceb5232e-02ab-4f45-b482-583ace98df44"
+Parent: "e36bf45a-f52c-4c7c-acd5-2ed0f91eea5d"
+Template: "34ca7cc6-855c-4bf5-ab86-facc6258dcb9"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Data Access/Value Accessor Sets/Providers/Dynamics/Dynamics Activity/Regarding Object Id on Dynamics Activity
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "606e8665-78f7-4b0d-91d9-7d7bd37566dd"
+  Hint: ReferenceEntityPropertyName
+  Value: Id
+- ID: "90e1b80f-e650-414c-9d98-6c52e6708a0d"
+  Hint: AttributeName
+  Value: regardingobjectid
+- ID: "e7da0237-6274-4bd0-b13e-19f43bbe3432"
+  Hint: ReferenceEntityLogicalName
+  Value: contact
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{CEB5232E-02AB-4F45-B482-583ACE98DF44}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112502Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

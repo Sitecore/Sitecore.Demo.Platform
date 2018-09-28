@@ -1,0 +1,32 @@
+﻿---
+ID: "5f86e0e7-46e9-4966-904a-65dc21f0fb3e"
+Parent: "7b4c5c63-28c8-4296-9cf5-41a8e68868f6"
+Template: "051888ed-a26d-452b-bb62-cb219319d488"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Tenant Settings/Providers/Salesforce/Filter Expressions/Task Filter Expressions/Completed Tasks for Contacts/Status Equals Completed
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "7a97a031-8c1a-4a31-b97a-329afaff9017"
+  Hint: LeftValueAccessor
+  Value: "{732679C3-75F6-43C8-9658-047C1CCDF7BA}"
+- ID: "b3433279-23eb-4b1e-b736-b835d7f83723"
+  Hint: Value
+  Value: Completed
+- ID: "ee87fba2-2277-4b19-bd11-9b943270abfc"
+  Hint: ConditionOperator
+  Value: "{485859D3-1EA6-4DFF-8935-6B954EC610E6}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{5F86E0E7-46E9-4966-904A-65DC21F0FB3E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165829Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

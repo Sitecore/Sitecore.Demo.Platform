@@ -1,0 +1,32 @@
+﻿---
+ID: "a41d5dd4-ba24-4976-851c-f976d6c59668"
+Parent: "0eb4c244-6541-4863-b2aa-d904c303eb85"
+Template: "e2f11ae2-6c89-411c-879f-9ffbcab98c90"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/Salesforce Contacts to xConnect Sync Pipelines/Read Contacts from Salesforce Pipeline/Set Use Delta Settings
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 275
+- ID: "cac1d3bf-041f-46e8-abe1-74701e54554e"
+  Hint: ContextValueReader
+  Value: "{E37269E6-87EE-466D-B72A-99D85441B653}"
+- ID: "cba1e09b-2b35-4165-a7f8-6300e7bce2b5"
+  Hint: Operator
+  Value: OnOrAfterSelectedDate
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{A41D5DD4-BA24-4976-851C-F976D6C59668}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165821Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
