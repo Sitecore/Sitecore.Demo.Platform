@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -6,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0C513600-DB12-4ADC-999C-14277FFDF0C8}</ProjectGuid>
+    <ProjectGuid>{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sitecore.HabitatHome.XConnect</RootNamespace>
-    <AssemblyName>Sitecore.HabitatHome.XConnect</AssemblyName>
+    <RootNamespace>Sitecore.HabitatHome.Feature.CRM</RootNamespace>
+    <AssemblyName>Sitecore.HabitatHome.Feature.CRM</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -43,31 +44,83 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Net.Compilers" Version="1.3.2" />
+    <PackageReference Include="Sitecore.Analytics.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Analytics.XConnect.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.DataExchange.DataAccess.NoReferences">
+      <Version>2.0.180108</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.DataExchange.Local.NoReferences">
+      <Version>2.0.180108</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.DataExchange.NoReferences">
+      <Version>2.0.180108</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.DataExchange.Tools.SalesforceConnect.NoReferences">
+      <Version>2.0.180108</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.EmailCampaign.Model.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Kernel.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Marketing.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Mvc.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Services.Core.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.XConnect.Client.Configuration.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.XConnect.Client.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.XConnect.Collection.Model.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.XConnect.NoReferences" Version="9.0.180604" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_data\config\sitecore\SearchIndexer\sc.Xdb.Collection.IndexerSettings.xml" />
-    <Content Include="App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\SearchIndexer\sc.Xdb.Collection.IndexerSettings.xml" />
-    <Content Include="App_data\jobs\continuous\IndexWorker\App_data\Models\Sitecore.DataExchange.Tools.DynamicsConnect.Models.DynamicsConnectCollectionModel, 1.0.json" />
-    <Content Include="App_data\Models\Sitecore.DataExchange.Tools.DynamicsConnect.Models.DynamicsConnectCollectionModel, 1.0.json" />
-    <Content Include="App_data\Models\Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceConnectCollectionModel, 1.0.json" />
-    <Content Include="App_data\jobs\continuous\IndexWorker\App_data\Models\Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceConnectCollectionModel, 1.0.json" />
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="App_Config\ConnectionStrings.config.xdt">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="App_Config\Include\Feature\Feature.CRM.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Config\Include\Feature\Feature.CRM.Serialization.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="web.config.xdt">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -81,7 +134,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conditions\SfmcJourneyStatusCondition.cs" />
+    <Compile Include="CustomCollectionModels\CustomSalesforceConnectCollectionModel.cs" />
+    <Compile Include="CustomCollectionModels\CustomSalesforceContactInformation.cs" />
+    <Compile Include="Pipelines\SyncToSalesforceCrmOnSessionEnd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TriggerDefPipelineBatch\SyncToSalesforceCrm.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\Accounts\code\Sitecore.HabitatHome.Foundation.Accounts.csproj">
+      <Project>{ce34a3b7-b91a-41ba-8b16-c1e131e1c621}</Project>
+      <Name>Sitecore.HabitatHome.Foundation.Accounts</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -96,9 +160,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3348</DevelopmentServerPort>
+          <DevelopmentServerPort>27786</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3348/</IISUrl>
+          <IISUrl>http://localhost:27786/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
