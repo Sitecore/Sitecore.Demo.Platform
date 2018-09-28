@@ -116,6 +116,17 @@ public void RebuildIndex(string indexName)
     string responseBody = HttpGet(url);
 }
 
+public void DeployExmCampaigns()
+{
+	var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
+	var responseBody = HttpGet(url, settings =>
+	{
+		settings.AppendHeader("Connection", "keep-alive");
+	});
+
+    Information(responseBody);
+}
+
 public MSBuildSettings InitializeMSBuildSettings(MSBuildSettings settings)
 {
     settings.SetConfiguration(configuration.BuildConfiguration)
