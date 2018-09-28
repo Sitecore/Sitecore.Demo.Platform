@@ -1,6 +1,6 @@
 ﻿using Sitecore.Pipelines.SessionEnd;
 
-namespace Sitecore.HabitatHome.Feature.CRM.Pipelines
+namespace Sitecore.HabitatHome.Feature.CrmSalesforce.Pipelines
 {
     public class SyncToSalesforceCrmOnSessionEnd
     {

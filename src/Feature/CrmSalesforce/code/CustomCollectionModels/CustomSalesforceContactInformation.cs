@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels
+namespace Sitecore.HabitatHome.Feature.CrmSalesforce.CustomCollectionModels
 {
     [FacetKey("CustomSalesforceContact")]
     [Serializable]

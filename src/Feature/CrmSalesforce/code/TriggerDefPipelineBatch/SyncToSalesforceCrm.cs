@@ -8,11 +8,11 @@ using Sitecore.DataExchange.Models;
 using Sitecore.DataExchange.Extensions;
 using Sitecore.DataExchange.Repositories;
 
-namespace Sitecore.HabitatHome.Feature.CRM.TriggerDefPipelineBatch
+namespace Sitecore.HabitatHome.Feature.CrmSalesforce.TriggerDefPipelineBatch
 {
     public class SyncToSalesforceCrm
     {
-        private string SalesforceDefPipelineBatchId => Settings.GetSetting("Feature.CRM.Salesforce.RunPipelineBatchIdOnSessionEnd");
+        private string SalesforceDefPipelineBatchId => Settings.GetSetting("Feature.CrmSalesforce.RunPipelineBatchIdOnSessionEnd");
 
         public bool Sync()
         {

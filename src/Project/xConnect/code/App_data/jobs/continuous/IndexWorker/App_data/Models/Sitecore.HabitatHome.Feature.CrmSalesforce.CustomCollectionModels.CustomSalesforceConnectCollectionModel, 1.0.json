@@ -1,5 +1,5 @@
 {
-  "Name": "Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceConnectCollectionModel",
+  "Name": "Sitecore.HabitatHome.Feature.CrmSalesforce.CustomCollectionModels.CustomSalesforceConnectCollectionModel",
   "Version": "1.0",
   "References": [
     {
@@ -34,10 +34,10 @@
         }
       }
     },
-    "Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceContactInformation": {
+    "Sitecore.HabitatHome.Feature.CrmSalesforce.CustomCollectionModels.CustomSalesforceContactInformation": {
       "Type": "Facet",
       "BaseType": "Sitecore.XConnect.Facet",
-      "ClrType": "Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceContactInformation, Sitecore.HabitatHome.Feature.CRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "ClrType": "Sitecore.HabitatHome.Feature.CrmSalesforce.CustomCollectionModels.CustomSalesforceContactInformation, Sitecore.HabitatHome.Feature.CrmSalesforce, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Properties": {
         "WelcomeJourneyStatus": {
           "Type": "String"
@@ -110,7 +110,7 @@
     {
       "Target": "Contact",
       "Name": "CustomSalesforceContact",
-      "Type": "Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceContactInformation"
+      "Type": "Sitecore.HabitatHome.Feature.CrmSalesforce.CustomCollectionModels.CustomSalesforceContactInformation"
     },
     {
       "Target": "Contact",

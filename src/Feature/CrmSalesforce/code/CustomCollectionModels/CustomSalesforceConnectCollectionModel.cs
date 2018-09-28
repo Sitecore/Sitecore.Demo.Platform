@@ -6,7 +6,7 @@ using Sitecore.XConnect.Schema;
 using Sitecore.XConnect.Collection.Model;
 using Sitecore.EmailCampaign.Model.XConnect;
 
-namespace Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels
+namespace Sitecore.HabitatHome.Feature.CrmSalesforce.CustomCollectionModels
 {
     public class CustomSalesforceConnectCollectionModel : DataExchange.Tools.SalesforceConnect.Models.SalesforceConnectCollectionModel
     {
