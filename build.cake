@@ -48,6 +48,7 @@ Task("Quick-Deploy")
 .IsDependentOn("Clean")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
+.IsDependentOn("Modify-Unicorn-Source-Folder")
 .IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project");
 
