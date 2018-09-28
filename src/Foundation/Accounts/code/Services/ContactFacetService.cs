@@ -23,7 +23,7 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
     {
         private readonly IContactFacetsProvider contactFacetsProvider;
         private readonly ContactManager contactManager;
-        private readonly string[] facetsToUpdate = { PersonalInformation.DefaultFacetKey, AddressList.DefaultFacetKey, EmailAddressList.DefaultFacetKey, ConsentInformation.DefaultFacetKey, PhoneNumberList.DefaultFacetKey, Avatar.DefaultFacetKey };
+        private readonly string[] facetsToUpdate = { PersonalInformation.DefaultFacetKey, AddressList.DefaultFacetKey, EmailAddressList.DefaultFacetKey, ConsentInformation.DefaultFacetKey, PhoneNumberList.DefaultFacetKey, Avatar.DefaultFacetKey, EngagementMeasures.DefaultFacetKey};
 
         public ContactFacetService(IContactFacetsProvider contactFacetsProvider)
         {
@@ -205,6 +205,7 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
             {
                 contact.Emails().PreferredEmail = new EmailAddress(email, true);
                 contact.Emails().PreferredKey = emailKey;
+                client.SetFacet(contact, EmailAddressList.DefaultFacetKey, contact.Emails());
             }
             else
             {
@@ -227,6 +228,7 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
             {
                 contact.PhoneNumbers().PreferredPhoneNumber = new Sitecore.XConnect.Collection.Model.PhoneNumber(string.Empty, phoneNumber);
                 contact.PhoneNumbers().PreferredKey = phoneKey;
+                client.SetFacet(contact, PhoneNumberList.DefaultFacetKey, contact.PhoneNumbers());
             }
             else
             {

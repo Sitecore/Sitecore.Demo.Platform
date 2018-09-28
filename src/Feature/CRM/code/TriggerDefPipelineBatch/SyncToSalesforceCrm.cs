@@ -1,31 +1,21 @@
-﻿using Sitecore.Analytics;
-using Sitecore.Configuration;
+﻿using Sitecore.Configuration;
 using Sitecore.Diagnostics;
 using System;
-using Sitecore.Data.Items;
-using Sitecore.Pipelines.SessionEnd;
 using Sitecore.Services.Core.Model;
-using Sitecore.DataExchange.Local.Extensions;
 using Sitecore.DataExchange.Local.Runners;
 using Sitecore.DataExchange.Contexts;
 using Sitecore.DataExchange.Models;
 using Sitecore.DataExchange.Extensions;
-using Sitecore.DataExchange.Plugins;
 using Sitecore.DataExchange.Repositories;
 
-namespace Sitecore.HabitatHome.Feature.CRM.Pipelines
+namespace Sitecore.HabitatHome.Feature.CRM.TriggerDefPipelineBatch
 {
-    public class SyncContactToSalesforceCrmOnSessionEnd
+    public class SyncToSalesforceCrm
     {
         private string SalesforceDefPipelineBatchId => Settings.GetSetting("Feature.CRM.Salesforce.RunPipelineBatchIdOnSessionEnd");
 
-        public void Process(SessionEndArgs args)
+        public bool Sync()
         {
-            if (Tracker.Current?.Contact == null)
-            {
-                return;
-            }
-
             try
             {
                 Guid pipelineItemId = Guid.Parse(SalesforceDefPipelineBatchId);
@@ -39,10 +29,12 @@ namespace Sitecore.HabitatHome.Feature.CRM.Pipelines
                 runner.RunAsync(pipelineBatch, pipelineBatchContext);
 
                 Log.Info("Successfully synced xConnect contact to Salesforce on session end via DEF", this);
+                return true;
             }
             catch (Exception ex)
             {
                 Log.Error($"Error syncing xConnect contact to Salesforce on session end via DEF. PipelineBatchId = {SalesforceDefPipelineBatchId}", ex, this);
+                return false;
             }
 
         }
