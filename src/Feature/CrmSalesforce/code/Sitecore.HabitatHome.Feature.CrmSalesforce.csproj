@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sitecore.HabitatHome.Feature.CRM</RootNamespace>
-    <AssemblyName>Sitecore.HabitatHome.Feature.CRM</AssemblyName>
+    <RootNamespace>Sitecore.HabitatHome.Feature.CrmSalesforce</RootNamespace>
+    <AssemblyName>Sitecore.HabitatHome.Feature.CrmSalesforce</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -112,7 +112,9 @@
     <None Include="App_Config\ConnectionStrings.config.xdt">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="App_Config\Include\Feature\Feature.CrmSalesforce.config" />
+    <Content Include="App_Config\Include\Feature\Feature.CrmSalesforce.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Config\Include\Feature\Feature.CrmSalesforce.Serialization.config" />
     <None Include="web.config.xdt">
       <SubType>Designer</SubType>

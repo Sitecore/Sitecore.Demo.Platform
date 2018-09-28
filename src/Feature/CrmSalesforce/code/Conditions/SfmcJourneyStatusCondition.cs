@@ -1,6 +1,5 @@
 ﻿using Sitecore.Analytics;
 using Sitecore.Diagnostics;
-using Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels;
 using Sitecore.Rules;
 using Sitecore.Rules.Conditions;
 using System;
@@ -8,8 +7,9 @@ using System.Linq;
 using Sitecore.XConnect;
 using Sitecore.XConnect.Client;
 using Sitecore.XConnect.Client.Configuration;
+using Sitecore.HabitatHome.Feature.CrmSalesforce.CustomCollectionModels;
 
-namespace Sitecore.HabitatHome.Feature.CRM.Conditions
+namespace Sitecore.HabitatHome.Feature.CrmSalesforce.Conditions
 {
     public class SfmcJourneyStatusCondition<T> : StringOperatorCondition<T> where T : RuleContext
     {

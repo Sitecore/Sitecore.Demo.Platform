@@ -7,7 +7,7 @@ DB: master
 SharedFields:
 - ID: "ab51c8b2-f0e1-4471-9aae-cc080d774923"
   Hint: Type
-  Value: Sitecore.HabitatHome.Feature.CRM.Conditions.SfmcJourneyStatusCondition, Sitecore.HabitatHome.Feature.CRM
+  Value: Sitecore.HabitatHome.Feature.CrmSalesforce.Conditions.SfmcJourneyStatusCondition, Sitecore.HabitatHome.Feature.CrmSalesforce
 Languages:
 - Language: en
   Versions:
@@ -22,4 +22,4 @@ Languages:
         sitecore\admin
     - ID: "af321234-4eb9-4ef5-9197-65903351939c"
       Hint: Text
-      Value: "where the contact's Salesforce Welcome Journey Status [operatorid,StringOperator,,compares to] [JourneyStatus,,,specific value]"
+      Value: "where the contact's Salesforce Marketing Cloud Journey Status [operatorid,StringOperator,,compares to] [JourneyStatus,,,specific value]"
