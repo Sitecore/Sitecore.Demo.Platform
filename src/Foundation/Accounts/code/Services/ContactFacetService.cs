@@ -85,15 +85,17 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
                 {
                     var contactFacets = client.Model.Facets.Where(c => c.Target == EntityType.Contact).Select(x => x.Name);
 
-                    var interactionFacets = client.Model.Facets.Where(c => c.Target == EntityType.Interaction).Select(x => x.Name);
+                    //TODO uncomment this once AJAX call to export data is implemented
+                    //var interactionFacets = client.Model.Facets.Where(c => c.Target == EntityType.Interaction).Select(x => x.Name);
 
                     var contact = client.Get(contactReference, new ContactExpandOptions(contactFacets.ToArray())
                     {
-                        Interactions = new RelatedInteractionsExpandOptions(interactionFacets.ToArray())
-                        {
-                            EndDateTime = DateTime.MaxValue,
-                            StartDateTime = DateTime.MinValue
-                        }
+                        //TODO uncomment this once AJAX call to export data is implemented
+                        //Interactions = new RelatedInteractionsExpandOptions(interactionFacets.ToArray())
+                        //{
+                        //    EndDateTime = DateTime.MaxValue,
+                        //    StartDateTime = DateTime.MinValue
+                        //}
                     });
 
                     if (contact == null)
