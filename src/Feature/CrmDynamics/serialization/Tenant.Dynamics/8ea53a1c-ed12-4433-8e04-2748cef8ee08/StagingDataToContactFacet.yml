@@ -1,0 +1,30 @@
+﻿---
+ID: "63351929-3f0c-4d7a-8040-d6587f399b6c"
+Parent: "8ea53a1c-ed12-4433-8e04-2748cef8ee08"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Value Mapping Sets/Dynamics to xConnect Contact Mappings/Staging References To xConnect Contact Dynamics Membership Facet/StagingDataToContactFacet
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{D10E0F4E-A3D6-4D86-974F-0148C6358DC5}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{8A3AC194-F021-44C7-9D66-8D9693D29FD3}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{63351929-3F0C-4D7A-8040-D6587F399B6C}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112830Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

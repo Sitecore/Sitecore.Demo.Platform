@@ -1,0 +1,33 @@
+﻿---
+ID: "eae77ebc-3bfc-4cd5-b028-6ffde94ce305"
+Parent: "e1d2c637-71a6-49a8-96bd-46b5ca831122"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Value Mapping Sets/Salesforce to xConnect Contact Mappings/CustomSalesforce Contact to xConnect Contact Salesforce Info Facet/Welcome Journey Status
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{06EBA4FE-A6A1-49FE-BD66-58C81A3EA25A}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{02838545-03BF-4552-A8FD-8AA045D0FEBC}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{EA993FF8-02DA-43C7-901C-990EBA6C3559}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165839Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

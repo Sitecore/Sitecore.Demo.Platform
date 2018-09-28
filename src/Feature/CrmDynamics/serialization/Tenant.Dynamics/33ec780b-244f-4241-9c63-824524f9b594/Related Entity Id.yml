@@ -1,0 +1,30 @@
+﻿---
+ID: "e211018f-8f18-42e4-b902-37f690453e5e"
+Parent: "33ec780b-244f-4241-9c63-824524f9b594"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Value Mapping Sets/Dynamics to Staging Database Mappings/Dynamics Marketing List Membership to Staging Database/Related Entity Id
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{36657B5C-4D2B-4AEF-872E-49CFCB1F102F}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{A1259AE2-1088-4DF1-A759-4C989152DDEE}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{E211018F-8F18-42E4-B902-37F690453E5E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112803Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
