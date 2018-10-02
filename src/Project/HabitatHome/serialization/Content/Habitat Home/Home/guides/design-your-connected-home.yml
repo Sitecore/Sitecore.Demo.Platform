@@ -86,25 +86,33 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
-          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          ph="/main/sxa-article-content/author-1-"
-          uid="{FAAD95E3-7370-40E8-9C7A-29E2CA134740}" />
+          uid="{FAAD95E3-7370-40E8-9C7A-29E2CA134740}"
+          p:before="*"
+          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/sxa-article-content/author-1-" />
         <r
-          ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
-          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          ph="/main/sxa-article-content/container-1"
-          uid="{B261CE71-CFC6-452B-918F-2FD1326AD8AF}" />
+          uid="{B261CE71-CFC6-452B-918F-2FD1326AD8AF}"
+          p:after="r[@uid='{FAAD95E3-7370-40E8-9C7A-29E2CA134740}']"
+          s:ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/sxa-article-content/container-1" />
+        <r
+          uid="{2F024CA9-4A15-4CE8-877A-9BCAB3D98BE2}"
+          p:after="*[1=2]"
+          s:cnd=""
+          s:ds="{68EF1B35-AC47-48B8-A507-6EBD3D611108}"
+          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          s:mvt=""
+          s:par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-recommended-content/container-3" />
       </d>
-      <d
-        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
-        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en

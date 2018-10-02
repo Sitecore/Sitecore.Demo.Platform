@@ -1,0 +1,158 @@
+﻿---
+ID: "48d5f67c-5337-4955-acb7-a60db6ba1832"
+Parent: "0e5ca356-15bc-4a7b-a3e4-73758cbc74ac"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Habitat Sites/Habitat Home/Data/Snippets/Stackla/Health Widget
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{3375BB45-6877-40E8-A2C6-D5B33EF6FC34}"
+          p:before="*"
+          s:ds="/sitecore/system/Modules/Stackla/Widgets/sitecore-oem-demo/Grid Widget"
+          s:id="{CB62EBE9-22BC-4D88-A57D-3016B0D75801}"
+          s:par="Stored_Filter_Id=&amp;DS_Name=Grid+Widget&amp;DS_EmbedCode=%3c!--+Stackla+Widget+Embed+Code+(start)+--%3e%0a%3cdiv+class%3d%22stackla-widget%22+data-alias%3d%22sitecore-oem-demo.stackla.com%22+data-ct%3d%22%22+data-hash%3d%225a3b205054969%22+data-id%3d%2233585%22+data-title%3d%22Grid+Widget%22+data-ttl%3d%2230%22+style%3d%22width%3a+100%25%3b+overflow%3a+hidden%3b%22%3e%3c%2fdiv%3e%0a%3cscript+type%3d%22text%2fjavascript%22%3e%0a(function+(d%2c+id)+%7b%0a++++var+t%2c+el+%3d+d.scripts%5bd.scripts.length+-+1%5d.previousElementSibling%3b%0a++++if+(el)+el.dataset.initTimestamp+%3d+(new+Date()).getTime()%3b%0a++++if+(d.getElementById(id))+return%3b%0a++++t+%3d+d.createElement(%27script%27)%3b%0a++++t.src+%3d+%27%2f%2fassetscdn.stackla.com%2fmedia%2fjs%2fwidget%2ffluid-embed.js%27%3b%0a++++t.id+%3d+id%3b%0a++++(d.getElementsByTagName(%27head%27)%5b0%5d+%7c%7c+d.getElementsByTagName(%27body%27)%5b0%5d).appendChild(t)%3b%0a%7d(document%2c+%27stackla-widget-js%27))%3b%0a%3c%2fscript%3e%0a%3c!--+Stackla+Widget+Embed+Code+(end)+--%3e&amp;Stored_Tags=358626&amp;DS_Stack=sitecore-oem-demo&amp;DS_Id=33585&amp;Stored_Filter_Name=&amp;Tags={7D9693A2-AF93-46B1-8198-9F0FAF325332}&amp;EmbedCode=%3c!--+Stackla+Widget+Embed+Code+(start)+--%3e%0a%3cdiv+class%3d%27stackla-widget%27+data-alias%3d%27sitecore-oem-demo.stackla.com%27+data-ct%3d%27%27+data-hash%3d%275a3b205054969%27+data-id%3d%2733585%27+data-tags%3d%27358626%27+data-title%3d%27Grid+Widget%27+data-ttl%3d%2730%27+style%3d%27width%3a+100%25%3b+overflow%3a+hidden%3b%27%3e%3c%2fdiv%3e%0a%3cscript+type%3d%27text%2fjavascript%27%3e%0a(function+(d%2c+id)+%7b%0a++++var+t%2c+el+%3d+d.scripts%5bd.scripts.length+-+1%5d.previousElementSibling%3b%0a++++if+(el)+el.dataset.initTimestamp+%3d+(new+Date()).getTime()%3b%0a++++if+(d.getElementById(id))+return%3b%0a++++t+%3d+d.createElement(%27script%27)%3b%0a++++t.src+%3d+%27%2f%2fassetscdn.stackla.com%2fmedia%2fjs%2fwidget%2ffluid-embed.js%27%3b%0a++++t.id+%3d+id%3b%0a++++(d.getElementsByTagName(%27head%27)%5b0%5d+%7c%7c+d.getElementsByTagName(%27body%27)%5b0%5d).appendChild(t)%3b%0a%7d(document%2c+%27stackla-widget-js%27))%3b%0a%3c%2fscript%3e%0a%3c!--+Stackla+Widget+Embed+Code+(end)+--%3e%3cscript%3eif(typeof+Stackla+!%3d%3d+%27undefined%27+%26%26+typeof+Stackla.WidgetManager+!%3d%3d+%27undefined%27)+%7b+Stackla.WidgetManager.rebuild()%3b+%7d%3c%2fscript%3e"
+          s:ph="section-content">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{61E70962-5EBD-4DEC-BDC8-61928587EA61}"
+                s:name="Module Not Installed">
+                <conditions>
+                  <condition
+                    uid="3A2B849C62344608BFAAF8CA7C3C4F5C"
+                    s:id="{5CD2292C-32AC-4976-AA4F-A741555D22F8}"
+                    s:except="true"
+                    s:query="/sitecore/system/Modules/Stackla" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="BDC0A3988AAC40198E3615AAFD6574DA"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{FA7960EF-BF6B-46B5-96B3-26192264E0F8}"
+                s:name="Fitness">
+                <conditions>
+                  <or
+                    uid="F2A80949D2D9455386B922C19EC15B64">
+                    <condition
+                      uid="89B244C78E17454FBC854208212E4376"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Fitness" />
+                    <condition
+                      uid="D5172B6D62F449588045027F100775BC"
+                      s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                      s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
+                      s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="7249622DFDA945B0A4CD5B972B5C0435"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="7D9C861A8EBC40BD8F3976D8B8F8AD1B"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{E4630FF3-32EC-4B7B-9F8F-09C02D09BB8D}"
+          p:after="*[1=2]"
+          s:ds="/sitecore/system/Modules/Stackla/Widgets/sitecore-oem-demo/Grid Widget"
+          s:id="{CB62EBE9-22BC-4D88-A57D-3016B0D75801}"
+          s:par="Stored_Filter_Id=&amp;DS_Name=Grid+Widget&amp;DS_EmbedCode=%3c!--+Stackla+Widget+Embed+Code+(start)+--%3e%0a%3cdiv+class%3d%22stackla-widget%22+data-alias%3d%22sitecore-oem-demo.stackla.com%22+data-ct%3d%22%22+data-hash%3d%225a3b205054969%22+data-id%3d%2233585%22+data-title%3d%22Grid+Widget%22+data-ttl%3d%2230%22+style%3d%22width%3a+100%25%3b+overflow%3a+hidden%3b%22%3e%3c%2fdiv%3e%0a%3cscript+type%3d%22text%2fjavascript%22%3e%0a(function+(d%2c+id)+%7b%0a++++var+t%2c+el+%3d+d.scripts%5bd.scripts.length+-+1%5d.previousElementSibling%3b%0a++++if+(el)+el.dataset.initTimestamp+%3d+(new+Date()).getTime()%3b%0a++++if+(d.getElementById(id))+return%3b%0a++++t+%3d+d.createElement(%27script%27)%3b%0a++++t.src+%3d+%27%2f%2fassetscdn.stackla.com%2fmedia%2fjs%2fwidget%2ffluid-embed.js%27%3b%0a++++t.id+%3d+id%3b%0a++++(d.getElementsByTagName(%27head%27)%5b0%5d+%7c%7c+d.getElementsByTagName(%27body%27)%5b0%5d).appendChild(t)%3b%0a%7d(document%2c+%27stackla-widget-js%27))%3b%0a%3c%2fscript%3e%0a%3c!--+Stackla+Widget+Embed+Code+(end)+--%3e&amp;Stored_Tags=358627&amp;DS_Stack=sitecore-oem-demo&amp;DS_Id=33585&amp;Stored_Filter_Name=&amp;Tags={1E1B7509-7CF2-4463-AE0D-2FE54424BD04}&amp;EmbedCode=%3c!--+Stackla+Widget+Embed+Code+(start)+--%3e%0a%3cdiv+class%3d%27stackla-widget%27+data-alias%3d%27sitecore-oem-demo.stackla.com%27+data-ct%3d%27%27+data-hash%3d%275a3b205054969%27+data-id%3d%2733585%27+data-tags%3d%27358627%27+data-title%3d%27Grid+Widget%27+data-ttl%3d%2730%27+style%3d%27width%3a+100%25%3b+overflow%3a+hidden%3b%27%3e%3c%2fdiv%3e%0a%3cscript+type%3d%27text%2fjavascript%27%3e%0a(function+(d%2c+id)+%7b%0a++++var+t%2c+el+%3d+d.scripts%5bd.scripts.length+-+1%5d.previousElementSibling%3b%0a++++if+(el)+el.dataset.initTimestamp+%3d+(new+Date()).getTime()%3b%0a++++if+(d.getElementById(id))+return%3b%0a++++t+%3d+d.createElement(%27script%27)%3b%0a++++t.src+%3d+%27%2f%2fassetscdn.stackla.com%2fmedia%2fjs%2fwidget%2ffluid-embed.js%27%3b%0a++++t.id+%3d+id%3b%0a++++(d.getElementsByTagName(%27head%27)%5b0%5d+%7c%7c+d.getElementsByTagName(%27body%27)%5b0%5d).appendChild(t)%3b%0a%7d(document%2c+%27stackla-widget-js%27))%3b%0a%3c%2fscript%3e%0a%3c!--+Stackla+Widget+Embed+Code+(end)+--%3e%3cscript%3eif(typeof+Stackla+!%3d%3d+%27undefined%27+%26%26+typeof+Stackla.WidgetManager+!%3d%3d+%27undefined%27)+%7b+Stackla.WidgetManager.rebuild()%3b+%7d%3c%2fscript%3e"
+          s:ph="section-content">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{BAAD412A-C9A0-4FE7-A6F2-343F84483948}"
+                s:name="Module Not Installed">
+                <conditions>
+                  <condition
+                    uid="909426FC764F4BF0AA8CBACDD1782F6F"
+                    s:id="{5CD2292C-32AC-4976-AA4F-A741555D22F8}"
+                    s:query="/sitecore/system/Modules/Stackla"
+                    s:except="true" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="C40C5931C18344F28F31A94340B17CEC"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{C9DD02BB-9E34-4611-8298-2B662C36598D}"
+                s:name="Foodie">
+                <conditions>
+                  <or
+                    uid="F5DCDA04E6D042618E056E16BBA07887">
+                    <condition
+                      uid="0EE8F6967D2F400B9C9277EA405F08F5"
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Cooking" />
+                    <condition
+                      uid="4802467FB6A14360A3C236A99189EF03"
+                      s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                      s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}"
+                      s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="F26034CD994842A48C07CC74597995DD"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="9D070ED0B44645B697E7A9EA42C14B3B"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180919T122348Z
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180919T140425Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
