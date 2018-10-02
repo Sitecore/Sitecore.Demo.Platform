@@ -115,6 +115,34 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{23A7FE50-C7A4-4906-813C-0E343714440C}"
+              p:before="*"
+              s:ds="{F908C985-29A0-4C42-9E13-5358F3FD9FF6}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-article-content/container-1" />
+            <r
+              uid="{A5FA0E98-307A-45AE-AB02-9A973603E725}"
+              p:after="r[@uid='{23A7FE50-C7A4-4906-813C-0E343714440C}']"
+              s:ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+              s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+              s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-recommended-content/container-1" />
+            <r
+              uid="{B261CE71-CFC6-452B-918F-2FD1326AD8AF}">
+              <p:d />
+            </r>
+          </d>
+        </r>
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
       Hint: Image
       Value: |
@@ -148,19 +176,7 @@ Languages:
       Value: |
         <p>Your smartphone wakes you up with a gentle song. Your blinds automatically open and your coffeepot brews a perfect cup, timed so that it's ready as soon as you emerge from the shower. As you leave for work, your lights automatically click off, your thermostat adjusts, and your security system kicks in. All this activity, and you didn't lift a finger.</p>
         <p>Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Habitat has a few "smart" suggestions.</p>
-        <p><strong>Start with the basics</strong></p>
-        <p>If you're designing a connected home from scratch, you'll need a few foundational items first. A home automation hub allows you to connect and use multiple devices. Even better, you can control them all from one app.</p>
-        <p>You'll also want to download IFTTT ("if this, then that"). The mobile app and website lets you write simple commands without programming. For example, "if the alarm clock goes off at 5:45 a.m., turn on the coffeepot."</p>
-        <p>Once you invest in the basics, you can experiment with small items, such as smart light bulbs. With your smartphone, you can control individual or groups of bulbs to turn on when you wake up and turn off when you leave the house. They cost more than LED bulbs ($15 and up) but last about 22 years and use 80 percent less power than traditional bulbs.</p>
-        <p><strong>Smart security</strong></p>
-        <p>A "smart" security system is one of the wisest investments you can make for your home and family. The Helix Sentinel 4 Camera Network Video Recorder Bundle offers motion detection and selectable zoom to get clear footage of potential intruders. Remote access lets you check in on the home front via your smartphone or tablet.</p>
-        <p>For extra protection and style, consider keyless locks, such as the Habitat Sentinel Touchscreen Key-Free Deadbolt. A built-in interference alarm sounds when someone tries to break in, which gives you extra peace of mind.</p>
-        <p>To protect your little ones, products such as the Habitat Sentinel HD Wireless Baby Monitoring Camera offer streaming video so you can monitor baby from anywhere with your smartphone. A built-in microphone and two-way speaker let you hear her cries and coax her to sleep.</p>
-        <p><strong>Get smarter gadgets</strong></p>
-        <p>A connected home includes not only major appliances, but also small devices we use every day. Products such as the iGrill Mini alert your smartphone when your steak reaches the perfect temperature. Sous vide cookers, once reserved for high-end restaurants, have made their way into high-end homes, with smart features such as Bluetooth and built-in WiFi. Habitat coffeemakers, countertop ovens, and other small appliances also come with smart features for easy programming.</p>
-        <p><strong>Appliances</strong></p>
-        <p>If you want to fully dive into the connected home philosophy, replace your "dumb" appliances with connected versions. Habitat's Viva appliance line includes refrigerators that check inventory and let you control settings from your smartphone. Tell your Habitat Dwell smart vacuum to clean the living room floor, and command your Habitat Gleam smart washer to start a new cycle, all while watching your favorite show.</p>
-        <p>From light bulbs to refrigerators, smart devices work together to make life easier. Let Habitat help you design your connected home to suit your budget and your lifestyle.</p>
+        
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -178,6 +194,22 @@ Languages:
     - ID: "7d988161-3991-465a-a88c-280bc65542a0"
       Hint: OpenGraphTitle
       Value: Design Your Connected Home
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <p><strong>Start with the basics</strong></p>
+        <p>If you're designing a connected home from scratch, you'll need a few foundational items first. A home automation hub allows you to connect and use multiple devices. Even better, you can control them all from one app.</p>
+        <p>You'll also want to download IFTTT ("if this, then that"). The mobile app and website lets you write simple commands without programming. For example, "if the alarm clock goes off at 5:45 a.m., turn on the coffeepot."</p>
+        <p>Once you invest in the basics, you can experiment with small items, such as smart light bulbs. With your smartphone, you can control individual or groups of bulbs to turn on when you wake up and turn off when you leave the house. They cost more than LED bulbs ($15 and up) but last about 22 years and use 80 percent less power than traditional bulbs.</p>
+        <p><strong>Smart security</strong></p>
+        <p>A "smart" security system is one of the wisest investments you can make for your home and family. The Helix Sentinel 4 Camera Network Video Recorder Bundle offers motion detection and selectable zoom to get clear footage of potential intruders. Remote access lets you check in on the home front via your smartphone or tablet.</p>
+        <p>For extra protection and style, consider keyless locks, such as the Habitat Sentinel Touchscreen Key-Free Deadbolt. A built-in interference alarm sounds when someone tries to break in, which gives you extra peace of mind.</p>
+        <p>To protect your little ones, products such as the Habitat Sentinel HD Wireless Baby Monitoring Camera offer streaming video so you can monitor baby from anywhere with your smartphone. A built-in microphone and two-way speaker let you hear her cries and coax her to sleep.</p>
+        <p><strong>Get smarter gadgets</strong></p>
+        <p>A connected home includes not only major appliances, but also small devices we use every day. Products such as the iGrill Mini alert your smartphone when your steak reaches the perfect temperature. Sous vide cookers, once reserved for high-end restaurants, have made their way into high-end homes, with smart features such as Bluetooth and built-in WiFi. Habitat coffeemakers, countertop ovens, and other small appliances also come with smart features for easy programming.</p>
+        <p><strong>Appliances</strong></p>
+        <p>If you want to fully dive into the connected home philosophy, replace your "dumb" appliances with connected versions. Habitat's Viva appliance line includes refrigerators that check inventory and let you control settings from your smartphone. Tell your Habitat Dwell smart vacuum to clean the living room floor, and command your Habitat Gleam smart washer to start a new cycle, all while watching your favorite show.</p>
+        <p>From light bulbs to refrigerators, smart devices work together to make life easier. Let Habitat help you design your connected home to suit your budget and your lifestyle.</p>
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image
       Value: |
