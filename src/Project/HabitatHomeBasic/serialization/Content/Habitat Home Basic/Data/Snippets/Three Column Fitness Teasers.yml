@@ -1,0 +1,96 @@
+﻿---
+ID: "b90f5a0b-ee5f-42ea-b91d-d7e159f0b15f"
+Parent: "bc88fb5e-c3e0-46f0-b00d-d02d1949b8d3"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Habitat Sites/Habitat Home Basic/Data/Snippets/Three Column Fitness Teasers
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 2950
+- ID: "c80e6f3c-5bcd-426b-b1eb-6d10672e985d"
+  Hint: Data Source Selection Behavior
+  Value: AskUser
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{2F9872D5-856F-412C-AEB3-A7B218304779}"
+          p:before="*"
+          s:cnd=""
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:mvt=""
+          s:par="Styles=%7b1a5d48a6-95f2-4bf2-b563-2f6703fbce43%7d%7c%7b76b2872d-5bc8-4b26-83a5-aabd2737cf47%7d%7c%7b3857fcee-835d-482c-99b9-4be1828e38d2%7d&amp;DynamicPlaceholderId=1"
+          s:ph="section-content" />
+        <r
+          uid="{8ACA1967-01B3-4F59-BB90-C931B9E9CE81}"
+          p:after="r[@uid='{2F9872D5-856F-412C-AEB3-A7B218304779}']"
+          s:ds="/sitecore/content/Habitat Sites/Habitat Home Basic/home/guides/importance-of-stretching"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=5&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bf04e97a8-f249-4674-b3e8-0bce91b0b34f%7d"
+          s:ph="/section-content/container-1/column-3-2" />
+        <r
+          uid="{1E33D083-15B8-4A94-9AD3-418A558B2200}"
+          p:after="r[@uid='{8ACA1967-01B3-4F59-BB90-C931B9E9CE81}']"
+          s:ds="/sitecore/content/Habitat Sites/Habitat Home Basic/home/guides/ten-minute-home-workouts"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=4&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bf04e97a8-f249-4674-b3e8-0bce91b0b34f%7d"
+          s:ph="/section-content/container-1/column-2-2" />
+        <r
+          uid="{A2CF8491-0BA7-4858-8E66-8596F4903AB7}"
+          p:after="r[@uid='{1E33D083-15B8-4A94-9AD3-418A558B2200}']"
+          s:ds="/sitecore/content/Habitat Sites/Habitat Home Basic/home/guides/best-in-wearable-fitness-technology"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=3&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bf04e97a8-f249-4674-b3e8-0bce91b0b34f%7d"
+          s:ph="/section-content/container-1/column-1-2" />
+        <r
+          uid="{3CB4EC45-C979-472A-905B-CAA07F72B9A7}"
+          p:after="*[1=2]"
+          s:ds="{b90f5a0b-ee5f-42ea-b91d-d7e159f0b15f}"
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="DynamicPlaceholderId=2&amp;EnabledPlaceholders=1%2c2%2c3&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;ColumnWidth3=%7b4D4B771B-9954-430E-AEE1-E76C54BD50C3%7d&amp;ColumnWidth1=%7b4D4B771B-9954-430E-AEE1-E76C54BD50C3%7d&amp;ColumnWidth2=%7b4D4B771B-9954-430E-AEE1-E76C54BD50C3%7d"
+          s:ph="/section-content/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180607T132826Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180620T061333Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180611T140838Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
