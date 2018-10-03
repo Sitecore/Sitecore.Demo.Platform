@@ -1,13 +1,44 @@
 ﻿---
-ID: "0f9916f7-5908-423e-ad1b-96f291be0c6c"
-Parent: "92ab0fb4-bcf8-4f2d-a4dc-59899526231a"
-Template: "3d55c326-3353-48cd-bedc-e8ae0cb9ef4d"
-Path: /sitecore/content/Habitat Sites/Habitat Home Basic/Settings/Site Grouping/HHBasic/CORS
+ID: "92ab0fb4-bcf8-4f2d-a4dc-59899526231a"
+Parent: "2ebf1dd7-762d-4895-916d-72b0b7a403bb"
+Template: "eda823fc-bc7e-4ef6-b498-cd09ec6fdaef"
+Path: /sitecore/content/Habitat Sites/Habitat Home Basic/Settings/Site Grouping/Habitat Home Basic
 DB: master
 SharedFields:
+- ID: "1ee576af-ba8e-4312-9fbd-2ccf8395baa1"
+  Hint: StartItem
+  Value: "{bc2be67b-632a-4368-bed6-5ff55d1251c2}"
+- ID: "301e719a-6f65-4874-b565-a953a7b5ac83"
+  Hint: OtherProperties
+  Value: "formsRoot=%7B25d757d2-3fcc-4d25-b5d5-1fcf8a8fb867%7D&dictionaryPath=%2Fsitecore%2Fcontent%2FHabitat%20Sites%2FHabitat%2FData%2FDictionary&enableFieldLanguageFallback=true&enableItemLanguageFallback=true"
+- ID: "4e9e2ae5-36db-4955-9af1-5a1934a27c7d"
+  Hint: Language Embedding
+  Type: Checkbox
+  Value: 1
+- ID: "85f47095-7e58-449c-9773-b0aeb925ad1f"
+  Hint: Indexes
+  Value: master/*=sitecore_sxa_master_index&web/*=sitecore_sxa_web_index
+- ID: "8e0dd914-9afb-4d45-bf8b-7ff5d6e5337e"
+  Hint: HostName
+  Value: habitathomebasic.dev.local
+- ID: "a7803a5d-cd03-4eda-abed-1d9af4bf6660"
+  Hint: Database
+  Value: master
+- ID: "cb4e9e2e-2b66-43dc-ad3f-9caf363d28d3"
+  Hint: SiteName
+  Value: HabitatHomeBasic
+- ID: "da06d09e-02b6-464a-80fc-9d8d7fc875e3"
+  Hint: Environment
+  Value: *
+- ID: "e5b5ccb5-17a1-429d-bd3e-6122b3216e52"
+  Hint: TargetHostName
+  Value: 
+- ID: "f19277fe-1b85-4b0a-8c26-5e74d766b3a3"
+  Hint: Language
+  Value: 
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: "{B6DAB7A0-4F89-4FF1-A1F8-683C1077162A}"
+  Value: "{0EF8CB53-535D-41FE-8704-2C014D60D2DD}"
 Languages:
 - Language: en
   Versions:
@@ -15,7 +46,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171027T191431Z
+      Value: 20171027T190506Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -43,7 +74,7 @@ Languages:
       Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171027T191431Z
+      Value: 20171027T190506Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: 
