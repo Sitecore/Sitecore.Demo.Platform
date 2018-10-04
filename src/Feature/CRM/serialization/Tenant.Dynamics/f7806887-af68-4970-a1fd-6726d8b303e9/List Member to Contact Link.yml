@@ -1,0 +1,41 @@
+﻿---
+ID: "6296aef1-eb9d-48d7-bb63-3f776fa98322"
+Parent: "f7806887-af68-4970-a1fd-6726d8b303e9"
+Template: "1d0be1bd-1ee8-4a3e-bfec-689bfacf2860"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Tenant Settings/Providers/Dynamics/Link Entities/List Members/List Member to Contact Link
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "3d908798-0b3f-4ed8-9dcf-9df00a713ae8"
+  Hint: LinkToAttributeValueAccessor
+  Value: "{D7F97DCB-7E39-4EB1-93BF-31F8F6438321}"
+- ID: "7f4cf79f-73fd-42e5-9c07-2184193affaf"
+  Hint: LinkFromEntityName
+  Value: listmember
+- ID: "a54f7604-52ec-4474-9cb6-f5978cab2888"
+  Hint: JoinOperator
+  Value: Inner
+- ID: "c726e7a4-a377-4a84-ae23-91e2cad7da3d"
+  Hint: LinkToEntityName
+  Value: contact
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{6296AEF1-EB9D-48D7-BB63-3F776FA98322}"
+- ID: "f9e3d2d8-c4fe-4e83-9633-d74fa825cecc"
+  Hint: LinkFromAttributeValueAccessor
+  Value: "{FDBEF87B-3135-4A37-863A-C56FFC0C51FA}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "008f2ccd-7b44-4d13-b78a-87f134a7e460"
+      Hint: EntityAlias
+      Value: contact
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112738Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

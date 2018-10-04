@@ -1,0 +1,51 @@
+﻿---
+ID: "e9baec58-9beb-4a20-94c3-be8d0042cd28"
+Parent: "a511fd13-e972-4e10-a9d1-03c2ad16b89d"
+Template: "70413326-c6c1-4beb-9369-e0e51a8e243a"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/xConnect Contacts and Interactions to Salesforce Sync/Process Single Contact from xConnect Pipeline/Fake Resolve Salesforce Contact
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "010e5d89-6409-4fbc-843b-ceb84c8ed3bb"
+  Hint: IdentifierObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "4ce9ed44-bc7f-44e5-886d-97d9a6890faa"
+  Hint: IdentifierValueAccessor
+  Value: "{CDA75EE1-BA9D-4C3C-A8B1-933BAB7FE74F}"
+- ID: "593797fc-f6ad-42f8-84d0-c1773a0bec99"
+  Hint: EndpointFrom
+  Value: "{76235B35-2CFC-44CB-96E3-10F1896FFE3D}"
+- ID: "5c061c42-ff86-4f43-b5ad-831dc03dc77d"
+  Hint: ResolvedObjectLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "df1ca77f-40bd-493a-b146-15e7093eed55"
+  Hint: ObjectName
+  Value: contact
+- ID: "ea7cb07b-a934-4215-ae66-52364ff1b195"
+  Hint: FieldsToRead
+  Type: Treelist
+  Value: |
+    {7577EF8F-FD61-4E1A-8D44-CE7811D99EBB}
+    {02D7B765-F22D-4674-8531-A6BE3A41AF85}
+- ID: "f310a4c9-6fc8-4e00-93ff-4c9491dd4dad"
+  Hint: DoNotLookForExistingObject
+  Type: Checkbox
+  Value: 1
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{E9BAEC58-9BEB-4A20-94C3-BE8D0042CD28}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165825Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
