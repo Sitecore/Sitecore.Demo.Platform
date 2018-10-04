@@ -1,0 +1,36 @@
+﻿---
+ID: "e957e08b-6638-483a-9033-2e680ff8050c"
+Parent: "934343c6-0e66-412f-8ced-e897da892015"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Value Mapping Sets/xConnect Contact to Salesforce Contact Mappings/Contact Model to Salesforce Contact/Birthdate
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{E64F5393-8EA4-49F5-B3EC-E5BDA02186FD}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{335AEEF4-5338-4C09-9931-42635B2F4667}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{E957E08B-6638-483A-9033-2E680FF8050C}"
+- ID: "fd738fc4-54b9-4aa3-bb8c-5749ba0907c4"
+  Hint: SourceValueTransformer
+  Value: "{5D3E73B3-65DD-457B-B294-FDA1D9A7FA57}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165841Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

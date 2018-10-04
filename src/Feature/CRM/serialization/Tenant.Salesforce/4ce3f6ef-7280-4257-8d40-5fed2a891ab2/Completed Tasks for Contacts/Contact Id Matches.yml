@@ -1,0 +1,32 @@
+﻿---
+ID: "d37d8f47-bf6f-420d-a8db-2be273fc89c7"
+Parent: "7b4c5c63-28c8-4296-9cf5-41a8e68868f6"
+Template: "c13a4e3e-3d13-4662-b5ec-fca3046fd586"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Tenant Settings/Providers/Salesforce/Filter Expressions/Task Filter Expressions/Completed Tasks for Contacts/Contact Id Matches
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "37a6be44-6e70-4847-83b5-f65456fa6db2"
+  Hint: Value
+  Value: (SELECT Contact.Id FROM Contact)
+- ID: "7a97a031-8c1a-4a31-b97a-329afaff9017"
+  Hint: LeftValueAccessor
+  Value: "{CD58B48C-DAA0-4E4C-B864-4B209B2BE96C}"
+- ID: "afa25675-90eb-4dff-93e0-39fc0384c245"
+  Hint: ConditionOperator
+  Value: "{C092518D-BBDD-4D4B-BF4A-2D8DAF729154}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D37D8F47-BF6F-420D-A8DB-2BE273FC89C7}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165829Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

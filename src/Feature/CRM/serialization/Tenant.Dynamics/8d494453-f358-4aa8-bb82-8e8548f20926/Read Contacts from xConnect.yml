@@ -1,0 +1,44 @@
+﻿---
+ID: "dc89e66e-0396-443a-acff-e3267168ec7b"
+Parent: "8d494453-f358-4aa8-bb82-8e8548f20926"
+Template: "a0fa5b87-6ff3-4ae7-9313-6c1f4a53984b"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Pipelines/xConnect Contacts to Dynamics Sync Pipelines/Read Contacts from xConnect Pipeline/Read Contacts from xConnect
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "4c84daf6-dc6a-4f7d-ac13-2e7292d8e600"
+  Hint: EndpointFrom
+  Value: "{689E9896-B8DD-43B6-A433-E4A9AB261702}"
+- ID: "9d248298-070e-4629-b709-9cb9c4029696"
+  Hint: ContactBatchSize
+  Value: 100
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 250
+- ID: "e20767b7-ffe4-4d48-ab2b-156f35e71cb9"
+  Hint: LoadInteractions
+  Type: Checkbox
+  Value: 1
+- ID: "e33af02b-1a46-4981-a0f8-d82f2dfdf1bc"
+  Hint: ContactFacetsToRead
+  Type: Treelist
+  Value: |
+    {70CDEF8F-4756-530C-EB5C-E83BA9F2D3E3}
+    {7F9B5A99-BD75-6E7F-5056-10719C15E1B9}
+    {C80801F6-DA55-9E34-0EEB-A850BBCF8862}
+    {3F32CD9F-E30D-F000-1CD4-D237C4A16B70}
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{DC89E66E-0396-443A-ACFF-E3267168EC7B}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112718Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

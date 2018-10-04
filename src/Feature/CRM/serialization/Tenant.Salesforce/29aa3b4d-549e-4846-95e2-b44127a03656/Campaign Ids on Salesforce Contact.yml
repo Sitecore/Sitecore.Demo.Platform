@@ -1,0 +1,29 @@
+﻿---
+ID: "023d7d14-5b50-4359-805d-9b711c9c4e3c"
+Parent: "29aa3b4d-549e-4846-95e2-b44127a03656"
+Template: "1b872924-e270-4e66-8cd6-1615494e3fb3"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Data Access/Value Accessor Sets/Providers/Salesforce/Salesforce Campaign Membership Fields/Campaign Ids on Salesforce Contact
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "a43c1739-d583-4d09-8713-d2fd4b09b521"
+  Hint: FieldNameForSelect
+  Value: (select CampaignId from CampaignMembers)
+- ID: "e633397b-f97f-4d37-b539-5d5f4f549910"
+  Hint: FieldName
+  Value: CampaignMembers
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{023D7D14-5B50-4359-805D-9B711C9C4E3C}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165757Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
