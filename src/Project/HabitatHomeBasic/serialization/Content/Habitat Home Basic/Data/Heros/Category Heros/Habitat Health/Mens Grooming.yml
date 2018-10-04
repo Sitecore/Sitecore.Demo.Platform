@@ -1,0 +1,47 @@
+﻿---
+ID: "0e83d452-9d81-49c0-959a-324d050a216e"
+Parent: "e12cd9bc-8760-4e6c-baf5-f15dbb6b118d"
+Template: "643a85f5-c9f1-4836-b17b-35ade22d03d3"
+Path: /sitecore/content/Habitat Sites/Habitat Home Basic/Data/Heros/Category Heros/Habitat Health/Mens Grooming
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0d089052-245b-4b23-8042-b63d06c8fe64"
+      Hint: HeroOverlayImage
+      Value: |
+        <image mediaid="{5C23342F-C365-4695-AFD0-2CA58CB72F21}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180323T173459Z
+    - ID: "440b5413-5322-4166-9fbe-580f70973751"
+      Hint: HeroTitle
+      Value: Upgrade Your Grooming Routine
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "9c385368-a554-4a92-9a8d-37f3ef3a09f4"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{73398813-9AB9-46A4-B305-EC7BB7E97A14}" />
+    - ID: "e50b8dc2-0ec1-47af-b1da-0a6622368986"
+      Hint: HeroText
+      Value: Stock up on the essential grooming and skincare products you need.
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180324T011855Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
