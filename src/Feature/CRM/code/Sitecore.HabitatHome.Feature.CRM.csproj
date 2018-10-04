@@ -44,6 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client">
+      <Version>5.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost">
+      <Version>5.2.3</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.3" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
       <Version>1.0.0</Version>
@@ -53,6 +59,12 @@
       <Version>9.0.180604</Version>
     </PackageReference>
     <PackageReference Include="Sitecore.Analytics.XConnect.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Cintel.Client.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Cintel.NoReferences">
       <Version>9.0.180604</Version>
     </PackageReference>
     <PackageReference Include="Sitecore.DataExchange.DataAccess.NoReferences">
@@ -82,6 +94,9 @@
     <PackageReference Include="Sitecore.Services.Core.NoReferences">
       <Version>9.0.180604</Version>
     </PackageReference>
+    <PackageReference Include="Sitecore.Web.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
     <PackageReference Include="Sitecore.XConnect.Client.Configuration.NoReferences">
       <Version>9.0.180604</Version>
     </PackageReference>
@@ -109,6 +124,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="sitecore\shell\client\Applications\ExperienceProfile\Contact\Details\SalesforceTab.css" />
+    <Content Include="sitecore\shell\client\Applications\ExperienceProfile\Contact\Details\SalesforceTab.js" />
     <None Include="App_Config\ConnectionStrings.config.xdt">
       <SubType>Designer</SubType>
     </None>
@@ -137,6 +154,11 @@
     <Compile Include="Conditions\SfmcJourneyStatusCondition.cs" />
     <Compile Include="CustomCollectionModels\CustomSalesforceConnectCollectionModel.cs" />
     <Compile Include="CustomCollectionModels\CustomSalesforceContactInformation.cs" />
+    <Compile Include="ExperienceProfile\CustomApiController\ExperienceProfileSalesforceContactController.cs" />
+    <Compile Include="ExperienceProfile\CustomApiController\ExperienceProfileSalesforceCustomerIntelligenceManager.cs" />
+    <Compile Include="ExperienceProfile\ExperienceProfileSalesforceInitializeRoutes.cs" />
+    <Compile Include="ExperienceProfile\ExperienceProfileSalesforceReadonlyContact.cs" />
+    <Compile Include="ExperienceProfile\ExperienceProfileSalesforceXdbContactService.cs" />
     <Compile Include="Pipelines\SyncToSalesforceCrmOnSessionEnd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TriggerDefPipelineBatch\SyncToSalesforceCrm.cs" />
@@ -147,6 +169,7 @@
       <Name>Sitecore.HabitatHome.Foundation.Accounts</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
