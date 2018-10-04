@@ -84,10 +84,12 @@ Task("Publish-Project-Projects").Does(() => {
     var common = $"{configuration.ProjectSrcFolder}\\Common";
     var habitat = $"{configuration.ProjectSrcFolder}\\Habitat";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
+    var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
 
     PublishProjects(common, configuration.WebsiteRoot);
     PublishProjects(habitat, configuration.WebsiteRoot);
     PublishProjects(habitatHome, configuration.WebsiteRoot);
+    PublishProjects(habitatHomeBasic, configuration.WebsiteRoot);
 });
 
 Task("Publish-xConnect-Project").Does(() => {

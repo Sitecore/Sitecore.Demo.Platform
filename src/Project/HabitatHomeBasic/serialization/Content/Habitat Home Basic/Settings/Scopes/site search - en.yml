@@ -1,0 +1,147 @@
+﻿---
+ID: "88d18ed3-2aec-44b9-9571-d4e72c2de80a"
+Parent: "840da513-175c-48af-9534-e974aa4b2856"
+Template: "8b649372-cc12-4f31-802a-8c3b3d09bb3f"
+Path: "/sitecore/content/Habitat Sites/Habitat Home Basic/Settings/Scopes/site search - en"
+DB: master
+SharedFields:
+- ID: "b04fe662-2b23-44dd-b971-2b864a1ec55f"
+  Hint: ScopeQuery
+  Value: "+location:{bc2be67b-632a-4368-bed6-5ff55d1251c2};+custom:culture|en"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0f628fd3-a28c-4da7-968b-dce9f3b71b5a"
+      Hint: Rule
+      Type: Rules
+      Value: |
+        <ruleset>
+          <rule
+            uid="{F30943D9-3805-4059-9ADA-C3D8542D35CD}">
+            <conditions>
+              <condition
+                id="{61C016A2-5210-4F1D-A663-BDA18BE487F6}"
+                uid="D28AB3FC63244FB0A1787A6FCA743D94"
+                fieldname="title_t"
+                operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}"
+                value="mobile" />
+            </conditions>
+            <actions>
+              <action
+                id="{9A00D97A-E3A8-4011-B519-FEB70E80EA54}"
+                uid="C8404C275A5C4EA2B0642DAFEBD7A46F"
+                boost="101" />
+            </actions>
+          </rule>
+          <rule
+            uid="{22545C2A-8028-4AEF-BEE7-71C0FC55B1D0}">
+            <conditions>
+              <condition
+                id="{61C016A2-5210-4F1D-A663-BDA18BE487F6}"
+                uid="209B9BEC1BEF478A8937CB7ABCAB7C32"
+                fieldname="_templatename"
+                operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}"
+                value="Guide" />
+            </conditions>
+            <actions>
+              <action
+                id="{9A00D97A-E3A8-4011-B519-FEB70E80EA54}"
+                uid="9A7F7312A4674BE38E30BE3D00E60F0F"
+                boost="100" />
+            </actions>
+          </rule>
+          <rule
+            uid="{7F6DFE6C-8D91-44F4-8C69-555858C2550F}">
+            <conditions>
+              <condition
+                id="{61C016A2-5210-4F1D-A663-BDA18BE487F6}"
+                uid="C277D7A3720347CD91E0F337791DEA92"
+                fieldname="_templatename"
+                operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}"
+                value="L1" />
+            </conditions>
+            <actions>
+              <action
+                id="{9A00D97A-E3A8-4011-B519-FEB70E80EA54}"
+                uid="EBE025DC8A21466AA56DB131AAE47EFD"
+                boost="150" />
+            </actions>
+          </rule>
+        </ruleset>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180212T211403Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0f628fd3-a28c-4da7-968b-dce9f3b71b5a"
+      Hint: Rule
+      Type: Rules
+      Value: |
+        <ruleset>
+          <rule
+            uid="{F30943D9-3805-4059-9ADA-C3D8542D35CD}">
+            <conditions>
+              <condition
+                id="{61C016A2-5210-4F1D-A663-BDA18BE487F6}"
+                uid="D28AB3FC63244FB0A1787A6FCA743D94"
+                fieldname="title_t"
+                operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}"
+                value="mobile" />
+            </conditions>
+            <actions>
+              <action
+                id="{9A00D97A-E3A8-4011-B519-FEB70E80EA54}"
+                uid="C8404C275A5C4EA2B0642DAFEBD7A46F"
+                boost="101" />
+            </actions>
+          </rule>
+          <rule
+            uid="{22545C2A-8028-4AEF-BEE7-71C0FC55B1D0}">
+            <conditions>
+              <condition
+                id="{61C016A2-5210-4F1D-A663-BDA18BE487F6}"
+                uid="209B9BEC1BEF478A8937CB7ABCAB7C32"
+                fieldname="_templatename"
+                operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}"
+                value="Guide" />
+            </conditions>
+            <actions>
+              <action
+                id="{9A00D97A-E3A8-4011-B519-FEB70E80EA54}"
+                uid="9A7F7312A4674BE38E30BE3D00E60F0F"
+                boost="100" />
+            </actions>
+          </rule>
+          <rule
+            uid="{7F6DFE6C-8D91-44F4-8C69-555858C2550F}">
+            <conditions>
+              <condition
+                id="{61C016A2-5210-4F1D-A663-BDA18BE487F6}"
+                uid="C277D7A3720347CD91E0F337791DEA92"
+                fieldname="_templatename"
+                operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}"
+                value="L1" />
+            </conditions>
+            <actions>
+              <action
+                id="{9A00D97A-E3A8-4011-B519-FEB70E80EA54}"
+                uid="EBE025DC8A21466AA56DB131AAE47EFD"
+                boost="50" />
+            </actions>
+          </rule>
+        </ruleset>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180212T212829Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
