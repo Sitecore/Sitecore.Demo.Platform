@@ -1,0 +1,35 @@
+﻿---
+ID: "b1edd5a3-b89e-49ba-93ce-5307829babec"
+Parent: "6ec076bc-3014-4748-8afa-2288a66416cd"
+Template: "e21f2c61-6ea5-41ca-8795-f5167bccfd46"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/Salesforce Tasks to xConnect Sync Pipelines/Process Single Contact from Salesforce Pipeline/Add Contact Model to xConnect Batch
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "549d7f4e-ffdb-475d-a2fe-a97606f8020a"
+  Hint: BatchEntryStoragePluginLocation
+  Value: "{ADDE6B1E-20CD-4DE7-BFFA-14426395BA91}"
+- ID: "8fd77171-9ac2-4da8-b082-5045f4d4803c"
+  Hint: EntityModelLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "b8a8463b-25fc-4790-a1ae-380a7d0d154d"
+  Hint: EntityType
+  Value: "{8ECD641B-8F97-DB64-DF17-7E94D8AF6124}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{B1EDD5A3-B89E-49BA-93CE-5307829BABEC}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165823Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
