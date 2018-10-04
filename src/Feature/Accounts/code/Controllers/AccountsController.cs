@@ -25,8 +25,9 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
         private readonly IAccountsSettingsService _accountsSettingsService;
         private readonly IGetRedirectUrlService _getRedirectUrlService;
         private readonly IUserProfileService _userProfileService;
+        private readonly IExportFileService _exportFileService;
 
-        public AccountsController(IAccountRepository accountRepository, INotificationService notificationService, IAccountsSettingsService accountsSettingsService, IGetRedirectUrlService getRedirectUrlService, IUserProfileService userProfileService, IFedAuthLoginButtonRepository fedAuthLoginRepository)
+        public AccountsController(IAccountRepository accountRepository, INotificationService notificationService, IAccountsSettingsService accountsSettingsService, IGetRedirectUrlService getRedirectUrlService, IUserProfileService userProfileService, IFedAuthLoginButtonRepository fedAuthLoginRepository, IExportFileService exportFileService)
         {
             _fedAuthLoginRepository = fedAuthLoginRepository;
             _accountRepository = accountRepository;
@@ -34,6 +35,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
             _accountsSettingsService = accountsSettingsService;
             _getRedirectUrlService = getRedirectUrlService;
             _userProfileService = userProfileService;
+            _exportFileService = exportFileService;
         }
 
         public static string UserAlreadyExistsError => DictionaryPhraseRepository.Current.Get("/Accounts/Register/User Already Exists", "A user with specified e-mail address already exists");
@@ -332,7 +334,11 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 
                 if (!string.IsNullOrEmpty(exportedData))
                 {
-                    return RedirectToAction("ExportedDataDownload", new { fileString = exportedData });
+                    var fileWithExportedData = _exportFileService.CreateExportFile();
+
+                    _exportFileService.WriteExportedDataIntoFile(fileWithExportedData, exportedData);
+
+                    return RedirectToAction("ExportedDataDownload", new { fileString = fileWithExportedData });
                 }
             }
 
@@ -342,7 +348,9 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
         [HttpGet]
         public ActionResult ExportedDataDownload(string fileString)
         {
-            return File(Encoding.UTF8.GetBytes(fileString), "application/json", "ExportedContactData.json");
+            var exportedData = _exportFileService.ReadExportedDataFromFile(fileString);
+
+            return File(exportedData, "application/json", "ExportedContactData.json");
         }
 
         [RedirectUnauthenticated]

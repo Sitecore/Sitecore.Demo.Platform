@@ -173,7 +173,9 @@
     <Compile Include="Services\AccountsSettingsService.cs" />
     <Compile Include="Services\AccountTrackerService.cs" />
     <Compile Include="Services\AuthenticationStatus.cs" />
+    <Compile Include="Services\ExportFileService.cs" />
     <Compile Include="Services\GetRedirectUrlService.cs" />
+    <Compile Include="Services\IExportFileService.cs" />
     <Compile Include="Services\IAccountsSettingsService.cs" />
     <Compile Include="Services\IAccountTrackerService.cs" />
     <Compile Include="Services\IGetRedirectUrlService.cs" />
