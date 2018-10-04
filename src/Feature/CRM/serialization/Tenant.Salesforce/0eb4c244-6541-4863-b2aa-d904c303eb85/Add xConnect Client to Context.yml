@@ -1,0 +1,32 @@
+﻿---
+ID: "dc71d135-28c4-4941-85f4-fa7c6a0a89db"
+Parent: "0eb4c244-6541-4863-b2aa-d904c303eb85"
+Template: "7f28d8e6-0ff0-463d-978f-8f3e13ee1b44"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/Salesforce Contacts to xConnect Sync Pipelines/Read Contacts from Salesforce Pipeline/Add xConnect Client to Context
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "549d7f4e-ffdb-475d-a2fe-a97606f8020a"
+  Hint: BatchEntryStoragePluginLocation
+  Value: "{ADDE6B1E-20CD-4DE7-BFFA-14426395BA91}"
+- ID: "710d2e83-b83a-41c7-a170-6b6a7eac62e9"
+  Hint: Endpoint
+  Value: "{79B4E417-2F3F-45DB-9E81-BE6D26B39D56}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{DC71D135-28C4-4941-85F4-FA7C6A0A89DB}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165821Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
