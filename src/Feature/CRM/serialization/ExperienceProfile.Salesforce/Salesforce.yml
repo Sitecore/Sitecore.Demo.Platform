@@ -1,0 +1,105 @@
+﻿---
+ID: "6fc4c9f5-72aa-496a-a0c2-f0aa5bb3ac01"
+Parent: "87ee30c3-115f-4aeb-8c9e-bb784912011c"
+Template: "f62b4cd7-754c-4461-810f-2b6bd2c92a0d"
+Path: /sitecore/client/Applications/ExperienceProfile/Contact/PageSettings/Tabs/Salesforce
+DB: core
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 725
+- ID: "deab3795-056f-4421-adf0-758844461b72"
+  Hint: Placeholder Name
+  Value: Salesforce
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r>
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
+          par="Text=%7b6FC4C9F5-72AA-496A-A0C2-F0AA5BB3AC01%7d&amp;IsVisible=0&amp;Id=SalesforceTabId"
+          ph=""
+          uid="{926297C7-F404-4E87-B13E-C84206D48F3E}" />
+        <r
+          id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}"
+          par="Id=SalesforceTabBorder"
+          ph=""
+          uid="{647BBD46-73A5-4550-A20A-BF1AE32B936D}" />
+        <r
+          id="{FD97BD6A-2C46-4EB9-9F1F-7A2D7249DCC5}"
+          par="Database=core&amp;ItemId=%7bCBA60024-478B-4541-8AD5-D805095A3D83%7d&amp;Id=SalesforceLoadOnDemandPanel"
+          ph="SalesforceTabBorder.Content"
+          uid="{F5A3C688-099F-47BE-BD7B-3FCB6605F255}" />
+        <r
+          id="{F517C5E4-9A53-46C3-B922-5B44E6DAAA48}"
+          par="Height=60px&amp;Width=60px&amp;IsVisible=%7bBinding+SalesforceLoadOnDemandPanel.isLoaded%2c+Converter%3dNot%7d&amp;Id=SalesforceIndicatorImage"
+          ph="SalesforceTabBorder.Content"
+          uid="{AB94FCCC-9FAB-4B95-A2DE-8E692EC8A865}" />
+        <r
+          ds="{88134D50-FA78-406D-8C52-8286EB12BB25}"
+          id="{FE9723FC-56E4-4CA8-9C64-CB34F29462A5}"
+          par="IsBusy=%7bBinding+SalesforceLoadOnDemandPanel.isBusy%7d&amp;TargetControl=SalesforceTabBorder&amp;Id=SalesforceProgressIndicator"
+          ph="SalesforceTabBorder.Content"
+          uid="{C89BB4F5-F40C-48E0-B0D8-1C9521F20EF6}" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Detaljer
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180604T033650Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Details
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180604T034039Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20140125T163228Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 詳細
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180604T034346Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
