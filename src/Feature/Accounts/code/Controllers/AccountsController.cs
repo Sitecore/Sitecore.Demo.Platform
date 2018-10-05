@@ -1,19 +1,19 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
-using System.Web.Security;
+﻿using Sitecore.Data.Fields;
 using Sitecore.Diagnostics;
 using Sitecore.HabitatHome.Feature.Accounts.Attributes;
 using Sitecore.HabitatHome.Feature.Accounts.Models;
 using Sitecore.HabitatHome.Feature.Accounts.Repositories;
 using Sitecore.HabitatHome.Feature.Accounts.Services;
+using Sitecore.HabitatHome.Foundation.Accounts.Services;
 using Sitecore.HabitatHome.Foundation.Alerts.Extensions;
 using Sitecore.HabitatHome.Foundation.Alerts.Models;
 using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Attributes;
 using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
-using Sitecore.Data.Fields;
-using System.Text;
+using System;
+using System.Linq;
+using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 {
@@ -328,27 +328,23 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
         [RedirectUnauthenticated]
         public ActionResult ExportData(ExportAccount exportAccount)
         {
-            if (Context.User.Profile.Email != null && exportAccount.AccountToBeExported)
+            if (Context.User.Profile.Email != null)
             {
-                var exportedData = _userProfileService.ExportData(Context.User.Profile);
+                var fileNameWithExportedData = _userProfileService.ExportData(Context.User.Profile);
 
-                if (!string.IsNullOrEmpty(exportedData))
+                if (!string.IsNullOrEmpty(fileNameWithExportedData))
                 {
-                    var fileWithExportedData = _exportFileService.CreateExportFile();
-
-                    _exportFileService.WriteExportedDataIntoFile(fileWithExportedData, exportedData);
-
-                    return RedirectToAction("ExportedDataDownload", new { fileString = fileWithExportedData });
+                    return RedirectToAction("ExportedDataDownload", new { fileName = fileNameWithExportedData });
                 }
             }
 
-            return View(new ExportAccount() { AccountToBeExported = true });
+            return View(new ExportAccount());
         }
 
         [HttpGet]
-        public ActionResult ExportedDataDownload(string fileString)
+        public ActionResult ExportedDataDownload(string fileName)
         {
-            var exportedData = _exportFileService.ReadExportedDataFromFile(fileString);
+            var exportedData = _exportFileService.ReadExportedDataFromFile(fileName);
 
             return File(exportedData, "application/json", "ExportedContactData.json");
         }
