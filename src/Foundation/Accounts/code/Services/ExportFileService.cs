@@ -1,7 +1,7 @@
 ﻿using Sitecore.HabitatHome.Foundation.DependencyInjection;
 using System.IO;
 
-namespace Sitecore.HabitatHome.Feature.Accounts.Services
+namespace Sitecore.HabitatHome.Foundation.Accounts.Services
 {
     [Service(typeof(IExportFileService))]
     public class ExportFileService : IExportFileService

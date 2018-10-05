@@ -1,4 +1,4 @@
-﻿namespace Sitecore.HabitatHome.Feature.Accounts.Services
+﻿namespace Sitecore.HabitatHome.Foundation.Accounts.Services
 {
     public interface IExportFileService
     {
