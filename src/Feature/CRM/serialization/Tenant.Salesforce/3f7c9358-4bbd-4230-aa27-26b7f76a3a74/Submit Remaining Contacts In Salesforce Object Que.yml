@@ -1,0 +1,29 @@
+﻿---
+ID: "a4ce7c3d-489f-4a22-afdc-6d7fc175ade3"
+Parent: "3f7c9358-4bbd-4230-aa27-26b7f76a3a74"
+Template: "c7a6f264-b9f7-4a60-962b-11004fafb9b8"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/xConnect Contacts and Interactions to Salesforce Sync/Read Contacts from xConnect Pipeline/Submit Remaining Contacts In Salesforce Object Queue
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "493d5d0b-f8f6-48fa-a715-77c17e021579"
+  Hint: ObjectName
+  Value: contact
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{A4CE7C3D-489F-4A22-AFDC-6D7FC175ADE3}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165824Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,0 +1,36 @@
+﻿---
+ID: "25b24db8-982b-4f92-81d7-883501e4e585"
+Parent: "fc3e7511-4f71-4158-8eb8-3d113f496b6a"
+Template: "b0002399-17be-4ecf-8b8b-c1765abb6f73"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Tenant Settings/Providers/xConnect/Filter Expressions/Contact Filter Expressions/Contact Has Preferred Email Address Key
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "0503865c-2915-4474-992e-c4a21a3bd12a"
+  Hint: FacetProperty
+  Value: "{76EF71F7-3BF5-CBBD-D29E-052CF00E3E3F}"
+- ID: "3bcdfd67-d509-4ce2-b8fc-24527b7c6ca4"
+  Hint: Value
+  Value: 
+- ID: "a80d1399-8451-4db6-88b8-d3707c9803ec"
+  Hint: ConditionOperator
+  Value: "{26CC614B-6BA7-42FF-87CD-8B576439C4D9}"
+- ID: "ba2b09ef-aaca-4466-8c80-f756665729c0"
+  Hint: UseNullObjectForValue
+  Type: Checkbox
+  Value: 1
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{25B24DB8-982B-4F92-81D7-883501E4E585}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165830Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

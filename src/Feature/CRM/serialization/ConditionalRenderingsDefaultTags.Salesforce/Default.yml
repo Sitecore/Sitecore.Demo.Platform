@@ -1,0 +1,83 @@
+﻿---
+ID: "b60c6a64-b367-48f0-86d9-7fa1c3d3b603"
+Parent: "6f9a8f6e-5317-47e3-aeca-d7cbef06ec9a"
+Template: "854ba861-63ea-4a0c-8c7b-541e9a7ec4c1"
+Path: /sitecore/system/Settings/Rules/Conditional Renderings/Tags/Default
+DB: master
+SharedFields:
+- ID: "42f77151-098f-496a-94cf-590b7edeeabe"
+  Hint: Tags
+  Type: Multilist
+  Value: |
+    {BBD6A192-1AB9-41B6-A012-A24BCFCF84B1}
+    {09340671-13CF-4181-A706-BE150B00D735}
+    {D8933FCB-48F3-468E-8FB6-8F2B5CFAF404}
+    {CCDEDBA3-3677-433E-BA09-64A3094808C9}
+    {ADA1A7B1-F84D-419F-96E2-77F95006DC37}
+    {95611296-3E75-45C0-B7A4-69E69C8499AB}
+    {5A355A23-0148-48CB-9017-90A696EAF155}
+    {B5BAE47B-7C89-46AE-A367-B3F5027E8D18}
+    {18C2D156-9B7B-494F-ADB2-2D0D9113000E}
+    {75A9275C-7975-4677-B197-14617DF58635}
+    {F1933AAE-5AC3-4F86-BFEB-3F0C49E39749}
+    {83E58187-D1E5-4FB8-953E-EE89816EC0B5}
+    {67D3BB0D-8883-474A-B6D4-D7CB20B0D1AC}
+    {14550C5C-B182-4FDA-B268-8E691C3B2FCE}
+    {0B4B7975-113D-45D1-9B82-E0364907F9FA}
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Standard
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180604T033836Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Default
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180604T034206Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20120807T112600Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: デフォルト
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180604T034516Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

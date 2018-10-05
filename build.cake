@@ -64,6 +64,7 @@ Task("Clean").Does(() => {
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
 });
+
 Task("Copy-Sitecore-Lib")
     .WithCriteria(()=>(configuration.BuildConfiguration == "preview"))
     .Does(()=> {
@@ -72,7 +73,6 @@ Task("Copy-Sitecore-Lib")
         EnsureDirectoryExists(destination);
         CopyFiles(files, destination);
 }); 
-
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
 .IsDependentOn("Publish-Foundation-Projects")
@@ -96,10 +96,12 @@ Task("Publish-Project-Projects").Does(() => {
     var common = $"{configuration.ProjectSrcFolder}\\Common";
     var habitat = $"{configuration.ProjectSrcFolder}\\Habitat";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
+    var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
 
     PublishProjects(common, configuration.WebsiteRoot);
     PublishProjects(habitat, configuration.WebsiteRoot);
     PublishProjects(habitatHome, configuration.WebsiteRoot);
+    PublishProjects(habitatHomeBasic, configuration.WebsiteRoot);
 });
 
 Task("Publish-xConnect-Project").Does(() => {
@@ -173,8 +175,6 @@ Task("Modify-PublishSettings").Does(() => {
     XmlPoke(destination,importXPath,null,xmlSetting);
     XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
 });
-
-
 Task("Sync-Unicorn").Does(() => {
     var unicornUrl = configuration.InstanceUrl + "unicorn.aspx";
     Information("Sync Unicorn items from url: " + unicornUrl);
@@ -195,18 +195,15 @@ Task("Sync-Unicorn").Does(() => {
 });
 
 Task("Deploy-EXM-Campaigns").Does(() => {
-    DeployExmCampaigns();
-}).OnError(() => {
-	Information("Retrying Deploy-EXM-Campaigns");
-	DeployExmCampaigns();
-});;
+    var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
+    string responseBody = HttpGet(url);
+
+    Information(responseBody);
+});
 
 Task("Deploy-Marketing-Definitions").Does(() => {
     var url = $"{configuration.InstanceUrl}utilities/deploymarketingdefinitions.aspx?apiKey={configuration.MarketingDefinitionsApiKey}";
-    var responseBody = HttpGet(url, settings =>
-	{
-		settings.AppendHeader("Connection", "keep-alive");
-	});
+    string responseBody = HttpGet(url);
 
     Information(responseBody);
 });

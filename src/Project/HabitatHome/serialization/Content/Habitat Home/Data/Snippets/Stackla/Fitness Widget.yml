@@ -1,0 +1,73 @@
+﻿---
+ID: "a3c14371-abda-4198-87d7-cf6f0a19e2ec"
+Parent: "0e5ca356-15bc-4a7b-a3e4-73758cbc74ac"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Habitat Sites/Habitat Home/Data/Snippets/Stackla/Fitness Widget
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{48CE180A-1A81-476F-B8C9-F783BC853DC6}"
+          s:ds="/sitecore/system/Modules/Stackla/Widgets/sitecore-oem-demo/Slider Widget"
+          s:id="{CB62EBE9-22BC-4D88-A57D-3016B0D75801}"
+          s:par="Stored_Filter_Id=&amp;DS_Name=Slider+Widget&amp;DS_EmbedCode=%3c!--+Stackla+Widget+Embed+Code+(start)+--%3e%0a%3cdiv+class%3d%22stackla-widget%22+data-alias%3d%22sitecore-oem-demo.stackla.com%22+data-ct%3d%22%22+data-hash%3d%225a3b014039c53%22+data-id%3d%2233577%22+data-title%3d%22Slider+Widget%22+data-ttl%3d%2230%22+style%3d%22width%3a+100%25%3b+overflow%3a+hidden%3b%22%3e%3c%2fdiv%3e%0a%3cscript+type%3d%22text%2fjavascript%22%3e%0a(function+(d%2c+id)+%7b%0a++++var+t%2c+el+%3d+d.scripts%5bd.scripts.length+-+1%5d.previousElementSibling%3b%0a++++if+(el)+el.dataset.initTimestamp+%3d+(new+Date()).getTime()%3b%0a++++if+(d.getElementById(id))+return%3b%0a++++t+%3d+d.createElement(%27script%27)%3b%0a++++t.src+%3d+%27%2f%2fassetscdn.stackla.com%2fmedia%2fjs%2fwidget%2ffluid-embed.js%27%3b%0a++++t.id+%3d+id%3b%0a++++(d.getElementsByTagName(%27head%27)%5b0%5d+%7c%7c+d.getElementsByTagName(%27body%27)%5b0%5d).appendChild(t)%3b%0a%7d(document%2c+%27stackla-widget-js%27))%3b%0a%3c%2fscript%3e%0a%3c!--+Stackla+Widget+Embed+Code+(end)+--%3e&amp;Stored_Tags=358626&amp;DS_Stack=sitecore-oem-demo&amp;DS_Id=33577&amp;Stored_Filter_Name=&amp;Tags={7D9693A2-AF93-46B1-8198-9F0FAF325332}&amp;EmbedCode=%3c!--+Stackla+Widget+Embed+Code+(start)+--%3e%0a%3cdiv+class%3d%27stackla-widget%27+data-alias%3d%27sitecore-oem-demo.stackla.com%27+data-ct%3d%27%27+data-hash%3d%275a3b014039c53%27+data-id%3d%2733577%27+data-tags%3d%27358626%27+data-title%3d%27Slider+Widget%27+data-ttl%3d%2730%27+style%3d%27width%3a+100%25%3b+overflow%3a+hidden%3b%27%3e%3c%2fdiv%3e%0a%3cscript+type%3d%27text%2fjavascript%27%3e%0a(function+(d%2c+id)+%7b%0a++++var+t%2c+el+%3d+d.scripts%5bd.scripts.length+-+1%5d.previousElementSibling%3b%0a++++if+(el)+el.dataset.initTimestamp+%3d+(new+Date()).getTime()%3b%0a++++if+(d.getElementById(id))+return%3b%0a++++t+%3d+d.createElement(%27script%27)%3b%0a++++t.src+%3d+%27%2f%2fassetscdn.stackla.com%2fmedia%2fjs%2fwidget%2ffluid-embed.js%27%3b%0a++++t.id+%3d+id%3b%0a++++(d.getElementsByTagName(%27head%27)%5b0%5d+%7c%7c+d.getElementsByTagName(%27body%27)%5b0%5d).appendChild(t)%3b%0a%7d(document%2c+%27stackla-widget-js%27))%3b%0a%3c%2fscript%3e%0a%3c!--+Stackla+Widget+Embed+Code+(end)+--%3e%3cscript%3eif(typeof+Stackla+!%3d%3d+%27undefined%27+%26%26+typeof+Stackla.WidgetManager+!%3d%3d+%27undefined%27)+%7b+Stackla.WidgetManager.rebuild()%3b+%7d%3c%2fscript%3e"
+          s:ph="section-content">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{6AE92CFF-361F-475D-9F5E-EDFF08BCC450}"
+                s:name="Module Not Installed">
+                <conditions>
+                  <condition
+                    uid="9B505FB428A14D06A82712FA8748FFD0"
+                    s:id="{5CD2292C-32AC-4976-AA4F-A741555D22F8}"
+                    s:query="/sitecore/system/Modules/Stackla"
+                    s:except="true" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="A219F1B4AAA54E1EB09024CFD4BF0E1C"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="17DBC44F5ADE4518A17FFD7EFE284464"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180919T122402Z
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180919T140425Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous

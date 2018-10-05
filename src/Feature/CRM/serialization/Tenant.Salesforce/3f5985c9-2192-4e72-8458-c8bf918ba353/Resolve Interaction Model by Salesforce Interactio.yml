@@ -1,0 +1,50 @@
+﻿---
+ID: "a3987198-1e03-4d9c-9a9b-8da03f2b681d"
+Parent: "3f5985c9-2192-4e72-8458-c8bf918ba353"
+Template: "5cf536b1-d446-4aa7-a2f7-4cf42ac9258d"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/Salesforce Tasks to xConnect Sync Pipelines/Process Single Task from Salesforce Pipeline/Resolve Interaction Model by Salesforce Interaction Id from xConnect
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "010e5d89-6409-4fbc-843b-ceb84c8ed3bb"
+  Hint: IdentifierObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "1a6810e6-b18b-4e38-825a-fc9988d3518a"
+  Hint: FinishPipelineIfObjectNotResolved
+  Type: Checkbox
+  Value: 1
+- ID: "33edb437-a1d7-4630-8f81-391d4fe05741"
+  Hint: IdentifierValueMatchExpression
+  Value: "{A12338AA-BC99-4B4C-A96C-FDB280C04323}"
+- ID: "41f323e6-7840-4c16-8203-af8f415344c8"
+  Hint: FacetsToInitialize
+  Type: Treelist
+  Value: "{C3CC8F51-AFA2-07AD-21E0-53BC1836B57E}"
+- ID: "471d5e31-4a12-4d34-a592-411f192b7d9a"
+  Hint: ContactLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "4ce9ed44-bc7f-44e5-886d-97d9a6890faa"
+  Hint: IdentifierValueAccessor
+  Value: "{8BBE6335-44FE-4F21-9EAC-8E1B131C7EC1}"
+- ID: "5c061c42-ff86-4f43-b5ad-831dc03dc77d"
+  Hint: ResolvedObjectLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{A3987198-1E03-4D9C-9A9B-8DA03F2B681D}"
+- ID: "fbbda69d-8259-47c2-b0b4-6d453e55532a"
+  Hint: FinishPipelineIfExistingObjectFound
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165823Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
