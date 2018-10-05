@@ -21,9 +21,9 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.SignedI
                                                                                                                   
         public override void Process(SignedInArgs args)
         {
-            //Do not track the user signin if this is a response to a membership provider login
+            //Do not track the user signin if this is a response to a membership provider login or a sitecore backend signin
             var provider = this.GetProvider(args.Context.Identity);
-            if (provider.Name == Owin.Authentication.Constants.LocalIdentityProvider)
+            if (provider.Name == Owin.Authentication.Constants.LocalIdentityProvider || Context.Domain.Name == "sitecore")
             {
                 return;
             }
@@ -32,6 +32,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.SignedI
             {
                 Tracker.Initialize();
             }
+
             _accountTrackerService.TrackLoginAndIdentifyContact(provider.Name, args.User.Id);
             _updateContactFacetsService.UpdateContactFacets(args.User.InnerUser.Profile);
         }

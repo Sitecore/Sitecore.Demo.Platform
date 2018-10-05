@@ -6,7 +6,7 @@ using Sitecore.Data;
 using Sitecore.HabitatHome.Feature.Accounts.Models;
 using Sitecore.HabitatHome.Feature.Accounts.Services;
 using Sitecore.HabitatHome.Foundation.DependencyInjection;
-using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;                 
+using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 using Sitecore.Pipelines.GetSignInUrlInfo;
 
 namespace Sitecore.HabitatHome.Feature.Accounts.Repositories
@@ -16,16 +16,18 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Repositories
     {
 
         private readonly BaseCorePipelineManager _pipelineManager;
-        private readonly IAccountsSettingsService _accountsSettingsService;
+        private readonly IGetRedirectUrlService _getRedirectUrlService;
 
-        public FedAuthLoginButtonRepository(BaseCorePipelineManager pipelineManager, IAccountsSettingsService accountsSettingsService)
+        public FedAuthLoginButtonRepository(BaseCorePipelineManager pipelineManager, IGetRedirectUrlService getRedirectUrlService)
         {
             _pipelineManager = pipelineManager;
-            _accountsSettingsService = accountsSettingsService;
+            _getRedirectUrlService = getRedirectUrlService;
         }
+
         public IEnumerable<FedAuthLoginButton> GetAll()
         {
-            var returnUrl = _accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage);
+            string returnUrl = _getRedirectUrlService.GetRedirectUrl(AuthenticationStatus.Authenticated);
+            
             var args = new GetSignInUrlInfoArgs(Context.Site.Name, returnUrl);
             GetSignInUrlInfoPipeline.Run(_pipelineManager, args);
             if (args.Result == null)
