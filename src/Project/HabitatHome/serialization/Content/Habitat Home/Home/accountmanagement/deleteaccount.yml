@@ -2,13 +2,13 @@
 ID: "94557f49-05b1-4da3-8876-f79e86c3630b"
 Parent: "c8121f23-0ced-4828-8f8b-994d27f1cc7e"
 Template: "cb5e16df-b01c-44a0-a4d6-c99235acf860"
-Path: /sitecore/content/Habitat Sites/Habitat Home/home/accountmanagement/dataprotection
+Path: /sitecore/content/Habitat Sites/Habitat Home/home/accountmanagement/deleteaccount
 DB: master
 BranchID: "82d1ab06-4382-4fda-a382-e9cdee6abd80"
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/32x32/shield.png
+  Value: Office/32x32/step.png
 - ID: "d4952280-2d7d-4bf4-a99a-ea36dad0f0a7"
   Hint: Body Css Class
   Value: "account-management-page"
@@ -83,7 +83,7 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Data Protection
+    Value: Delete Account
   Versions:
   - Version: 1
     Fields:
@@ -98,11 +98,11 @@ Languages:
       Value: 
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
-      Value: Data Protection
+      Value: Delete Account
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\admin
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
-      Value: Data Protection
+      Value: Delete Account

@@ -1,18 +1,19 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
-using System.Web.Security;
+﻿using Sitecore.Data.Fields;
 using Sitecore.Diagnostics;
 using Sitecore.HabitatHome.Feature.Accounts.Attributes;
 using Sitecore.HabitatHome.Feature.Accounts.Models;
 using Sitecore.HabitatHome.Feature.Accounts.Repositories;
 using Sitecore.HabitatHome.Feature.Accounts.Services;
+using Sitecore.HabitatHome.Foundation.Accounts.Services;
 using Sitecore.HabitatHome.Foundation.Alerts.Extensions;
 using Sitecore.HabitatHome.Foundation.Alerts.Models;
 using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Attributes;
 using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
-using Sitecore.Data.Fields;
+using System;
+using System.Linq;
+using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 {
@@ -24,8 +25,9 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
         private readonly IAccountsSettingsService _accountsSettingsService;
         private readonly IGetRedirectUrlService _getRedirectUrlService;
         private readonly IUserProfileService _userProfileService;
+        private readonly IExportFileService _exportFileService;
 
-        public AccountsController(IAccountRepository accountRepository, INotificationService notificationService, IAccountsSettingsService accountsSettingsService, IGetRedirectUrlService getRedirectUrlService, IUserProfileService userProfileService, IFedAuthLoginButtonRepository fedAuthLoginRepository)
+        public AccountsController(IAccountRepository accountRepository, INotificationService notificationService, IAccountsSettingsService accountsSettingsService, IGetRedirectUrlService getRedirectUrlService, IUserProfileService userProfileService, IFedAuthLoginButtonRepository fedAuthLoginRepository, IExportFileService exportFileService)
         {
             _fedAuthLoginRepository = fedAuthLoginRepository;
             _accountRepository = accountRepository;
@@ -33,6 +35,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
             _accountsSettingsService = accountsSettingsService;
             _getRedirectUrlService = getRedirectUrlService;
             _userProfileService = userProfileService;
+            _exportFileService = exportFileService;
         }
 
         public static string UserAlreadyExistsError => DictionaryPhraseRepository.Current.Get("/Accounts/Register/User Already Exists", "A user with specified e-mail address already exists");
@@ -315,38 +318,60 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
             return View(model);
         }
 
-        public ActionResult DataProtection()
-        {
-            return View();
-        }
-
-        [HttpPost]
         [RedirectUnauthenticated]
         public ActionResult ExportData()
         {
-            if (Context.User.Profile.Email != null)
-            {
-                var exportedData = _userProfileService.ExportData(Context.User.Profile);
-
-                if (!string.IsNullOrEmpty(exportedData))
-                {
-                    return Json(exportedData, JsonRequestBehavior.AllowGet);
-                }
-            }
-
-            return Json("", JsonRequestBehavior.AllowGet);
+            return View(new ExportAccount() { AccountToBeExported = true });
         }
 
         [HttpPost]
         [RedirectUnauthenticated]
-        public ActionResult DeleteAccount()
+        public ActionResult ExportData(ExportAccount exportAccount)
         {
             if (Context.User.Profile.Email != null)
             {
-                _userProfileService.DeleteProfile(Context.User.Profile);
+                var fileNameWithExportedData = _userProfileService.ExportData(Context.User.Profile);
+
+                if (!string.IsNullOrEmpty(fileNameWithExportedData))
+                {
+                    return RedirectToAction("ExportedDataDownload", new { fileName = fileNameWithExportedData });
+                }
             }
 
-            return Redirect(Context.Site.GetRootItem().Url());
+            return View(new ExportAccount());
+        }
+
+        [HttpGet]
+        public ActionResult ExportedDataDownload(string fileName)
+        {
+            var exportedData = _exportFileService.ReadExportedDataFromFile(fileName);
+
+            return File(exportedData, "application/json", "ExportedContactData.json");
+        }
+
+        [RedirectUnauthenticated]
+        public ActionResult DeleteAccount()
+        {
+            return View(new DeleteAccount() { AccountToBeDeleted = true });
+        }
+
+        [HttpPost]
+        [RedirectUnauthenticated]
+        public ActionResult DeleteAccount(DeleteAccount deleteAccount)
+        {
+            if (deleteAccount.AccountToBeDeleted)
+            {
+
+                if (Context.User.Profile.Email != null)
+                {
+                    _userProfileService.DeleteProfile(Context.User.Profile);
+                    _accountRepository.Logout();
+                }
+
+                return Redirect(Context.Site.GetRootItem().Url());
+            }
+
+            return View(new DeleteAccount() { AccountToBeDeleted = true });
         }
     }
 }
