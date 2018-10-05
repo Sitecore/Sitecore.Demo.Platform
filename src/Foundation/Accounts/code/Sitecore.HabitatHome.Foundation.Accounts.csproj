@@ -99,7 +99,9 @@
     <Compile Include="Pipelines\AccountsPipelineArgs.cs" />
     <Compile Include="Pipelines\PipelineService.cs" />
     <Compile Include="Services\ContactFacetService.cs" />
+    <Compile Include="Services\ExportFileService.cs" />
     <Compile Include="Services\IContactFacetService.cs" />
+    <Compile Include="Services\IExportFileService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DependencyInjection\code\Sitecore.HabitatHome.Foundation.DependencyInjection.csproj">
