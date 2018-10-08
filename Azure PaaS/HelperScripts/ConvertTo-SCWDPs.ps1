@@ -184,7 +184,7 @@ Function Prepare-WDP ([String] $configFile) {
 
 	if($config.Topology -eq "single")
 	{
-		[String] $assetsFile = $([IO.Path]::combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'XP0 Single', 'assets.json'))
+		[String] $assetsFile = $([IO.Path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
 	}
 	else
 	{
@@ -210,8 +210,8 @@ Function Prepare-WDP ([String] $configFile) {
     # Assign values to required working folder paths
     
     [String] $assetsFolder = $([IO.Path]::combine($config.DeployFolder, 'assets'))
-    [String] $ProjectModulesFolder = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'WDP Components', 'Modules'))
-	[String] $HabitatWDPFolder = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'WDP Components', 'Habitat'))
+    [String] $ProjectModulesFolder = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'WDP Components', 'Modules'))
+	[String] $HabitatWDPFolder = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'WDP Components', 'Habitat'))
     [String] $SitecoreCloudModule = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'Sitecore.Cloud.Cmdlets.psm1'))
     [String] $IonicZipPath = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'DotNetZip.dll'))
 

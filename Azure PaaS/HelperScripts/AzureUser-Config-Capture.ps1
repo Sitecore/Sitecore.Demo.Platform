@@ -29,7 +29,7 @@ if (!$config) {
 # Find and process azureuser-config.json
 if($config.Topology -eq "single")
 {
-	[string] $azureuserconfigFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'XP0 Single', 'azureuser-config.json'))
+	[string] $azureuserconfigFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azureuser-config.json'))
 }
 else
 {
