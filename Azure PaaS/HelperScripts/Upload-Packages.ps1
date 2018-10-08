@@ -31,7 +31,7 @@ if (!$config) {
 # Find and process assets.json
 if($config.Topology -eq "single")
 {
-	[string] $AssetsFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'XP0 Single', 'assets.json'))
+	[string] $AssetsFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
 }
 else
 {
@@ -156,10 +156,10 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
 
     # Fetching all ARM templates' paths
 
-    $azuredeployArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'XP0 Single', 'azuredeploy.json'))
-    $sxaArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'ARM Templates', 'Modules', 'Sitecore Experience Accelerator', 'sxa_module.json'))
-    $defArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'ARM Templates', 'Modules', 'Data Exchange Framework', 'def_module.json'))
-    $bootloadArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'XP0 Single', 'addons', 'bootloader.json'))
+    $azuredeployArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.json'))
+    $sxaArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Sitecore Experience Accelerator', 'sxa_module.json'))
+    $defArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Data Exchange Framework', 'def_module.json'))
+    $bootloadArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'addons', 'bootloader.json'))
 
     # Checking if the files are already uploaded and present in Azure and uploading
 
@@ -404,7 +404,7 @@ ForEach ($blob in $blobsList){
 
 # Find and process azureuser-config.json
 
-[String] $azureuserConfigFile = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'XP0 Single', 'azureuser-config.json'))
+[String] $azureuserConfigFile = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azureuser-config.json'))
 
 if (!(Test-Path $azureuserConfigFile)) {
     Write-Host "Azure user config file '$($azureuserConfigFile)' not found." -ForegroundColor Red
@@ -419,7 +419,7 @@ if (!$azureuserConfig) {
 
 # Find and process the azuredeploy.parameters.json template
 
-[String] $azuredeployConfigFile = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'XP0 Single', 'azuredeploy.parameters.json'))
+[String] $azuredeployConfigFile = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.parameters.json'))
 
 if (!(Test-Path $azuredeployConfigFile)) {
     Write-Host "Azuredeploy parameters file '$($azuredeployConfigFile)' not found." -ForegroundColor Red
@@ -527,7 +527,7 @@ $azuredeployConfig.parameters | ForEach-Object {
 
 # Apply the azuredeploy.parameters JSON schema to the azuredeploy.parameters.json file
 
-$azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'XP0 Single', 'azuredeploy_TEST.parameters.json'))
+$azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.parameters.json'))
 
 # Populate the "azuredeploy.json" ARM template URL inside the azureuser-config JSON schema and apply the schema to the azureuser-config.json file
 
@@ -544,7 +544,7 @@ ForEach ($setting in $azureuserConfig.settings){
         # Populate the value with the uploaded file's URL
 
         $setting.value = $azuredeployTemplateUrl
-        $azureuserConfig | ConvertTo-Json -Depth 5 | Set-Content $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'XP0 Single', 'azureuser-config_TEST.json'))
+        $azureuserConfig | ConvertTo-Json -Depth 5 | Set-Content $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azureuser-config.json'))
 
     }
 
