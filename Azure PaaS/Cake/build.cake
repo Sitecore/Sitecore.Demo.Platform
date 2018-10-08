@@ -31,7 +31,6 @@ Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
 .IsDependentOn("Publish-All-Projects")
-.IsDependentOn("Environment-Prep")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project")
@@ -100,7 +99,7 @@ Task("Apply-Xml-Transform").Does(() => {
 
 Task("Publish-Transforms").Does(() => {
     var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
-    var destination = $@"{$"{configuration.DeployFolder}\\Website\\HabitatHome"}\temp\transforms";
+    var destination = $@"{configuration.DeployFolder}\Website\HabitatHome\temp\transforms";
 
     CreateFolder(destination);
 
@@ -149,19 +148,10 @@ Task("Rebuild-Web-Index").Does(() => {
 
 Task("Publish-YML").Does(() => {
 	
-	StartPowershellFile (($"{configuration.ProjectFolder}\\Azure PaaS\\Sitecore 9.0.2\\HelperScripts\\Publish-YML.ps1"), args =>
+	StartPowershellFile (($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Publish-YML.ps1"), args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
         });
-		});
-
-Task("Environment-Prep").Does(() => {
-
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\Sitecore 9.0.2\\HelperScripts\\Env-Prep.ps1", args =>
-      {
-           args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
-      });
-
 		});
 
 Task("Azure-Build")
@@ -170,31 +160,35 @@ Task("Azure-Build")
 .IsDependentOn("Upload-Packages");
 
 Task("Aquire-Azure-User-Settings").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\Sitecore 9.0.2\\HelperScripts\\AzureUser-Config-Capture.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\AzureUser-Config-Capture.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
         });
 		});
 
 Task("ConvertTo-SCWDPs").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\Sitecore 9.0.2\\HelperScripts\\ConvertTo-SCWDPs.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\ConvertTo-SCWDPs.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
         });
 		});
 
 Task("Upload-Packages").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\Sitecore 9.0.2\\HelperScripts\\Upload-Packages.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Upload-Packages.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
         });
 		});
 
 Task("Azure-Deploy").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\Sitecore 9.0.2\\HelperScripts\\Azure-Deploy.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Deploy.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
         });
 		});
+
+Task("Get-Credentials").Does(() => {
+
+});
 
 RunTarget(target);

@@ -32,21 +32,6 @@ The demo is configured for **HTTPS/SSL**. Please ensure that you create an appro
 
 In order to deploy the assets, you need either Visual Studio 2017 or MSBuild Tools for Visual Studio 2017.
 
-### Custom install - before you start
-
-The following is a list of default values / assumptions for install locations
-
-**Project Folder**		`c:\projects\sitecore.habitathome.content\`  
-**Deploy Folder**		`c:\Deploy`  
-
-if these values are not correct you will need to edit the cake-config.json in the `\Azure PaaS\Cake` folder.  
-
-#### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
-
-If you do not use habitathome.dev.local you will need to modify the Host Name in 
-`/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
-The Habitat Home site will not respond / render correctly until this value is modified. 
-
 ## Installation:
 
 All installation instructions assume using **PowerShell 5.1** in _**administrative**_ mode.
@@ -66,13 +51,39 @@ Clone the Sitecore.HabitatHome.Content repository locally - defaults are configu
 -- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Content.git` 
 -- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Content.git`
 
-### 2. Deploy Sitecore.HabitatHome.Content
+### 2. Customize install
 
-From the Azure PaaS\Cake folder
+The following is a list of default values/assumptions for install locations
+
+**Project Folder**		`c:\projects\sitecore.habitathome.content\`  
+**Deploy Folder**		`c:\Deploy`  
+
+if these values are not correct you will need to edit the cake-config.json in the `\Azure PaaS\Cake` folder.  
+
+### 3. Environment Preparation
+
+From the `Sitecore.HabitatHome.Content\Azure PaaS\HelperScripts` folder
+
+- Run **`Env-Prep.ps1 -ConfigurationFile "See Below"`**
+
+For the `-ConfigurationFile` parameter please provde the full path to the `cake-config.json` located in your **\Azure PaaS\Cake folder**  
+This will prompt you for your dev.sitecore.com username and password.
+
+*Note this script currently throws an error. This can be safely ignored.
+
+### 4. Deploy Sitecore.HabitatHome.Content
+
+From the **\Azure PaaS\Cake** folder
 
 - Run **`.\build.ps1`** 
 
-### 3. Validating deployment
+### 5. Validating deployment
+
+##### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
+
+If you do not use habitathome.dev.local you will need to modify the Host Name in 
+`/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
+The Habitat Home site will not respond / render correctly until this value is modified. 
 
 # Contribute or Issues
 Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Content/issues). Contributions are always welcome!

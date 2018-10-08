@@ -28,7 +28,7 @@
       "fileName": "Sitecore PowerShell Extensions-4.7.2 for Sitecore 8.scwdp.zip",
       "url": "https://dev.sitecore.net/~/media/4918E7ADAAF049F4BC7BA5B73561F24F.ashx",
       "extract": false,
-      "isWdp":  true,
+      "isWdp": true,
       "convertToWdp": false,
       "uploadToAzure": true,
       "source": "sitecore"
@@ -43,6 +43,17 @@
       "convertToWdp": false,
       "uploadToAzure": true,
       "source": "sitecore"
+    },
+    {
+      "id": "courier",
+      "name": "Sitecore Courier",
+      "fileName": "Sitecore Courier Runner.zip",
+      "url": "https://github.com/adoprog/Sitecore-Courier/releases/download/1.2.4/Sitecore.Courier.Runner.zip",
+      "extract": true,
+      "isWdp": false,
+      "convertToWdp": false,
+      "uploadToAzure": false,
+      "source": "adoprog"
     },
     {
       "id": "defGroup",

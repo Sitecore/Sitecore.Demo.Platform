@@ -5,6 +5,7 @@
 
 ######################
 # Mandatory parameters
+######################
 
 Param(
     [parameter(Mandatory=$true)]
@@ -49,8 +50,27 @@ if (!$assetsConfig) {
     throw "Error trying to load Assest File!"
 }
 
+########################
+# Get Azure Credentials
+########################
+
+Write-Host "Importing and Installing AzureRm Module"
+
+$AzureModule = Get-Module -ListAvailable AzureRM
+if ($AzureModule -eq ""){
+    Install-Module -Name AzureRM
+}
+
+Import-Module AzureRM
+
+# Add Persisent Azure Session
+Enable-AzureRmContextAutosave
+
+Add-AzureRmAccount
+
 ##########################
 # Function for WDP uploads
+##########################
 
 Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsConfigFile){
 
@@ -149,8 +169,9 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
     
 }
 
-##########################
+###########################
 # Function for file uploads
+############################
 
 Function UploadFiles ([PSCustomObject] $cakeConfigFile){
 
@@ -293,8 +314,9 @@ try {
     
 }
 
-#########################################
+##############################################
 # Get the URL for each WDP blob and record it
+##############################################
 
 $blobsList = Get-AzureStorageBlob -Container $containerName -Context $ctx
 
