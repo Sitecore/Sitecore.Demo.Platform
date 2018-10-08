@@ -6,7 +6,14 @@
 
 Param(
 	[parameter(Mandatory=$true)]
-    [string] $ConfigurationFile
+	[ValidateNotNullOrEmpty()]
+    [string] $ConfigurationFile,
+	[Parameter(Mandatory=$true)]
+    [ValidateNotNullOrEmpty()]
+	[string] $Username,
+	[Parameter(Mandatory=$true)]
+    [ValidateNotNullOrEmpty()]
+	[Security.SecureString] $Password
 )
 
 ###########################
@@ -28,7 +35,7 @@ if (!$config) {
 # Find and process assets.json
 if($config.Topology -eq "single")
 {
-	[string] $AssetsFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'Sitecore 9.0.2', 'XP0 Single', 'assets.json'))
+	[string] $AssetsFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
 }
 else
 {
@@ -54,7 +61,7 @@ $foundfiles   = New-Object System.Collections.ArrayList
 $downloadlist = New-Object System.Collections.ArrayList
 $assetsfolder = (Join-Path $config.DeployFolder assets)
 [string] $habitathomefilepath = $([io.path]::combine($config.DeployFolder, 'Website', 'HabitatHome'))
-
+$credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username, $Password 
 
 ##################################################
 # Check for existing Files in Deploy\Assets Folder
@@ -187,8 +194,6 @@ else
 if($downloadlist)
 {
 	Write-Host "Downloading necessary files"
-
-	$credentials = Get-Credential -Message "Please provide dev.sitecore.com credentials"
 
 	foreach ($prereq in $assetconfig.prerequisites)
 	{
