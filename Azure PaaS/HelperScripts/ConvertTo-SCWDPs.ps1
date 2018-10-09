@@ -151,8 +151,17 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
     $DEFWDPFile = "_Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
                                
     If(Test-Path -Path (Join-Path $DestinationFolderPath $DEFWDPFile) -IsValid){
-                
-        Rename-Item -Path (Join-Path $DestinationFolderPath $DEFWDPFile) -NewName "$($DestinationFolderPath)\Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
+
+		try {
+					
+			Rename-Item -Path (Join-Path $DestinationFolderPath $DEFWDPFile) -NewName "$($DestinationFolderPath)\Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
+					
+		} catch {
+					
+			Write-Host "Unable to rename the file... continuing"
+			Continue
+
+		}
                 
     }
 
@@ -236,7 +245,16 @@ Function Prepare-WDP ([String] $configFile) {
                                 
                 If(Test-Path -Path (Join-Path $ModuleFolder $DEFZipFile) -IsValid){
                 
-                    Rename-Item -Path (Join-Path $ModuleFolder $DEFZipFile) -NewName "$($ModuleFolder)\_$($DEFZipFile)"
+					try {
+					
+						Rename-Item -Path (Join-Path $ModuleFolder $DEFZipFile) -NewName "$($ModuleFolder)\_$($DEFZipFile)"
+					
+					} catch {
+					
+						Write-Host "Unable to rename the file... continuing"
+						Continue
+
+					}
                 
                 }
             

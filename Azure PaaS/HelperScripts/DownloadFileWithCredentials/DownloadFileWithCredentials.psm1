@@ -12,7 +12,8 @@ Function Invoke-DownloadFileWithCredentialsTask {
         [ValidateScript( { Test-Path -Path $_ -PathType Leaf -IsValid })]
         [string]$Destinationfolder,
         [PSCredential]$Credentials,
-		[string]$Assetfilename
+		[string]$Assetfilename,
+		[string]$TypeSource
     )
 
     if ($PSCmdlet.ShouldProcess($SourceUri, "Download $SourceUri to $Destinationfolder")) {
@@ -22,7 +23,7 @@ Function Invoke-DownloadFileWithCredentialsTask {
 
 			$DestinationPath = Join-Path $Destinationfolder $Assetfilename
 
-            if ($Credentials) {
+            if ($Credentials -and ($TypeSource -eq "sitecore")) {
                 
                 $user = $Credentials.GetNetworkCredential().username
                 
@@ -32,9 +33,10 @@ Function Invoke-DownloadFileWithCredentialsTask {
 				$ProgressPreference = 'SilentlyContinue'
 				Invoke-WebRequest -Uri $SourceUri -OutFile $DestinationPath -WebSession $session -UseBasicParsing
             }
-			else
+			elseif ($TypeSource -ne "sitecore")
 			{
                 Write-Verbose "here"
+				[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
                 Invoke-WebRequest -Uri $SourceUri -OutFile $DestinationPath -UseBasicParsing
             }
         } catch {

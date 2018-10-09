@@ -54,7 +54,7 @@ if (!$assetsConfig) {
 # Get Azure Credentials
 ########################
 
-Write-Host "Importing and Installing AzureRm Module"
+<#Write-Host "Importing and Installing AzureRm Module"
 
 $AzureModule = Get-Module -ListAvailable AzureRM
 if ($AzureModule -eq ""){
@@ -66,7 +66,7 @@ Import-Module AzureRM
 # Add Persisent Azure Session
 Enable-AzureRmContextAutosave
 
-Add-AzureRmAccount
+Add-AzureRmAccount#>
 
 ##########################
 # Function for WDP uploads
@@ -84,8 +84,10 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
         Write-Host "Skipping... file $($sitecoreWDPFile.Name) already uploaded" -ForegroundColor Yellow
                         
     } catch {
-                        
+
+		Write-Host "Starting file upload for $($sitecoreWDPFile.Name)" -ForegroundColor Green
         Set-AzureStorageBlobContent -File $sitecoreWDPFile.FullName -Blob "wdps/$($sitecoreWDPFile.Name)" -Container $containerName -Context $ctx -Force
+		Write-Host "Upload of $($sitecoreWDPFile.Name) completed" -ForegroundColor Green
 
     }
 
@@ -95,8 +97,10 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
         Write-Host "Skipping... file $($xconnectWDPFile.Name) already uploaded" -ForegroundColor Yellow
                         
     } catch {
-                        
+                  
+		Write-Host "Starting file upload for $($xconnectWDPFile.Name)" -ForegroundColor Green		
         Set-AzureStorageBlobContent -File $xconnectWDPFile.FullName -Blob "wdps/$($xconnectWDPFile.Name)" -Container $containerName -Context $ctx -Force
+		Write-Host "Upload of $($xconnectWDPFile.Name) completed" -ForegroundColor Green
 
     }
 
@@ -119,7 +123,9 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
                         
                         } catch {
                         
+							Write-Host "Starting file upload for $($blobFile.Name)" -ForegroundColor Green
                             Set-AzureStorageBlobContent -File $blobFile.FullName -Blob "wdps/$($blobFile.Name)" -Container $containerName -Context $ctx -Force
+							Write-Host "Upload of $($blobFile.Name) completed" -ForegroundColor Green
                         
                         }
                     
@@ -141,7 +147,9 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
                         
                         } catch {
                         
+							Write-Host "Starting file upload for $($blobFile.Name)" -ForegroundColor Green
                             Set-AzureStorageBlobContent -File $blobFile.FullName -Blob "wdps/$($blobFile.Name)" -Container $containerName -Context $ctx -Force
+							Write-Host "Upload of $($blobFile.Name) completed" -ForegroundColor Green
                         
                         }
                     
@@ -162,16 +170,58 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
         Write-Host "Skipping... file $($bootloadWDPFile.Name) already uploaded" -ForegroundColor Yellow
                         
     } catch {
-                        
+                   
+		Write-Host "Starting file upload for $($bootloadWDPFile.Name)" -ForegroundColor Green
         Set-AzureStorageBlobContent -File $bootloadWDPFile.FullName -Blob "wdps/$($bootloadWDPFile.Name)" -Container $containerName -Context $ctx -Force
+		Write-Host "Upload of $($bootloadWDPFile.Name) completed" -ForegroundColor Green
 
     }
+
+	# Upload Habitat WDPs
+
+	$habitatWebsiteWDPPath = [IO.Path]::Combine($assetsFolder, 'website', 'convert to WDP', 'WDP', 'website_single.scwdp.zip')
+    if((Test-Path $habitatWebsiteWDPPath) -eq $True){
+	
+		$habitatWebsiteWDPFile = Get-Item -Path $habitatWebsiteWDPPath
+		try {
+                        
+			Get-AzureStorageBlob -Blob "wdps/$($habitatWebsiteWDPFile.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
+			Write-Host "Skipping... file $($habitatWebsiteWDPFile.Name) already uploaded" -ForegroundColor Yellow
+                        
+		} catch {
+                 
+			Write-Host "Starting file upload for $($habitatWebsiteWDPFile.Name)" -ForegroundColor Green
+			Set-AzureStorageBlobContent -File $habitatWebsiteWDPFile.FullName -Blob "wdps/$($habitatWebsiteWDPFile.Name)" -Container $containerName -Context $ctx -Force
+			Write-Host "Upload of $($habitatWebsiteWDPFile.Name) completed" -ForegroundColor Green
+
+		}
+
+	}
+	
+	$habitatXconnectWDPPath = [IO.Path]::Combine($assetsFolder, 'xconnect', 'convert to WDP', 'WDP', 'xconnect_single.scwdp.zip')
+	if((Test-Path $habitatXconnectWDPPath) -eq $True){
+	
+		$habitatXconnectWDPFile = Get-Item -Path $habitatXconnectWDPPath
+		try {
+                        
+			Get-AzureStorageBlob -Blob "wdps/$($habitatXconnectWDPFile.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
+			Write-Host "Skipping... file $($habitatXconnectWDPFile.Name) already uploaded" -ForegroundColor Yellow
+                        
+		} catch {
+                
+			Write-Host "Starting file upload for $($habitatXconnectWDPFile.Name)" -ForegroundColor Green
+			Set-AzureStorageBlobContent -File $habitatXconnectWDPFile.FullName -Blob "wdps/$($habitatXconnectWDPFile.Name)" -Container $containerName -Context $ctx -Force
+			Write-Host "Upload of $($habitatXconnectWDPFile.Name) completed" -ForegroundColor Green
+
+		}	
+	
+	}
     
 }
 
 ###########################
 # Function for file uploads
-############################
+###########################
 
 Function UploadFiles ([PSCustomObject] $cakeConfigFile){
 
@@ -180,6 +230,8 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
     $azuredeployArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.json'))
     $sxaArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Sitecore Experience Accelerator', 'sxa_module.json'))
     $defArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Data Exchange Framework', 'def_module.json'))
+    $habitatWebsiteArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'website.json'))
+    $habitatXconnectArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'xconnect.json'))
     $bootloadArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'addons', 'bootloader.json'))
 
     # Checking if the files are already uploaded and present in Azure and uploading
@@ -191,7 +243,9 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
                         
     } catch {
                         
+		Write-Host "Starting file upload for $($azuredeployArmTemplate.Name)" -ForegroundColor Green
         Set-AzureStorageBlobContent -File $azuredeployArmTemplate.FullName -Blob "arm-templates/$($azuredeployArmTemplate.Name)" -Container $containerName -Context $ctx -Force
+		Write-Host "Upload of $($azuredeployArmTemplate.Name) completed" -ForegroundColor Green
                         
     }
 
@@ -201,8 +255,10 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
         Write-Host "Skipping... file $($sxaArmTemplate.Name) already uploaded" -ForegroundColor Yellow
                         
     } catch {
-                        
+                   
+		Write-Host "Starting file upload for $($sxaArmTemplate.Name)" -ForegroundColor Green
         Set-AzureStorageBlobContent -File $sxaArmTemplate.FullName -Blob "arm-templates/$($sxaArmTemplate.Name)" -Container $containerName -Context $ctx -Force
+		Write-Host "Upload of $($sxaArmTemplate.Name) completed" -ForegroundColor Green
                         
     }
 
@@ -213,7 +269,35 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
                         
     } catch {
                         
+		Write-Host "Starting file upload for $($defArmTemplate.Name)" -ForegroundColor Green
         Set-AzureStorageBlobContent -File $defArmTemplate.FullName -Blob "arm-templates/$($defArmTemplate.Name)" -Container $containerName -Context $ctx -Force
+		Write-Host "Upload of $($defArmTemplate.Name) completed" -ForegroundColor Green
+                        
+    }
+
+    try {
+                        
+        Get-AzureStorageBlob -Blob "arm-templates/$($habitatWebsiteArmTemplate.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
+        Write-Host "Skipping... file $($habitatWebsiteArmTemplate.Name) already uploaded" -ForegroundColor Yellow
+                        
+    } catch {
+                        
+		Write-Host "Starting file upload for $($habitatWebsiteArmTemplate.Name)" -ForegroundColor Green
+        Set-AzureStorageBlobContent -File $habitatWebsiteArmTemplate.FullName -Blob "arm-templates/$($habitatWebsiteArmTemplate.Name)" -Container $containerName -Context $ctx -Force
+		Write-Host "Upload of $($habitatWebsiteArmTemplate.Name) completed" -ForegroundColor Green
+                        
+    }
+
+    try {
+                        
+        Get-AzureStorageBlob -Blob "arm-templates/$($habitatXconnectArmTemplate.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
+        Write-Host "Skipping... file $($habitatXconnectArmTemplate.Name) already uploaded" -ForegroundColor Yellow
+                        
+    } catch {
+                    
+		Write-Host "Starting file upload for $($habitatXconnectArmTemplate.Name)" -ForegroundColor Green
+        Set-AzureStorageBlobContent -File $habitatXconnectArmTemplate.FullName -Blob "arm-templates/$($habitatXconnectArmTemplate.Name)" -Container $containerName -Context $ctx -Force
+		Write-Host "Upload of $($habitatXconnectArmTemplate.Name) completed" -ForegroundColor Green
                         
     }
 
@@ -224,7 +308,9 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
                         
     } catch {
                         
+		Write-Host "Starting file upload for $($bootloadArmTemplate.Name)" -ForegroundColor Green
         Set-AzureStorageBlobContent -File $bootloadArmTemplate.FullName -Blob "arm-templates/$($bootloadArmTemplate.Name)" -Container $containerName -Context $ctx -Force
+		Write-Host "Upload of $($bootloadArmTemplate.Name) completed" -ForegroundColor Green
                         
     }
 
@@ -232,9 +318,10 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
 
 ###################################################
 # Upload created WDPs and additional files in Azure
+###################################################
 
 # Set variables for the container names
-$containerName = "azure-toolkit"
+$originalContainerName = "azure-toolkit"
 $additionalContainerName = "temporary-toolkit"
 
 # Check the Azure PowerShell Module's version
@@ -249,8 +336,13 @@ if ($AzureModule -eq ""){
 # Import the module into the PowerShell session
 Import-Module AzureRM
 
+# Add Persisent Azure Session
+Enable-AzureRmContextAutosave
+
+Add-AzureRmAccount
+
 # Connect to Azure with an interactive dialog for sign-in
-Connect-AzureRmAccount
+#Connect-AzureRmAccount
 
 # Get the current storage account
 $sa = Get-AzureRmStorageAccount
@@ -272,15 +364,17 @@ catch {
 
 }
 
+$containerName = $originalContainerName
+
 # Try to write to the container - if failing, use a temporary one
 try {
 
     "Verifying the existence of the current Azure container..."
-
+	   
 	# Check if the container name already exists and if it does, upload the WDP modules and additional files to the container
     Get-AzureStorageContainer -Container $containerName -Context $ctx -ErrorAction Stop
-    UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
-    UploadFiles -cakeConfigFile $config
+    #UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
+    #UploadFiles -cakeConfigFile $config
 
 } catch {
 
@@ -292,27 +386,32 @@ try {
         New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob -ErrorAction Stop
 
         # Upload the WDP modules to the blob container
-        UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
+        #UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
 
         # Upload additional files to the blob container
-        UploadFiles -cakeConfigFile $config
+        #UploadFiles -cakeConfigFile $config
 
     } catch {
     
         "It seems like the container has been deleted very recently... creating a temporary container instead"
 
+		$containerName = $additionalContainerName
         # Create a temporary container
-        New-AzureStorageContainer -Name $additionalContainerName -Context $ctx -Permission blob
+        New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
+		
         # Upload the WDP modules to the temporary blob container
-        UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
+        #UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
 
         # Upload additional files to the temporary blob container
-        UploadFiles -cakeConfigFile $config
+        #UploadFiles -cakeConfigFile $config
     
     }
     
 }
+
+UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
+UploadFiles -cakeConfigFile $config
 
 ##############################################
 # Get the URL for each WDP blob and record it
@@ -390,6 +489,18 @@ ForEach($blob in $blobsList){
             $xcSingleMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
         
         }
+        "wdps/website_single.scwdp.zip"
+        {
+        
+            $habitatWebsiteDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+        
+        }
+        "wdps/xconnect_single.scwdp.zip"
+        {
+        
+            $habitatXconnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+        
+        }
     
     }
     
@@ -411,6 +522,14 @@ ForEach ($blob in $blobsList){
     } elseif($blob.Name -like "*def*.json"){
     
         $defTemplateLink = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+
+    } elseif($blob.Name -like "*website.json"){
+    
+        $habitatWebsiteTemplateLink = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+
+    } elseif($blob.Name -like "*xconnect.json"){
+    
+        $habitatXconnectTemplateLink = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
 
     } elseif($blob.Name -like "*bootloader.json"){
     
@@ -542,8 +661,10 @@ $azuredeployConfig.parameters | ForEach-Object {
     $_.modules.value.items[1].parameters.defDynamicsDeployPackageUrl = $defDynamicsDeployPackageUrl
     $_.modules.value.items[1].parameters.defDynamicsConnectDeployPackageUrl = $defDynamicsConnectDeployPackageUrl
     $_.modules.value.items[1].templateLink = $defTemplateLink
-    $_.modules.value.items[2].parameters.msDeployPackageUrl = $msDeployPackageUrl
-    $_.modules.value.items[2].templateLink = $bootloaderTemplateLink
+    $_.modules.value.items[2].parameters.habitatWebsiteDeployPackageUrl = $habitatWebsiteDeployPackageUrl
+    $_.modules.value.items[2].templateLink = $habitatWebsiteTemplateLink
+    $_.modules.value.items[3].parameters.msDeployPackageUrl = $msDeployPackageUrl
+    $_.modules.value.items[3].templateLink = $bootloaderTemplateLink
 
 }
 

@@ -31,7 +31,7 @@
     },
     "allowInvalidClientCertificates": {
       "value": true
-    }, 
+    },
     "modules": {
       "value": {
         "items": [
@@ -54,6 +54,13 @@
               "defxConnectDeployPackageUrl": "<URL to the defxConnect module's WDP>",
               "defDynamicsDeployPackageUrl": "<URL to the defDynamics module's WDP>",
               "defDynamicsConnectDeployPackageUrl": "<URL to the defDynamicsConnect module's WDP>"
+            }
+          },
+          {
+            "name": "habitatWebsite",
+            "templateLink": "<URL to the Habitat Home json ARM template>",
+            "parameters": {
+              "habitatWebsiteDeployPackageUrl": "<URL to the Habitat Home' WDP>"
             }
           },
           {
