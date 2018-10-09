@@ -44,9 +44,9 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Services
             var model = new EditProfile
                         {
                             Email = user.Profile.Email,
-                            FirstName = user.Profile.Name ?? "",
-                            LastName = user.Profile.GetCustomProperty("LastName") ?? "",
-                            PhoneNumber = user.Profile.GetCustomProperty("Phone") ?? "",
+                            FirstName = user.Profile.GetCustomProperty(Constants.UserProfile.Fields.FirstName) ?? "",
+                            LastName = user.Profile.GetCustomProperty(Constants.UserProfile.Fields.LastName) ?? "",
+                            PhoneNumber = user.Profile.GetCustomProperty(Constants.UserProfile.Fields.PhoneNumber) ?? "",
                             Interest = properties.ContainsKey(Constants.UserProfile.Fields.Interest) ? properties[Constants.UserProfile.Fields.Interest] : "",
                             InterestTypes = _profileSettingsService.GetInterests()
                         };

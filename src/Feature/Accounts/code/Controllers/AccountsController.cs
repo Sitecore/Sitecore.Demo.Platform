@@ -66,15 +66,11 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 
         private LoginInfo CreateLoginInfo(string returnUrl = null)
         {
-            InternalLinkField link = Context.Site.GetSettingsItem().Fields[Templates.AccountsSettings.Fields.AfterLoginPage];
-            if (link.TargetItem == null)
-            {
-                throw new Exception("Account Settings: After Login Page link isn't set.");
-            }
-
+            string defaultRedirectUrl = _getRedirectUrlService.GetRedirectUrl(AuthenticationStatus.Authenticated);
+            
             return new LoginInfo
             {
-                ReturnUrl = returnUrl ?? link.TargetItem.Url()
+                ReturnUrl = returnUrl ?? defaultRedirectUrl
             };
         }
 
