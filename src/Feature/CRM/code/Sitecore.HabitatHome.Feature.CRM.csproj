@@ -55,6 +55,9 @@
         <Reference Include="Sitecore.Analytics">
           <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Analytics.dll</HintPath>
         </Reference>
+        <Reference Include="Sitecore.Analytics.Model">
+          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Analytics.Model.dll</HintPath>
+        </Reference>
         <Reference Include="Sitecore.Analytics.xConnect">
           <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Analytics.xConnect.dll</HintPath>
         </Reference>
@@ -135,6 +138,9 @@
         </PackageReference>
         <PackageReference Include="Microsoft.Net.Compilers" Version="1.3.2" />
         <PackageReference Include="Sitecore.Analytics.NoReferences">
+          <Version>9.0.180604</Version>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Analytics.Model.NoReferences">
           <Version>9.0.180604</Version>
         </PackageReference>
         <PackageReference Include="Sitecore.Analytics.XConnect.NoReferences">
@@ -244,18 +250,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TriggerDefPipelineBatch\SyncToSalesforceCrm.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Foundation\Accounts\code\Sitecore.HabitatHome.Foundation.Accounts.csproj">
-      <Project>{ce34a3b7-b91a-41ba-8b16-c1e131e1c621}</Project>
-      <Name>Sitecore.HabitatHome.Foundation.Accounts</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'vNext|AnyCPU'">
     <NoWarn>NU1603</NoWarn>
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
