@@ -167,7 +167,8 @@ else
         $assetfilename,
         $Credentials,
         $assetsfolder,
-		$sourceuri
+		$sourceuri,
+		$sourceType
     )
 
         if (!(Test-Path $assetsfolder)) {
@@ -185,6 +186,7 @@ else
                     Destination = $assetsfolder
 					Credentials = $Credentials
 					Assetfilename   = $assetfilename
+					TypeSource = $sourceType
 					}
 				
             Invoke-DownloadFileWithCredentialsTask  @params  
@@ -216,7 +218,7 @@ if($downloadlist)
 				}
 				else
 				{
-					Download-Asset -assetfilename $module.fileName -Credentials $Credentials -assetsfolder $(Join-Path $assetsfolder $prereq.name) -sourceuri $module.url
+					Download-Asset -assetfilename $module.fileName -Credentials $Credentials -assetsfolder $(Join-Path $assetsfolder $prereq.name) -sourceuri $module.url -sourceType $module.source
 				}
 			}
 		}
@@ -230,7 +232,7 @@ if($downloadlist)
 				New-Item -ItemType Directory -Force -Path $(Join-Path $assetsfolder $prereq.name)
 			}
 
-			Download-Asset -assetfilename $prereq.fileName -Credentials $Credentials -assetsfolder $(Join-Path $assetsfolder $prereq.name) -sourceuri $prereq.url
+			Download-Asset -assetfilename $prereq.fileName -Credentials $Credentials -assetsfolder $(Join-Path $assetsfolder $prereq.name) -sourceuri $prereq.url -sourceType $prereq.source
 			
 		}
 		elseif (($downloadlist -contains $prereq.fileName) -eq $false)
@@ -239,7 +241,7 @@ if($downloadlist)
 		}
 		else
 		{
-			Download-Asset -assetfilename $prereq.fileName -Credentials $Credentials -assetsfolder $assetsfolder -sourceuri $prereq.url
+			Download-Asset -assetfilename $prereq.fileName -Credentials $Credentials -assetsfolder $assetsfolder -sourceuri $prereq.url -sourceType $prereq.source
 		}
 	}
 }
