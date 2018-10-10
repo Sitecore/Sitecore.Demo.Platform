@@ -67,18 +67,6 @@
         <Reference Include="Sitecore.Cintel">
           <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Cintel.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.DataExchange.DataAccess">
-          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.DataExchange.DataAccess.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.DataExchange.Local">
-          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.DataExchange.Local.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.DataExchange">
-          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.DataExchange.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.DataExchange.Tools.SalesforceConnect">
-          <HintPath>..\..\..\..\lib\Sitecore\Sitecore.DataExchange.Tools.SalesforceConnect.dll</HintPath>
-        </Reference>
         <Reference Include="Sitecore.EmailCampaign.Model">
           <HintPath>..\..\..\..\lib\Sitecore\Sitecore.EmailCampaign.Model.dll</HintPath>
         </Reference>
@@ -109,6 +97,18 @@
         <Reference Include="Sitecore.XConnect">
           <HintPath>..\..\..\..\lib\Sitecore\Sitecore.XConnect.dll</HintPath>
         </Reference>
+        <PackageReference Include="Sitecore.DataExchange.DataAccess.NoReferences">
+          <Version>2.0.180108</Version>
+        </PackageReference>
+        <PackageReference Include="Sitecore.DataExchange.Local.NoReferences">
+          <Version>2.0.180108</Version>
+        </PackageReference>
+        <PackageReference Include="Sitecore.DataExchange.NoReferences">
+          <Version>2.0.180108</Version>
+        </PackageReference>
+        <PackageReference Include="Sitecore.DataExchange.Tools.SalesforceConnect.NoReferences">
+          <Version>2.0.180108</Version>
+        </PackageReference>
       </ItemGroup>
       <ItemGroup>
         <PackageReference Include="Microsoft.AspNet.WebApi.Client">
