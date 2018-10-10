@@ -50,7 +50,7 @@ if (!$azureuserconfig) {
 ########################
 # Get Azure Credentials
 ########################
-<#
+
 Write-Host "Importing and Installing AzureRm Module"
 
 $AzureModule = Get-Module -ListAvailable AzureRM
@@ -64,10 +64,12 @@ Import-Module AzureRM
 Enable-AzureRmContextAutosave
 
 Add-AzureRmAccount
-#>
+
 ###########################################
 # Get User Input for azureuser-config.json
 ###########################################
+
+Write-host "Please Enter Azure Settings"
 
 foreach ($setting in $azureuserconfig.settings)
 {

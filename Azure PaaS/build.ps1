@@ -38,6 +38,7 @@ https://cakebuild.net
 [CmdletBinding()]
 Param(
     [string]$Script = "build.cake",
+	[ValidateSet("Default", "Build", "Azure-Upload", "Azure-Deploy")]
     [string]$Target,
     [string]$Configuration,
     [ValidateSet("Quiet", "Minimal", "Normal", "Verbose", "Diagnostic")]
@@ -49,6 +50,21 @@ Param(
     [Parameter(Position=0,Mandatory=$false,ValueFromRemainingArguments=$true)]
     [string[]]$ScriptArgs
 )
+
+###############################
+# Run AzureUser-Config-Capture
+###############################
+
+if(($Target) -and ($Target -ne "Build") -or !($Target))
+{
+	& ".\\HelperScripts\AzureUser-Config-Capture.ps1" -ConfigurationFile "cake-config.json"
+}
+
+###############################
+# Run Env-Prep
+###############################
+
+& ".\\HelperScripts\Env-Prep.ps1" -ConfigurationFile "cake-config.json"
 
 # Attempt to set highest encryption available for SecurityProtocol.
 # PowerShell will not set this by default (until maybe .NET 4.6.x). This

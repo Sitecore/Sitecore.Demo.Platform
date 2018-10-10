@@ -54,25 +54,48 @@ The following is a list of default values/assumptions for install locations
 **Project Folder**		`c:\projects\sitecore.habitathome.content\`  
 **Deploy Folder**		`c:\Deploy`  
 
-if these values are not correct you will need to edit the cake-config.json in the `\Azure PaaS\Cake` folder.  
+if these values are not correct you will need to edit the cake-config.json in the `\Azure PaaS` folder.  
 
-### 3. Environment Preparation
+### 3. Deploy Sitecore.HabitatHome.Content
 
-From the `Sitecore.HabitatHome.Content\Azure PaaS\HelperScripts` folder
-
-- Run **`Env-Prep.ps1 -ConfigurationFile "See Below"`**
-
-For the `-ConfigurationFile` parameter please provde the full path to the `cake-config.json` located in your `\Azure PaaS\Cake folder`  
-
-This will prompt you for your dev.sitecore.com username and password.
-
-### 4. Deploy Sitecore.HabitatHome.Content
-
-From the `\Azure PaaS\Cake` folder
+From the `\Azure PaaS` folder
 
 - Run **`.\build.ps1`** 
 
-### 5. Validating deployment
+Optional Parameters:
+|Parameter                                  | Description
+|-------------------------------------------|---------------------------------------------------------------------------------------------
+| Verbosity                                 | Specifies the amount of information to be displayed
+| ShowDescription                           | Shows description about tasks.
+| DryRun                                    | Performs a dry run.
+| SkipToolPackageRestore                    | Skips restoring of packages.
+| Target                                    | Build Target **(see below)**
+
+**Target**
+|Value                                  | Description
+|-------------------------------------------|---------------------------------------------------------------------------------------------
+| Default                                    | Same affect as no target defined, will build and deploy to Azure.
+| Build                                      | Create build output only, will **not** upload or deploy to Zzure
+| Azure-Upload                               | Performs only the upload to Azure portion of the process
+| Azure-Deploy                               | Performs only the Deployment portion of the process
+
+##### Environment Preparation
+
+This script will prompt you for information regarding your build and deployment
+
+|Parameter                                  | Description
+|-------------------------------------------|---------------------------------------------------------------------------------------------
+| SitecoreDownloadUsername                  | dev.sitecore.com username
+| SitecoreDownloadPassword                  | dev.sitecore.com password
+| AzureDeploymentID                         | Resource group name.
+| AzureRegion                               | The geographical region of the current deployment.
+| SitecoreLoginAdminPassword                | The new password for the Sitecore **admin** account. (8 Character Minimum)
+| SqlServerLoginAdminAccount                | The name of the administrator account for Azure SQL server that will be created. SA is not a valid login
+| SqlServerLoginAdminPassword               | The password for the administrator account for Azure SQL server.
+| XConnectCertfilePath                      | A Base64-encoded blob of the authentication certificate in PKCS #12 format.
+| XConnectCertificatePassword               | A password to the authentication certificate.
+
+### 4. Validating deployment
 
 ##### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
 
