@@ -31,6 +31,59 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
             this.contactManager = Factory.CreateObject("tracking/contactManager", true) as ContactManager;
         }
 
+        public ContactFacetData GetContactData()
+        {
+            ContactFacetData data = new ContactFacetData();
+
+            var id = this.GetContactId();
+
+            if (id != null)
+            {
+
+                var contactReference = new IdentifiedContactReference(id.Source, id.Identifier);
+
+                using (var client = SitecoreXConnectClientConfiguration.GetClient())
+                {
+                    try
+                    {
+                        var contact = client.Get(contactReference, new ContactExpandOptions(this.facetsToUpdate));
+
+                        if (contact != null)
+                        {
+                            PersonalInformation personalInformation = contact.Personal();
+                            if (personalInformation != null)
+                            {
+                                data.FirstName = personalInformation.FirstName;
+                                data.MiddleName = personalInformation.MiddleName;
+                                data.LastName = personalInformation.LastName;
+                                data.Birthday = personalInformation.Birthdate.ToString();
+                                data.Gender = personalInformation.Gender;
+                                data.Language = personalInformation.PreferredLanguage;
+                            }
+
+                            var email = contact.Emails();
+                            if(email != null)
+                            {
+                                data.EmailAddress = email.PreferredEmail?.SmtpAddress;
+                            }
+
+                            var phones = contact.PhoneNumbers();
+                            if (phones != null)
+                            {
+                                data.PhoneNumber = phones.PreferredPhoneNumber?.Number;                            
+                            }
+                        }
+                    }
+                    catch (XdbExecutionException ex)
+                    {
+                        Log.Error($"Could not get the xConnect contact facets", ex, this);
+                    }
+                }
+            }
+
+            return data;
+        }
+
         public void UpdateContactFacets(ContactFacetData data)
         {
             var id = this.GetContactId();

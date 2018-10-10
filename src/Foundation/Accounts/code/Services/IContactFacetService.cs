@@ -4,6 +4,8 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
 {
     public interface IContactFacetService
     {
+        ContactFacetData GetContactData();
+
         void UpdateContactFacets(ContactFacetData data);
 
         string ExportContactData();
