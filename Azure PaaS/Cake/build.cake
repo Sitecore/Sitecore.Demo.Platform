@@ -40,8 +40,7 @@ Task("Default")
 	//.IsDependentOn("Rebuild-Master-Index")
 	//.IsDependentOn("Rebuild-Web-Index")
 .IsDependentOn("Publish-YML")
-.IsDependentOn("Azure-Build")
-.IsDependentOn("Azure-Deploy");
+.IsDependentOn("Package-Build");
 
 /*===============================================
 ================= SUB TASKS =====================
@@ -154,13 +153,12 @@ Task("Publish-YML").Does(() => {
         });
 		});
 
-Task("Azure-Build")
-.IsDependentOn("Aquire-Azure-User-Settings")
-.IsDependentOn("ConvertTo-SCWDPs")
-.IsDependentOn("Upload-Packages");
+Task("Package-Build")
+.IsDependentOn("Generate-HabitatUpdatePackages")
+.IsDependentOn("ConvertTo-SCWDPs");
 
-Task("Aquire-Azure-User-Settings").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\AzureUser-Config-Capture.ps1", args =>
+Task("Generate-HabitatUpdatePackages").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Generate-HabitatUpdatePackages.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
         });
@@ -173,6 +171,10 @@ Task("ConvertTo-SCWDPs").Does(() => {
         });
 		});
 
+Task("Azure-Deploy")
+.IsDependentOn("Upload-Packages")
+.IsDependentOn("Site-Deploy");
+
 Task("Upload-Packages").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Upload-Packages.ps1", args =>
         {
@@ -180,15 +182,11 @@ Task("Upload-Packages").Does(() => {
         });
 		});
 
-Task("Azure-Deploy").Does(() => {
+Task("Site-Deploy").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Deploy.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
         });
 		});
-
-Task("Get-Credentials").Does(() => {
-
-});
 
 RunTarget(target);

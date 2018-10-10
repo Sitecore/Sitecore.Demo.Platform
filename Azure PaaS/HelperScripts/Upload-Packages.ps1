@@ -50,24 +50,6 @@ if (!$assetsConfig) {
     throw "Error trying to load Assest File!"
 }
 
-########################
-# Get Azure Credentials
-########################
-
-<#Write-Host "Importing and Installing AzureRm Module"
-
-$AzureModule = Get-Module -ListAvailable AzureRM
-if ($AzureModule -eq ""){
-    Install-Module -Name AzureRM
-}
-
-Import-Module AzureRM
-
-# Add Persisent Azure Session
-Enable-AzureRmContextAutosave
-
-Add-AzureRmAccount#>
-
 ##########################
 # Function for WDP uploads
 ##########################
@@ -324,6 +306,8 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
 $originalContainerName = "azure-toolkit"
 $additionalContainerName = "temporary-toolkit"
 
+
+
 # Check the Azure PowerShell Module's version
 $AzureModule = Get-Module -ListAvailable AzureRM
 if ($AzureModule -eq ""){
@@ -343,6 +327,8 @@ Add-AzureRmAccount
 
 # Connect to Azure with an interactive dialog for sign-in
 #Connect-AzureRmAccount
+
+
 
 # Get the current storage account
 $sa = Get-AzureRmStorageAccount

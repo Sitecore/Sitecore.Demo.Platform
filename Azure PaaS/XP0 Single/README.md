@@ -1,6 +1,10 @@
 # Habitat Home Sitecore XP Single Environment Azure PaaS
 
-Resources provisioned:
+## Instructions
+
+Please follow the instructions on the [Azure PaaS Readme](Azure PaaS/Readme.md)
+
+## Resources provisioned:
 
   * Habitat Home 
   * Azure SQL databases : core, master, web, reporting, pools, tasks, forms, refdata, smm, shard0, shard1, ma
