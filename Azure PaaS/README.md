@@ -1,12 +1,8 @@
 # Introduction 
-HabitatHome Demo and the tools and processes in it is a Sitecore&reg; solution example built using Sitecore Experience Accelerator&trade; (SXA) on Sitecore Experience Platform&trade; (XP)  following the Helix architecture principles.
 
 This Section is dedicated to the deployment of the Habitat Home Demo project onto Azure PaaS.
 
 # Important Notice
-
-### License
-Please read the LICENSE carefully prior to using the code in this repository
  
 ### Support
 
@@ -44,7 +40,7 @@ All installation instructions assume using **PowerShell 5.1** in _**administrati
 
 `git config --system core.longpaths true`
 
-Clone the Sitecore.HabitatHome.Content repository locally - defaults are configured for **C:\Projects\Sitecore.HabitatHome.Content**. 
+Clone the Sitecore.HabitatHome.Content repository locally - defaults are configured for `C:\Projects\Sitecore.HabitatHome.Content`. 
 
 
 - Clone 
@@ -66,14 +62,13 @@ From the `Sitecore.HabitatHome.Content\Azure PaaS\HelperScripts` folder
 
 - Run **`Env-Prep.ps1 -ConfigurationFile "See Below"`**
 
-For the `-ConfigurationFile` parameter please provde the full path to the `cake-config.json` located in your **\Azure PaaS\Cake folder**  
-This will prompt you for your dev.sitecore.com username and password.
+For the `-ConfigurationFile` parameter please provde the full path to the `cake-config.json` located in your `\Azure PaaS\Cake folder`  
 
-*Note this script currently throws an error. This can be safely ignored.
+This will prompt you for your dev.sitecore.com username and password.
 
 ### 4. Deploy Sitecore.HabitatHome.Content
 
-From the **\Azure PaaS\Cake** folder
+From the `\Azure PaaS\Cake` folder
 
 - Run **`.\build.ps1`** 
 

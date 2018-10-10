@@ -4,16 +4,64 @@
 	Cargo Payload (SCCPL) packages.
 #>
 
-######################
+#######################
 # Mandatory parameters
+#######################
 
 Param(
     [parameter(Mandatory=$true)]
     [String] $ConfigurationFile
 )
 
-#################################################################
+###########################
+# Find configuration files
+###########################
+
+if (!(Test-Path $ConfigurationFile)) {
+
+        Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
+        Write-Host  "Please ensure there is a cake-config.json configuration file at '$($ConfigurationFile)'" -ForegroundColor Red
+        Exit 1
+    
+    }
+
+    $config = Get-Content -Raw $ConfigurationFile |  ConvertFrom-Json
+    if (!$config) {
+
+        throw "Error trying to load configuration!"
+    
+    }
+
+    # Find and process assets.json
+
+	if($config.Topology -eq "single")
+	{
+		[String] $assetsFile = $([IO.Path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
+	}
+	else
+	{
+		throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
+	}
+
+
+    if (!(Test-Path $assetsFile)) {
+
+        Write-Host "Assets file '$($assetsFile)' not found." -ForegroundColor Red
+        Write-Host  "Please ensure there is a assets.json file at '$($assetsFile)'" -ForegroundColor Red
+        Exit 1
+
+    }
+
+    $assetsConfig = Get-Content -Raw $assetsFile |  ConvertFrom-Json
+    if (!$assetsConfig) {
+
+        throw "Error trying to load Assest File!"
+
+    } 
+
+##################################################################
 # 3rd Party Ionic Zip function - helping create the SCCPL package
+##################################################################
 
 Function Zip ([String] $FolderToZip, [String] $ZipFilePath, [String] $DotNetZipPath) {
 
@@ -38,8 +86,9 @@ Function Zip ([String] $FolderToZip, [String] $ZipFilePath, [String] $DotNetZipP
 
 }
 
-###############################
+################################
 # Create the Web Deploy Package
+################################
 
 # Create-WDP function explained:
 
@@ -86,7 +135,7 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
 
     # Create empty folder structures for the WDP work
 
-    $DestinationFolderPath = New-Item -Path "$($RootFolder)\convert to WDP\WDP" -ItemType Directory -Force
+    [string] $DestinationFolderPath = New-Item -Path "$($RootFolder)\convert to WDP\WDP" -ItemType Directory -Force
 
     # WDP Components folder and sub-folders creation
 
@@ -139,18 +188,17 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
 
     Import-Module $SitecoreCloudModulePath -Verbose
     Start-SitecoreAzureModulePackaging -SourceFolderPath $RootFolder `
-                                        -DestinationFolderPath $DestinationFolderPath.FullName `
+                                        -DestinationFolderPath $DestinationFolderPath `
                                         -CargoPayloadFolderPath $CargoPayloadFolderPath.FullName `
                                         -AdditionalWdpContentsFolderPath $AdditionalWdpContentsFolderPath.FullName `
                                         -ParameterXmlFolderPath $ParameterXmlFolderPath.FullName `
-                                        -ConfigFilePath $ConfigFilePath `
-                                        -Verbose
+                                        -ConfigFilePath $ConfigFilePath
 
     # Check for the _Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip and rename that back (remove the underscore)
 
     $DEFWDPFile = "_Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
                                
-    If(Test-Path -Path (Join-Path $DestinationFolderPath $DEFWDPFile) -IsValid){
+    If(Test-Path -Path (Join-Path $DestinationFolderPath $DEFWDPFile)){
 
 		try {
 					
@@ -167,54 +215,11 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
 
 }
 
-#######################################################################################
+########################################################################################
 # WDP preparation function which sets up initial components required by the WDP process
+########################################################################################
 
-Function Prepare-WDP ([String] $configFile) {
-
-    # Find and process cake-config.json
-
-    if (!(Test-Path $configFile)) {
-
-        Write-Host "Configuration file '$($configFile)' not found." -ForegroundColor Red
-        Write-Host  "Please ensure there is a cake-config.json configuration file at '$($configFile)'" -ForegroundColor Red
-        Exit 1
-    
-    }
-
-    $config = Get-Content -Raw $configFile |  ConvertFrom-Json
-    if (!$config) {
-
-        throw "Error trying to load configuration!"
-    
-    }
-
-    # Find and process assets.json
-
-	if($config.Topology -eq "single")
-	{
-		[String] $assetsFile = $([IO.Path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
-	}
-	else
-	{
-		throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
-	}
-
-
-    if (!(Test-Path $assetsFile)) {
-
-        Write-Host "Assets file '$($assetsFile)' not found." -ForegroundColor Red
-        Write-Host  "Please ensure there is a assets.json file at '$($assetsFile)'" -ForegroundColor Red
-        Exit 1
-
-    }
-
-    $assetsConfig = Get-Content -Raw $assetsFile |  ConvertFrom-Json
-    if (!$assetsConfig) {
-
-        throw "Error trying to load Assest File!"
-
-    } 
+Function Prepare-WDP ($config, $assetsConfig) {
 
     # Assign values to required working folder paths
     
@@ -237,27 +242,30 @@ Function Prepare-WDP ([String] $configFile) {
 
             # Special check - if dealing with DEF try to avoid limitations of the Cloud.Cmdlets script
 
-            If($ModuleFolder -like "*Data Exchange Framework*"){
+            If($ModuleFolder -like "*Data Exchange Framework*")
+			{
             
                 # Check if the "Data Exchange Framework 2.0.1 rev. 180108.zip" file is present and rename it to "_Data Exchange Framework 2.0.1 rev. 180108.zip"
 
                 $DEFZipFile = "Data Exchange Framework 2.0.1 rev. 180108.zip"
                                 
-                If(Test-Path -Path (Join-Path $ModuleFolder $DEFZipFile) -IsValid){
+                If(Test-Path -Path (Join-Path $ModuleFolder $DEFZipFile) -IsValid)
+				{
                 
-					try {
+					try 
+					{
 					
 						Rename-Item -Path (Join-Path $ModuleFolder $DEFZipFile) -NewName "$($ModuleFolder)\_$($DEFZipFile)"
 					
-					} catch {
+					} 
+					catch 
+					{
 					
 						Write-Host "Unable to rename the file... continuing"
 						Continue
 
 					}
-                
                 }
-            
             }
 
             # Call in the WDP creation function
@@ -274,7 +282,7 @@ Function Prepare-WDP ([String] $configFile) {
 
 		switch($folder){
     
-			"website"
+			"habitathome"
 			{
 				
 				Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
@@ -299,7 +307,8 @@ Function Prepare-WDP ([String] $configFile) {
     
 }
 
-######################################
+#######################################
 # Call in the WDP preparation function
+#######################################
 
-Prepare-WDP -configFile $ConfigurationFile
+Prepare-WDP -config $config -assetsConfig $assetsConfig

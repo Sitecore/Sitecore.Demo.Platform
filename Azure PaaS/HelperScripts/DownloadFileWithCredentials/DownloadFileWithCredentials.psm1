@@ -18,6 +18,8 @@ Function Invoke-DownloadFileWithCredentialsTask {
 
     if ($PSCmdlet.ShouldProcess($SourceUri, "Download $SourceUri to $Destinationfolder")) {
 
+		$ProgressPreference = 'SilentlyContinue'
+
         try {
             Write-Verbose "Downloading $SourceUri to $Destinationfolder"
 
@@ -30,10 +32,9 @@ Function Invoke-DownloadFileWithCredentialsTask {
                 $password = $Credentials.GetNetworkCredential().password
                 $loginRequest = Invoke-RestMethod -Uri https://dev.sitecore.net/api/authorization -Method Post -ContentType "application/json" -Body "{username: '$user', password: '$password'}" -SessionVariable session -UseBasicParsing
         
-				$ProgressPreference = 'SilentlyContinue'
 				Invoke-WebRequest -Uri $SourceUri -OutFile $DestinationPath -WebSession $session -UseBasicParsing
             }
-			elseif ($TypeSource -ne "sitecore")
+			elseif ($TypeSource -eq "github")
 			{
                 Write-Verbose "here"
 				[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
