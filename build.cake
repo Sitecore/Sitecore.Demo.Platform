@@ -195,15 +195,18 @@ Task("Sync-Unicorn").Does(() => {
 });
 
 Task("Deploy-EXM-Campaigns").Does(() => {
-    var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
-    string responseBody = HttpGet(url);
-
-    Information(responseBody);
-});
+    DeployExmCampaigns();
+}).OnError(() => {
+	Information("Retrying Deploy-EXM-Campaigns");
+	DeployExmCampaigns();
+});;
 
 Task("Deploy-Marketing-Definitions").Does(() => {
     var url = $"{configuration.InstanceUrl}utilities/deploymarketingdefinitions.aspx?apiKey={configuration.MarketingDefinitionsApiKey}";
-    string responseBody = HttpGet(url);
+    var responseBody = HttpGet(url, settings =>
+	{
+		settings.AppendHeader("Connection", "keep-alive");
+	});
 
     Information(responseBody);
 });
