@@ -39,6 +39,7 @@ Task("Default")
 .IsDependentOn("Publish-Transforms")
 .IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Publish-xConnect-Project")
+.IsDependentOn("Warmup")
 .IsDependentOn("Deploy-EXM-Campaigns")
 .IsDependentOn("Deploy-Marketing-Definitions")
 .IsDependentOn("Rebuild-Core-Index")
@@ -194,12 +195,16 @@ Task("Sync-Unicorn").Does(() => {
                                                         }));
 });
 
+Task("Warmup").Does(() => {
+    Warmup();
+});
+
 Task("Deploy-EXM-Campaigns").Does(() => {
     DeployExmCampaigns();
 }).OnError(() => {
 	Information("Retrying Deploy-EXM-Campaigns");
 	DeployExmCampaigns();
-});;
+});
 
 Task("Deploy-Marketing-Definitions").Does(() => {
     var url = $"{configuration.InstanceUrl}utilities/deploymarketingdefinitions.aspx?apiKey={configuration.MarketingDefinitionsApiKey}";

@@ -17,6 +17,7 @@ public class Configuration
     public string MessageStatisticsApiKey {get;set;}
     public string MarketingDefinitionsApiKey {get;set;}
     public bool RunCleanBuilds {get;set;}
+	public int WarmupTimeout {get;set;}
     public string BuildToolVersions 
     {
         set 
@@ -144,6 +145,32 @@ public void CreateFolder(string folderPath)
     {
         CreateDirectory(folderPath);
     }
+}
+
+public void Warmup()
+{
+	Exception lastException = null;
+	var startTime = DateTime.Now;
+	while ((DateTime.Now - startTime).TotalMinutes < configuration.WarmupTimeout)
+	{
+		try {
+			HttpGet($"{configuration.InstanceUrl}");
+			HttpGet($"{configuration.InstanceUrl}sitecore/shell");
+			HttpGet($"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx");
+
+			Information($"Warmup completed in {(DateTime.Now - startTime).Minutes} min {(DateTime.Now - startTime).Seconds} sec.");
+			return;
+		} catch (AggregateException aex) {
+		    foreach (var x in aex.InnerExceptions)
+				Information($"{x.GetType().FullName}: {x.Message}");
+			lastException = aex;
+		} catch (Exception ex) {
+		    Information($"{ex.GetType().FullName}: {ex.Message}");
+			lastException = ex;
+		}
+	}
+
+    throw new TimeoutException($"Unable to warm up Sitecore in under {configuration.WarmupTimeout} minutes.");
 }
 
 public void WriteError(string errorMessage)
