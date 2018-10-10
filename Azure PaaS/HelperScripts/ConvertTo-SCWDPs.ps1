@@ -71,7 +71,7 @@ Function Zip ([String] $FolderToZip, [String] $ZipFilePath, [String] $DotNetZipP
   $Encoding = [System.Text.Encoding]::GetEncoding(65001)
   $ZipFile =  New-Object Ionic.Zip.ZipFile($Encoding)
 
-  $ZipFile.AddDirectory($FolderToZip)
+  $ZipFile.AddDirectory($FolderToZip) | Out-Null
 
   If (!(Test-Path (Split-Path $ZipFilePath -Parent))) {
 
