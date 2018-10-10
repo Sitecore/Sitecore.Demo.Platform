@@ -40,7 +40,32 @@ Task("Default")
 	//.IsDependentOn("Rebuild-Master-Index")
 	//.IsDependentOn("Rebuild-Web-Index")
 .IsDependentOn("Publish-YML")
+.IsDependentOn("Package-Build")
+.IsDependentOn("Azure-Upload-Packages")
+.IsDependentOn("Azure-Site-Deploy");
+
+Task("Build")
+.WithCriteria(configuration != null)
+.IsDependentOn("Clean")
+.IsDependentOn("Publish-All-Projects")
+.IsDependentOn("Apply-Xml-Transform")
+.IsDependentOn("Publish-Transforms")
+.IsDependentOn("Publish-xConnect-Project")
+	//.IsDependentOn("Deploy-EXM-Campaigns")
+	//.IsDependentOn("Deploy-Marketing-Definitions")
+	//.IsDependentOn("Rebuild-Core-Index")
+	//.IsDependentOn("Rebuild-Master-Index")
+	//.IsDependentOn("Rebuild-Web-Index")
+.IsDependentOn("Publish-YML")
 .IsDependentOn("Package-Build");
+
+Task("Azure-Upload")
+.WithCriteria(configuration != null)
+.IsDependentOn("Azure-Upload-Packages");
+
+Task("Azure-Deploy")
+.WithCriteria(configuration != null)
+.IsDependentOn("Azure-Site-Deploy");
 
 /*===============================================
 ================= SUB TASKS =====================
@@ -149,7 +174,7 @@ Task("Publish-YML").Does(() => {
 	
 	StartPowershellFile (($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Publish-YML.ps1"), args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
         });
 		});
 
@@ -160,32 +185,28 @@ Task("Package-Build")
 Task("Generate-HabitatUpdatePackages").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Generate-HabitatUpdatePackages.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
         });
 		});
 
 Task("ConvertTo-SCWDPs").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\ConvertTo-SCWDPs.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
         });
 		});
 
-Task("Azure-Deploy")
-.IsDependentOn("Upload-Packages")
-.IsDependentOn("Site-Deploy");
-
-Task("Upload-Packages").Does(() => {
+Task("Azure-Upload-Packages").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Upload-Packages.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
         });
 		});
 
-Task("Site-Deploy").Does(() => {
+Task("Azure-Site-Deploy").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Deploy.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\Cake\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
         });
 		});
 

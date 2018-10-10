@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Please follow the instructions on the [Azure PaaS Readme](Azure PaaS/Readme.md)
+Please follow the instructions on the [Azure PaaS Readme](../Readme.md)
 
 ## Resources provisioned:
 

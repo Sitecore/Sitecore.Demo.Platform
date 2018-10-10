@@ -47,7 +47,7 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
 
     $updateFile = Join-Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName)) "$($targetFolderName).update"
 	$courierPath = $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', 'Sitecore Courier'))
-    GenerateUpdatePackage -pathToCourier "$($courierPath)\Sitecore.Courier.Runner.exe" -configFile $Configuration -argSourcePackagingFolder $sourceFolder -argOutputPackageFile $updateFile
+    GenerateUpdatePackage -configFile $Configuration -argSourcePackagingFolder $sourceFolder -argOutputPackageFile $updateFile
 
 }
 
@@ -58,17 +58,12 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
 Function GenerateUpdatePackage(){
 
     Param(
-        [parameter(Mandatory=$true)]
-        [String] $pathToCourier,
 		[parameter(Mandatory=$true)]
 		[String] $configFile,
         [String] $argSourcePackagingFolder,
         [String] $argOutputPackageFile
 
     )
-
-	
-	# heres the code for the powershell module version of courier if we want to use that in the future
 
 	Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 	Install-Module -Name Sitecore.Courier

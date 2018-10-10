@@ -161,7 +161,7 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
 
 	# Upload Habitat WDPs
 
-	$habitatWebsiteWDPPath = [IO.Path]::Combine($assetsFolder, 'website', 'convert to WDP', 'WDP', 'website_single.scwdp.zip')
+	$habitatWebsiteWDPPath = [IO.Path]::Combine($assetsFolder, 'habitathome', 'convert to WDP', 'WDP', 'habitathome_single.scwdp.zip')
     if((Test-Path $habitatWebsiteWDPPath) -eq $True){
 	
 		$habitatWebsiteWDPFile = Get-Item -Path $habitatWebsiteWDPPath
@@ -212,7 +212,7 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
     $azuredeployArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.json'))
     $sxaArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Sitecore Experience Accelerator', 'sxa_module.json'))
     $defArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Data Exchange Framework', 'def_module.json'))
-    $habitatWebsiteArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'website.json'))
+    $habitatWebsiteArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'habitathome.json'))
     $habitatXconnectArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'xconnect.json'))
     $bootloadArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'addons', 'bootloader.json'))
 
@@ -307,7 +307,7 @@ $originalContainerName = "azure-toolkit"
 $additionalContainerName = "temporary-toolkit"
 
 
-
+<#
 # Check the Azure PowerShell Module's version
 $AzureModule = Get-Module -ListAvailable AzureRM
 if ($AzureModule -eq ""){
@@ -324,7 +324,7 @@ Import-Module AzureRM
 Enable-AzureRmContextAutosave
 
 Add-AzureRmAccount
-
+#>
 # Connect to Azure with an interactive dialog for sign-in
 #Connect-AzureRmAccount
 
@@ -475,7 +475,7 @@ ForEach($blob in $blobsList){
             $xcSingleMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
         
         }
-        "wdps/website_single.scwdp.zip"
+        "wdps/habitathome_single.scwdp.zip"
         {
         
             $habitatWebsiteDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
@@ -509,7 +509,7 @@ ForEach ($blob in $blobsList){
     
         $defTemplateLink = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
 
-    } elseif($blob.Name -like "*website.json"){
+    } elseif($blob.Name -like "*habitathome.json"){
     
         $habitatWebsiteTemplateLink = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
 

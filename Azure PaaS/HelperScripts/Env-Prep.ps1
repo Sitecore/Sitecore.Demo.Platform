@@ -1,19 +1,23 @@
 <#
+	.SYNOPSIS
+	Prepare Local environnment for habitat home scwdp package creation 
+
+	.DESCRIPTION
 	This script will check the local Deploy folder defined in the cake-config.json file for an Assets folder, and create one if it doesn't exist.
 	It will then check the folder for prerequisite files as defined by the assets.json. 
-	The script will then download anything missing and extract tools so they can be used by later scripts.
+	The script will then download anything missing and extract tools and files so they can be used by later scripts.
 #>
 
 Param(
 	[parameter(Mandatory=$true)]
 	[ValidateNotNullOrEmpty()]
     [string] $ConfigurationFile,
-	[Parameter(Mandatory=$true)]
+	[Parameter(Mandatory=$true, HelpMessage="Please Enter your dev.sitecore.com username")]
     [ValidateNotNullOrEmpty()]
-	[string] $Username,
-	[Parameter(Mandatory=$true)]
+	[string] $SitecoreDownloadUsername,
+	[Parameter(Mandatory=$true, HelpMessage="Please Enter your dev.sitecore.com password")]
     [ValidateNotNullOrEmpty()]
-	[Security.SecureString] $Password
+	[Security.SecureString] $SitecoreDownloadPassword
 )
 
 ###########################
@@ -61,7 +65,7 @@ $foundfiles   = New-Object System.Collections.ArrayList
 $downloadlist = New-Object System.Collections.ArrayList
 $assetsfolder = (Join-Path $config.DeployFolder assets)
 [string] $habitathomefilepath = $([io.path]::combine($config.DeployFolder, 'Website', 'HabitatHome'))
-$credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username, $Password 
+$credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SitecoreDownloadUsername, $SitecoreDownloadPassword 
 
 ##################################################
 # Check for existing Files in Deploy\Assets Folder
@@ -160,8 +164,6 @@ else
 # Download Required Files
 ###########################
 
- Import-Module "$($PSScriptRoot)\DownloadFileWithCredentials\DownloadFileWithCredentials.psm1" -Force
-
 	Function Download-Asset {
     param(   [PSCustomObject]
         $assetfilename,
@@ -188,7 +190,8 @@ else
 					Assetfilename   = $assetfilename
 					TypeSource = $sourceType
 					}
-				
+			Import-Module "$($PSScriptRoot)\DownloadFileWithCredentials\DownloadFileWithCredentials.psm1" -Force
+
             Invoke-DownloadFileWithCredentialsTask  @params  
 		
 	}
