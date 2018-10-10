@@ -197,16 +197,37 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
     # Check for the _Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip and rename that back (remove the underscore)
 
     $DEFWDPFile = "_Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
+    $DEFWDPFilePath = Join-Path $DestinationFolderPath $DEFWDPFile
                                
-    If(Test-Path -Path (Join-Path $DestinationFolderPath $DEFWDPFile)){
+    If(Test-Path -Path $DEFWDPFilePath){
 
 		try {
 					
-			Rename-Item -Path (Join-Path $DestinationFolderPath $DEFWDPFile) -NewName "$($DestinationFolderPath)\Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
+			Rename-Item -Path $DEFWDPFilePath -NewName "$($DestinationFolderPath)\$($DEFWDPFile.Substring(1))"
 					
 		} catch {
 					
-			Write-Host "Unable to rename the file... continuing"
+			Write-Host "Unable to rename the file... continuing" -ForegroundColor DarkYellow
+			Continue
+
+		}
+                
+    }
+
+    # Check for the _Data Exchange Framework 2.0.1 rev. 180108.zip and rename that back (remove the underscore)
+
+    $DEFZipFile = "_Data Exchange Framework 2.0.1 rev. 180108.zip"
+    $DEFZipFilePath = Join-Path $RootFolder $DEFZipFile
+                               
+    If(Test-Path -Path $DEFZipFilePath){
+
+		try {
+					
+			Rename-Item -Path $DEFZipFilePath -NewName "$($RootFolder)\$($DEFZipFile.Substring(1))"
+					
+		} catch {
+					
+			Write-Host "Unable to rename the file... continuing" -ForegroundColor DarkYellow
 			Continue
 
 		}
@@ -231,50 +252,62 @@ Function Prepare-WDP ($config, $assetsConfig) {
 
     # Go through the assets.json file and prepare files and paths for the conversion to WDP for all prerequisites for Habitat Home
 
-    ForEach ($_ in $assetsConfig.prerequisites){
+    ForEach ($asset in $assetsConfig.prerequisites){
 
-        If($_.convertToWdp -eq $True){
+        If($asset.convertToWdp -eq $True){
             
-            [String] $ModuleFolder = $([IO.Path]::Combine($assetsFolder, $_.name))
-            Get-ChildItem -Path "$($ProjectModulesFolder)\$($_.name)\*" -Include *.json | ForEach-Object { $WDPJsonFile = $_.FullName }
-            Get-ChildItem -Path "$($ProjectModulesFolder)\$($_.name)\*" -Include *.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
-            $SccplCargoName = $WDPJsonFile.BaseName -replace "_config", "_cargo"
+			# Do a check if the WDP package already exists and if not, proceed with package generation
 
-            # Special check - if dealing with DEF try to avoid limitations of the Cloud.Cmdlets script
+            [String] $ModuleFolder = $([IO.Path]::Combine($assetsFolder, $asset.name))
+			[String] $ModuleWDPTarget = "$($ModuleFolder)\convert to WDP\WDP"
+			If((Test-Path -Path $ModuleWDPTarget) -eq $False){
+	
+				Get-ChildItem -Path "$($ProjectModulesFolder)\$($asset.name)\*" -Include *.json | ForEach-Object { $WDPJsonFile = $_.FullName; $WDPJsonFileName = $_.BaseName }
+				Get-ChildItem -Path "$($ProjectModulesFolder)\$($asset.name)\*" -Include *.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
+				$SccplCargoName = $WDPJsonFileName -replace "_config", "_cargo"
 
-            If($ModuleFolder -like "*Data Exchange Framework*")
-			{
-            
-                # Check if the "Data Exchange Framework 2.0.1 rev. 180108.zip" file is present and rename it to "_Data Exchange Framework 2.0.1 rev. 180108.zip"
+				# Special check - if dealing with DEF try to avoid limitations of the Cloud.Cmdlets script
 
-                $DEFZipFile = "Data Exchange Framework 2.0.1 rev. 180108.zip"
-                                
-                If(Test-Path -Path (Join-Path $ModuleFolder $DEFZipFile) -IsValid)
+				If($ModuleFolder -like "*Data Exchange Framework*")
 				{
+            
+					# Check if the "Data Exchange Framework 2.0.1 rev. 180108.zip" file is present and rename it to "_Data Exchange Framework 2.0.1 rev. 180108.zip"
+
+					$DEFZipFile = "Data Exchange Framework 2.0.1 rev. 180108.zip"
+					$DEFZipFilePath = Join-Path $ModuleFolder $DEFZipFile
+                                
+					If(Test-Path -Path $DEFZipFilePath)
+					{
                 
-					try 
-					{
+						try 
+						{
 					
-						Rename-Item -Path (Join-Path $ModuleFolder $DEFZipFile) -NewName "$($ModuleFolder)\_$($DEFZipFile)"
+							Rename-Item -Path $DEFZipFilePath -NewName "$($ModuleFolder)\_$($DEFZipFile)"
 					
-					} 
-					catch 
-					{
+						} 
+						catch 
+						{
 					
-						Write-Host "Unable to rename the file... continuing"
-						Continue
+							Write-Host "Unable to rename the file... continuing"
+							Continue
 
+						}
 					}
-                }
-            }
+				}
 
-            # Call in the WDP creation function
+				# Call in the WDP creation function
 
-            Create-WDP -RootFolder $ModuleFolder -SitecoreCloudModulePath $SitecoreCloudModule -JsonConfigFilename $WDPJsonFile -XmlParameterFilename $WDPXMLFile -SccplCargoFilename $SccplCargoName -IonicZip $IonicZipPath
+				Create-WDP -RootFolder $ModuleFolder -SitecoreCloudModulePath $SitecoreCloudModule -JsonConfigFilename $WDPJsonFile -XmlParameterFilename $WDPXMLFile -SccplCargoFilename $SccplCargoName -IonicZip $IonicZipPath
       
+			} else {
+			
+				Write-Host "Skipping WDP generation - there's already a WDP package, present at $($ModuleWDPTarget)" -ForegroundColor Yellow
+			
+			}
+
         }
 
-    }
+    }   
 
 	# Prepare the files and paths for the Habitat Home WDP creation
 
@@ -285,19 +318,41 @@ Function Prepare-WDP ($config, $assetsConfig) {
 			"habitathome"
 			{
 				
-				Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
-				Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
-				[String] $SccplCargoName = -join ($folder.Name, "_cargo")
-				Create-WDP -RootFolder $folder.FullName -SitecoreCloudModulePath $SitecoreCloudModule -JsonConfigFilename $WDPJsonFile -XmlParameterFilename $WDPXMLFile -SccplCargoFilename $SccplCargoName -IonicZip $IonicZipPath
+				# Do a check if the WDP package already exists and if not, proceed with package generation
+
+				[String] $HabitatWDPTarget = "$($folder.FullName)\convert to WDP\WDP"
+				If((Test-Path -Path $HabitatWDPTarget) -eq $False){
+
+					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
+					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
+					[String] $SccplCargoName = -join ($folder.Name, "_cargo")
+					Create-WDP -RootFolder $folder.FullName -SitecoreCloudModulePath $SitecoreCloudModule -JsonConfigFilename $WDPJsonFile -XmlParameterFilename $WDPXMLFile -SccplCargoFilename $SccplCargoName -IonicZip $IonicZipPath
+					
+				} else {
+			
+					Write-Host "Skipping WDP generation - there's already a WDP package, present at $($HabitatWDPTarget)" -ForegroundColor Yellow
+			
+				}
 
 			}
 			"xconnect"
 			{
+				
+				# Do a check if the WDP package already exists and if not, proceed with package generation
 
-				Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
-				Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
-				[String] $SccplCargoName = -join ($folder.Name, "_cargo")
-				Create-WDP -RootFolder $folder.FullName -SitecoreCloudModulePath $SitecoreCloudModule -JsonConfigFilename $WDPJsonFile -XmlParameterFilename $WDPXMLFile -SccplCargoFilename $SccplCargoName -IonicZip $IonicZipPath
+				[String] $HabitatWDPTarget = "$($folder.FullName)\convert to WDP\WDP"
+				If((Test-Path -Path $HabitatWDPTarget) -eq $False){
+
+					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
+					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
+					[String] $SccplCargoName = -join ($folder.Name, "_cargo")
+					Create-WDP -RootFolder $folder.FullName -SitecoreCloudModulePath $SitecoreCloudModule -JsonConfigFilename $WDPJsonFile -XmlParameterFilename $WDPXMLFile -SccplCargoFilename $SccplCargoName -IonicZip $IonicZipPath
+					
+				} else {
+			
+					Write-Host "Skipping WDP generation - there's already a WDP package, present at $($HabitatWDPTarget)" -ForegroundColor Yellow
+			
+				}
 
 			}
 
