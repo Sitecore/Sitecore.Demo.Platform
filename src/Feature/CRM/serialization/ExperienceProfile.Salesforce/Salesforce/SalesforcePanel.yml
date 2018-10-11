@@ -1,0 +1,188 @@
+﻿---
+ID: "cba60024-478b-4541-8ad5-d805095a3d83"
+Parent: "6fc4c9f5-72aa-496a-a0c2-f0aa5bb3ac01"
+Template: "f62b4cd7-754c-4461-810f-2b6bd2c92a0d"
+Path: /sitecore/client/Applications/ExperienceProfile/Contact/PageSettings/Tabs/Salesforce/SalesforcePanel
+DB: core
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 663
+- ID: "deab3795-056f-4421-adf0-758844461b72"
+  Hint: Placeholder Name
+  Value: SalesforcePanel
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r>
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{759BEFD1-3323-404D-A243-E0ED81163C03}">
+        <r
+          id="{CB83D434-31ED-4AC3-A280-CCE2B63F9743}"
+          par="PageCodeScriptFileName=%2fsitecore%2fshell%2fclient%2fApplications%2fExperienceProfile%2fContact%2fDetails%2fSalesforceTab.js"
+          ph="Page.Body"
+          uid="{969765F1-D4B9-4BA7-8FD4-BFBA5F80B4EB}" />
+        <r
+          id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}"
+          par="Id=DetailsTabBorder"
+          ph="Page.Body"
+          uid="{16F1017B-A57E-4D37-8E42-439E583E9ACD}" />
+        <r
+          ds="{46C9A8FB-6322-45E7-A01D-415F8502A3D2}"
+          id="{442BD093-FBAD-4E36-BC08-489E16C82D08}"
+          par="EnableAdditional=0&amp;IsCollapsible=0&amp;ShowAdditional=1&amp;Id=ContactDetailsAccordion"
+          ph="DetailsTabBorder.Content"
+          uid="{40DC99A3-306F-4522-B842-A8B678A644AB}" />
+        <r
+          id="{910155C7-3881-4A56-90FB-D126490EDE55}"
+          par="Id=DetailsTabMessageBar"
+          ph="ContactDetailsAccordion.Body"
+          uid="{4D1F129B-BE6F-41DE-962C-516B1A8BB654}" />
+        <r
+          id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}"
+          par="UsePadding=1&amp;Id=ContactDetailsBorder"
+          ph="ContactDetailsAccordion.Body"
+          uid="{52DCA86D-9D17-4BDE-BF11-0647F7E10BCE}" />
+        <r
+          id="{C4393722-39FA-4869-9582-3A8EB8983A0D}"
+          par="Id=ContactRow"
+          ph="ContactDetailsBorder.Content"
+          uid="{54CB235C-C783-4A17-8768-4E8A29BF4326}" />
+        <r
+          id="{5CB208F6-1860-426B-8221-FAA85B329848}"
+          par="GridColumns=4&amp;Id=LeftContactColumn"
+          ph="ContactRow.Content"
+          uid="{C86C4FA7-644C-4881-B6E7-27C9D1D10B63}" />
+        <r
+          id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
+          par="TextType=Value&amp;Id=GeneralTitle"
+          ph="LeftContactColumn.Content"
+          uid="{4D8B456C-A2F8-43D3-A0F4-8C370392EA69}" />
+        <r
+          id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}"
+          par="Id=FirstNameBorder"
+          ph="LeftContactColumn.Content"
+          uid="{92AC7CF6-1263-4653-BD4B-54987C65F26A}" />
+        <r
+          ds="{1A56BBE1-A094-4FD4-9170-362B8D9AC6D5}"
+          id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
+          par="Id=FirstNameLabel"
+          ph="FirstNameBorder.Content"
+          uid="{3238B880-C015-47D3-8445-88841376BB2D}" />
+        <r
+          id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
+          par="Text=-&amp;Id=SalesforceContactCreatedDateValue"
+          ph="FirstNameBorder.Content"
+          uid="{DA251678-D9CD-4770-BA3E-CF545EE1547F}" />
+        <r
+          id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}"
+          par="Id=MiddleNameBorder"
+          ph="LeftContactColumn.Content"
+          uid="{611DF4E8-E277-4E64-9EDC-9A7D86066447}" />
+        <r
+          ds="{77D5C1B9-7FA1-4A04-BB6E-4AB2A57E5903}"
+          id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
+          par="Id=MiddleNameLabel"
+          ph="MiddleNameBorder.Content"
+          uid="{7381B236-3C51-47B8-9C00-9DDD9B5113D2}" />
+        <r
+          id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
+          par="Text=-&amp;Id=CustomSalesforceIdValue"
+          ph="MiddleNameBorder.Content"
+          uid="{EA8FA8B8-E3F0-49B2-9EFE-D8789CD79993}" />
+        <r
+          id="{F6C9F461-FCAF-47DC-AA01-C8C64C2EFFB8}"
+          par="Id=LastNameBorder"
+          ph="LeftContactColumn.Content"
+          uid="{0918A883-F00E-4893-97BF-95E5B6667192}" />
+        <r
+          ds="{4AB11A39-5331-4D24-89C9-AA5EEEB6326E}"
+          id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
+          par="Id=LastNameLabel"
+          ph="LastNameBorder.Content"
+          uid="{0CAFD0BF-205D-430D-980F-01C5E12575B7}" />
+        <r
+          id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
+          par="Text=-&amp;Id=CustomSalesforceJourneyStatusValue"
+          ph="LastNameBorder.Content"
+          uid="{C4B7B2DE-084C-4ADE-91C7-1161C280693C}" />
+        <r
+          id="{C4393722-39FA-4869-9582-3A8EB8983A0D}"
+          par="Id=DetailsRow"
+          ph="ContactDetailsBorder.Content"
+          uid="{64D1EA03-DDFF-4BF3-BC92-D79FE51D7623}" />
+        <r
+          id="{5CB208F6-1860-426B-8221-FAA85B329848}"
+          par="GridColumns=4&amp;Id=LeftDetailsColumn"
+          ph="DetailsRow.Content"
+          uid="{BCED0B92-1832-4923-A7FB-7F3723EF2B92}" />
+        <r
+          id="{A91523CD-6E56-4F08-8B21-C39018E0134A}"
+          par="PageNumber=1&amp;PageSize=3&amp;Id=ContactSalesforceDataProvider"
+          ph="LeftDetailsColumn.Content"
+          uid="{3FC10128-F5E0-4783-B2F7-05FA674F0F37}" />
+      </d>
+    </r>
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: DetailsPanel
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180604T033700Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: DetailsPanel
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180604T034050Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20131121T170542Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 詳細パネル
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180604T034358Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

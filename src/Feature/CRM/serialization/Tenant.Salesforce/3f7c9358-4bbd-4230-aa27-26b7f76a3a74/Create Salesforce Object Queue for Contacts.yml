@@ -1,0 +1,35 @@
+﻿---
+ID: "fc8b71f4-e7b1-47a8-ac81-c2f0481267d2"
+Parent: "3f7c9358-4bbd-4230-aa27-26b7f76a3a74"
+Template: "afc44e1b-a346-4e41-9197-54680ca9f572"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/xConnect Contacts and Interactions to Salesforce Sync/Read Contacts from xConnect Pipeline/Create Salesforce Object Queue for Contacts
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "549d7f4e-ffdb-475d-a2fe-a97606f8020a"
+  Hint: BatchEntryStoragePluginLocation
+  Value: "{ADDE6B1E-20CD-4DE7-BFFA-14426395BA91}"
+- ID: "762d4828-feba-41d3-b207-7e894615cd6a"
+  Hint: MinimumBatchSize
+  Value: 200
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+- ID: "badd0cc8-d080-40c6-a50c-c67b0f05ad58"
+  Hint: EndpointTo
+  Value: "{76235B35-2CFC-44CB-96E3-10F1896FFE3D}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{FC8B71F4-E7B1-47A8-AC81-C2F0481267D2}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165824Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

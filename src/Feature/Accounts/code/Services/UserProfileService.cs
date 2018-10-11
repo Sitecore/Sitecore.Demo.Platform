@@ -87,7 +87,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Services
         {
             _contactFacetsService.DeleteContact();
             userProfile.ProfileUser.Delete();
-            _accountTrackerService.TrackExportData(userProfile);
+            _accountTrackerService.TrackDeleteProfile(userProfile);
         }
 
         private void SetProfileIfEmpty(User user)

@@ -1,0 +1,85 @@
+﻿---
+ID: "42ee255d-0a37-4126-8569-67a5172ecddb"
+Parent: "bc88fb5e-c3e0-46f0-b00d-d02d1949b8d3"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Habitat Sites/Habitat Home Basic/Data/Snippets/Single Page Teaser for column
+DB: master
+SharedFields:
+- ID: "c80e6f3c-5bcd-426b-b1eb-6d10672e985d"
+  Hint: Data Source Selection Behavior
+  Value: AskUser
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{D44182C7-844C-4572-82F2-EDFD4E72556D}"
+              s:ds="/sitecore/content/Habitat Sites/Habitat Home Basic/home/guides/ten-minute-home-workouts"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={f04e97a8-f249-4674-b3e8-0bce91b0b34f}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="section-content">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{1BF5A050-1CC4-4881-8C25-5F9950AAA180}"
+                    s:name="Cooking">
+                    <conditions>
+                      <or
+                        uid="5E3799AFCAFE4EC5A53734586718C368">
+                        <condition
+                          uid="22CEACA85B8E4CAE8F77E390C22B7585"
+                          s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                          s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                          s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
+                        <condition
+                          uid="5D7FA8E1DC834D72A1FC422B14E471F7"
+                          s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                          s:ProfileName="Topic Interest Category"
+                          s:PatternName="Cooking" />
+                      </or>
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="6489A60FFF1A4B0780B553A6C902DD20"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{55aac63c-efc0-496c-b5e5-b430cc8d4f0f}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="5CCCAA9FC0B9429B9D01C0180F1D2B0F"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                    <actions />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180627T122904Z
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180628T023250Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous

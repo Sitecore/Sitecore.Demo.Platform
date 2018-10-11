@@ -1,0 +1,29 @@
+﻿---
+ID: "5d3e73b3-65dd-457b-b294-fda1d9a7fa57"
+Parent: "f7b50421-d6f4-495d-92d3-e6f25fc2519e"
+Template: "bac9aafc-4b28-4e68-be0a-044faa75a1b6"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Data Access/Value Readers/Common/Date to String ISO Format Value Reader
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "119527ce-7649-41eb-be73-f3db66e8ee1f"
+  Hint: StringFormat
+  Value: o
+- ID: "3c7f78cc-0c5c-4076-80ef-9a49fda5ff96"
+  Hint: ConverterType
+  Value: Sitecore.DataExchange.Converters.DataAccess.Readers.DateTimeToStringValueReaderConverter, Sitecore.DataExchange
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{5D3E73B3-65DD-457B-B294-FDA1D9A7FA57}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165815Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -37,6 +37,9 @@ Task("Default")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
 .IsDependentOn("Publish-Transforms")
+.IsDependentOn("Post-Deploy");
+
+Task("Post-Deploy")
 .IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Warmup")
@@ -65,6 +68,7 @@ Task("Clean").Does(() => {
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
 });
+
 Task("Copy-Sitecore-Lib")
     .WithCriteria(()=>(configuration.BuildConfiguration == "preview"))
     .Does(()=> {
@@ -73,7 +77,6 @@ Task("Copy-Sitecore-Lib")
         EnsureDirectoryExists(destination);
         CopyFiles(files, destination);
 }); 
-
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
 .IsDependentOn("Publish-Foundation-Projects")
@@ -97,10 +100,12 @@ Task("Publish-Project-Projects").Does(() => {
     var common = $"{configuration.ProjectSrcFolder}\\Common";
     var habitat = $"{configuration.ProjectSrcFolder}\\Habitat";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
+    var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
 
     PublishProjects(common, configuration.WebsiteRoot);
     PublishProjects(habitat, configuration.WebsiteRoot);
     PublishProjects(habitatHome, configuration.WebsiteRoot);
+    PublishProjects(habitatHomeBasic, configuration.WebsiteRoot);
 });
 
 Task("Publish-xConnect-Project").Does(() => {
@@ -174,8 +179,6 @@ Task("Modify-PublishSettings").Does(() => {
     XmlPoke(destination,importXPath,null,xmlSetting);
     XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
 });
-
-
 Task("Sync-Unicorn").Does(() => {
     var unicornUrl = configuration.InstanceUrl + "unicorn.aspx";
     Information("Sync Unicorn items from url: " + unicornUrl);

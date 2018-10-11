@@ -1,0 +1,32 @@
+﻿---
+ID: "e2a1531f-5be7-4890-911b-cbfa48b35507"
+Parent: "0d1c017a-5ed6-4971-9714-5d732991f81c"
+Template: "ebfbb152-4880-4ef4-a04d-eae567455313"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Pipelines/Dynamics Marketing Lists to xConnect Sync Pipelines/Read Marketing Lists from Dynamics Pipeline/Add A Batch to a Table and Put Id to Pipeline Context
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "2e2e1432-ddef-445a-8fa0-83125a2f50fd"
+  Hint: EndpointTo
+  Value: "{B56B3DF4-3B0E-434D-98E0-EA3B8CF1D9BF}"
+- ID: "854abc33-45b9-4e30-9776-7a52716009f0"
+  Hint: TargetObjectLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{E2A1531F-5BE7-4890-911B-CBFA48B35507}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112654Z
+    - ID: "3f3c8c05-87a3-42fe-8877-1d199843bab4"
+      Hint: Table
+      Value: "{75499D36-A0E0-47F5-8C56-6B5F94DBDCFD}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

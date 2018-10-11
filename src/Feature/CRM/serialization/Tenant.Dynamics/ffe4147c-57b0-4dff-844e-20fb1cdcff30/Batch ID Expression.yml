@@ -1,0 +1,32 @@
+﻿---
+ID: "d885450a-828b-4786-b647-a8e9731f66a9"
+Parent: "ffe4147c-57b0-4dff-844e-20fb1cdcff30"
+Template: "59d2f8a3-b47e-45a5-a2a6-d18cf7a82808"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Tenant Settings/Providers/SQL/Filter Expressions/Staging/Where BatchID eq Pipeline Source/Batch ID Expression
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "7a97a031-8c1a-4a31-b97a-329afaff9017"
+  Hint: LeftValueAccessor
+  Value: "{FADF9DC2-2B7F-4559-BE24-6A97DBD570B1}"
+- ID: "9e4e3098-9e1a-4075-9345-bf96f49ce081"
+  Hint: ConditionOperator
+  Value: "{9449E935-2E93-4A5D-ACCD-6DECB350974D}"
+- ID: "ca182ee0-c5f3-496b-ab0a-acfa68692859"
+  Hint: RightValueAccessor
+  Value: "{D10E0F4E-A3D6-4D86-974F-0148C6358DC5}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D885450A-828B-4786-B647-A8E9731F66A9}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112747Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,0 +1,50 @@
+﻿---
+ID: "56558e12-5e99-4312-b6d5-06160e260cf4"
+Parent: "0a3f7f5c-887d-499b-ab3d-9b26b9c1c710"
+Template: "44e9b708-77ad-4933-b8ca-c4ca15918b76"
+Path: /sitecore/content/Habitat Sites/Habitat Home Basic/Data/Form Actions Settings/Contact Identification/Default/Email
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180123T131635Z
+    - ID: "2f0fd1ae-4dbd-4448-be5c-0470819e11a4"
+      Hint: FacetValue
+      Value: Email
+    - ID: "a9258cff-e39c-4c69-8a69-9e35d9a853d4"
+      Hint: FacetKey
+      Type: Treelist
+      Value: "{8A11DD2D-E602-4599-8FCC-6414B9BB125E}"
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180611T212527Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T104506Z
+    - ID: "2f0fd1ae-4dbd-4448-be5c-0470819e11a4"
+      Hint: FacetValue
+      Value: Email
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "a9258cff-e39c-4c69-8a69-9e35d9a853d4"
+      Hint: FacetKey
+      Type: Treelist
+      Value: "{8A11DD2D-E602-4599-8FCC-6414B9BB125E}"

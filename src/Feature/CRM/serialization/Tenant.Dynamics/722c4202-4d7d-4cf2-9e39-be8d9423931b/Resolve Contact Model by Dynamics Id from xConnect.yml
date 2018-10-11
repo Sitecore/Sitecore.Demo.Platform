@@ -1,0 +1,66 @@
+﻿---
+ID: "2894d52b-2c86-411a-be39-52cbc9bb4c27"
+Parent: "722c4202-4d7d-4cf2-9e39-be8d9423931b"
+Template: "0c843d1d-145b-4f22-8a50-a4baa1477b05"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Pipelines/Dynamics Marketing Lists to xConnect Sync Pipelines/Update Membership on a Single Contact/Resolve Contact Model by Dynamics Id from xConnect
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "010e5d89-6409-4fbc-843b-ceb84c8ed3bb"
+  Hint: IdentifierObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "01eba2b5-e9d2-4a36-89ee-042a2a119fba"
+  Hint: ContactIdentificationLevelObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "0843f8d5-8165-4b7d-91e4-bc36c4bfa66f"
+  Hint: FacetsToRead
+  Type: Treelist
+  Value: |
+    {70CDEF8F-4756-530C-EB5C-E83BA9F2D3E3}
+    {E298A470-F684-401B-0DF2-4E54AC2FDE1D}
+    {3F32CD9F-E30D-F000-1CD4-D237C4A16B70}
+    {7F9B5A99-BD75-6E7F-5056-10719C15E1B9}
+    {C80801F6-DA55-9E34-0EEB-A850BBCF8862}
+    {632D4894-DC14-B928-A9DE-340AACE432FA}
+    {B606D88B-D989-27DB-F7E3-5F1C20A8E6F3}
+- ID: "1a6810e6-b18b-4e38-825a-fc9988d3518a"
+  Hint: FinishPipelineIfObjectNotResolved
+  Type: Checkbox
+  Value: 1
+- ID: "4ce9ed44-bc7f-44e5-886d-97d9a6890faa"
+  Hint: IdentifierValueAccessor
+  Value: "{4AF5BFA3-30CC-49AD-967A-4DB6B4003AE4}"
+- ID: "5c061c42-ff86-4f43-b5ad-831dc03dc77d"
+  Hint: ResolvedObjectLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "6248ce5e-be8d-4e36-a0f4-9d20050ff580"
+  Hint: UseConnectionSettingsFromContext
+  Type: Checkbox
+  Value: 1
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "d4f2f278-178d-4e0f-9465-d4a1221ca99f"
+  Hint: EndpointFrom
+  Value: "{689E9896-B8DD-43B6-A433-E4A9AB261702}"
+- ID: "ef645050-7c9e-4929-b96f-0d40cd8c4e96"
+  Hint: ContactIdentificationLevelValueAccessor
+  Value: "{5FC18EFB-4E01-4393-9CE6-358901266DA8}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{2894D52B-2C86-411A-BE39-52CBC9BB4C27}"
+- ID: "fd64ab8d-85e1-4321-a12a-4edc19ff78e9"
+  Hint: ContactIdentifierSourceValueAccessor
+  Value: "{EEE8CC76-1653-4D3B-8543-D3AAD5EF9205}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112701Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
