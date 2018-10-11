@@ -37,6 +37,9 @@ Task("Default")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
 .IsDependentOn("Publish-Transforms")
+.IsDependentOn("Post-Deploy");
+
+Task("Post-Deploy")
 .IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Deploy-EXM-Campaigns")
