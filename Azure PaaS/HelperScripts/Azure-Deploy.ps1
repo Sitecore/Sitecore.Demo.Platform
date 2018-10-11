@@ -56,7 +56,7 @@ Import-Module "$($config.DeployFolder)\assets\Sitecore Azure Toolkit\tools\Sitec
 # Fill in Parameters
 #####################
 
-$ArmParametersPath = "$($config.ProjectFolder)\Azure PaaS\Sitecore 9.0.2\XP0 Single\azuredeploy.parameters.json"
+$ArmParametersPath = "$($config.ProjectFolder)\Azure PaaS\XP0 Single\azuredeploy.parameters.json"
 
 
 foreach($setting in $azureuserconfig.settings)
