@@ -40,6 +40,8 @@ Param(
     [string]$Script = "build.cake",
 	[ValidateSet("Default", "Build", "Azure-Upload", "Azure-Deploy")]
     [string]$Target,
+	[ValidateSet("Yes", "No")]
+	[string]$SkipPrerequisites,
     [string]$Configuration,
     [ValidateSet("Quiet", "Minimal", "Normal", "Verbose", "Diagnostic")]
     [string]$Verbosity,
@@ -57,14 +59,20 @@ Param(
 
 if(($Target) -and ($Target -ne "Build") -or !($Target))
 {
-	& ".\\HelperScripts\AzureUser-Config-Capture.ps1" -ConfigurationFile "cake-config.json"
+	if($SkipPrerequisites -eq "No")
+	{
+		& ".\\HelperScripts\AzureUser-Config-Capture.ps1" -ConfigurationFile "cake-config.json"
+	}
 }
 
 ###############################
 # Run Env-Prep
 ###############################
 
-& ".\\HelperScripts\Env-Prep.ps1" -ConfigurationFile "cake-config.json"
+if($SkipPrerequisites -eq "No")
+{
+	& ".\\HelperScripts\Env-Prep.ps1" -ConfigurationFile "cake-config.json"
+}
 
 # Attempt to set highest encryption available for SecurityProtocol.
 # PowerShell will not set this by default (until maybe .NET 4.6.x). This

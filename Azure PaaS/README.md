@@ -70,14 +70,16 @@ Optional Parameters:
 | DryRun                                    | Performs a dry run.
 | SkipToolPackageRestore                    | Skips restoring of packages.
 | Target                                    | Build Target **(see below)**
+| SkipPrerequisites							| Grants the ability to skip the preparation steps like file downloads, asking users for Azure information and collection of credentials
+|											| (Best used for testing purposes, or if the user has only run the project build, but information and prerequisites were already collected)
 
 **Target**
-|Value                                  | Description
+|Value										| Description
 |-------------------------------------------|---------------------------------------------------------------------------------------------
-| Default                                    | Same affect as no target defined, will build and deploy to Azure.
-| Build                                      | Create build output only, will **not** upload or deploy to Zzure
-| Azure-Upload                               | Performs only the upload to Azure portion of the process
-| Azure-Deploy                               | Performs only the Deployment portion of the process
+| Default                                   | Same affect as no target defined, will build and deploy to Azure
+| Build                                     | Create build output only, will **not** upload or deploy to Azure
+| Azure-Upload                              | Performs only the upload to Azure portion of the process
+| Azure-Deploy                              | Performs only the Deployment portion of the process
 
 ##### Environment Preparation
 

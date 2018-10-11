@@ -29,27 +29,16 @@ Setup(context =>
 
 Task("Default")
 .WithCriteria(configuration != null)
-.IsDependentOn("Clean")
-.IsDependentOn("Publish-All-Projects")
-.IsDependentOn("Apply-Xml-Transform")
-.IsDependentOn("Publish-Transforms")
-.IsDependentOn("Publish-xConnect-Project")
-	//.IsDependentOn("Deploy-EXM-Campaigns")
-	//.IsDependentOn("Deploy-Marketing-Definitions")
-	//.IsDependentOn("Rebuild-Core-Index")
-	//.IsDependentOn("Rebuild-Master-Index")
-	//.IsDependentOn("Rebuild-Web-Index")
-.IsDependentOn("Publish-YML")
-.IsDependentOn("Package-Build")
-.IsDependentOn("Azure-Upload-Packages")
-.IsDependentOn("Azure-Site-Deploy");
+.IsDependentOn("Build")
+.IsDependentOn("Azure-Upload")
+.IsDependentOn("Azure-Deploy");
 
 Task("Build")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
 .IsDependentOn("Publish-All-Projects")
-.IsDependentOn("Apply-Xml-Transform")
-.IsDependentOn("Publish-Transforms")
+//.IsDependentOn("Apply-Xml-Transform")
+//.IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project")
 	//.IsDependentOn("Deploy-EXM-Campaigns")
 	//.IsDependentOn("Deploy-Marketing-Definitions")
@@ -74,6 +63,7 @@ Task("Azure-Deploy")
 Task("Clean").Does(() => {
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
+	DeleteDirectory($"{configuration.DeployFolder}", new DeleteDirectorySettings { Recursive = true, Force = true });
 });
 
 Task("Publish-All-Projects")

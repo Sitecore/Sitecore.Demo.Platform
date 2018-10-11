@@ -215,6 +215,7 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
     $habitatWebsiteArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'habitathome.json'))
     $habitatXconnectArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'xconnect.json'))
     $bootloadArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'addons', 'bootloader.json'))
+	$nestedArmTemplates =  Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'nested'))
 
     # Checking if the files are already uploaded and present in Azure and uploading
 
@@ -293,6 +294,23 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
 		Write-Host "Starting file upload for $($bootloadArmTemplate.Name)" -ForegroundColor Green
         Set-AzureStorageBlobContent -File $bootloadArmTemplate.FullName -Blob "arm-templates/$($bootloadArmTemplate.Name)" -Container $containerName -Context $ctx -Force
 		Write-Host "Upload of $($bootloadArmTemplate.Name) completed" -ForegroundColor Green
+                        
+    }
+
+    try {
+                        
+        Get-AzureStorageBlob -Blob "arm-templates/$($nestedArmTemplates.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
+        Write-Host "Skipping... folder $($nestedArmTemplates.Name) already uploaded" -ForegroundColor Yellow
+                        
+    } catch {
+                        
+		Get-ChildItem -File -Recurse -Path $nestedArmTemplates.FullName | ForEach { 
+
+			Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
+			Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Force
+			Write-Host "Upload of $($_.Name) completed" -ForegroundColor Green
+		
+		}
                         
     }
 
