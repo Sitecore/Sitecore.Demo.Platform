@@ -78,6 +78,9 @@ If you do **not want to use the default settings**, you need to adjust the appro
 - **WebsiteRoot**
 - **XConnectRoot**
 - **ProjectFolder**
+- **InstanceUrl**
+
+The cake script will automatically create a publishSettings.targets.user file with the value of the InstanceUrl specified in the cake-config.json file.
 
 ## Installation:
 
@@ -112,7 +115,7 @@ From the root of the solution
 
 - Run **`.\build.ps1`**
 	- Notes:
-		- If you the deployment failed at `Sync-Unicorn` step. Just run `.\build.ps1` again.
+		- If you the deployment failed at `Sync-Unicorn` step, evaluate and fix the error and then run `.\build.ps1 -Target "Post-Deploy"`.
 
 
 ### 3. Validating deployment
