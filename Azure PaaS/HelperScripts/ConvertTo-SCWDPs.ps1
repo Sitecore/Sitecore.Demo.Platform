@@ -168,6 +168,10 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
     $IOActionsPath = New-Item -Path "$($CargoPayloadFolderPath)\IOActions" -ItemType Directory -Force
     $XdtsPath = New-Item -Path "$($CargoPayloadFolderPath)\Xdts" -ItemType Directory -Force
 
+	# Copy over the configuration transform file structure from the Habitat project's build output to be inlcluded to the WDP package
+
+	Copy-Item -Path $([IO.Path]::Combine($config.DeployFolder, 'assets', 'HabitatHome')) -Filter "*.xdt" -Destination $XdtsPath.FullName -Recurse -Container -force
+
     # Zip up all Cargo Payload folders using Ionic Zip
 
     Zip -FolderToZip $CargoPayloadFolderPath.FullName -ZipFilePath $CargoPayloadZipFilePath -DotNetZipPath $IonicZip
