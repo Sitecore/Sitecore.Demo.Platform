@@ -1,0 +1,33 @@
+﻿---
+ID: "cd41ee27-09e3-4fc1-a7c2-faa1d12cda85"
+Parent: "dccac23a-fb9c-4c73-8026-8783e8181628"
+Template: "af19dedc-424e-4f0a-b63a-f019f7028173"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Tenant Settings/Providers/xConnect/XObject Mapping Settings/XObject Mapping Definitions/Event Mappings for Dynamics Activities/Phone Call Event
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "5b201868-7720-4a15-8337-4cbc3f1af606"
+  Hint: ClrType
+  Value: Sitecore.DataExchange.Tools.DynamicsConnect.Events.PhoneCallEvent, Sitecore.DataExchange.Tools.DynamicsConnect
+- ID: "5be4c643-d7f9-4640-bdec-02c5cbd9c23e"
+  Hint: MappingIncludeConditions
+  Type: Treelist
+  Value: "{E79B02A2-143A-4AF8-8D26-09E45E281D3E}"
+- ID: "8ca65b77-1164-4364-ba31-43428a762d4c"
+  Hint: MappingSetForProperties
+  Value: "{E6ACB4CE-F06F-41DD-8A42-1DD6991835F6}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{CD41EE27-09E3-4FC1-A7C2-FAA1D12CDA85}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112800Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

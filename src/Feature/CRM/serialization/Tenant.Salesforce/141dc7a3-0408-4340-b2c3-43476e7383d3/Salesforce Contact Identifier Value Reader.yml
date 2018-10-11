@@ -1,0 +1,29 @@
+﻿---
+ID: "47e72849-a2bf-4a73-8774-b95864bca665"
+Parent: "141dc7a3-0408-4340-b2c3-43476e7383d3"
+Template: "c0ee6f8e-594c-420f-82c7-15ed7229fbc8"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Data Access/Value Readers/Providers/xConnect/Salesforce Contact Identifier on xConnect Contact Value Reader/Salesforce Contact Identifier Value Reader
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "144c966e-0a99-4470-a3aa-8a3028c356af"
+  Hint: IdentifierType
+  Value: Known
+- ID: "4a3740ac-f4d2-48ae-b587-3cdf6cc9f508"
+  Hint: IdentifierSource
+  Value: Salesforce.ContactId
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{47E72849-A2BF-4A73-8774-B95864BCA665}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165818Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,0 +1,38 @@
+﻿---
+ID: "56ff495f-775f-472f-9bd2-ca608e52a8f2"
+Parent: "d9c9585a-4a2f-45f4-bd00-4a3aebef556f"
+Template: "eb05c247-5209-438b-836d-4b4e2eb9ba37"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/Salesforce Tasks to xConnect Sync Pipelines/Read Tasks from Salesforce Pipeline/Read Tasks from Salesforce
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "11e86cfc-9224-49e8-8f23-4e2b53383a26"
+  Hint: EndpointFrom
+  Value: "{76235B35-2CFC-44CB-96E3-10F1896FFE3D}"
+- ID: "7968c89e-4a9c-4805-bfda-d5410eeae28c"
+  Hint: FilterExpression
+  Value: "{7B4C5C63-28C8-4296-9CF5-41A8E68868F6}"
+- ID: "7e47a023-7795-4f5f-82b2-5b9eae6a903f"
+  Hint: ObjectName
+  Value: Task
+- ID: "827ed6a9-e4d4-4520-8cbb-db170c8828a2"
+  Hint: FieldsToRead
+  Type: Treelist
+  Value: |
+    {7577EF8F-FD61-4E1A-8D44-CE7811D99EBB}
+    {8A65147A-D8D7-41E2-95A1-2852486135F9}
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{56FF495F-775F-472F-9BD2-CA608E52A8F2}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165822Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

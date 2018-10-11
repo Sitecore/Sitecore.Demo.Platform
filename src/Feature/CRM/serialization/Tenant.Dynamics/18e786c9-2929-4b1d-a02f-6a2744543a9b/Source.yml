@@ -1,0 +1,30 @@
+﻿---
+ID: "dd65806e-1a9e-4244-ba82-5aba873eba8a"
+Parent: "18e786c9-2929-4b1d-a02f-6a2744543a9b"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Value Mapping Sets/Dynamics to xConnect Contact Mappings/Dynamics Contact Identifier to xConnect Contact Identifier Constructor/Source
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{89A27894-FA5B-455D-801B-C59D6A34C2F1}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{A2CA72F5-A715-494F-8EB8-3836EC061D17}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{DD65806E-1A9E-4244-BA82-5ABA873EBA8A}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112805Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,0 +1,177 @@
+﻿---
+ID: "c97b523a-3501-46a3-85dd-6f0968e1fdca"
+Parent: "bc88fb5e-c3e0-46f0-b00d-d02d1949b8d3"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Habitat Sites/Habitat Home Basic/Data/Snippets/Two Column Child Tablet Teasers
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 150
+- ID: "c80e6f3c-5bcd-426b-b1eb-6d10672e985d"
+  Hint: Data Source Selection Behavior
+  Value: AskUser
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{2F9872D5-856F-412C-AEB3-A7B218304779}"
+          p:before="*"
+          s:cnd=""
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:mvt=""
+          s:par="Styles=%7b1a5d48a6-95f2-4bf2-b563-2f6703fbce43%7d%7c%7b76b2872d-5bc8-4b26-83a5-aabd2737cf47%7d%7c%7b3857fcee-835d-482c-99b9-4be1828e38d2%7d&amp;DynamicPlaceholderId=1"
+          s:ph="section-content" />
+        <r
+          uid="{1E33D083-15B8-4A94-9AD3-418A558B2200}"
+          p:after="r[@uid='{2F9872D5-856F-412C-AEB3-A7B218304779}']"
+          s:ds="/sitecore/content/Habitat Sites/Habitat Home Basic/home/guides/watch-out-on-tablets"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=4&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bf04e97a8-f249-4674-b3e8-0bce91b0b34f%7d"
+          s:ph="/section-content/container-1/column-2-2" />
+        <r
+          uid="{A2CF8491-0BA7-4858-8E66-8596F4903AB7}"
+          p:after="r[@uid='{1E33D083-15B8-4A94-9AD3-418A558B2200}']"
+          s:ds="/sitecore/content/Habitat Sites/Habitat Home Basic/home/guides/the-best-child-proof-tablets-around"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=3&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bf04e97a8-f249-4674-b3e8-0bce91b0b34f%7d"
+          s:ph="/section-content/container-1/column-1-2" />
+        <r
+          uid="{3CB4EC45-C979-472A-905B-CAA07F72B9A7}"
+          p:after="*[1=2]"
+          s:ds="/sitecore/content/Habitat Sites/Habitat Home Basic/Data/Snippets/Three Column Fitness Teasers"
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="DynamicPlaceholderId=2&amp;EnabledPlaceholders=1%2c2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;ColumnWidth3=%7b4D4B771B-9954-430E-AEE1-E76C54BD50C3%7d&amp;ColumnWidth1=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d&amp;ColumnWidth2=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d"
+          s:ph="/section-content/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{74F72B9A-06E0-40D6-A3A5-666CA35DDD2B}"
+              p:before="*"
+              s:ds="{aa8e191d-cf28-4f76-86c9-3a623d89e8bf}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="GridParameters=%257B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%257D&amp;DynamicPlaceholderId=6&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bf04e97a8-f249-4674-b3e8-0bce91b0b34f%7d"
+              s:ph="/section-content/container-1/column-2-2">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{FB1D4C21-47F5-4F54-985D-F4BC392A896D}"
+                    s:name="Specify name...">
+                    <conditions>
+                      <condition
+                        uid="3D09BDF9C8C749AF8F0DEB4C0877A8E8"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Topic Interest Category"
+                        s:PatternName="Fitness" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="EF8F2B1B5E9E46C391129311D698928E"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{80bc024e-50df-4df6-936d-ea2e2def7b9d}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="FBBCE391743E4F0493FE8584159D480D"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                    <actions />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{8A0E83F3-93C0-469B-9952-26AA51A9E2F8}"
+              p:after="r[@uid='{74F72B9A-06E0-40D6-A3A5-666CA35DDD2B}']"
+              s:ds="{0570d160-ad29-4adf-aeae-4f4324f4cc56}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="GridParameters=%257B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%257D&amp;DynamicPlaceholderId=5&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bf04e97a8-f249-4674-b3e8-0bce91b0b34f%7d"
+              s:ph="/section-content/container-1/column-1-2">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{E5253716-3FA0-42D6-8EC4-FF7503B52CC8}"
+                    s:name="Specify name...">
+                    <conditions>
+                      <condition
+                        uid="4E82499618A24358A4150298EF0CC6BC"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Topic Interest Category"
+                        s:PatternName="Fitness" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="B8FD52EDE8FE4C8F91EAC83D468AE93A"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{0df0c411-1c5d-4b52-bede-5ae5ec219b1d}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="08A0A992EF5C4C438A01247D2599FA10"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                    <actions />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180607T132826Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180620T061333Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180628T023252Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous

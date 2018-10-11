@@ -1,0 +1,50 @@
+﻿---
+ID: "15af4ab9-0541-4c96-8250-078869f74d5d"
+Parent: "1492cb90-3e18-4a5e-b0b2-6f060b1b1834"
+Template: "075c4fbd-f54e-4e6d-bd54-d49bda0913d8"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipeline Batches/Salesforce Contacts to xConnect Sync
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "2aa5c591-ff55-411d-96c0-978bb2c58b94"
+  Hint: Log
+  Value: |
+    C:\inetpub\wwwroot\habitathome.dev.local\App_Data\logs\DataExchange\Demo.CRM.Salesforce\Salesforce.Contacts.to.xConnect.Sync.20180928.131526.txt
+- ID: "6a2b2cbb-4338-4814-a8a9-9fecbb90456a"
+  Hint: LastRunFinished
+  Value: 20180928T131529Z
+- ID: "9061beea-df25-4b2b-a698-3f5b4e867d18"
+  Hint: Pipelines
+  Type: Treelist
+  Value: "{0EB4C244-6541-4863-B2AA-D904C303EB85}"
+- ID: "985ba535-0f3e-4da8-a768-a469026de9db"
+  Hint: RequestedAt
+  Value: 20180928T131526Z
+- ID: "e20cd41a-2930-4831-b0a4-9b70ae2996e7"
+  Hint: IncludeStackTraceForExceptions
+  Type: Checkbox
+  Value: 1
+- ID: "f09c65f8-c611-476f-9ef2-457fdcc88e1a"
+  Hint: LogLevels
+  Type: Checklist
+  Value: |
+    {9A08C19F-6B54-4C4A-A53A-A797E5356E57}
+    {FB228585-8B23-49D0-9677-F7147756F321}
+    {77391479-9575-4FBA-9719-3B50FA19A50B}
+    {F7729D4A-D12D-4D0B-849D-02CD4AC18D2D}
+    {18E94D1E-B367-4073-A521-0D50A01A26C6}
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{15AF4AB9-0541-4C96-8250-078869F74D5D}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165820Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

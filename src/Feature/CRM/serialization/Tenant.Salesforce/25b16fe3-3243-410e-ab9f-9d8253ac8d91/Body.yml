@@ -1,0 +1,30 @@
+﻿---
+ID: "07994359-e0a7-4823-be83-81dacd923401"
+Parent: "25b16fe3-3243-410e-ab9f-9d8253ac8d91"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Value Mapping Sets/xConnect Event to Salesforce Task Mappings/xConnect Email Message to Salesforce Email Event/Body
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{4D40E3E6-25F4-4C2A-BC9F-5965FFD6E352}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{706025E2-7E95-4D13-A537-8AE16F6813E6}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{07994359-E0A7-4823-BE83-81DACD923401}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165843Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
