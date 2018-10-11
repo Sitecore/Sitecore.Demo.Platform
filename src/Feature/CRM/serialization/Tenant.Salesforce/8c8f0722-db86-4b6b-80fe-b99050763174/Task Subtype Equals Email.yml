@@ -1,0 +1,32 @@
+﻿---
+ID: "852e7f58-25f1-4b66-aab6-954f2a1dc592"
+Parent: "8c8f0722-db86-4b6b-80fe-b99050763174"
+Template: "aa9a6acd-28c4-45b0-bc60-347b582d2ea5"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Tenant Settings/Providers/xConnect/XObject Mapping Settings/XObject Mapping Conditions/Task Subtype Equals Email
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "4cd85818-ed0b-4eb3-8ce8-1987e9dec91c"
+  Hint: ConstantValue
+  Value: Email
+- ID: "75093530-901f-4531-ae60-64cb5f0d6b0d"
+  Hint: ConstantValueType
+  Value: "{8B04E686-C0C0-4D36-9E3C-8F7F7F90AF17}"
+- ID: "c7560143-83ba-437a-b1aa-d4555f973111"
+  Hint: SourceValueAccessor
+  Value: "{CF0F85E8-8180-41FC-8CBB-FFE98052443C}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{852E7F58-25F1-4B66-AAB6-954F2A1DC592}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165832Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

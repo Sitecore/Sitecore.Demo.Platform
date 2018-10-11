@@ -1,0 +1,48 @@
+﻿---
+ID: "9388399e-4c69-456b-850a-2d0774a2b1b4"
+Parent: "d154e7eb-4507-4096-b63f-8e6838033ca9"
+Template: "86a5f63e-a5d6-4de6-8fab-f20987e2620a"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Pipelines/Dynamics Activities to xConnect Sync Pipelines/Read Activities from Dynamics Pipeline/Read Activities from Dynamics
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "1fe9c9a1-2fbc-4f60-87da-25b8556c193b"
+  Hint: ExcludeUseDeltaSettings
+  Type: Checkbox
+  Value: 1
+- ID: "2ac84eaf-03b8-4388-84b3-9d153df5d9a9"
+  Hint: FilterExpression
+  Value: "{5157791F-A478-4368-B961-08B05A76C1FD}"
+- ID: "3ecc7c7f-341d-4bec-bb3f-2d4f1a07d78a"
+  Hint: LinkEntities
+  Type: Treelist
+  Value: "{71E753FB-E3A2-4C10-AF91-B18CE1C77250}"
+- ID: "57cf77ae-1d9c-4e2e-b817-11349bf292ea"
+  Hint: ExcludeActiveFilter
+  Type: Checkbox
+  Value: 1
+- ID: "8099fdc6-b566-4711-8b6e-ff2934187767"
+  Hint: EntityName
+  Value: activitypointer
+- ID: "95b8ab42-0b81-4bb0-a9cd-7804ef8c9b06"
+  Hint: AttributesToRead
+  Type: Treelist
+  Value: "{E36BF45A-F52C-4C7C-ACD5-2ED0F91EEA5D}"
+- ID: "ad963103-122c-48e1-b0bb-444e98572ab9"
+  Hint: EndpointFrom
+  Value: "{DCDA28A7-6999-44D3-9C0E-A97671C0DDCE}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{9388399E-4C69-456B-850A-2D0774A2B1B4}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112705Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -86,8 +86,8 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Repositories
                 var user = User.Create(fullName, registrationInfo.Password);
                 user.Profile.Email = registrationInfo.Email;
                 user.Profile.FullName = registrationInfo.FirstName + " " + registrationInfo.LastName;
-                user.Profile.Name = registrationInfo.FirstName;
-                user.Profile.SetCustomProperty("LastName", registrationInfo.LastName);
+                user.Profile.SetCustomProperty(Constants.UserProfile.Fields.FirstName, registrationInfo.FirstName);
+                user.Profile.SetCustomProperty(Constants.UserProfile.Fields.LastName, registrationInfo.LastName);
 
                 if (!string.IsNullOrEmpty(profileId))
                 {

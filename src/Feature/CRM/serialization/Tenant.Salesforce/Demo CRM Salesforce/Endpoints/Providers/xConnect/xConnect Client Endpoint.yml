@@ -1,0 +1,32 @@
+﻿---
+ID: "79b4e417-2f3f-45db-9e81-be6d26b39d56"
+Parent: "4bfa65dc-2012-4a2c-8a90-3dbdf09dacfb"
+Template: "1ce2edc5-ec66-469b-8697-9e4985cc65cd"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Endpoints/Providers/xConnect/xConnect Client Endpoint
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "06b65d2a-5c16-4199-aeae-71f7d3d4d51a"
+  Hint: CollectionServiceCertificateConnectionStringName
+  Value: xconnect.collection.certificate
+- ID: "1d9c679e-d584-45c5-a282-111c9de3231b"
+  Hint: CollectionModel
+  Value: "{E11599A1-CC41-47D3-9BDC-F9F001C49FFA}"
+- ID: "82e7ad83-b16e-453c-858b-0a0161f9204b"
+  Hint: CollectionServiceConnectionStringName
+  Value: xconnect.collection
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{79B4E417-2F3F-45DB-9E81-BE6D26B39D56}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165820Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

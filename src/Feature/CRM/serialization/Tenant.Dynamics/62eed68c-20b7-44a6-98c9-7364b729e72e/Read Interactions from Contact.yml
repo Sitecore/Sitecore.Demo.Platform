@@ -1,0 +1,35 @@
+﻿---
+ID: "fadbfc87-0ca1-4fb1-9b4b-dd48192393ed"
+Parent: "62eed68c-20b7-44a6-98c9-7364b729e72e"
+Template: "96cdea81-9ce3-4da0-9350-a0279cad068c"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Pipelines/xConnect Contacts to Dynamics Sync Pipelines/Process Single Contact from xConnect Pipeline/Read Interactions from Contact
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "443b4e0a-bab3-4f0f-8bdb-61f93760b274"
+  Hint: TargetObjectLocation
+  Value: "{84F3ABCC-1E40-489C-9DA4-16BABC820091}"
+- ID: "88fbde6e-abaa-430e-bcc2-98b51421bb3f"
+  Hint: SourceObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "95affffa-c4e8-4270-83af-350261a28802"
+  Hint: SourceObjectValueAccessor
+  Value: "{6AC5C433-8D66-42AC-9EB4-E8EC40100EBD}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{FADBFC87-0CA1-4FB1-9B4B-DD48192393ED}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112724Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

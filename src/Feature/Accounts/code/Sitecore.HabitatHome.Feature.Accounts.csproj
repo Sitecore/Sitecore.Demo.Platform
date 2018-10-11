@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" 
-  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -44,7 +44,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <Choose>
+   <Choose>
     <When Condition=" '$(Configuration)'=='vNext' ">
       <ItemGroup>
         <PackageReference Include="Microsoft.Owin" Version="4.0.0" />
@@ -103,7 +103,7 @@
         <Reference Include="Sitecore.Kernel">
           <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
         </Reference>
-        <Reference Include="S itecore.Mvc">
+        <Reference Include="Sitecore.Mvc">
           <HintPath>..\..\..\..\lib\Sitecore\Sitecore.Mvc.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Owin.Authentication">
@@ -200,9 +200,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -228,7 +228,8 @@
     <Content Include="Views\Accounts\LoginTeaser.cshtml" />
     <Content Include="Views\Accounts\ChangePassword.cshtml" />
     <Content Include="Views\Accounts\BasicInformation.cshtml" />
-    <Content Include="Views\Accounts\DataProtection.cshtml" />
+    <Content Include="Views\Accounts\DeleteAccount.cshtml" />
+    <Content Include="Views\Accounts\ExportData.cshtml" />
     <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -260,6 +261,8 @@
     <Compile Include="Infrastructure\Pipelines\TrackRegistered.cs" />
     <Compile Include="Models\AccountsMenuInfo.cs" />
     <Compile Include="Models\ChangePasswordInfo.cs" />
+    <Compile Include="Models\ExportAccount.cs" />
+    <Compile Include="Models\DeleteAccount.cs" />
     <Compile Include="Models\EditProfile.cs" />
     <Compile Include="Models\FedAuthLoginButton.cs" />
     <Compile Include="Models\FedAuthLoginInfo.cs" />

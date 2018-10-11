@@ -63,13 +63,27 @@ Languages:
         sitecore\virtualssuser
     - ID: "81b370b0-9ea6-435d-be15-fcffb1cec57f"
       Hint: Register Page
-      Value: /sitecore/content/Habitat Sites/Habitat Home/Home/register
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{5C3F13DC-0069-47FC-97F6-F4FC1DC5D6B7}" />
+    - ID: "927f708e-ab61-44ab-ab09-2a1a23e07e05"
+      Hint: Forgot Password Page
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{B2C79FE0-8F30-4126-8A42-31F15DFC9F97}" />
+    - ID: "a98f8b72-64aa-4a9c-90db-92f7aead55ad"
+      Hint: Accounts Details Page
+      Value: 
     - ID: "b8937bfd-64c0-4abe-8e64-b328ea3f1ea1"
       Hint: After Login Page
-      Value: /sitecore/content/Habitat Sites/Habitat Home/Home
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{10083CA0-5093-4D67-99DB-2579ABB421D3}" />
     - ID: "e90c6342-5bc9-4011-a3c5-eed1fca7eb7c"
       Hint: Login Page
-      Value: /sitecore/content/Habitat Sites/Habitat Home/Home/login
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{79902BF1-F289-4B38-A8A1-9DAD2E65AC01}" />
+    - ID: "f2f9cc39-fda5-4a19-82da-d03699d8f1be"
+      Hint: Forgot Password Email Template
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{5886C263-C45D-4CF8-8A28-9FF568BE6CAA}" />
     - ID: "f48206df-d2eb-4df2-9ac0-18a2e9c31f29"
       Hint: Register Outcome
       Value: "{52054874-4767-47DC-8099-8C08BFA307AA}"
