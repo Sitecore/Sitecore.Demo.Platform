@@ -123,7 +123,8 @@
     <Content Include="Views\Accounts\LoginTeaser.cshtml" />
     <Content Include="Views\Accounts\ChangePassword.cshtml" />
     <Content Include="Views\Accounts\BasicInformation.cshtml" />
-    <Content Include="Views\Accounts\DataProtection.cshtml" />
+    <Content Include="Views\Accounts\DeleteAccount.cshtml" />
+    <Content Include="Views\Accounts\ExportData.cshtml" />
     <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -155,6 +156,8 @@
     <Compile Include="Infrastructure\Pipelines\TrackRegistered.cs" />
     <Compile Include="Models\AccountsMenuInfo.cs" />
     <Compile Include="Models\ChangePasswordInfo.cs" />
+    <Compile Include="Models\ExportAccount.cs" />
+    <Compile Include="Models\DeleteAccount.cs" />
     <Compile Include="Models\EditProfile.cs" />
     <Compile Include="Models\FedAuthLoginButton.cs" />
     <Compile Include="Models\FedAuthLoginInfo.cs" />
