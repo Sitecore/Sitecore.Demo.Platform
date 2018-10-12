@@ -17,47 +17,12 @@ Param(
 # Find configuration files
 ###########################
 
-if (!(Test-Path $ConfigurationFile)) {
+Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-        Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
-        Write-Host  "Please ensure there is a cake-config.json configuration file at '$($ConfigurationFile)'" -ForegroundColor Red
-        Exit 1
-    
-    }
-
-    $config = Get-Content -Raw $ConfigurationFile |  ConvertFrom-Json
-    if (!$config) {
-
-        throw "Error trying to load configuration!"
-    
-    }
-
-    # Find and process assets.json
-
-	if($config.Topology -eq "single")
-	{
-		[String] $assetsFile = $([IO.Path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
-	}
-	else
-	{
-		throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
-	}
-
-
-    if (!(Test-Path $assetsFile)) {
-
-        Write-Host "Assets file '$($assetsFile)' not found." -ForegroundColor Red
-        Write-Host  "Please ensure there is a assets.json file at '$($assetsFile)'" -ForegroundColor Red
-        Exit 1
-
-    }
-
-    $assetsConfig = Get-Content -Raw $assetsFile |  ConvertFrom-Json
-    if (!$assetsConfig) {
-
-        throw "Error trying to load Assest File!"
-
-    } 
+$configarray     = ProcessConfigFile -Config $ConfigurationFile
+$config          = $configarray[0]
+$assetconfig     = $configarray[1]
+$azureuserconfig = $configarray[2]
 
 ##################################################################
 # 3rd Party Ionic Zip function - helping create the SCCPL package
@@ -208,7 +173,6 @@ Function Create-CargoPayload
 	# Clean up Working folder
 
     Remove-Item -Path $WrkingCargoFldrSafeZone -Recurse -Force
-	Remove-Item -Path $WrkingCargoFldrSafeZone -Force
 
 	Write-Host "Creation of" $OutputCargoFilePath "Compelte" -ForegroundColor Green
 }

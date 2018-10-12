@@ -237,7 +237,6 @@ if($downloadlist)
 # Extract Files
 ###########################
 
-Write-Host "Extracting Files"
 $global:ProgressPreference = 'SilentlyContinue'
 
 $localassets = Get-ChildItem -path $(Join-Path $assetsfolder *) -include *.zip -r
@@ -246,7 +245,15 @@ foreach ($_ in $assetconfig.prerequisites)
 {
 	if ((($localassets.name -contains $_.fileName) -eq $true) -and ($_.extract -eq $true))
 	{
+		# This is a bug fix due to the DotNetZip.dll getting locked if the build is ran multiple times
+		if(($_.name -eq "Sitecore Azure Toolkit") -and $(Test-Path $([io.path]::combine($assetsfolder, $_.name, 'tools', 'DotNetZip.dll'))))
+		{
+			Write-Host $_.name "found, skipping extraction"
+			continue
+		}
+
 		Write-Host "Extracting" $_.filename -ForegroundColor Green
+
 		Expand-Archive	-Path $(Join-path $assetsfolder $_.filename) -DestinationPath $(Join-path $assetsfolder $_.name) -force
 	}
 	elseif($_.isGroup -eq $true)
@@ -271,46 +278,9 @@ foreach ($_ in $assetconfig.prerequisites)
 	}
 }
 
-<#
-if ($config.Topology -eq "single")
-{
-	foreach ($_ in $assetconfig.prerequisites)
-	{
-		if($_.id -eq "xp0")
-		{
-			if(!(Test-Path $([io.path]::combine($assetsfolder, 'Sitecore Experience Platform', 'sc', 'Content', 'Website', 'Web.config'))) -or `
-				!(Test-Path $([io.path]::combine($assetsfolder, 'Sitecore Experience Platform', 'sc', 'Content', 'Website', 'App_Config', 'ConnectionStrings.config'))) -or `
-				!(Test-Path $([io.path]::combine($assetsfolder, 'Sitecore Experience Platform', 'sc', 'Content', 'Website', 'App_Config', 'Security','Domains.config'))))
-			{
-				try
-				{
-					Write-Host "Extracting Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip"  -ForegroundColor Green
-					Expand-Archive -Path $([io.path]::combine($assetsfolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip')) `
-					-Destination $([io.path]::combine($assetsfolder, 'Sitecore Experience Platform', 'sc')) -force
-				}
-				catch
-				{
-					throw "Extraction failed due to filename length. Please place the Deploy Folder in a shorter path"
-				}
-			}
-			else
-			{
-				Write-host "Skipping Extration of Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip - Extrated files found"
-			}
-		}
-	}
-}
-else
-{
-	throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
-}
-#>
-
 #################################
 # Move Assets to Correct Folders
 #################################
-
-Write-Host "Moving Files to correct folders"
 
 foreach ($prereq in $assetconfig.prerequisites)
 {
@@ -333,51 +303,3 @@ foreach ($prereq in $assetconfig.prerequisites)
 		}
 	}
 }
-
-<#
-if ($config.Topology -eq "single")
-{
-	if( (Test-Path $([io.path]::combine($habitathomefilepath, 'App_Config', 'Security', 'Domains.config'))) -and `
-		(Test-Path $([io.path]::combine($habitathomefilepath, 'App_Config', 'ConnectionStrings.config'))) -and `
-		(Test-Path $(Join-path $habitathomefilepath "Web.config")))
-		{
-			Write-host "Build Output folder preperation complete"
-		}
-		else
-		{
-			Write-host "Preparing Build Output Folder"
-
-			if(!(Test-Path $habitathomefilepath))
-			{
-				Write-Host $habitathomefilepath "folder does not exist"
-				Write-Host "Creating" $habitathomefilepath "Folder"
-				New-Item -ItemType Directory -Force -Path $habitathomefilepath
-			}
-			if(!(Test-Path $(Join-Path $habitathomefilepath "App_Config")))
-			{
-				Write-Host $(Join-Path $habitathomefilepath "App_Config") "folder does not exist"
-				Write-Host "Creating" $(Join-Path $habitathomefilepath "App_Config") "Folder"
-				New-Item -ItemType Directory -Force -Path $(Join-Path $habitathomefilepath "App_Config")
-			}
-
-			if(!(Test-Path $([io.path]::combine($habitathomefilepath, 'App_Config', 'Security'))))
-			{
-				Write-Host $([io.path]::combine($habitathomefilepath, 'App_Config', 'Security')) "folder does not exist"
-				Write-Host "Creating" $([io.path]::combine($habitathomefilepath, 'App_Config', 'Security')) "Folder"
-				New-Item -ItemType Directory -Force -Path $([io.path]::combine($habitathomefilepath, 'App_Config', 'Security'))
-			}
-
-			$sitecoreconfigs = Get-ChildItem -path $(Join-Path $([io.path]::combine($assetsfolder, 'Sitecore Experience Platform', 'sc')) *) -include *.config -r
-
-			$sitecoreconfigs.fullname -like "*\Web.config" | Copy-Item -destination $(Join-path $habitathomefilepath "Web.config") -force
-			$sitecoreconfigs.fullname -like "*\ConnectionStrings.config" | Copy-Item -destination $([io.path]::combine($habitathomefilepath, 'App_Config', 'ConnectionStrings.config')) -force
-			$sitecoreconfigs.fullname -like "*\Domains.config" | Copy-Item -destination $([io.path]::combine($habitathomefilepath, 'App_Config', 'Security', 'Domains.config')) -force
-
-			Write-host "Build Output folder preperation complete"
-		}
-}
-else
-{
-	throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
-}
-#>
