@@ -77,9 +77,9 @@ Task("Clean").Does(() => {
         CleanDirectories($"{configuration.DeployFolder}\\assets\\Xconnect");
     }
 
-	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\convert to WDP"))
+	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\WDPWorkFolder"))
     {
-        CleanDirectories($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\convert to WDP");
+        CleanDirectories($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\WDPWorkFolder");
     }
 	
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
