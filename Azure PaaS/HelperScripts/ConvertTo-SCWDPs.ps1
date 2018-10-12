@@ -178,14 +178,15 @@ Function Create-CargoPayload
 	if ($XdtSourceFolder)
 	{
 		# Gather xdt files
-		#Get-ChildItem -Path $XdtSourceFolder -Include *.xdt -Recurse | Copy-Item -Destination $XdtsPath.FullName -force
 
 		$files = Get-ChildItem -Path $XdtSourceFolder -Filter "*.xdt" -Recurse
 		ForEach ($file in $files){
 
-			[String]$destination = $file.Directory.ToString().Replace($XdtSourceFolder, [String]$XdtsPath.FullName)
-			if($destination -ine [String]$XdtsPath.FullName){
-
+			$currentFolder = $file.Directory.ToString()
+			[String]$replacementPath = $currentFolder -replace [Regex]::Escape($XdtSourceFolder), [Regex]::Escape($XdtsPath.FullName)
+			[System.IO.DirectoryInfo]$destination = $replacementPath
+			if($destination.FullName -ine $XdtsPath.FullName){
+        
 				New-Item -Path $destination -ItemType Directory
 
 			}
