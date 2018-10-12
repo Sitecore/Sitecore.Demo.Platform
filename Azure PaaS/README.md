@@ -63,6 +63,7 @@ From the `\Azure PaaS` folder
 - Run **`.\build.ps1`** 
 
 Optional Parameters:
+
 |Parameter                                  | Description
 |-------------------------------------------|---------------------------------------------------------------------------------------------
 | Verbosity                                 | Specifies the amount of information to be displayed
@@ -74,6 +75,7 @@ Optional Parameters:
 |											| (Best used for testing purposes, or if the user has only run the project build, but information and prerequisites were already collected)
 
 **Target**
+
 |Value										| Description
 |-------------------------------------------|---------------------------------------------------------------------------------------------
 | Default                                   | Same affect as no target defined, will build and deploy to Azure

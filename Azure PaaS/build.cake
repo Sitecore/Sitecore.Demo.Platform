@@ -61,9 +61,29 @@ Task("Azure-Deploy")
 ===============================================*/
 
 Task("Clean").Does(() => {
+
+	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\HabitatHome"))
+    {
+        CleanDirectories($"{configuration.DeployFolder}\\assets\\HabitatHome");
+    }
+
+	if (DirectoryExists($"{configuration.DeployFolder}\\Website"))
+    {
+        CleanDirectories($"{configuration.DeployFolder}\\Website");
+    }
+
+	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Xconnect"))
+    {
+        CleanDirectories($"{configuration.DeployFolder}\\assets\\Xconnect");
+    }
+
+	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\convert to WDP"))
+    {
+        CleanDirectories($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\convert to WDP");
+    }
+	
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
-	DeleteDirectory($"{configuration.DeployFolder}", new DeleteDirectorySettings { Recursive = true, Force = true });
 });
 
 Task("Publish-All-Projects")

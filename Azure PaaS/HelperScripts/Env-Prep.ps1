@@ -225,7 +225,7 @@ if($downloadlist)
 				}
 			}
 		}
-		elseif (($prereq.isWDP -eq $true))
+		elseif (($prereq.isWDP -eq $true) -and ($downloadlist -contains $prereq.fileName))
 		{
 			if (!(Test-Path $(Join-Path $assetsfolder $prereq.name))) 
 			{
@@ -287,6 +287,7 @@ foreach ($_ in $assetconfig.prerequisites)
 	}
 }
 
+<#
 if ($config.Topology -eq "single")
 {
 	foreach ($_ in $assetconfig.prerequisites)
@@ -319,6 +320,7 @@ else
 {
 	throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
 }
+#>
 
 #################################
 # Move Assets to Correct Folders
@@ -348,6 +350,7 @@ foreach ($prereq in $assetconfig.prerequisites)
 	}
 }
 
+<#
 if ($config.Topology -eq "single")
 {
 	if( (Test-Path $([io.path]::combine($habitathomefilepath, 'App_Config', 'Security', 'Domains.config'))) -and `
@@ -393,3 +396,4 @@ else
 {
 	throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
 }
+#>
