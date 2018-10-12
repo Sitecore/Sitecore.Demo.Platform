@@ -178,7 +178,22 @@ Function Create-CargoPayload
 	if ($XdtSourceFolder)
 	{
 		# Gather xdt files
-		Get-ChildItem -Path $XdtSourceFolder -Include *.xdt -Recurse | Copy-Item -Destination $XdtsPath.FullName -force
+		#Get-ChildItem -Path $XdtSourceFolder -Include *.xdt -Recurse | Copy-Item -Destination $XdtsPath.FullName -force
+
+		$files = Get-ChildItem -Path $XdtSourceFolder -Filter "*.xdt" -Recurse
+		ForEach ($file in $files){
+
+			[String]$destination = $file.Directory.ToString().Replace($XdtSourceFolder, [String]$XdtsPath.FullName)
+			if($destination -ine [String]$XdtsPath.FullName){
+
+				New-Item -Path $destination -ItemType Directory
+
+			}
+
+			Copy-Item -Path $file.FullName -Destination $destination -Force
+
+		}
+
 	}
 
 	# Zip up all Cargo Payload folders using Ionic Zip
@@ -387,7 +402,7 @@ Function Prepare-WDP ($config, $assetsConfig) {
 								-SccplCargoFilename $SccplCargoName `
 								-IonicZip $IonicZipPath `
 								-foldername $folder.Name `
-								-XdtSrcFolder $(Join-Path $config.ProjectFolder "src")
+								-XdtSrcFolder $(Join-Path $config.DeployFolder "Website\HabitatHome")
 					
 				} else {
 			
