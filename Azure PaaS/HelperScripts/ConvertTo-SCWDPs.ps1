@@ -151,11 +151,11 @@ Function Create-CargoPayload
 		 New-Item -Path $OutputCargoFolder -ItemType Directory -Force
 	}
 
-	$WrkingCargoFldrSafeZone = Join-path $OutputCargoFolder "ZipZone"
+	$WrkingCargoFldrSafeZone = Join-path $OutputCargoFolder "temp"
 
 	if(!(Test-Path $($WrkingCargoFldrSafeZone)))
 	{
-		$WrkingCargoFldrSafeZone = New-Item -Path $(Join-path $OutputCargoFolder "ZipZone") -ItemType Directory -Force
+		$WrkingCargoFldrSafeZone = New-Item -Path $(Join-path $OutputCargoFolder "temp") -ItemType Directory -Force
 	}
 
 	$CopyToRootPath = New-Item -Path $(Join-Path $WrkingCargoFldrSafeZone "CopyToRoot") -ItemType Directory -Force
@@ -207,6 +207,7 @@ Function Create-CargoPayload
 	# Clean up Working folder
 
     Remove-Item -Path $WrkingCargoFldrSafeZone -Recurse -Force
+	Remove-Item -Path $WrkingCargoFldrSafeZone -Force
 
 	Write-Host "Creation of" $OutputCargoFilePath "Compelte" -ForegroundColor Green
 }

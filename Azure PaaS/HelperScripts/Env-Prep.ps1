@@ -1,13 +1,23 @@
 <#
-	.SYNOPSIS
-	Prepare Local environnment for habitat home scwdp package creation 
+.SYNOPSIS
+Prepare Local environnment for habitat home scwdp package creation
 
-	.DESCRIPTION
-	This script will check the local Deploy folder defined in the cake-config.json file for an Assets folder, and create one if it doesn't exist.
-	It will then check the folder for prerequisite files as defined by the assets.json. 
-	The script will then download anything missing and extract tools and files so they can be used by later scripts.
+.DESCRIPTION
+This script will check the local Deploy folder defined in the $ConfigurationFile file 
+for an Assets folder, and create one if it doesn't exist. It will then check the folder 
+for prerequisite files as defined by the assets.json. The script will then download anything missing 
+and extract tools and files so they can be used by later scripts.
+
+.PARAMETER ConfigurationFile
+A cake-config.json file
+.PARAMETER SitecoreDownloadUsername
+dev.sitecore.com username.
+.PARAMETER SitecoreDownloadPassword
+dev.sitecore.com password.
+
 #>
 
+[CmdletBinding()]
 Param(
 	[parameter(Mandatory=$true)]
 	[ValidateNotNullOrEmpty()]
