@@ -11,19 +11,12 @@ Param(
 # Find configuration files
 ###########################
 
-# Find and process cake-config.json
-if (!(Test-Path $ConfigurationFile)) {
-    Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
-    Write-Host  "Please ensure there is a cake-config.json configuration file at '$($ConfigurationFile)'" -ForegroundColor Red
-    Exit 1
-}
+Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$config = Get-Content -Raw $ConfigurationFile | ConvertFrom-Json
-if (!$config) {
-
-    throw "Error trying to load configuration!"
-    
-}
+$configarray     = ProcessConfigFile -Config $ConfigurationFile
+$config          = $configarray[0]
+$assetconfig     = $configarray[1]
+$azureuserconfig = $configarray[2]
 
 ################################################################
 # Prepare folders for update package generation and triggers it

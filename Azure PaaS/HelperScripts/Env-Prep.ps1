@@ -19,7 +19,7 @@ dev.sitecore.com password.
 
 [CmdletBinding()]
 Param(
-	[parameter(Mandatory=$true)]
+	[parameter(Mandatory=$true, HelpMessage="Please Enter your cake-config.json")]
 	[ValidateNotNullOrEmpty()]
     [string] $ConfigurationFile,
 	[Parameter(Mandatory=$true, HelpMessage="Please Enter your dev.sitecore.com username")]
@@ -34,38 +34,12 @@ Param(
 # Find configuration files
 ###########################
 
-# Find and process cake-config.json
-if (!(Test-Path $ConfigurationFile)) {
-    Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
-    Write-Host  "Please ensure there is a cake-config.json configuration file at '$($ConfigurationFile)'" -ForegroundColor Red
-    Exit 1
-}
+Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$config = Get-Content -Raw $ConfigurationFile |  ConvertFrom-Json
-if (!$config) {
-    throw "Error trying to load configuration!"
-} 
-
-# Find and process assets.json
-if($config.Topology -eq "single")
-{
-	[string] $AssetsFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
-}
-else
-{
-	throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
-}
-
-if (!(Test-Path $AssetsFile)) {
-    Write-Host "Assets file '$($AssetsFile)' not found." -ForegroundColor Red
-    Write-Host  "Please ensure there is a assets.json file at '$($AssetsFile)'" -ForegroundColor Red
-    Exit 1
-}
-
-$assetconfig = Get-Content -Raw $AssetsFile |  ConvertFrom-Json
-if (!$assetconfig) {
-    throw "Error trying to load Assest File!"
-} 
+$configarray     = ProcessConfigFile -Config $ConfigurationFile
+$config          = $configarray[0]
+$assetconfig     = $configarray[1]
+$azureuserconfig = $configarray[2]
 
 ###################################
 # Parameters
