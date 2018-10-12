@@ -228,11 +228,11 @@ Function Create-WDP{
 
     # Create empty folder structures for the WDP work
 
-    [string] $DestinationFolderPath = New-Item -Path "$($RootFolder)\convert to WDP\WDP" -ItemType Directory -Force
+    [string] $DestinationFolderPath = New-Item -Path "$($RootFolder)\WDPWorkFolder\WDP" -ItemType Directory -Force
 
     # WDP Components folder and sub-folders creation
 
-    $ComponentsFolderPath = New-Item -Path "$($RootFolder)\convert to WDP\Components" -ItemType Directory -Force
+    $ComponentsFolderPath = New-Item -Path "$($RootFolder)\WDPWorkFolder\Components" -ItemType Directory -Force
     $CargoPayloadFolderPath = New-Item -Path $(Join-Path $ComponentsFolderPath "CargoPayloads") -ItemType Directory -Force
     $AdditionalWdpContentsFolderPath = New-Item -Path "$($ComponentsFolderPath)\AdditionalFiles" -ItemType Directory -Force
     $JsonConfigFolderPath = New-Item -Path "$($ComponentsFolderPath)\Configs" -ItemType Directory -Force
@@ -337,7 +337,7 @@ Function Prepare-WDP ($config, $assetsConfig) {
 			# Do a check if the WDP package already exists and if not, proceed with package generation
 
             [String] $ModuleFolder = $([IO.Path]::Combine($assetsFolder, $asset.name))
-			[String] $ModuleWDPTarget = "$($ModuleFolder)\convert to WDP\WDP"
+			[String] $ModuleWDPTarget = "$($ModuleFolder)\WDPWorkFolder\WDP"
 			If((Test-Path -Path $ModuleWDPTarget) -eq $False){
 	
 				Get-ChildItem -Path "$($ProjectModulesFolder)\$($asset.name)\*" -Include *.json | ForEach-Object { $WDPJsonFile = $_.FullName; $WDPJsonFileName = $_.BaseName }
@@ -354,7 +354,7 @@ Function Prepare-WDP ($config, $assetsConfig) {
 					$DEFZipFile = "Data Exchange Framework 2.0.1 rev. 180108.zip"
 					$DEFSCWPDFile = "Data Exchange Framework 2.0.1 rev. 180108_single.scwdzip"
 					$DEFZipFilePath = Join-Path $ModuleFolder $DEFZipFile
-					$DEFSCWPDFilePath = $([IO.Path]::Combine($ModuleFolder, "Convert to WDP", "WDP", $DEFSCWPDFile))
+					$DEFSCWPDFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DEFSCWPDFile))
                               
 						if(Test-Path $DEFSCWPDFilePath)
 						{
@@ -391,7 +391,7 @@ Function Prepare-WDP ($config, $assetsConfig) {
 				
 				# Do a check if the WDP package already exists and if not, proceed with package generation
 
-				[String] $HabitatWDPTarget = "$($folder.FullName)\convert to WDP\WDP"
+				[String] $HabitatWDPTarget = "$($folder.FullName)\WDPWorkFolder\WDP"
 				If((Test-Path -Path $HabitatWDPTarget) -eq $False){
 
 					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
@@ -418,7 +418,7 @@ Function Prepare-WDP ($config, $assetsConfig) {
 				
 				# Do a check if the WDP package already exists and if not, proceed with package generation
 
-				[String] $HabitatWDPTarget = "$($folder.FullName)\convert to WDP\WDP"
+				[String] $HabitatWDPTarget = "$($folder.FullName)\WDPWorkFolder\WDP"
 				If((Test-Path -Path $HabitatWDPTarget) -eq $False){
 
 					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }

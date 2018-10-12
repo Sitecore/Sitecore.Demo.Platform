@@ -119,7 +119,7 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
         
             if((Test-Path $(Join-Path $assetsFolder $asset.name)) -eq $True){
                 
-                $wdpGroupModuleFolder = "$($(Join-Path $assetsFolder $asset.name))\convert to WDP\WDP"
+                $wdpGroupModuleFolder = "$($(Join-Path $assetsFolder $asset.name))\WDPWorkFolder\WDP"
                 ForEach($blobFile in (Get-ChildItem -File -Recurse $wdpGroupModuleFolder)) { 
                         
                         try {
@@ -161,7 +161,7 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
 
 	# Upload Habitat WDPs
 
-	$habitatWebsiteWDPPath = [IO.Path]::Combine($assetsFolder, 'habitathome', 'convert to WDP', 'WDP', 'habitathome_single.scwdp.zip')
+	$habitatWebsiteWDPPath = [IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip')
     if((Test-Path $habitatWebsiteWDPPath) -eq $True){
 	
 		$habitatWebsiteWDPFile = Get-Item -Path $habitatWebsiteWDPPath
@@ -180,7 +180,7 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
 
 	}
 	
-	$habitatXconnectWDPPath = [IO.Path]::Combine($assetsFolder, 'xconnect', 'convert to WDP', 'WDP', 'xconnect_single.scwdp.zip')
+	$habitatXconnectWDPPath = [IO.Path]::Combine($assetsFolder, 'xconnect', 'WDPWorkFolder', 'WDP', 'xconnect_single.scwdp.zip')
 	if((Test-Path $habitatXconnectWDPPath) -eq $True){
 	
 		$habitatXconnectWDPFile = Get-Item -Path $habitatXconnectWDPPath
