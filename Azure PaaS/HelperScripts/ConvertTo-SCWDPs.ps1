@@ -131,7 +131,83 @@ Function Zip ([String] $FolderToZip, [String] $ZipFilePath, [String] $DotNetZipP
 
 #>
 
-Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [String] $JsonConfigFilename, [String] $XmlParameterFilename, [String] $SccplCargoFilename, [String] $IonicZip){
+Function Create-CargoPayload
+{
+	Param(
+		[parameter(Mandatory=$true)]
+		[String]$CargoName,
+		[parameter(Mandatory=$true)]
+		[alias("Cargofolder")]
+		[String]$OutputCargoFolder,
+		[String]$XdtSourceFolder,
+		[parameter(Mandatory=$true)]
+		[String]$ZipAssemblyPath
+	)
+
+	if(!(Test-Path $OutputCargoFolder))
+	{
+		 Write-Host $OutputCargoFolder "Folder does not exist"
+		 Write-Host "Creating" $OutputCargoFolder "Folder"
+		 New-Item -Path $OutputCargoFolder -ItemType Directory -Force
+	}
+
+	$WrkingCargoFldrSafeZone = Join-path $OutputCargoFolder "ZipZone"
+
+	if(!(Test-Path $($WrkingCargoFldrSafeZone)))
+	{
+		$WrkingCargoFldrSafeZone = New-Item -Path $(Join-path $OutputCargoFolder "ZipZone") -ItemType Directory -Force
+	}
+
+	$CopyToRootPath = New-Item -Path $(Join-Path $WrkingCargoFldrSafeZone "CopyToRoot") -ItemType Directory -Force
+    $CopyToWebsitePath = New-Item -Path $(Join-Path $WrkingCargoFldrSafeZone "CopyToWebsite") -ItemType Directory -Force
+    $IOActionsPath = New-Item -Path $(Join-Path $WrkingCargoFldrSafeZone "IOActions") -ItemType Directory -Force
+    $XdtsPath = New-Item -Path $(Join-Path $WrkingCargoFldrSafeZone "Xdts") -ItemType Directory -Force
+	$WorkingZipFilePath = Join-Path $WrkingCargoFldrSafeZone $($CargoName+".zip")
+
+	if($CargoName -like "*.sccpl")
+	{
+		$OutputCargoFilePath = Join-path $OutputCargoFolder $Cargoname
+	}
+	else
+	{
+		$OutputCargoFilePath = Join-path $OutputCargoFolder $($Cargoname+".sccpl")
+	}
+
+	Write-Host "Creating" $OutputCargoFilePath
+
+	if ($XdtSourceFolder)
+	{
+		# Gather xdt files
+		Get-ChildItem -Path $XdtSourceFolder -Include *.xdt -Recurse | Copy-Item -Destination $XdtsPath.FullName -force
+	}
+
+	# Zip up all Cargo Payload folders using Ionic Zip
+    Zip -FolderToZip $WrkingCargoFldrSafeZone -ZipFilePath $WorkingZipFilePath -DotNetZipPath $ZipAssemblyPath
+
+	# Move and rename the zipped file to .sccpl - create the Sitecore Cargo Payload file
+	
+	Write-Host "Converting" $WorkingZipFilePath "to sccpl"
+    Move-Item -Path $WorkingZipFilePath -Destination $OutputCargoFilePath -Force | Out-Null
+
+	# Clean up Working folder
+
+    Remove-Item -Path $WrkingCargoFldrSafeZone -Recurse -Force
+
+	Write-Host "Creation of" $OutputCargoFilePath "Compelte" -ForegroundColor Green
+}
+
+Function Create-WDP{
+
+	Param(
+	[String] $RootFolder, 
+	[String] $SitecoreCloudModulePath, 
+	[String] $JsonConfigFilename, 
+	[String] $XmlParameterFilename, 
+	[String] $SccplCargoFilename, 
+	[String] $IonicZip,
+	[String] $foldername,
+	[String] $XdtSrcFolder
+	)
 
     # Create empty folder structures for the WDP work
 
@@ -140,7 +216,7 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
     # WDP Components folder and sub-folders creation
 
     $ComponentsFolderPath = New-Item -Path "$($RootFolder)\convert to WDP\Components" -ItemType Directory -Force
-    $CargoPayloadFolderPath = New-Item -Path "$($ComponentsFolderPath)\CargoPayloads" -ItemType Directory -Force
+    $CargoPayloadFolderPath = New-Item -Path $(Join-Path $ComponentsFolderPath "CargoPayloads") -ItemType Directory -Force
     $AdditionalWdpContentsFolderPath = New-Item -Path "$($ComponentsFolderPath)\AdditionalFiles" -ItemType Directory -Force
     $JsonConfigFolderPath = New-Item -Path "$($ComponentsFolderPath)\Configs" -ItemType Directory -Force
     $ParameterXmlFolderPath = New-Item -Path "$($ComponentsFolderPath)\MsDeployXmls" -ItemType Directory -Force
@@ -150,8 +226,6 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
     $JsonConfigFilenamePath = Get-ChildItem -Path $JsonConfigFilename
 
     [String] $ConfigFilePath = "$($JsonConfigFolderPath)\$($JsonConfigFilenamePath.Name)"
-    [String] $CargoPayloadZipFilePath = "$($ComponentsFolderPath)\$($SccplCargoFilename).zip"
-    [String] $CargoPayloadFilePath = "$($CargoPayloadFolderPath)\$($SccplCargoFilename).sccpl"
 
     # Copy the parameters.xml file over to the target ParameterXml folder
 
@@ -161,32 +235,14 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
 
     Copy-Item -Path $JsonConfigFilename -Destination $ConfigFilePath -Force
 
-    # Create folders for Sitecore Cargo Payload file
+	# Create Cargo Payload(s)
 
-    $CopyToRootPath = New-Item -Path "$($CargoPayloadFolderPath)\CopyToRoot" -ItemType Directory -Force
-    $CopyToWebsitePath = New-Item -Path "$($CargoPayloadFolderPath)\CopyToWebsite" -ItemType Directory -Force
-    $IOActionsPath = New-Item -Path "$($CargoPayloadFolderPath)\IOActions" -ItemType Directory -Force
-    $XdtsPath = New-Item -Path "$($CargoPayloadFolderPath)\Xdts" -ItemType Directory -Force
+	if ($foldername -eq "HabitatHome")
+	{
+		Create-CargoPayload -CargoName $($SccplCargoFilename+"_embeded") -Cargofolder $CargoPayloadFolderPath.FullName -XdtSourceFolder $XdtSrcFolder -ZipAssemblyPath $IonicZip
+	}
 
-	# Copy over the configuration transform file structure from the Habitat project's build output to be inlcluded to the WDP package
-
-	Copy-Item -Path $([IO.Path]::Combine($config.DeployFolder, 'assets', 'HabitatHome')) -Filter "*.xdt" -Destination $XdtsPath.FullName -Recurse -Container -force
-
-    # Zip up all Cargo Payload folders using Ionic Zip
-
-    Zip -FolderToZip $CargoPayloadFolderPath.FullName -ZipFilePath $CargoPayloadZipFilePath -DotNetZipPath $IonicZip
-
-    # Move and rename the zipped file to .sccpl - create the Sitecore Cargo Payload file
-
-    Move-Item -Path $CargoPayloadZipFilePath -Destination $CargoPayloadFilePath -Force
-
-    # Clean up SCCPL folders
-
-    Remove-Item -Path $CopyToRootPath.FullName -Recurse -Force
-    Remove-Item -Path $CopyToWebsitePath.FullName -Recurse -Force
-    Remove-Item -Path $IOActionsPath.FullName -Recurse -Force
-    Remove-Item -Path $XdtsPath.FullName -Recurse -Force
-    Remove-Item -Path $CargoPayloadZipFilePath -ErrorAction Ignore
+	Create-CargoPayload -CargoName $($SccplCargoFilename) -Cargofolder $CargoPayloadFolderPath.FullName -ZipAssemblyPath $IonicZip
 
     # Build the WDP file
 
@@ -196,18 +252,20 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
                                         -CargoPayloadFolderPath $CargoPayloadFolderPath.FullName `
                                         -AdditionalWdpContentsFolderPath $AdditionalWdpContentsFolderPath.FullName `
                                         -ParameterXmlFolderPath $ParameterXmlFolderPath.FullName `
-                                        -ConfigFilePath $ConfigFilePath
+                                        -ConfigFilePath $ConfigFilePath `
+										-Verbose
 
     # Check for the _Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip and rename that back (remove the underscore)
 
     $DEFWDPFile = "_Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
+	$DEFWDPFileOrg =  "Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
     $DEFWDPFilePath = Join-Path $DestinationFolderPath $DEFWDPFile
                                
     If(Test-Path -Path $DEFWDPFilePath){
 
 		try {
 					
-			Rename-Item -Path $DEFWDPFilePath -NewName "$($DestinationFolderPath)\$($DEFWDPFile.Substring(1))"
+			Rename-Item -Path $DEFWDPFilePath -NewName $DEFWDPFileOrg -force
 					
 		} catch {
 					
@@ -218,16 +276,16 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
                 
     }
 
-    # Check for the _Data Exchange Framework 2.0.1 rev. 180108.zip and rename that back (remove the underscore)
-
+	# Check for the _Data Exchange Framework 2.0.1 rev. 180108.zip and rename that back (remove the underscore)
     $DEFZipFile = "_Data Exchange Framework 2.0.1 rev. 180108.zip"
+	$DEFZipFileOrg = "Data Exchange Framework 2.0.1 rev. 180108.zip"
     $DEFZipFilePath = Join-Path $RootFolder $DEFZipFile
                                
     If(Test-Path -Path $DEFZipFilePath){
 
 		try {
 					
-			Rename-Item -Path $DEFZipFilePath -NewName "$($RootFolder)\$($DEFZipFile.Substring(1))"
+			Rename-Item -Path $DEFZipFilePath -NewName $DEFZipFileOrg -Force
 					
 		} catch {
 					
@@ -237,7 +295,6 @@ Function Create-WDP ([String] $RootFolder, [String] $SitecoreCloudModulePath, [S
 		}
                 
     }
-
 }
 
 ########################################################################################
@@ -278,37 +335,30 @@ Function Prepare-WDP ($config, $assetsConfig) {
 					# Check if the "Data Exchange Framework 2.0.1 rev. 180108.zip" file is present and rename it to "_Data Exchange Framework 2.0.1 rev. 180108.zip"
 
 					$DEFZipFile = "Data Exchange Framework 2.0.1 rev. 180108.zip"
+					$DEFSCWPDFile = "Data Exchange Framework 2.0.1 rev. 180108_single.scwdzip"
 					$DEFZipFilePath = Join-Path $ModuleFolder $DEFZipFile
-                                
-					If(Test-Path -Path $DEFZipFilePath)
-					{
-                
-						try 
+					$DEFSCWPDFilePath = $([IO.Path]::Combine($ModuleFolder, "Convert to WDP", "WDP", $DEFSCWPDFile))
+                              
+						if(Test-Path $DEFSCWPDFilePath)
 						{
-					
-							Rename-Item -Path $DEFZipFilePath -NewName "$($ModuleFolder)\_$($DEFZipFile)"
-					
-						} 
-						catch 
-						{
-					
-							Write-Host "Unable to rename the file... continuing"
-							Continue
-
+							Write-Host "Skipping WDP generation - there's already a WDP package, present at $($ModuleWDPTarget)" -ForegroundColor Yellow
+							continue
 						}
-					}
+						elseIf(Test-Path -Path $DEFZipFilePath)
+						{
+							Rename-Item -Path $DEFZipFilePath -NewName "$($ModuleFolder)\_$($DEFZipFile)" -force
+						}
 				}
-
+								
 				# Call in the WDP creation function
 
-				Create-WDP -RootFolder $ModuleFolder -SitecoreCloudModulePath $SitecoreCloudModule -JsonConfigFilename $WDPJsonFile -XmlParameterFilename $WDPXMLFile -SccplCargoFilename $SccplCargoName -IonicZip $IonicZipPath
-      
-			} else {
-			
-				Write-Host "Skipping WDP generation - there's already a WDP package, present at $($ModuleWDPTarget)" -ForegroundColor Yellow
-			
+				Create-WDP -RootFolder $ModuleFolder `
+							-SitecoreCloudModulePath $SitecoreCloudModule `
+							-JsonConfigFilename $WDPJsonFile `
+							-XmlParameterFilename $WDPXMLFile `
+							-SccplCargoFilename $SccplCargoName `
+							-IonicZip $IonicZipPath
 			}
-
         }
 
     }   
@@ -330,7 +380,14 @@ Function Prepare-WDP ($config, $assetsConfig) {
 					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
 					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
 					[String] $SccplCargoName = -join ($folder.Name, "_cargo")
-					Create-WDP -RootFolder $folder.FullName -SitecoreCloudModulePath $SitecoreCloudModule -JsonConfigFilename $WDPJsonFile -XmlParameterFilename $WDPXMLFile -SccplCargoFilename $SccplCargoName -IonicZip $IonicZipPath
+					Create-WDP -RootFolder $folder.FullName `
+								-SitecoreCloudModulePath $SitecoreCloudModule `
+								-JsonConfigFilename $WDPJsonFile `
+								-XmlParameterFilename $WDPXMLFile `
+								-SccplCargoFilename $SccplCargoName `
+								-IonicZip $IonicZipPath `
+								-foldername $folder.Name `
+								-XdtSrcFolder $(Join-Path $config.ProjectFolder "src")
 					
 				} else {
 			
@@ -350,7 +407,13 @@ Function Prepare-WDP ($config, $assetsConfig) {
 					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
 					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
 					[String] $SccplCargoName = -join ($folder.Name, "_cargo")
-					Create-WDP -RootFolder $folder.FullName -SitecoreCloudModulePath $SitecoreCloudModule -JsonConfigFilename $WDPJsonFile -XmlParameterFilename $WDPXMLFile -SccplCargoFilename $SccplCargoName -IonicZip $IonicZipPath
+					Create-WDP -RootFolder $folder.FullName `
+								-SitecoreCloudModulePath $SitecoreCloudModule `
+								-JsonConfigFilename $WDPJsonFile `
+								-XmlParameterFilename $WDPXMLFile `
+								-SccplCargoFilename $SccplCargoName `
+								-IonicZip $IonicZipPath `
+								-foldername $folder.Name
 					
 				} else {
 			
