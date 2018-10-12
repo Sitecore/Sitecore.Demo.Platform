@@ -3,52 +3,21 @@
 	It then captures the URLs for each Azure upload and populates the azuredeploy.parameters.json and azureuser-config.json files
 #>
 
-######################
-# Mandatory parameters
-######################
-
 Param(
     [parameter(Mandatory=$true)]
     [String] $configFile
 )
 
-# Find and process cake-config.json
+###########################
+# Find configuration files
+###########################
 
-if (!(Test-Path $configFile)) {
+Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-    Write-Host "Configuration file '$($configFile)' not found." -ForegroundColor Red
-    Write-Host "Please ensure there is a cake-config.json configuration file at '$($configFile)'" -ForegroundColor Red
-    Exit 1
-    
-}
-
-$config = Get-Content -Raw $configFile |  ConvertFrom-Json
-if (!$config) {
-
-    throw "Error trying to load configuration!"
-    
-}
-
-# Find and process assets.json
-if($config.Topology -eq "single")
-{
-	[string] $AssetsFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
-}
-else
-{
-	throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
-}
-
-if (!(Test-Path $assetsFile)) {
-    Write-Host "Assets file '$($assetsFile)' not found." -ForegroundColor Red
-    Write-Host "Please ensure there is an assets.json file at '$($assetsFile)'" -ForegroundColor Red
-    Exit 1
-}
-
-$assetsConfig = Get-Content -Raw $assetsFile |  ConvertFrom-Json
-if (!$assetsConfig) {
-    throw "Error trying to load Assest File!"
-}
+$configarray     = ProcessConfigFile -Config $ConfigurationFile
+$config          = $configarray[0]
+$assetconfig     = $configarray[1]
+$azureuserconfig = $configarray[2]
 
 ##########################
 # Function for WDP uploads

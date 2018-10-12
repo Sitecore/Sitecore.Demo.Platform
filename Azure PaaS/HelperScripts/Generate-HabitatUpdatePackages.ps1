@@ -1,5 +1,11 @@
 <#
-    This script generates a Sitecore update package out of the Habitat build output
+
+.SYNOPSIS
+This script generates a Sitecore update package out of the Habitat build output
+
+.PARAMETER ConfigurationFile
+A cake-config.json file
+
 #>
 
 Param(
