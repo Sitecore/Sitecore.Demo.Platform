@@ -26,10 +26,12 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray     = ProcessConfigFile -Config $ConfigurationFile
-$config          = $configarray[0]
-$assetconfig     = $configarray[1]
-$azureuserconfig = $configarray[2]
+$configarray         = ProcessConfigFile -Config $ConfigurationFile
+$config              = $configarray[0]
+$assetconfig         = $configarray[1]
+$azureuserconfig     = $configarray[2]
+$assetconfigFile     = $configarray[3]
+$azureuserconfigFile = $configarray[4]
 
 ########################
 # Get Azure Credentials

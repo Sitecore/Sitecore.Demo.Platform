@@ -5,7 +5,8 @@
 
 Param(
     [parameter(Mandatory=$true)]
-    [String] $configFile
+	[ValidateNotNullOrEmpty()]
+    [String] $ConfigurationFile
 )
 
 ###########################
@@ -14,21 +15,23 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray     = ProcessConfigFile -Config $ConfigurationFile
-$config          = $configarray[0]
-$assetconfig     = $configarray[1]
-$azureuserconfig = $configarray[2]
+$configarray         = ProcessConfigFile -Config $ConfigurationFile
+$config              = $configarray[0]
+$assetconfig         = $configarray[1]
+$azureuserconfig     = $configarray[2]
+$assetconfigfile     = $configarray[3]
+$azureuserconfigfile = $configarray[4]
 
 ##########################
 # Function for WDP uploads
 ##########################
 
-Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsConfigFile){
+Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig){
 
     # Upload Sitecore and xConnect main WDPs
 
-    $sitecoreWDPFile = Get-Item -Path $([IO.Path]::Combine($config.DeployFolder, 'assets', 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip'))
-    $xconnectWDPFile = Get-Item -Path $([IO.Path]::Combine($config.DeployFolder, 'assets', 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp0xconnect.scwdp.zip'))
+    $sitecoreWDPFile = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip'))
+    $xconnectWDPFile = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp0xconnect.scwdp.zip'))
     try {
                         
         Get-AzureStorageBlob -Blob "wdps/$($sitecoreWDPFile.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
@@ -57,8 +60,8 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
 
     # Upload Sitecore module WDPs
 
-    $assetsFolder = (Join-Path $cakeConfigFile.DeployFolder assets)
-    foreach ($asset in $assetsConfigFile.prerequisites){
+    $assetsFolder = (Join-Path $cakeJsonConfig.DeployFolder assets)
+    foreach ($asset in $assetsJsonConfig.prerequisites){
 
         if(($asset.uploadToAzure -eq $True) -and ($asset.isWdp -eq $True)){
 
@@ -114,7 +117,7 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
 
     # Upload Sitecore Bootloader WDP
 
-    $bootloadWDPFile = Get-Item -Path $([IO.Path]::Combine($config.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', '9.0.2', 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip'))
+    $bootloadWDPFile = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', '9.0.2', 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip'))
     try {
                         
         Get-AzureStorageBlob -Blob "wdps/$($bootloadWDPFile.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
@@ -174,17 +177,17 @@ Function UploadWDPs ([PSCustomObject] $cakeConfigFile, [PSCustomObject] $assetsC
 # Function for file uploads
 ###########################
 
-Function UploadFiles ([PSCustomObject] $cakeConfigFile){
+Function UploadFiles ([PSCustomObject] $cakeJsonConfig){
 
     # Fetching all ARM templates' paths
 
-    $azuredeployArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.json'))
-    $sxaArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Sitecore Experience Accelerator', 'sxa_module.json'))
-    $defArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Data Exchange Framework', 'def_module.json'))
-    $habitatWebsiteArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'habitathome.json'))
-    $habitatXconnectArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'xconnect.json'))
-    $bootloadArmTemplate = Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'addons', 'bootloader.json'))
-	$nestedArmTemplates =  Get-Item -Path $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'nested'))
+    $azuredeployArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.json'))
+    $sxaArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Sitecore Experience Accelerator', 'sxa_module.json'))
+    $defArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Data Exchange Framework', 'def_module.json'))
+    $habitatWebsiteArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'habitathome.json'))
+    $habitatXconnectArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'xconnect.json'))
+    $bootloadArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'XP0 Single', 'addons', 'bootloader.json'))
+	$nestedArmTemplates =  Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'XP0 Single', 'nested'))
 
     # Checking if the files are already uploaded and present in Azure and uploading
 
@@ -293,30 +296,6 @@ Function UploadFiles ([PSCustomObject] $cakeConfigFile){
 $originalContainerName = "azure-toolkit"
 $additionalContainerName = "temporary-toolkit"
 
-
-<#
-# Check the Azure PowerShell Module's version
-$AzureModule = Get-Module -ListAvailable AzureRM
-if ($AzureModule -eq ""){
-
-# If the Azure PowerShell module is not present, install the module
-    Install-Module -Name AzureRM
-
-}
-
-# Import the module into the PowerShell session
-Import-Module AzureRM
-
-# Add Persisent Azure Session
-Enable-AzureRmContextAutosave
-
-Add-AzureRmAccount
-#>
-# Connect to Azure with an interactive dialog for sign-in
-#Connect-AzureRmAccount
-
-
-
 # Get the current storage account
 $sa = Get-AzureRmStorageAccount
 
@@ -346,8 +325,6 @@ try {
 	   
 	# Check if the container name already exists and if it does, upload the WDP modules and additional files to the container
     Get-AzureStorageContainer -Container $containerName -Context $ctx -ErrorAction Stop
-    #UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
-    #UploadFiles -cakeConfigFile $config
 
 } catch {
 
@@ -358,12 +335,6 @@ try {
         # Create the main container for the WDPs
         New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob -ErrorAction Stop
 
-        # Upload the WDP modules to the blob container
-        #UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
-
-        # Upload additional files to the blob container
-        #UploadFiles -cakeConfigFile $config
-
     } catch {
     
         "It seems like the container has been deleted very recently... creating a temporary container instead"
@@ -372,19 +343,12 @@ try {
         # Create a temporary container
         New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
-		
-        # Upload the WDP modules to the temporary blob container
-        #UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
-
-        # Upload additional files to the temporary blob container
-        #UploadFiles -cakeConfigFile $config
-    
     }
     
 }
 
-UploadWDPs -cakeConfigFile $config -assetsConfigFile $assetsConfig
-UploadFiles -cakeConfigFile $config
+UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig
+UploadFiles -cakeJsonConfig $config
 
 ##############################################
 # Get the URL for each WDP blob and record it
@@ -516,21 +480,6 @@ ForEach ($blob in $blobsList){
 #######################################
 # Construct azuredeploy.parameters.json
 
-# Find and process azureuser-config.json
-
-[String] $azureuserConfigFile = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azureuser-config.json'))
-
-if (!(Test-Path $azureuserConfigFile)) {
-    Write-Host "Azure user config file '$($azureuserConfigFile)' not found." -ForegroundColor Red
-    Write-Host "Please ensure there is an azureuser-config.json file at '$($azureuserConfigFile)'" -ForegroundColor Red
-    Exit 1
-}
-
-$azureuserConfig = Get-Content -Raw $azureuserConfigFile |  ConvertFrom-Json
-if (!$azureuserConfig) {
-    throw "Error trying to load the Azure user config file!"
-}
-
 # Find and process the azuredeploy.parameters.json template
 
 [String] $azuredeployConfigFile = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.parameters.json'))
@@ -548,7 +497,7 @@ if (!$azuredeployConfig) {
 
 # Get all user-defined settings from the azureuser-config.json files and assign them to variables
 
-ForEach ($setting in $azureuserConfig.settings){
+ForEach ($setting in $azureuserconfig.settings){
 
     Switch($setting.id){
     
@@ -647,7 +596,7 @@ $azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine
 
 # Populate the "azuredeploy.json" ARM template URL inside the azureuser-config JSON schema and apply the schema to the azureuser-config.json file
 
-ForEach ($setting in $azureuserConfig.settings){
+ForEach ($setting in $azureuserconfig.settings){
 
     # Check if an ARM template URL is already present inside the azureuser-config.json file
 
@@ -660,7 +609,7 @@ ForEach ($setting in $azureuserConfig.settings){
         # Populate the value with the uploaded file's URL
 
         $setting.value = $azuredeployTemplateUrl
-        $azureuserConfig | ConvertTo-Json -Depth 5 | Set-Content $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azureuser-config.json'))
+        $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
 
     }
 

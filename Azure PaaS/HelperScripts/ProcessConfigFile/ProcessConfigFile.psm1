@@ -49,30 +49,30 @@ Param(
 		
 		if($config.Topology -eq "single")
 		{
-			[string] $AssetsFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
+			[string] $assetsConfigFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
 		}
 		else
 		{
 			throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
 		}
 
-		if (!(Test-Path $AssetsFile)) 
+		if (!(Test-Path $assetsConfigFile)) 
 		{
-			Write-Host "Assets file '$($AssetsFile)' not found." -ForegroundColor Red
-			Write-Host  "Please ensure there is a assets.json file at '$($AssetsFile)'" -ForegroundColor Red
+			Write-Host "Assets file '$($assetsConfigFile)' not found." -ForegroundColor Red
+			Write-Host  "Please ensure there is a assets.json file at '$($assetsConfigFile)'" -ForegroundColor Red
 			Exit 1
 		}
 		
-		$assetconfig = Get-Content -Raw $AssetsFile |  ConvertFrom-Json
+		$assetconfig = Get-Content -Raw $assetsConfigFile |  ConvertFrom-Json
 
 		if (!$assetconfig)
 		{
 			throw "Error trying to load Assest File!"
 		} 
 
-		###############################
-		# Find and process assets.json
-		###############################
+		#########################################
+		# Find and process azureuser-config.json
+		#########################################
 		
 		if($config.Topology -eq "single")
 		{
@@ -96,5 +96,5 @@ Param(
 			throw "Error trying to load azureuser-config.json!"
 		}
 
-		return $config, $assetconfig, $azureuserconfig
+		return $config, $assetconfig, $azureuserconfig, $assetsConfigFile, $azureuserconfigFile
 }
