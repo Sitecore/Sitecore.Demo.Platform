@@ -28,7 +28,13 @@ $azureuserconfig = $configarray[2]
 # 3rd Party Ionic Zip function - helping create the SCCPL package
 ##################################################################
 
-Function Zip ([String] $FolderToZip, [String] $ZipFilePath, [String] $DotNetZipPath) {
+Function Zip {
+
+	Param(
+		[String] $FolderToZip,
+		[String] $ZipFilePath,
+		[String] $DotNetZipPath
+	)
 
   # load Ionic.Zip.dll 
   
@@ -50,51 +56,6 @@ Function Zip ([String] $FolderToZip, [String] $ZipFilePath, [String] $DotNetZipP
   Write-Host "Saved..."
 
 }
-
-################################
-# Create the Web Deploy Package
-################################
-
-# Create-WDP function explained:
-
-<#
-
- -RootFolder is the physical path on the filesystem to the source folder for WDP operations that will contain the WDP JSON configuration file, 
- the WDP XML parameters file and the folder with the module packages
- The typical structure that should be followed is:
-
-    \RootFolder\module_name_module.json
-    \RootFolder\module_name_parameters.xml
-    \RootFolder\SourcePackage\module_installation_package.zip( or .update)
-
- -SitecoreCloudModulePath provides the path to the Sitecore.Cloud.Cmdlets.psm1 Azure Toolkit Powershell module (usually under \SAT\tools)
-
- -JsonConfigFilename is the name of your WDP JSON configuration file
-
- -XmlParameterFilename is the name of your XML parameter file (must match the name that is provided inside the JSON config)
-
- -SccplCargoFilename is the name of your Sitecore Cargo Payload package (must match the name that is provided inside the JSON config)
-
- -IonicZip is the path to Ionic's zipping library
-
-
- Examples:
-
- Create-WDP -RootFolder "C:\_deployment\website_packaged_test" `
-            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
-            -JsonConfigFilename "website_config" `
-            -XmlParameterFilename "website_parameters" `
-            -SccplCargoFilename "website_cargo" `
-            -IonicZip ".\Sitecore Azure Toolkit\tools\DotNetZip.dll"
-
- Create-WDP -RootFolder "C:\Users\auzunov\Downloads\ARM_deploy\Modules\DEF" `
-            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
-            -JsonConfigFilename "def_config" `
-            -XmlParameterFilename "def_parameters" `
-            -SccplCargoFilename "def_cargo" `
-            -IonicZip ".\Sitecore Azure Toolkit\tools\DotNetZip.dll"
-
-#>
 
 Function Create-CargoPayload
 {
@@ -176,6 +137,51 @@ Function Create-CargoPayload
 
 	Write-Host "Creation of" $OutputCargoFilePath "Compelte" -ForegroundColor Green
 }
+
+################################
+# Create the Web Deploy Package
+################################
+
+# Create-WDP function explained:
+
+<#
+
+ -RootFolder is the physical path on the filesystem to the source folder for WDP operations that will contain the WDP JSON configuration file, 
+ the WDP XML parameters file and the folder with the module packages
+ The typical structure that should be followed is:
+
+    \RootFolder\module_name_module.json
+    \RootFolder\module_name_parameters.xml
+    \RootFolder\SourcePackage\module_installation_package.zip( or .update)
+
+ -SitecoreCloudModulePath provides the path to the Sitecore.Cloud.Cmdlets.psm1 Azure Toolkit Powershell module (usually under \SAT\tools)
+
+ -JsonConfigFilename is the name of your WDP JSON configuration file
+
+ -XmlParameterFilename is the name of your XML parameter file (must match the name that is provided inside the JSON config)
+
+ -SccplCargoFilename is the name of your Sitecore Cargo Payload package (must match the name that is provided inside the JSON config)
+
+ -IonicZip is the path to Ionic's zipping library
+
+
+ Examples:
+
+ Create-WDP -RootFolder "C:\_deployment\website_packaged_test" `
+            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
+            -JsonConfigFilename "website_config" `
+            -XmlParameterFilename "website_parameters" `
+            -SccplCargoFilename "website_cargo" `
+            -IonicZip ".\Sitecore Azure Toolkit\tools\DotNetZip.dll"
+
+ Create-WDP -RootFolder "C:\Users\auzunov\Downloads\ARM_deploy\Modules\DEF" `
+            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
+            -JsonConfigFilename "def_config" `
+            -XmlParameterFilename "def_parameters" `
+            -SccplCargoFilename "def_cargo" `
+            -IonicZip ".\Sitecore Azure Toolkit\tools\DotNetZip.dll"
+
+#>
 
 Function Create-WDP{
 
@@ -282,19 +288,19 @@ Function Create-WDP{
 # WDP preparation function which sets up initial components required by the WDP process
 ########################################################################################
 
-Function Prepare-WDP ($config, $assetsConfig) {
+Function Prepare-WDP ($configJson, $assetsConfigJson) {
 
     # Assign values to required working folder paths
     
-    [String] $assetsFolder = $([IO.Path]::combine($config.DeployFolder, 'assets'))
-    [String] $ProjectModulesFolder = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'WDP Components', 'Modules'))
-	[String] $HabitatWDPFolder = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'WDP Components', 'Habitat'))
+    [String] $assetsFolder = $([IO.Path]::combine($configJson.DeployFolder, 'assets'))
+    [String] $ProjectModulesFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure Paas', 'WDP Components', 'Modules'))
+	[String] $HabitatWDPFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure Paas', 'WDP Components', 'Habitat'))
     [String] $SitecoreCloudModule = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'Sitecore.Cloud.Cmdlets.psm1'))
     [String] $IonicZipPath = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'DotNetZip.dll'))
 
     # Go through the assets.json file and prepare files and paths for the conversion to WDP for all prerequisites for Habitat Home
 
-    ForEach ($asset in $assetsConfig.prerequisites){
+    ForEach ($asset in $assetsConfigJson.prerequisites){
 
         If($asset.convertToWdp -eq $True){
             
@@ -368,7 +374,7 @@ Function Prepare-WDP ($config, $assetsConfig) {
 								-SccplCargoFilename $SccplCargoName `
 								-IonicZip $IonicZipPath `
 								-foldername $folder.Name `
-								-XdtSrcFolder $(Join-Path $config.DeployFolder "Website\HabitatHome")
+								-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHome")
 					
 				} else {
 			
@@ -414,4 +420,4 @@ Function Prepare-WDP ($config, $assetsConfig) {
 # Call in the WDP preparation function
 #######################################
 
-Prepare-WDP -config $config -assetsConfig $assetsConfig
+Prepare-WDP -configJson $config -assetsConfigJson $assetconfig
