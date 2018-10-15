@@ -75,7 +75,7 @@ $rootFolder = Get-ChildItem (Join-Path $([IO.Path]::Combine($config.DeployFolder
 
 #Clean folders
 
-Write-Host "Cleaning up empty folders"
+Write-Host "Empty Folder Clean Up"
 
 dir $rootFolder -recurse | 
 
@@ -85,7 +85,7 @@ Remove-Item -recurse
 
 #Remove default Sitecore DLLs
 
-Write-Host "Cleaning up Sitecore DLLs"
+Write-Host "Sitecore DLL Clean Up"
 
 Get-ChildItem $rootFolder -Include Sitecore.*.dll -Exclude Sitecore.HabitatHome.* -Recurse | 
 
