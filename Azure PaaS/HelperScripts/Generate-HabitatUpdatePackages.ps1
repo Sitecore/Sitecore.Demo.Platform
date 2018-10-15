@@ -73,6 +73,28 @@ Function GenerateUpdatePackage(){
 
 $rootFolder = Get-ChildItem (Join-Path $([IO.Path]::Combine($config.DeployFolder, 'Website')) *)
 
+#Clean folders
+
+Write-Host "Cleaning up empty folders"
+
+dir $rootFolder -recurse | 
+
+Where { $_.PSIsContainer -and @(dir -Lit $_.Fullname -r | Where {!$_.PSIsContainer}).Length -eq 0 } |
+
+Remove-Item -recurse
+
+#Remove default Sitecore DLLs
+
+Write-Host "Cleaning up Sitecore DLLs"
+
+Get-ChildItem $rootFolder -Include Sitecore.*.dll -Exclude Sitecore.HabitatHome.* -Recurse | 
+
+foreach($_) { Remove-Item $_.FullName }
+
+
+#Prepare Packages
+
+
 ForEach($folder in $rootFolder){
 
     switch((Get-Item -Path $folder).Name){
