@@ -408,6 +408,18 @@ ForEach($blob in $blobsList){
             $defDynamicsConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
         
         }
+		"wdps/Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
+        {
+        
+            $defSalesforceDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+        
+        }
+        "wdps/Connect for Salesforce 2.0.1 rev. 180108_single.scwdp.zip"
+        {
+        
+            $defSalesforceConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+        
+        }
         "wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip"
         {
         
