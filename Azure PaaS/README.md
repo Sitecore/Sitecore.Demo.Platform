@@ -56,7 +56,7 @@ The following is a list of default values/assumptions for install locations
 
 if these values are not correct you will need to edit the cake-config.json in the `\Azure PaaS` folder. 
 * Do not include a trailing `\` slash in your paths  
-* Do not include any spaces in directory names  
+* Do not include any spaces in the Deploy folder directory path
 
 ### 3. Deploy Sitecore.HabitatHome.Content
 
