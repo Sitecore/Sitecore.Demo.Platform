@@ -60,22 +60,14 @@ Write-host "Please Enter Azure Settings"
 foreach ($setting in $azureuserconfig.settings)
 {
 	switch ($setting.id)
-	{
-		"SitecoreLoginAdminPassword"
-		{
-			$setting.value = Read-Host "Please Provide the $($setting.id) (8 Character Minimum)"
-		}
-		"SqlServerLoginAdminAccount"
-		{
-			$setting.value = Read-Host "Please Provide the $($setting.id) (SA is not a valid admin name for Azure SQL)"
-		}
+	{		
 		"ArmTemplateUrl"
 		{
 			continue
 		}
 		default
 		{
-			$setting.value = Read-Host "Please Provide the $($setting.id)"
+			$setting.value = Read-Host "Please Provide the $($setting.description)"
 		}
 	}
 }
