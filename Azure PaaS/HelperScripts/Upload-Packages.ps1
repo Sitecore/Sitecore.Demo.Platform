@@ -1,6 +1,14 @@
 <#
-	This script enables the upload of generated/downloaded WDP packages and accompanying Azure deployment files to an Azure storage account.
-	It then captures the URLs for each Azure upload and populates the azuredeploy.parameters.json and azureuser-config.json files
+.SYNOPSIS
+Upload necessary files for Sitecore 9 and Habitat home Azure PaaS deployment
+
+.DESCRIPTION
+This script enables the upload of generated/downloaded WDP packages and accompanying Azure deployment files to an Azure storage account.
+It then captures the URLs for each Azure upload and populates the azuredeploy.parameters.json and azureuser-config.json files
+
+.PARAMETER ConfigurationFile
+A cake-config.json file
+
 #>
 
 Param(
@@ -599,8 +607,10 @@ $azuredeployConfig.parameters | ForEach-Object {
     $_.modules.value.items[1].templateLink = $defTemplateLink
     $_.modules.value.items[2].parameters.habitatWebsiteDeployPackageUrl = $habitatWebsiteDeployPackageUrl
     $_.modules.value.items[2].templateLink = $habitatWebsiteTemplateLink
-    $_.modules.value.items[3].parameters.msDeployPackageUrl = $msDeployPackageUrl
-    $_.modules.value.items[3].templateLink = $bootloaderTemplateLink
+	$_.modules.value.items[3].parameters.habitatXconnectDeployPackageUrl = $habitatXconnectDeployPackageUrl
+    $_.modules.value.items[3].templateLink = $habitatXconnectTemplateLink
+    $_.modules.value.items[4].parameters.msDeployPackageUrl = $msDeployPackageUrl
+    $_.modules.value.items[4].templateLink = $bootloaderTemplateLink
 
 }
 

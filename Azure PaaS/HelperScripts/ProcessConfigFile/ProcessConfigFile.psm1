@@ -11,10 +11,12 @@ The script then returns these 3 objects as an array in the above order.
 A cake-config.json file
 
 .Example
-$configarray     = ProcessConfigFile -Config $ConfigurationFile
-$config          = $configarray[0]
-$assetconfig     = $configarray[1]
-$azureuserconfig = $configarray[2]
+$configarray			= ProcessConfigFile -Config $ConfigurationFile
+$config					= $configarray[0]
+$assetconfig			= $configarray[1]
+$azureuserconfig		= $configarray[2]
+$assetconfigfile		= $configarray[3]
+$azureuserconfigfile	= $configarray[4]
 
 #>
 

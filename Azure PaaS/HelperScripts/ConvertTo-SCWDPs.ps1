@@ -1,7 +1,16 @@
 <#
-	This script prepares Web Deploy Package (WDP) creation, by reading through configuration files and by looking for pre-existing mandatory files for the WDP creation process itself.
-	It then generates a WDP to be used in Azure deployments. During the WDP generation process, a 3rd party zip library is used (Ionic Zip) to zip up and help generate the Sitecore
-	Cargo Payload (SCCPL) packages.
+.SYNOPSIS
+Create SCWDP Packages from update packages
+
+.DESCRIPTION
+This script prepares Web Deploy Package (WDP) creation, by reading through configuration files and by looking for 
+pre-existing mandatory files for the WDP creation process. It then generates a WDP to be used in Azure deployments. 
+During the WDP generation process, a 3rd party zip library is used (Ionic Zip) to zip up and help generate the Sitecore
+Cargo Payload (SCCPL) packages.
+
+.PARAMETER ConfigurationFile
+A cake-config.json file
+
 #>
 
 #######################
@@ -142,47 +151,6 @@ Function Create-CargoPayload
 # Create the Web Deploy Package
 ################################
 
-# Create-WDP function explained:
-
-<#
-
- -RootFolder is the physical path on the filesystem to the source folder for WDP operations that will contain the WDP JSON configuration file, 
- the WDP XML parameters file and the folder with the module packages
- The typical structure that should be followed is:
-
-    \RootFolder\module_name_module.json
-    \RootFolder\module_name_parameters.xml
-    \RootFolder\SourcePackage\module_installation_package.zip( or .update)
-
- -SitecoreCloudModulePath provides the path to the Sitecore.Cloud.Cmdlets.psm1 Azure Toolkit Powershell module (usually under \SAT\tools)
-
- -JsonConfigFilename is the name of your WDP JSON configuration file
-
- -XmlParameterFilename is the name of your XML parameter file (must match the name that is provided inside the JSON config)
-
- -SccplCargoFilename is the name of your Sitecore Cargo Payload package (must match the name that is provided inside the JSON config)
-
- -IonicZip is the path to Ionic's zipping library
-
-
- Examples:
-
- Create-WDP -RootFolder "C:\_deployment\website_packaged_test" `
-            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
-            -JsonConfigFilename "website_config" `
-            -XmlParameterFilename "website_parameters" `
-            -SccplCargoFilename "website_cargo" `
-            -IonicZip ".\Sitecore Azure Toolkit\tools\DotNetZip.dll"
-
- Create-WDP -RootFolder "C:\Users\auzunov\Downloads\ARM_deploy\Modules\DEF" `
-            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
-            -JsonConfigFilename "def_config" `
-            -XmlParameterFilename "def_parameters" `
-            -SccplCargoFilename "def_cargo" `
-            -IonicZip ".\Sitecore Azure Toolkit\tools\DotNetZip.dll"
-
-#>
-
 Function Create-WDP{
 
 	Param(
@@ -195,6 +163,54 @@ Function Create-WDP{
 	[String] $foldername,
 	[String] $XdtSrcFolder
 	)
+
+<#
+.SYNOPSIS
+Create SCWDP packages
+
+.DESCRIPTION
+Is called by Prepare-wdp. Ties together several functions for the prupose of generating a SCWDP
+
+.PARAMETER RootFolder 
+is the physical path on the filesystem to the source folder for WDP operations that will contain the WDP JSON configuration file, 
+the WDP XML parameters file and the folder with the module packages
+The typical structure that should be followed is:
+
+    \RootFolder\module_name_module.json
+    \RootFolder\module_name_parameters.xml
+    \RootFolder\SourcePackage\module_installation_package.zip( or .update)
+
+.PARAMETER SitecoreCloudModulePath 
+provides the path to the Sitecore.Cloud.Cmdlets.psm1 Azure Toolkit Powershell module (usually under \SAT\tools)
+
+.PARAMETER JsonConfigFilename 
+is the name of your WDP JSON configuration file
+
+.PARAMETER XmlParameterFilename 
+is the name of your XML parameter file (must match the name that is provided inside the JSON config)
+
+.PARAMETER SccplCargoFilename 
+is the name of your Sitecore Cargo Payload package (must match the name that is provided inside the JSON config)
+
+.PARAMETER IonicZip 
+is the path to Ionic's zipping library
+
+.Example
+ Create-WDP -RootFolder "C:\_deployment\website_packaged_test" `
+            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
+            -JsonConfigFilename "website_config" `
+            -XmlParameterFilename "website_parameters" `
+            -SccplCargoFilename "website_cargo" `
+            -IonicZip ".\Sitecore Azure Toolkit\tools\DotNetZip.dll"
+
+.Example
+ Create-WDP -RootFolder "C:\Users\auzunov\Downloads\ARM_deploy\Modules\DEF" `
+            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
+            -JsonConfigFilename "def_config" `
+            -XmlParameterFilename "def_parameters" `
+            -SccplCargoFilename "def_cargo" `
+            -IonicZip ".\Sitecore Azure Toolkit\tools\DotNetZip.dll"
+#>
 
     # Create empty folder structures for the WDP work
 
