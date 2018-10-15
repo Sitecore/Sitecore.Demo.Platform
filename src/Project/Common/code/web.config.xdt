@@ -12,7 +12,7 @@
          Off                                   
     Default value: On
     -->
-        <add key="unicorn:define" value="On" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+        <add key="unicorn:define" value="Off" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 
         <!-- THIRD PARTY INTEGRATIONS: SUPPORTED VALUES                 
          None (disables all)
