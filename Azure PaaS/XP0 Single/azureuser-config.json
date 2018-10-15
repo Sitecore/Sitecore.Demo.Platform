@@ -2,35 +2,43 @@
   "settings": [
     {
       "id": "AzureDeploymentID",
-      "value": ""
+      "value": "",
+      "description": "Azure Deployment ID"
     },
     {
       "id": "AzureRegion",
-      "value": ""
+      "value": "",
+      "description": "Azure Region"
     },
     {
       "id": "XConnectCertfilePath",
-      "value": ""
+      "value": "",
+      "description": "xConnect Certificate Path"
     },
     {
       "id": "XConnectCertificatePassword",
-      "value": ""
+      "value": "",
+      "description": "xConnect Certificate Password"
     },
     {
       "id": "SitecoreLoginAdminPassword",
-      "value": ""
+      "value": "",
+      "description": "Sitecore Administrator Password (8 Character Minimum)"
     },
     {
       "id": "SitecoreLicenseXMLPath",
-      "value": ""
+      "value": "",
+      "description": "Sitecore license.xml Path"
     },
     {
       "id": "SqlServerLoginAdminAccount",
-      "value": ""
+      "value": "",
+      "description": "SQL Server Administrator Username (SA is not a valid admin name for Azure SQL)"
     },
     {
       "id": "SqlServerLoginAdminPassword",
-      "value": ""
+      "value": "",
+      "description": "SQL Server Administrator Password"
     },
     {
       "id": "ArmTemplateUrl",
