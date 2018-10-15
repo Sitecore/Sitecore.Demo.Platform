@@ -42,7 +42,6 @@ Task("Default")
 Task("Post-Deploy")
 .IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Publish-xConnect-Project")
-.IsDependentOn("Warmup")
 .IsDependentOn("Deploy-EXM-Campaigns")
 .IsDependentOn("Deploy-Marketing-Definitions")
 .IsDependentOn("Rebuild-Core-Index")
@@ -198,15 +197,8 @@ Task("Sync-Unicorn").Does(() => {
                                                         }));
 });
 
-Task("Warmup").Does(() => {
-    Warmup();
-});
-
 Task("Deploy-EXM-Campaigns").Does(() => {
-    DeployExmCampaigns();
-}).OnError(() => {
-	Information("Retrying Deploy-EXM-Campaigns");
-	DeployExmCampaigns();
+	Spam(() => DeployExmCampaigns(), configuration.DeployExmTimeout);
 });
 
 Task("Deploy-Marketing-Definitions").Does(() => {
