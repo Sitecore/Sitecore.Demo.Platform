@@ -594,6 +594,8 @@ $azuredeployConfig.parameters | ForEach-Object {
     $_.modules.value.items[1].parameters.defxConnectDeployPackageUrl = $defxConnectDeployPackageUrl
     $_.modules.value.items[1].parameters.defDynamicsDeployPackageUrl = $defDynamicsDeployPackageUrl
     $_.modules.value.items[1].parameters.defDynamicsConnectDeployPackageUrl = $defDynamicsConnectDeployPackageUrl
+    $_.modules.value.items[1].parameters.defSalesforceDeployPackageUrl = $defSalesforceDeployPackageUrl
+    $_.modules.value.items[1].parameters.defSalesforceConnectDeployPackageUrl = $defSalesforceConnectDeployPackageUrl
     $_.modules.value.items[1].templateLink = $defTemplateLink
     $_.modules.value.items[2].parameters.habitatWebsiteDeployPackageUrl = $habitatWebsiteDeployPackageUrl
     $_.modules.value.items[2].templateLink = $habitatWebsiteTemplateLink
