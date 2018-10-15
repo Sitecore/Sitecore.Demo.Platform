@@ -57,10 +57,17 @@
             }
           },
           {
-            "name": "habitatWebsite",
+            "name": "habitat-home-website",
             "templateLink": "<URL to the Habitat Home json ARM template>",
             "parameters": {
-              "habitatWebsiteDeployPackageUrl": "<URL to the Habitat Home' WDP>"
+              "habitatWebsiteDeployPackageUrl": "<URL to the Habitat Home WDP>"
+            }
+          },
+          {
+            "name": "habitat-home-xc",
+            "templateLink": "<URL to the Habitat Home json ARM template>",
+            "parameters": {
+              "habitatWebsiteDeployPackageUrl": "<URL to the Habitat Home XC WDP>"
             }
           },
           {

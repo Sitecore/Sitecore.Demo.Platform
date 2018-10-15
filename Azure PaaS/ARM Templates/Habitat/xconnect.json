@@ -7,7 +7,7 @@
     "sqlServerFqdnTidy": "[toLower(trim(parameters('sqlServerFqdn')))]",
     "coreSqlDatabaseNameTidy": "[toLower(trim(parameters('coreSqlDatabaseName')))]",
     "masterSqlDatabaseNameTidy": "[toLower(trim(parameters('masterSqlDatabaseName')))]",
-    "singleWebAppNameTidy": "[toLower(trim(parameters('singleWebAppName')))]"
+    "xcSingleWebAppNameTidy": "[toLower(trim(parameters('xcSingleWebAppName')))]"
   },
   "parameters": {
     "standard": {
@@ -22,7 +22,7 @@
         "sqlServerPassword": null,
         "coreSqlDatabaseName": null,
         "masterSqlDatabaseName": null,
-        "singleWebAppName": null
+        "xcSingleWebAppName": null
       }
     },
     "extension": {
@@ -75,10 +75,10 @@
       "defaultValue": "[coalesce(parameters('standard').masterSqlDatabaseName, concat(parameters('deploymentId'), '-master-db'))]"
     },
 
-    "singleWebAppName": {
+    "xcSingleWebAppName": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "[coalesce(parameters('standard').singleWebAppName, concat(parameters('deploymentId'), '-single'))]"
+      "defaultValue": "[coalesce(parameters('standard').xcSingleWebAppName, concat(parameters('deploymentId'), '-xc-single'))]"
     },
     "habitatXconnectDeployPackageUrl": {
       "type": "securestring",
@@ -89,23 +89,23 @@
   
   "resources": [
     {
-      "name": "[concat(variables('singleWebAppNameTidy'), '/', 'MSDeploy')]",
+      "name": "[concat(variables('xcSingleWebAppNameTidy'), '/', 'MSDeploy')]",
       "type": "Microsoft.Web/sites/extensions",
       "location": "[parameters('location')]",
       "apiVersion": "[variables('webApiVersion')]",
       "properties": {
-        "mode": "Incremental",      
+        "mode": "Incremental",
         "addOnPackages": [
           {
             "packageUri": "[parameters('habitatXconnectDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
-              "Application Path": "[variables('singleWebAppNameTidy')]",
+              "Application Path": "[variables('xcSingleWebAppNameTidy')]",
               "Core Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('coreSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
               "Master Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('masterSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]"
             }
-          }  
+          }
         ]
       }
     }
