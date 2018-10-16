@@ -20,14 +20,14 @@ Resources provisioned:
   * Modules
 	  * Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0
 	  * Sitecore PowerShell Extensions-4.7.2 for Sitecore 8
-	  * Data Exchange Framework 2.0.1 rev. 180108
-			* Connect for Microsoft Dynamics 2.0.1 rev. 180108
-			* Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108
-			* Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108
-			* SQL Provider for Data Exchange Framework 2.0.1 rev. 180108
-			* xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108
-			* Salesforce Connect Data Exchange Framework 2.0.1 rev. 180108
-			* Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108
+	  * Data Exchange Framework 2.0.1 rev. 180108  
+			* Connect for Microsoft Dynamics 2.0.1 rev. 180108  
+			* Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108  
+			* Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108  
+			* SQL Provider for Data Exchange Framework 2.0.1 rev. 180108  
+			* xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108  
+			* Salesforce Connect Data Exchange Framework 2.0.1 rev. 180108  
+			* Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108  
 
 ## Parameters
 
