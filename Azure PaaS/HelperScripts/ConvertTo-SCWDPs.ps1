@@ -126,7 +126,7 @@ Function Create-CargoPayload
 
 			}
 
-			Copy-Item -Path $file.FullName -Destination $destination -Force
+			Copy-Item -Path $file.FullName -Destination $destination -Force -ErrorVariable capturedErrors -ErrorAction SilentlyContinue
 
 		}
 
