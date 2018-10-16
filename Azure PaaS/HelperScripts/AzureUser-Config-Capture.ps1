@@ -59,6 +59,11 @@ Write-host "Please Enter Azure Settings"
 
 foreach ($setting in $azureuserconfig.settings)
 {
+	if (-not ([string]::IsNullOrEmpty($setting.value)))
+	{
+		continue
+	}
+
 	switch ($setting.id)
 	{		
 		"ArmTemplateUrl"
