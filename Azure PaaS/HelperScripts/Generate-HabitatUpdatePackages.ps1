@@ -71,36 +71,57 @@ Function GenerateUpdatePackage(){
 	
 }
 
+
+###############################
+# Clean up and prepare for packaging
+###############################
+
+Function Clean-Up([PSObject] $Configuration, [String] $FolderString){
+
+    # Clean Assemblies
+
+    $AssembliesToRemove = @("Sitecore.*.dll","Unicorn*.dll","Rainbow*.dll", "Kamsar*.dll")
+    $AssembliesToKeep = @("Sitecore.HabitatHome.*")
+
+    Get-ChildItem $FolderString -Include $AssembliesToRemove -Exclude $AssembliesToKeep -Recurse | foreach($_) { Remove-Item $_.FullName }
+
+    # Clean Configs Configs
+
+    $ConfigsToRemove = @("*.Serialization*.config", "Unicorn*.config*", "Rainbow*.config")  
+
+    Get-ChildItem $FolderString -Include $ConfigsToRemove -Recurse | foreach($_) { Remove-Item $_.FullName }
+
+    # Clean configurations in bin
+
+    $BinFolder = $([IO.Path]::Combine($FolderString, "bin"))
+
+    $BinConfigsToRemove = @("*.config", "*.xdt")  
+
+    Get-ChildItem $BinFolder -Include $BinConfigsToRemove -Recurse | foreach($_) { Remove-Item $_.FullName }
+
+    # Clean Empty Folders
+
+    dir $FolderString -recurse | 
+
+    Where { $_.PSIsContainer -and @(dir -Lit $_.Fullname -r | Where {!$_.PSIsContainer}).Length -eq 0 } |
+
+    Remove-Item -recurse    
+}
+
+
 $rootFolder = Get-ChildItem (Join-Path $([IO.Path]::Combine($config.DeployFolder, 'Website')) *)
-
-#Clean folders
-
-Write-Host "Empty Folder Clean Up"
-
-dir $rootFolder -recurse | 
-
-Where { $_.PSIsContainer -and @(dir -Lit $_.Fullname -r | Where {!$_.PSIsContainer}).Length -eq 0 } |
-
-Remove-Item -recurse
-
-#Remove default Sitecore DLLs
-
-Write-Host "Sitecore DLL Clean Up"
-
-Get-ChildItem $rootFolder -Include Sitecore.*.dll -Exclude Sitecore.HabitatHome.* -Recurse | 
-
-foreach($_) { Remove-Item $_.FullName }
-
 
 #Prepare Packages
 
-
 ForEach($folder in $rootFolder){
-
-    switch((Get-Item -Path $folder).Name){
+    Clean-Up -Configuration $config -FolderString (Get-Item -Path $folder).FullName
     
+    Write-Host $folder
+
+    switch((Get-Item -Path $folder).Name){  
+
         "HabitatHome"
-        {
+        {           
             Process-UpdatePackage -Configuration $config -FolderString $folder
         }
         "xconnect"
