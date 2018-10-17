@@ -144,7 +144,7 @@ Function Create-CargoPayload
 
     Remove-Item -Path $WrkingCargoFldrSafeZone -Recurse -Force
 
-	Write-Host "Creation of" $OutputCargoFilePath "Compelte" -ForegroundColor Green
+	Write-Host "Creation of" $OutputCargoFilePath "Complete" -ForegroundColor Green
 }
 
 ################################
@@ -260,15 +260,15 @@ is the path to Ionic's zipping library
 
     # Check for the _Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip and rename that back (remove the underscore)
 
-    $DEFWDPFile = "_Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
-	$DEFWDPFileOrg =  "Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
-    $DEFWDPFilePath = Join-Path $DestinationFolderPath $DEFWDPFile
-                               
-    If(Test-Path -Path $DEFWDPFilePath){
+    $DefWdpFile = "_Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
+	$DefWdpFileOrg =  "Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
+	$DefWdpFilePath = Join-Path $DestinationFolderPath $DefWdpFile
+                              
+    If(Test-Path -Path $DefWdpFilePath){
 
 		try {
 					
-			Rename-Item -Path $DEFWDPFilePath -NewName $DEFWDPFileOrg -force
+			Rename-Item -Path $DefWdpFilePath -NewName $DefWdpFileOrg -force
 					
 		} catch {
 					
@@ -278,17 +278,58 @@ is the path to Ionic's zipping library
 		}
                 
     }
+
+    # Check for the _Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip and rename that back (remove the underscore)
+
+    $DefCdWdpFile = "_Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
+	$DefCdWdpFileOrg =  "Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
+	$DefCdWdpFilePath = Join-Path $DestinationFolderPath $DefCdWdpFile
+	
+    If(Test-Path -Path $DefCdWdpFilePath){
+
+		try {
+					
+			Rename-Item -Path $DefCdWdpFilePath -NewName $DefCdWdpFileOrg -force
+					
+		} catch {
+					
+			Write-Host "Unable to rename the file... continuing" -ForegroundColor DarkYellow
+			Continue
+
+		}
+                
+    }	
 
 	# Check for the _Data Exchange Framework 2.0.1 rev. 180108.zip and rename that back (remove the underscore)
-    $DEFZipFile = "_Data Exchange Framework 2.0.1 rev. 180108.zip"
-	$DEFZipFileOrg = "Data Exchange Framework 2.0.1 rev. 180108.zip"
-    $DEFZipFilePath = Join-Path $RootFolder $DEFZipFile
+    $DefZipFile = "_Data Exchange Framework 2.0.1 rev. 180108.zip"
+	$DefZipFileOrg = "Data Exchange Framework 2.0.1 rev. 180108.zip"
+    $DefZipFilePath = Join-Path $RootFolder $DefZipFile
                                
-    If(Test-Path -Path $DEFZipFilePath){
+    If(Test-Path -Path $DefZipFilePath){
 
 		try {
 					
-			Rename-Item -Path $DEFZipFilePath -NewName $DEFZipFileOrg -Force
+			Rename-Item -Path $DefZipFilePath -NewName $DefZipFileOrg -Force
+					
+		} catch {
+					
+			Write-Host "Unable to rename the file... continuing" -ForegroundColor DarkYellow
+			Continue
+
+		}
+                
+	}
+	
+	# Check for the _Data Exchange Framework CD Server 2.0.1 rev. 180108.zip and rename that back (remove the underscore)
+    $DefCdZipFile = "_Data Exchange Framework CD Server 2.0.1 rev. 180108.zip"
+	$DefCdZipFileOrg = "Data Exchange Framework CD Server 2.0.1 rev. 180108.zip"
+    $DefCdZipFilePath = Join-Path $RootFolder $DefCdZipFile
+                               
+    If(Test-Path -Path $DefCdZipFilePath){
+
+		try {
+					
+			Rename-Item -Path $DefCdZipFilePath -NewName $DefCdZipFileOrg -Force
 					
 		} catch {
 					
@@ -298,6 +339,7 @@ is the path to Ionic's zipping library
 		}
                 
     }
+
 }
 
 ########################################################################################
@@ -332,27 +374,52 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 
 				# Special check - if dealing with DEF try to avoid limitations of the Cloud.Cmdlets script
 
-				If($ModuleFolder -like "*Data Exchange Framework*")
+				If($ModuleFolder -eq "$($assetsFolder)\Data Exchange Framework")
 				{
             
 					# Check if the "Data Exchange Framework 2.0.1 rev. 180108.zip" file is present and rename it to "_Data Exchange Framework 2.0.1 rev. 180108.zip"
 
-					$DEFZipFile = "Data Exchange Framework 2.0.1 rev. 180108.zip"
-					$DEFSCWPDFile = "Data Exchange Framework 2.0.1 rev. 180108_single.scwdzip"
-					$DEFZipFilePath = Join-Path $ModuleFolder $DEFZipFile
-					$DEFSCWPDFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DEFSCWPDFile))
+					$DefZipFile = "Data Exchange Framework 2.0.1 rev. 180108.zip"
+					$DefScwdpFile = "Data Exchange Framework 2.0.1 rev. 180108_single.scwdzip"
+					$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
+					$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
                               
-						if(Test-Path $DEFSCWPDFilePath)
+						if(Test-Path $DefScwdpFilePath)
 						{
 							Write-Host "Skipping WDP generation - there's already a WDP package, present at $($ModuleWDPTarget)" -ForegroundColor Yellow
 							continue
 						}
-						elseIf(Test-Path -Path $DEFZipFilePath)
+						elseIf(Test-Path -Path $DefZipFilePath)
 						{
-							Rename-Item -Path $DEFZipFilePath -NewName "$($ModuleFolder)\_$($DEFZipFile)" -force
+							Rename-Item -Path $DefZipFilePath -NewName "$($ModuleFolder)\_$($DefZipFile)" -force
 						}
+
 				}
-								
+						
+				# Special check - if dealing with DEF (CD) try to avoid limitations of the Cloud.Cmdlets script
+
+				If($ModuleFolder -eq "$($assetsFolder)\Data Exchange Framework CD")
+				{
+            
+					# Check if the "Data Exchange Framework CD Server 2.0.1 rev. 180108.zip" file is present and rename it to "_Data Exchange Framework CD Server 2.0.1 rev. 180108.zip"
+
+					$DefZipFile = "Data Exchange Framework CD Server 2.0.1 rev. 180108.zip"
+					$DefScwdpFile = "Data Exchange Framework CD Server 2.0.1 rev. 180108_single.scwdzip"
+					$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
+					$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
+                              
+						if(Test-Path $DefScwdpFilePath)
+						{
+							Write-Host "Skipping WDP generation - there's already a WDP package, present at $($ModuleWDPTarget)" -ForegroundColor Yellow
+							continue
+						}
+						elseIf(Test-Path -Path $DefZipFilePath)
+						{
+							Rename-Item -Path $DefZipFilePath -NewName "$($ModuleFolder)\_$($DefZipFile)" -force
+						}
+
+				}				
+
 				# Call in the WDP creation function
 
 				Create-WDP -RootFolder $ModuleFolder `
