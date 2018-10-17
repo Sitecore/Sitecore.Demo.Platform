@@ -38,7 +38,7 @@ https://cakebuild.net
 [CmdletBinding()]
 Param(
     [string]$Script = "build.cake",
-	[ValidateSet("Default", "Build", "Azure-Upload", "Azure-Deploy")]
+	[ValidateSet("Default", "Clean", "Run-Prerequisites", "Build", "Azure-Upload", "Azure-Deploy")]
     [string]$Target,
 	[switch]$SkipPrerequisites,
     [string]$Configuration,
@@ -56,7 +56,7 @@ Param(
 # Run AzureUser-Config-Capture
 ###############################
 
-if(($Target) -and ($Target -ne "Build") -or !($Target))
+if(($Target) -and (($Target -ne "Build") -and ($Target -ne "Clean") -and ($Target -ne "Run-Prerequisites")) -or !($Target))
 {
 	if($SkipPrerequisites -eq $false)
 	{
@@ -68,7 +68,7 @@ if(($Target) -and ($Target -ne "Build") -or !($Target))
 # Run Env-Prep
 ###############################
 
-if($SkipPrerequisites -eq $false)
+if(($SkipPrerequisites -eq $false) -and ($Target -ne "Clean") -and ($Target -ne "Run-Prerequisites"))
 {
 	& ".\\HelperScripts\Env-Prep.ps1" -ConfigurationFile "cake-config.json"
 }

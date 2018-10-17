@@ -33,6 +33,11 @@ Task("Default")
 .IsDependentOn("Azure-Upload")
 .IsDependentOn("Azure-Deploy");
 
+Task("Run-Prerequisites")
+.WithCriteria(configuration != null)
+.IsDependentOn("Capture-UserData")
+.IsDependentOn("Prepare-Environments");
+
 Task("Build")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
@@ -85,6 +90,20 @@ Task("Clean").Does(() => {
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
 });
+
+Task("Capture-UserData").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\AzureUser-Config-Capture.ps1", args =>
+        {
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+        });
+		});
+
+Task("Prepare-Environments").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Env-Prep.ps1", args =>
+        {
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+        });
+		});        
 
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
