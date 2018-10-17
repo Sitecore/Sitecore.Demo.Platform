@@ -21,13 +21,7 @@ dev.sitecore.com password.
 Param(
 	[parameter(Mandatory=$true, HelpMessage="Please Enter your cake-config.json")]
 	[ValidateNotNullOrEmpty()]
-    [string] $ConfigurationFile,
-	[Parameter(Mandatory=$true, HelpMessage="Please Enter your dev.sitecore.com username")]
-    [ValidateNotNullOrEmpty()]
-	[string] $SitecoreDownloadUsername,
-	[Parameter(Mandatory=$true, HelpMessage="Please Enter your dev.sitecore.com password")]
-    [ValidateNotNullOrEmpty()]
-	[Security.SecureString] $SitecoreDownloadPassword
+    [string] $ConfigurationFile
 )
 
 ###########################
@@ -40,6 +34,27 @@ $configarray     = ProcessConfigFile -Config $ConfigurationFile
 $config          = $configarray[0]
 $assetconfig     = $configarray[1]
 $azureuserconfig = $configarray[2]
+$azureuserconfigFile = $configarray[4]
+
+############################
+# Get Sitecore Credentials
+############################
+
+$sitecoreAccountConfiguration = $azureuserconfig.sitecoreAccount;
+
+if ([string]::IsNullOrEmpty($sitecoreAccountConfiguration.username))
+{
+	$sitecoreAccountConfiguration.username = Read-Host "Please provide your dev.sitecore.com username"
+}
+
+if ([string]::IsNullOrEmpty($sitecoreAccountConfiguration.password))
+{
+	$sitecoreAccountConfiguration.password = Read-Host "Please provide your dev.sitecore.com password"
+}
+
+$azureuserconfig | ConvertTo-Json | set-content $azureuserconfigFile
+
+$securePassword = ConvertTo-SecureString $sitecoreAccountConfiguration.password -AsPlainText -Force
 
 ###################################
 # Parameters
@@ -49,7 +64,7 @@ $foundfiles   = New-Object System.Collections.ArrayList
 $downloadlist = New-Object System.Collections.ArrayList
 $assetsfolder = (Join-Path $config.DeployFolder assets)
 [string] $habitathomefilepath = $([io.path]::combine($config.DeployFolder, 'Website', 'HabitatHome'))
-$credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SitecoreDownloadUsername, $SitecoreDownloadPassword 
+$credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $sitecoreAccountConfiguration.username, $securePassword
 
 ##################################################
 # Check for existing Files in Deploy\Assets Folder

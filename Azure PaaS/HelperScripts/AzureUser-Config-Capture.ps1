@@ -49,7 +49,35 @@ Import-Module AzureRM
 # Add Persisent Azure Session
 Enable-AzureRmContextAutosave
 
-Add-AzureRmAccount
+# Add the Azure Service Principal
+
+$servicePrincipalConfiguration = $azureuserconfig.serviceprincipal;
+
+if ([string]::IsNullOrEmpty($servicePrincipalConfiguration.azureSubscriptionName))
+{
+	$servicePrincipalConfiguration.azureSubscriptionName = Read-Host "Please Provide the Azure Subscription Name"
+}
+
+if ([string]::IsNullOrEmpty($servicePrincipalConfiguration.tenantId))
+{
+	$servicePrincipalConfiguration.tenantId = Read-Host "Please Provide the Azure Tenant ID"
+}
+
+if ([string]::IsNullOrEmpty($servicePrincipalConfiguration.applicationId))
+{
+	$servicePrincipalConfiguration.applicationId = Read-Host "Please Provide the Azure Application Id"
+}
+
+if ([string]::IsNullOrEmpty($servicePrincipalConfiguration.applicationPassword))
+{
+	$servicePrincipalConfiguration.applicationPassword = Read-Host "Please Provide the Azure Application Password"
+}
+
+$securePassword = ConvertTo-SecureString $servicePrincipalConfiguration.applicationPassword -AsPlainText -Force
+$servicePrincipalCredentials = New-Object System.Management.Automation.PSCredential($servicePrincipalConfiguration.applicationId, $securePassword)
+Login-AzureRmAccount -ServicePrincipal -Tenant $servicePrincipalConfiguration.tenantId -Credential $servicePrincipalCredentials
+Set-AzureRmContext -SubscriptionName $servicePrincipalConfiguration.azureSubscriptionName -TenantId $servicePrincipalConfiguration.tenantId
+
 
 ###########################################
 # Get User Input for azureuser-config.json
