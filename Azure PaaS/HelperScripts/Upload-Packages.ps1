@@ -341,7 +341,7 @@ ForEach ($setting in $azureuserconfig.settings) {
 		} catch {
 					
             # Create the resource group if the attempt to get the group fails
-            Write-Host "Creating a new resource group named $($resourceGroupName)..."
+            Write-Host "Creating a new resource group named $($resourceGroupName)..." -ForegroundColor Green
             New-AzureRmResourceGroup -Name $resourceGroupName -Location $region
 				
 		}
@@ -366,7 +366,7 @@ ForEach ($setting in $azureuserconfig.settings) {
             } else {
 
                 # Try to create the storage account
-                Write-Host "Creating a new storage account named $($storageAccountName)..."
+                Write-Host "Creating a new storage account named $($storageAccountName)..." -ForegroundColor Green
                 New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot
 
             }
