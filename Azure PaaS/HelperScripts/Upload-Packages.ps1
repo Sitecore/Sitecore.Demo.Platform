@@ -301,11 +301,75 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig){
 ###################################################
 
 # Set variables for the container names
-$originalContainerName = "azure-toolkit"
-$additionalContainerName = "temporary-toolkit"
+[String] $originalContainerName = "azure-toolkit"
+[String] $additionalContainerName = "temporary-toolkit"
+
+ForEach ($setting in $azureuserconfig.settings) {
+
+    if($setting.id -eq "AzureDeploymentID") {
+
+        # Assign a name to the resource group based on the Deployment ID
+        [String] $resourceGroupName = $setting.value
+
+        # Generate a random name for the storage account by taking into account the 24 character limits imposed by Azure
+        $seed = (24 - $resourceGroupName.Length)
+        if ($seed -gt 1) {
+
+            $resourceGroupNameSeed = $resourceGroupName -replace '-',''
+            [String] $storageAccountName = "$($resourceGroupNameSeed)$([System.Math]::Round($(Get-Random -Minimum ([System.Math]::Pow(10 , $seed - 1)) -Maximum ([System.Math]::Pow(10 , $seed) - 1))))"
+
+        }
+
+    }
+
+    if($setting.id -eq "AzureRegion") {
+
+		$region = $setting.value
+
+		# Trying to create a resource group for deployments to Azure, based on the selected region
+
+		try {
+        
+            # Check if the resource group is already there
+            Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction Stop
+			if($null -ne (Get-AzureRmResourceGroup -Name $resourceGroupName)) {
+							   
+				Write-Host "A resource group named $($resourceGroupName) already exists" -ForegroundColor Yellow
+
+			}
+		
+		} catch {
+					
+            # Create the resource group if the attempt to get the group fails
+            Write-Host "Creating a new resource group named $($resourceGroupName)..."
+            New-AzureRmResourceGroup -Name $resourceGroupName -Location $region
+				
+		}
+
+		try {
+
+            # Check if the storage account is already there
+            Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -ErrorAction Stop
+			if($null -ne (Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName)) {
+					
+				Write-Host "A storage account named $($storageAccountName) already exists" -ForegroundColor Yellow
+					
+			}
+				
+		} catch {
+					
+            # Next, create the storage account
+            Write-Host "Creating a new storage account named $($storageAccountName)..."
+            New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot
+				
+		}
+
+	}
+    
+}
 
 # Get the current storage account
-$sa = Get-AzureRmStorageAccount
+$sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName
 
 # Obtain the storage account context
 $ctx = $sa.Context
