@@ -3,11 +3,13 @@
   "contentVersion": "1.0.0.0",
   "variables": {
     "webApiVersion": "2016-08-01",
-    "resourcesApiVersion": "2016-09-01",
+	"resourcesApiVersion": "2016-09-01",
     "sqlServerFqdnTidy": "[toLower(trim(parameters('sqlServerFqdn')))]",
     "coreSqlDatabaseNameTidy": "[toLower(trim(parameters('coreSqlDatabaseName')))]",
     "masterSqlDatabaseNameTidy": "[toLower(trim(parameters('masterSqlDatabaseName')))]",
-    "xcSingleWebAppNameTidy": "[toLower(trim(parameters('xcSingleWebAppName')))]"
+    "cdWebAppNameTidy": "[toLower(trim(parameters('cdWebAppName')))]",
+    "cmWebAppNameTidy": "[toLower(trim(parameters('cmWebAppName')))]",
+    "searchProvider": "Azure"
   },
   "parameters": {
     "standard": {
@@ -16,19 +18,24 @@
         "infrastructure": {
           "sqlServerFqdn": null
         },
+
         "deploymentId": null,
         "location": null,
         "sqlServerLogin": null,
         "sqlServerPassword": null,
         "coreSqlDatabaseName": null,
         "masterSqlDatabaseName": null,
-        "xcSingleWebAppName": null
+
+        "cdWebAppName": null,
+        "cmWebAppName": null
       }
     },
     "extension": {
       "type": "secureObject",
       "defaultValue": {
-        "habitatXconnectDeployPackageUrl": null
+        "cdSxaMsDeployPackageUrl": null,
+        "cmSxaMsDeployPackageUrl": null,
+        "speMsDeployPackageUrl": null
       }
     },
 
@@ -75,35 +82,75 @@
       "defaultValue": "[coalesce(parameters('standard').masterSqlDatabaseName, concat(parameters('deploymentId'), '-master-db'))]"
     },
 
-    "xcSingleWebAppName": {
+    "cdWebAppName": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "[coalesce(parameters('standard').xcSingleWebAppName, concat(parameters('deploymentId'), '-xc-single'))]"
+      "defaultValue": "[coalesce(parameters('standard').cdWebAppName, concat(parameters('deploymentId'), '-cd'))]"
     },
-    "habitatXconnectDeployPackageUrl": {
+    "cmWebAppName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[coalesce(parameters('standard').cmWebAppName, concat(parameters('deploymentId'), '-cm'))]"
+    },
+    "speMsDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').habitatXconnectDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').speMsDeployPackageUrl]"
+    },
+    "cdSxaMsDeployPackageUrl": {
+      "type": "securestring",
+      "minLength": 1,
+      "defaultValue": "[parameters('extension').cdSxaMsDeployPackageUrl]"
+    },
+    "cmSxaMsDeployPackageUrl": {
+      "type": "securestring",
+      "minLength": 1,
+      "defaultValue": "[parameters('extension').cmSxaMsDeployPackageUrl]"
     }
   },
-  
+
   "resources": [
     {
-      "name": "[concat(variables('xcSingleWebAppNameTidy'), '/', 'MSDeploy')]",
+      "name": "[concat(variables('cmWebAppNameTidy'), '/', 'MSDeploy')]",
       "type": "Microsoft.Web/sites/extensions",
       "location": "[parameters('location')]",
       "apiVersion": "[variables('webApiVersion')]",
       "properties": {
-        "mode": "Incremental",
         "addOnPackages": [
-          {
-            "packageUri": "[parameters('habitatXconnectDeployPackageUrl')]",
+           {
+            "packageUri": "[parameters('speMsDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
-              "Application Path": "[variables('xcSingleWebAppNameTidy')]",
+              "Application Path": "[variables('cmWebAppNameTidy')]",
               "Core Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('coreSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
               "Master Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('masterSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]"
+            }
+          },
+          {
+            "packageUri": "[parameters('cmSxaMsDeployPackageUrl')]",
+            "dbType": "SQL",
+            "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
+            "setParameters": {
+              "Application Path": "[variables('cmWebAppNameTidy')]",
+              "Core Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('coreSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
+              "Master Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('masterSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[concat(variables('cdWebAppNameTidy'), '/', 'MSDeploy')]",
+      "type": "Microsoft.Web/sites/extensions",
+      "location": "[parameters('location')]",
+      "apiVersion": "[variables('webApiVersion')]",
+      "properties": {
+        "addOnPackages": [
+          {
+            "packageUri": "[parameters('cdSxaMsDeployPackageUrl')]",
+            "setParameters": {
+              "Application Path": "[variables('cdWebAppNameTidy')]"
             }
           }
         ]

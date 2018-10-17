@@ -33,6 +33,11 @@ Task("Default")
 .IsDependentOn("Azure-Upload")
 .IsDependentOn("Azure-Deploy");
 
+Task("Run-Prerequisites")
+.WithCriteria(configuration != null)
+.IsDependentOn("Capture-UserData")
+.IsDependentOn("Prepare-Environments");
+
 Task("Build")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
@@ -61,10 +66,44 @@ Task("Azure-Deploy")
 ===============================================*/
 
 Task("Clean").Does(() => {
+
+	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\HabitatHome"))
+    {
+        CleanDirectories($"{configuration.DeployFolder}\\assets\\HabitatHome");
+    }
+
+	if (DirectoryExists($"{configuration.DeployFolder}\\Website"))
+    {
+        CleanDirectories($"{configuration.DeployFolder}\\Website");
+    }
+
+	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Xconnect"))
+    {
+        CleanDirectories($"{configuration.DeployFolder}\\assets\\Xconnect");
+    }
+
+	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\WDPWorkFolder"))
+    {
+        CleanDirectories($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\WDPWorkFolder");
+    }
+	
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
-	DeleteDirectory($"{configuration.DeployFolder}", new DeleteDirectorySettings { Recursive = true, Force = true });
 });
+
+Task("Capture-UserData").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\AzureUser-Config-Capture.ps1", args =>
+        {
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+        });
+		});
+
+Task("Prepare-Environments").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Env-Prep.ps1", args =>
+        {
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+        });
+		});        
 
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")

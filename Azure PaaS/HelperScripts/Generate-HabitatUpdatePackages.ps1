@@ -1,5 +1,11 @@
 <#
-    This script generates a Sitecore update package out of the Habitat build output
+
+.SYNOPSIS
+This script generates a Sitecore update package out of the Habitat build output
+
+.PARAMETER ConfigurationFile
+A cake-config.json file
+
 #>
 
 Param(
@@ -11,19 +17,12 @@ Param(
 # Find configuration files
 ###########################
 
-# Find and process cake-config.json
-if (!(Test-Path $ConfigurationFile)) {
-    Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
-    Write-Host  "Please ensure there is a cake-config.json configuration file at '$($ConfigurationFile)'" -ForegroundColor Red
-    Exit 1
-}
+Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$config = Get-Content -Raw $ConfigurationFile | ConvertFrom-Json
-if (!$config) {
-
-    throw "Error trying to load configuration!"
-    
-}
+$configarray     = ProcessConfigFile -Config $ConfigurationFile
+$config          = $configarray[0]
+$assetconfig     = $configarray[1]
+$azureuserconfig = $configarray[2]
 
 ################################################################
 # Prepare folders for update package generation and triggers it
@@ -72,14 +71,58 @@ Function GenerateUpdatePackage(){
 	
 }
 
+
+###############################
+# Clean up and prepare for packaging
+###############################
+
+Function Clean-Up([PSObject] $Configuration, [String] $FolderString){
+
+    # Clean Assemblies
+
+    $AssembliesToRemove = @("Sitecore.*.dll","Unicorn*.dll","Rainbow*.dll", "Kamsar*.dll")
+    $AssembliesToKeep = @("Sitecore.HabitatHome.*")
+
+    Get-ChildItem $FolderString -Include $AssembliesToRemove -Exclude $AssembliesToKeep -Recurse | foreach($_) { Remove-Item $_.FullName }
+
+    # Clean Configs Configs
+
+    $ConfigsToRemove = @("*.Serialization*.config", "Unicorn*.config*", "Rainbow*.config")  
+
+    Get-ChildItem $FolderString -Include $ConfigsToRemove -Recurse | foreach($_) { Remove-Item $_.FullName }
+
+    # Clean configurations in bin
+
+    $BinFolder = $([IO.Path]::Combine($FolderString, "bin"))
+
+    $BinConfigsToRemove = @("*.config", "*.xdt")  
+       
+
+    Get-ChildItem $BinFolder -Include $BinConfigsToRemove -Recurse | foreach($_) { Remove-Item $_.FullName }
+
+    # Clean Empty Folders
+
+    dir $FolderString -recurse | 
+
+    Where { $_.PSIsContainer -and @(dir -Lit $_.Fullname -r | Where {!$_.PSIsContainer}).Length -eq 0 } |
+
+    Remove-Item -recurse    
+}
+
+
 $rootFolder = Get-ChildItem (Join-Path $([IO.Path]::Combine($config.DeployFolder, 'Website')) *)
 
-ForEach($folder in $rootFolder){
+#Prepare Packages
 
-    switch((Get-Item -Path $folder).Name){
+ForEach($folder in $rootFolder){
+    Clean-Up -Configuration $config -FolderString (Get-Item -Path $folder).FullName
     
+    Write-Host $folder
+
+    switch((Get-Item -Path $folder).Name){  
+
         "HabitatHome"
-        {
+        {           
             Process-UpdatePackage -Configuration $config -FolderString $folder
         }
         "xconnect"

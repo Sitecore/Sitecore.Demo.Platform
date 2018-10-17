@@ -79,7 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Foundation\Foundation.Accounts.config" />
-    <None Include="App_Config\Security\domains.config.xdt" />
+    <Content Include="App_Config\Security\domains.config.xdt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
