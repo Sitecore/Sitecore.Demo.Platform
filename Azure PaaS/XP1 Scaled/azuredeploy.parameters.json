@@ -96,14 +96,15 @@
             "name": "habitat-home-website",
             "templateLink": "<URL to the Habitat Home json ARM template>",
             "parameters": {
-              "habitatWebsiteDeployPackageUrl": "<URL to the Habitat Home WDP>"
+              "habitatWebsite-cdMsDeployPackageUrl": "<URL to the Habitat Home WDP>",
+              "habitatWebsite-cmMsDeployPackageUrl": "<URL to the Habitat Home WDP>"
             }
           },
           {
             "name": "habitat-home-xc",
             "templateLink": "<URL to the Habitat Home json ARM template>",
             "parameters": {
-              "habitatWebsiteDeployPackageUrl": "<URL to the Habitat Home XC WDP>"
+              "habitatXconnectDeployPackageUrl": "<URL to the Habitat Home XC WDP>"
             }
           },
           {
