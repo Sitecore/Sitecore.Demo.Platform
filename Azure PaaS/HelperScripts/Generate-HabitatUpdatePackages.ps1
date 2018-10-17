@@ -96,6 +96,7 @@ Function Clean-Up([PSObject] $Configuration, [String] $FolderString){
     $BinFolder = $([IO.Path]::Combine($FolderString, "bin"))
 
     $BinConfigsToRemove = @("*.config", "*.xdt")  
+       
 
     Get-ChildItem $BinFolder -Include $BinConfigsToRemove -Recurse | foreach($_) { Remove-Item $_.FullName }
 
