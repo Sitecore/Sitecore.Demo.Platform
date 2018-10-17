@@ -4,30 +4,30 @@
 
 Please follow the instructions on the [Azure PaaS Readme](../Readme.md)
 
-Resources provisioned:
+## Resources provisioned:
 
   * Habitat Home  
   * Azure SQL databases : core, master, web, reporting, pools, tasks, forms, exm.master, messaging, refdata, smm, shard0, shard1, ma
   * Azure Redis Cache for session state
   * Sitecore roles: Content Delivery, Content Management, Processing, Reporting
-	  * Hosting plans: one per role
-	  * Preconfigured Web Applications, based on the provided WebDeploy packages
+    * Hosting plans: one per role
+    * Preconfigured Web Applications, based on the provided WebDeploy packages
   * XConnect services: Search, Collection, Reference data, Marketing Automation, Marketing Automation Reporting
-	  * Hosting Plans: XConnect Basic, XConnect Resource Intensive
-	  * Preconfigured Web Applications, based on the provided WebDeploy packages
+    * Hosting Plans: XConnect Basic, XConnect Resource Intensive
+    * Preconfigured Web Applications, based on the provided WebDeploy packages
   * Azure Search Service
   * Application Insights for diagnostics and monitoring
   * Modules
-	  * Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0
-	  * Sitecore PowerShell Extensions-4.7.2 for Sitecore 8
-	  * Data Exchange Framework 2.0.1 rev. 180108  
-			* Connect for Microsoft Dynamics 2.0.1 rev. 180108  
-			* Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108  
-			* Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108  
-			* SQL Provider for Data Exchange Framework 2.0.1 rev. 180108  
-			* xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108  
-			* Salesforce Connect Data Exchange Framework 2.0.1 rev. 180108  
-			* Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108  
+    * Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0  
+    * Sitecore PowerShell Extensions-4.7.2 for Sitecore 8  
+    * Data Exchange Framework 2.0.1 rev. 180108  
+    * Connect for Microsoft Dynamics 2.0.1 rev. 180108  
+    * Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108  
+    * Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108  
+    * SQL Provider for Data Exchange Framework 2.0.1 rev. 180108  
+    * xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108  
+    * Salesforce Connect Data Exchange Framework 2.0.1 rev. 180108  
+    * Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108  
 
 ## Parameters
 
