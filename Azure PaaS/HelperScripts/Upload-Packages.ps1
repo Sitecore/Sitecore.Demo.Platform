@@ -348,17 +348,32 @@ ForEach ($setting in $azureuserconfig.settings) {
 
 		try {
 
-            # Check if the storage account is already there
-            Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -ErrorAction Stop
-			if($null -ne (Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName)) {
-					
-				Write-Host "A storage account named $($storageAccountName) already exists" -ForegroundColor Yellow
-					
-			}
+            $storageAccountsList = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
+            if ($null -ne $storageAccountsList) {
+
+                foreach ($storageAccount in $storageAccountsList) {
+
+                    # Check if a previously generated storage account already exists
+                    if ($storageAccount.StorageAccountName -like "*$($resourceGroupNameSeed)*") {
+    
+                        Write-Host "A generated storage account named $($storageAccountName) already exists... Skipping storage account creation" -ForegroundColor Yellow
+                        #Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -ErrorAction Stop
+    
+                    }
+    
+                }
+                
+            } else {
+
+                # Try to create the storage account
+                Write-Host "Creating a new storage account named $($storageAccountName)..."
+                New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot
+
+            }
 				
 		} catch {
 					
-            # Next, create the storage account
+            # Create the storage account if one does not exist
             Write-Host "Creating a new storage account named $($storageAccountName)..."
             New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot
 				
