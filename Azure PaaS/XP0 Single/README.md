@@ -1,4 +1,4 @@
-# Habitat Home Sitecore XP Single Environment Azure PaaS
+# Habitat Home Sitecore XP0 Single Environment Azure PaaS
 
 ## Instructions
 
@@ -16,7 +16,6 @@ Please follow the instructions on the [Azure PaaS Readme](../Readme.md)
 	  * Preconfigured Web Application, based on the provided WebDeploy package
   * Azure Search Service
   * Application Insights for diagnostics and monitoring
-  * Sitecore Azure Toolkit 2.0.4 rev. 180605
   * Modules
 	  * Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0
 	  * Sitecore PowerShell Extensions-4.7.2 for Sitecore 8
@@ -26,6 +25,8 @@ Please follow the instructions on the [Azure PaaS Readme](../Readme.md)
 			* Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108
 			* SQL Provider for Data Exchange Framework 2.0.1 rev. 180108
 			* xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108
+			* Salesforce Connect Data Exchange Framework 2.0.1 rev. 180108
+			* Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108
 
 ## Parameters
 

@@ -126,6 +126,10 @@
     <Content Include="Views\Accounts\DeleteAccount.cshtml" />
     <Content Include="Views\Accounts\ExportData.cshtml" />
     <None Include="web.config.xdt" />
+    <Content Include="Views\Accounts\DataProtection.cshtml" />
+    <Content Include="web.config.xdt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

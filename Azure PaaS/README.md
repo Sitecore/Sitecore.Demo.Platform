@@ -51,10 +51,12 @@ Clone the Sitecore.HabitatHome.Content repository locally - defaults are configu
 
 The following is a list of default values/assumptions for install locations
 
-**Project Folder**		`c:\projects\sitecore.habitathome.content\`  
+**Project Folder**		`c:\projects\sitecore.habitathome.content`  
 **Deploy Folder**		`c:\Deploy`  
 
-if these values are not correct you will need to edit the cake-config.json in the `\Azure PaaS` folder.  
+if these values are not correct you will need to edit the cake-config.json in the `\Azure PaaS` folder. 
+* Do not include a trailing `\` slash in your paths  
+* Do not include any spaces in the Deploy folder directory path
 
 ### 3. Deploy Sitecore.HabitatHome.Content
 
@@ -63,6 +65,7 @@ From the `\Azure PaaS` folder
 - Run **`.\build.ps1`** 
 
 Optional Parameters:
+
 |Parameter                                  | Description
 |-------------------------------------------|---------------------------------------------------------------------------------------------
 | Verbosity                                 | Specifies the amount of information to be displayed
@@ -74,9 +77,12 @@ Optional Parameters:
 |											| (Best used for testing purposes, or if the user has only run the project build, but information and prerequisites were already collected)
 
 **Target**
+
 |Value										| Description
 |-------------------------------------------|---------------------------------------------------------------------------------------------
 | Default                                   | Same affect as no target defined, will build and deploy to Azure
+| Clean                                     | Clean all outputs and temporary folders, involved in the process of building and packaging the project
+| Run-Prerequisites                         | Downloads Habitat Home prerequisites and captures user input on Azure and Sitecore account preferences
 | Build                                     | Create build output only, will **not** upload or deploy to Azure
 | Azure-Upload                              | Performs only the upload to Azure portion of the process
 | Azure-Deploy                              | Performs only the Deployment portion of the process

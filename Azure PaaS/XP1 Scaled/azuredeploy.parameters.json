@@ -6,7 +6,7 @@
       "value": ""
     },
     "location": {
-      "value": "AZURE REGION"
+      "value": "<AZURE REGION>"
     },
     "sitecoreAdminPassword": {
       "value": "<8 Character Minimum>"
@@ -14,17 +14,41 @@
     "licenseXml": {
       "value": "<ABSOLUTE LOCAL PATH\\license.xml>"
     },
+    "repAuthenticationApiKey": {
+      "value": ""
+    },
     "sqlServerLogin": {
       "value": "<SA is not a valid admin name for Azure SQL>"
     },
     "sqlServerPassword": {
       "value": ""
     },
-    "singleMsDeployPackageUrl": {
-      "value": "<URL with SAS to Private Azure Storage for XP0>"
+    "cmMsDeployPackageUrl": {
+      "value": ""
     },
-    "xcSingleMsDeployPackageUrl": {
-      "value": "<URL with SAS to Private Azure Storage for XP0 XC>"
+    "cdMsDeployPackageUrl": {
+      "value": ""
+    },
+    "prcMsDeployPackageUrl": {
+      "value": ""
+    },
+    "repMsDeployPackageUrl": {
+      "value": ""
+    },
+    "xcRefDataMsDeployPackageUrl": {
+      "value": ""
+    },
+    "xcCollectMsDeployPackageUrl": {
+      "value": ""
+    },
+    "xcSearchMsDeployPackageUrl": {
+      "value": ""
+    },
+    "maOpsMsDeployPackageUrl": {
+      "value": ""
+    },
+    "maRepMsDeployPackageUrl": {
+      "value": ""
     },
     "authCertificatePassword": {
       "value": "<Password for Cert Being passed>"
@@ -38,12 +62,13 @@
 
           {
             "name": "sxa",
-            "templateLink": "<URL to the SXA json ARM template>",
+            "templateLink": "https://raw.githubusercontent.com/Sitecore/Sitecore-Azure-Quickstart-Templates/master/SXA%201.3.1/xp/azuredeploy.json",
             "parameters": {
-              "sxaMsDeployPackageUrl": "<URL to the SXA module's WDP>",
-              "speMsDeployPackageUrl": "<URL to the SPE module's WDP>"
+                "cdSxaMsDeployPackageUrl" : "<URL of the WDP file Sitecore Experience Accelerator * CD.scwdp.zip>",
+                "cmSxaMsDeployPackageUrl" : "<URL of the WDP file Sitecore Experience Accelerator *.scwdp.zip>",
+                "speMsDeployPackageUrl" : "<URL of the WDP file Sitecore PowerShell Extensions *.scwdp.zip>"
             }
-          },
+        },
           {
             "name": "def",
             "templateLink": "<URL to the DEF json ARM template>",
@@ -55,9 +80,18 @@
               "defDynamicsDeployPackageUrl": "<URL to the defDynamics module's WDP>",
               "defDynamicsConnectDeployPackageUrl": "<URL to the defDynamicsConnect module's WDP>",
 			        "defSalesforceDeployPackageUrl": "<URL to the defDynamics module's WDP>",
-              "defSalesforceConnectDeployPackageUrl": "<URL to the defDynamicsConnect module's WDP>"
+              "defSalesforceConnectDeployPackageUrl": "<URL to the defDynamicsConnect module's WDP>",
+              "def-cdDeployPackageUrl": "<URL to the def-cd module's WDP>",
+              "defSitecore-cdDeployPackageUrl": "<URL to the defSitecore-cd module's WDP>",
+              "defSql-cdDeployPackageUrl": "<URL to the defSql-cd module's WDP>",
+              "defxConnect-cdDeployPackageUrl": "<URL to the defxConnect-cd module's WDP>",
+              "defDynamics-cdDeployPackageUrl": "<URL to the defDynamics-cd module's WDP>",
+              "defDynamicsConnect-cdDeployPackageUrl": "<URL to the defDynamicsConnect-cd module's WDP>",
+			        "defSalesforce-cdDeployPackageUrl": "<URL to the defDynamics-cd module's WDP>",
+              "defSalesforceConnect-cdDeployPackageUrl": "<URL to the defDynamicsConnect-cd module's WDP>"
             }
           },
+          
           {
             "name": "habitat-home-website",
             "templateLink": "<URL to the Habitat Home json ARM template>",
@@ -69,7 +103,7 @@
             "name": "habitat-home-xc",
             "templateLink": "<URL to the Habitat Home json ARM template>",
             "parameters": {
-              "habitatXconnectDeployPackageUrl": "<URL to the Habitat Home XC WDP>"
+              "habitatWebsiteDeployPackageUrl": "<URL to the Habitat Home XC WDP>"
             }
           },
           {

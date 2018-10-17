@@ -9,6 +9,7 @@
 
 Param(
 	[parameter(Mandatory=$true)]
+	[ValidateNotNullOrEmpty()]
     [string] $ConfigurationFile
 )
 
@@ -16,47 +17,18 @@ Param(
 # Find configuration files
 ###########################
 
-# Find and process cake-config.json
-if (!(Test-Path $ConfigurationFile)) {
-    Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
-    Write-Host  "Please ensure there is a cake-config.json configuration file at '$($ConfigurationFile)'" -ForegroundColor Red
-    Exit 1
-}
+Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$config = Get-Content -Raw $ConfigurationFile |  ConvertFrom-Json
-if (!$config) {
-    throw "Error trying to load configuration!"
-}
-
-# Find and process azureuser-config.json
-if($config.Topology -eq "single")
-{
-	[string] $azureuserconfigFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azureuser-config.json'))
-}
-else
-{
-	throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
-}
-
-if (!(Test-Path $azureuserconfigFile)) {
-    Write-Host "azureuser-config file '$($azureuserconfigFile)' not found." -ForegroundColor Red
-    Write-Host  "Please ensure there is a user-config.json configuration file at '$($azureuserconfigFile)'" -ForegroundColor Red
-    Exit 1
-}
-
-$azureuserconfig = Get-Content -Raw $azureuserconfigFile |  ConvertFrom-Json
-if (!$azureuserconfig) {
-    throw "Error trying to load azureuser-config.json!"
-}
-
-#Point to the sitecore cloud tools on your local filesystem
-Import-Module "$($config.DeployFolder)\assets\Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1"
+$configarray     = ProcessConfigFile -Config $ConfigurationFile
+$config          = $configarray[0]
+$azureuserconfig = $configarray[2]
+$topology		 = $configarray[5]
 
 #####################
 # Fill in Parameters
 #####################
 
-$ArmParametersPath = "$($config.ProjectFolder)\Azure PaaS\XP0 Single\azuredeploy.parameters.json"
+$ArmParametersPath = "$($topology)\azuredeploy.parameters.json"
 
 
 foreach($setting in $azureuserconfig.settings)
@@ -86,6 +58,8 @@ foreach($setting in $azureuserconfig.settings)
 	}
 }
 
+#Point to the sitecore cloud tools on your local filesystem
+Import-Module "$($config.DeployFolder)\assets\Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1"
 
 Start-SitecoreAzureDeployment -Location $Location `
 							  -Name $Name `

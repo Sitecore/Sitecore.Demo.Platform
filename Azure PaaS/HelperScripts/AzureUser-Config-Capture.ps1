@@ -1,12 +1,22 @@
 <#
-	This script will prompt the user to enter their azure credentials; it then enables a persisent azure session.
-	This will allows future scripts to use this azure session without asking for crednetials again
-	This script will edit a azureuser-config.json bassed on user respones to prompts.
-	The azureuser-config.json is intedned to be used by other scritps to help access the Azure env
+
+.SYNOPSIS
+Gather use input pretaining to azure upload and deployment
+
+.DESCRIPTION
+This scripts enables a persisent azure session. This will allows future scripts to use this azure 
+session without asking for crednetials again. This script will edit a azureuser-config.json bassed 
+on user respones to prompts. The azureuser-config.json is intedned to be used by other scritps to 
+help access their Azure env.
+
+.PARAMETER ConfigurationFile
+A cake-config.json file
+
 #>
 
 Param(
 	[parameter(Mandatory=$true)]
+	[ValidateNotNullOrEmpty()]
     [string] $ConfigurationFile
 )
 
@@ -14,38 +24,14 @@ Param(
 # Find configuration files
 ###########################
 
-# Find and process cake-config.json
-if (!(Test-Path $ConfigurationFile)) {
-    Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
-    Write-Host  "Please ensure there is a cake-config.json configuration file at '$($ConfigurationFile)'" -ForegroundColor Red
-    Exit 1
-}
+Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$config = Get-Content -Raw $ConfigurationFile |  ConvertFrom-Json
-if (!$config) {
-    throw "Error trying to load configuration!"
-}
-
-# Find and process azureuser-config.json
-if($config.Topology -eq "single")
-{
-	[string] $azureuserconfigFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azureuser-config.json'))
-}
-else
-{
-	throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
-}
-
-if (!(Test-Path $azureuserconfigFile)) {
-    Write-Host "azureuser-config file '$($azureuserconfigFile)' not found." -ForegroundColor Red
-    Write-Host  "Please ensure there is a user-config.json configuration file at '$($azureuserconfigFile)'" -ForegroundColor Red
-    Exit 1
-}
-
-$azureuserconfig = Get-Content -Raw $azureuserconfigFile |  ConvertFrom-Json
-if (!$azureuserconfig) {
-    throw "Error trying to load azureuser-config.json!"
-}
+$configarray         = ProcessConfigFile -Config $ConfigurationFile
+$config              = $configarray[0]
+$assetconfig         = $configarray[1]
+$azureuserconfig     = $configarray[2]
+$assetconfigFile     = $configarray[3]
+$azureuserconfigFile = $configarray[4]
 
 ########################
 # Get Azure Credentials
@@ -63,7 +49,35 @@ Import-Module AzureRM
 # Add Persisent Azure Session
 Enable-AzureRmContextAutosave
 
-Add-AzureRmAccount
+# Add the Azure Service Principal
+
+$servicePrincipalConfiguration = $azureuserconfig.serviceprincipal;
+
+if ([string]::IsNullOrEmpty($servicePrincipalConfiguration.azureSubscriptionName))
+{
+	$servicePrincipalConfiguration.azureSubscriptionName = Read-Host "Please Provide the Azure Subscription Name"
+}
+
+if ([string]::IsNullOrEmpty($servicePrincipalConfiguration.tenantId))
+{
+	$servicePrincipalConfiguration.tenantId = Read-Host "Please Provide the Azure Tenant ID"
+}
+
+if ([string]::IsNullOrEmpty($servicePrincipalConfiguration.applicationId))
+{
+	$servicePrincipalConfiguration.applicationId = Read-Host "Please Provide the Azure Application Id"
+}
+
+if ([string]::IsNullOrEmpty($servicePrincipalConfiguration.applicationPassword))
+{
+	$servicePrincipalConfiguration.applicationPassword = Read-Host "Please Provide the Azure Application Password"
+}
+
+$securePassword = ConvertTo-SecureString $servicePrincipalConfiguration.applicationPassword -AsPlainText -Force
+$servicePrincipalCredentials = New-Object System.Management.Automation.PSCredential($servicePrincipalConfiguration.applicationId, $securePassword)
+Login-AzureRmAccount -ServicePrincipal -Tenant $servicePrincipalConfiguration.tenantId -Credential $servicePrincipalCredentials
+Set-AzureRmContext -SubscriptionName $servicePrincipalConfiguration.azureSubscriptionName -TenantId $servicePrincipalConfiguration.tenantId
+
 
 ###########################################
 # Get User Input for azureuser-config.json
@@ -73,23 +87,20 @@ Write-host "Please Enter Azure Settings"
 
 foreach ($setting in $azureuserconfig.settings)
 {
-	switch ($setting.id)
+	if (-not ([string]::IsNullOrEmpty($setting.value)))
 	{
-		"SitecoreLoginAdminPassword"
-		{
-			$setting.value = Read-Host "Please Provide the $($setting.id) (8 Character Minimum)"
-		}
-		"SqlServerLoginAdminAccount"
-		{
-			$setting.value = Read-Host "Please Provide the $($setting.id) (SA is not a valid admin name for Azure SQL)"
-		}
+		continue
+	}
+
+	switch ($setting.id)
+	{		
 		"ArmTemplateUrl"
 		{
 			continue
 		}
 		default
 		{
-			$setting.value = Read-Host "Please Provide the $($setting.id)"
+			$setting.value = Read-Host "Please Provide the $($setting.description)"
 		}
 	}
 }
