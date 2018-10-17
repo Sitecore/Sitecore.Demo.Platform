@@ -21,14 +21,14 @@ Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
 $configarray     = ProcessConfigFile -Config $ConfigurationFile
 $config          = $configarray[0]
-$assetconfig     = $configarray[1]
 $azureuserconfig = $configarray[2]
+$topology		 = $configarray[5]
 
 #####################
 # Fill in Parameters
 #####################
 
-$ArmParametersPath = "$($config.ProjectFolder)\Azure PaaS\XP0 Single\azuredeploy.parameters.json"
+$ArmParametersPath = "$($topology)\azuredeploy.parameters.json"
 
 
 foreach($setting in $azureuserconfig.settings)

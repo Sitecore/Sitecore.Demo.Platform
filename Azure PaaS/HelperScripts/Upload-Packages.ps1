@@ -27,8 +27,8 @@ $configarray         = ProcessConfigFile -Config $ConfigurationFile
 $config              = $configarray[0]
 $assetconfig         = $configarray[1]
 $azureuserconfig     = $configarray[2]
-$assetconfigfile     = $configarray[3]
 $azureuserconfigfile = $configarray[4]
+$topology		     = $configarray[5]
 
 ##########################
 # Function for WDP uploads
@@ -189,13 +189,13 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig){
 
     # Fetching all ARM templates' paths
 
-    $azuredeployArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.json'))
+    $azuredeployArmTemplate = Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json'))
     $sxaArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Sitecore Experience Accelerator', 'sxa_module.json'))
     $defArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Modules', 'Data Exchange Framework', 'def_module.json'))
     $habitatWebsiteArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'habitathome.json'))
     $habitatXconnectArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'ARM Templates', 'Habitat', 'xconnect.json'))
-    $bootloadArmTemplate = Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'XP0 Single', 'addons', 'bootloader.json'))
-	$nestedArmTemplates =  Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.ProjectFolder, 'Azure Paas', 'XP0 Single', 'nested'))
+    $bootloadArmTemplate = Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json'))
+	$nestedArmTemplates =  Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
 
     # Checking if the files are already uploaded and present in Azure and uploading
 
@@ -581,7 +581,7 @@ ForEach ($blob in $blobsList){
 
 # Find and process the azuredeploy.parameters.json template
 
-[String] $azuredeployConfigFile = $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.parameters.json'))
+[String] $azuredeployConfigFile = $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
 
 if (!(Test-Path $azuredeployConfigFile)) {
     Write-Host "Azuredeploy parameters file '$($azuredeployConfigFile)' not found." -ForegroundColor Red
@@ -695,7 +695,7 @@ $azuredeployConfig.parameters | ForEach-Object {
 
 # Apply the azuredeploy.parameters JSON schema to the azuredeploy.parameters.json file
 
-$azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azuredeploy.parameters.json'))
+$azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
 
 # Populate the "azuredeploy.json" ARM template URL inside the azureuser-config JSON schema and apply the schema to the azureuser-config.json file
 

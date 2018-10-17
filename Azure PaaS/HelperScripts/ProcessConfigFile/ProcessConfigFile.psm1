@@ -45,18 +45,26 @@ Param(
 			throw "Error trying to load configuration!"
 		} 
 
+		# Note the selected topology and assign the correct project path
+
+		if ($config.Topology -eq "single")
+		{
+			[string] $topologyPath = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single'))
+		}
+		elseif ($config.Topology -eq "scaled")
+		{
+			[string] $topologyPath = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP1 Scaled'))
+		}
+		else 
+		{
+			Write-Host "Please select a topology - either 'single' or 'scaled'" -ForegroundColor DarkRed
+		}
+
 		###############################
 		# Find and process assets.json
 		###############################
 		
-		if($config.Topology -eq "single")
-		{
-			[string] $assetsConfigFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'assets.json'))
-		}
-		else
-		{
-			throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
-		}
+		[string] $assetsConfigFile = $([io.path]::combine($topologyPath, 'assets.json'))
 
 		if (!(Test-Path $assetsConfigFile)) 
 		{
@@ -76,14 +84,7 @@ Param(
 		# Find and process azureuser-config.json
 		#########################################
 		
-		if($config.Topology -eq "single")
-		{
-			[string] $azureuserconfigFile = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single', 'azureuser-config.json'))
-		}
-		else
-		{
-			throw "Only XP0 Single Deployments are currently supported, please change the Topology parameter in the cake-config.json to single"
-		}
+		[string] $azureuserconfigFile = $([io.path]::combine($topologyPath, 'azureuser-config.json'))
 
 		if (!(Test-Path $azureuserconfigFile)) 
 		{
@@ -98,5 +99,5 @@ Param(
 			throw "Error trying to load azureuser-config.json!"
 		}
 
-		return $config, $assetconfig, $azureuserconfig, $assetsConfigFile, $azureuserconfigFile
+		return $config, $assetconfig, $azureuserconfig, $assetsConfigFile, $azureuserconfigFile, $topologyPath
 }

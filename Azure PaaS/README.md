@@ -81,6 +81,8 @@ Optional Parameters:
 |Value										| Description
 |-------------------------------------------|---------------------------------------------------------------------------------------------
 | Default                                   | Same affect as no target defined, will build and deploy to Azure
+| Clean                                     | Clean all outputs and temporary folders, involved in the process of building and packaging the project
+| Run-Prerequisites                         | Downloads Habitat Home prerequisites and captures user input on Azure and Sitecore account preferences
 | Build                                     | Create build output only, will **not** upload or deploy to Azure
 | Azure-Upload                              | Performs only the upload to Azure portion of the process
 | Azure-Deploy                              | Performs only the Deployment portion of the process
