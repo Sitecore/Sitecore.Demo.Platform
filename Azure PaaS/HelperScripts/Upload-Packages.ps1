@@ -30,22 +30,6 @@ $azureuserconfig     = $configarray[2]
 $azureuserconfigfile = $configarray[4]
 $topology		     = $configarray[5]
 
-###########################
-# Initialize Params
-###########################
-
-# Set variables for the container names
-[String] $originalContainerName = "azure-toolkit"
-[String] $additionalContainerName = "temporary-toolkit"
-
-# Get the current storage account
-$sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName
-
-# Obtain the storage account context
-$ctx = $sa.Context
-
-$containerName = $originalContainerName
-
 ##########################
 # Function for WDP uploads
 ##########################
@@ -58,28 +42,28 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
     # Add Sitecore and habitat WDPs to upload list
     if($cakeJsonConfig.Topology -eq "single")
     {
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp0xconnect.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'xconnect', 'WDPWorkFolder', 'WDP', 'xconnect_single.scwdp.zip'))))
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp0xconnect.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'xconnect', 'WDPWorkFolder', 'WDP', 'xconnect_single.scwdp.zip')))) | out-null
     }
     elseif($cakeJsonConfig.Topology -eq "scaled")
     {
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_cm.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_cd.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_prc.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_rep.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1referencedata.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collection.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collectionsearch.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomation.scwdp.zip'))))
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomationreporting.scwdp.zip'))))  
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_cd.scwdp.zip'))))  
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip'))))  
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'xconnect', 'WDPWorkFolder', 'WDP', 'xconnect_single.scwdp.zip'))))  
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_cm.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_cd.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_prc.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_rep.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1referencedata.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collection.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collectionsearch.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomation.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomationreporting.scwdp.zip')))) | out-null 
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathomeCD', 'WDPWorkFolder', 'WDP', 'habitathome_cd.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip')))) | out-null   
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'xconnect', 'WDPWorkFolder', 'WDP', 'xconnect_single.scwdp.zip')))) | out-null
     }
 
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', '9.0.2', 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip'))))
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', '9.0.2', 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
 
     # Add Module WDPs to upload list
     foreach ($asset in $assetsJsonConfig.prerequisites)
@@ -91,7 +75,7 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
                 $wdpSingleModuleFolder = ($(Join-Path $assetsFolder $asset.name))
                 ForEach($blobFile in (Get-ChildItem -File -Recurse $wdpSingleModuleFolder)) 
                 {    
-                    $sitecoreWDPpathArray.Add($(Get-Item -Path $blobFile.FullName))
+                    $sitecoreWDPpathArray.Add($(Get-Item -Path $blobFile.FullName)) | out-null
                 }            
             }
         } 
@@ -103,25 +87,25 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
                 $wdpGroupModuleFolder = "$($(Join-Path $assetsFolder $asset.name))\WDPWorkFolder\WDP"
                 ForEach($blobFile in (Get-ChildItem -File -Recurse $wdpGroupModuleFolder)) 
                 {           
-					$sitecoreWDPpathArray.Add($(Get-Item -Path $blobFile.FullName))
+					$sitecoreWDPpathArray.Add($(Get-Item -Path $blobFile.FullName)) | out-null
                 }
             }
         }
     }
 
     # Perform Upload
-    foreach ($_ in $sitecoreWDPpathArray)
+    foreach ($scwdpinarray in $sitecoreWDPpathArray)
     {
         try 
         {             
-            Get-AzureStorageBlob -Blob "wdps/$($_.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
-            Write-Host "Skipping... file $($_.Name) already uploaded" -ForegroundColor Yellow              
+            Get-AzureStorageBlob -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
+            Write-Host "Skipping... file $($scwdpinarray.Name) already uploaded" -ForegroundColor Yellow              
         } 
         catch 
         {
-            Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
-            Set-AzureStorageBlobContent -File $_.FullName -Blob "wdps/$($_.Name)" -Container $containerName -Context $ctx -Force
-            Write-Host "Upload of $($_.Name) completed" -ForegroundColor Green
+            Write-Host "Starting file upload for $($scwdpinarray.Name)" -ForegroundColor Green
+            Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force
+            Write-Host "Upload of $($scwdpinarray.Name) completed" -ForegroundColor Green
         }
     }
     
@@ -136,32 +120,32 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig){
     $sitecoreARMpathArray = New-Object System.Collections.ArrayList
     
     # Fetching all ARM templates' paths
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json'))))
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'habitathome.json'))))
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'xconnect.json'))))
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json'))))
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Sitecore Experience Accelerator', 'sxa_module.json'))))
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Data Exchange Framework', 'def_module.json'))))
+    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json')))) | out-null
+    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'habitathome.json')))) | out-null
+    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'xconnect.json')))) | out-null
+    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json')))) | out-null
+    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
+    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Data Exchange Framework', 'def_module.json')))) | out-null
 
     # Checking if the files are already uploaded and present in Azure and uploading
 
-    foreach($_ in $sitecoreARMpathArray)
+    foreach($scARMsInArray in $sitecoreARMpathArray)
     {
         try {
                         
-            Get-AzureStorageBlob -Blob "arm-templates/$($_.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
-            Write-Host "Skipping... file $($_.Name) already uploaded" -ForegroundColor Yellow
+            Get-AzureStorageBlob -Blob "arm-templates/$($scARMsInArray.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
+            Write-Host "Skipping... file $($scARMsInArray.Name) already uploaded" -ForegroundColor Yellow
                             
         } catch {
                             
-            Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
-            Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($_.Name)" -Container $containerName -Context $ctx -Force
-            Write-Host "Upload of $($_.Name) completed" -ForegroundColor Green
+            Write-Host "Starting file upload for $($scARMsInArray.Name)" -ForegroundColor Green
+            Set-AzureStorageBlobContent -File $scARMsInArray.FullName -Blob "arm-templates/$($scARMsInArray.Name)" -Container $containerName -Context $ctx -Force
+            Write-Host "Upload of $($scARMsInArray.Name) completed" -ForegroundColor Green
                             
         }
     }
 
-    $nestedArmTemplate = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
+    $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
 
     try {
                         
@@ -170,7 +154,7 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig){
                         
     } catch {
                         
-		Get-ChildItem -File -Recurse -Path $nestedArmTemplates.FullName | ForEach-Object { 
+		Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
 
 			Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
 			Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Force
@@ -194,14 +178,13 @@ ForEach ($setting in $azureuserconfig.settings) {
         [String] $resourceGroupName = $setting.value
 
         # Generate a random name for the storage account by taking into account the 24 character limits imposed by Azure
-        $seed = (24 - $resourceGroupName.Length)
-        if ($seed -gt 1) {
-
-            $resourceGroupNameSeed = $resourceGroupName -replace '-',''
-            [String] $storageAccountName = "$($resourceGroupNameSeed)$([System.Math]::Round($(Get-Random -Minimum ([System.Math]::Pow(10 , $seed - 1)) -Maximum ([System.Math]::Pow(10 , $seed) - 1))))"
-
+        $seed = Get-Random -Maximum 99999
+        $resourceGroupNameSeed = $resourceGroupName -replace '-',''
+        if($resourceGroupNameSeed -gt 19)
+        {
+            $resourceGroupNameSeed = $resourceGroupNameSeed.substring(0, 19)
         }
-
+        $storageAccountName = $resourceGroupNameSeed+$seed
     }
 
     if($setting.id -eq "AzureRegion") {
@@ -231,39 +214,56 @@ ForEach ($setting in $azureuserconfig.settings) {
 		try {
 
             $storageAccountsList = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
-            if ($null -ne $storageAccountsList) {
-
-                foreach ($storageAccount in $storageAccountsList) {
-
+            if ($null -ne $storageAccountsList) 
+            {
+                foreach ($storageAccount in $storageAccountsList) 
+                {
                     # Check if a previously generated storage account already exists
-                    if ($storageAccount.StorageAccountName -like "*$($resourceGroupNameSeed)*") {
-    
+                    if ($storageAccount.StorageAccountName -contains $storageAccountName) 
+                    {
                         Write-Host "A generated storage account named $($storageAccountName) already exists... Skipping storage account creation" -ForegroundColor Yellow
-                        #Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -ErrorAction Stop
-    
+                        $createstorageaccount = $false
+                        break
                     }
-    
+                    else 
+                    {
+                        $createstorageaccount = $true
+                    }
                 }
-                
-            } else {
-
+            } 
+            else 
+            {
+                $createstorageaccount = $true
+            }
+           
+            if($createstorageaccount)
+            {
                 # Try to create the storage account
                 Write-Host "Creating a new storage account named $($storageAccountName)..." -ForegroundColor Green
                 New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot
-
             }
-				
-		} catch {
-					
+        } 
+        catch 
+        {		
             # Create the storage account if one does not exist
             Write-Host "Creating a new storage account named $($storageAccountName)..."
-            New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot
-				
+            New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot	
 		}
 
 	}
     
 }
+
+# Set variables for the container names
+[String] $additionalContainerName = "temporary-toolkit"
+[String] $containerName = "azure-toolkit"
+
+# Get the current storage account
+$sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName
+
+# Obtain the storage account context
+$ctx = $sa.Context
+
 
 try {
 
@@ -317,10 +317,9 @@ UploadFiles -cakeJsonConfig $config
 
 $blobsList = Get-AzureStorageBlob -Container $containerName -Context $ctx
 
-ForEach($blob in $blobsList)
-{
-    Switch($blob.Name)
-    {
+ForEach($blob in $blobsList){
+    Switch($blob.Name){
+
         "wdps/Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0.scwdp.zip"
         {
             $sxaMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
@@ -379,10 +378,10 @@ ForEach($blob in $blobsList)
 
 if($config.Topology -eq "single")
 {
-    ForEach($blob in $blobsList)
-    {
-        Switch($blob.Name)
-        {
+    ForEach($blob in $blobsList){
+
+        Switch($blob.Name){
+
             "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip"
             {
                 $singleMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
@@ -441,7 +440,7 @@ elseif($config.Topology -eq "scaled")
             {
                 $msDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
             }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_cm.scwdp.zip.zip"
+            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_cm.scwdp.zip"
             {
                 $cmMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
             }
@@ -593,8 +592,7 @@ ForEach ($setting in $azureuserconfig.settings){
 
 if($config.Topology -eq "single")
 {
-    $azuredeployConfig.parameters | ForEach-Object 
-    {
+    $azuredeployConfig.parameters | ForEach-Object {
         $_.deploymentId.value               = $deploymentId
         $_.location.value                   = $location
         $_.sitecoreAdminPassword.value      = $sitecoreAdminPassword
@@ -626,12 +624,12 @@ if($config.Topology -eq "single")
 }
 elseif($config.Topology -eq "scaled")
 {
-    $azuredeployConfig.parameters | ForEach-Object 
-    {
+    $azuredeployConfig.parameters | ForEach-Object {
         $_.deploymentId.value                   = $deploymentId
         $_.location.value                       = $location
         $_.sitecoreAdminPassword.value          = $sitecoreAdminPassword
         $_.licenseXml.value                     = $licenseXml
+        $_.repAuthenticationApiKey.value        = $(New-Guid)
         $_.sqlServerLogin.value                 = $sqlServerLogin
         $_.sqlServerPassword.value              = $sqlServerPassword
         $_.authCertificatePassword.value        = $authCertificatePassword
