@@ -1,0 +1,29 @@
+﻿---
+ID: "c5f717f5-9e40-4308-acd0-af5a722ca004"
+Parent: "faf34bbe-55b2-4045-8960-23e6c307e9aa"
+Template: "0095e139-e4cb-4f18-a07c-ae01c2062996"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Tenant Settings/Providers/xConnect/Filter Expressions/Event Filter Expressions/Email Sent Event Expression
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "b8ec2248-a775-4834-b63b-7be89927e523"
+  Hint: ConditionOperator
+  Value: "{B0C16D26-6955-4585-8AA6-2CFAE7DC485B}"
+- ID: "bd649078-09bf-4928-9f53-e5506eed6958"
+  Hint: EventType
+  Value: Sitecore.EmailCampaign.Model.XConnect.Events.EmailSentEvent, Sitecore.EmailCampaign.Model
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{C5F717F5-9E40-4308-ACD0-AF5A722CA004}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112752Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

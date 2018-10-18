@@ -1,0 +1,30 @@
+﻿---
+ID: "bc313a1d-fbe5-4ae0-baa2-e8a2bbff2302"
+Parent: "86fcb1f0-aa87-490e-a4db-fc726913b058"
+Template: "bac9aafc-4b28-4e68-be0a-044faa75a1b6"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Data Access/Value Readers/Providers/Salesforce/Salesforce Date Value Reader
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "119527ce-7649-41eb-be73-f3db66e8ee1f"
+  Hint: StringFormat
+  Value: "yyyy-MM-dd"
+- ID: "316bf34d-ffe0-485a-bbd6-c9ea60903d55"
+  Hint: ReadDateOnly
+  Type: Checkbox
+  Value: 1
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{BC313A1D-FBE5-4AE0-BAA2-E8A2BBFF2302}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165817Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

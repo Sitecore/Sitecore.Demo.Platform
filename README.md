@@ -56,19 +56,15 @@ The demo is configured for **HTTPS/SSL**. Please ensure that you create an HTTPS
 
 In order to deploy the assets, you need either Visual Studio 2017 or MSBuild Tools for Visual Studio 2017.
 
-Node.JS is also required
-
-
-
 ### Custom install - before you start
 
 The following is a list of default values / assumptions for install locations
 
-**Project location**		`c:\projects\sitecore.habitathome.content\`
+**Project location**		`c:\projects\sitecore.habitathome.platform\`
 **Habitat Site domain**				`habitathome.dev.local`
 **Web Root**						`c:\inetpub\wwwroot`
 **Host Suffix**						`dev.local`
-**xConnectRoot** 	`habitat_xconnect.dev.local`
+**xConnectRoot** 	`habitathome_xconnect.dev.local`
 
 
 #### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
@@ -77,16 +73,18 @@ If you do not use habitathome.dev.local you will need to modify the Host Name in
 `/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
 The Habitat Home site will not respond / render correctly until this value is modified. 
 
-If you do **not want to use the default settings**, you need to adjust the appropriate values in the following files:
+If you do **not want to use the default settings**, you need to adjust the appropriate values in `cake-config.json` file:
 
-`/gulp-config.js` 
-`/publishsettings.targets` 
-`src\Project\Common\code\App_Config\Include\Project\z.Common.Website.DevSettings.config`
+- **WebsiteRoot**
+- **XConnectRoot**
+- **ProjectFolder**
+- **InstanceUrl**
 
+The cake script will automatically create a publishSettings.targets.user file with the value of the InstanceUrl specified in the cake-config.json file.
 
 ## Installation:
 
-All installation instructions assume using PowerShell 5.1 in administrative mode.
+All installation instructions assume using **PowerShell 5.1** in _**administrative**_ mode.
 
 ### 1. Clone this repository
 
@@ -96,38 +94,36 @@ All installation instructions assume using PowerShell 5.1 in administrative mode
 
 `git config --system core.longpaths true`
 
-Clone the Sitecore.HabitatHome.Content repository locally - defaults are configured for **C:\Projects\Sitecore.HabitatHome.Content**. 
+Clone the Sitecore.HabitatHome.Platform repository locally - defaults are configured for **C:\Projects\Sitecore.HabitatHome.Platform**. 
 
 
 - Clone 
--- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Content.git` 
--- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Content.git`
+-- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Platform.git` 
+-- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Platform.git`
 
-### 2. Deploy Sitecore.HabitatHome.Content
+### 2. Deploy Sitecore.HabitatHome.Platform
 
-### *IMPORTANT: Publish site BEFORE trying to gulp Habitat Home*
+### *IMPORTANT: Publish site BEFORE trying to deploy Habitat Home*
 
 From the root of the solution
-- Run **`npm install`**
 
 **if you plan on installing the Commerce (XC) demo:**
-- Run **`.\node_modules\.bin\gulp quick-deploy`** 
 
-if you are only installing this demo:
-- Run **`.\node_modules\.bin\gulp`**
+- Run **`.\build.ps1 -Target "Quick-Deploy"`** 
 
-> An error (maxBuffer) sometimes occurs the first time running gulp during Sync-Unicorn. 
-> Running gulp a second time resolves the issue (and doesn't take as long)
+**if you are only installing this demo:**
 
-> if using **Visual Studio task runner**, please see [this workaround](https://stackoverflow.com/questions/45580456/visual-studio-task-runner-error-with-es6)
+- Run **`.\build.ps1`**
+	- Notes:
+		- If you the deployment failed at `Sync-Unicorn` step, evaluate and fix the error and then run `.\build.ps1 -Target "Post-Deploy"`.
+
+
 ### 3. Validating deployment
-
-
 
 1. Browse to https://habitathome.dev.local (or whatever hostname you selected)
 	1. You should see the Habitat Home landing page with a full-width carousel
 	2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that your Host Name was configured correctly in `/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home`
-1. Browse to https://habitat.dev.local
+1. Browse to https://habitathome.dev.local
 	1. You should see the Habitat landing page (not Habitat Home)
 
 
@@ -139,4 +135,4 @@ When Unicorn is active, the Content Editor will display warnings that certain it
 This appSetting is `On` by default. Setting it to `Off` ensures that none of the Unicorn serialization configuration files are loaded.
 
 # Contribute or Issues
-Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Content/issues). Contributions are always welcome!
+Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Platform/issues). Contributions are always welcome!

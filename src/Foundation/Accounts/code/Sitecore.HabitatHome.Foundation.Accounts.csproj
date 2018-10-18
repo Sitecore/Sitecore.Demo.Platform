@@ -48,6 +48,7 @@
     <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.3" />
     <PackageReference Include="Microsoft.Net.Compilers" Version="1.3.2" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Sitecore.Analytics" Version="9.0.180604" />
     <PackageReference Include="Sitecore.Analytics.Core.NoReferences" Version="9.0.180604" />
     <PackageReference Include="Sitecore.Analytics.Model.NoReferences" Version="9.0.180604" />
     <PackageReference Include="Sitecore.Analytics.NoReferences" Version="9.0.180604" />
@@ -98,7 +99,9 @@
     <Compile Include="Pipelines\AccountsPipelineArgs.cs" />
     <Compile Include="Pipelines\PipelineService.cs" />
     <Compile Include="Services\ContactFacetService.cs" />
+    <Compile Include="Services\ExportFileService.cs" />
     <Compile Include="Services\IContactFacetService.cs" />
+    <Compile Include="Services\IExportFileService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DependencyInjection\code\Sitecore.HabitatHome.Foundation.DependencyInjection.csproj">

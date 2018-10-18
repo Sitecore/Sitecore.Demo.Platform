@@ -1,0 +1,30 @@
+﻿---
+ID: "6b696d08-11ea-48e5-bd5d-a50bd75cf3fa"
+Parent: "115b0c90-3c77-4516-b9e0-e693f7cb77e9"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Value Mapping Sets/Salesforce to xConnect Contact Mappings/Salesforce Contact to Contact Model/CustomSalesforce Info Facet
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{7C1637D1-1732-49A1-8DD0-095B8B1C5719}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{78EE136F-2444-4A99-9627-FB55B2D12F76}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{0BB1CB1A-BDB8-4D0D-B9F9-5C785248A6BB}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165835Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

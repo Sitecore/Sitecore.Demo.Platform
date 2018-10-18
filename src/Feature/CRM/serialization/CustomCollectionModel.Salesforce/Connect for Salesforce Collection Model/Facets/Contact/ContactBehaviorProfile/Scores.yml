@@ -1,0 +1,36 @@
+﻿---
+ID: "67387b5b-d98c-7a40-4acd-f17140147817"
+Parent: "5b3928c5-f80c-393d-9f1c-dcedbf847e74"
+Template: "dd11efa5-caaa-4345-8017-6cdd20017faa"
+Path: /sitecore/system/Settings/Data Exchange/Providers/xConnect/Collection Models/Connect for Salesforce/Connect for Salesforce Collection Model/Facets/Contact/ContactBehaviorProfile/Scores
+DB: master
+SharedFields:
+- ID: "207561e7-e95f-4034-8c2d-39fa5f40c381"
+  Hint: FacetName
+  Value: ContactBehaviorProfile
+- ID: "31feb12b-66c3-4e50-a8c9-4cadf00c31c3"
+  Hint: PropertyName
+  Value: Scores
+- ID: "3490e0f9-4cc2-466f-8262-b1d39b1bc8a2"
+  Hint: FacetType
+  Value: Sitecore.XConnect.Collection.Model.ContactBehaviorProfile, Sitecore.XConnect.Collection.Model
+- ID: "34b08f94-e310-4d8d-babb-24b619032967"
+  Hint: EntityType
+  Value: "{8ECD641B-8F97-DB64-DF17-7E94D8AF6124}"
+- ID: "9c9c26ed-1ed5-41e4-8a4d-f505465255b2"
+  Hint: ReadOnly
+  Type: Checkbox
+  Value: 1
+- ID: "b96d5d51-1372-41c5-a3a7-fff17ba34089"
+  Hint: CollectionModelType
+  Value: Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceConnectCollectionModel, Sitecore.HabitatHome.Feature.CRM
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
