@@ -170,7 +170,7 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig){
                         
     } catch {
                         
-		Get-ChildItem -File -Recurse -Path $nestedArmTemplates.FullName | ForEach { 
+		Get-ChildItem -File -Recurse -Path $nestedArmTemplates.FullName | ForEach-Object { 
 
 			Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
 			Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Force
@@ -401,89 +401,92 @@ elseif($config.Topology -eq "scaled")
 
         Switch($blob.Name)
         {
-        "wdps/Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0 CD.scwdp.zip"
-        {
-            $sxaCDMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
-        {
-            $defCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108_scaled.scwdp.zip"
-        {
-            $defSitecoreCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/SQL Provider for Data Exchange Framework 2.0.1 rev. 180108_scaled.scwdp.zip"
-        {
-            $defSqlCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108_scaled.scwdp.zip"
-        {
-            $defxConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108_scaled.scwdp.zip"
-        {
-            $defDynamicsCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Connect for Microsoft Dynamics 2.0.1 rev. 180108_scaled.scwdp.zip"
-        {
-            $defDynamicsConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108_scaled.scwdp.zip"
-        {
-            $defSalesforceCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Connect for Salesforce 2.0.1 rev. 180108_scaled.scwdp.zip"
-        {
-            $defSalesforceConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip"
-        {
-            $msDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_cm.scwdp.zip.zip"
-        {
-            $cmMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_cd.scwdp.zip"
-        {
-            $cdMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_prc.scwdp.zip"
-        {
-            $prcMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_rep.scwdp.zip"
-        {
-            $repMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1referencedata.scwdp.zip"
-        {
-            $xcRefDataMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collection.scwdp.zip"
-        {
-            $xcCollectMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collectionsearch.scwdp.zip"
-        {
-            $xcSearchMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomation.scwdp.zip"
-        {
-            $maOpsMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomationreporting.scwdp.zip"
-        {
-            $maRepMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/habitathome_cd.scwdp.zip"
-        {
-            $habitatWebsiteCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-    }
-}
+            "wdps/Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0 CD.scwdp.zip"
+            {
+                $sxaCDMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
+            {
+                $defCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
+            {
+                $defSitecoreCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/SQL Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
+            {
+                $defSqlCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/xConnect Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
+            {
+                $defxConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Dynamics Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
+            {
+                $defDynamicsCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Connect for Microsoft Dynamics CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
+            {
+                $defDynamicsConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Salesforce Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
+            {
+                $defSalesforceCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Connect for Salesforce CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
+            {
+                $defSalesforceConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip"
+            {
+                $msDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_cm.scwdp.zip.zip"
+            {
+                $cmMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_cd.scwdp.zip"
+            {
+                $cdMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_prc.scwdp.zip"
+            {
+                $prcMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_rep.scwdp.zip"
+            {
+                $repMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1referencedata.scwdp.zip"
+            {
+                $xcRefDataMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collection.scwdp.zip"
+            {
+                $xcCollectMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collectionsearch.scwdp.zip"
+            {
+                $xcSearchMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomation.scwdp.zip"
+            {
+                $maOpsMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomationreporting.scwdp.zip"
+            {
+                $maRepMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            "wdps/habitathome_cd.scwdp.zip"
+            {
+                $habitatWebsiteCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
 
+        }
+    
+    }
+
+}
 
 
 #############################################################
@@ -592,33 +595,33 @@ if($config.Topology -eq "single")
 {
     $azuredeployConfig.parameters | ForEach-Object 
     {
-        $_.deploymentId.value = $deploymentId
-        $_.location.value = $location
-        $_.sitecoreAdminPassword.value = $sitecoreAdminPassword
-        $_.licenseXml.value = $licenseXml
-        $_.sqlServerLogin.value = $sqlServerLogin
-        $_.sqlServerPassword.value = $sqlServerPassword
-        $_.authCertificatePassword.value = $authCertificatePassword
-        $_.singleMsDeployPackageUrl.value = $singleMsDeployPackageUrl
+        $_.deploymentId.value               = $deploymentId
+        $_.location.value                   = $location
+        $_.sitecoreAdminPassword.value      = $sitecoreAdminPassword
+        $_.licenseXml.value                 = $licenseXml
+        $_.sqlServerLogin.value             = $sqlServerLogin
+        $_.sqlServerPassword.value          = $sqlServerPassword
+        $_.authCertificatePassword.value    = $authCertificatePassword
+        $_.singleMsDeployPackageUrl.value   = $singleMsDeployPackageUrl
         $_.xcSingleMsDeployPackageUrl.value = $xcSingleMsDeployPackageUrl
-        $_.modules.value.items[0].parameters.sxaMsDeployPackageUrl = $sxaMsDeployPackageUrl
-        $_.modules.value.items[0].parameters.speMsDeployPackageUrl = $speMsDeployPackageUrl
-        $_.modules.value.items[0].templateLink = $sxaTemplateLink
-        $_.modules.value.items[1].parameters.defDeployPackageUrl = $defDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSitecoreDeployPackageUrl = $defSitecoreDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSqlDeployPackageUrl = $defSqlDeployPackageUrl
-        $_.modules.value.items[1].parameters.defxConnectDeployPackageUrl = $defxConnectDeployPackageUrl
-        $_.modules.value.items[1].parameters.defDynamicsDeployPackageUrl = $defDynamicsDeployPackageUrl
-        $_.modules.value.items[1].parameters.defDynamicsConnectDeployPackageUrl = $defDynamicsConnectDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSalesforceDeployPackageUrl = $defSalesforceDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSalesforceConnectDeployPackageUrl = $defSalesforceConnectDeployPackageUrl
-        $_.modules.value.items[1].templateLink = $defTemplateLink
-        $_.modules.value.items[2].parameters.habitatWebsiteDeployPackageUrl = $habitatWebsiteDeployPackageUrl
-        $_.modules.value.items[2].templateLink = $habitatWebsiteTemplateLink
-        $_.modules.value.items[3].parameters.habitatXconnectDeployPackageUrl = $habitatXconnectDeployPackageUrl
-        $_.modules.value.items[3].templateLink = $habitatXconnectTemplateLink
-        $_.modules.value.items[4].parameters.msDeployPackageUrl = $msDeployPackageUrl
-        $_.modules.value.items[4].templateLink = $bootloaderTemplateLink
+        $_.modules.value.items[0].parameters.sxaMsDeployPackageUrl                  = $sxaMsDeployPackageUrl
+        $_.modules.value.items[0].parameters.speMsDeployPackageUrl                  = $speMsDeployPackageUrl
+        $_.modules.value.items[0].templateLink                                      = $sxaTemplateLink
+        $_.modules.value.items[1].parameters.defDeployPackageUrl                    = $defDeployPackageUrl
+        $_.modules.value.items[1].parameters.defSitecoreDeployPackageUrl            = $defSitecoreDeployPackageUrl
+        $_.modules.value.items[1].parameters.defSqlDeployPackageUrl                 = $defSqlDeployPackageUrl
+        $_.modules.value.items[1].parameters.defxConnectDeployPackageUrl            = $defxConnectDeployPackageUrl
+        $_.modules.value.items[1].parameters.defDynamicsDeployPackageUrl            = $defDynamicsDeployPackageUrl
+        $_.modules.value.items[1].parameters.defDynamicsConnectDeployPackageUrl     = $defDynamicsConnectDeployPackageUrl
+        $_.modules.value.items[1].parameters.defSalesforceDeployPackageUrl          = $defSalesforceDeployPackageUrl
+        $_.modules.value.items[1].parameters.defSalesforceConnectDeployPackageUrl   = $defSalesforceConnectDeployPackageUrl
+        $_.modules.value.items[1].templateLink                                      = $defTemplateLink
+        $_.modules.value.items[2].parameters.habitatWebsiteDeployPackageUrl         = $habitatWebsiteDeployPackageUrl
+        $_.modules.value.items[2].templateLink                                      = $habitatWebsiteTemplateLink
+        $_.modules.value.items[3].parameters.habitatXconnectDeployPackageUrl        = $habitatXconnectDeployPackageUrl
+        $_.modules.value.items[3].templateLink                                      = $habitatXconnectTemplateLink
+        $_.modules.value.items[4].parameters.msDeployPackageUrl                     = $msDeployPackageUrl
+        $_.modules.value.items[4].templateLink                                      = $bootloaderTemplateLink
     }
 }
 elseif($config.Topology -eq "scaled")
@@ -654,17 +657,17 @@ elseif($config.Topology -eq "scaled")
         $_.modules.value.items[1].parameters.defDynamicsConnectDeployPackageUrl         = $defDynamicsConnectDeployPackageUrl
         $_.modules.value.items[1].parameters.defSalesforceDeployPackageUrl              = $defSalesforceDeployPackageUrl
         $_.modules.value.items[1].parameters.defSalesforceConnectDeployPackageUrl       = $defSalesforceConnectDeployPackageUrl
-        $_.modules.value.items[1].parameters.def-cdDeployPackageUrl                     = $defCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defSitecore-cdDeployPackageUrl             = $defSitecoreCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defSql-cdDeployPackageUrl                  = $defSqlCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defxConnect-cdDeployPackageUrl             = $defxConnectCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defDynamics-cdDeployPackageUrl             = $defDynamicsCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defDynamicsConnect-cdDeployPackageUrl      = $defDynamicsConnectCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defSalesforce-cdDeployPackageUrl           = $defSalesforceCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defSalesforceConnect-cdDeployPackageUrl    = $defSalesforceConnectCDdeployPackageUrl
+        $_.modules.value.items[1].parameters.defCdDeployPackageUrl                      = $defCDdeployPackageUrl
+        $_.modules.value.items[1].parameters.defSitecoreCdDeployPackageUrl              = $defSitecoreCDdeployPackageUrl
+        $_.modules.value.items[1].parameters.defSqlCdDeployPackageUrl                   = $defSqlCDdeployPackageUrl
+        $_.modules.value.items[1].parameters.defxConnectCdDeployPackageUrl              = $defxConnectCDdeployPackageUrl
+        $_.modules.value.items[1].parameters.defDynamicsCdDeployPackageUrl              = $defDynamicsCDdeployPackageUrl
+        $_.modules.value.items[1].parameters.defDynamicsConnectCdDeployPackageUrl       = $defDynamicsConnectCDdeployPackageUrl
+        $_.modules.value.items[1].parameters.defSalesforceCdDeployPackageUrl            = $defSalesforceCDdeployPackageUrl
+        $_.modules.value.items[1].parameters.defSalesforceConnectCdDeployPackageUrl     = $defSalesforceConnectCDdeployPackageUrl
         $_.modules.value.items[1].templateLink                                          = $defTemplateLink
-        $_.modules.value.items[2].parameters.habitatWebsite-cdMsDeployPackageUrl        = $habitatWebsiteCDdeployPackageUrl
-        $_.modules.value.items[2].parameters.habitatWebsite-cmMsDeployPackageUrl        = $habitatWebsiteDeployPackageUrl
+        $_.modules.value.items[2].parameters.habitatWebsiteCdMsDeployPackageUrl         = $habitatWebsiteCDdeployPackageUrl
+        $_.modules.value.items[2].parameters.habitatWebsiteCmMsDeployPackageUrl         = $habitatWebsiteDeployPackageUrl
         $_.modules.value.items[2].templateLink                                          = $habitatWebsiteTemplateLink
         $_.modules.value.items[3].parameters.habitatXconnectDeployPackageUrl            = $habitatXconnectDeployPackageUrl
         $_.modules.value.items[3].templateLink                                          = $habitatXconnectTemplateLink

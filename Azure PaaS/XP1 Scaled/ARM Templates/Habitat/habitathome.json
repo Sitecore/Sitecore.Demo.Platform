@@ -33,8 +33,8 @@
     "extension": {
       "type": "secureObject",
       "defaultValue": {
-        "habitatWebsite-cdMsDeployPackageUrl": null,
-        "habitatWebsite-cmMsDeployPackageUrl": null
+        "habitatWebsiteCdMsDeployPackageUrl": null,
+        "habitatWebsiteCmMsDeployPackageUrl": null
       }
     },
 
@@ -91,15 +91,15 @@
       "minLength": 1,
       "defaultValue": "[coalesce(parameters('standard').cmWebAppName, concat(parameters('deploymentId'), '-cm'))]"
     },
-    "habitatWebsite-cdMsDeployPackageUrl": {
+    "habitatWebsiteCdMsDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').habitatWebsite-cdMsDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').habitatWebsiteCdMsDeployPackageUrl]"
     },
-    "habitatWebsite-cmMsDeployPackageUrl": {
+    "habitatWebsiteCmMsDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').habitatWebsite-cmMsDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').habitatWebsiteCmMsDeployPackageUrl]"
     }
   },
 
@@ -112,7 +112,7 @@
       "properties": {
         "addOnPackages": [
            {
-            "packageUri": "[parameters('habitatWebsite-cmMsDeployPackageUrl')]",
+            "packageUri": "[parameters('habitatWebsiteCmMsDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -132,11 +132,11 @@
       "properties": {
         "addOnPackages": [
           {
-            "packageUri": "[parameters('habitatWebsite-cdMsDeployPackageUrl')]",
+            "packageUri": "[parameters('habitatWebsiteCdMsDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
-              "Application Path": "[variables('cmWebAppNameTidy')]",
+              "Application Path": "[variables('cdWebAppNameTidy')]",
               "Core Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('coreSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
               "Master Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('masterSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]"
             }

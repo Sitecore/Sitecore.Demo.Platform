@@ -40,13 +40,42 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
     if(!(Test-Path -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName))))
 	{
         Write-Host "Creating" $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName))
-        New-Item -ItemType Directory -Force -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName))
+        New-Item -ItemType Directory -Force -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName))        
             
     }
 
     $updateFile = Join-Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName)) "$($targetFolderName).update"
-	$courierPath = $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', 'Sitecore Courier'))
     GenerateUpdatePackage -configFile $Configuration -argSourcePackagingFolder $sourceFolder -argOutputPackageFile $updateFile
+
+    # Check if scaled configuration is in use and generate an additional CD package
+
+    if (($config.Topology -eq "scaled") -and ($targetFolderName -eq "HabitatHome")) {
+
+        # Clean up the .yml Unicorn files from the package source
+
+        $FilesToRemove = @("*.yml")  
+        foreach ($ymlFile in (Get-ChildItem $FolderString -Include $FilesToRemove -Recurse)) {
+
+            Remove-Item $ymlFile
+
+        }
+
+        # Create a separate folder that will host the scaled CD package 
+        
+        $targetFolderNameCD = $targetFolderName + "CD"
+        if(!(Test-Path -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD))))
+        {
+            Write-Host "Creating" $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD))
+            New-Item -ItemType Directory -Force -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD))        
+                
+        }
+
+        # Update the filename for the package and generate the CD update package in a separate folder
+        
+        $updateFile = Join-Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD)) "$($targetFolderName).update"
+        GenerateUpdatePackage -configFile $Configuration -argSourcePackagingFolder $sourceFolder -argOutputPackageFile $updateFile
+
+    }
 
 }
 
@@ -72,9 +101,9 @@ Function GenerateUpdatePackage(){
 }
 
 
-###############################
+#####################################
 # Clean up and prepare for packaging
-###############################
+#####################################
 
 Function Clean-Up([PSObject] $Configuration, [String] $FolderString){
 
