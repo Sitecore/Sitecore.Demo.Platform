@@ -1,0 +1,36 @@
+﻿---
+ID: "42594592-32be-4be8-85ec-6aeed3da59e4"
+Parent: "e37269e6-87ee-466d-b72a-99d85441b653"
+Template: "65788922-2057-467a-baab-920ea313dbef"
+Path: "/sitecore/system/Data Exchange/Demo CRM Salesforce/Data Access/Value Readers/Common/Pipeline Batch Last Started Value Reader/Method Value Reader - GetPipelineBatchSummary"
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "00232424-a6ec-4cf5-851c-042a2b4629db"
+  Hint: IsExtensionMethod
+  Type: Checkbox
+  Value: 1
+- ID: "207e4872-7a8c-437d-8f59-5a6ff9da7be7"
+  Hint: MethodName
+  Value: GetPipelineBatchSummary
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+- ID: "ca96a677-dcf6-4263-88d6-54f3ff31a810"
+  Hint: ExtensionMethodType
+  Value: Sitecore.DataExchange.Extensions.PipelineBatchExtensions, Sitecore.DataExchange
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{42594592-32BE-4BE8-85EC-6AEED3DA59E4}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165816Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

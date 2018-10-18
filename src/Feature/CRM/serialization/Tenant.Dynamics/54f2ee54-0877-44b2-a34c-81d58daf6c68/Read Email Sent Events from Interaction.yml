@@ -1,0 +1,32 @@
+﻿---
+ID: "68ba56d5-2b89-4214-9f9a-0a16dcefd6b5"
+Parent: "54f2ee54-0877-44b2-a34c-81d58daf6c68"
+Template: "96cdea81-9ce3-4da0-9350-a0279cad068c"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Pipelines/xConnect Contacts to Dynamics Sync Pipelines/Process Single Interaction from xConnect Pipeline/Read Email Sent Events from Interaction
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "443b4e0a-bab3-4f0f-8bdb-61f93760b274"
+  Hint: TargetObjectLocation
+  Value: "{84F3ABCC-1E40-489C-9DA4-16BABC820091}"
+- ID: "88fbde6e-abaa-430e-bcc2-98b51421bb3f"
+  Hint: SourceObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "95affffa-c4e8-4270-83af-350261a28802"
+  Hint: SourceObjectValueAccessor
+  Value: "{7FD444CF-6C02-4784-8528-D68EFE62A89C}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{68BA56D5-2B89-4214-9F9A-0A16DCEFD6B5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112726Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

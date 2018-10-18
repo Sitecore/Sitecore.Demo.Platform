@@ -1,0 +1,31 @@
+﻿---
+ID: "8c0448fe-03df-4dcb-b7e1-d637599ce73d"
+Parent: "ae5543ae-0b74-4773-9d8c-8fc020a8bfd9"
+Template: "62aa32c6-5c12-4d5d-899d-19375d69bb41"
+Path: "/sitecore/content/Habitat Sites/Habitat Home Basic/Settings/Datasource Configurations/162AB463-0CE1-4295-8F7E-2E2E969984ED"
+DB: master
+SharedFields:
+- ID: "05a0f1ae-4fd0-44fd-b702-70dbd2d6efb4"
+  Hint: AllowPageRelativeLocation
+  Type: Checkbox
+  Value: 0
+- ID: "68bfa8e2-0f2e-4afa-b95b-a44b6b75ffcb"
+  Hint: CompatibleRenderings
+  Type: Treelist
+  Value: "{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+- ID: "a69fef91-cd50-4b8c-917a-3b5435029570"
+  Hint: DatasourceLocation
+  Type: Treelist
+  Value: "{8A5C578F-E529-4E4C-960E-8D7A334C7798}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Page Teaser
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180702T201219Z

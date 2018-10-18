@@ -123,11 +123,20 @@ SharedFields:
           s:ph="/main/sxa-article-content/container-1/container-4/column-2-1" />
         <r
           uid="{B19B6E22-6E62-4A76-B481-204DC416A907}"
-          p:after="*[1=2]"
+          p:after="r[@uid='{D5C1A844-3812-484C-BB6D-DFD238B883E7}']"
           s:ds="{4D30B785-2CD0-44C1-94F5-E16E84244EA2}"
           s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
           s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
           s:ph="/main/sxa-article-content/container-1/container-4/column-1-1" />
+        <r
+          uid="{8A75DEE1-6F23-403D-9077-9D0DF9B92817}"
+          p:after="*[1=2]"
+          s:cnd=""
+          s:ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
+          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          s:mvt=""
+          s:par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
+          s:ph="/main/sxa-recommended-content/container-3" />
       </d>
     </r>
 Languages:

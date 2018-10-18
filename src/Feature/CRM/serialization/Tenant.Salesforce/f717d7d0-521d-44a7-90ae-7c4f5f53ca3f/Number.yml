@@ -1,0 +1,30 @@
+﻿---
+ID: "39f2c3d7-b443-4803-8e47-4afff28bd661"
+Parent: "f717d7d0-521d-44a7-90ae-7c4f5f53ca3f"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Value Mapping Sets/Salesforce to xConnect Contact Mappings/Salesforce Contact to xConnect Contact Phone Number/Number
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{7C1637D1-1732-49A1-8DD0-095B8B1C5719}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{BC8280F3-C828-48A0-87A1-C9A0D8BCD449}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{39F2C3D7-B443-4803-8E47-4AFFF28BD661}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165838Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

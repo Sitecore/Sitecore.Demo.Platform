@@ -1,0 +1,30 @@
+﻿---
+ID: "77cfcc7d-3374-4e0d-9e69-26147cf33c26"
+Parent: "b580be33-6ffd-4fe2-a9d2-e9ed9996310d"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Value Mapping Sets/Salesforce to xConnect Contact Mappings/Salesforce Contact to xConnect Contact Addresses Facet/Preferred Address
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{7C1637D1-1732-49A1-8DD0-095B8B1C5719}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{9C8844DE-EC29-4FE4-9C4F-29CEA93AD7AD}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{77CFCC7D-3374-4E0D-9E69-26147CF33C26}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165836Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
