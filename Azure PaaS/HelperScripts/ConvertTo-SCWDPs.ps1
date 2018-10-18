@@ -240,7 +240,7 @@ is the path to Ionic's zipping library
 
 	# Create Cargo Payload(s)
 
-	if ($foldername -eq "HabitatHome")
+	if ($foldername -like "*HabitatHome*")
 	{
 		Create-CargoPayload -CargoName $($SccplCargoFilename+"_embeded") -Cargofolder $CargoPayloadFolderPath.FullName -XdtSourceFolder $XdtSrcFolder -ZipAssemblyPath $IonicZip
 	}
@@ -447,8 +447,10 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 				[String] $HabitatWDPTarget = "$($folder.FullName)\WDPWorkFolder\WDP"
 				If((Test-Path -Path $HabitatWDPTarget) -eq $False){
 
-					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
-					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
+					# Fetch the json and xml files needed for the WDP package generation and start the WDP package creation process
+
+					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include "habitathome_config.json" | ForEach-Object { $WDPJsonFile = $_.FullName }
+					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include "habitathome_parameters.xml" | ForEach-Object { $WDPXMLFile = $_.FullName }
 					[String] $SccplCargoName = -join ($folder.Name, "_cargo")
 					Create-WDP -RootFolder $folder.FullName `
 								-SitecoreCloudModulePath $SitecoreCloudModule `
@@ -458,6 +460,38 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 								-IonicZip $IonicZipPath `
 								-foldername $folder.Name `
 								-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHome")
+					
+				} else {
+			
+					Write-Host "Skipping WDP generation - there's already a WDP package, present at $($HabitatWDPTarget)" -ForegroundColor Yellow
+			
+				}
+
+			}
+			"habitathomecd"
+			{
+				
+				[String] $HabitatWDPTarget = "$($folder.FullName)\WDPWorkFolder\WDP"
+				If((Test-Path -Path $HabitatWDPTarget) -eq $False){
+
+					# Check if the environment is scaled and create an additional WDP package for CD servers
+
+					if ($config.Topology -eq "scaled") {
+
+						# Fetch the json and xml files needed for the WDP package generation and start the WDP package creation process
+
+						Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include "habitathomecd_config.json" | ForEach-Object { $WDPJsonFile = $_.FullName }
+						Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include "habitathomecd_parameters.xml" | ForEach-Object { $WDPXMLFile = $_.FullName }
+						[String] $SccplCargoName = -join ($folder.Name, "_cargo")
+						Create-WDP -RootFolder $folder.FullName `
+									-SitecoreCloudModulePath $SitecoreCloudModule `
+									-JsonConfigFilename $WDPJsonFile `
+									-XmlParameterFilename $WDPXMLFile `
+									-SccplCargoFilename $SccplCargoName `
+									-IonicZip $IonicZipPath `
+									-foldername $folder.Name `
+									-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHome")
+					}
 					
 				} else {
 			

@@ -41,14 +41,14 @@
         "defDynamicsConnectDeployPackageUrl": null,
         "defSalesforceDeployPackageUrl": null,
         "defSalesforceConnectDeployPackageUrl": null,
-        "def-cdDeployPackageUrl": null,
-        "defSitecore-cdDeployPackageUrl": null,
-        "defSql-cdDeployPackageUrl": null,
-        "defxConnect-cdDeployPackageUrl": null,
-        "defDynamics-cdDeployPackageUrl": null,
-        "defDynamicsConnect-cdDeployPackageUrl": null,
-        "defSalesforce-cdDeployPackageUrl": null,
-        "defSalesforceConnect-cdDeployPackageUrl": null
+        "defCdDeployPackageUrl": null,
+        "defSitecoreCdDeployPackageUrl": null,
+        "defSqlCdDeployPackageUrl": null,
+        "defxConnectCdDeployPackageUrl": null,
+        "defDynamicsCdDeployPackageUrl": null,
+        "defDynamicsConnectCdDeployPackageUrl": null,
+        "defSalesforceCdDeployPackageUrl": null,
+        "defSalesforceConnectCdDeployPackageUrl": null
       }
     },
 
@@ -150,45 +150,45 @@
       "minLength": 1,
       "defaultValue": "[parameters('extension').defSalesforceConnectDeployPackageUrl]"
     },
-    "def-cdDeployPackageUrl": {
+    "defCdDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').def-cdDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').defCdDeployPackageUrl]"
     },
-    "defSitecore-cdDeployPackageUrl": {
+    "defSitecoreCdDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').defSitecore-cdDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').defSitecoreCdDeployPackageUrl]"
     },
-    "defSql-cdDeployPackageUrl": {
+    "defSqlCdDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').defSql-cdDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').defSqlCdDeployPackageUrl]"
     },
-    "defxConnect-cdDeployPackageUrl": {
+    "defxConnectCdDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').defxConnect-cdDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').defxConnectCdDeployPackageUrl]"
     },
-    "defDynamics-cdDeployPackageUrl": {
+    "defDynamicsCdDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').defDynamics-cdDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').defDynamicsCdDeployPackageUrl]"
     },
-    "defDynamicsConnect-cdDeployPackageUrl": {
+    "defDynamicsConnectCdDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').defDynamicsConnect-cdDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').defDynamicsConnectCdDeployPackageUrl]"
     },
-    "defSalesforce-cdDeployPackageUrl": {
+    "defSalesforceCdDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').defSalesforce-cdDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').defSalesforceCdDeployPackageUrl]"
     },
-    "defSalesforceConnect-cdDeployPackageUrl": {
+    "defSalesforceConnectCdDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').defSalesforceConnect-cdDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').defSalesforceConnectCdDeployPackageUrl]"
     }
   },
 
@@ -291,7 +291,7 @@
       "properties": {
         "addOnPackages": [
           {
-            "packageUri": "[parameters('def-cdDeployPackageUrl')]",
+            "packageUri": "[parameters('defCdDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -301,7 +301,7 @@
             }
           },
           {
-            "packageUri": "[parameters('defSitecore-cdDeployPackageUrl')]",
+            "packageUri": "[parameters('defSitecoreCdDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -311,7 +311,7 @@
             }
           },
           {
-            "packageUri": "[parameters('defSql-cdDeployPackageUrl')]",
+            "packageUri": "[parameters('defSqlCdDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -321,7 +321,7 @@
             }
           },
           {
-            "packageUri": "[parameters('defxConnect-cdDeployPackageUrl')]",
+            "packageUri": "[parameters('defxConnectCdDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -331,7 +331,7 @@
             }
           },
           {
-            "packageUri": "[parameters('defDynamics-cdDeployPackageUrl')]",
+            "packageUri": "[parameters('defDynamicsCdDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -341,7 +341,7 @@
             }
           },
           {
-            "packageUri": "[parameters('defDynamicsConnect-cdDeployPackageUrl')]",
+            "packageUri": "[parameters('defDynamicsConnectCdDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -351,7 +351,7 @@
             }
           },
           {
-            "packageUri": "[parameters('defSalesforce-cdDeployPackageUrl')]",
+            "packageUri": "[parameters('defSalesforceCdDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -361,7 +361,7 @@
             }
           },
           {
-            "packageUri": "[parameters('defSalesforceConnect-cdDeployPackageUrl')]",
+            "packageUri": "[parameters('defSalesforceConnectCdDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
