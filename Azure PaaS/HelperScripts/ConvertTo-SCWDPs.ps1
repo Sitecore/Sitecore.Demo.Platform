@@ -33,6 +33,32 @@ $config          = $configarray[0]
 $assetconfig     = $configarray[1]
 $azureuserconfig = $configarray[2]
 
+
+###########################
+# Clear WDPs from File Names
+###########################
+
+Function CleanUp{
+	Param(
+		[String] $RootFolder,
+		[String] $DotNetZipPath		
+	)
+
+	[System.Reflection.Assembly]::LoadFrom($DotNetZipPath)
+	$encoding = [System.Text.Encoding]::GetEncoding(65001)
+
+	$WDPs = Get-ChildItem -Path $RootFolder -Recurse -Include "*.scwdp.zip"
+	
+	ForEach ($WDP in $WDPs){  
+	
+		$ZipFile =  New-Object Ionic.Zip.ZipFile($encoding)
+		$ZipFile = [Ionic.Zip.ZIPFile]::Read($WDP.FullName)
+		$ZipFile.RemoveSelectedEntries("Content/Website/temp/*")
+		$ZipFile.Save();   
+		$ZipFile.Dispose(); 
+	
+	}
+}
 ##################################################################
 # 3rd Party Ionic Zip function - helping create the SCCPL package
 ##################################################################
@@ -338,7 +364,9 @@ is the path to Ionic's zipping library
 
 		}
                 
-    }
+	}
+	
+	CleanUp -RootFolder $RootFolder -DotNetZipPath $IonicZip
 
 }
 
