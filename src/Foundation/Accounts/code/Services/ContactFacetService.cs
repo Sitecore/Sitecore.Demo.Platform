@@ -284,17 +284,17 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
         private static bool SetName(ContactFacetData data, PersonalInformation personalInfo)
         {
             var changed = false;
-            if (personalInfo.FirstName != data.FirstName)
+            if (personalInfo.FirstName != data.FirstName && !String.IsNullOrWhiteSpace(data.FirstName))
             {
                 personalInfo.FirstName = data.FirstName;
                 changed = true;
             }
-            if (personalInfo.MiddleName != data.MiddleName)
+            if (personalInfo.MiddleName != data.MiddleName && !String.IsNullOrWhiteSpace(data.MiddleName))
             {
                 personalInfo.MiddleName = data.MiddleName;
                 changed = true;
             }
-            if (personalInfo.LastName != data.LastName)
+            if (personalInfo.LastName != data.LastName && !String.IsNullOrWhiteSpace(data.LastName))
             {
                 personalInfo.LastName = data.LastName;
                 changed = true;
