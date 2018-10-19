@@ -40,7 +40,8 @@
             "name": "sxa",
             "templateLink": "<URL to the SXA json ARM template>",
             "parameters": {
-              "sxaMsDeployPackageUrl": "<URL to the SXA module's WDP>",
+              "cdSxaMsDeployPackageUrl": "<url of the WDP package>",
+              "cmSxaMsDeployPackageUrl": "<url of the WDP package>",
               "speMsDeployPackageUrl": "<URL to the SPE module's WDP>"
             }
           },

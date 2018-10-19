@@ -644,7 +644,7 @@ elseif($config.Topology -eq "scaled")
         $_.maOpsMsDeployPackageUrl.value        = $maOpsMsDeployPackageUrl
         $_.maRepMsDeployPackageUrl.value        = $maRepMsDeployPackageUrl
         $_.modules.value.items[0].parameters.cdSxaMsDeployPackageUrl                    = $sxaCDMsDeployPackageUrl
-        $_.modules.value.items[0].parameters.cmSxaMsDeployPackageUrl                    = $speMsDeployPackageUrl
+        $_.modules.value.items[0].parameters.cmSxaMsDeployPackageUrl                    = $sxaMsDeployPackageUrl
         $_.modules.value.items[0].parameters.speMsDeployPackageUrl                      = $speMsDeployPackageUrl
         $_.modules.value.items[0].templateLink                                          = $sxaTemplateLink
         $_.modules.value.items[1].parameters.defDeployPackageUrl                        = $defDeployPackageUrl
