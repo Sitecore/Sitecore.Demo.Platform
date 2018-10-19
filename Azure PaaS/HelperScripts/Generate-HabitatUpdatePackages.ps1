@@ -51,12 +51,18 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
 
     if (($config.Topology -eq "scaled") -and ($targetFolderName -eq "HabitatHome")) {
 
-        # Clean up the .yml Unicorn files from the package source
+        # Copy the contents of the HabitatHome build output to a new folder, but exclude the serialization folder
 
-        $FilesToRemove = @("*.yml")  
-        foreach ($ymlFile in (Get-ChildItem $FolderString -Include $FilesToRemove -Recurse)) {
+        $sourceFolder = "C:\Deploy\Website\HabitatHome"
+        $sourceFolderCD = $sourceFolder + "CD"
+        $exclusionFolder = "$($sourceFolder)\App_Data\serialization\"
+        Copy-Item -Path $sourceFolder -Destination $sourceFolderCD -Exclude $exclusionFolder -Recurse -Force
 
-            Remove-Item $ymlFile
+        # Clean empty folders from the resulting copy
+
+        foreach ($filesystemObject in (Get-ChildItem $exclusionFolder -Recurse -Directory)) {
+
+            Remove-Item $filesystemObject.FullName
 
         }
 
@@ -73,7 +79,7 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
         # Update the filename for the package and generate the CD update package in a separate folder
         
         $updateFile = Join-Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD)) "$($targetFolderName).update"
-        GenerateUpdatePackage -configFile $Configuration -argSourcePackagingFolder $sourceFolder -argOutputPackageFile $updateFile
+        GenerateUpdatePackage -configFile $Configuration -argSourcePackagingFolder $sourceFolderCD -argOutputPackageFile $updateFile
 
     }
 
