@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Sitecore.Analytics;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.DependencyInjection;
@@ -30,6 +31,11 @@ namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
 
         protected override bool Execute(IdentifyContactActionData data, FormSubmitContext formSubmitContext)
         {
+            if (Tracker.Current == null && Tracker.Enabled)
+            {
+                Tracker.StartTracking();
+            }
+
             Assert.ArgumentNotNull(formSubmitContext, "formSubmitContext");
             if (data == null || !(data.ReferenceId != Guid.Empty))
             {
