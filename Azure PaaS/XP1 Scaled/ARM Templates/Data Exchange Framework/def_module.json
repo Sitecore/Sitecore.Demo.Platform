@@ -57,12 +57,6 @@
       "minLength": 1,
       "defaultValue": "[uri(replace(json(string(deployment().properties.templateLink)).uri,' ','%20'), '.')]"
     },
-
-    "templateLinkAccessToken": {
-      "type": "securestring",
-      "defaultValue": "[parameters('extension').templateLinkAccessToken]"
-    },
-
     "deploymentId": {
       "type": "string",
       "defaultValue": "[coalesce(parameters('standard').deploymentId, resourceGroup().name)]"
