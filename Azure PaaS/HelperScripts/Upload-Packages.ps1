@@ -180,7 +180,8 @@ ForEach ($setting in $azureuserconfig.settings) {
         # Generate a random name for the storage account by taking into account the 24 character limits imposed by Azure
         $seed = Get-Random -Maximum 99999
         $resourceGroupNameSeed = $resourceGroupName -replace '-',''
-        if($resourceGroupNameSeed -gt 19)
+     
+        if($resourceGroupNameSeed.length -gt 19)
         {
             $resourceGroupNameSeed = $resourceGroupNameSeed.substring(0, 19)
         }
