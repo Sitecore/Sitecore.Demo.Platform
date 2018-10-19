@@ -72,6 +72,11 @@ Task("Clean").Does(() => {
         CleanDirectories($"{configuration.DeployFolder}\\assets\\HabitatHome");
     }
 
+    if (DirectoryExists($"{configuration.DeployFolder}\\assets\\HabitatHomeCD"))
+    {
+        CleanDirectories($"{configuration.DeployFolder}\\assets\\HabitatHomeCD");
+    }
+
 	if (DirectoryExists($"{configuration.DeployFolder}\\Website"))
     {
         CleanDirectories($"{configuration.DeployFolder}\\Website");
@@ -85,6 +90,10 @@ Task("Clean").Does(() => {
 	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\WDPWorkFolder"))
     {
         CleanDirectories($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\WDPWorkFolder");
+    }
+    	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Data Exchange Framework CD\\WDPWorkFolder"))
+    {
+        CleanDirectories($"{configuration.DeployFolder}\\assets\\Data Exchange Framework CD\\WDPWorkFolder");
     }
 	
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
