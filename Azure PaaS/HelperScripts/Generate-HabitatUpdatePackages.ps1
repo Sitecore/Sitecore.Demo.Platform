@@ -53,7 +53,7 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
 
         # Copy the contents of the HabitatHome build output to a new folder, but exclude the serialization folder
 
-        $sourceFolder = "C:\Deploy\Website\HabitatHome"
+        $sourceFolder = $([IO.Path]::Combine($Configuration.DeployFolder, 'Website' , 'HabitatHome'))
         $sourceFolderCD = $sourceFolder + "CD"
         $exclusionFolder = "$($sourceFolder)\App_Data\serialization\"
         Copy-Item -Path $sourceFolder -Destination $sourceFolderCD -Exclude $exclusionFolder -Recurse -Force
