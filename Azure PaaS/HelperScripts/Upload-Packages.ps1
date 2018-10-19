@@ -685,17 +685,12 @@ ForEach ($setting in $azureuserconfig.settings){
 
     # Check if an ARM template URL is already present inside the azureuser-config.json file
 
-    if(($setting.id -eq "ArmTemplateUrl") -and ($setting.value -like "http*")){
-    
-        Continue
-
-    } elseif(($setting.id -eq "ArmTemplateUrl") -and ($setting.value -eq "")){
-    
+    if($setting.id -eq "ArmTemplateUrl"){
         # Populate the value with the uploaded file's URL
 
         $setting.value = $azuredeployTemplateUrl
         $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
 
-    }
+    }  
 
 }
