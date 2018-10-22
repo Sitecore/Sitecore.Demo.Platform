@@ -40,6 +40,11 @@ $azureuserconfigFile = $configarray[4]
 Function Create-SelfSignedCertificate{
 	$thumbprint = (New-SelfSignedCertificate -Subject "CN=$env:COMPUTERNAME @ Sitecore, Inc." -Type SSLServerAuthentication -FriendlyName "$env:USERNAME Certificate").Thumbprint
 	
+	if (!(Test-Path -Path $config.DeployFolder))
+	{
+		New-Item -Path $config.DeployFolder -ItemType Directory
+	}
+
 	$certificateFilePath =  Join-Path $config.DeployFolder "$thumbprint.pfx"
 
 	$certPassword = ConvertTo-SecureString -String "secret" -Force -AsPlainText
