@@ -124,9 +124,8 @@
     <Content Include="Views\Accounts\ChangePassword.cshtml" />
     <Content Include="Views\Accounts\BasicInformation.cshtml" />
     <Content Include="Views\Accounts\DataProtection.cshtml" />
-    <Content Include="web.config.xdt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="web.azure.config.xdt" />
+    <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

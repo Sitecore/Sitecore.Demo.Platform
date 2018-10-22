@@ -51,6 +51,7 @@ Task("Build")
 	//.IsDependentOn("Rebuild-Master-Index")
 	//.IsDependentOn("Rebuild-Web-Index")
 .IsDependentOn("Publish-YML")
+.IsDependentOn("Publish-Azure-Transforms")
 .IsDependentOn("Package-Build");
 
 Task("Azure-Upload")
@@ -172,6 +173,64 @@ Task("Publish-Transforms").Does(() => {
     }
 });
 
+Task("Publish-Azure-Transforms").Does(()=>{
+
+       var codeFoldersFilter = $@"{configuration.ProjectFolder}\**\code";
+       var destination = $@"{configuration.DeployFolder}\Website\HabitatHome";  
+
+       if (!DirectoryExists(destination))
+       {
+             CreateFolder(destination);
+       }
+
+        try
+        {    
+            var projectDirectories = GetDirectories(codeFoldersFilter);
+         
+            foreach (var directory in projectDirectories)
+            {
+                var xdtFiles = GetTransformFiles(directory.FullPath).ToList();
+
+                foreach (var file in xdtFiles)
+                {
+                    var relativeFilePath = file.FullPath;
+
+                    if (!file.FullPath.Contains(".azure."))
+                    {
+                        continue;
+                    }
+
+                    var indexToTrimFrom = file.FullPath.IndexOf("/code/", StringComparison.InvariantCultureIgnoreCase);
+
+                    if (indexToTrimFrom > -1)
+                    {
+                        relativeFilePath = file.FullPath.Substring(indexToTrimFrom + 5);
+                    }
+                    else
+                    {
+                        relativeFilePath = file.GetFilename().FullPath;
+                    }
+
+                    var destinationFilePath = new FilePath ($@"{destination}{relativeFilePath.Replace(".azure", string.Empty)}");
+
+                    if (!DirectoryExists(destinationFilePath.GetDirectory().FullPath))
+                    {
+                         CreateFolder(destinationFilePath.GetDirectory().FullPath);
+                    }                   
+                   
+                    CopyFile(file.FullPath, destinationFilePath.FullPath);
+                                       
+                }  
+            }   
+
+        }
+        catch (System.Exception ex)
+        {
+            WriteError(ex.Message);
+        }
+
+});
+
 Task("Deploy-EXM-Campaigns").Does(() => {
     var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
     string responseBody = HttpGet(url);
@@ -199,11 +258,30 @@ Task("Rebuild-Web-Index").Does(() => {
 });
 
 Task("Publish-YML").Does(() => {
-	
-	StartPowershellFile (($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Publish-YML.ps1"), args =>
+
+	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.yml";
+    var destination = $@"{configuration.DeployFolder}\Website\HabitatHome\App_Data";
+
+    if (!DirectoryExists(destination))
+    {
+        CreateFolder(destination);
+    }
+
+    try
+    {
+        var files = GetFiles(serializationFilesFilter).Select(x=>x.FullPath).ToList();
+
+        CopyFiles(files , destination, preserveFolderStructure: true);
+    }
+    catch (System.Exception ex)
+    {
+        WriteError(ex.Message);
+    }
+
+	/* StartPowershellFile (($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Publish-YML.ps1"), args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
-        });
+        });*/
 		});
 
 Task("Package-Build")

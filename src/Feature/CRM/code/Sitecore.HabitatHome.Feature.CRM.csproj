@@ -126,20 +126,24 @@
   <ItemGroup>
     <Content Include="sitecore\shell\client\Applications\ExperienceProfile\Contact\Details\SalesforceTab.css" />
     <Content Include="sitecore\shell\client\Applications\ExperienceProfile\Contact\Details\SalesforceTab.js" />
-    <Content Include="App_Config\ConnectionStrings.config.xdt">
+    <Content Include="App_Config\ConnectionStrings.azure.config.xdt">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="App_Config\ConnectionStrings.config.xdt">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="App_Config\Include\Feature\Feature.CRM.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Config\Include\Feature\Feature.CRM.Serialization.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="web.config.xdt">
+    <Content Include="web.azure.config.xdt">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="web.config.xdt">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
