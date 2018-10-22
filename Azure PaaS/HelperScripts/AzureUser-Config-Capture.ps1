@@ -128,7 +128,12 @@ foreach ($setting in $azureuserconfig.settings)
 			if ([string]::IsNullOrEmpty($setting.value))
 			{			
 				$cert = Create-SelfSignedCertificate
-				$certificatePath = $cert.FullName
+				if ($cert -is [array])
+				{
+					$certificatePath = $cert[-1].FullName
+				} else {
+					$certificatePath = $cert.FullName
+				}
 				$setting.value = $certificatePath
 			}
 		}
