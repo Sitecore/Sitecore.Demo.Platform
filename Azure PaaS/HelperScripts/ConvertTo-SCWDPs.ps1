@@ -146,7 +146,7 @@ Function Create-CargoPayload
 			$currentFolder = $file.Directory.ToString()
 			[String]$replacementPath = $currentFolder -replace [Regex]::Escape($XdtSourceFolder), [Regex]::Escape($XdtsPath.FullName)
 			[System.IO.DirectoryInfo]$destination = $replacementPath
-			if($destination.FullName -ine $XdtsPath.FullName){
+			if(($destination.FullName -ine $XdtsPath.FullName) -and (!(Test-Path -Path $destination))){
         
 				New-Item -Path $destination -ItemType Directory
 
