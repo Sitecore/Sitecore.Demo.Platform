@@ -118,7 +118,7 @@ Task("Publish-Transforms").Does(() => {
         var files = new List<string>();
         foreach(var layer in layers)
         {
-            var xdtFiles = GetTransformFiles(layer).Select(x => x.FullPath).ToList();
+            var xdtFiles = GetTransformFiles(layer).Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
             files.AddRange(xdtFiles);
         }   
 
