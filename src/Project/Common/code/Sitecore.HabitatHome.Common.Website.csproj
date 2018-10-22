@@ -90,9 +90,8 @@
     <Content Include="App_Config\Include\Project\z.Common.Website.DevSettings.config" />
     <Content Include="App_Config\Include\zz.Foundation.Overrides\Foundation.Search.Solr.Web.config" />
     <Content Include="App_Config\Include\Project\Common.Website.SPE.config" />
-    <Content Include="web.config.xdt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="web.azure.config.xdt" />
+    <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
