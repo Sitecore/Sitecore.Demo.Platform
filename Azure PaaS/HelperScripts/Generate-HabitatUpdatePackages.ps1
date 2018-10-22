@@ -51,10 +51,10 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
 
     if (($config.Topology -eq "scaled") -and ($targetFolderName -eq "HabitatHome")) {
 
-        # Copy the contents of the HabitatHome build output to a new folder, but exclude the serialization folder
+        # Copy the contents of the HabitatHome build output to a new folder, but exclude the YML files inside the serialization folder
 
         $sourceFolderCD = $sourceFolder + "CD"
-        $exclusionFolder = "$($sourceFolderCD)\App_Data\serialization\"
+        $exclusionFolder = "$($sourceFolderCD)\App_Data\"
         Copy-Item -Path $sourceFolder -Destination $sourceFolderCD -Exclude *.yml -Recurse -Force
 
         # Clean empty folders from the resulting copy
