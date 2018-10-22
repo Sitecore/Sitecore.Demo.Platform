@@ -205,6 +205,11 @@ Task("Publish-Azure-Transforms").Does(()=>{
                 {
                     var relativeFilePath = file.FullPath;
 
+                    if (!file.FullPath.Contains(".azure."))
+                    {
+                        continue;
+                    }
+
                     var indexToTrimFrom = file.FullPath.IndexOf("/code/", StringComparison.InvariantCultureIgnoreCase);
 
                     if (indexToTrimFrom > -1)
@@ -216,14 +221,15 @@ Task("Publish-Azure-Transforms").Does(()=>{
                         relativeFilePath = file.GetFilename().FullPath;
                     }
 
-                    var destinationFilePath = new FilePath ($@"{destination}{relativeFilePath}");
+                    var destinationFilePath = new FilePath ($@"{destination}{relativeFilePath.Replace(".azure", string.Empty)}");
 
                     if (!DirectoryExists(destinationFilePath.GetDirectory().FullPath))
                     {
                          CreateFolder(destinationFilePath.GetDirectory().FullPath);
                     }                   
                    
-                    CopyFile(file.FullPath, destinationFilePath.FullPath);                   
+                    CopyFile(file.FullPath, destinationFilePath.FullPath);
+                                       
                 }  
             }   
 
