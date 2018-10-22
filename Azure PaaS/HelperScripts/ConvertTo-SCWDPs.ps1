@@ -518,7 +518,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 									-SccplCargoFilename $SccplCargoName `
 									-IonicZip $IonicZipPath `
 									-foldername $folder.Name `
-									-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHome")
+									-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHomeCD")
 					}
 					
 				} else {
