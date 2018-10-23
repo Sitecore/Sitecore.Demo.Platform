@@ -60,7 +60,7 @@ In order to deploy the assets, you need either Visual Studio 2017 or MSBuild Too
 
 The following is a list of default values / assumptions for install locations
 
-**Project location**		`c:\projects\sitecore.habitathome.content\`
+**Project location**		`c:\projects\sitecore.habitathome.platform\`
 **Habitat Site domain**				`habitathome.dev.local`
 **Web Root**						`c:\inetpub\wwwroot`
 **Host Suffix**						`dev.local`
@@ -78,6 +78,9 @@ If you do **not want to use the default settings**, you need to adjust the appro
 - **WebsiteRoot**
 - **XConnectRoot**
 - **ProjectFolder**
+- **InstanceUrl**
+
+The cake script will automatically create a publishSettings.targets.user file with the value of the InstanceUrl specified in the cake-config.json file.
 
 ## Installation:
 
@@ -91,14 +94,14 @@ All installation instructions assume using **PowerShell 5.1** in _**administrati
 
 `git config --system core.longpaths true`
 
-Clone the Sitecore.HabitatHome.Content repository locally - defaults are configured for **C:\Projects\Sitecore.HabitatHome.Content**. 
+Clone the Sitecore.HabitatHome.Platform repository locally - defaults are configured for **C:\Projects\Sitecore.HabitatHome.Platform**. 
 
 
 - Clone 
--- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Content.git` 
--- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Content.git`
+-- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Platform.git` 
+-- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Platform.git`
 
-### 2. Deploy Sitecore.HabitatHome.Content
+### 2. Deploy Sitecore.HabitatHome.Platform
 
 ### *IMPORTANT: Publish site BEFORE trying to deploy Habitat Home*
 
@@ -112,7 +115,7 @@ From the root of the solution
 
 - Run **`.\build.ps1`**
 	- Notes:
-		- If you the deployment failed at `Sync-Unicorn` step. Just run `.\build.ps1` again.
+		- If you the deployment failed at `Sync-Unicorn` step, evaluate and fix the error and then run `.\build.ps1 -Target "Post-Deploy"`.
 
 
 ### 3. Validating deployment
@@ -132,4 +135,4 @@ When Unicorn is active, the Content Editor will display warnings that certain it
 This appSetting is `On` by default. Setting it to `Off` ensures that none of the Unicorn serialization configuration files are loaded.
 
 # Contribute or Issues
-Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Content/issues). Contributions are always welcome!
+Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Platform/issues). Contributions are always welcome!

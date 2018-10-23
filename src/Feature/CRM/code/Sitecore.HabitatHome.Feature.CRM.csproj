@@ -55,6 +55,9 @@
       <Version>1.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Net.Compilers" Version="1.3.2" />
+    <PackageReference Include="Sitecore.Analytics.Model.NoReferences">
+      <Version>9.0.180604</Version>
+    </PackageReference>
     <PackageReference Include="Sitecore.Analytics.NoReferences">
       <Version>9.0.180604</Version>
     </PackageReference>
@@ -168,12 +171,6 @@
     <Compile Include="Pipelines\SyncToSalesforceCrmOnSessionEnd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TriggerDefPipelineBatch\SyncToSalesforceCrm.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Foundation\Accounts\code\Sitecore.HabitatHome.Foundation.Accounts.csproj">
-      <Project>{ce34a3b7-b91a-41ba-8b16-c1e131e1c621}</Project>
-      <Name>Sitecore.HabitatHome.Foundation.Accounts</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
