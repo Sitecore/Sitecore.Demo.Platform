@@ -95,29 +95,35 @@ if($foundfiles)
 
 	foreach ($_ in $assetconfig.prerequisites)
 	{
-		if (($foundfiles -contains $_.fileName) -eq $true)
+		if($_.install -eq $true)
 		{
-			Write-Host `t $_.filename
-			continue
-		}
-		elseif ($_.isGroup -eq "true")
-		{
-			foreach ($module in $_.modules)
+			if (($foundfiles -contains $_.fileName) -eq $true)
 			{
-				if (($foundfiles -contains $module.fileName) -eq $true)
+				Write-Host `t $_.filename
+				continue
+			}
+			elseif ($_.isGroup -eq "true")
+			{
+				foreach ($module in $_.modules)
 				{
-					Write-Host `t $module.filename
-					continue
-				}
-				else
-				{
-					$downloadlist.Add($module.fileName) | out-null
+					if (($foundfiles -contains $module.fileName) -eq $true)
+					{
+						Write-Host `t $module.filename
+						continue
+					}
+					else
+					{
+						if($module.install -eq $true)
+						{
+							$downloadlist.Add($module.fileName) | out-null
+						}
+					}
 				}
 			}
-		}
-		else
-		{
-			$downloadlist.Add($_.fileName) | out-null
+			else
+			{
+				$downloadlist.Add($_.fileName) | out-null
+			}
 		}
 	}
 	
@@ -142,17 +148,22 @@ else
 
 	foreach ($_ in $assetconfig.prerequisites)
 	{
-
-		if ($_.isGroup -eq "true")
+		if($_.install -eq $true)
 		{
-			foreach ($module in $_.modules)
+			if ($_.isGroup -eq "true")
 			{
-				$downloadlist.Add($module.fileName) | out-null
+				foreach ($module in $_.modules)
+				{
+					if($module.install -eq $true)
+					{
+						$downloadlist.Add($module.fileName) | out-null
+					}
+				}
 			}
-		}
-		else
-		{
-			$downloadlist.Add($_.fileName) | out-null
+			else
+			{
+				$downloadlist.Add($_.fileName) | out-null
+			}
 		}
 	}
 

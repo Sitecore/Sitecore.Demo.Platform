@@ -187,6 +187,7 @@ Function Create-WDP{
 	[String] $SccplCargoFilename, 
 	[String] $IonicZip,
 	[String] $foldername,
+	[String] $assetJSONconfig,
 	[String] $XdtSrcFolder
 	)
 
@@ -284,10 +285,42 @@ is the path to Ionic's zipping library
                                         -ConfigFilePath $ConfigFilePath `
 										-Verbose
 
-    # Check for the _Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip and rename that back (remove the underscore)
+    # Check for the Data Exchange Framework .scwdp.zip and .zip and remove the underscore
+	foreach ($assetnode in $assetJSONconfig)
+	{
+		if($assetnode.name -eq  "Data Exchange Framework")
+		{
+			foreach ($modulenode in $assetnode.modules)
+			{
+				if($modulenode.name -eq "Data Exchange Framework")
+				{
+					$DefWdpFile 	= "_"+$($assetnode.FileName -replace '\.zip$','')+"_single.scwdp.zip"
+					$DefWdpFileOrg 	=  $($assetnode.FileName -replace '\.zip$','')+"_single.scwdp.zip"
+					$DefZipFile 	= "_"+$assetnode.FileName
+					$DefZipFileOrg 	=  $assetnode.FileName
+				}
+			}
+		}
+	}
+	
+    # Check for the Data Exchange Framework CD .scwdp.zip and .zip and remove the underscore
+	foreach ($assetnode in $assetJSONconfig)
+	{
+		if($assetnode.name -eq  "Data Exchange Framework CD")
+		{
+			foreach ($modulenode in $assetnode.modules)
+			{
+				if($modulenode.name -eq "Data Exchange Framework CD")
+				{
+					$DefCdWdpFile 		= "_"+$($assetnode.FileName -replace '\.zip$','')+"_scaled.scwdp.zip"
+					$DefCdWdpFileOrg 	=  $($assetnode.FileName -replace '\.zip$','')+"_scaled.scwdp.zip"
+					$DefCdZipFile 		= "_"+$assetnode.FileName
+					$DefCdZipFileOrg 	=  $assetnode.FileName
+				}
+			}
+		}
+	}
 
-    $DefWdpFile = "_Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
-	$DefWdpFileOrg =  "Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
 	$DefWdpFilePath = Join-Path $DestinationFolderPath $DefWdpFile
                               
     If(Test-Path -Path $DefWdpFilePath){
@@ -305,10 +338,6 @@ is the path to Ionic's zipping library
                 
     }
 
-    # Check for the _Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip and rename that back (remove the underscore)
-
-    $DefCdWdpFile = "_Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
-	$DefCdWdpFileOrg =  "Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
 	$DefCdWdpFilePath = Join-Path $DestinationFolderPath $DefCdWdpFile
 	
     If(Test-Path -Path $DefCdWdpFilePath){
@@ -324,11 +353,8 @@ is the path to Ionic's zipping library
 
 		}
                 
-    }	
-
-	# Check for the _Data Exchange Framework 2.0.1 rev. 180108.zip and rename that back (remove the underscore)
-    $DefZipFile = "_Data Exchange Framework 2.0.1 rev. 180108.zip"
-	$DefZipFileOrg = "Data Exchange Framework 2.0.1 rev. 180108.zip"
+	}	
+	
     $DefZipFilePath = Join-Path $RootFolder $DefZipFile
                                
     If(Test-Path -Path $DefZipFilePath){
@@ -345,10 +371,7 @@ is the path to Ionic's zipping library
 		}
                 
 	}
-	
-	# Check for the _Data Exchange Framework CD Server 2.0.1 rev. 180108.zip and rename that back (remove the underscore)
-    $DefCdZipFile = "_Data Exchange Framework CD Server 2.0.1 rev. 180108.zip"
-	$DefCdZipFileOrg = "Data Exchange Framework CD Server 2.0.1 rev. 180108.zip"
+
     $DefCdZipFilePath = Join-Path $RootFolder $DefCdZipFile
                                
     If(Test-Path -Path $DefCdZipFilePath){
@@ -386,15 +409,19 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 
     # Go through the assets.json file and prepare files and paths for the conversion to WDP for all prerequisites for Habitat Home
 
-    ForEach ($asset in $assetsConfigJson.prerequisites){
+	ForEach ($asset in $assetsConfigJson.prerequisites)
+	{
 
-        If($asset.convertToWdp -eq $True){
+		If($($asset.convertToWdp -eq $True) -and $($asset.install -eq $true))
+		{
             
 			# Do a check if the WDP package already exists and if not, proceed with package generation
 
             [String] $ModuleFolder = $([IO.Path]::Combine($assetsFolder, $asset.name))
 			[String] $ModuleWDPTarget = "$($ModuleFolder)\WDPWorkFolder\WDP"
-			If((Test-Path -Path $ModuleWDPTarget) -eq $False){
+			
+			If((Test-Path -Path $ModuleWDPTarget) -eq $False)
+			{
 	
 				Get-ChildItem -Path "$($ProjectModulesFolder)\$($asset.name)\*" -Include *.json | ForEach-Object { $WDPJsonFile = $_.FullName; $WDPJsonFileName = $_.BaseName }
 				Get-ChildItem -Path "$($ProjectModulesFolder)\$($asset.name)\*" -Include *.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
@@ -405,10 +432,10 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 				If($ModuleFolder -eq "$($assetsFolder)\Data Exchange Framework")
 				{
             
-					# Check if the "Data Exchange Framework 2.0.1 rev. 180108.zip" file is present and rename it to "_Data Exchange Framework 2.0.1 rev. 180108.zip"
+					# Check if the Data Exchange Framework file is present and rename it to add an underscore infront of the
 
-					$DefZipFile = "Data Exchange Framework 2.0.1 rev. 180108.zip"
-					$DefScwdpFile = "Data Exchange Framework 2.0.1 rev. 180108_single.scwdzip"
+					$DefZipFile = $asset.FileName
+					$DefScwdpFile = $($asset.FileName -replace '\.zip$','')+"_single.scwdp.zip"
 					$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
 					$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
                               
@@ -431,8 +458,8 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
             
 					# Check if the "Data Exchange Framework CD Server 2.0.1 rev. 180108.zip" file is present and rename it to "_Data Exchange Framework CD Server 2.0.1 rev. 180108.zip"
 
-					$DefZipFile = "Data Exchange Framework CD Server 2.0.1 rev. 180108.zip"
-					$DefScwdpFile = "Data Exchange Framework CD Server 2.0.1 rev. 180108_single.scwdzip"
+					$DefZipFile = $asset.FileName
+					$DefScwdpFile = $($asset.FileName -replace '\.zip$','')+"_single.scwdp.zip"
 					$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
 					$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
                               
@@ -455,7 +482,8 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 							-JsonConfigFilename $WDPJsonFile `
 							-XmlParameterFilename $WDPXMLFile `
 							-SccplCargoFilename $SccplCargoName `
-							-IonicZip $IonicZipPath
+							-IonicZip $IonicZipPath `
+							-assetJSONconfig $assetsConfigJson
 			}
         }
 
@@ -487,6 +515,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 								-SccplCargoFilename $SccplCargoName `
 								-IonicZip $IonicZipPath `
 								-foldername $folder.Name `
+								-assetJSONconfig $assetsConfigJson `
 								-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHome")
 					
 				} else {
@@ -518,6 +547,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 									-SccplCargoFilename $SccplCargoName `
 									-IonicZip $IonicZipPath `
 									-foldername $folder.Name `
+									-assetJSONconfig $assetsConfigJson `
 									-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHomeCD")
 					}
 					
@@ -545,7 +575,8 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 								-XmlParameterFilename $WDPXMLFile `
 								-SccplCargoFilename $SccplCargoName `
 								-IonicZip $IonicZipPath `
-								-foldername $folder.Name
+								-foldername $folder.Name `
+								-assetJSONconfig $assetsConfigJson
 					
 				} else {
 			
