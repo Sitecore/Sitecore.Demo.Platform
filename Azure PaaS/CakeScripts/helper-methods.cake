@@ -8,8 +8,7 @@ public class Configuration
 {
     private MSBuildToolVersion _msBuildToolVersion;    
 
-    public string WebsiteRoot {get;set;}
-    public string XConnectRoot {get;set;}
+    public string DeployFolder {get;set;}
     public string InstanceUrl {get;set;}
     public string SolutionName {get;set;}
     public string ProjectFolder {get;set;}
@@ -99,15 +98,9 @@ public void Transform(string rootFolder) {
 
     foreach (var file in xdtFiles)
     {
-        if (file.FullPath.Contains(".azure"))
-        {
-            continue;
-        }
-        
         Information($"Applying configuration transform:{file.FullPath}");
         var fileToTransform = Regex.Replace(file.FullPath, ".+code/(.+)/*.xdt", "$1");
-        fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
-        var sourceTransform = $"{configuration.WebsiteRoot}\\{fileToTransform}";
+        var sourceTransform = $"{configuration.DeployFolder}\\Website\\HabitatHome\\{fileToTransform}";
         
         XdtTransformConfig(sourceTransform			                // Source File
                             , file.FullPath			                // Tranforms file (*.xdt)
