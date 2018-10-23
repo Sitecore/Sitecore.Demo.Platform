@@ -309,8 +309,19 @@ Task("Azure-Upload-Packages").Does(() => {
         });
 		});
 
-Task("Azure-Site-Deploy").Does(() => {
+Task("Azure-Site-Deploy")
+.IsDependentOn("Deploy-To-Azure")
+.IsDependentOn("Scale-Down");
+
+Task("Deploy-To-Azure").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Deploy.ps1", args =>
+        {
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+        });
+		});
+
+Task("Scale-Down").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Scaledown.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
         });
