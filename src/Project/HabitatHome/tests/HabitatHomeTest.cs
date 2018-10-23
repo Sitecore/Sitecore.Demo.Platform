@@ -13,10 +13,10 @@ namespace Sitecore.HabitatHome.Website.Test
             Click("How to Design Your Smart Home");
             Wait("button.btn-info.sidebar-closed");
             Click("button.btn-info.sidebar-closed");
-            Click("Onsite Behavior");
+            Click("Referral");
 
-            var elements = GetElements("#onsiteBehaviorPanel div.media div.tab-content");
-            Assert.IsTrue(!elements.Any(e => e.Text.Contains("You have triggered no goals so far")));
+            var elements = GetElements("#referralPanel div.media");
+            Assert.IsTrue(!elements.Any(e => e.Text.Contains("You have not been associated with any campaigns")));
         }
 
     }
