@@ -4,8 +4,22 @@ HabitatHome  Demo and the tools and processes in it is a Sitecore&reg; solution 
 
 # Important Notice
 
+## Is Habitat Home a starter kit or template solution?
+
+No. You should not clone this repository for the purposes of starting a new Sitecore project. There are other community solutions which can be used as a starter for Helix-based Sitecore implementations. Habitat Home is intended as a **demo site demonstrating the full Sitecore platform capabilities and development best practices**.
+
+## Is Habitat Home supported by Sitecore?
+
+Sitecore maintains the Habitat Home example, but Habitat Home code is not supported by Sitecore Product Support Services. Please do not submit support tickets regarding Habitat.
+
+## How can I get help with Habitat Home?
+
+For usage questions regarding Habitat Home, installation or code, please use [Sitecore Stackexchange](https://sitecore.stackexchange.com/) or [#habitathome](https://sitecorechat.slack.com/messages/CASEB5M38) on [Sitecore Community Slack](https://www.akshaysura.com/2015/10/27/how-to-join-sitecore-slack-community-chat/). 
+
+You can use GitHub to submit [bug reports](https://github.com/Sitecore/Sitecore.HabitatHome.Platform/issues/new?template=bug_report.md) or [feature requests](https://github.com/Sitecore/Sitecore.HabitatHome.Platform/issues/new?template=feature_request.md) for Habitat Home. Please do not submit usage questions via GitHub.
+
 ### License
-Please read the LICENSE carefully prior to using the code in this repository
+Please read the LICENSE carefully prior to using the code in this repository. 
  
 ### Support
 
@@ -115,7 +129,7 @@ From the root of the solution
 
 - Run **`.\build.ps1`**
 	- Notes:
-		- If you the deployment failed at `Sync-Unicorn` step, evaluate and fix the error and then run `.\build.ps1 -Target "Post-Deploy"`.
+		- If the deployment fails at `Sync-Unicorn` or `Deploy-EXM-Campaigns` step, evaluate and fix the error (if any) and then run `.\build.ps1 -Target "Post-Deploy"`.
 
 
 ### 3. Validating deployment
