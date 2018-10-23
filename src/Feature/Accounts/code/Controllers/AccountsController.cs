@@ -364,6 +364,7 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 
                 if (Context.User.Profile.Email != null)
                 {
+                    this.Session.Abandon();
                     _userProfileService.DeleteProfile(Context.User.Profile);
                     _accountRepository.Logout();
                 }
