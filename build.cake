@@ -198,11 +198,8 @@ Task("Sync-Unicorn").Does(() => {
 });
 
 Task("Deploy-EXM-Campaigns").Does(() => {
-    DeployExmCampaigns();
-}).OnError(() => {
-	Information("Retrying Deploy-EXM-Campaigns");
-	DeployExmCampaigns();
-});;
+	Spam(() => DeployExmCampaigns(), configuration.DeployExmTimeout);
+});
 
 Task("Deploy-Marketing-Definitions").Does(() => {
     var url = $"{configuration.InstanceUrl}utilities/deploymarketingdefinitions.aspx?apiKey={configuration.MarketingDefinitionsApiKey}";
