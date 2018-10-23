@@ -31,9 +31,30 @@ $topology		 = $configarray[5]
 # Scale down service plans
 ###########################
 
+# Get all Azure Web Roles in the configured resource group and for each one scale it down to Standard Small size
+
 $serviceplans = Get-AzureRmAppServicePlan -ResourceGroupName $($azureuserconfig.settings[0].value)
 
 foreach ($serviceplan in $serviceplans)
 {
     Set-AzureRmAppServicePlan -ResourceGroupName $($azureuserconfig.settings[0].value) -Name $($serviceplan.AppServicePlanName) -Tier Standard -WorkerSize Small
 }
+
+# The commented-out section below is supposed to do scale down on the SQL databases, but currently times out because the operation takes too long
+
+# Get all Azure SQL Servers in the configured resource group
+
+<#$sqlServers = Get-AzureRmSqlServer -ResourceGroupName $($azureuserconfig.settings[0].value)
+
+foreach ($sqlServer in $sqlServers)
+{
+
+    # Get all SQL databases in the configured SQL server and resource group and for each one scale it down to S0
+
+    $sqlDatabases = Get-AzureRmSqlDatabase -ResourceGroupName $($azureuserconfig.settings[0].value) -ServerName $sqlServer.ServerName
+
+    foreach ($sqlDatabase in $sqlDatabases)
+    {
+        Set-AzureRmSqlDatabase -ResourceGroupName $($azureuserconfig.settings[0].value) -DatabaseName $sqlDatabase.DatabaseName -ServerName $sqlServer.ServerName -Edition Standard -RequestedServiceObjectiveName S0
+    }
+}#>
