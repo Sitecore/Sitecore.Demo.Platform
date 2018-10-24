@@ -80,7 +80,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\Project\Common.Website.config" />
+    <Content Include="App_Config\Include\Project\Common.Website.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Config\Include\Project\Common.Website.Serialization.config" />
     <Content Include="App_Config\Security\Domains.config" />
     <Content Include="App_Config\Sitecore\ContentTesting\Sitecore.ContentTesting.PreemptiveScreenshot.config" />
@@ -90,6 +92,8 @@
     <Content Include="App_Config\Include\Project\z.Common.Website.DevSettings.config" />
     <Content Include="App_Config\Include\zz.Foundation.Overrides\Foundation.Search.Solr.Web.config" />
     <Content Include="App_Config\Include\Project\Common.Website.SPE.config" />
+    <Content Include="App_Config\Include\zz.Foundation.Overrides\Foundation.Search.Azure.config" />
+    <Content Include="App_Config\Include\zz.Foundation.Overrides\Foundation.Logging.config" />
     <None Include="web.azure.config.xdt" />
     <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
