@@ -187,7 +187,7 @@ Function Create-WDP{
 	[String] $SccplCargoFilename, 
 	[String] $IonicZip,
 	[String] $foldername,
-	[String] $assetJSONconfig,
+	$assetJSONconfig,
 	[String] $XdtSrcFolder
 	)
 
@@ -286,7 +286,7 @@ is the path to Ionic's zipping library
 										-Verbose
 
     # Check for the Data Exchange Framework .scwdp.zip and .zip and remove the underscore
-	foreach ($assetnode in $assetJSONconfig)
+	foreach ($assetnode in $assetJSONconfig.prerequisites)
 	{
 		if($assetnode.name -eq  "Data Exchange Framework")
 		{
@@ -294,17 +294,17 @@ is the path to Ionic's zipping library
 			{
 				if($modulenode.name -eq "Data Exchange Framework")
 				{
-					$DefWdpFile 	= "_"+$($assetnode.FileName -replace '\.zip$','')+"_single.scwdp.zip"
-					$DefWdpFileOrg 	=  $($assetnode.FileName -replace '\.zip$','')+"_single.scwdp.zip"
-					$DefZipFile 	= "_"+$assetnode.FileName
-					$DefZipFileOrg 	=  $assetnode.FileName
+					$DefWdpFile 	= "_"+$($modulenode.FileName -replace '\.zip$','')+"_single.scwdp.zip"
+					$DefWdpFileOrg 	=  $($modulenode.FileName -replace '\.zip$','')+"_single.scwdp.zip"
+					$DefZipFile 	= "_"+$modulenode.FileName
+					$DefZipFileOrg 	=  $modulenode.FileName
 				}
 			}
 		}
 	}
 	
     # Check for the Data Exchange Framework CD .scwdp.zip and .zip and remove the underscore
-	foreach ($assetnode in $assetJSONconfig)
+	foreach ($assetnode in $assetJSONconfig.prerequisites)
 	{
 		if($assetnode.name -eq  "Data Exchange Framework CD")
 		{
@@ -312,10 +312,10 @@ is the path to Ionic's zipping library
 			{
 				if($modulenode.name -eq "Data Exchange Framework CD")
 				{
-					$DefCdWdpFile 		= "_"+$($assetnode.FileName -replace '\.zip$','')+"_scaled.scwdp.zip"
-					$DefCdWdpFileOrg 	=  $($assetnode.FileName -replace '\.zip$','')+"_scaled.scwdp.zip"
-					$DefCdZipFile 		= "_"+$assetnode.FileName
-					$DefCdZipFileOrg 	=  $assetnode.FileName
+					$DefCdWdpFile 		= "_"+$($modulenode.FileName -replace '\.zip$','')+"_scaled.scwdp.zip"
+					$DefCdWdpFileOrg 	=  $($modulenode.FileName -replace '\.zip$','')+"_scaled.scwdp.zip"
+					$DefCdZipFile 		= "_"+$modulenode.FileName
+					$DefCdZipFileOrg 	=  $modulenode.FileName
 				}
 			}
 		}
@@ -430,39 +430,44 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 				# Special check - if dealing with DEF try to avoid limitations of the Cloud.Cmdlets script
 
 				If($ModuleFolder -eq "$($assetsFolder)\Data Exchange Framework")
-				{
-            
+				{            
 					# Check if the Data Exchange Framework file is present and rename it to add an underscore infront of the
 
-					$DefZipFile = $asset.FileName
-					$DefScwdpFile = $($asset.FileName -replace '\.zip$','')+"_single.scwdp.zip"
-					$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
-					$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
-                              
-						if(Test-Path $DefScwdpFilePath)
+					foreach ($module in $asset.modules)
+					{
+						if ($module.name -eq "Data Exchange Framework")
 						{
-							Write-Host "Skipping WDP generation - there's already a WDP package, present at $($ModuleWDPTarget)" -ForegroundColor Yellow
-							continue
+							$DefZipFile = $module.FileName
+							$DefScwdpFile = $($module.FileName -replace '\.zip$','')+"_single.scwdp.zip"
+							$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
+							$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
+									  
+							if(Test-Path $DefScwdpFilePath)
+							{
+								Write-Host "Skipping WDP generation - there's already a WDP package, present at $($ModuleWDPTarget)" -ForegroundColor Yellow
+								continue
+							}
+							elseIf(Test-Path -Path $DefZipFilePath)
+							{
+								Rename-Item -Path $DefZipFilePath -NewName "$($ModuleFolder)\_$($DefZipFile)" -force
+							}
 						}
-						elseIf(Test-Path -Path $DefZipFilePath)
-						{
-							Rename-Item -Path $DefZipFilePath -NewName "$($ModuleFolder)\_$($DefZipFile)" -force
-						}
-
+					}
 				}
 						
 				# Special check - if dealing with DEF (CD) try to avoid limitations of the Cloud.Cmdlets script
 
 				If($ModuleFolder -eq "$($assetsFolder)\Data Exchange Framework CD")
-				{
-            
+				{            
 					# Check if the "Data Exchange Framework CD Server 2.0.1 rev. 180108.zip" file is present and rename it to "_Data Exchange Framework CD Server 2.0.1 rev. 180108.zip"
 
-					$DefZipFile = $asset.FileName
-					$DefScwdpFile = $($asset.FileName -replace '\.zip$','')+"_single.scwdp.zip"
-					$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
-					$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
-                              
+					foreach ($module in $asset.modules)
+					{
+						$DefZipFile = $module.FileName
+						$DefScwdpFile = $($module.FileName -replace '\.zip$','')+"_single.scwdp.zip"
+						$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
+						$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
+								  
 						if(Test-Path $DefScwdpFilePath)
 						{
 							Write-Host "Skipping WDP generation - there's already a WDP package, present at $($ModuleWDPTarget)" -ForegroundColor Yellow
@@ -472,7 +477,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 						{
 							Rename-Item -Path $DefZipFilePath -NewName "$($ModuleFolder)\_$($DefZipFile)" -force
 						}
-
+					}
 				}				
 
 				# Call in the WDP creation function

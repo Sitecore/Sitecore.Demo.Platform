@@ -272,19 +272,32 @@ foreach ($_ in $assetconfig.prerequisites)
 	if ((($localassets.name -contains $_.fileName) -eq $true) -and ($_.extract -eq $true))
 	{
 		# This is a bug fix due to the DotNetZip.dll getting locked if the build is ran multiple times
-		if(($_.name -eq "Sitecore Azure Toolkit") -and $(Test-Path $([io.path]::combine($assetsfolder, $_.name, 'tools', 'DotNetZip.dll'))))
+		if (($_.name -eq "Sitecore Azure Toolkit") -and $(Test-Path $([io.path]::combine($assetsfolder, $_.name, 'tools', 'DotNetZip.dll'))))
 		{
 			Write-Host $_.name "found, skipping extraction"
 			continue
+		} 
+		elseif ($_.name -eq "Sitecore Experience Platform")
+		{
+			if (($config.Topology -eq "single") -and $(Test-Path -Path "$($assetsfolder)\$($_.name)\*xp0*"))
+			{
+				Write-Host $_.name "found, skipping extraction"
+				continue
+			}
+			elseif (($config.Topology -eq "scaled") -and $(Test-Path -Path "$($assetsfolder)\$($_.name)\*xp1*"))
+			{
+				Write-Host $_.name "found, skipping extraction"
+				continue
+			}
 		}
 
 		Write-Host "Extracting" $_.filename -ForegroundColor Green
 
 		Expand-Archive	-Path $(Join-path $assetsfolder $_.filename) -DestinationPath $(Join-path $assetsfolder $_.name) -force
 	}
-	elseif($_.isGroup -eq $true)
+	elseif ($_.isGroup -eq $true)
 	{
-		foreach($module in $_.modules)
+		foreach ($module in $_.modules)
 		{
 			if ((($localassets.name -contains $module.fileName) -eq $true) -and ($module.extract -eq $true))
 			{
