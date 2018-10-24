@@ -79,7 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Foundation\Foundation.Accounts.config" />
-    <Content Include="App_Config\Security\domains.azure.config.xdt" />
+    <None Include="App_Config\Security\domains.azure.config.xdt" />
     <None Include="App_Config\Security\domains.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -100,7 +100,9 @@
     <Compile Include="Pipelines\AccountsPipelineArgs.cs" />
     <Compile Include="Pipelines\PipelineService.cs" />
     <Compile Include="Services\ContactFacetService.cs" />
+    <Compile Include="Services\ExportFileService.cs" />
     <Compile Include="Services\IContactFacetService.cs" />
+    <Compile Include="Services\IExportFileService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DependencyInjection\code\Sitecore.HabitatHome.Foundation.DependencyInjection.csproj">

@@ -51,18 +51,23 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
 
     if (($config.Topology -eq "scaled") -and ($targetFolderName -eq "HabitatHome")) {
 
-        # Copy the contents of the HabitatHome build output to a new folder, but exclude the serialization folder
+        # Copy the contents of the HabitatHome build output to a new folder, but exclude the YML files inside the serialization folder
 
-        $sourceFolder = $([IO.Path]::Combine($Configuration.DeployFolder, 'Website' , 'HabitatHome'))
         $sourceFolderCD = $sourceFolder + "CD"
-        $exclusionFolder = "$($sourceFolder)\App_Data\serialization\"
-        Copy-Item -Path $sourceFolder -Destination $sourceFolderCD -Exclude $exclusionFolder -Recurse -Force
+        $exclusionFolder = "$($sourceFolderCD)\App_Data\"
+        Copy-Item -Path $sourceFolder -Destination $sourceFolderCD -Exclude *.yml -Recurse -Force
 
         # Clean empty folders from the resulting copy
 
-        foreach ($filesystemObject in (Get-ChildItem $exclusionFolder -Recurse -Directory)) {
+        $folderList = (Get-ChildItem $exclusionFolder -Recurse -Directory)
+        foreach ($filesystemObject in $folderList) {
 
-            Remove-Item $filesystemObject.FullName
+            Remove-Item $filesystemObject.FullName -Recurse
+            $folderList = (Get-ChildItem $exclusionFolder -Recurse -Directory)
+            if ($null -eq $folderList)
+            {
+                break
+            }
 
         }
 
@@ -118,13 +123,13 @@ Function Clean-Up([PSObject] $Configuration, [String] $FolderString){
     $AssembliesToRemove = @("Sitecore.*.dll","Unicorn*.dll","Rainbow*.dll", "Kamsar*.dll")
     $AssembliesToKeep = @("Sitecore.HabitatHome.*")
 
-    Get-ChildItem $FolderString -Include $AssembliesToRemove -Exclude $AssembliesToKeep -Recurse | foreach($_) { Remove-Item $_.FullName }
+    Get-ChildItem $FolderString -Include $AssembliesToRemove -Exclude $AssembliesToKeep -Recurse | ForEach-Object($_) { Remove-Item $_.FullName }
 
     # Clean Configs Configs
 
     $ConfigsToRemove = @("*.Serialization*.config", "Unicorn*.config*", "Rainbow*.config")  
 
-    Get-ChildItem $FolderString -Include $ConfigsToRemove -Recurse | foreach($_) { Remove-Item $_.FullName }
+    Get-ChildItem $FolderString -Include $ConfigsToRemove -Recurse | ForEach-Object($_) { Remove-Item $_.FullName }
 
     # Clean configurations in bin
 
@@ -133,13 +138,13 @@ Function Clean-Up([PSObject] $Configuration, [String] $FolderString){
     $BinConfigsToRemove = @("*.config", "*.xdt")  
        
 
-    Get-ChildItem $BinFolder -Include $BinConfigsToRemove -Recurse | foreach($_) { Remove-Item $_.FullName }
+    Get-ChildItem $BinFolder -Include $BinConfigsToRemove -Recurse | ForEach-Object($_) { Remove-Item $_.FullName }
 
     # Clean Empty Folders
 
-    dir $FolderString -recurse | 
+    Get-ChildItem $FolderString -recurse | 
 
-    Where { $_.PSIsContainer -and @(dir -Lit $_.Fullname -r | Where {!$_.PSIsContainer}).Length -eq 0 } |
+    Where-Object { $_.PSIsContainer -and @(Get-ChildItem -Lit $_.Fullname -r | Where-Object {!$_.PSIsContainer}).Length -eq 0 } |
 
     Remove-Item -recurse    
 }

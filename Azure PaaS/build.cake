@@ -68,35 +68,25 @@ Task("Azure-Deploy")
 
 Task("Clean").Does(() => {
 
-	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\HabitatHome"))
+    string[] folders = { "\\assets\\HabitatHome", "\\assets\\HabitatHomeCD", "\\Website", "\\assets\\Xconnect", "\\assets\\Data Exchange Framework\\WDPWorkFolder", "\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
+
+    foreach (string folder in folders)
     {
-        CleanDirectories($"{configuration.DeployFolder}\\assets\\HabitatHome");
+        if (DirectoryExists($"{configuration.DeployFolder}{folder}"))
+        {
+            try
+            {
+                CleanDirectories($"{configuration.DeployFolder}{folder}");
+            } catch
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.WriteLine($"The folder under path \'{configuration.DeployFolder}{folder}\' is still in use by a process. Exiting...");
+                Console.ResetColor();
+                Environment.Exit(0);
+            }
+        }
     }
 
-    if (DirectoryExists($"{configuration.DeployFolder}\\assets\\HabitatHomeCD"))
-    {
-        CleanDirectories($"{configuration.DeployFolder}\\assets\\HabitatHomeCD");
-    }
-
-	if (DirectoryExists($"{configuration.DeployFolder}\\Website"))
-    {
-        CleanDirectories($"{configuration.DeployFolder}\\Website");
-    }
-
-	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Xconnect"))
-    {
-        CleanDirectories($"{configuration.DeployFolder}\\assets\\Xconnect");
-    }
-
-	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\WDPWorkFolder"))
-    {
-        CleanDirectories($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\WDPWorkFolder");
-    }
-    	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Data Exchange Framework CD\\WDPWorkFolder"))
-    {
-        CleanDirectories($"{configuration.DeployFolder}\\assets\\Data Exchange Framework CD\\WDPWorkFolder");
-    }
-	
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
 });
@@ -319,8 +309,19 @@ Task("Azure-Upload-Packages").Does(() => {
         });
 		});
 
-Task("Azure-Site-Deploy").Does(() => {
+Task("Azure-Site-Deploy")
+.IsDependentOn("Deploy-To-Azure")
+.IsDependentOn("Scale-Down");
+
+Task("Deploy-To-Azure").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Deploy.ps1", args =>
+        {
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+        });
+		});
+
+Task("Scale-Down").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Scaledown.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
         });
