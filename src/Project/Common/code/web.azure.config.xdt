@@ -5,7 +5,7 @@
          Production                                   
     Default value: Local
     -->
-        <add key="env:define" value="Local" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+        <add key="env:define" value="Production" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 
         <!-- UNICORN MODE SUPPORTED VALUES                 
          On
