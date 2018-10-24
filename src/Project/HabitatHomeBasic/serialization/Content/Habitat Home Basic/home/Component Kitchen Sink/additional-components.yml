@@ -1,0 +1,97 @@
+﻿---
+ID: "bb361e16-1a4c-4c1b-b4c0-c91c0723ba75"
+Parent: "8c96d8fd-cc19-4524-86b4-4480abf01ac6"
+Template: "bd74a392-dacd-4c23-853a-d520762b33a1"
+Path: "/sitecore/content/Habitat Sites/Habitat Home Basic/home/Component Kitchen Sink/additional-components"
+DB: master
+SharedFields:
+- ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
+  Hint: SxaTags
+  Value: "{B4ECA48E-8FDA-4173-A937-65A49BC44179}|{89AF9AA5-8F0A-4946-8702-B1F1C31D1833}|{C2DCF6D7-A9BA-4116-876B-25E535D21A15}|{CC09699F-C1EB-470D-B443-F6B8F0CDB597}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 2600
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{8287B5AD-5646-4103-B322-BD36F0465068}"
+          p:before="*"
+          s:ds="local:/Data/Event Calendar"
+          s:id="{C71B8E71-7FF8-46B0-800E-C5621EFE1D4B}"
+          s:par="GridParameters&amp;Styles&amp;TitleHeadingLevel=%7B8ACACA22-0D21-4A68-9137-6C484AA81DA6%7D&amp;CalendarType=%7B57873DCE-290B-4FCE-B1CE-2636A1E5BB18%7D%7C%7BED57FE3E-85F3-433B-93D5-A6D75277BEC1%7D%7C%7B9DCCDFCF-B112-4749-BE88-734E7E2C1D60%7D%7C%7B00F11EEC-4A09-4160-B764-D2F5AF29722C%7D%7C%7B6F08F8D6-A86C-4E2A-B793-113F18A1A790%7D&amp;ShowPreviousNext=1&amp;ShowMonthCaptions=1&amp;CompactView&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{B30C5AF3-1A4D-46BC-A0DC-66D8022E0C35}"
+          p:after="r[@uid='{8287B5AD-5646-4103-B322-BD36F0465068}']"
+          s:ds="local:/Data/Event List"
+          s:id="{52E40C93-F091-47C1-84DD-491DBCDC54B5}"
+          s:par="ListSignature&amp;PageSize&amp;Offset&amp;GridParameters&amp;FieldNames&amp;Styles&amp;TitleHeadingLevel=%7B6A44D9C6-61F0-4B69-8E1A-FDC27F96BA0F%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{FFC76A88-9983-4D9A-8999-228EEBA70685}"
+          p:after="r[@uid='{B30C5AF3-1A4D-46BC-A0DC-66D8022E0C35}']"
+          s:ds="{BC2BE67B-632A-4368-BED6-5FF55D1251C2}"
+          s:id="{2400E52D-F9B3-445D-8629-A69720A22B44}"
+          s:par="GridParameters&amp;SearchResultPage&amp;Facet&amp;FieldNames=%7B0F40BD9E-5C6C-4B8F-8B3A-8D5F0F41F1E0%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{62B34985-9AB0-4505-A70E-C88AA777E0D3}"
+          p:after="r[@uid='{FFC76A88-9983-4D9A-8999-228EEBA70685}']"
+          s:id="{CE780A09-737D-4E58-89B5-31A85101447D}"
+          s:par="GridParameters&amp;SearchResultPage&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{8C925B64-1C5A-44F8-B892-615E5CB7F87E}"
+          p:after="r[@uid='{62B34985-9AB0-4505-A70E-C88AA777E0D3}']"
+          s:ds="local:/Data/Map"
+          s:id="{4DD74227-4504-4102-A802-76241F372B9E}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Signature&amp;CenterOnFoundPOI&amp;AnimateFoundPOI&amp;DisableMapScrolling&amp;DisableMapZoomOnScroll&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{48A39F89-6D54-4755-94F8-4E8D9033A337}"
+          p:after="*[1=2]"
+          s:id="{4DF237E8-B788-4145-A5C1-3F2158107BE8}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Number of Posts=5&amp;Color Scheme=Light&amp;Reset Caching Options&amp;RenderingIdentifier&amp;Personalization&amp;Tests"
+          s:ph="/main/sxa-content-container/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Additional Components
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180823T162406Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FF509B64-B6D4-4FB7-9718-C4218B992740}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Additional Components
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Additional Components
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Additional Components
+  Versions:

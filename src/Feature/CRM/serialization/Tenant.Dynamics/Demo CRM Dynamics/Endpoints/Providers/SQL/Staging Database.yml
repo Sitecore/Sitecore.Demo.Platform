@@ -1,0 +1,29 @@
+﻿---
+ID: "b56b3df4-3b0e-434d-98e0-ea3b8cf1d9bf"
+Parent: "e8b4c3a6-59bc-4ce7-9df4-0adb1e437875"
+Template: "6e82ca2b-903b-49bb-a8a2-13c4d83afe7d"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Endpoints/Providers/SQL/Staging Database
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "500e0aad-2824-41f3-a67d-eed36f4c9e11"
+  Hint: ConnectionStringName
+  Value: Sitecore.DataExchange.Staging
+- ID: "c1134bc3-f1b0-4d66-820b-7cf19c9894eb"
+  Hint: DatabaseType
+  Value: "{657A457E-5FFA-49AC-B2EB-39E6E1903B3D}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{B56B3DF4-3B0E-434D-98E0-EA3B8CF1D9BF}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112642Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,0 +1,126 @@
+{
+  "Name": "Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceConnectCollectionModel",
+  "Version": "1.0",
+  "References": [
+    {
+      "Name": "XConnect",
+      "Version": "1.0"
+    },
+    {
+      "Name": "Sitecore.XConnect.Collection.Model",
+      "Version": "9.0"
+    },
+    {
+      "Name": "Sitecore.EmailCampaign.XConnectModel",
+      "Version": "1.0"
+    }
+  ],
+  "Types": {
+    "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceContactInformation": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceContactInformation, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "CreatedDate": {
+          "Type": "DateTime"
+        },
+        "Description": {
+          "Type": "String",
+          "Annotations": [
+            {
+              "Type": "PIISensitiveAttribute"
+            }
+          ]
+        }
+      }
+    },
+    "Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceContactInformation": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceContactInformation, Sitecore.HabitatHome.Feature.CRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "WelcomeJourneyStatus": {
+          "Type": "String"
+        }
+      }
+    },
+    "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceCampaignMembership": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceCampaignMembership, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "CampaignIds": {
+          "Type": [
+            "String"
+          ]
+        }
+      }
+    },
+    "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceInteraction": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceInteraction, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "Identifier": {
+          "Type": "String"
+        }
+      }
+    },
+    "Sitecore.DataExchange.Tools.SalesforceConnect.Events.TaskEvent": {
+      "Type": "Event",
+      "BaseType": "Sitecore.XConnect.Event",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.TaskEvent, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "Subject": {
+          "Type": "String"
+        },
+        "DueDate": {
+          "Type": "DateTime"
+        },
+        "Status": {
+          "Type": "String"
+        },
+        "Priority": {
+          "Type": "String"
+        },
+        "Comments": {
+          "Type": "String"
+        }
+      }
+    },
+    "Sitecore.DataExchange.Tools.SalesforceConnect.Events.EmailEvent": {
+      "Type": "Event",
+      "BaseType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.TaskEvent",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.EmailEvent, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {}
+    },
+    "Sitecore.DataExchange.Tools.SalesforceConnect.Events.CallEvent": {
+      "Type": "Event",
+      "BaseType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.TaskEvent",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.CallEvent, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {}
+    }
+  },
+  "Facets": [
+    {
+      "Target": "Contact",
+      "Name": "SalesforceContact",
+      "Type": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceContactInformation"
+    },
+    {
+      "Target": "Contact",
+      "Name": "CustomSalesforceContact",
+      "Type": "Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceContactInformation"
+    },
+    {
+      "Target": "Contact",
+      "Name": "SalesforceCampaignMembership",
+      "Type": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceCampaignMembership"
+    },
+    {
+      "Target": "Interaction",
+      "Name": "SalesforceInteraction",
+      "Type": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceInteraction"
+    }
+  ]
+}

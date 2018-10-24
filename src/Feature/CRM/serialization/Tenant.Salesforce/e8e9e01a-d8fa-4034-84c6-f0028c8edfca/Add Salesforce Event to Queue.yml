@@ -1,0 +1,32 @@
+﻿---
+ID: "ab1f090e-a2ed-47ba-885f-8010dd0ddb37"
+Parent: "e8e9e01a-d8fa-4034-84c6-f0028c8edfca"
+Template: "6bb19c5b-8e29-4e21-8c61-ae0aea5df2a2"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/xConnect Contacts and Interactions to Salesforce Sync/Process Single Event from xConnect Pipeline/Add Salesforce Event to Queue
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "493d5d0b-f8f6-48fa-a715-77c17e021579"
+  Hint: ObjectName
+  Value: event
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 750
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{AB1F090E-A2ED-47BA-885F-8010DD0DDB37}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165828Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
+    - ID: "67b0e14d-7735-4037-892a-92412f1595c8"
+      Hint: ObjectLocation
+      Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"

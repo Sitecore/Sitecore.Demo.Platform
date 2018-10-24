@@ -1,0 +1,32 @@
+﻿---
+ID: "76d206c2-e7e5-0644-8b4f-8c823d56f4f4"
+Parent: "57378c58-e851-6a82-57d5-6683e0df296e"
+Template: "dd11efa5-caaa-4345-8017-6cdd20017faa"
+Path: /sitecore/system/Settings/Data Exchange/Providers/xConnect/Collection Models/Connect for Salesforce/Connect for Salesforce Collection Model/Facets/Contact/MergeInfo/SuccessorContactId
+DB: master
+SharedFields:
+- ID: "207561e7-e95f-4034-8c2d-39fa5f40c381"
+  Hint: FacetName
+  Value: MergeInfo
+- ID: "31feb12b-66c3-4e50-a8c9-4cadf00c31c3"
+  Hint: PropertyName
+  Value: SuccessorContactId
+- ID: "3490e0f9-4cc2-466f-8262-b1d39b1bc8a2"
+  Hint: FacetType
+  Value: Sitecore.XConnect.Collection.Model.MergeInfo, Sitecore.XConnect.Collection.Model
+- ID: "34b08f94-e310-4d8d-babb-24b619032967"
+  Hint: EntityType
+  Value: "{8ECD641B-8F97-DB64-DF17-7E94D8AF6124}"
+- ID: "b96d5d51-1372-41c5-a3a7-fff17ba34089"
+  Hint: CollectionModelType
+  Value: Sitecore.HabitatHome.Feature.CRM.CustomCollectionModels.CustomSalesforceConnectCollectionModel, Sitecore.HabitatHome.Feature.CRM
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+- Language: "ja-JP"
+  Versions:
+  - Version: 1

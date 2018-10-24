@@ -1,0 +1,32 @@
+﻿---
+ID: "950a5ab1-5c69-453e-ac00-115a0e2b4e1b"
+Parent: "7d6a9dde-fee3-4f9f-b4a0-9576cf1e9c72"
+Template: "8a140187-897f-4c90-8024-46dc953f9344"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Data Access/Value Accessor Sets/Providers/xConnect/xConnect Contact Dynamics List Membership Facet/Add to MarketingListIds Property on xConnect Contact Dynamics Membership Facet
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "3c7f78cc-0c5c-4076-80ef-9a49fda5ff96"
+  Hint: ConverterType
+  Value: Sitecore.DataExchange.Providers.XConnect.Converters.DataAccess.AddToEntityFacetPropertyValueAccessorConverter, Sitecore.DataExchange.Providers.XConnect
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "cf5ccc8a-af4d-4ac3-9f69-1e0aea9bf9e1"
+  Hint: FacetProperty
+  Value: "{4C8B5975-CB81-CF2E-FFE5-2966981F5A0B}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{950A5AB1-5C69-453E-AC00-115A0E2B4E1B}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112608Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
