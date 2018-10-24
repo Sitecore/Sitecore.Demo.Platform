@@ -22,12 +22,14 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
     public class ContactFacetService : IContactFacetService
     {
         private readonly IContactFacetsProvider contactFacetsProvider;
+        private readonly IExportFileService exportFileService;
         private readonly ContactManager contactManager;
         private readonly string[] facetsToUpdate = { PersonalInformation.DefaultFacetKey, AddressList.DefaultFacetKey, EmailAddressList.DefaultFacetKey, ConsentInformation.DefaultFacetKey, PhoneNumberList.DefaultFacetKey, Avatar.DefaultFacetKey, EngagementMeasures.DefaultFacetKey};
 
-        public ContactFacetService(IContactFacetsProvider contactFacetsProvider)
+        public ContactFacetService(IContactFacetsProvider contactFacetsProvider, IExportFileService exportFileService)
         {
             this.contactFacetsProvider = contactFacetsProvider;
+            this.exportFileService = exportFileService;
             this.contactManager = Factory.CreateObject("tracking/contactManager", true) as ContactManager;
         }
 
@@ -113,7 +115,11 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
 
                     string exportedData = JsonConvert.SerializeObject(contact, serializerSettings);
 
-                    return exportedData;
+                    var fileWithExportedData = exportFileService.CreateExportFile();
+
+                    exportFileService.WriteExportedDataIntoFile(fileWithExportedData, exportedData);
+
+                    return fileWithExportedData;
                 }
                 catch (XdbExecutionException ex)
                 {
