@@ -1,0 +1,76 @@
+﻿---
+ID: "11d4bcc6-0477-41cf-afc3-deda2c8fec5a"
+Parent: "bc88fb5e-c3e0-46f0-b00d-d02d1949b8d3"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: "/sitecore/content/Habitat Sites/Habitat Home Basic/Data/Snippets/Full Width CTA - Trainer Finder"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "c80e6f3c-5bcd-426b-b1eb-6d10672e985d"
+  Hint: Data Source Selection Behavior
+  Value: AskUser
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{C28D8BDB-6B79-4D81-8A99-40FEACAA78DC}"
+          p:before="*"
+          s:ds="local:/Data/Full CTA Promo"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="Styles=%7b5a70fdda-f658-477c-89ee-29914070f8c8%7d%7c%7b6e07816a-c090-4475-b9d5-502a53868e19%7d&amp;DynamicPlaceholderId=2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b7a127542-03ba-4481-b7d6-e6fd8436bc91%7d"
+          s:ph="/section-content/container-1" />
+        <r
+          uid="{A83822E9-8054-4007-B80D-B2CEA0FBF56F}"
+          p:after="*[1=2]"
+          s:cnd=""
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:mvt=""
+          s:par="Styles=%7ba6f43d6a-c446-42d1-8585-8db52d5cdf23%7d%7c%7be5c90dfa-1ff4-47ad-a96e-e6b458212d21%7d&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=1"
+          s:ph="section-content" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180607T133357Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180620T061334Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180611T140838Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous

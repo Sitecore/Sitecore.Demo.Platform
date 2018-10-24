@@ -4,6 +4,8 @@
     {
         public string EmailAddress { get; set; }
 
+        public string EmailKey { get; set; }
+
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }
@@ -11,6 +13,8 @@
         public string LastName { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public string PhoneKey { get; set; }
 
         public string AvatarUrl { get; set; }
 
@@ -29,10 +33,12 @@
                 switch (key)
                 {
                     case "EmailAddress": return this.EmailAddress;
+                    case "EmailKey": return this.EmailKey;
                     case "FirstName": return this.FirstName;
                     case "MiddleName": return this.MiddleName;
                     case "LastName": return this.LastName;
                     case "PhoneNumber": return this.PhoneNumber;
+                    case "PhoneKey": return this.PhoneKey;
                     case "AvatarUrl": return this.AvatarUrl;
                     case "AvatarMimeType": return this.AvatarMimeType;
                     case "Gender": return this.Gender;
@@ -47,6 +53,8 @@
                 {
                     case "Email": this.EmailAddress = value;
                         break;
+                    case "EmailKey": this.EmailKey = value;
+                        break;
                     case "FirstName": this.FirstName = value;
                         break;
                     case "MiddleName": this.MiddleName = value;
@@ -54,6 +62,8 @@
                     case "LastName": this.LastName = value;
                         break;
                     case "PhoneNumber": this.PhoneNumber = value;
+                        break;
+                    case "PhoneKey": this.PhoneKey = value;
                         break;
                     case "AvatarUrl": this.AvatarUrl = value;
                         break;

@@ -1,0 +1,53 @@
+﻿---
+ID: "d3e301bb-49c1-4c14-81c9-357abe847caf"
+Parent: "f6830d72-7fab-4197-94d0-74c50c90c92d"
+Template: "4f66e11c-2402-4a4f-a6ee-a2ea53897130"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Pipelines/xConnect Contacts to Dynamics Sync Pipelines/Process Single Email Sent Event from xConnect Pipeline/Resolve Dynamics Email By Id
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "010e5d89-6409-4fbc-843b-ceb84c8ed3bb"
+  Hint: IdentifierObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "08f5cf95-e339-4934-bcfe-ec0022a36d6b"
+  Hint: EntityName
+  Value: email
+- ID: "0a5bfbc1-1690-4736-a8a1-354b9dbec60a"
+  Hint: EndpointFrom
+  Value: "{DCDA28A7-6999-44D3-9C0E-A97671C0DDCE}"
+- ID: "1a6810e6-b18b-4e38-825a-fc9988d3518a"
+  Hint: FinishPipelineIfObjectNotResolved
+  Type: Checkbox
+  Value: 1
+- ID: "2d566ef3-300c-4b9a-afdc-be5c59576aa9"
+  Hint: ValueReaderToConvertIdentifierValueForComparison
+  Value: "{FBA399CA-0DEE-407C-8CC0-21FAB15FE407}"
+- ID: "4ce9ed44-bc7f-44e5-886d-97d9a6890faa"
+  Hint: IdentifierValueAccessor
+  Value: "{674682FD-625A-4869-9892-D1322927FC60}"
+- ID: "5c061c42-ff86-4f43-b5ad-831dc03dc77d"
+  Hint: ResolvedObjectLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "d8dcad31-3541-407a-8b1c-b92ec252bbf1"
+  Hint: AttributesToRead
+  Type: Treelist
+  Value: "{E36BF45A-F52C-4C7C-ACD5-2ED0F91EEA5D}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D3E301BB-49C1-4C14-81C9-357ABE847CAF}"
+- ID: "fbbda69d-8259-47c2-b0b4-6d453e55532a"
+  Hint: FinishPipelineIfExistingObjectFound
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112727Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

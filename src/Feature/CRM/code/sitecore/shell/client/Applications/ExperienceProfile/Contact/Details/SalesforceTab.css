@@ -1,0 +1,81 @@
+﻿div[data-sc-id=MiddleContactColumn] span[data-sc-id=Type],
+div[data-sc-id=MiddleContactColumn] span[data-sc-id=PrimeEmailType],
+div[data-sc-id=MiddleContactColumn] span[data-sc-id=PrimePhoneType],
+div[data-sc-id=MiddleContactColumn] span[data-sc-id=PrimeAddressType] {
+    display: block;
+    float: left;
+    width: 90px;
+    color: #707070;
+    clear: both;
+}
+
+div[data-sc-id=RightDetailsColumn] > div > span:last-child {
+    margin-bottom: 4px;
+}
+
+.sc-text-label, .sc-text-smalltitle, .sc-text-largetitle, .sc-text-value {
+    display: block;
+}
+
+img[data-sc-id=MatchImage] {
+    float: left;
+}
+
+span.sc-text[data-sc-id=FirstNameLabel],
+span.sc-text[data-sc-id=MiddleNameLabel],
+span.sc-text[data-sc-id=LastNameLabel],
+span.sc-text[data-sc-id=TitleLabel],
+span.sc-text[data-sc-id=GenderLabel],
+span.sc-text[data-sc-id=BirthdayLabel],
+span.sc-text[data-sc-id=Type] {
+  display: block;
+  float: left;
+  width: 90px;
+  color: #707070;
+  clear: both;
+}
+
+span.sc-text[data-sc-id=FirstNameValue],
+span.sc-text[data-sc-id=MiddleNameValue],
+span.sc-text[data-sc-id=LastNameValue],
+span.sc-text[data-sc-id=TitleValue],
+span.sc-text[data-sc-id=GenderValue],
+span.sc-text[data-sc-id=BirthdayValue],
+span.sc-text[data-sc-id=Value] {
+  display: block;
+  padding-left: 95px;
+}
+
+div[data-sc-id=RightContactColumn], 
+div[data-sc-id=MiddleContactColumn] {
+  padding-left: 16px;
+}
+
+div[data-sc-id=MiddleContactColumn] > div,
+div[data-sc-id=LeftContactColumn] > div,
+
+div[data-sc-id=RightContactColumn] > div {
+  float: left;
+  width: 100%;
+}
+
+div[data-sc-id=LeftContactColumn] > div span:nth-child(2),
+div[data-sc-id=RightContactColumn] > div span:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+div[data-sc-id=ContactDetailBorder] span[data-sc-id=Value]{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+div.sc-border[data-sc-id=FirstNameBorder],
+div.sc-border[data-sc-id=MiddleNameBorder],
+div.sc-border[data-sc-id=LastNameBorder],
+div.sc-border[data-sc-id=GenderInfoBorder],
+div.sc-border[data-sc-id=BirthBorder],
+div.sc-border[data-sc-id=ContactDetailBorder],
+div.sc-border[data-sc-id=TitleBorder] {
+  padding-top: 10px;
+}

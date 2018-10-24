@@ -1,0 +1,37 @@
+﻿---
+ID: "99092e16-4534-4a0c-92c2-76e49556024a"
+Parent: "82f70d8f-d32e-4728-856f-d9578cc72159"
+Template: "075c4fbd-f54e-4e6d-bd54-d49bda0913d8"
+Path: /sitecore/system/Data Exchange/Demo CRM Dynamics/Pipeline Batches/Dynamics Contacts to xConnect Sync
+DB: master
+BranchID: "f6d87616-5e7c-461a-9d5c-c2bf87deb2a1"
+SharedFields:
+- ID: "2aa5c591-ff55-411d-96c0-978bb2c58b94"
+  Hint: Log
+  Value: |
+    C:\inetpub\wwwroot\habitat.dev.local\App_Data\logs\DataExchange\Demo.CRM\Dynamics.Contacts.to.xConnect.Sync.20180615.201251.txt
+- ID: "6a2b2cbb-4338-4814-a8a9-9fecbb90456a"
+  Hint: LastRunFinished
+  Value: 20180615T201252Z
+- ID: "9061beea-df25-4b2b-a698-3f5b4e867d18"
+  Hint: Pipelines
+  Type: Treelist
+  Value: "{453425AD-792E-44D9-8E77-5A3875C7A1C7}"
+- ID: "985ba535-0f3e-4da8-a768-a469026de9db"
+  Hint: RequestedAt
+  Value: 20180615T201251Z
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{99092E16-4534-4A0C-92C2-76E49556024A}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180102T112644Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
