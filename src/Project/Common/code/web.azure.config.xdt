@@ -39,5 +39,108 @@
                 </rule>
             </rules>
         </rewrite>
+        <urlCompression doStaticCompression="true" doDynamicCompression="true"  xdt:Transform="InsertIfMissing"/>
+        <httpCompression xdt:Transform="InsertIfMissing">
+            <dynamicTypes>
+                <clear />
+                <add enabled="true" mimeType="text/*"/>
+                <add enabled="true" mimeType="message/*"/>
+                <add enabled="true" mimeType="application/x-javascript"/>
+                <add enabled="true" mimeType="application/javascript"/>
+                <add enabled="true" mimeType="application/json"/>
+                <add enabled="false" mimeType="*/*"/>
+                <add enabled="true" mimeType="application/atom+xml"/>
+                <add enabled="true" mimeType="application/atom+xml;charset=utf-8"/>
+            </dynamicTypes>
+            <staticTypes>
+                <clear />
+                <add enabled="true" mimeType="text/*"/>
+                <add enabled="true" mimeType="message/*"/>
+                <add enabled="true" mimeType="application/javascript"/>
+                <add enabled="true" mimeType="application/atom+xml"/>
+                <add enabled="true" mimeType="application/xaml+xml"/>
+                <add enabled="true" mimeType="application/json"/>
+                <add enabled="false" mimeType="*/*"/>
+            </staticTypes>
+        </httpCompression>
+        <staticContent xdt:Transform="InsertIfMissing">
+            <!-- Remove ETAG IN IIS >= 8 ; for IIS 7/7.5 see the Rewrite rules (bigger description of why you might remove etag down there aswell)
+            <clientCache setEtag="false"/>
+            -->
+            <!-- Set expire headers to 7 days for static content-->
+            <clientCache cacheControlMaxAge="7.00:00:00" cacheControlMode="UseMaxAge"/>
+            <!-- use utf-8 encoding for anything served text/plain or text/html -->
+            <!-- in the case of .html files; if you AJAX load html files (i.e. in angular) then remove these two lines. -->
+            <remove fileExtension=".css"/>
+            <mimeMap fileExtension=".css" mimeType="text/css"/>
+            <remove fileExtension=".js"/>
+            <mimeMap fileExtension=".js" mimeType="text/javascript"/>
+            <remove fileExtension=".mjs"/>
+            <mimeMap fileExtension=".mjs" mimeType="text/javascript"/>
+            <remove fileExtension=".json"/>
+            <mimeMap fileExtension=".json" mimeType="application/json"/>
+            <remove fileExtension=".map"/>
+            <mimeMap fileExtension=".map" mimeType="application/json"/>
+            <remove fileExtension=".rss"/>
+            <mimeMap fileExtension=".rss" mimeType="application/rss+xml; charset=UTF-8"/>
+            <remove fileExtension=".xml"/>
+            <mimeMap fileExtension=".xml" mimeType="application/xml; charset=UTF-8"/>
+            <!-- HTML5 Audio/Video mime types-->
+            <remove fileExtension=".mp3"/>
+            <mimeMap fileExtension=".mp3" mimeType="audio/mpeg"/>
+            <remove fileExtension=".mp4"/>
+            <mimeMap fileExtension=".mp4" mimeType="video/mp4"/>
+            <remove fileExtension=".ogg"/>
+            <mimeMap fileExtension=".ogg" mimeType="audio/ogg"/>
+            <remove fileExtension=".ogv"/>
+            <mimeMap fileExtension=".ogv" mimeType="video/ogg"/>
+            <remove fileExtension=".webm"/>
+            <mimeMap fileExtension=".webm" mimeType="video/webm"/>
+            <!-- Proper svg serving. Required for svg webfonts on iPad -->
+            <remove fileExtension=".svg"/>
+            <mimeMap fileExtension=".svg" mimeType="image/svg+xml"/>
+            <remove fileExtension=".svgz"/>
+            <mimeMap fileExtension=".svgz" mimeType="image/svg+xml"/>
+            <!-- HTML4 Web font mime types -->
+            <!-- Remove default IIS mime type for .eot which is application/octet-stream -->
+            <remove fileExtension=".eot"/>
+            <mimeMap fileExtension=".eot" mimeType="application/vnd.ms-fontobject"/>
+            <remove fileExtension=".ttf"/>
+            <mimeMap fileExtension=".ttf" mimeType="application/x-font-ttf"/>
+            <remove fileExtension=".ttc"/>
+            <mimeMap fileExtension=".ttc" mimeType="application/x-font-ttf"/>
+            <remove fileExtension=".otf"/>
+            <mimeMap fileExtension=".otf" mimeType="font/opentype"/>
+            <remove fileExtension=".woff"/>
+            <mimeMap fileExtension=".woff" mimeType="application/font-woff"/>
+            <remove fileExtension=".woff2"/>
+            <mimeMap fileExtension=".woff2" mimeType="font/woff2"/>
+            <remove fileExtension=".crx"/>
+            <mimeMap fileExtension=".crx" mimeType="application/x-chrome-extension"/>
+            <remove fileExtension=".xpi"/>
+            <mimeMap fileExtension=".xpi" mimeType="application/x-xpinstall"/>
+            <remove fileExtension=".safariextz"/>
+            <mimeMap fileExtension=".safariextz" mimeType="application/octet-stream"/>
+            <!-- Flash Video mime types-->
+            <remove fileExtension=".flv"/>
+            <mimeMap fileExtension=".flv" mimeType="video/x-flv"/>
+            <remove fileExtension=".f4v"/>
+            <mimeMap fileExtension=".f4v" mimeType="video/mp4"/>
+            <!-- Assorted types -->
+            <remove fileExtension=".ico"/>
+            <mimeMap fileExtension=".ico" mimeType="image/x-icon"/>
+            <remove fileExtension=".webp"/>
+            <mimeMap fileExtension=".webp" mimeType="image/webp"/>
+            <remove fileExtension=".htc"/>
+            <mimeMap fileExtension=".htc" mimeType="text/x-component"/>
+            <remove fileExtension=".vcf"/>
+            <mimeMap fileExtension=".vcf" mimeType="text/x-vcard"/>
+            <remove fileExtension=".torrent"/>
+            <mimeMap fileExtension=".torrent" mimeType="application/x-bittorrent"/>
+            <remove fileExtension=".cur"/>
+            <mimeMap fileExtension=".cur" mimeType="image/x-icon"/>
+            <remove fileExtension=".webapp"/>
+            <mimeMap fileExtension=".webapp" mimeType="application/x-web-app-manifest+json; charset=UTF-8"/>
+        </staticContent>
     </system.webServer>
 </configuration>
