@@ -113,10 +113,7 @@ if($foundfiles)
 					}
 					else
 					{
-						if($module.install -eq $true)
-						{
-							$downloadlist.Add($module.fileName) | out-null
-						}
+						$downloadlist.Add($module.fileName) | out-null
 					}
 				}
 			}
@@ -154,10 +151,7 @@ else
 			{
 				foreach ($module in $_.modules)
 				{
-					if($module.install -eq $true)
-					{
-						$downloadlist.Add($module.fileName) | out-null
-					}
+					$downloadlist.Add($module.fileName) | out-null
 				}
 			}
 			else
