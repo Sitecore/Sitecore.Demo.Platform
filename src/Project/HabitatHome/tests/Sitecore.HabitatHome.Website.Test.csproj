@@ -67,5 +67,8 @@
     <Content Include="backstop\backstopReportRunner.js" />
     <Content Include="backstop\backstop_data\bitmaps_reference\**" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="backstop\Readme.md" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
