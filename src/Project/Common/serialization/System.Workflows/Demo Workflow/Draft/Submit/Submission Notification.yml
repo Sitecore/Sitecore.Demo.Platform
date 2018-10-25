@@ -42,3 +42,26 @@ Languages:
         
         Log in to the <a href='https://$hostname$/sitecore/shell/Applications/Workbox.aspx?sc_bw=1'>Sitecore Workbox</a> to approve this item.
         
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T051206Z
+    - ID: "2c18e0dc-d31f-437d-8eb2-0b025959e57a"
+      Hint: Approvers Role
+      Value: |
+        sitecore\Habitat Home Content Approver
+    - ID: "42dc6037-ca08-4fc8-8c70-213842d032ea"
+      Hint: Subject
+      Value: "Habitat Home: Items Awaiting Approval"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "e8f76062-0990-4b8b-860e-de4f50eb76ea"
+      Hint: Message
+      Value: |
+        The following item was submitted for approval by $submitter$: <br /><br />
+        

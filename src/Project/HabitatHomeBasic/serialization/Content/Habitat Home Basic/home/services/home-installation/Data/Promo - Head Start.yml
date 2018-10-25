@@ -115,7 +115,7 @@ Languages:
     Fields:
     - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
       Hint: PromoText
-      Value: 開始する
+      Value: <p>Get A Head Start</p>
     - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
       Hint: PromoIcon
       Value: |
@@ -129,8 +129,9 @@ Languages:
         sitecore\admin
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
-      Value: <p>Habitat Homeで販売されている製品のマニュアルとマニュアルをすべてコンパイルし、すばやく簡単に検索できます。 リソースセンターにアクセスして製品を見つけ、今日の「はじめに」のガイドをダウンロードしてください。 あなたの家の設置エキスパートが到着すると、余分な準備ができます。&nbsp;</p>
+      Value: |
+        <p>We compile all the documentation and manuals for products sold at Habitat Home for a quick and easy search. Go to our resource center, find your products, and download the "Getting Started" guides today. When your home installation expert arrives, you'll be extra prepared.&nbsp;</p>
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link linktype="internal" text="Search Now" querystring="" target="" id="{B324AA9A-4053-4B7E-97A2-8133988E4371}" />
+        <link text="Search Now" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{CF5DA84F-D88E-415A-B0CB-48D8CC2B5893}" />
