@@ -107,7 +107,11 @@ Languages:
     Fields:
     - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
       Hint: PromoText
-      Value: <p>コネクテッドリビング</p>
+      Value: <p>コネクテッド リビング</p>
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{815FCF64-4D70-46E4-A3C2-75F0619EB12A}" alt="リビングルーム" height="" width="" hspace="" vspace=""></image>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180321T104428Z
@@ -117,8 +121,8 @@ Languages:
         sitecore\admin
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
-      Value: <p>完璧なホームシアターの設定方法</p>
+      Value: <p>完璧なホームシアターのセットアップ方法</p>
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link text="Read More" anchor="" linktype="internal" class="" title=""  querystring="" id="{B27DE97B-A3B8-481D-893F-D231B8567C03}" />
+        <link id="{da745ea9-e17a-43eb-a337-f406e7247aac}" querystring="" text="Read More" anchor="" url="/Habitat Sites/Habitat Home Basic/home/home-entertainment" title="" class="" linktype="internal" />
