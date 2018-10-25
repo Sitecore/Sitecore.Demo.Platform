@@ -51,6 +51,7 @@
                 <add enabled="false" mimeType="*/*"/>
                 <add enabled="true" mimeType="application/atom+xml"/>
                 <add enabled="true" mimeType="application/atom+xml;charset=utf-8"/>
+                <add enabled="true" mimeType="image/svg+xml" />
             </dynamicTypes>
             <staticTypes>
                 <clear />
@@ -61,16 +62,13 @@
                 <add enabled="true" mimeType="application/xaml+xml"/>
                 <add enabled="true" mimeType="application/json"/>
                 <add enabled="false" mimeType="*/*"/>
+                <add enabled="true" mimeType="image/svg+xml" />
             </staticTypes>
         </httpCompression>
         <staticContent xdt:Transform="InsertIfMissing">
-            <!-- Remove ETAG IN IIS >= 8 ; for IIS 7/7.5 see the Rewrite rules (bigger description of why you might remove etag down there aswell)
-            <clientCache setEtag="false"/>
-            -->
-            <!-- Set expire headers to 7 days for static content-->
+           
             <clientCache cacheControlMaxAge="7.00:00:00" cacheControlMode="UseMaxAge"/>
-            <!-- use utf-8 encoding for anything served text/plain or text/html -->
-            <!-- in the case of .html files; if you AJAX load html files (i.e. in angular) then remove these two lines. -->
+            
             <remove fileExtension=".css"/>
             <mimeMap fileExtension=".css" mimeType="text/css"/>
             <remove fileExtension=".js"/>
@@ -84,8 +82,7 @@
             <remove fileExtension=".rss"/>
             <mimeMap fileExtension=".rss" mimeType="application/rss+xml; charset=UTF-8"/>
             <remove fileExtension=".xml"/>
-            <mimeMap fileExtension=".xml" mimeType="application/xml; charset=UTF-8"/>
-            <!-- HTML5 Audio/Video mime types-->
+            <mimeMap fileExtension=".xml" mimeType="application/xml; charset=UTF-8"/>          
             <remove fileExtension=".mp3"/>
             <mimeMap fileExtension=".mp3" mimeType="audio/mpeg"/>
             <remove fileExtension=".mp4"/>
@@ -95,14 +92,11 @@
             <remove fileExtension=".ogv"/>
             <mimeMap fileExtension=".ogv" mimeType="video/ogg"/>
             <remove fileExtension=".webm"/>
-            <mimeMap fileExtension=".webm" mimeType="video/webm"/>
-            <!-- Proper svg serving. Required for svg webfonts on iPad -->
+            <mimeMap fileExtension=".webm" mimeType="video/webm"/>          
             <remove fileExtension=".svg"/>
             <mimeMap fileExtension=".svg" mimeType="image/svg+xml"/>
             <remove fileExtension=".svgz"/>
-            <mimeMap fileExtension=".svgz" mimeType="image/svg+xml"/>
-            <!-- HTML4 Web font mime types -->
-            <!-- Remove default IIS mime type for .eot which is application/octet-stream -->
+            <mimeMap fileExtension=".svgz" mimeType="image/svg+xml"/>         
             <remove fileExtension=".eot"/>
             <mimeMap fileExtension=".eot" mimeType="application/vnd.ms-fontobject"/>
             <remove fileExtension=".ttf"/>
@@ -120,13 +114,11 @@
             <remove fileExtension=".xpi"/>
             <mimeMap fileExtension=".xpi" mimeType="application/x-xpinstall"/>
             <remove fileExtension=".safariextz"/>
-            <mimeMap fileExtension=".safariextz" mimeType="application/octet-stream"/>
-            <!-- Flash Video mime types-->
+            <mimeMap fileExtension=".safariextz" mimeType="application/octet-stream"/>        
             <remove fileExtension=".flv"/>
             <mimeMap fileExtension=".flv" mimeType="video/x-flv"/>
             <remove fileExtension=".f4v"/>
-            <mimeMap fileExtension=".f4v" mimeType="video/mp4"/>
-            <!-- Assorted types -->
+            <mimeMap fileExtension=".f4v" mimeType="video/mp4"/>       
             <remove fileExtension=".ico"/>
             <mimeMap fileExtension=".ico" mimeType="image/x-icon"/>
             <remove fileExtension=".webp"/>
