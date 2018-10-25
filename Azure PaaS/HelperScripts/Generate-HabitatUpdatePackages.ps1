@@ -121,7 +121,7 @@ Function Clean-Up([PSObject] $Configuration, [String] $FolderString){
     # Clean Assemblies
 
     $AssembliesToRemove = @("Sitecore.*.dll","Unicorn*.dll","Rainbow*.dll", "Kamsar*.dll")
-    $AssembliesToKeep = @("Sitecore.HabitatHome.*")
+    $AssembliesToKeep = @("Sitecore.HabitatHome.*", "Sitecore.DataExchange.*")
 
     Get-ChildItem $FolderString -Include $AssembliesToRemove -Exclude $AssembliesToKeep -Recurse | ForEach-Object($_) { Remove-Item $_.FullName }
 
