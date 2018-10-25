@@ -21,6 +21,7 @@ Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
 $configarray     = ProcessConfigFile -Config $ConfigurationFile
 $config          = $configarray[0]
+$assetconfig	 = $configarray[1]
 $azureuserconfig = $configarray[2]
 $topology		 = $configarray[5]
 
@@ -28,8 +29,17 @@ $topology		 = $configarray[5]
 # Fill in Parameters
 #####################
 
-$ArmParametersPath = "$($topology)\azuredeploy.parameters.json"
-
+foreach($asset in $assetconfig.prerequisites)
+{
+	if(($asset.name -eq "Data Exchange Framework") -and ($asset.install -eq $true))
+	{
+		$ArmParametersPath = "$($topology)\azuredeploy.parameters.json"
+	}
+	else
+	{
+		$ArmParametersPath = "$($topology)\azuredeploy.parametersWOdef.json"
+	}	
+}
 
 foreach($setting in $azureuserconfig.settings)
 {

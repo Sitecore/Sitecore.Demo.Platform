@@ -51,7 +51,7 @@ Clone the Sitecore.HabitatHome.Content repository locally - defaults are configu
 
 The following is a list of default values/assumptions for install locations
 
-**Project Folder**		`c:\projects\sitecore.habitathome.content`  
+**Project Folder**		`c:\projects\sitecore.habitathome.platform`  
 **Deploy Folder**		`c:\Deploy`  
 
 if these values are not correct you will need to edit the cake-config.json in the `\Azure PaaS` folder. 
