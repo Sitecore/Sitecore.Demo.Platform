@@ -81,7 +81,7 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
                 }            
             }
         } 
-        elseif(($asset.uploadToAzure -eq $True) -and ($asset.isGroup -eq $True) -and ($asset.install -eq $True))
+        elseif(($asset.uploadToAzure -eq $True) -and ($($asset.isGroup -eq $True) -or $($asset.convertToWdp -eq $True)) -and ($asset.install -eq $True))
         {
         
             if((Test-Path $(Join-Path $assetsFolder $asset.name)) -eq $True)
