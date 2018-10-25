@@ -81,6 +81,10 @@ Languages:
       Value: |
         <link text="Appareils" anchor="" linktype="internal" class="" title=""  querystring="" id="{DC2D421A-6AB9-4907-8E1E-8C4F36BA4259}" />
 - Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: モバイル デバイス
   Versions:
   - Version: 1
     Fields:
@@ -91,3 +95,7 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="モバイルデバイス" anchor="" linktype="internal" class="" title="" target="|Custom" querystring="" id="{DC2D421A-6AB9-4907-8E1E-8C4F36BA4259}" />
