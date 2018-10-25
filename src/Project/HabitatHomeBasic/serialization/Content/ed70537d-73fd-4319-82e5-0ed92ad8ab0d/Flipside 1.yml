@@ -6,28 +6,6 @@ Path: "/sitecore/content/Habitat Sites/Habitat Home Basic/home/Component Kitchen
 DB: master
 BranchID: "7152d5bd-bdf6-424f-96b1-e268b0c4808e"
 SharedFields:
-- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
-  Hint: __Renderings
-  Type: layout
-  Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{B794ED3A-F795-4C94-B366-FCFDF57D75AE}">
-        <r
-          ds=""
-          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
-          par="FieldNames=%7B5423143A-760D-4F0E-BA4D-0B02E649A778%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
-          ph="section-title"
-          uid="{074B4420-216B-458F-B3DE-153DC9D4784E}" />
-        <r
-          ds=""
-          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
-          par="FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
-          ph="section-content"
-          uid="{8BE346EB-CE40-4394-A438-1DDDCBD6ABD2}" />
-      </d>
-    </r>
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{08CBEC66-44B1-433A-BB38-76FD07D6B60D}"
@@ -55,6 +33,27 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180823T151105Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "b64a5f49-1b79-4f86-aecd-c5a2c0defeed"
+      Hint: Content
+      Value: "Bacon ipsum dolor amet ball tip picanha turkey, tenderloin spare ribs tail rump bacon beef kielbasa buffalo t-bone. Pastrami venison corned beef leberkas, kevin cow pancetta andouille tail. Ham hock jowl hamburger bacon short loin pig. Beef ribs ground round flank landjaeger ham hock, tri-tip pork belly. Jowl beef fatback shankle, swine pig ribeye pancetta filet mignon leberkas beef ribs tail doner short loin cupim. Picanha fatback ball tip landjaeger frankfurter alcatra corned beef. Alcatra short ribs ham hock, leberkas tail pig salami corned beef."
+    - ID: "fd8fdb4a-8022-453c-aff5-8e68d3d3eb5f"
+      Hint: Heading
+      Value: Flipside 1
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: フリップサイド 1
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T015532Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
