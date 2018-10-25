@@ -42,6 +42,8 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
     # Add Sitecore and habitat WDPs to upload list
     if($cakeJsonConfig.Topology -eq "single")
     {
+
+		
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip')))) | out-null
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp0xconnect.scwdp.zip')))) | out-null
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip')))) | out-null
@@ -68,7 +70,7 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
     # Add Module WDPs to upload list
     foreach ($asset in $assetsJsonConfig.prerequisites)
     {
-        if(($asset.uploadToAzure -eq $True) -and ($asset.isWdp -eq $True))
+        if(($asset.uploadToAzure -eq $True) -and ($asset.isWdp -eq $True) -and ($asset.install -eq $True))
         {
             if((Test-Path $(Join-Path $assetsFolder $asset.name)) -eq $True)
             {
@@ -79,7 +81,7 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
                 }            
             }
         } 
-        elseif(($asset.uploadToAzure -eq $True) -and ($asset.isGroup -eq $True))
+        elseif(($asset.uploadToAzure -eq $True) -and ($asset.isGroup -eq $True) -and ($asset.install -eq $True))
         {
         
             if((Test-Path $(Join-Path $assetsFolder $asset.name)) -eq $True)
@@ -115,7 +117,7 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
 # Function for file uploads
 ###########################
 
-Function UploadFiles ([PSCustomObject] $cakeJsonConfig){
+Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig){
 
     $sitecoreARMpathArray = New-Object System.Collections.ArrayList
     
@@ -125,7 +127,14 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig){
     $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'xconnect.json')))) | out-null
     $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json')))) | out-null
     $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Data Exchange Framework', 'def_module.json')))) | out-null
+
+	foreach ($asset in $assetsJsonConfig.prerequisites)
+	{
+		if(($asset.uploadToAzure -eq "Data Exchange Framework") -and ($asset.install -eq $true))
+		{
+			$sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Data Exchange Framework', 'def_module.json')))) | out-null
+        }
+	}
 
     # Checking if the files are already uploaded and present in Azure and uploading
 
@@ -318,9 +327,43 @@ UploadFiles -cakeJsonConfig $config
 
 $blobsList = Get-AzureStorageBlob -Container $containerName -Context $ctx
 
-ForEach($blob in $blobsList){
-    Switch($blob.Name){
+foreach($asset in $assetconfig.prerequisites)
+{
+    if(($asset.name -eq "Data Exchange Framework") -and ($asset.install -eq $true))
+    {
+        $definstall = $true
 
+        foreach ($module in $asset.modules)
+        {
+            if($module.Name -eq "Data Exchange Framework")
+            {
+                $defversion = $($module.FileName -replace '\.zip$','')
+                $defversion = $($defversion -replace '^Data Exchange Framework ','')
+            }
+        }
+    }
+    elseif(($asset.name -eq "Data Exchange Framework CD") -and ($asset.install -eq $true))
+    {
+        foreach ($module in $asset.modules)
+        {
+            if($module.Name -eq "Data Exchange Framework CD")
+            {
+                $defCDversion = $($module.FileName -replace '\.zip$','')
+                $defCDversion = $($defCDversion -replace '^Data Exchange Framework CD Server ','')
+            }
+        }
+    }
+    elseif(($asset.name -eq "Data Exchange Framework") -and ($asset.install -eq $false))
+    {
+        $definstall = $false
+    }
+}
+
+
+ForEach($blob in $blobsList)
+{
+    Switch($blob.Name)
+    {
         "wdps/Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0.scwdp.zip"
         {
             $sxaMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
@@ -328,38 +371,6 @@ ForEach($blob in $blobsList){
         "wdps/Sitecore PowerShell Extensions-4.7.2 for Sitecore 8.scwdp.zip"
         {
             $speMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
-        {
-            $defDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
-        {
-            $defSitecoreDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/SQL Provider for Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
-        {
-            $defSqlDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
-        {
-            $defxConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
-        {
-            $defDynamicsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Connect for Microsoft Dynamics 2.0.1 rev. 180108_single.scwdp.zip"
-        {
-            $defDynamicsConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108_single.scwdp.zip"
-        {
-            $defSalesforceDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Connect for Salesforce 2.0.1 rev. 180108_single.scwdp.zip"
-        {
-            $defSalesforceConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
         }
         "wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip"
         {
@@ -372,6 +383,45 @@ ForEach($blob in $blobsList){
         "wdps/xconnect_single.scwdp.zip"
         {
             $habitatXconnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+        }
+    }
+
+    if($definstall -eq $true)
+    {
+        Switch($blob.Name)
+        {
+            $("wdps/Data Exchange Framework "+$defversion+"_single.scwdp.zip")
+            {
+               $defDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            $("wdps/Sitecore Provider for Data Exchange Framework "+$defversion+"_single.scwdp.zip")
+            {
+                $defSitecoreDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+           $("wdps/SQL Provider for Data Exchange Framework "+$defversion+"_single.scwdp.zip")
+            {
+                $defSqlDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            $("wdps/xConnect Provider for Data Exchange Framework "+$defversion+"_single.scwdp.zip")
+            {
+                $defxConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            $("wdps/Dynamics Provider for Data Exchange Framework "+$defversion+"_single.scwdp.zip")
+            {
+                $defDynamicsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            $("wdps/Connect for Microsoft Dynamics "+$defversion+"_single.scwdp.zip")
+            {
+                $defDynamicsConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            $("wdps/Salesforce Provider for Data Exchange Framework "+$defversion+"_single.scwdp.zip")
+            {
+                $defSalesforceDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
+            $("wdps/Connect for Salesforce "+$defversion+"_single.scwdp.zip")
+            {
+                $defSalesforceConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            }
         }
     }
 }
@@ -398,44 +448,11 @@ elseif($config.Topology -eq "scaled")
 {
     ForEach($blob in $blobsList)
     {
-
         Switch($blob.Name)
         {
             "wdps/Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0 CD.scwdp.zip"
             {
                 $sxaCDMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
-            {
-                $defCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
-            {
-                $defSitecoreCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/SQL Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
-            {
-                $defSqlCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/xConnect Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
-            {
-                $defxConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Dynamics Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
-            {
-                $defDynamicsCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Connect for Microsoft Dynamics CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
-            {
-                $defDynamicsConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Salesforce Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
-            {
-                $defSalesforceCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Connect for Salesforce CD Server 2.0.1 rev. 180108_scaled.scwdp.zip"
-            {
-                $defSalesforceConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
             }
             "wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip"
             {
@@ -481,11 +498,47 @@ elseif($config.Topology -eq "scaled")
             {
                 $habitatWebsiteCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
             }
-
         }
-    
-    }
 
+        if($definstall -eq $true)
+        {
+            Switch($blob.Name)
+            {
+                $("wdps/Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
+                {
+                    $defCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                $("wdps/Sitecore Provider for Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
+                {
+                    $defSitecoreCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                $("wdps/SQL Provider for Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
+                {
+                    $defSqlCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                $("wdps/xConnect Provider for Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
+                {
+                    $defxConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                $("wdps/Dynamics Provider for Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
+                {
+                    $defDynamicsCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                $("wdps/Connect for Microsoft Dynamics CD Server "+$defCDversion+"_scaled.scwdp.zip")
+                {
+                    $defDynamicsConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                $("wdps/Salesforce Provider for Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
+                {
+                    $defSalesforceCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                $("wdps/Connect for Salesforce CD Server "+$defCDversion+"_scaled.scwdp.zip")
+                {
+                    $defSalesforceConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+            }
+        }
+    }
 }
 
 
@@ -531,7 +584,16 @@ ForEach ($blob in $blobsList)
 
 # Find and process the azuredeploy.parameters.json template
 
-[String] $azuredeployConfigFile = $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
+[String] $azuredeployConfigFile = $null
+
+if($definstall -eq $true)
+{
+    $azuredeployConfigFile = $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
+}
+elseif($definstall -eq $false)
+{
+    $azuredeployConfigFile = $([IO.Path]::Combine($topology, 'azuredeploy.parametersWOdef.json'))
+}
 
 if (!(Test-Path $azuredeployConfigFile)) {
     Write-Host "Azuredeploy parameters file '$($azuredeployConfigFile)' not found." -ForegroundColor Red
@@ -590,94 +652,163 @@ ForEach ($setting in $azureuserconfig.settings){
 }
 
 # Populate parameters inside the azuredeploy.parameters JSON schema with values from previously prepared variables
-
-if($config.Topology -eq "single")
+if($definstall -eq $true)
 {
-    $azuredeployConfig.parameters | ForEach-Object {
-        $_.deploymentId.value               = $deploymentId
-        $_.location.value                   = $location
-        $_.sitecoreAdminPassword.value      = $sitecoreAdminPassword
-        $_.licenseXml.value                 = $licenseXml
-        $_.sqlServerLogin.value             = $sqlServerLogin
-        $_.sqlServerPassword.value          = $sqlServerPassword
-        $_.authCertificatePassword.value    = $authCertificatePassword
-        $_.singleMsDeployPackageUrl.value   = $singleMsDeployPackageUrl
-        $_.xcSingleMsDeployPackageUrl.value = $xcSingleMsDeployPackageUrl
-        $_.modules.value.items[0].parameters.sxaMsDeployPackageUrl                  = $sxaMsDeployPackageUrl
-        $_.modules.value.items[0].parameters.speMsDeployPackageUrl                  = $speMsDeployPackageUrl
-        $_.modules.value.items[0].templateLink                                      = $sxaTemplateLink
-        $_.modules.value.items[1].parameters.defDeployPackageUrl                    = $defDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSitecoreDeployPackageUrl            = $defSitecoreDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSqlDeployPackageUrl                 = $defSqlDeployPackageUrl
-        $_.modules.value.items[1].parameters.defxConnectDeployPackageUrl            = $defxConnectDeployPackageUrl
-        $_.modules.value.items[1].parameters.defDynamicsDeployPackageUrl            = $defDynamicsDeployPackageUrl
-        $_.modules.value.items[1].parameters.defDynamicsConnectDeployPackageUrl     = $defDynamicsConnectDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSalesforceDeployPackageUrl          = $defSalesforceDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSalesforceConnectDeployPackageUrl   = $defSalesforceConnectDeployPackageUrl
-        $_.modules.value.items[1].templateLink                                      = $defTemplateLink
-        $_.modules.value.items[2].parameters.habitatWebsiteDeployPackageUrl         = $habitatWebsiteDeployPackageUrl
-        $_.modules.value.items[2].templateLink                                      = $habitatWebsiteTemplateLink
-        $_.modules.value.items[3].parameters.habitatXconnectDeployPackageUrl        = $habitatXconnectDeployPackageUrl
-        $_.modules.value.items[3].templateLink                                      = $habitatXconnectTemplateLink
-        $_.modules.value.items[4].parameters.msDeployPackageUrl                     = $msDeployPackageUrl
-        $_.modules.value.items[4].templateLink                                      = $bootloaderTemplateLink
+    if($config.Topology -eq "single")
+    {
+        $azuredeployConfig.parameters | ForEach-Object {
+            $_.deploymentId.value               = $deploymentId
+            $_.location.value                   = $location
+            $_.sitecoreAdminPassword.value      = $sitecoreAdminPassword
+            $_.licenseXml.value                 = $licenseXml
+            $_.sqlServerLogin.value             = $sqlServerLogin
+            $_.sqlServerPassword.value          = $sqlServerPassword
+            $_.authCertificatePassword.value    = $authCertificatePassword
+            $_.singleMsDeployPackageUrl.value   = $singleMsDeployPackageUrl
+            $_.xcSingleMsDeployPackageUrl.value = $xcSingleMsDeployPackageUrl
+            $_.modules.value.items[0].parameters.sxaMsDeployPackageUrl                  = $sxaMsDeployPackageUrl
+            $_.modules.value.items[0].parameters.speMsDeployPackageUrl                  = $speMsDeployPackageUrl
+            $_.modules.value.items[0].templateLink                                      = $sxaTemplateLink
+            $_.modules.value.items[1].parameters.defDeployPackageUrl                    = $defDeployPackageUrl
+            $_.modules.value.items[1].parameters.defSitecoreDeployPackageUrl            = $defSitecoreDeployPackageUrl
+            $_.modules.value.items[1].parameters.defSqlDeployPackageUrl                 = $defSqlDeployPackageUrl
+            $_.modules.value.items[1].parameters.defxConnectDeployPackageUrl            = $defxConnectDeployPackageUrl
+            $_.modules.value.items[1].parameters.defDynamicsDeployPackageUrl            = $defDynamicsDeployPackageUrl
+            $_.modules.value.items[1].parameters.defDynamicsConnectDeployPackageUrl     = $defDynamicsConnectDeployPackageUrl
+            $_.modules.value.items[1].parameters.defSalesforceDeployPackageUrl          = $defSalesforceDeployPackageUrl
+            $_.modules.value.items[1].parameters.defSalesforceConnectDeployPackageUrl   = $defSalesforceConnectDeployPackageUrl
+            $_.modules.value.items[1].templateLink                                      = $defTemplateLink
+            $_.modules.value.items[2].parameters.habitatWebsiteDeployPackageUrl         = $habitatWebsiteDeployPackageUrl
+            $_.modules.value.items[2].templateLink                                      = $habitatWebsiteTemplateLink
+            $_.modules.value.items[3].parameters.habitatXconnectDeployPackageUrl        = $habitatXconnectDeployPackageUrl
+            $_.modules.value.items[3].templateLink                                      = $habitatXconnectTemplateLink
+            $_.modules.value.items[4].parameters.msDeployPackageUrl                     = $msDeployPackageUrl
+            $_.modules.value.items[4].templateLink                                      = $bootloaderTemplateLink
+        }
+    }
+    elseif($config.Topology -eq "scaled")
+    {
+        $azuredeployConfig.parameters | ForEach-Object {
+            $_.deploymentId.value                   = $deploymentId
+            $_.location.value                       = $location
+            $_.sitecoreAdminPassword.value          = $sitecoreAdminPassword
+            $_.licenseXml.value                     = $licenseXml
+            $_.repAuthenticationApiKey.value        = $(New-Guid)
+            $_.sqlServerLogin.value                 = $sqlServerLogin
+            $_.sqlServerPassword.value              = $sqlServerPassword
+            $_.authCertificatePassword.value        = $authCertificatePassword
+            $_.cmMsDeployPackageUrl.value           = $cmMsDeployPackageUrl
+            $_.cdMsDeployPackageUrl.value           = $cdMsDeployPackageUrl
+            $_.cdMsDeployPackageUrl.value           = $cdMsDeployPackageUrl
+            $_.prcMsDeployPackageUrl.value          = $prcMsDeployPackageUrl
+            $_.repMsDeployPackageUrl.value          = $repMsDeployPackageUrl
+            $_.xcRefDataMsDeployPackageUrl.value    = $xcRefDataMsDeployPackageUrl
+            $_.xcCollectMsDeployPackageUrl.value    = $xcCollectMsDeployPackageUrl
+            $_.xcSearchMsDeployPackageUrl.value     = $xcSearchMsDeployPackageUrl
+            $_.maOpsMsDeployPackageUrl.value        = $maOpsMsDeployPackageUrl
+            $_.maRepMsDeployPackageUrl.value        = $maRepMsDeployPackageUrl
+            $_.modules.value.items[0].parameters.cdSxaMsDeployPackageUrl                    = $sxaCDMsDeployPackageUrl
+            $_.modules.value.items[0].parameters.cmSxaMsDeployPackageUrl                    = $sxaMsDeployPackageUrl
+            $_.modules.value.items[0].parameters.speMsDeployPackageUrl                      = $speMsDeployPackageUrl
+            $_.modules.value.items[0].templateLink                                          = $sxaTemplateLink
+            $_.modules.value.items[1].parameters.defDeployPackageUrl                        = $defDeployPackageUrl
+            $_.modules.value.items[1].parameters.defSitecoreDeployPackageUrl                = $defSitecoreDeployPackageUrl
+            $_.modules.value.items[1].parameters.defSqlDeployPackageUrl                     = $defSqlDeployPackageUrl
+            $_.modules.value.items[1].parameters.defxConnectDeployPackageUrl                = $defxConnectDeployPackageUrl
+            $_.modules.value.items[1].parameters.defDynamicsDeployPackageUrl                = $defDynamicsDeployPackageUrl
+            $_.modules.value.items[1].parameters.defDynamicsConnectDeployPackageUrl         = $defDynamicsConnectDeployPackageUrl
+            $_.modules.value.items[1].parameters.defSalesforceDeployPackageUrl              = $defSalesforceDeployPackageUrl
+            $_.modules.value.items[1].parameters.defSalesforceConnectDeployPackageUrl       = $defSalesforceConnectDeployPackageUrl
+            $_.modules.value.items[1].parameters.defCdDeployPackageUrl                      = $defCDdeployPackageUrl
+            $_.modules.value.items[1].parameters.defSitecoreCdDeployPackageUrl              = $defSitecoreCDdeployPackageUrl
+            $_.modules.value.items[1].parameters.defSqlCdDeployPackageUrl                   = $defSqlCDdeployPackageUrl
+            $_.modules.value.items[1].parameters.defxConnectCdDeployPackageUrl              = $defxConnectCDdeployPackageUrl
+            $_.modules.value.items[1].parameters.defDynamicsCdDeployPackageUrl              = $defDynamicsCDdeployPackageUrl
+            $_.modules.value.items[1].parameters.defDynamicsConnectCdDeployPackageUrl       = $defDynamicsConnectCDdeployPackageUrl
+            $_.modules.value.items[1].parameters.defSalesforceCdDeployPackageUrl            = $defSalesforceCDdeployPackageUrl
+            $_.modules.value.items[1].parameters.defSalesforceConnectCdDeployPackageUrl     = $defSalesforceConnectCDdeployPackageUrl
+            $_.modules.value.items[1].templateLink                                          = $defTemplateLink
+            $_.modules.value.items[2].parameters.habitatWebsiteCdMsDeployPackageUrl         = $habitatWebsiteCDdeployPackageUrl
+            $_.modules.value.items[2].parameters.habitatWebsiteCmMsDeployPackageUrl         = $habitatWebsiteDeployPackageUrl
+            $_.modules.value.items[2].templateLink                                          = $habitatWebsiteTemplateLink
+            $_.modules.value.items[3].parameters.habitatXconnectDeployPackageUrl            = $habitatXconnectDeployPackageUrl
+            $_.modules.value.items[3].templateLink                                          = $habitatXconnectTemplateLink
+            $_.modules.value.items[4].parameters.msDeployPackageUrl                         = $msDeployPackageUrl
+            $_.modules.value.items[4].templateLink                                          = $bootloaderTemplateLink
+        }
     }
 }
-elseif($config.Topology -eq "scaled")
+elseif($definstall -eq $false)
 {
-    $azuredeployConfig.parameters | ForEach-Object {
-        $_.deploymentId.value                   = $deploymentId
-        $_.location.value                       = $location
-        $_.sitecoreAdminPassword.value          = $sitecoreAdminPassword
-        $_.licenseXml.value                     = $licenseXml
-        $_.repAuthenticationApiKey.value        = $(New-Guid)
-        $_.sqlServerLogin.value                 = $sqlServerLogin
-        $_.sqlServerPassword.value              = $sqlServerPassword
-        $_.authCertificatePassword.value        = $authCertificatePassword
-        $_.cmMsDeployPackageUrl.value           = $cmMsDeployPackageUrl
-        $_.cdMsDeployPackageUrl.value           = $cdMsDeployPackageUrl
-        $_.cdMsDeployPackageUrl.value           = $cdMsDeployPackageUrl
-        $_.prcMsDeployPackageUrl.value          = $prcMsDeployPackageUrl
-        $_.repMsDeployPackageUrl.value          = $repMsDeployPackageUrl
-        $_.xcRefDataMsDeployPackageUrl.value    = $xcRefDataMsDeployPackageUrl
-        $_.xcCollectMsDeployPackageUrl.value    = $xcCollectMsDeployPackageUrl
-        $_.xcSearchMsDeployPackageUrl.value     = $xcSearchMsDeployPackageUrl
-        $_.maOpsMsDeployPackageUrl.value        = $maOpsMsDeployPackageUrl
-        $_.maRepMsDeployPackageUrl.value        = $maRepMsDeployPackageUrl
-        $_.modules.value.items[0].parameters.cdSxaMsDeployPackageUrl                    = $sxaCDMsDeployPackageUrl
-        $_.modules.value.items[0].parameters.cmSxaMsDeployPackageUrl                    = $sxaMsDeployPackageUrl
-        $_.modules.value.items[0].parameters.speMsDeployPackageUrl                      = $speMsDeployPackageUrl
-        $_.modules.value.items[0].templateLink                                          = $sxaTemplateLink
-        $_.modules.value.items[1].parameters.defDeployPackageUrl                        = $defDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSitecoreDeployPackageUrl                = $defSitecoreDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSqlDeployPackageUrl                     = $defSqlDeployPackageUrl
-        $_.modules.value.items[1].parameters.defxConnectDeployPackageUrl                = $defxConnectDeployPackageUrl
-        $_.modules.value.items[1].parameters.defDynamicsDeployPackageUrl                = $defDynamicsDeployPackageUrl
-        $_.modules.value.items[1].parameters.defDynamicsConnectDeployPackageUrl         = $defDynamicsConnectDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSalesforceDeployPackageUrl              = $defSalesforceDeployPackageUrl
-        $_.modules.value.items[1].parameters.defSalesforceConnectDeployPackageUrl       = $defSalesforceConnectDeployPackageUrl
-        $_.modules.value.items[1].parameters.defCdDeployPackageUrl                      = $defCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defSitecoreCdDeployPackageUrl              = $defSitecoreCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defSqlCdDeployPackageUrl                   = $defSqlCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defxConnectCdDeployPackageUrl              = $defxConnectCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defDynamicsCdDeployPackageUrl              = $defDynamicsCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defDynamicsConnectCdDeployPackageUrl       = $defDynamicsConnectCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defSalesforceCdDeployPackageUrl            = $defSalesforceCDdeployPackageUrl
-        $_.modules.value.items[1].parameters.defSalesforceConnectCdDeployPackageUrl     = $defSalesforceConnectCDdeployPackageUrl
-        $_.modules.value.items[1].templateLink                                          = $defTemplateLink
-        $_.modules.value.items[2].parameters.habitatWebsiteCdMsDeployPackageUrl         = $habitatWebsiteCDdeployPackageUrl
-        $_.modules.value.items[2].parameters.habitatWebsiteCmMsDeployPackageUrl         = $habitatWebsiteDeployPackageUrl
-        $_.modules.value.items[2].templateLink                                          = $habitatWebsiteTemplateLink
-        $_.modules.value.items[3].parameters.habitatXconnectDeployPackageUrl            = $habitatXconnectDeployPackageUrl
-        $_.modules.value.items[3].templateLink                                          = $habitatXconnectTemplateLink
-        $_.modules.value.items[4].parameters.msDeployPackageUrl                         = $msDeployPackageUrl
-        $_.modules.value.items[4].templateLink                                          = $bootloaderTemplateLink
+    if($config.Topology -eq "single")
+    {
+        $azuredeployConfig.parameters | ForEach-Object {
+            $_.deploymentId.value               = $deploymentId
+            $_.location.value                   = $location
+            $_.sitecoreAdminPassword.value      = $sitecoreAdminPassword
+            $_.licenseXml.value                 = $licenseXml
+            $_.sqlServerLogin.value             = $sqlServerLogin
+            $_.sqlServerPassword.value          = $sqlServerPassword
+            $_.authCertificatePassword.value    = $authCertificatePassword
+            $_.singleMsDeployPackageUrl.value   = $singleMsDeployPackageUrl
+            $_.xcSingleMsDeployPackageUrl.value = $xcSingleMsDeployPackageUrl
+            $_.modules.value.items[0].parameters.sxaMsDeployPackageUrl                  = $sxaMsDeployPackageUrl
+            $_.modules.value.items[0].parameters.speMsDeployPackageUrl                  = $speMsDeployPackageUrl
+            $_.modules.value.items[0].templateLink                                      = $sxaTemplateLink
+            $_.modules.value.items[1].parameters.habitatWebsiteDeployPackageUrl         = $habitatWebsiteDeployPackageUrl
+            $_.modules.value.items[1].templateLink                                      = $habitatWebsiteTemplateLink
+            $_.modules.value.items[2].parameters.habitatXconnectDeployPackageUrl        = $habitatXconnectDeployPackageUrl
+            $_.modules.value.items[2].templateLink                                      = $habitatXconnectTemplateLink
+            $_.modules.value.items[3].parameters.msDeployPackageUrl                     = $msDeployPackageUrl
+            $_.modules.value.items[3].templateLink                                      = $bootloaderTemplateLink
+        }
     }
+    elseif($config.Topology -eq "scaled")
+    {
+        $azuredeployConfig.parameters | ForEach-Object {
+            $_.deploymentId.value                   = $deploymentId
+            $_.location.value                       = $location
+            $_.sitecoreAdminPassword.value          = $sitecoreAdminPassword
+            $_.licenseXml.value                     = $licenseXml
+            $_.repAuthenticationApiKey.value        = $(New-Guid)
+            $_.sqlServerLogin.value                 = $sqlServerLogin
+            $_.sqlServerPassword.value              = $sqlServerPassword
+            $_.authCertificatePassword.value        = $authCertificatePassword
+            $_.cmMsDeployPackageUrl.value           = $cmMsDeployPackageUrl
+            $_.cdMsDeployPackageUrl.value           = $cdMsDeployPackageUrl
+            $_.cdMsDeployPackageUrl.value           = $cdMsDeployPackageUrl
+            $_.prcMsDeployPackageUrl.value          = $prcMsDeployPackageUrl
+            $_.repMsDeployPackageUrl.value          = $repMsDeployPackageUrl
+            $_.xcRefDataMsDeployPackageUrl.value    = $xcRefDataMsDeployPackageUrl
+            $_.xcCollectMsDeployPackageUrl.value    = $xcCollectMsDeployPackageUrl
+            $_.xcSearchMsDeployPackageUrl.value     = $xcSearchMsDeployPackageUrl
+            $_.maOpsMsDeployPackageUrl.value        = $maOpsMsDeployPackageUrl
+            $_.maRepMsDeployPackageUrl.value        = $maRepMsDeployPackageUrl
+            $_.modules.value.items[0].parameters.cdSxaMsDeployPackageUrl                    = $sxaCDMsDeployPackageUrl
+            $_.modules.value.items[0].parameters.cmSxaMsDeployPackageUrl                    = $sxaMsDeployPackageUrl
+            $_.modules.value.items[0].parameters.speMsDeployPackageUrl                      = $speMsDeployPackageUrl
+            $_.modules.value.items[0].templateLink                                          = $sxaTemplateLink
+            $_.modules.value.items[1].parameters.habitatWebsiteCdMsDeployPackageUrl         = $habitatWebsiteCDdeployPackageUrl
+            $_.modules.value.items[1].parameters.habitatWebsiteCmMsDeployPackageUrl         = $habitatWebsiteDeployPackageUrl
+            $_.modules.value.items[1].templateLink                                          = $habitatWebsiteTemplateLink
+            $_.modules.value.items[2].parameters.habitatXconnectDeployPackageUrl            = $habitatXconnectDeployPackageUrl
+            $_.modules.value.items[2].templateLink                                          = $habitatXconnectTemplateLink
+            $_.modules.value.items[3].parameters.msDeployPackageUrl                         = $msDeployPackageUrl
+            $_.modules.value.items[3].templateLink                                          = $bootloaderTemplateLink
+        }
+    }  
 }
 
 # Apply the azuredeploy.parameters JSON schema to the azuredeploy.parameters.json file
 
-$azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
+if($definstall -eq $true)
+{
+    $azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
+}
+elseif($definstall -eq $false)
+{
+    $azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($topology, 'azuredeploy.parametersWOdef.json'))
+}
 
 # Populate the "azuredeploy.json" ARM template URL inside the azureuser-config JSON schema and apply the schema to the azureuser-config.json file
 
