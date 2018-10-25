@@ -4,7 +4,7 @@ The Habitat Home Content demo has preconfigured configuration with a Microsoft A
 
 **Before enabling the CDN functionality on HabitatHome you must set up your own Azure CDN profile.**
 
-A CDN provider cannot be shared amongst multiple websites or users so you are required to set up your own CDN provider. Please see the instructions below that outline how to set up an Azure CDN profile on your Azure subscription.
+A CDN provider should not be shared amongst multiple websites or users so you are required to set up your own CDN provider. Please see the instructions below that outline how to set up an Azure CDN profile on your Azure subscription.
 
 - You will require your own Microsoft Azure subscription to set up a unique CDN profile for your usage.
 - Please follow the attached guide in order to set up an Azure CDN: *https://docs.microsoft.com/en-us/azure/cdn/cdn-create-new-endpoint*
@@ -18,8 +18,11 @@ A CDN provider cannot be shared amongst multiple websites or users so you are re
         <patch:attribute name="value">https://[yourAzureCdnEndpoint].azureedge.net</patch:attribute>
       </setting>
       
-- The CDN functionality can be enabled by renaming the "*Foundation.CDN.config.disabled*" config file to "*Foundation.CDN.config*"
-- NOTE: To disable the CDN, please rename this file to .disabled. The CDN.Enabled setting is not a feature switch for all CDN related settings in this file!
+- The CDN functionality can be enabled by renaming adding the "CDN" parameter to the following setting in the Web.config file:
+
+<add key="integrations:define" value="CDN"/>
+
+* Note that this setting may have other values than just CDN.
 
 ## Degugging Help ##
 
