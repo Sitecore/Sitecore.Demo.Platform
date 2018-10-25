@@ -62,5 +62,10 @@
       <Version>3.14.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="backstop\backstopReport.js" />
+    <Content Include="backstop\backstopReportRunner.js" />
+    <Content Include="backstop\backstop_data\bitmaps_reference\**" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
