@@ -36,36 +36,47 @@ $topology		     = $configarray[5]
 
 Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig){
 
-    $assetsFolder = (Join-Path $cakeJsonConfig.DeployFolder assets)
+    $assetsFolder = (Join-Path $cakeJsonConfig.DeployFolder "assets")
     $sitecoreWDPpathArray = New-Object System.Collections.ArrayList
 
     # Add Sitecore and habitat WDPs to upload list
     if($cakeJsonConfig.Topology -eq "single")
     {
+        $sitecorepackages = Get-ChildItem -path $(Join-Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform')) *) -include *.zip -Exclude *xp1*,*cd*,*cm*,*prc*,*rep*
 
-		
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip')))) | out-null
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp0xconnect.scwdp.zip')))) | out-null
+        foreach ($seppackage in $sitecorepackages)
+        {
+            $sitecoreWDPpathArray.Add($seppackage) | out-null
+        }
+
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip')))) | out-null
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'xconnect', 'WDPWorkFolder', 'WDP', 'xconnect_single.scwdp.zip')))) | out-null
     }
     elseif($cakeJsonConfig.Topology -eq "scaled")
     {
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_cm.scwdp.zip')))) | out-null
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_cd.scwdp.zip')))) | out-null
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_prc.scwdp.zip')))) | out-null
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_rep.scwdp.zip')))) | out-null
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1referencedata.scwdp.zip')))) | out-null
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collection.scwdp.zip')))) | out-null
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collectionsearch.scwdp.zip')))) | out-null
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomation.scwdp.zip')))) | out-null
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform', 'Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomationreporting.scwdp.zip')))) | out-null 
+        $sitecorepackages = Get-ChildItem -path $(Join-Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform')) *) -include *.zip -Exclude *xp0*,*single*
+
+        foreach ($seppackage in $sitecorepackages)
+        {
+            $sitecoreWDPpathArray.Add($seppackage) | out-null
+        }
+        
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathomeCD', 'WDPWorkFolder', 'WDP', 'habitathome_cd.scwdp.zip')))) | out-null
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip')))) | out-null   
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'xconnect', 'WDPWorkFolder', 'WDP', 'xconnect_single.scwdp.zip')))) | out-null
     }
 
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', '9.0.2', 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
+    # Add sitecore azure toolkit module bootloader 
+    foreach($asset in $assetsJsonConfig.prerequisites)
+    {
+        if($asset.name -eq "Sitecore Experience Platform")
+        {
+            $sepversion = $($asset.FileName -replace ' rev.*','')
+            $sepversion = $($sepversion -replace '^Sitecore ','')
+        }
+    }
+
+    $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
 
     # Add Module WDPs to upload list
     foreach ($asset in $assetsJsonConfig.prerequisites)
@@ -326,6 +337,7 @@ UploadFiles -cakeJsonConfig $config
 ##############################################
 
 $blobsList = Get-AzureStorageBlob -Container $containerName -Context $ctx
+$assetsFolder = (Join-Path $config.DeployFolder "assets")
 
 foreach($asset in $assetconfig.prerequisites)
 {
@@ -359,19 +371,32 @@ foreach($asset in $assetconfig.prerequisites)
     }
 }
 
+foreach($asset in $assetconfig.prerequisites)
+{
+    foreach($blob in $blobsList)
+    {
+        if($asset.filename -eq $($blob.Name -replace '^wdps\/',''))
+        {
+            Switch($asset.Name)
+            {
+                "Sitecore Experience Accelerator"
+                {
+                    $sxaMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                "Sitecore PowerShell Extensions"
+                {
+                    $speMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+            }
+        }
+    }
+}
+
 
 ForEach($blob in $blobsList)
 {
     Switch($blob.Name)
     {
-        "wdps/Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0.scwdp.zip"
-        {
-            $sxaMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
-        "wdps/Sitecore PowerShell Extensions-4.7.2 for Sitecore 8.scwdp.zip"
-        {
-            $speMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-        }
         "wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip"
         {
             $msDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
@@ -426,74 +451,101 @@ ForEach($blob in $blobsList)
     }
 }
 
-
 if($config.Topology -eq "single")
 {
-    ForEach($blob in $blobsList){
 
-        Switch($blob.Name){
+    $localSitecoreassets = Get-ChildItem -path $(Join-Path $assetsfolder "Sitecore Experience Platform\*") -include *.zip -Exclude *xp1*,*cd*,*cm*,*prc*,*rep*
 
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_single.scwdp.zip"
+    foreach($localSCfile in $localSitecoreassets)
+    {
+        foreach($blob in $blobsList)
+        {
+            if($localSCfile.Name -eq $($blob.Name -replace '^wdps\/',''))
             {
-                $singleMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp0xconnect.scwdp.zip"
-            {
-                $xcSingleMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                if($($localSCfile.Name -like "*_single.scwdp.zip"))
+                {
+                    $singleMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                elseif($($localSCfile.Name -like "*_xp0xconnect.scwdp.zip"))
+                {
+                    $xcSingleMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
             }
         }
     }
 }
 elseif($config.Topology -eq "scaled")
 {
+
+    $localSitecoreassets = Get-ChildItem -path $(Join-Path $assetsfolder "Sitecore Experience Platform\*") -include *.zip -Exclude *xp0*,*single*
+
+    foreach($localSCfile in $localSitecoreassets)
+    {
+        foreach($blob in $blobsList)
+        {
+            if($localSCfile.Name -eq $($blob.Name -replace '^wdps\/',''))
+            {
+                if($($localSCfile.Name -like "*_cm.scwdp.zip"))
+                {
+                    $cmMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                elseif($($localSCfile.Name -like "*_cd.scwdp.zip"))
+                {
+                    $cdMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                elseif($($localSCfile.Name -like "*_prc.scwdp.zip"))
+                {
+                    $prcMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                elseif($($localSCfile.Name -like "*_rep.scwdp.zip"))
+                {
+                    $repMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                elseif($($localSCfile.Name -like "*_xp1referencedata.scwdp.zip"))
+                {
+                    $xcRefDataMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                elseif($($localSCfile.Name -like "*_xp1collection.scwdp.zip"))
+                {
+                    $xcCollectMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                elseif($($localSCfile.Name -like "*_xp1collectionsearch.scwdp.zip"))
+                {
+                    $xcSearchMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                elseif($($localSCfile.Name -like "*_xp1marketingautomation.scwdp.zip"))
+                {
+                    $maOpsMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+                elseif($($localSCfile.Name -like "*_xp1marketingautomationreporting.scwdp.zip"))
+                {
+                    $maRepMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                }
+            }
+        }
+    }
+
+    foreach($asset in $assetconfig.prerequisites)
+    {
+        foreach($blob in $blobsList)
+        {
+            if($asset.filename -eq $($blob.Name -replace '^wdps\/',''))
+            {
+                Switch($asset.Name)
+                {
+                    "Sitecore Experience Accelerator CD"
+                    {
+                        $sxaCDMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    }
+                }
+            }
+        }
+    }
+
     ForEach($blob in $blobsList)
     {
         Switch($blob.Name)
         {
-            "wdps/Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0 CD.scwdp.zip"
-            {
-                $sxaCDMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip"
-            {
-                $msDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_cm.scwdp.zip"
-            {
-                $cmMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_cd.scwdp.zip"
-            {
-                $cdMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_prc.scwdp.zip"
-            {
-                $prcMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_rep.scwdp.zip"
-            {
-                $repMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1referencedata.scwdp.zip"
-            {
-                $xcRefDataMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collection.scwdp.zip"
-            {
-                $xcCollectMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1collectionsearch.scwdp.zip"
-            {
-                $xcSearchMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomation.scwdp.zip"
-            {
-                $maOpsMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
-            "wdps/Sitecore 9.0.2 rev. 180604 (Cloud)_xp1marketingautomationreporting.scwdp.zip"
-            {
-                $maRepMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-            }
             "wdps/habitathome_cd.scwdp.zip"
             {
                 $habitatWebsiteCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
