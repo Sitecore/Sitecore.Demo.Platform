@@ -42,8 +42,6 @@ Task("Build")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
 .IsDependentOn("Publish-All-Projects")
-//.IsDependentOn("Apply-Xml-Transform")
-//.IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project")
 	//.IsDependentOn("Deploy-EXM-Campaigns")
 	//.IsDependentOn("Deploy-Marketing-Definitions")
@@ -278,10 +276,6 @@ Task("Publish-YML").Does(() => {
         WriteError(ex.Message);
     }
 
-	/* StartPowershellFile (($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Publish-YML.ps1"), args =>
-        {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
-        });*/
 		});
 
 Task("Package-Build")

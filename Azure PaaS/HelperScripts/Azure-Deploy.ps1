@@ -61,11 +61,41 @@ foreach($setting in $azureuserconfig.settings)
 		{
 			$LicenseXmlPath = $setting.value
 		}
-		"ArmTemplateUrl"
+		"containerName"
 		{
-			$ArmTemplateUrl = $setting.value
+			$containerName = $setting.value
+		}
+		"storageAccountName"
+		{
+			$storageAccountName = $setting.value
 		}
 	}
+}
+
+
+# Obtain the storage account context
+$sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $Name
+$ctx = $sa.Context
+
+$ArmTemplateUrl = New-AzureStorageBlobSASToken -Container $containerName `
+												-Blob 'arm-templates/azuredeploy.json' `
+												-Permission rwd `
+												-StartTime (Get-Date) `
+												-ExpiryTime (Get-Date).AddHours(3) `
+												-Context $ctx `
+												-FullUri
+
+$templatelinkAccessToken = New-AzureStorageContainerSASToken $containerName `
+												   			-Permission rwd `
+													   		-StartTime (Get-Date) `
+													   		-ExpiryTime (Get-Date).AddHours(3) `
+													   		-Context $ctx
+
+$authCertificateBlob = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes($certfilepath));
+
+$setKeyValue = @{
+    authCertificateBlob = $authCertificateBlob;
+    templatelinkAccessToken = $templatelinkAccessToken;
 }
 
 #Point to the sitecore cloud tools on your local filesystem
@@ -76,5 +106,5 @@ Start-SitecoreAzureDeployment -Location $Location `
 							  -ArmTemplateUrl $ArmTemplateUrl `
 							  -ArmParametersPath $ArmParametersPath `
 							  -LicenseXmlPath $LicenseXmlPath `
-							  -SetKeyValue @{"authCertificateBlob" = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes($certfilepath))} `
+							  -SetKeyValue $setKeyValue `
 							  -Verbose
