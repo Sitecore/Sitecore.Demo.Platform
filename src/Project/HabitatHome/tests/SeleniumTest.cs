@@ -2,6 +2,8 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -70,10 +72,33 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        protected void Click(IWebElement element)
+        {
+            try
+            {
+                element.Click();
+            }
+            catch (WebDriverException wde)
+            {
+                if (wde.Message.Contains("is not clickable at point") &&
+                    wde.Message.Contains("Other element would receive the click"))
+                {
+                    var js = Driver as IJavaScriptExecutor;
+                    js.ExecuteScript("arguments[0].click();", element);
+                }
+                else
+                    throw;
+            }
+            WaitForDocumentReady();
+        }
+
+
+
         protected void Click(string descriptor)
         {
             Console.WriteLine($"clicking \"{descriptor}\"");
-            GetElement(descriptor).Click();
+            IWebElement element = GetElement(descriptor);
+            Click(element);
         }
 
 
@@ -86,7 +111,7 @@ namespace Sitecore.HabitatHome.Website.Test
                     return driver;
 
                 driver = new ChromeDriver();
-                driver.Manage().Window.Size = new Size(1200, 800);
+                driver.Manage().Window.Size = new Size(1800, 1000);
                 return driver;
             }
         }
@@ -157,6 +182,7 @@ namespace Sitecore.HabitatHome.Website.Test
         {
             Console.WriteLine($"going to {url}");
             Driver.Navigate().GoToUrl(url);
+            WaitForDocumentReady();
         }
 
 
@@ -165,8 +191,72 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        public void TakeFullPageScreenshot(string name)
+        {
+            // Add html2canvas if it isn't already loaded.
+            WaitForDocumentReady();
+            var js = (Driver as IJavaScriptExecutor);
+            if ((bool)js.ExecuteScript("return (typeof html2canvas == 'undefined')"))
+                js.ExecuteScript("var script = document.createElement('script'); script.src = \"https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js\"; document.body.appendChild(script);");
+
+            // Wait for it to load
+            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(60));
+            wait.IgnoreExceptionTypes(typeof(InvalidOperationException));
+            wait.Until(wd => (bool)js.ExecuteScript("return (typeof html2canvas != 'undefined')"));
+
+            // Take a full page screenshot using html2canvas
+            string generateScreenshotJS =
+                @"(function() {
+	                html2canvas(document.body, {
+ 		                onrendered: function (canvas) {                                          
+		                    window.canvasImgContentDecoded = canvas.toDataURL(""image/png"");
+	                    }
+                    });
+                })();";
+            js.ExecuteScript(generateScreenshotJS);
+
+            // Wait for the screenshot to complete
+            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(60));
+            wait.IgnoreExceptionTypes(typeof(InvalidOperationException));
+            wait.Until(wd => !string.IsNullOrEmpty(js.ExecuteScript("return canvasImgContentDecoded;") as string));
+
+            // Convert to raw bytes
+            var pngContent = (string)js.ExecuteScript("return canvasImgContentDecoded;");
+            pngContent = pngContent.Replace("data:image/png;base64,", string.Empty);
+            byte[] data = Convert.FromBase64String(pngContent);
+
+            // Save screenshot to BitmapsPath under backstop
+            name = Path.Combine(BitmapsPath,
+                $"{GetType().Name}_{TestContext.CurrentContext.Test.Name}_{name}.png");
+            Directory.CreateDirectory(BitmapsPath);
+            File.WriteAllBytes(name, data);
+        }
+
+
+
         public void TakeScreenshot(string name)
         {
+            TakeScreenshot(name, (IWebElement)null);
+        }
+
+
+
+        public void TakeScreenshot(string name, string onElement)
+        {
+            TakeScreenshot(name, GetElement(onElement));
+        }
+
+
+
+        public void TakeScreenshot(string name, IWebElement onElement)
+        {
+            if (onElement != null)
+            {
+                Actions actions = new Actions(Driver);
+                actions.MoveToElement(onElement);
+                actions.Perform();
+            }
+
             var its = driver as ITakesScreenshot;
             Screenshot s = its.GetScreenshot();
             Directory.CreateDirectory(BitmapsPath);
@@ -182,7 +272,7 @@ namespace Sitecore.HabitatHome.Website.Test
         {
             if (driver != null)
             {
-                TakeScreenshot("final");
+                //TakeScreenshot("final");
                 driver.Dispose();
             }
         }
@@ -223,6 +313,32 @@ namespace Sitecore.HabitatHome.Website.Test
                 }
             }
             throw new TimeoutException($"Element \"{descriptor}\" never appeard within {milliseconds / 1000d} second{(milliseconds == 1000 ? "" : "s")}.");
+        }
+
+
+
+        protected void WaitForDocumentReady()
+        {
+            var timeout = new TimeSpan(0, 0, 60);
+            var wait = new WebDriverWait(Driver, timeout);
+
+            var javascript = Driver as IJavaScriptExecutor;
+            if (javascript == null)
+                throw new ArgumentException("driver", "Driver must support javascript execution");
+
+            wait.Until((d) =>
+            {
+                try
+                {
+                    string readyState = javascript.ExecuteScript("if (document.readyState) return document.readyState;").ToString();
+                    return readyState.ToLower() == "complete";
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            });
+
         }
 
     }
