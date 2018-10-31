@@ -240,60 +240,60 @@
       "defaultValue": {
         "Extra Small": {
           "cmHostingPlan": {
-            "SkuName": "B3",
+            "SkuName": "P3v2",
             "SkuCapacity": 1
           },
           "cdHostingPlan": {
-            "SkuName": "B2",
+            "SkuName": "P3v2",
             "SkuCapacity": 1
           },
           "prcHostingPlan": {
-            "SkuName": "B1",
+            "SkuName": "P3v2",
             "SkuCapacity": 1
           },
           "repHostingPlan": {
-            "SkuName": "B1",
+            "SkuName": "P3v2",
             "SkuCapacity": 1
           },
           "coreSqlDatabase": {
             "Edition": "Standard",
             "MaxSize": "268435456000",
-            "ServiceObjectiveLevel": "S1"
+            "ServiceObjectiveLevel": "S3"
           },
           "masterSqlDatabase": {
             "Edition": "Standard",
             "MaxSize": "268435456000",
-            "ServiceObjectiveLevel": "S1"
+            "ServiceObjectiveLevel": "S3"
           },
           "webSqlDatabase": {
             "Edition": "Standard",
             "MaxSize": "268435456000",
-            "ServiceObjectiveLevel": "S1"
+            "ServiceObjectiveLevel": "S3"
           },
           "reportingSqlDatabase": {
             "Edition": "Standard",
             "MaxSize": "268435456000",
-            "ServiceObjectiveLevel": "S1"
+            "ServiceObjectiveLevel": "S3"
           },
           "poolsSqlDatabase": {
             "Edition": "Standard",
             "MaxSize": "268435456000",
-            "ServiceObjectiveLevel": "S0"
+            "ServiceObjectiveLevel": "S3"
           },
           "tasksSqlDatabase": {
             "Edition": "Standard",
             "MaxSize": "268435456000",
-            "ServiceObjectiveLevel": "S0"
+            "ServiceObjectiveLevel": "S3"
           },
           "formsSqlDatabase": {
             "Edition": "Standard",
             "MaxSize": "268435456000",
-            "ServiceObjectiveLevel": "S0"
+            "ServiceObjectiveLevel": "S3"
           },
           "exmMasterSqlDatabase": {
             "Edition": "Standard",
             "MaxSize": "268435456000",
-            "ServiceObjectiveLevel": "S0"
+            "ServiceObjectiveLevel": "S3"
           },
           "searchService": {
             "SkuName": "Standard",

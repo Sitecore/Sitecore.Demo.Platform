@@ -188,6 +188,7 @@ Function Create-WDP{
 	[String] $IonicZip,
 	[String] $foldername,
 	$assetJSONconfig,
+	$configurationJson,
 	[String] $XdtSrcFolder
 	)
 
@@ -294,8 +295,8 @@ is the path to Ionic's zipping library
 			{
 				if($modulenode.name -eq "Data Exchange Framework")
 				{
-					$DefWdpFile 	= "_"+$($modulenode.FileName -replace '\.zip$','')+"_single.scwdp.zip"
-					$DefWdpFileOrg 	=  $($modulenode.FileName -replace '\.zip$','')+"_single.scwdp.zip"
+					$DefWdpFile 	= "_"+$($modulenode.FileName -replace '\.zip$','') + "_$($configurationJson.Topology).scwdp.zip"
+					$DefWdpFileOrg 	=  $($modulenode.FileName -replace '\.zip$','') + "_$($configurationJson.Topology).scwdp.zip"
 					$DefZipFile 	= "_"+$modulenode.FileName
 					$DefZipFileOrg 	=  $modulenode.FileName
 				}
@@ -312,8 +313,8 @@ is the path to Ionic's zipping library
 			{
 				if($modulenode.name -eq "Data Exchange Framework CD")
 				{
-					$DefCdWdpFile 		= "_"+$($modulenode.FileName -replace '\.zip$','')+"_scaled.scwdp.zip"
-					$DefCdWdpFileOrg 	=  $($modulenode.FileName -replace '\.zip$','')+"_scaled.scwdp.zip"
+					$DefCdWdpFile 		= "_"+$($modulenode.FileName -replace '\.zip$','') + "_$($configurationJson.Topology).scwdp.zip"
+					$DefCdWdpFileOrg 	=  $($modulenode.FileName -replace '\.zip$','') + "_$($configurationJson.Topology).scwdp.zip"
 					$DefCdZipFile 		= "_"+$modulenode.FileName
 					$DefCdZipFileOrg 	=  $modulenode.FileName
 				}
@@ -405,14 +406,16 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
     [String] $ProjectModulesFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure Paas', 'WDP Components', 'Modules'))
 	[String] $HabitatWDPFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure Paas', 'WDP Components', 'Habitat'))
     [String] $SitecoreCloudModule = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'Sitecore.Cloud.Cmdlets.psm1'))
-    [String] $IonicZipPath = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'DotNetZip.dll'))
+	[String] $IonicZipPath = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'DotNetZip.dll'))
+	[String] $ExampleWDPJsonFile = $([IO.Path]::Combine($ProjectModulesFolder, 'example_config.json'))
+	[String] $ExampleWDPXmlFile = $([IO.Path]::Combine($ProjectModulesFolder, 'example_parameters.xml'))
 
     # Go through the assets.json file and prepare files and paths for the conversion to WDP for all prerequisites for Habitat Home
 
-	ForEach ($asset in $assetsConfigJson.prerequisites)
+	foreach ($asset in $assetsConfigJson.prerequisites)
 	{
 
-		If($($asset.convertToWdp -eq $True) -and $($asset.install -eq $true))
+		if ($($asset.convertToWdp -eq $True) -and $($asset.install -eq $true))
 		{
             
 			# Do a check if the WDP package already exists and if not, proceed with package generation
@@ -420,12 +423,91 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
             [String] $ModuleFolder = $([IO.Path]::Combine($assetsFolder, $asset.name))
 			[String] $ModuleWDPTarget = "$($ModuleFolder)\WDPWorkFolder\WDP"
 			
-			If((Test-Path -Path $ModuleWDPTarget) -eq $False)
+			if ((Test-Path -Path $ModuleWDPTarget) -eq $false)
 			{
-	
-				Get-ChildItem -Path "$($ProjectModulesFolder)\$($asset.name)\*" -Include *.json | ForEach-Object { $WDPJsonFile = $_.FullName; $WDPJsonFileName = $_.BaseName }
-				Get-ChildItem -Path "$($ProjectModulesFolder)\$($asset.name)\*" -Include *.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
-				$SccplCargoName = $WDPJsonFileName -replace "_config", "_cargo"
+
+				### Create the required WDP json file
+
+				# Grab the example json file for processing
+				
+				if ((Test-Path $ExampleWDPJsonFile) -eq $false) 
+				{
+					Write-Host "Configuration file '$($ExampleWDPJsonFile)' not found." -ForegroundColor Red
+					Write-Host  "Please ensure there is a cake-config.json configuration file at '$($ExampleWDPJsonFile)'" -ForegroundColor Red
+					Exit 1
+				}
+		
+				$ExampleWDPJson = Get-Content -Raw $ExampleWDPJsonFile |  ConvertFrom-Json
+		
+				if (!$ExampleWDPJson) 
+				{
+					throw "Error trying to load configuration!"
+				}
+
+				### Fill in data inside the json object
+
+				# Check if these are standalone modules
+
+				if (!($asset.isGroup -eq $true))
+				{
+					foreach ($scwdp in $ExampleWDPJson.scwdps)
+					{
+						$scwdp.role = $configJson.Topology
+						$scwdp.parametersXml = $asset.id + "_parameters.xml"
+						$scwdp.sccpls[0] = $asset.id + "_cargo.sccpl"
+						$scwdp.sourcePackagePattern = $asset.FileName.Replace(".zip","")
+					}
+				
+				# If these are grouped modules instead, proceed to here
+
+				} else {
+
+					$moduleScwdps = New-Object System.Collections.ArrayList
+					foreach ($module in $asset.modules)
+					{
+						$moduleScwdps.Add($ExampleWDPJson.scwdps[0]) | Out-Null
+						$count = $moduleScwdps.Count
+						$ExampleWDPJson = Get-Content -Raw $ExampleWDPJsonFile |  ConvertFrom-Json
+						$moduleScwdps[$($count-1)].role = $configJson.Topology
+						$moduleScwdps[$($count-1)].parametersXml = $asset.id + "_parameters.xml"
+						$moduleScwdps[$($count-1)].sccpls[0] = $asset.id + "_cargo.sccpl"
+
+						# Special check for the Data Exchange Framework's name
+
+						if (($module.name -eq "Data Exchange Framework") -or ($module.name -eq "Data Exchange Framework CD"))
+						{
+							$underscoreFilename = "_" + $($module.FileName)
+							$moduleScwdps[$($count-1)].sourcePackagePattern = $underscoreFilename.Replace(".zip","")
+						} else {
+							$moduleScwdps[$($count-1)].sourcePackagePattern = $module.FileName.Replace(".zip","")
+						}
+
+					}
+					$ExampleWDPJson.scwdps = $moduleScwdps
+				}
+
+				# Prepare WDP component variables
+
+				$WDPComponentsModulesPath = "$($ProjectModulesFolder)\$($asset.name)"
+				$WDPJsonFile = $([IO.Path]::Combine($WDPComponentsModulesPath, ("$($asset.id)" + "_config.json")))
+				$WDPXMLFile = $([IO.Path]::Combine($WDPComponentsModulesPath, ("$($asset.id)" + "_parameters.xml")))
+				$SccplCargoName = $asset.id + "_cargo.sccpl"
+				if (!(Test-Path -Path $WDPComponentsModulesPath))
+				{
+					New-Item -ItemType Directory -Path $WDPComponentsModulesPath
+				}
+
+				# Make a copy of the example WDP json file in the expected module location				
+
+				Copy-Item -Path $ExampleWDPJsonFile -Destination $WDPJsonFile
+
+				# Convert the newly created file 
+
+				$ExampleWDPJson | ConvertTo-Json -Depth 5 | Set-Content $WDPJsonFile
+
+				# Make a usable copy of the required WDP parameters.xml file
+
+				Copy-Item -Path $ExampleWDPXmlFile -Destination $WDPXMLFile
 
 				# Special check - if dealing with DEF try to avoid limitations of the Cloud.Cmdlets script
 
@@ -438,7 +520,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 						if ($module.name -eq "Data Exchange Framework")
 						{
 							$DefZipFile = $module.FileName
-							$DefScwdpFile = $($module.FileName -replace '\.zip$','')+"_single.scwdp.zip"
+							$DefScwdpFile = $($module.FileName -replace '\.zip$','') + "_$($configJson.Topology).scwdp.zip"
 							$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
 							$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
 									  
@@ -463,19 +545,22 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 
 					foreach ($module in $asset.modules)
 					{
-						$DefZipFile = $module.FileName
-						$DefScwdpFile = $($module.FileName -replace '\.zip$','')+"_single.scwdp.zip"
-						$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
-						$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
-								  
-						if(Test-Path $DefScwdpFilePath)
+						if ($module.name -eq "Data Exchange Framework CD")
 						{
-							Write-Host "Skipping WDP generation - there's already a WDP package, present at $($ModuleWDPTarget)" -ForegroundColor Yellow
-							continue
-						}
-						elseIf(Test-Path -Path $DefZipFilePath)
-						{
-							Rename-Item -Path $DefZipFilePath -NewName "$($ModuleFolder)\_$($DefZipFile)" -force
+							$DefZipFile = $module.FileName
+							$DefScwdpFile = $($module.FileName -replace '\.zip$','') + "_$($configJson.Topology).scwdp.zip"
+							$DefZipFilePath = Join-Path $ModuleFolder $DefZipFile
+							$DefScwdpFilePath = $([IO.Path]::Combine($ModuleFolder, "WDPWorkFolder", "WDP", $DefScwdpFile))
+									
+							if(Test-Path $DefScwdpFilePath)
+							{
+								Write-Host "Skipping WDP generation - there's already a WDP package, present at $($ModuleWDPTarget)" -ForegroundColor Yellow
+								continue
+							}
+							elseIf(Test-Path -Path $DefZipFilePath)
+							{
+								Rename-Item -Path $DefZipFilePath -NewName "$($ModuleFolder)\_$($DefZipFile)" -force
+							}
 						}
 					}
 				}				
@@ -488,7 +573,8 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 							-XmlParameterFilename $WDPXMLFile `
 							-SccplCargoFilename $SccplCargoName `
 							-IonicZip $IonicZipPath `
-							-assetJSONconfig $assetsConfigJson
+							-assetJSONconfig $assetsConfigJson `
+							-configurationJson $configJson
 			}
         }
 
@@ -538,7 +624,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 
 					# Check if the environment is scaled and create an additional WDP package for CD servers
 
-					if ($config.Topology -eq "scaled") {
+					if ($configJson.Topology -eq "scaled") {
 
 						# Fetch the json and xml files needed for the WDP package generation and start the WDP package creation process
 
