@@ -229,7 +229,7 @@ if($downloadlist)
 				}
 			}
 		}
-		elseif (($prereq.isWDP -eq $true) -and ($downloadlist -contains $prereq.fileName))
+		elseif ((($prereq.isWDP -eq $true) -or ($prereq.convertToWdp -eq $true)) -and ($downloadlist -contains $prereq.fileName))
 		{
 			if (!(Test-Path $(Join-Path $assetsfolder $prereq.name))) 
 			{

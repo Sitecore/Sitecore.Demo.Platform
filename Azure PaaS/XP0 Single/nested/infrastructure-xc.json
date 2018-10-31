@@ -65,7 +65,7 @@
     "sqlBasicDatabaseServiceObjectiveLevel": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "S0"
+      "defaultValue": "S3"
     },
 
     "shardMapManagerSqlDatabaseName": {
@@ -106,7 +106,7 @@
     },
     "xcSingleHostingPlanSkuName": {
       "type": "string",
-      "defaultValue": "S1"
+      "defaultValue": "P3v2"
     },
     "xcSingleHostingPlanSkuCapacity": {
       "type": "int",
