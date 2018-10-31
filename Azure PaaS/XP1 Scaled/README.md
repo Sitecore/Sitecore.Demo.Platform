@@ -29,7 +29,7 @@ Please follow the instructions on the [Azure PaaS Readme](../Readme.md)
     * Salesforce Connect Data Exchange Framework 2.0.1 rev. 180108  
     * Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108  
 
-## Parameters
+## azuredeploy.parameters
 
 |Parameter                                  | Description
 |-------------------------------------------|---------------------------------------------------------------------------------------------

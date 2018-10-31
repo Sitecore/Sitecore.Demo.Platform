@@ -315,7 +315,7 @@ try {
         "Trying to create the container..."
 
         # Create the main container for the WDPs
-        New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob -ErrorAction Stop
+        New-AzureStorageContainer -Name $containerName -Context $ctx -Permission off -ErrorAction Stop
 
     } catch {
     
@@ -323,7 +323,7 @@ try {
 
 		$containerName = $additionalContainerName
         # Create a temporary container
-        New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
+        New-AzureStorageContainer -Name $containerName -Context $ctx -Permission off
 
     }
     
@@ -381,11 +381,23 @@ foreach($asset in $assetconfig.prerequisites)
             {
                 "Sitecore Experience Accelerator"
                 {
-                    $sxaMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $sxaMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
                 }
                 "Sitecore PowerShell Extensions"
                 {
-                    $speMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $speMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
                 }
             }
         }
@@ -399,15 +411,33 @@ ForEach($blob in $blobsList)
     {
         "wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip"
         {
-            $msDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            $msDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                -Blob $blob.Name `
+                                                                -Permission rwd `
+                                                                -StartTime (Get-Date) `
+                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                -Context $ctx `
+                                                                -FullUri
         }
         "wdps/habitathome_single.scwdp.zip"
         {
-            $habitatWebsiteDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            $habitatWebsiteDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
         }
         "wdps/xconnect_single.scwdp.zip"
         {
-            $habitatXconnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+            $habitatXconnectDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
         }
     }
 
@@ -417,35 +447,83 @@ ForEach($blob in $blobsList)
         {
             $("wdps/Data Exchange Framework "+$defversion+"_single.scwdp.zip")
             {
-               $defDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+               $defDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                    -Blob $blob.Name `
+                                                                    -Permission rwd `
+                                                                    -StartTime (Get-Date) `
+                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                    -Context $ctx `
+                                                                    -FullUri
             }
             $("wdps/Sitecore Provider for Data Exchange Framework "+$defversion+"_single.scwdp.zip")
             {
-                $defSitecoreDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                $defSitecoreDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
             }
            $("wdps/SQL Provider for Data Exchange Framework "+$defversion+"_single.scwdp.zip")
             {
-                $defSqlDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                $defSqlDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                        -Blob $blob.Name `
+                                                                        -Permission rwd `
+                                                                        -StartTime (Get-Date) `
+                                                                        -ExpiryTime (Get-Date).AddHours(3) `
+                                                                        -Context $ctx `
+                                                                        -FullUri
             }
             $("wdps/xConnect Provider for Data Exchange Framework "+$defversion+"_single.scwdp.zip")
             {
-                $defxConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                $defxConnectDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
             }
             $("wdps/Dynamics Provider for Data Exchange Framework "+$defversion+"_single.scwdp.zip")
             {
-                $defDynamicsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                $defDynamicsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
             }
             $("wdps/Connect for Microsoft Dynamics "+$defversion+"_single.scwdp.zip")
             {
-                $defDynamicsConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                $defDynamicsConnectDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                    -Blob $blob.Name `
+                                                                                    -Permission rwd `
+                                                                                    -StartTime (Get-Date) `
+                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -Context $ctx `
+                                                                                    -FullUri
             }
             $("wdps/Salesforce Provider for Data Exchange Framework "+$defversion+"_single.scwdp.zip")
             {
-                $defSalesforceDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                $defSalesforceDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                -Blob $blob.Name `
+                                                                                -Permission rwd `
+                                                                                -StartTime (Get-Date) `
+                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -Context $ctx `
+                                                                                -FullUri
             }
             $("wdps/Connect for Salesforce "+$defversion+"_single.scwdp.zip")
             {
-                $defSalesforceConnectDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                $defSalesforceConnectDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                        -Blob $blob.Name `
+                                                                                        -Permission rwd `
+                                                                                        -StartTime (Get-Date) `
+                                                                                        -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                        -Context $ctx `
+                                                                                        -FullUri
             }
         }
     }
@@ -464,11 +542,23 @@ if($config.Topology -eq "single")
             {
                 if($($localSCfile.Name -like "*_single.scwdp.zip"))
                 {
-                    $singleMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $singleMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                -Blob $blob.Name `
+                                                                                -Permission rwd `
+                                                                                -StartTime (Get-Date) `
+                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -Context $ctx `
+                                                                                -FullUri
                 }
                 elseif($($localSCfile.Name -like "*_xp0xconnect.scwdp.zip"))
                 {
-                    $xcSingleMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $xcSingleMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                -Blob $blob.Name `
+                                                                                -Permission rwd `
+                                                                                -StartTime (Get-Date) `
+                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -Context $ctx `
+                                                                                -FullUri
                 }
             }
         }
@@ -487,39 +577,93 @@ elseif($config.Topology -eq "scaled")
             {
                 if($($localSCfile.Name -like "*_cm.scwdp.zip"))
                 {
-                    $cmMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $cmMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
                 }
                 elseif($($localSCfile.Name -like "*_cd.scwdp.zip"))
                 {
-                    $cdMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $cdMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
                 }
                 elseif($($localSCfile.Name -like "*_prc.scwdp.zip"))
                 {
-                    $prcMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $prcMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
                 }
                 elseif($($localSCfile.Name -like "*_rep.scwdp.zip"))
                 {
-                    $repMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $repMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
                 }
                 elseif($($localSCfile.Name -like "*_xp1referencedata.scwdp.zip"))
                 {
-                    $xcRefDataMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $xcRefDataMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                -Blob $blob.Name `
+                                                                                -Permission rwd `
+                                                                                -StartTime (Get-Date) `
+                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -Context $ctx `
+                                                                                -FullUri
                 }
                 elseif($($localSCfile.Name -like "*_xp1collection.scwdp.zip"))
                 {
-                    $xcCollectMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $xcCollectMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                -Blob $blob.Name `
+                                                                                -Permission rwd `
+                                                                                -StartTime (Get-Date) `
+                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -Context $ctx `
+                                                                                -FullUri
                 }
                 elseif($($localSCfile.Name -like "*_xp1collectionsearch.scwdp.zip"))
                 {
-                    $xcSearchMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $xcSearchMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                -Blob $blob.Name `
+                                                                                -Permission rwd `
+                                                                                -StartTime (Get-Date) `
+                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -Context $ctx `
+                                                                                -FullUri
                 }
                 elseif($($localSCfile.Name -like "*_xp1marketingautomation.scwdp.zip"))
                 {
-                    $maOpsMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $maOpsMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
                 }
                 elseif($($localSCfile.Name -like "*_xp1marketingautomationreporting.scwdp.zip"))
                 {
-                    $maRepMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $maRepMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
                 }
             }
         }
@@ -535,7 +679,13 @@ elseif($config.Topology -eq "scaled")
                 {
                     "Sitecore Experience Accelerator CD"
                     {
-                        $sxaCDMsDeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                        $sxaCDMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                -Blob $blob.Name `
+                                                                                -Permission rwd `
+                                                                                -StartTime (Get-Date) `
+                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -Context $ctx `
+                                                                                -FullUri
                     }
                 }
             }
@@ -548,7 +698,13 @@ elseif($config.Topology -eq "scaled")
         {
             "wdps/habitathome_cd.scwdp.zip"
             {
-                $habitatWebsiteCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                $habitatWebsiteCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                    -Blob $blob.Name `
+                                                                                    -Permission rwd `
+                                                                                    -StartTime (Get-Date) `
+                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -Context $ctx `
+                                                                                    -FullUri
             }
         }
 
@@ -558,35 +714,83 @@ elseif($config.Topology -eq "scaled")
             {
                 $("wdps/Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
                 {
-                    $defCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $defCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                            -Blob $blob.Name `
+                                                                            -Permission rwd `
+                                                                            -StartTime (Get-Date) `
+                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -Context $ctx `
+                                                                            -FullUri
                 }
                 $("wdps/Sitecore Provider for Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
                 {
-                    $defSitecoreCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $defSitecoreCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                    -Blob $blob.Name `
+                                                                                    -Permission rwd `
+                                                                                    -StartTime (Get-Date) `
+                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -Context $ctx `
+                                                                                    -FullUri
                 }
                 $("wdps/SQL Provider for Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
                 {
-                    $defSqlCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $defSqlCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                -Blob $blob.Name `
+                                                                                -Permission rwd `
+                                                                                -StartTime (Get-Date) `
+                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -Context $ctx `
+                                                                                -FullUri
                 }
                 $("wdps/xConnect Provider for Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
                 {
-                    $defxConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $defxConnectCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                    -Blob $blob.Name `
+                                                                                    -Permission rwd `
+                                                                                    -StartTime (Get-Date) `
+                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -Context $ctx `
+                                                                                    -FullUri
                 }
                 $("wdps/Dynamics Provider for Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
                 {
-                    $defDynamicsCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $defDynamicsCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                    -Blob $blob.Name `
+                                                                                    -Permission rwd `
+                                                                                    -StartTime (Get-Date) `
+                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -Context $ctx `
+                                                                                    -FullUri
                 }
                 $("wdps/Connect for Microsoft Dynamics CD Server "+$defCDversion+"_scaled.scwdp.zip")
                 {
-                    $defDynamicsConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $defDynamicsConnectCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                            -Blob $blob.Name `
+                                                                                            -Permission rwd `
+                                                                                            -StartTime (Get-Date) `
+                                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                            -Context $ctx `
+                                                                                            -FullUri
                 }
                 $("wdps/Salesforce Provider for Data Exchange Framework CD Server "+$defCDversion+"_scaled.scwdp.zip")
                 {
-                    $defSalesforceCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $defSalesforceCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                    -Blob $blob.Name `
+                                                                                    -Permission rwd `
+                                                                                    -StartTime (Get-Date) `
+                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -Context $ctx `
+                                                                                    -FullUri
                 }
                 $("wdps/Connect for Salesforce CD Server "+$defCDversion+"_scaled.scwdp.zip")
                 {
-                    $defSalesforceConnectCDdeployPackageUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+                    $defSalesforceConnectCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                                            -Blob $blob.Name `
+                                                                                            -Permission rwd `
+                                                                                            -StartTime (Get-Date) `
+                                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                            -Context $ctx `
+                                                                                            -FullUri
                 }
             }
         }
@@ -600,33 +804,55 @@ elseif($config.Topology -eq "scaled")
 
 ForEach ($blob in $blobsList)
 {
+    if($blob.Name -like "*sxa*.json")
+    {
+        $sxaTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
+                                                        -Blob $blob.Name `
+                                                        -Permission rwd `
+                                                        -StartTime (Get-Date) `
+                                                        -ExpiryTime (Get-Date).AddHours(3) `
+                                                        -Context $ctx `
+                                                        -FullUri
 
-    if($blob.Name -like "*azuredeploy.json"){
-    
-        $azuredeployTemplateUrl = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-    
-    } elseif($blob.Name -like "*sxa*.json"){
-    
-        $sxaTemplateLink = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+    } elseif($blob.Name -like "*def*.json")
+    {
+        $defTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
+                                                        -Blob $blob.Name `
+                                                        -Permission rwd `
+                                                        -StartTime (Get-Date) `
+                                                        -ExpiryTime (Get-Date).AddHours(3) `
+                                                        -Context $ctx `
+                                                        -FullUri
 
-    } elseif($blob.Name -like "*def*.json"){
-    
-        $defTemplateLink = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
+    } elseif($blob.Name -like "*habitathome.json")
+    {
+        $habitatWebsiteTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                    -Blob $blob.Name `
+                                                                    -Permission rwd `
+                                                                    -StartTime (Get-Date) `
+                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                    -Context $ctx `
+                                                                    -FullUri
 
-    } elseif($blob.Name -like "*habitathome.json"){
-    
-        $habitatWebsiteTemplateLink = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-
-    } elseif($blob.Name -like "*xconnect.json"){
-    
-        $habitatXconnectTemplateLink = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-
-    } elseif($blob.Name -like "*bootloader.json"){
-    
-        $bootloaderTemplateLink = (Get-AzureStorageBlob -Blob $blob.Name -Container $containerName -Context $ctx).ICloudBlob.uri.AbsoluteUri
-
+    } elseif($blob.Name -like "*xconnect.json")
+    {
+        $habitatXconnectTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                    -Blob $blob.Name `
+                                                                    -Permission rwd `
+                                                                    -StartTime (Get-Date) `
+                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                    -Context $ctx `
+                                                                    -FullUri
+    } elseif($blob.Name -like "*bootloader.json")
+    {
+        $bootloaderTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
+                                                                -Blob $blob.Name `
+                                                                -Permission rwd `
+                                                                -StartTime (Get-Date) `
+                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                -Context $ctx `
+                                                                -FullUri
     }
-
 }
 
 
@@ -695,10 +921,6 @@ ForEach ($setting in $azureuserconfig.settings){
         "SqlServerLoginAdminPassword"
         {
             $sqlServerPassword = $setting.value
-        }
-        "ArmTemplateUrl"
-        {
-            $armTemplateURL = $setting.value
         }
     }
 }
@@ -864,16 +1086,23 @@ elseif($definstall -eq $false)
 
 # Populate the "azuredeploy.json" ARM template URL inside the azureuser-config JSON schema and apply the schema to the azureuser-config.json file
 
-ForEach ($setting in $azureuserconfig.settings){
+ForEach ($setting in $azureuserconfig.settings)
+{
 
     # Check if an ARM template URL is already present inside the azureuser-config.json file
 
-    if($setting.id -eq "ArmTemplateUrl"){
-        # Populate the value with the uploaded file's URL
-
-        $setting.value = $azuredeployTemplateUrl
-        $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
-
-    }  
+    switch($setting.id)
+    {
+        "containerName"
+        {
+            $setting.value = $containerName
+        }
+        "storageAccountName"
+        {
+            $setting.value = $storageAccountName
+        }
+    }
 
 }
+
+$azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile

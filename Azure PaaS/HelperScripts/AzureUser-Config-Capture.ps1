@@ -97,10 +97,6 @@ $servicePrincipalCredentials = New-Object System.Management.Automation.PSCredent
 Login-AzureRmAccount -ServicePrincipal -Tenant $servicePrincipalConfiguration.tenantId -Credential $servicePrincipalCredentials
 Set-AzureRmContext -SubscriptionName $servicePrincipalConfiguration.azureSubscriptionName -TenantId $servicePrincipalConfiguration.tenantId
 
-
-
-
-
 ###########################################
 # Get User Input for azureuser-config.json
 ###########################################
@@ -119,7 +115,11 @@ foreach ($setting in $azureuserconfig.settings)
 
 	switch ($setting.id)
 	{		
-		"ArmTemplateUrl"
+		"containerName"
+		{
+			continue
+		}
+		"storageAccountName"
 		{
 			continue
 		}
