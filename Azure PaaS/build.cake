@@ -42,6 +42,8 @@ Task("Build")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
 .IsDependentOn("Publish-All-Projects")
+//.IsDependentOn("Apply-Xml-Transform")
+//.IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project")
 	//.IsDependentOn("Deploy-EXM-Campaigns")
 	//.IsDependentOn("Deploy-Marketing-Definitions")
@@ -50,6 +52,7 @@ Task("Build")
 	//.IsDependentOn("Rebuild-Web-Index")
 .IsDependentOn("Publish-YML")
 .IsDependentOn("Publish-Azure-Transforms")
+.IsDependentOn("Publish-Post-Steps")
 .IsDependentOn("Package-Build");
 
 Task("Azure-Upload")
@@ -276,7 +279,33 @@ Task("Publish-YML").Does(() => {
         WriteError(ex.Message);
     }
 
-		});
+
+});
+
+
+Task("Publish-Post-Steps").Does(() => {
+
+	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.poststep";
+    var destination = $@"{configuration.DeployFolder}\Website\HabitatHome\App_Data";
+
+    if (!DirectoryExists(destination))
+    {
+        CreateFolder(destination);
+    }
+
+    try
+    {
+        var files = GetFiles(serializationFilesFilter).Select(x=>x.FullPath).ToList();
+
+        CopyFiles(files, destination, preserveFolderStructure: false);
+    }
+    catch (System.Exception ex)
+    {
+        WriteError(ex.Message);
+    }
+
+
+});
 
 Task("Package-Build")
 .IsDependentOn("Generate-HabitatUpdatePackages")
