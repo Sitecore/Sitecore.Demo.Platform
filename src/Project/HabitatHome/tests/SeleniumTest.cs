@@ -284,6 +284,7 @@ namespace Sitecore.HabitatHome.Website.Test
             {
                 //TakeScreenshot("final");
                 driver.Dispose();
+                driver = null;
             }
         }
 

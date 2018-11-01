@@ -42,7 +42,7 @@ namespace Sitecore.HabitatHome.Website.Test
             user.LastName = NumberToWords(DateTime.Now.Day);
             user.LastName = user.LastName.Replace(" ", "");
             user.LastName = Capitalize(user.LastName);
-            user.Email = $"{user.FirstName.ToLower()}.{user.LastName.ToLower()}{DateTime.Now.ToString("hhmm")}@sitecore.net";
+            user.Email = $"{user.FirstName.ToLower()}.{user.LastName.ToLower()}{DateTime.Now.ToString("HHmm")}@sitecore.net";
             user.Password = "habitat";
             return user;
         }
