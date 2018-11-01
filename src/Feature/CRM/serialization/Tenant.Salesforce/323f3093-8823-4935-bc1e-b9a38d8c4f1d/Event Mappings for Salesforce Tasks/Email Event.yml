@@ -1,0 +1,33 @@
+﻿---
+ID: "2451bfbf-9309-4a9b-b172-07bc6b999b46"
+Parent: "8188f2e5-f950-42d9-9813-bbb7974cf88b"
+Template: "af19dedc-424e-4f0a-b63a-f019f7028173"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Tenant Settings/Providers/xConnect/XObject Mapping Settings/XObject Mapping Definitions/Event Mappings for Salesforce Tasks/Email Event
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "5b201868-7720-4a15-8337-4cbc3f1af606"
+  Hint: ClrType
+  Value: Sitecore.DataExchange.Tools.SalesforceConnect.Events.EmailEvent, Sitecore.DataExchange.Tools.SalesforceConnect
+- ID: "5be4c643-d7f9-4640-bdec-02c5cbd9c23e"
+  Hint: MappingIncludeConditions
+  Type: Treelist
+  Value: "{852E7F58-25F1-4B66-AAB6-954F2A1DC592}"
+- ID: "8ca65b77-1164-4364-ba31-43428a762d4c"
+  Hint: MappingSetForProperties
+  Value: "{9590B9B6-CD82-4EBC-94D8-7B579C1B907D}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{2451BFBF-9309-4A9B-B172-07BC6B999B46}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165832Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

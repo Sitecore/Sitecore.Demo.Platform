@@ -1,0 +1,29 @@
+﻿---
+ID: "9693fb76-49a0-4cd3-a038-552bdb0f5fc5"
+Parent: "b9f09585-2bc2-4125-8a5a-7423f5b76750"
+Template: "8e726575-35cf-48a0-b2c9-00c30d16f2d9"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/xConnect Contacts and Interactions to Salesforce Sync/Add Contact Identifier for Salesforce to xConnect Contact Pipeline/Apply Mapping
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+- ID: "cb970e4d-aa7c-4ad1-8984-59bf01163d08"
+  Hint: MappingSet
+  Value: "{1874518B-F55A-4757-8456-8C83B5D81E93}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{9693FB76-49A0-4CD3-A038-552BDB0F5FC5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165826Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

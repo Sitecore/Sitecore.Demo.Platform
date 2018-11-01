@@ -31,8 +31,103 @@ SharedFields:
           s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
           s:ph="/main/sxa-empty/container-1" />
         <r
-          uid="{927271C8-1BB7-4DB7-B32C-BF9811115618}"
+          uid="{70F8D5E2-BD03-4013-8B8C-F995E0D9F922}"
           p:after="r[@uid='{3C8A8C9C-B3DF-4AAC-A7AB-AA2E6A07122E}']"
+          s:ds=""
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters&amp;FieldNames&amp;Styles=%7BA5A6D5AB-95F3-48A5-B809-F7300EB05646%7D%7C%7B1969659E-92D6-459F-A140-5C71A6DB449F%7D%7C%7B6BE9F803-D775-4C1F-B16B-D8DD1C738477%7D%7C%7BA0559C68-FB11-4B08-95A1-4CC5B7FAD23D%7D%7C%7B33442007-B53D-44E8-8043-088C1E64D524%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{0D18B2EB-B01E-423D-9E19-4D535C7AB918}"
+                s:name="SFMC - Journey Step 4">
+                <conditions>
+                  <condition
+                    uid="1A35720D87414F48A255233862FBABC5"
+                    s:id="{DB2650CC-5F84-4328-AA6C-CF57487A570A}"
+                    s:operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}"
+                    s:JourneyStatus="Journey Step 4" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="034DDFE1EB6342B4B8027BE8F6CC0FD9"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo- Journey Step 4" />
+                </actions>
+              </rule>
+              <rule
+                uid="{B27ACBA4-9E2C-422E-953E-E14B1DD27F31}"
+                s:name="SFMC - Journey Step 3">
+                <conditions>
+                  <condition
+                    uid="05E9348AFC4846E8A4E1E8D9198675D1"
+                    s:id="{DB2650CC-5F84-4328-AA6C-CF57487A570A}"
+                    s:operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}"
+                    s:JourneyStatus="Journey Step 3" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="B69E4F83EE4B47FEBD943B1DE9A2268C"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo- Journey Step 3" />
+                </actions>
+              </rule>
+              <rule
+                uid="{6D7C5362-0D75-4DD7-87CC-910783AB49D7}"
+                s:name="SFMC - Journey Step 2">
+                <conditions>
+                  <condition
+                    uid="D61E1B1C69CD4BFDA03109F0ABD6A375"
+                    s:id="{DB2650CC-5F84-4328-AA6C-CF57487A570A}"
+                    s:operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}"
+                    s:JourneyStatus="Journey Step 2" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="8654AC4F52DA42028F3B9304D08EBC8E"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo- Journey Step 2" />
+                </actions>
+              </rule>
+              <rule
+                uid="{33387177-5FC0-4947-9C17-D7FAB4D635E0}"
+                s:name="SFMC - Journey Step 1">
+                <conditions>
+                  <condition
+                    uid="99798F63DEDC452D97E57BA753FC9CE9"
+                    s:id="{DB2650CC-5F84-4328-AA6C-CF57487A570A}"
+                    s:Comparison="is equal to"
+                    s:JourneyStatus="Journey Step 1"
+                    s:operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="4015EBDB994E42DEAEA10510F1562A37"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo- Journey Step 1" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="671E1DEC0F0A452D80C9388A92F22C27"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="ED120AD9CB0E4AA6ABD8A02D5A9F5EFC"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{927271C8-1BB7-4DB7-B32C-BF9811115618}"
+          p:after="r[@uid='{70F8D5E2-BD03-4013-8B8C-F995E0D9F922}']"
           s:ds=""
           s:id="{99A633FC-B9A9-44A0-B78A-BCBB08DD02C9}"
           s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD49D80A9-A728-49B4-9F34-8455EF3B7A88%7D&amp;Styles=%7BAC323A2C-7301-4523-B005-9D4F3CCB2ABC%7D&amp;Reset Caching Options&amp;RenderingIdentifier"

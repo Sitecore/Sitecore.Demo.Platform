@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Sitecore.Analytics;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.DependencyInjection;
@@ -30,6 +31,11 @@ namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
 
         protected override bool Execute(IdentifyContactActionData data, FormSubmitContext formSubmitContext)
         {
+            if (Tracker.Current == null && Tracker.Enabled)
+            {
+                Tracker.StartTracking();
+            }
+
             Assert.ArgumentNotNull(formSubmitContext, "formSubmitContext");
             if (data == null || !(data.ReferenceId != Guid.Empty))
             {
@@ -72,8 +78,14 @@ namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
                 }
             }
 
+            if (!string.IsNullOrEmpty(contactFacetData.PhoneNumber))
+            {
+                contactFacetData.PhoneKey = "Work Phone";
+            }
+
             if (!string.IsNullOrEmpty(contactFacetData.EmailAddress))
             {
+                contactFacetData.EmailKey = "Work Email";
                 _trackerService.IdentifyContact(Context.Site.Domain.Name, contactFacetData.EmailAddress);
             }
 

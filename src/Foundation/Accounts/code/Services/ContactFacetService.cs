@@ -22,12 +22,14 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
     public class ContactFacetService : IContactFacetService
     {
         private readonly IContactFacetsProvider contactFacetsProvider;
+        private readonly IExportFileService exportFileService;
         private readonly ContactManager contactManager;
-        private readonly string[] facetsToUpdate = { PersonalInformation.DefaultFacetKey, AddressList.DefaultFacetKey, EmailAddressList.DefaultFacetKey, ConsentInformation.DefaultFacetKey, PhoneNumberList.DefaultFacetKey, Avatar.DefaultFacetKey };
+        private readonly string[] facetsToUpdate = { PersonalInformation.DefaultFacetKey, AddressList.DefaultFacetKey, EmailAddressList.DefaultFacetKey, ConsentInformation.DefaultFacetKey, PhoneNumberList.DefaultFacetKey, Avatar.DefaultFacetKey, EngagementMeasures.DefaultFacetKey};
 
-        public ContactFacetService(IContactFacetsProvider contactFacetsProvider)
+        public ContactFacetService(IContactFacetsProvider contactFacetsProvider, IExportFileService exportFileService)
         {
             this.contactFacetsProvider = contactFacetsProvider;
+            this.exportFileService = exportFileService;
             this.contactManager = Factory.CreateObject("tracking/contactManager", true) as ContactManager;
         }
 
@@ -113,7 +115,11 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
 
                     string exportedData = JsonConvert.SerializeObject(contact, serializerSettings);
 
-                    return exportedData;
+                    var fileWithExportedData = exportFileService.CreateExportFile();
+
+                    exportFileService.WriteExportedDataIntoFile(fileWithExportedData, exportedData);
+
+                    return fileWithExportedData;
                 }
                 catch (XdbExecutionException ex)
                 {
@@ -195,48 +201,46 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
         private bool SetEmail(ContactFacetData data, XConnect.Contact contact, XConnectClient client)
         {
             var email = data.EmailAddress;
+            var emailKey = data.EmailKey;
             if (string.IsNullOrEmpty(email))
             {
                 return false;
             }
-            var emails = contact.Emails();
-            if (emails == null)
+
+            if (contact.Emails() != null)
             {
-                emails = new EmailAddressList(new EmailAddress(email, false), null);
+                contact.Emails().PreferredEmail = new EmailAddress(email, true);
+                contact.Emails().PreferredKey = emailKey;
+                client.SetFacet(contact, EmailAddressList.DefaultFacetKey, contact.Emails());
             }
             else
             {
-                if (emails.PreferredEmail?.SmtpAddress == email)
-                {
-                    return false;
-                }
-                emails.PreferredEmail = new EmailAddress(email, false);
+                client.SetFacet(contact, EmailAddressList.DefaultFacetKey, new EmailAddressList(new EmailAddress(email, true), emailKey));
             }
-            client.SetFacet(contact, EmailAddressList.DefaultFacetKey, emails);
+
             return true;
         }
 
         private bool SetPhone(ContactFacetData data, XConnect.Contact contact, XConnectClient client)
         {
             var phoneNumber = data.PhoneNumber;
+            var phoneKey = data.PhoneKey;
             if (string.IsNullOrEmpty(phoneNumber))
             {
                 return false;
             }
-            var phoneNumbers = contact.PhoneNumbers();
-            if (phoneNumbers == null)
+
+            if (contact.PhoneNumbers() != null)
             {
-                phoneNumbers = new PhoneNumberList(new PhoneNumber(null, phoneNumber), null);
+                contact.PhoneNumbers().PreferredPhoneNumber = new Sitecore.XConnect.Collection.Model.PhoneNumber(string.Empty, phoneNumber);
+                contact.PhoneNumbers().PreferredKey = phoneKey;
+                client.SetFacet(contact, PhoneNumberList.DefaultFacetKey, contact.PhoneNumbers());
             }
             else
             {
-                if (phoneNumbers.PreferredPhoneNumber?.Number == phoneNumber)
-                {
-                    return false;
-                }
-                phoneNumbers.PreferredPhoneNumber = new PhoneNumber(null, phoneNumber);
+                client.SetFacet(contact, PhoneNumberList.DefaultFacetKey, new PhoneNumberList(new PhoneNumber(string.Empty, phoneNumber), phoneKey));
             }
-            client.SetFacet(contact, PhoneNumberList.DefaultFacetKey, phoneNumbers);
+
             return true;
         }
 
@@ -280,17 +284,17 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
         private static bool SetName(ContactFacetData data, PersonalInformation personalInfo)
         {
             var changed = false;
-            if (personalInfo.FirstName != data.FirstName)
+            if (personalInfo.FirstName != data.FirstName && !String.IsNullOrWhiteSpace(data.FirstName))
             {
                 personalInfo.FirstName = data.FirstName;
                 changed = true;
             }
-            if (personalInfo.MiddleName != data.MiddleName)
+            if (personalInfo.MiddleName != data.MiddleName && !String.IsNullOrWhiteSpace(data.MiddleName))
             {
                 personalInfo.MiddleName = data.MiddleName;
                 changed = true;
             }
-            if (personalInfo.LastName != data.LastName)
+            if (personalInfo.LastName != data.LastName && !String.IsNullOrWhiteSpace(data.LastName))
             {
                 personalInfo.LastName = data.LastName;
                 changed = true;

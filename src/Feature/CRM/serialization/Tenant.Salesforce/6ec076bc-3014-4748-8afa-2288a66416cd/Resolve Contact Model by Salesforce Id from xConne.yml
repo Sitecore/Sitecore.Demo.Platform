@@ -1,0 +1,60 @@
+﻿---
+ID: "8d7dc49f-dcf1-488a-b4a4-e732d85e4fb7"
+Parent: "6ec076bc-3014-4748-8afa-2288a66416cd"
+Template: "0c843d1d-145b-4f22-8a50-a4baa1477b05"
+Path: /sitecore/system/Data Exchange/Demo CRM Salesforce/Pipelines/Salesforce Tasks to xConnect Sync Pipelines/Process Single Contact from Salesforce Pipeline/Resolve Contact Model by Salesforce Id from xConnect
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "010e5d89-6409-4fbc-843b-ceb84c8ed3bb"
+  Hint: IdentifierObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "01eba2b5-e9d2-4a36-89ee-042a2a119fba"
+  Hint: ContactIdentificationLevelObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "1a6810e6-b18b-4e38-825a-fc9988d3518a"
+  Hint: FinishPipelineIfObjectNotResolved
+  Type: Checkbox
+  Value: 1
+- ID: "4ce9ed44-bc7f-44e5-886d-97d9a6890faa"
+  Hint: IdentifierValueAccessor
+  Value: "{CD58B48C-DAA0-4E4C-B864-4B209B2BE96C}"
+- ID: "5c061c42-ff86-4f43-b5ad-831dc03dc77d"
+  Hint: ResolvedObjectLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "6248ce5e-be8d-4e36-a0f4-9d20050ff580"
+  Hint: UseConnectionSettingsFromContext
+  Type: Checkbox
+  Value: 1
+- ID: "821bec7f-b5fb-4e7d-bd02-407f6d76b165"
+  Hint: LoadInteractions
+  Type: Checkbox
+  Value: 1
+- ID: "d4f2f278-178d-4e0f-9465-d4a1221ca99f"
+  Hint: EndpointFrom
+  Value: "{79B4E417-2F3F-45DB-9E81-BE6D26B39D56}"
+- ID: "e4cb375d-2b06-443f-aa69-905da00c8928"
+  Hint: InteractionFacetsToLoad
+  Type: Treelist
+  Value: "{C3CC8F51-AFA2-07AD-21E0-53BC1836B57E}"
+- ID: "ef645050-7c9e-4929-b96f-0d40cd8c4e96"
+  Hint: ContactIdentificationLevelValueAccessor
+  Value: "{9565F2E8-66E2-446C-B3FC-1ACF84A01F0A}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{8D7DC49F-DCF1-488A-B4A4-E732D85E4FB7}"
+- ID: "fd64ab8d-85e1-4321-a12a-4edc19ff78e9"
+  Hint: ContactIdentifierSourceValueAccessor
+  Value: "{3C356E42-DFB5-45C0-85D0-AC9E4098CB05}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180924T165823Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

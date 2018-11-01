@@ -7,6 +7,7 @@
 
 #load "local:?path=CakeScripts/helper-methods.cake"
 
+
 var target = Argument<string>("Target", "Default");
 var configuration = new Configuration();
 var cakeConsole = new CakeConsole();
@@ -30,12 +31,15 @@ Setup(context =>
 Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
-.IsDependentOn("Copy-Sitecore-Lib")
+.IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Publish-Transforms")
+.IsDependentOn("Post-Deploy");
+
+Task("Post-Deploy")
+.IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Deploy-EXM-Campaigns")
 .IsDependentOn("Deploy-Marketing-Definitions")
@@ -43,13 +47,13 @@ Task("Default")
 .IsDependentOn("Rebuild-Master-Index")
 .IsDependentOn("Rebuild-Web-Index");
 
-
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
-.IsDependentOn("Copy-Sitecore-Lib")
+.IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
+.IsDependentOn("Modify-Unicorn-Source-Folder")
 .IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project");
 
@@ -62,6 +66,14 @@ Task("Clean").Does(() => {
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
 });
 
+Task("Copy-Sitecore-Lib")
+    .WithCriteria(()=>(configuration.BuildConfiguration == "preview"))
+    .Does(()=> {
+        var files = GetFiles($"{configuration.WebsiteRoot}/bin/Sitecore*.dll");
+        var destination = "./lib/Sitecore";
+        EnsureDirectoryExists(destination);
+        CopyFiles(files, destination);
+}); 
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
 .IsDependentOn("Publish-Foundation-Projects")
@@ -85,10 +97,12 @@ Task("Publish-Project-Projects").Does(() => {
     var common = $"{configuration.ProjectSrcFolder}\\Common";
     var habitat = $"{configuration.ProjectSrcFolder}\\Habitat";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
+    var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
 
     PublishProjects(common, configuration.WebsiteRoot);
     PublishProjects(habitat, configuration.WebsiteRoot);
     PublishProjects(habitatHome, configuration.WebsiteRoot);
+    PublishProjects(habitatHomeBasic, configuration.WebsiteRoot);
 });
 
 Task("Publish-xConnect-Project").Does(() => {
@@ -144,6 +158,24 @@ Task("Modify-Unicorn-Source-Folder").Does(() => {
     XmlPoke(zzzDevSettingsFile, sourceFolderXPath, directoryPath, xmlSetting);
 });
 
+Task("Modify-PublishSettings").Does(() => {
+    var publishSettingsOriginal = File($"{configuration.ProjectFolder}/publishsettings.targets");
+    var destination = $"{configuration.ProjectFolder}/publishsettings.targets.user";
+
+    CopyFile(publishSettingsOriginal,destination);
+
+	var importXPath = "/ns:Project/ns:Import";
+
+    var publishUrlPath = "/ns:Project/ns:PropertyGroup/ns:publishUrl";
+
+    var xmlSetting = new XmlPokeSettings {
+        Namespaces = new Dictionary<string, string> {
+            {"ns", @"http://schemas.microsoft.com/developer/msbuild/2003"}
+        }
+    };
+    XmlPoke(destination,importXPath,null,xmlSetting);
+    XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
+});
 Task("Sync-Unicorn").Does(() => {
     var unicornUrl = configuration.InstanceUrl + "unicorn.aspx";
     Information("Sync Unicorn items from url: " + unicornUrl);
@@ -164,15 +196,15 @@ Task("Sync-Unicorn").Does(() => {
 });
 
 Task("Deploy-EXM-Campaigns").Does(() => {
-    var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
-    string responseBody = HttpGet(url);
-
-    Information(responseBody);
+	Spam(() => DeployExmCampaigns(), configuration.DeployExmTimeout);
 });
 
 Task("Deploy-Marketing-Definitions").Does(() => {
     var url = $"{configuration.InstanceUrl}utilities/deploymarketingdefinitions.aspx?apiKey={configuration.MarketingDefinitionsApiKey}";
-    string responseBody = HttpGet(url);
+    var responseBody = HttpGet(url, settings =>
+	{
+		settings.AppendHeader("Connection", "keep-alive");
+	});
 
     Information(responseBody);
 });
@@ -189,15 +221,6 @@ Task("Rebuild-Web-Index").Does(() => {
     RebuildIndex("sitecore_web_index");
 });
 
-Task("Copy-Sitecore-Lib")
-    .WithCriteria(()=>(configuration.BuildConfiguration == "preview"))
-    .Does(()=> {
-        var files = GetFiles($"{configuration.WebsiteRoot}/bin/Sitecore*.dll");
-        var destination = "./lib/Sitecore";
-        EnsureDirectoryExists(destination);
-        CopyFiles(files, destination);
-
-}); 
 
 
 RunTarget(target);

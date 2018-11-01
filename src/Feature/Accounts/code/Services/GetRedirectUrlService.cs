@@ -2,6 +2,7 @@
 using System.Web;
 using Sitecore.HabitatHome.Foundation.DependencyInjection;
 using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
+using Sitecore.SecurityModel;
 
 namespace Sitecore.HabitatHome.Feature.Accounts.Services
 {                                                                             
@@ -39,7 +40,11 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Services
                 case AuthenticationStatus.Unauthenticated:
                     return _accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.LoginPage, Context.Site.GetStartItem());
                 case AuthenticationStatus.Authenticated:
-                    return _accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage, Context.Site.GetStartItem());
+                    using (new SecurityDisabler())
+                    {
+                        // redirectUrl may be requested prior to access being granted by authentication
+                        return _accountsSettingsService.GetPageLinkOrDefault(Context.Item, Templates.AccountsSettings.Fields.AfterLoginPage, Context.Site.GetStartItem());
+                    }
                 default:
                     throw new ArgumentOutOfRangeException(nameof(status), status, null);
             }
