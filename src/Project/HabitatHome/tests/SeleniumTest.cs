@@ -201,10 +201,6 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
-        public string Host { get; set; } = "http://habitathome.dev.local";
-
-
-
         public void TakeFullPageScreenshot(string name)
         {
             // Add html2canvas if it isn't already loaded.

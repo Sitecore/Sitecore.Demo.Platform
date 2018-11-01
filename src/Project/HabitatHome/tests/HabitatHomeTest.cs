@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Linq;
 
@@ -17,14 +18,30 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        public string Host { get; set; } = "http://habitathome.dev.local";
+        public string UserEmail { get; set; } = "test.user@sitecore.net";
+        public string UserPassword { get; set; } = "habitat";
+
+
+
+        protected string Capitalize(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+                return text;
+            if (text.Length == 1)
+                return text.ToUpper();
+            return text.Substring(0, 1).ToUpper() + text.Substring(1);
+        }
+
+
+
         protected User CreateUser()
         {
             var user = new User();
             user.FirstName = DateTime.Now.ToString("MMMM");
             user.LastName = NumberToWords(DateTime.Now.Day);
             user.LastName = user.LastName.Replace(" ", "");
-            user.LastName = user.LastName.Substring(0, 1).ToUpper() +
-                user.LastName.Substring(1);
+            user.LastName = Capitalize(user.LastName);
             user.Email = $"{user.FirstName.ToLower()}.{user.LastName.ToLower()}{DateTime.Now.ToString("hhmm")}@sitecore.net";
             user.Password = "habitat";
             return user;
@@ -32,9 +49,41 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        protected void Login()
+        {
+            var user = new User { Email = UserEmail, Password = UserPassword };
+
+            var name = UserEmail.Split('@')[0];
+            if (name.Contains("."))
+            {
+                user.FirstName = Capitalize(name.Split('.')[0]);
+                user.LastName = Capitalize(name.Split('.')[1]);
+            }
+            else
+            {
+                user.FirstName = Capitalize(name);
+                user.LastName = "User";
+            }
+
+            LoginUser(user);
+            if (!GetElements("Logout").Any())
+                RegisterUser(user);
+        }
+
+
+
         protected void LoginUser(User user)
         {
-            Click("LOGIN");
+            try
+            {
+                Click("LOGIN");
+            }
+            catch (NoSuchElementException)
+            {
+                GoTo(Host);
+                Click("LOGIN");
+            }
+
             EnterText("#loginEmail", user.Email);
             EnterText("#loginPassword", user.Password);
             Click("input[type='submit']");
@@ -95,7 +144,7 @@ namespace Sitecore.HabitatHome.Website.Test
 
         protected void RegisterUser(User user)
         {
-            GoTo($"{Host}");
+            GoTo(Host);
             Click("LOGIN");
             Click("CREATE ACCOUNT");
 
