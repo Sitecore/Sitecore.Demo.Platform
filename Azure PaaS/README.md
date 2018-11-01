@@ -47,7 +47,33 @@ Clone the Sitecore.HabitatHome.Content repository locally - defaults are configu
 -- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Content.git` 
 -- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Content.git`
 
-### 2. Customize install
+### 2. Create an Azure Service Principal
+
+In order for the upload and deployment process to authenticate to your Azure tenant you will need to provide a Service principal using password-based authentication, and its related information.
+
+This is best done from Azure's CLI: [Azure CLI Documentation](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart)
+
+Run the following, replacing *ServicePrincipalName* and *PASSWORD* with your own values:
+
+`az ad sp create-for-rbac --name ServicePrincipalName --password PASSWORD`
+
+This will return the following:
+
+```json
+{
+  "appId": "APP_ID",
+  "displayName": "ServicePrincipalName",
+  "name": "http://ServicePrincipalName",
+  "password": ...,
+  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+}
+```
+
+The `appId`, `password`, and `tenant` values will be required later so make sure to record them!
+
+[Create a Service Principal Documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+
+### 3. Customize install
 
 The following is a list of default values/assumptions for install locations
 
@@ -58,7 +84,30 @@ if these values are not correct you will need to edit the cake-config.json in th
 * Do not include a trailing `\` slash in your paths  
 * Do not include any spaces in the Deploy folder directory path
 
-### 3. Deploy Sitecore.HabitatHome.Content
+#### Non-Interactive Installation
+
+By default the deployment process will prompt you for necessary information. If you desire a non-interactive deployment then
+you will need to modify the `azureuser-config.json` for your target topology.
+
+|Parameter                                  | Description
+|-------------------------------------------|---------------------------------------------------------------------------------------------
+| azureSubscriptionName                     | The name or id of the Azure subscription. Can be found under the "Subscriptions" Dashboard
+| tenantId                                  | Also called a DirectoryId. Can be found in the "Azure Active Directoy" Dashboard under Manage -> Properties
+| applicationId                             | appId of the Service Principal
+| applicationPassword                       | the Service Principal password
+| sitecoreAccount                           | The username and password to a dev.sitecore.com accoutn with download permissions
+| AzureDeploymentID							| The Resource Group name in azure that Habitat will be deployed to. If the group does not exist it will be created.
+| AzureRegion                               | The Geographic Azure Location of the Deployment [Azure Locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/)
+| XConnectCertfilePath                      | xConnect Certificate Path. If left blank one will be generated for you
+| XConnectCertificatePassword               | xConnect Certificate Password. If XConnectCertfilePath is left blank and a cert is generated for you then the value will default to the word "secret"
+| SitecoreLoginAdminPassword                | Sitecore Administrator Password (8 Character Minimum)
+| SitecoreLicenseXMLPath                    | Sitecore license.xml Path
+| SqlServerLoginAdminAccount                | SQL Server Administrator Username (SA is not a valid admin name for Azure SQL)
+| SqlServerLoginAdminPassword               | SQL Server Administrator Password
+| containerName                             | Leave Blank. Used by the upload and deploy scripts to pass information
+| storageAccountName                        | Leave Blank. Used by the upload and deploy scripts to pass information
+
+### 4. Deploy Sitecore.HabitatHome.Content
 
 From the `\Azure PaaS` folder
 
@@ -103,20 +152,12 @@ This script will prompt you for information regarding your build and deployment
 | XConnectCertfilePath                      | A Base64-encoded blob of the authentication certificate in PKCS #12 format.
 | XConnectCertificatePassword               | A password to the authentication certificate.
 
-### 4. Validating deployment
-
-##### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
-
-If you do not use habitathome.dev.local you will need to modify the Host Name in 
-`/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
-The Habitat Home site will not respond / render correctly until this value is modified. 
-
-# Contribute or Issues
+## Contribute or Issues
 Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Content/issues). Contributions are always welcome!
 
-# Sitecore Version Change
+## Sitecore Version Change
 Alter the appropriate items in the assets.json file for the topology you are targeting. The only elements that should be changed are the filename and URL, 
-do not alter the filename’s default format.
+do not alter the filenameï¿½s default format.
 
 ### Assets.json
 Only alter these attributes as instructed, the build/deploy process is reliant on several of these parameters.
