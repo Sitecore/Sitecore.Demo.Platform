@@ -118,6 +118,20 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        protected void EnterText(IWebElement element, string text)
+        {
+            element.SendKeys(text);
+        }
+
+
+
+        protected void EnterText(string descriptor, string text)
+        {
+            EnterText(GetElement(descriptor), text);
+        }
+
+
+
         protected bool Exists(string descriptor)
         {
             try
