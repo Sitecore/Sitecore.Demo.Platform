@@ -110,6 +110,10 @@ foreach ($setting in $azureuserconfig.settings)
 
 	if (-not ([string]::IsNullOrEmpty($setting.value)))
 	{	
+		if ($setting.id -eq "XConnectCertfilePath")
+		{
+			$certificatePath = $setting.value
+		}
 		continue
 	}
 
@@ -139,7 +143,7 @@ foreach ($setting in $azureuserconfig.settings)
 		}
 		"XConnectCertificatePassword"
 		{
-			if (-not ([string]::IsNullOrEmpty($certificatePath)))
+			if ($(-not ([string]::IsNullOrEmpty($certificatePath))) -and $([string]::IsNullOrEmpty($setting.value)))
 			{
 				$setting.value = "secret"
 			}
