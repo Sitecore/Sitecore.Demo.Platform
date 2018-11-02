@@ -51,8 +51,14 @@
       "description": "SQL Server Administrator Password"
     },
     {
-      "id": "ArmTemplateUrl",
-      "value": ""
+      "id": "containerName",
+      "value": "",
+      "description": "Leave Blank. Used by the upload and deploy scripts to pass information"
+    },
+    {
+      "id": "storageAccountName",
+      "value": "",
+      "description": "Leave Blank. Used by the upload and deploy scripts to pass information"
     }
   ]
 }

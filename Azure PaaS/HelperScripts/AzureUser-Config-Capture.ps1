@@ -34,6 +34,25 @@ $assetconfigFile     = $configarray[3]
 $azureuserconfigFile = $configarray[4]
 
 ########################
+# Create SelfSignedCertificate
+########################
+
+Function Create-SelfSignedCertificate{
+	$thumbprint = (New-SelfSignedCertificate -Subject "CN=$env:COMPUTERNAME @ Sitecore, Inc." -Type SSLServerAuthentication -FriendlyName "$env:USERNAME Certificate").Thumbprint
+	
+	if (!(Test-Path -Path $config.DeployFolder))
+	{
+		New-Item -Path $config.DeployFolder -ItemType Directory
+	}
+
+	$certificateFilePath =  Join-Path $config.DeployFolder "$thumbprint.pfx"
+
+	$certPassword = ConvertTo-SecureString -String "secret" -Force -AsPlainText
+
+	return Export-PfxCertificate -cert cert:\LocalMachine\MY\$thumbprint -FilePath "$certificateFilePath" -Password $certPassword	
+}
+
+########################
 # Get Azure Credentials
 ########################
 
@@ -78,25 +97,52 @@ $servicePrincipalCredentials = New-Object System.Management.Automation.PSCredent
 Login-AzureRmAccount -ServicePrincipal -Tenant $servicePrincipalConfiguration.tenantId -Credential $servicePrincipalCredentials
 Set-AzureRmContext -SubscriptionName $servicePrincipalConfiguration.azureSubscriptionName -TenantId $servicePrincipalConfiguration.tenantId
 
-
 ###########################################
 # Get User Input for azureuser-config.json
 ###########################################
 
 Write-host "Please Enter Azure Settings"
 
+$certificatePath = ''
+
 foreach ($setting in $azureuserconfig.settings)
 {
+
 	if (-not ([string]::IsNullOrEmpty($setting.value)))
-	{
+	{	
 		continue
 	}
 
 	switch ($setting.id)
 	{		
-		"ArmTemplateUrl"
+		"containerName"
 		{
 			continue
+		}
+		"storageAccountName"
+		{
+			continue
+		}
+		"XConnectCertfilePath"
+		{
+			if ([string]::IsNullOrEmpty($setting.value))
+			{			
+				$cert = Create-SelfSignedCertificate
+				if ($cert -is [array])
+				{
+					$certificatePath = $cert[-1].FullName
+				} else {
+					$certificatePath = $cert.FullName
+				}
+				$setting.value = $certificatePath
+			}
+		}
+		"XConnectCertificatePassword"
+		{
+			if (-not ([string]::IsNullOrEmpty($certificatePath)))
+			{
+				$setting.value = "secret"
+			}
 		}
 		default
 		{

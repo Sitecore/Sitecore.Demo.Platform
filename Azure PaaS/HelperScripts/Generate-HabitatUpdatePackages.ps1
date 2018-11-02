@@ -40,13 +40,53 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
     if(!(Test-Path -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName))))
 	{
         Write-Host "Creating" $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName))
-        New-Item -ItemType Directory -Force -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName))
+        New-Item -ItemType Directory -Force -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName))        
             
     }
 
     $updateFile = Join-Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName)) "$($targetFolderName).update"
-	$courierPath = $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', 'Sitecore Courier'))
     GenerateUpdatePackage -configFile $Configuration -argSourcePackagingFolder $sourceFolder -argOutputPackageFile $updateFile
+
+    # Check if scaled configuration is in use and generate an additional CD package
+
+    if (($config.Topology -eq "scaled") -and ($targetFolderName -eq "HabitatHome")) {
+
+        # Copy the contents of the HabitatHome build output to a new folder, but exclude the YML files inside the serialization folder
+
+        $sourceFolderCD = $sourceFolder + "CD"
+        $exclusionFolder = "$($sourceFolderCD)\App_Data\"
+        Copy-Item -Path $sourceFolder -Destination $sourceFolderCD -Exclude *.yml -Recurse -Force
+
+        # Clean empty folders from the resulting copy
+
+        $folderList = (Get-ChildItem $exclusionFolder -Recurse -Directory)
+        foreach ($filesystemObject in $folderList) {
+
+            Remove-Item $filesystemObject.FullName -Recurse
+            $folderList = (Get-ChildItem $exclusionFolder -Recurse -Directory)
+            if ($null -eq $folderList)
+            {
+                break
+            }
+
+        }
+
+        # Create a separate folder that will host the scaled CD package 
+        
+        $targetFolderNameCD = $targetFolderName + "CD"
+        if(!(Test-Path -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD))))
+        {
+            Write-Host "Creating" $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD))
+            New-Item -ItemType Directory -Force -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD))        
+                
+        }
+
+        # Update the filename for the package and generate the CD update package in a separate folder
+        
+        $updateFile = Join-Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD)) "$($targetFolderName).update"
+        GenerateUpdatePackage -configFile $Configuration -argSourcePackagingFolder $sourceFolderCD -argOutputPackageFile $updateFile
+
+    }
 
 }
 
@@ -72,24 +112,24 @@ Function GenerateUpdatePackage(){
 }
 
 
-###############################
+#####################################
 # Clean up and prepare for packaging
-###############################
+#####################################
 
 Function Clean-Up([PSObject] $Configuration, [String] $FolderString){
 
     # Clean Assemblies
 
-    $AssembliesToRemove = @("Sitecore.*.dll","Unicorn*.dll","Rainbow*.dll", "Kamsar*.dll")
-    $AssembliesToKeep = @("Sitecore.HabitatHome.*")
+    $AssembliesToRemove = @("Sitecore.*.dll", "Unicorn*.dll", "Rainbow*.dll", "Kamsar*.dll")
+    $AssembliesToKeep = @("Sitecore.HabitatHome.*", "Sitecore.DataExchange.*")
 
-    Get-ChildItem $FolderString -Include $AssembliesToRemove -Exclude $AssembliesToKeep -Recurse | foreach($_) { Remove-Item $_.FullName }
+    Get-ChildItem $FolderString -Include $AssembliesToRemove -Exclude $AssembliesToKeep -Recurse | ForEach-Object($_) { Remove-Item $_.FullName }
 
     # Clean Configs Configs
 
     $ConfigsToRemove = @("*.Serialization*.config", "Unicorn*.config*", "Rainbow*.config")  
 
-    Get-ChildItem $FolderString -Include $ConfigsToRemove -Recurse | foreach($_) { Remove-Item $_.FullName }
+    Get-ChildItem $FolderString -Include $ConfigsToRemove -Recurse | ForEach-Object($_) { Remove-Item $_.FullName }
 
     # Clean configurations in bin
 
@@ -98,13 +138,13 @@ Function Clean-Up([PSObject] $Configuration, [String] $FolderString){
     $BinConfigsToRemove = @("*.config", "*.xdt")  
        
 
-    Get-ChildItem $BinFolder -Include $BinConfigsToRemove -Recurse | foreach($_) { Remove-Item $_.FullName }
+    Get-ChildItem $BinFolder -Include $BinConfigsToRemove -Recurse | ForEach-Object($_) { Remove-Item $_.FullName }
 
     # Clean Empty Folders
 
-    dir $FolderString -recurse | 
+    Get-ChildItem $FolderString -recurse | 
 
-    Where { $_.PSIsContainer -and @(dir -Lit $_.Fullname -r | Where {!$_.PSIsContainer}).Length -eq 0 } |
+    Where-Object { $_.PSIsContainer -and @(Get-ChildItem -Lit $_.Fullname -r | Where-Object {!$_.PSIsContainer}).Length -eq 0 } |
 
     Remove-Item -recurse    
 }

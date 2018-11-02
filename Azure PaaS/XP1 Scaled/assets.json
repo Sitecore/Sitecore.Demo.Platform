@@ -5,10 +5,11 @@
       "name": "Sitecore Experience Platform",
       "fileName": "Sitecore 9.0.2 rev. 180604 (WDP XPScaled packages).zip",
       "url": "https://dev.sitecore.net/~/media/3215C20804EC4BD48264196246CD6F90.ashx",
-      "extract": false,
+      "extract": true,
       "isWdp": false,
       "convertToWdp": false,
       "uploadToAzure": false,
+      "install": true,
       "source": "sitecore"
     },
     {
@@ -20,6 +21,7 @@
       "isWdp": false,
       "convertToWdp": false,
       "uploadToAzure": false,
+      "install": true,
       "source": "sitecore"
     },
     {
@@ -31,6 +33,7 @@
       "isWdp": true,
       "convertToWdp": false,
       "uploadToAzure": true,
+      "install": true,
       "source": "sitecore"
     },
     {
@@ -42,6 +45,7 @@
       "isWdp": true,
       "convertToWdp": false,
       "uploadToAzure": true,
+      "install": true,
       "source": "sitecore"
     },
     {
@@ -53,6 +57,7 @@
       "isWdp": true,
       "convertToWdp": false,
       "uploadToAzure": true,
+      "install": true,
       "source": "sitecore"
     },
     {
@@ -63,6 +68,7 @@
       "isWdp": false,
       "convertToWdp": true,
       "uploadToAzure": true,
+      "install": false,
       "modules": [
         {
           "id": "def",
@@ -138,11 +144,12 @@
       "isWdp": false,
       "convertToWdp": true,
       "uploadToAzure": true,
+      "install": false,
       "modules": [
         {
           "id": "def-CD",
           "name": "Data Exchange Framework CD",
-          "fileName": " Data Exchange Framework CD Server 2.0.1 rev. 180108.zip",
+          "fileName": "Data Exchange Framework CD Server 2.0.1 rev. 180108.zip",
           "url": "https://dev.sitecore.net/~/media/8950E47E319C4B20AEC27DCFD550B864.ashx",
           "extract": false,
           "source": "sitecore"

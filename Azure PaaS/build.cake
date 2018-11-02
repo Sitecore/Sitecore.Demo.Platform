@@ -51,6 +51,8 @@ Task("Build")
 	//.IsDependentOn("Rebuild-Master-Index")
 	//.IsDependentOn("Rebuild-Web-Index")
 .IsDependentOn("Publish-YML")
+.IsDependentOn("Publish-Azure-Transforms")
+.IsDependentOn("Publish-Post-Steps")
 .IsDependentOn("Package-Build");
 
 Task("Azure-Upload")
@@ -67,26 +69,25 @@ Task("Azure-Deploy")
 
 Task("Clean").Does(() => {
 
-	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\HabitatHome"))
+    string[] folders = { "\\assets\\HabitatHome", "\\assets\\HabitatHomeCD", "\\Website", "\\assets\\Xconnect", "\\assets\\Data Exchange Framework\\WDPWorkFolder", "\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
+
+    foreach (string folder in folders)
     {
-        CleanDirectories($"{configuration.DeployFolder}\\assets\\HabitatHome");
+        if (DirectoryExists($"{configuration.DeployFolder}{folder}"))
+        {
+            try
+            {
+                CleanDirectories($"{configuration.DeployFolder}{folder}");
+            } catch
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.WriteLine($"The folder under path \'{configuration.DeployFolder}{folder}\' is still in use by a process. Exiting...");
+                Console.ResetColor();
+                Environment.Exit(0);
+            }
+        }
     }
 
-	if (DirectoryExists($"{configuration.DeployFolder}\\Website"))
-    {
-        CleanDirectories($"{configuration.DeployFolder}\\Website");
-    }
-
-	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Xconnect"))
-    {
-        CleanDirectories($"{configuration.DeployFolder}\\assets\\Xconnect");
-    }
-
-	if (DirectoryExists($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\WDPWorkFolder"))
-    {
-        CleanDirectories($"{configuration.DeployFolder}\\assets\\Data Exchange Framework\\WDPWorkFolder");
-    }
-	
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
 });
@@ -173,6 +174,64 @@ Task("Publish-Transforms").Does(() => {
     }
 });
 
+Task("Publish-Azure-Transforms").Does(()=>{
+
+       var codeFoldersFilter = $@"{configuration.ProjectFolder}\**\code";
+       var destination = $@"{configuration.DeployFolder}\Website\HabitatHome";  
+
+       if (!DirectoryExists(destination))
+       {
+             CreateFolder(destination);
+       }
+
+        try
+        {    
+            var projectDirectories = GetDirectories(codeFoldersFilter);
+         
+            foreach (var directory in projectDirectories)
+            {
+                var xdtFiles = GetTransformFiles(directory.FullPath).ToList();
+
+                foreach (var file in xdtFiles)
+                {
+                    var relativeFilePath = file.FullPath;
+
+                    if (!file.FullPath.Contains(".azure."))
+                    {
+                        continue;
+                    }
+
+                    var indexToTrimFrom = file.FullPath.IndexOf("/code/", StringComparison.InvariantCultureIgnoreCase);
+
+                    if (indexToTrimFrom > -1)
+                    {
+                        relativeFilePath = file.FullPath.Substring(indexToTrimFrom + 5);
+                    }
+                    else
+                    {
+                        relativeFilePath = file.GetFilename().FullPath;
+                    }
+
+                    var destinationFilePath = new FilePath ($@"{destination}{relativeFilePath.Replace(".azure", string.Empty)}");
+
+                    if (!DirectoryExists(destinationFilePath.GetDirectory().FullPath))
+                    {
+                         CreateFolder(destinationFilePath.GetDirectory().FullPath);
+                    }                   
+                   
+                    CopyFile(file.FullPath, destinationFilePath.FullPath);
+                                       
+                }  
+            }   
+
+        }
+        catch (System.Exception ex)
+        {
+            WriteError(ex.Message);
+        }
+
+});
+
 Task("Deploy-EXM-Campaigns").Does(() => {
     var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
     string responseBody = HttpGet(url);
@@ -200,12 +259,53 @@ Task("Rebuild-Web-Index").Does(() => {
 });
 
 Task("Publish-YML").Does(() => {
-	
-	StartPowershellFile (($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Publish-YML.ps1"), args =>
-        {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
-        });
-		});
+
+	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.yml";
+    var destination = $@"{configuration.DeployFolder}\Website\HabitatHome\App_Data";
+
+    if (!DirectoryExists(destination))
+    {
+        CreateFolder(destination);
+    }
+
+    try
+    {
+        var files = GetFiles(serializationFilesFilter).Select(x=>x.FullPath).ToList();
+
+        CopyFiles(files , destination, preserveFolderStructure: true);
+    }
+    catch (System.Exception ex)
+    {
+        WriteError(ex.Message);
+    }
+
+
+});
+
+
+Task("Publish-Post-Steps").Does(() => {
+
+	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.poststep";
+    var destination = $@"{configuration.DeployFolder}\Website\HabitatHome\App_Data";
+
+    if (!DirectoryExists(destination))
+    {
+        CreateFolder(destination);
+    }
+
+    try
+    {
+        var files = GetFiles(serializationFilesFilter).Select(x=>x.FullPath).ToList();
+
+        CopyFiles(files, destination, preserveFolderStructure: false);
+    }
+    catch (System.Exception ex)
+    {
+        WriteError(ex.Message);
+    }
+
+
+});
 
 Task("Package-Build")
 .IsDependentOn("Generate-HabitatUpdatePackages")
@@ -232,8 +332,19 @@ Task("Azure-Upload-Packages").Does(() => {
         });
 		});
 
-Task("Azure-Site-Deploy").Does(() => {
+Task("Azure-Site-Deploy")
+.IsDependentOn("Deploy-To-Azure")
+.IsDependentOn("Scale-Down");
+
+Task("Deploy-To-Azure").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Deploy.ps1", args =>
+        {
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+        });
+		});
+
+Task("Scale-Down").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Scaledown.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
         });

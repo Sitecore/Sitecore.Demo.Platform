@@ -91,12 +91,12 @@
     "sqlBasicDatabaseServiceObjectiveLevel": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "S0"
+      "defaultValue": "S3"
     },
     "sqlDatabaseServiceObjectiveLevel": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "S1"
+      "defaultValue": "S3"
     },
 
     "coreSqlDatabaseName": {
@@ -197,7 +197,7 @@
     },
     "singleHostingPlanSkuName": {
       "type": "string",
-      "defaultValue": "B3"
+      "defaultValue": "P3v2"
     },
     "singleHostingPlanSkuCapacity": {
       "type": "int",
