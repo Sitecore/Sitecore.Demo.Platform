@@ -157,10 +157,10 @@ Please post any issues on Slack Community [#habitathome](https://sitecorechat.sl
 
 ## Sitecore Version Change
 Alter the appropriate items in the assets.json file for the topology you are targeting. The only elements that should be changed are the filename and URL, 
-do not alter the filename�s default format.
+> Do not alter the filename's default format.
 
 ### Assets.json
-Only alter these attributes as instructed, the build/deploy process is reliant on several of these parameters.
+Only alter these attributes as instructed, the build/deploy process relies on several of these parameters.
 
 |Parameter                                  | Description
 |-------------------------------------------|---------------------------------------------------------------------------------------------
@@ -169,10 +169,10 @@ Only alter these attributes as instructed, the build/deploy process is reliant o
 | isGroup									| denotes if the asset is a collection of modules.
 | fileName									| Exact default filename
 | url										| download link
-| extract									| instrcuts the script that the asset is a .zip that should be extracted. It will extract it to deploy/assets/name of asset
-| isWdp										| denotes if the asset is already a scwdp
-| convertToWdp								| denotes if the asset needs to be converted to an scwdp
-| uploadToAzure								| denotes if the asset should be uploaded to Azure
-| install									| denotes if the asset should be downloaded and installed (the only asset this currently functions with is DEF)
+| extract									| instructs the script that a zip file should be extracted. It will extract it to deploy/assets/name of asset
+| isWdp										| asset is already a scwdp
+| convertToWdp								| asset needs to be converted to an scwdp
+| uploadToAzure								| asset should be uploaded to Azure
+| install									| asset should be downloaded and installed (the only asset this currently functions with is DEF)
 | source									| download source, sitecore or github have specific requirements for downloading (e.g. credentials )
 | modules									| list modules for groups
