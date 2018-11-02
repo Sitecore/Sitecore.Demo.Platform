@@ -47,7 +47,7 @@ Function Create-SelfSignedCertificate{
 
 	$certificateFilePath =  Join-Path $config.DeployFolder "$thumbprint.pfx"
 
-	$certPassword = ConvertTo-SecureString -String "secret" -Force -AsPlainText
+	$certPassword = ConvertTo-SecureString -String $secret -Force -AsPlainText
 
 	return Export-PfxCertificate -cert cert:\LocalMachine\MY\$thumbprint -FilePath "$certificateFilePath" -Password $certPassword	
 }
@@ -108,7 +108,7 @@ $certificatePath = ''
 foreach ($setting in $azureuserconfig.settings)
 {
 
-	if (-not ([string]::IsNullOrEmpty($setting.value)))
+	if ($(-not ([string]::IsNullOrEmpty($setting.value))) -and $($setting.id -ne "XConnectCertificatePassword"))
 	{	
 		if ($setting.id -eq "XConnectCertfilePath")
 		{
@@ -131,6 +131,23 @@ foreach ($setting in $azureuserconfig.settings)
 		{
 			if ([string]::IsNullOrEmpty($setting.value))
 			{			
+				$certPathMissing = $true
+			} else {
+				$certPathMissing = $false
+			}
+		}
+		"XConnectCertificatePassword"
+		{
+			if ([string]::IsNullOrEmpty($setting.value))
+			{
+				$setting.value = "secret"
+				$secret = $setting.value
+			} else {
+				$secret = $setting.value
+			}
+
+			if ($certPathMissing)
+			{
 				$cert = Create-SelfSignedCertificate
 				if ($cert -is [array])
 				{
@@ -138,20 +155,20 @@ foreach ($setting in $azureuserconfig.settings)
 				} else {
 					$certificatePath = $cert.FullName
 				}
-				$setting.value = $certificatePath
-			}
-		}
-		"XConnectCertificatePassword"
-		{
-			if ($(-not ([string]::IsNullOrEmpty($certificatePath))) -and $([string]::IsNullOrEmpty($setting.value)))
-			{
-				$setting.value = "secret"
 			}
 		}
 		default
 		{
 			$setting.value = Read-Host "Please Provide the $($setting.description)"
 		}
+	}
+}
+
+foreach ($setting in $azureuserconfig.settings)
+{
+	if ($setting.id -eq "XConnectCertfilePath")
+	{
+		$setting.value = $certificatePath
 	}
 }
 
