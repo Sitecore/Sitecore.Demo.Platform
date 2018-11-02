@@ -2,70 +2,70 @@
     "$schema":  "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion":  "1.0.0.0",
     "parameters":  {
-                       "deploymentId":  {
-                                            "value":  "kleon-single-10"
-                                        },
-                       "location":  {
-                                        "value":  "East US"
-                                    },
-                       "sitecoreAdminPassword":  {
-                                                     "value":  "Password!@"
-                                                 },
-                       "licenseXml":  {
-                                          "value":  "E:\\Projects\\license.xml"
-                                      },
-                       "sqlServerLogin":  {
-                                              "value":  "sqladmin"
-                                          },
-                       "sqlServerPassword":  {
-                                                 "value":  "Russiared1"
-                                             },
-                       "singleMsDeployPackageUrl":  {
-                                                        "value":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/wdps/Sitecore%209.0.2%20rev.%20180604%20(Cloud)_single.scwdp.zip"
-                                                    },
-                       "xcSingleMsDeployPackageUrl":  {
-                                                          "value":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/wdps/Sitecore%209.0.2%20rev.%20180604%20(Cloud)_xp0xconnect.scwdp.zip"
-                                                      },
-                       "authCertificatePassword":  {
-                                                       "value":  "secret"
-                                                   },
-                       "allowInvalidClientCertificates":  {
-                                                              "value":  true
-                                                          },
-                       "modules":  {
-                                       "value":  {
-                                                     "items":  [
-                                                                   {
-                                                                       "name":  "sxa",
-                                                                       "templateLink":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/arm-templates/sxa_module.json",
-                                                                       "parameters":  {
-                                                                                          "sxaMsDeployPackageUrl":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/wdps/Sitecore%20Experience%20Accelerator%201.7.1%20rev.%20180604%20for%209.0.scwdp.zip",
-                                                                                          "speMsDeployPackageUrl":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/wdps/Sitecore%20PowerShell%20Extensions-4.7.2%20for%20Sitecore%208.scwdp.zip"
-                                                                                      }
-                                                                   },
-                                                                   {
-                                                                       "name":  "habitat-home-website",
-                                                                       "templateLink":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/arm-templates/habitathome.json",
-                                                                       "parameters":  {
-                                                                                          "habitatWebsiteDeployPackageUrl":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/wdps/habitathome_single.scwdp.zip"
-                                                                                      }
-                                                                   },
-                                                                   {
-                                                                       "name":  "habitat-home-xc",
-                                                                       "templateLink":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/arm-templates/xconnect.json",
-                                                                       "parameters":  {
-                                                                                          "habitatXconnectDeployPackageUrl":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/wdps/xconnect_single.scwdp.zip"
-                                                                                      }
-                                                                   },
-                                                                   {
-                                                                       "name":  "bootloader",
-                                                                       "templateLink":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/arm-templates/bootloader.json",
-                                                                       "parameters":  {
-                                                                                          "msDeployPackageUrl":  "https://kleonsingle0978103.blob.core.windows.net/azure-toolkit/wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip"
-                                                                                      }
-                                                                   }
-                                                               ]
-                                                 }
-                                   }
-                   }
+      "deploymentId":  {
+      "value":  ""
+    },
+      "location":  {
+      "value":  ""
+    },
+      "sitecoreAdminPassword":  {
+      "value":  ""
+    },
+      "licenseXml":  {
+      "value":  ""
+    },
+    "sqlServerLogin":  {
+      "value":  ""
+    },
+    "sqlServerPassword":  {
+      "value":  ""
+    },
+    "singleMsDeployPackageUrl":  {
+      "value":  ""
+    },
+    "xcSingleMsDeployPackageUrl":  {
+      "value":  ""
+    },
+    "authCertificatePassword":  {
+      "value":  ""
+    },
+    "allowInvalidClientCertificates":  {
+      "value":  true
+    },
+    "modules":  {
+      "value":  {
+        "items":  [
+          {
+            "name":  "sxa",
+            "templateLink":  "",
+            "parameters":  {
+            "sxaMsDeployPackageUrl":  "",
+            "speMsDeployPackageUrl":  ""
+          }
+      },
+          {
+            "name":  "habitat-home-website",
+            "templateLink":  "",
+            "parameters":  {
+              "habitatWebsiteDeployPackageUrl":  ""
+            }
+      },
+          {
+             "name":  "habitat-home-xc",
+             "templateLink":  "",
+             "parameters":  {
+               "habitatXconnectDeployPackageUrl":  ""
+             }
+      },
+          {
+             "name":  "bootloader",
+             "templateLink":  "",
+             "parameters":  {
+               "msDeployPackageUrl":  ""
+             }
+          }
+        ]
+      }
+    }
+  }
 }
