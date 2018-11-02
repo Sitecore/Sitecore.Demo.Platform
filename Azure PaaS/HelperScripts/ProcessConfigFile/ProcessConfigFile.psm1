@@ -17,7 +17,7 @@ $assetconfig			= $configarray[1]
 $azureuserconfig		= $configarray[2]
 $assetconfigfile		= $configarray[3]
 $azureuserconfigfile	= $configarray[4]
-
+$topologypath	        = $configarray[5]
 #>
 
 [CmdletBinding()]

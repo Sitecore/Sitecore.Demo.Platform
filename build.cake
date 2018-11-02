@@ -31,9 +31,13 @@ Setup(context =>
 Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
+.IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
+.IsDependentOn("Post-Deploy");
+
+Task("Post-Deploy")
 .IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project")
@@ -46,6 +50,7 @@ Task("Default")
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
+.IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
@@ -118,7 +123,7 @@ Task("Publish-Transforms").Does(() => {
         var files = new List<string>();
         foreach(var layer in layers)
         {
-            var xdtFiles = GetTransformFiles(layer).Select(x => x.FullPath).ToList();
+            var xdtFiles = GetTransformFiles(layer).Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
             files.AddRange(xdtFiles);
         }   
 
@@ -143,6 +148,25 @@ Task("Modify-Unicorn-Source-Folder").Does(() => {
         }
     };
     XmlPoke(zzzDevSettingsFile, sourceFolderXPath, directoryPath, xmlSetting);
+});
+
+Task("Modify-PublishSettings").Does(() => {
+    var publishSettingsOriginal = File($"{configuration.ProjectFolder}/publishsettings.targets");
+    var destination = $"{configuration.ProjectFolder}/publishsettings.targets.user";
+
+    CopyFile(publishSettingsOriginal,destination);
+
+	var importXPath = "/ns:Project/ns:Import";
+
+    var publishUrlPath = "/ns:Project/ns:PropertyGroup/ns:publishUrl";
+
+    var xmlSetting = new XmlPokeSettings {
+        Namespaces = new Dictionary<string, string> {
+            {"ns", @"http://schemas.microsoft.com/developer/msbuild/2003"}
+        }
+    };
+    XmlPoke(destination,importXPath,null,xmlSetting);
+    XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
 });
 
 Task("Sync-Unicorn").Does(() => {

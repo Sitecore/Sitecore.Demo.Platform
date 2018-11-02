@@ -12,15 +12,17 @@
          Off                                   
     Default value: On
     -->
-        <add key="unicorn:define" value="Off" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+        <add key="unicorn:define" value="On" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 
         <!-- THIRD PARTY INTEGRATIONS: SUPPORTED VALUES                 
          None (disables all)
          Dynamics (CRM integration with Data Exchange Framework)
+         Salesforce (CRM integration with Data Exchange Framework)
          Facebook (Fed Auth with Facebook)
-         MS (Fed Auth with Microsoft)        
+         MS (Fed Auth with Microsoft)
+         CDN (Azure CDN integration)
          
-         example: <add key="integrations:define" value="Dynamics,Salesforce,Facebook,MS" />  
+         example: <add key="integrations:define" value="Dynamics,Salesforce,Facebook,MS,CDN" />  
    
    Default value: None
     -->

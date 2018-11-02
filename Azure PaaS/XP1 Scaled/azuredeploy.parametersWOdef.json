@@ -1,0 +1,98 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deploymentId": {
+      "value": ""
+    },
+    "location": {
+      "value": "<AZURE REGION>"
+    },
+    "sitecoreAdminPassword": {
+      "value": "<8 Character Minimum>"
+    },
+    "licenseXml": {
+      "value": "<ABSOLUTE LOCAL PATH\\license.xml>"
+    },
+    "repAuthenticationApiKey": {
+      "value": ""
+    },
+    "sqlServerLogin": {
+      "value": "<SA is not a valid admin name for Azure SQL>"
+    },
+    "sqlServerPassword": {
+      "value": ""
+    },
+    "cmMsDeployPackageUrl": {
+      "value": ""
+    },
+    "cdMsDeployPackageUrl": {
+      "value": ""
+    },
+    "prcMsDeployPackageUrl": {
+      "value": ""
+    },
+    "repMsDeployPackageUrl": {
+      "value": ""
+    },
+    "xcRefDataMsDeployPackageUrl": {
+      "value": ""
+    },
+    "xcCollectMsDeployPackageUrl": {
+      "value": ""
+    },
+    "xcSearchMsDeployPackageUrl": {
+      "value": ""
+    },
+    "maOpsMsDeployPackageUrl": {
+      "value": ""
+    },
+    "maRepMsDeployPackageUrl": {
+      "value": ""
+    },
+    "authCertificatePassword": {
+      "value": "<Password for Cert Being passed>"
+    },
+    "allowInvalidClientCertificates": {
+      "value": true
+    },
+    "modules": {
+      "value": {
+        "items": [
+
+          {
+            "name": "sxa",
+            "templateLink": "https://raw.githubusercontent.com/Sitecore/Sitecore-Azure-Quickstart-Templates/master/SXA%201.3.1/xp/azuredeploy.json",
+            "parameters": {
+                "cdSxaMsDeployPackageUrl" : "<URL of the WDP file Sitecore Experience Accelerator * CD.scwdp.zip>",
+                "cmSxaMsDeployPackageUrl" : "<URL of the WDP file Sitecore Experience Accelerator *.scwdp.zip>",
+                "speMsDeployPackageUrl" : "<URL of the WDP file Sitecore PowerShell Extensions *.scwdp.zip>"
+            }
+        },
+          {
+            "name": "habitat-home-website",
+            "templateLink": "<URL to the Habitat Home json ARM template>",
+            "parameters": {
+              "habitatWebsiteCdMsDeployPackageUrl": "<URL to the Habitat Home WDP>",
+              "habitatWebsiteCmMsDeployPackageUrl": "<URL to the Habitat Home WDP>"
+            }
+          },
+          {
+            "name": "habitat-home-xc",
+            "templateLink": "<URL to the Habitat Home json ARM template>",
+            "parameters": {
+              "habitatXconnectDeployPackageUrl": "<URL to the Habitat Home XC WDP>"
+            }
+          },
+          {
+            "name": "bootloader",
+            "templateLink": "<URL to the bootloader template (Located in addons folder)>",
+            "parameters": {
+              "msDeployPackageUrl": "<URL to the wdp.zip file for specific version of Sitecore (Located in Sitecore Azure Toolkit\\resources\\SITECORE VERSION\\Addons)>"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
