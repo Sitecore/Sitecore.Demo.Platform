@@ -1,25 +1,11 @@
 ﻿<configuration  xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-    <runtime>
-        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-          <dependentAssembly xdt:Transform="Remove" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.IdentityModel.Logging')"/>
-          <dependentAssembly xdt:Transform="Remove" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.IdentityModel.Tokens')"/>
-            <dependentAssembly xdt:Transform="InsertIfMissing" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.IdentityModel.Logging')">
-                <assemblyIdentity name="Microsoft.IdentityModel.Logging" publicKeyToken="31bf3856ad364e35" culture="neutral" xmlns="urn:schemas-microsoft-com:asm.v1" />
-                <bindingRedirect oldVersion="0.0.0.0-5.2.4.0" newVersion="5.2.4.0" xmlns="urn:schemas-microsoft-com:asm.v1" />
-           </dependentAssembly>
-            <dependentAssembly xdt:Transform="InsertIfMissing" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.IdentityModel.Tokens')">
-                <assemblyIdentity name="Microsoft.IdentityModel.Tokens" publicKeyToken="31bf3856ad364e35" culture="neutral" xmlns="urn:schemas-microsoft-com:asm.v1" />
-                <bindingRedirect oldVersion="0.0.0.0-5.2.4.0" newVersion="5.2.4.0" xmlns="urn:schemas-microsoft-com:asm.v1" />
-            </dependentAssembly>
-        </assemblyBinding>                            
-    </runtime>
-     <system.webServer>
-        <modules>
-            <remove name="FormsAuthentication" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
-        </modules>
-    </system.webServer>
-    <system.web>
-        <authentication mode="None" xdt:Transform="Replace">
-        </authentication>
-    </system.web>
+  <system.webServer>
+      <modules>
+          <remove name="FormsAuthentication" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+      </modules>
+  </system.webServer>
+  <system.web>
+      <authentication mode="None" xdt:Transform="Replace">
+      </authentication>
+  </system.web>
 </configuration>

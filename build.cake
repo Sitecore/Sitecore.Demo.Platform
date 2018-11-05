@@ -31,7 +31,6 @@ Setup(context =>
 Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
-.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
@@ -51,7 +50,6 @@ Task("Post-Deploy")
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
-.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
@@ -198,11 +196,8 @@ Task("Sync-Unicorn").Does(() => {
 });
 
 Task("Deploy-EXM-Campaigns").Does(() => {
-    DeployExmCampaigns();
-}).OnError(() => {
-	Information("Retrying Deploy-EXM-Campaigns");
-	DeployExmCampaigns();
-});;
+	Spam(() => DeployExmCampaigns(), configuration.DeployExmTimeout);
+});
 
 Task("Deploy-Marketing-Definitions").Does(() => {
     var url = $"{configuration.InstanceUrl}utilities/deploymarketingdefinitions.aspx?apiKey={configuration.MarketingDefinitionsApiKey}";
