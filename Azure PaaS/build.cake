@@ -57,7 +57,7 @@ Task("Build")
 
 Task("Azure-Upload")
 .WithCriteria(configuration != null)
-.IsDependentOn("Prepare-Azure-Deploy-CDN");
+.IsDependentOn("Prepare-Azure-Deploy-CDN")
 .IsDependentOn("Azure-Upload-Packages");
 
 Task("Azure-Deploy")

@@ -113,7 +113,7 @@ Function GenerateUpdatePackage() {
 ###############################
 
 Function SetupCDN([PSObject] $Configuration, [String] $FolderString) {
-    
+      
     # Web.config.xdt
     $webConfigFilePath = $([IO.Path]::Combine($FolderString, "web.config.xdt"))   
 
@@ -227,7 +227,8 @@ $rootFolder = Get-ChildItem (Join-Path $([IO.Path]::Combine($config.DeployFolder
 
 ForEach ($folder in $rootFolder) {
     Clean-Up -Configuration $config -FolderString (Get-Item -Path $folder).FullName
-    
+    SetupCDN -Configuration $config -FolderString (Get-Item -Path $folder).FullName
+
     Write-Host $folder
 
     switch ((Get-Item -Path $folder).Name) {  
