@@ -19,7 +19,6 @@ namespace Sitecore.HabitatHome.Feature.Forms.Providers
         {
             ContactFacetData data = _contactFacetService.GetContactData();
 
-            //todo: expand parameters
             switch(parameters.ToLower())
             {
                 case "email":
@@ -28,6 +27,8 @@ namespace Sitecore.HabitatHome.Feature.Forms.Providers
                     return data.FirstName;
                 case "last name":
                     return data.LastName;
+                case "phone":
+                    return data.PhoneNumber;
                 default:
                     return string.Empty;                    
             }
