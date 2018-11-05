@@ -57,6 +57,7 @@ Task("Build")
 
 Task("Azure-Upload")
 .WithCriteria(configuration != null)
+.IsDependentOn("Prepare-Azure-Deploy-CDN");
 .IsDependentOn("Azure-Upload-Packages");
 
 Task("Azure-Deploy")
@@ -231,6 +232,17 @@ Task("Publish-Azure-Transforms").Does(()=>{
         }
 
 });
+
+
+Task("Prepare-Azure-Deploy-CDN").Does(() => {
+   	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Prepare-Azure-Deploy-CDN.ps1", args =>
+        {
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+        });
+	
+});
+
+
 
 Task("Deploy-EXM-Campaigns").Does(() => {
     var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
