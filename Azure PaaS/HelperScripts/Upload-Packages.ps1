@@ -101,6 +101,7 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
         }
 
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
+    }
 
         # Add Module WDPs to upload list
         foreach ($asset in $assetsJsonConfig.prerequisites)
@@ -129,31 +130,13 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
                 }
             }
         }
-    }
 
     # Perform Upload
     foreach ($scwdpinarray in $sitecoreWDPpathArray)
     {
-        if(($scwdpinarray.name -like "*habitathome*") -or ($scwdpinarray.name -like "*xconnect*"))
-        {
-            Write-Host "Starting file upload for $($scwdpinarray.Name)" -ForegroundColor Green
-            Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force
-            Write-Host "Upload of $($scwdpinarray.Name) completed" -ForegroundColor Green
-        }
-        else 
-        {
-            try 
-            {             
-                Get-AzureStorageBlob -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
-                Write-Host "Skipping... file $($scwdpinarray.Name) already uploaded" -ForegroundColor Yellow              
-            } 
-            catch 
-            {
-                Write-Host "Starting file upload for $($scwdpinarray.Name)" -ForegroundColor Green
-                Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force
-                Write-Host "Upload of $($scwdpinarray.Name) completed" -ForegroundColor Green
-            }
-        }
+        Write-Host "Starting file upload for $($scwdpinarray.Name)" -ForegroundColor Green
+        Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force
+        Write-Host "Upload of $($scwdpinarray.Name) completed" -ForegroundColor Green
     }
 }
 
@@ -168,53 +151,52 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
     # Fetching all ARM templates' paths
     $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'habitathome.json')))) | out-null
     $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'xconnect.json')))) | out-null
+
+    foreach ($asset in $assetsJsonConfig.prerequisites)
+    {
+        if(($asset.uploadToAzure -eq $true) -and ($asset.install -eq $true))
+        {
+            switch($asset.name)
+            {
+                "Data Exchange Framework"
+                {
+                    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Data Exchange Framework', 'def_module.json')))) | out-null
+                }
+                "Sitecore Experience Accelerator"
+                {
+                    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
+                }
+            }
+        }
+    }
     
     if(!($SkipScUpload))
     {
-        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json')))) | out-null
-        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json')))) | out-null
-        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
-
         foreach ($asset in $assetsJsonConfig.prerequisites)
         {
-            if(($asset.uploadToAzure -eq "Data Exchange Framework") -and ($asset.install -eq $true))
+            if(($asset.uploadToAzure -eq $true) -and ($asset.install -eq $true) -and ($asset.name -eq "Sitecore Experience Platform"))
             {
-                $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Data Exchange Framework', 'def_module.json')))) | out-null
+                $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json')))) | out-null
+                $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json')))) | out-null
+
+                $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
+            
+                Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
+            
+                    Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
+                    Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Force
+                    Write-Host "Upload of $($_.Name) completed" -ForegroundColor Green
+                    }  
             }
-        }
-
-        $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
-
-        try 
-        {              
-            Get-AzureStorageBlob -Blob "arm-templates/$($nestedArmTemplates.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
-            Write-Host "Skipping... folder $($nestedArmTemplates.Name) already uploaded" -ForegroundColor Yellow                
-        } 
-        catch 
-        {             
-            Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
-    
-                Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
-                Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Force
-                Write-Host "Upload of $($_.Name) completed" -ForegroundColor Green
-            }                   
-        }
+        }                 
     }
 
     # Checking if the files are already uploaded and present in Azure and uploading
     foreach($scARMsInArray in $sitecoreARMpathArray)
-    {
-        try 
-        {          
-            Get-AzureStorageBlob -Blob "arm-templates/$($scARMsInArray.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
-            Write-Host "Skipping... file $($scARMsInArray.Name) already uploaded" -ForegroundColor Yellow                  
-        } 
-        catch 
-        {               
-            Write-Host "Starting file upload for $($scARMsInArray.Name)" -ForegroundColor Green
-            Set-AzureStorageBlobContent -File $scARMsInArray.FullName -Blob "arm-templates/$($scARMsInArray.Name)" -Container $containerName -Context $ctx -Force
-            Write-Host "Upload of $($scARMsInArray.Name) completed" -ForegroundColor Green                   
-        }
+    {             
+        Write-Host "Starting file upload for $($scARMsInArray.Name)" -ForegroundColor Green
+        Set-AzureStorageBlobContent -File $scARMsInArray.FullName -Blob "arm-templates/$($scARMsInArray.Name)" -Container $containerName -Context $ctx -Force
+        Write-Host "Upload of $($scARMsInArray.Name) completed" -ForegroundColor Green              
     }
 }
 

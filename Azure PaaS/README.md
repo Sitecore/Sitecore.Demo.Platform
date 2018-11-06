@@ -98,16 +98,22 @@ you will need to modify the `azureuser-config.json` for your target topology.
 | sitecoreAccount                           | The username and password to a dev.sitecore.com accoutn with download permissions
 | AzureDeploymentID                         | The Resource Group name in azure that Habitat will be deployed to. If the group does not exist it will be created.
 | AzureRegion                               | The Geographic Azure Location of the Deployment [Azure Locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/)
-| XConnectCertfilePath                      | xConnect Certificate Path. If left blank one will be generated for you
+| XConnectCertfilePath                      | xConnect Certificate Path. This will be auto generated if left blank.
 | XConnectCertificatePassword               | xConnect Certificate Password. If XConnectCertfilePath is left blank and a cert is generated for you then the value will default to the word "secret"
 | SitecoreLoginAdminPassword                | Sitecore Administrator Password (8 Character Minimum)
 | SitecoreLicenseXMLPath                    | Sitecore license.xml Path
 | SqlServerLoginAdminAccount                | SQL Server Administrator Username (SA is not a valid admin name for Azure SQL)
 | SqlServerLoginAdminPassword               | SQL Server Administrator Password
-| containerName                             | name of the Azure container. This will be auto generated if left blank.
-| storageAccountName                        | name of the Azure Storage Account. This will be auto generated if left blank.
+| containerName                             | name of the Azure container. This will be auto generated if left blank. By default hh-toolkit
+| storageAccountName                        | name of the Azure Storage Account. This will be auto generated if left blank. By default *AzureDeploymentID + Random Number*
 | ArmTemplateUrl                            | Azure SAS URL of the azuredeploy.json. This will be auto generated if left blank.
 | templatelinkAccessToken                   | Azure SAS token for the container. This will be auto generated if left blank.
+
+The Azure Container must have the following folder structure:
+
+* Container  
+	* arm-templates  
+	* wdps
 
 ### 4. Deploy Sitecore.HabitatHome.Content
 
@@ -124,12 +130,12 @@ Optional Parameters:
 | DryRun                                    | Performs a dry run.
 | SkipToolPackageRestore                    | Skips restoring of packages.
 | Target                                    | Build Target **(see below)**
-| SkipScUpload                              | Upload only Habitat Home Packages.
+| SkipScUpload                              | Skip upload of sitecore packages. Will still upload Habitat Home and any other assets with the uploadToAzure and install flags set to true
 | SkipPrerequisites                         | Skip the preparation steps like file downloads, asking users for Azure information and collection of credentials (Best used for testing purposes, or if the user has only run the project build, but information and prerequisites were already collected)
 
 **Target**
 
-|Value										| Description
+|Value                                      | Description
 |-------------------------------------------|---------------------------------------------------------------------------------------------
 | Default                                   | Same affect as no target defined, will build and deploy to Azure
 | Clean                                     | Clean all outputs and temporary folders, involved in the process of building and packaging the project
