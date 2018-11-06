@@ -17,6 +17,11 @@ and execute your Cake build script with the parameters you provide.
 The build script to execute.
 .PARAMETER Target
 The build script target to run.
+.PARAMETER SkipPrerequisites
+Skip the preparation steps like file downloads, asking users for Azure information and collection of credentials 
+(Best used for testing purposes, or if the user has only run the project build, but information and prerequisites were already collected)
+.PARAMETER SkipScUpload
+Upload only Habitat Home Packages.
 .PARAMETER Configuration
 The build configuration to use.
 .PARAMETER Verbosity
@@ -40,7 +45,8 @@ Param(
     [string]$Script = "build.cake",
 	[ValidateSet("Default", "Clean", "Run-Prerequisites", "Build", "Azure-Upload", "Azure-Deploy")]
     [string]$Target,
-	[switch]$SkipPrerequisites,
+    [switch]$SkipPrerequisites,
+    [switch]$SkipScUpload,
     [string]$Configuration,
     [ValidateSet("Quiet", "Minimal", "Normal", "Verbose", "Diagnostic")]
     [string]$Verbosity,
@@ -71,6 +77,15 @@ if(($Target) -and (($Target -ne "Build") -and ($Target -ne "Clean") -and ($Targe
 if(($SkipPrerequisites -eq $false) -and ($Target -ne "Clean") -and ($Target -ne "Run-Prerequisites"))
 {
 	& ".\\HelperScripts\Env-Prep.ps1" -ConfigurationFile "cake-config.json"
+}
+
+###############################
+# Pass Skip Upload Param
+###############################
+
+if($SkipScUpload)
+{
+    $ScriptArgs += '-SkipScUpload'
 }
 
 # Attempt to set highest encryption available for SecurityProtocol.

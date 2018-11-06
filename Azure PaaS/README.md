@@ -96,7 +96,7 @@ you will need to modify the `azureuser-config.json` for your target topology.
 | applicationId                             | appId of the Service Principal
 | applicationPassword                       | the Service Principal password
 | sitecoreAccount                           | The username and password to a dev.sitecore.com accoutn with download permissions
-| AzureDeploymentID							| The Resource Group name in azure that Habitat will be deployed to. If the group does not exist it will be created.
+| AzureDeploymentID                         | The Resource Group name in azure that Habitat will be deployed to. If the group does not exist it will be created.
 | AzureRegion                               | The Geographic Azure Location of the Deployment [Azure Locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/)
 | XConnectCertfilePath                      | xConnect Certificate Path. If left blank one will be generated for you
 | XConnectCertificatePassword               | xConnect Certificate Password. If XConnectCertfilePath is left blank and a cert is generated for you then the value will default to the word "secret"
@@ -104,8 +104,10 @@ you will need to modify the `azureuser-config.json` for your target topology.
 | SitecoreLicenseXMLPath                    | Sitecore license.xml Path
 | SqlServerLoginAdminAccount                | SQL Server Administrator Username (SA is not a valid admin name for Azure SQL)
 | SqlServerLoginAdminPassword               | SQL Server Administrator Password
-| containerName                             | Leave Blank. Used by the upload and deploy scripts to pass information
-| storageAccountName                        | Leave Blank. Used by the upload and deploy scripts to pass information
+| containerName                             | name of the Azure container. This will be auto generated if left blank.
+| storageAccountName                        | name of the Azure Storage Account. This will be auto generated if left blank.
+| ArmTemplateUrl                            | Azure SAS URL of the azuredeploy.json. This will be auto generated if left blank.
+| templatelinkAccessToken                   | Azure SAS token for the container. This will be auto generated if left blank.
 
 ### 4. Deploy Sitecore.HabitatHome.Content
 
@@ -122,8 +124,8 @@ Optional Parameters:
 | DryRun                                    | Performs a dry run.
 | SkipToolPackageRestore                    | Skips restoring of packages.
 | Target                                    | Build Target **(see below)**
-| SkipPrerequisites							| Grants the ability to skip the preparation steps like file downloads, asking users for Azure information and collection of credentials
-|											| (Best used for testing purposes, or if the user has only run the project build, but information and prerequisites were already collected)
+| SkipScUpload                              | Upload only Habitat Home Packages.
+| SkipPrerequisites                         | Skip the preparation steps like file downloads, asking users for Azure information and collection of credentials (Best used for testing purposes, or if the user has only run the project build, but information and prerequisites were already collected)
 
 **Target**
 
@@ -164,15 +166,15 @@ Only alter these attributes as instructed, the build/deploy process relies on se
 
 |Parameter                                  | Description
 |-------------------------------------------|---------------------------------------------------------------------------------------------
-| id										| short-name
-| name										| long-name
-| isGroup									| denotes if the asset is a collection of modules.
-| fileName									| Exact default filename
-| url										| download link
-| extract									| instructs the script that a zip file should be extracted. It will extract it to deploy/assets/name of asset
-| isWdp										| asset is already a scwdp
-| convertToWdp								| asset needs to be converted to an scwdp
-| uploadToAzure								| asset should be uploaded to Azure
-| install									| asset should be downloaded and installed (the only asset this currently functions with is DEF)
-| source									| download source, sitecore or github have specific requirements for downloading (e.g. credentials )
-| modules									| list modules for groups
+| id                                        | short-name
+| name                                      | long-name
+| isGroup                                   | denotes if the asset is a collection of modules.
+| fileName                                  | Exact default filename
+| url                                       | download link
+| extract                                   | instructs the script that a zip file should be extracted. It will extract it to deploy/assets/name of asset
+| isWdp                                     | asset is already a scwdp (this is false for "Sitecore Experience Platform" as the file decalred in the asset.json is a .zip)
+| convertToWdp                              | asset needs to be converted to an scwdp
+| uploadToAzure                             | asset should be uploaded to Azure. if isGroup is true, will upload the assetes in the modules parameter.
+| install                                   | asset should be downloaded and installed (the only asset this currently functions with is DEF)
+| source                                    | download source, sitecore or github have specific requirements for downloading (e.g. credentials )
+| modules                                   | list modules for groups

@@ -17,7 +17,8 @@ A cake-config.json file
 Param(
 	[parameter(Mandatory=$true)]
 	[ValidateNotNullOrEmpty()]
-    [string] $ConfigurationFile
+    [string] $ConfigurationFile,
+	[switch] $SkipScUpload
 )
 
 ###########################
@@ -119,20 +120,14 @@ foreach ($setting in $azureuserconfig.settings)
 
 	switch ($setting.id)
 	{		
-		"containerName"
-		{
-			continue
-		}
-		"storageAccountName"
-		{
-			continue
-		}
 		"XConnectCertfilePath"
 		{
 			if ([string]::IsNullOrEmpty($setting.value))
 			{			
 				$certPathMissing = $true
-			} else {
+			} 
+			else 
+			{
 				$certPathMissing = $false
 			}
 		}
@@ -142,7 +137,9 @@ foreach ($setting in $azureuserconfig.settings)
 			{
 				$setting.value = "secret"
 				$secret = $setting.value
-			} else {
+			} 
+			else 
+			{
 				$secret = $setting.value
 			}
 
@@ -152,9 +149,39 @@ foreach ($setting in $azureuserconfig.settings)
 				if ($cert -is [array])
 				{
 					$certificatePath = $cert[-1].FullName
-				} else {
+				} 
+				else 
+				{
 					$certificatePath = $cert.FullName
 				}
+			}
+		}
+		"containerName"
+		{
+			if($SkipScUpload)
+			{
+				$setting.value = Read-Host "Please Provide the $($setting.description)"
+			}
+		}
+		"storageAccountName"
+		{
+			if($SkipScUpload)
+			{
+				$setting.value = Read-Host "Please Provide the $($setting.description)"
+			}
+		}
+		"ArmTemplateUrl"
+		{
+			if($SkipScUpload)
+			{
+				$setting.value = Read-Host "Please Provide the $($setting.description)"
+			}
+		}
+		"templatelinkAccessToken"
+		{
+			if($SkipScUpload)
+			{
+				$setting.value = Read-Host "Please Provide the $($setting.description)"
 			}
 		}
 		default

@@ -14,7 +14,8 @@ A cake-config.json file
 Param(
     [parameter(Mandatory=$true)]
 	[ValidateNotNullOrEmpty()]
-    [String] $ConfigurationFile
+    [String] $ConfigurationFile,
+    [Switch] $SkipScUpload
 )
 
 ###########################
@@ -34,19 +35,37 @@ $topology		     = $configarray[5]
 # Function for WDP uploads
 ##########################
 
-Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig){
+Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload){
 
     $assetsFolder = (Join-Path $cakeJsonConfig.DeployFolder "assets")
     $sitecoreWDPpathArray = New-Object System.Collections.ArrayList
 
+    foreach($asset in $assetsJsonConfig.prerequisites)
+    {
+        if($asset.name -eq "Sitecore Experience Platform")
+        {
+            if($asset.uploadToAzure -eq $true)
+            {
+                $ScUpload = $true
+            }
+            elseif($asset.uploadToAzure -eq $false)
+            {
+                $ScUpload = $false
+            }
+        }
+    }
+
     # Add Sitecore and habitat WDPs to upload list
     if($cakeJsonConfig.Topology -eq "single")
     {
-        $sitecorepackages = Get-ChildItem -path $(Join-Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform')) *) -include *.zip -Exclude *xp1*,*cd*,*cm*,*prc*,*rep*
-
-        foreach ($seppackage in $sitecorepackages)
+        if(!($SkipScUpload) -and ($ScUpload -eq $true))
         {
-            $sitecoreWDPpathArray.Add($seppackage) | out-null
+            $sitecorepackages = Get-ChildItem -path $(Join-Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform')) *) -include *.zip -Exclude *xp1*,*cd*,*cm*,*prc*,*rep*
+
+            foreach ($seppackage in $sitecorepackages)
+            {
+                $sitecoreWDPpathArray.Add($seppackage) | out-null
+            }
         }
 
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip')))) | out-null
@@ -54,11 +73,14 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
     }
     elseif($cakeJsonConfig.Topology -eq "scaled")
     {
-        $sitecorepackages = Get-ChildItem -path $(Join-Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform')) *) -include *.zip -Exclude *xp0*,*single*
-
-        foreach ($seppackage in $sitecorepackages)
+        if(!($SkipScUpload) -and ($ScUpload -eq $true))
         {
-            $sitecoreWDPpathArray.Add($seppackage) | out-null
+            $sitecorepackages = Get-ChildItem -path $(Join-Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform')) *) -include *.zip -Exclude *xp0*,*single*
+
+            foreach ($seppackage in $sitecorepackages)
+            {
+                $sitecoreWDPpathArray.Add($seppackage) | out-null
+            }
         }
         
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathomeCD', 'WDPWorkFolder', 'WDP', 'habitathome_cd.scwdp.zip')))) | out-null
@@ -66,41 +88,44 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'xconnect', 'WDPWorkFolder', 'WDP', 'xconnect_single.scwdp.zip')))) | out-null
     }
 
-    # Add sitecore azure toolkit module bootloader 
-    foreach($asset in $assetsJsonConfig.prerequisites)
+    if(!($SkipScUpload))
     {
-        if($asset.name -eq "Sitecore Experience Platform")
+        # Add sitecore azure toolkit module bootloader 
+        foreach($asset in $assetsJsonConfig.prerequisites)
         {
-            $sepversion = $($asset.FileName -replace ' rev.*','')
-            $sepversion = $($sepversion -replace '^Sitecore ','')
-        }
-    }
-
-    $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
-
-    # Add Module WDPs to upload list
-    foreach ($asset in $assetsJsonConfig.prerequisites)
-    {
-        if(($asset.uploadToAzure -eq $True) -and ($asset.isWdp -eq $True) -and ($asset.install -eq $True))
-        {
-            if((Test-Path $(Join-Path $assetsFolder $asset.name)) -eq $True)
+            if($asset.name -eq "Sitecore Experience Platform")
             {
-                $wdpSingleModuleFolder = ($(Join-Path $assetsFolder $asset.name))
-                ForEach($blobFile in (Get-ChildItem -File -Recurse $wdpSingleModuleFolder)) 
-                {    
-                    $sitecoreWDPpathArray.Add($(Get-Item -Path $blobFile.FullName)) | out-null
-                }            
+                $sepversion = $($asset.FileName -replace ' rev.*','')
+                $sepversion = $($sepversion -replace '^Sitecore ','')
             }
-        } 
-        elseif(($asset.uploadToAzure -eq $True) -and ($($asset.isGroup -eq $True) -or $($asset.convertToWdp -eq $True)) -and ($asset.install -eq $True))
+        }
+
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
+
+        # Add Module WDPs to upload list
+        foreach ($asset in $assetsJsonConfig.prerequisites)
         {
-        
-            if((Test-Path $(Join-Path $assetsFolder $asset.name)) -eq $True)
-            { 
-                $wdpGroupModuleFolder = "$($(Join-Path $assetsFolder $asset.name))\WDPWorkFolder\WDP"
-                ForEach($blobFile in (Get-ChildItem -File -Recurse $wdpGroupModuleFolder)) 
-                {           
-					$sitecoreWDPpathArray.Add($(Get-Item -Path $blobFile.FullName)) | out-null
+            if(($asset.uploadToAzure -eq $True) -and ($asset.isWdp -eq $True) -and ($asset.install -eq $True))
+            {
+                if((Test-Path $(Join-Path $assetsFolder $asset.name)) -eq $True)
+                {
+                    $wdpSingleModuleFolder = ($(Join-Path $assetsFolder $asset.name))
+                    ForEach($blobFile in (Get-ChildItem -File -Recurse $wdpSingleModuleFolder)) 
+                    {    
+                        $sitecoreWDPpathArray.Add($(Get-Item -Path $blobFile.FullName)) | out-null
+                    }            
+                }
+            } 
+            elseif(($asset.uploadToAzure -eq $True) -and ($($asset.isGroup -eq $True) -or $($asset.convertToWdp -eq $True)) -and ($asset.install -eq $True))
+            {
+            
+                if((Test-Path $(Join-Path $assetsFolder $asset.name)) -eq $True)
+                { 
+                    $wdpGroupModuleFolder = "$($(Join-Path $assetsFolder $asset.name))\WDPWorkFolder\WDP"
+                    ForEach($blobFile in (Get-ChildItem -File -Recurse $wdpGroupModuleFolder)) 
+                    {           
+                        $sitecoreWDPpathArray.Add($(Get-Item -Path $blobFile.FullName)) | out-null
+                    }
                 }
             }
         }
@@ -109,228 +134,273 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
     # Perform Upload
     foreach ($scwdpinarray in $sitecoreWDPpathArray)
     {
-        try 
-        {             
-            Get-AzureStorageBlob -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
-            Write-Host "Skipping... file $($scwdpinarray.Name) already uploaded" -ForegroundColor Yellow              
-        } 
-        catch 
+        if(($scwdpinarray.name -like "*habitathome*") -or ($scwdpinarray.name -like "*xconnect*"))
         {
             Write-Host "Starting file upload for $($scwdpinarray.Name)" -ForegroundColor Green
             Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force
             Write-Host "Upload of $($scwdpinarray.Name) completed" -ForegroundColor Green
         }
+        else 
+        {
+            try 
+            {             
+                Get-AzureStorageBlob -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
+                Write-Host "Skipping... file $($scwdpinarray.Name) already uploaded" -ForegroundColor Yellow              
+            } 
+            catch 
+            {
+                Write-Host "Starting file upload for $($scwdpinarray.Name)" -ForegroundColor Green
+                Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force
+                Write-Host "Upload of $($scwdpinarray.Name) completed" -ForegroundColor Green
+            }
+        }
     }
-    
 }
 
 ###########################
 # Function for file uploads
 ###########################
 
-Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig){
+Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload){
 
     $sitecoreARMpathArray = New-Object System.Collections.ArrayList
     
     # Fetching all ARM templates' paths
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json')))) | out-null
     $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'habitathome.json')))) | out-null
     $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'xconnect.json')))) | out-null
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json')))) | out-null
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
+    
+    if(!($SkipScUpload))
+    {
+        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json')))) | out-null
+        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json')))) | out-null
+        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
 
-	foreach ($asset in $assetsJsonConfig.prerequisites)
-	{
-		if(($asset.uploadToAzure -eq "Data Exchange Framework") -and ($asset.install -eq $true))
-		{
-			$sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Data Exchange Framework', 'def_module.json')))) | out-null
+        foreach ($asset in $assetsJsonConfig.prerequisites)
+        {
+            if(($asset.uploadToAzure -eq "Data Exchange Framework") -and ($asset.install -eq $true))
+            {
+                $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates','Data Exchange Framework', 'def_module.json')))) | out-null
+            }
         }
-	}
+
+        $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
+
+        try 
+        {              
+            Get-AzureStorageBlob -Blob "arm-templates/$($nestedArmTemplates.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
+            Write-Host "Skipping... folder $($nestedArmTemplates.Name) already uploaded" -ForegroundColor Yellow                
+        } 
+        catch 
+        {             
+            Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
+    
+                Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
+                Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Force
+                Write-Host "Upload of $($_.Name) completed" -ForegroundColor Green
+            }                   
+        }
+    }
 
     # Checking if the files are already uploaded and present in Azure and uploading
-
     foreach($scARMsInArray in $sitecoreARMpathArray)
     {
-        try {
-                        
+        try 
+        {          
             Get-AzureStorageBlob -Blob "arm-templates/$($scARMsInArray.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
-            Write-Host "Skipping... file $($scARMsInArray.Name) already uploaded" -ForegroundColor Yellow
-                            
-        } catch {
-                            
+            Write-Host "Skipping... file $($scARMsInArray.Name) already uploaded" -ForegroundColor Yellow                  
+        } 
+        catch 
+        {               
             Write-Host "Starting file upload for $($scARMsInArray.Name)" -ForegroundColor Green
             Set-AzureStorageBlobContent -File $scARMsInArray.FullName -Blob "arm-templates/$($scARMsInArray.Name)" -Container $containerName -Context $ctx -Force
-            Write-Host "Upload of $($scARMsInArray.Name) completed" -ForegroundColor Green
-                            
+            Write-Host "Upload of $($scARMsInArray.Name) completed" -ForegroundColor Green                   
         }
     }
-
-    $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
-
-    try {
-                        
-        Get-AzureStorageBlob -Blob "arm-templates/$($nestedArmTemplates.Name)" -Container $containerName -Context $ctx -ErrorAction Stop
-        Write-Host "Skipping... folder $($nestedArmTemplates.Name) already uploaded" -ForegroundColor Yellow
-                        
-    } catch {
-                        
-		Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
-
-			Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
-			Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Force
-			Write-Host "Upload of $($_.Name) completed" -ForegroundColor Green
-		
-		}
-                        
-    }
-
 }
 
 ###################################################
 # Upload created WDPs and additional files in Azure
 ###################################################
 
-ForEach ($setting in $azureuserconfig.settings) {
-
-    if($setting.id -eq "AzureDeploymentID") {
-
-        # Assign a name to the resource group based on the Deployment ID
-        [String] $resourceGroupName = $setting.value
-
-        # Generate a random name for the storage account by taking into account the 24 character limits imposed by Azure
-        $seed = Get-Random -Maximum 99999
-        $resourceGroupNameSeed = $resourceGroupName -replace '-',''
-     
-        if($resourceGroupNameSeed.length -gt 19)
+ForEach ($setting in $azureuserconfig.settings) 
+{
+    switch($setting.id)
+    {
+        "AzureDeploymentID"
         {
-            $resourceGroupNameSeed = $resourceGroupNameSeed.substring(0, 19)
+            # Assign a name to the resource group based on the Deployment ID
+            [String] $resourceGroupName = $setting.value
         }
-        $storageAccountName = $resourceGroupNameSeed+$seed
-    }
-
-    if($setting.id -eq "AzureRegion") {
-
-		$region = $setting.value
-
-		# Trying to create a resource group for deployments to Azure, based on the selected region
-
-		try {
-        
-            # Check if the resource group is already there
-            Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction Stop
-			if($null -ne (Get-AzureRmResourceGroup -Name $resourceGroupName)) {
-							   
-				Write-Host "A resource group named $($resourceGroupName) already exists" -ForegroundColor Yellow
-
-			}
-		
-		} catch {
-					
-            # Create the resource group if the attempt to get the group fails
-            Write-Host "Creating a new resource group named $($resourceGroupName)..." -ForegroundColor Green
-            New-AzureRmResourceGroup -Name $resourceGroupName -Location $region
-				
-		}
-
-		try {
-
-            $storageAccountsList = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
-            if ($null -ne $storageAccountsList) 
+        "AzureRegion"
+        {
+            $region = $setting.value
+        }
+        "storageAccountName"
+        {
+            if([string]::IsNullOrEmpty($setting.value))
             {
-                foreach ($storageAccount in $storageAccountsList) 
+                # Generate a random name for the storage account by taking into account the 24 character limits imposed by Azure
+                $seed = Get-Random -Maximum 99999
+                $resourceGroupNameSeed = $resourceGroupName -replace '-',''
+            
+                if($resourceGroupNameSeed.length -gt 19)
                 {
-                    # Check if a previously generated storage account already exists
-                    if ($storageAccount.StorageAccountName -contains $storageAccountName) 
-                    {
-                        Write-Host "A generated storage account named $($storageAccountName) already exists... Skipping storage account creation" -ForegroundColor Yellow
-                        $createstorageaccount = $false
-                        break
-                    }
-                    else 
-                    {
-                        $createstorageaccount = $true
-                    }
+                    $resourceGroupNameSeed = $resourceGroupNameSeed.substring(0, 19)
                 }
-            } 
+                $storageAccountName = $resourceGroupNameSeed+$seed
+            }
             else 
             {
-                $createstorageaccount = $true
+                $storageAccountName = $setting.value
             }
-           
-            if($createstorageaccount)
+        }
+        "containerName"
+        {
+            if([string]::IsNullOrEmpty($setting.value))
             {
-                # Try to create the storage account
-                Write-Host "Creating a new storage account named $($storageAccountName)..." -ForegroundColor Green
-                New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot
+                [String] $containerName = "hh-toolkit"
+            }
+            else
+            {
+                $containerName = $setting.value
+            }
+        }
+    }
+}
+
+if(!($SkipScUpload))
+{
+    # Set variables for the container names
+    [String] $additionalContainerName = "temp-hh-toolkit"
+
+    # Trying to create a resource group for deployments to Azure, based on the selected region
+    try 
+    {
+        # Check if the resource group is already there
+        Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction Stop
+        if($null -ne (Get-AzureRmResourceGroup -Name $resourceGroupName)) 
+        {				
+            Write-Host "A resource group named $($resourceGroupName) already exists" -ForegroundColor Yellow
+        }
+    } 
+    catch 
+    {			
+        # Create the resource group if the attempt to get the group fails
+        Write-Host "Creating a new resource group named $($resourceGroupName)..." -ForegroundColor Green
+        New-AzureRmResourceGroup -Name $resourceGroupName -Location $region		
+    }
+    try 
+    {
+        $storageAccountsList = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
+        if ($null -ne $storageAccountsList) 
+        {
+            foreach ($storageAccount in $storageAccountsList) 
+            {
+                # Check if a previously generated storage account already exists
+                if ($storageAccount.StorageAccountName -contains $storageAccountName) 
+                {
+                    Write-Host "A generated storage account named $($storageAccountName) already exists... Skipping storage account creation" -ForegroundColor Yellow
+                    $createstorageaccount = $false
+                    break
+                }
+                else 
+                {
+                    $createstorageaccount = $true
+                }
             }
         } 
-        catch 
-        {		
-            # Create the storage account if one does not exist
-            Write-Host "Creating a new storage account named $($storageAccountName)..."
-            New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot	
-		}
-
-	}
-    
-}
-
-# Set variables for the container names
-[String] $additionalContainerName = "temporary-toolkit"
-[String] $containerName = "azure-toolkit"
-
-# Get the current storage account
-$sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName
-
-# Obtain the storage account context
-$ctx = $sa.Context
-
-
-try {
-
-    # Remove the temporary container if it exists
-
-    "Trying to remove any temporary containers, created on previous runs of the script..."
-    Remove-AzureStorageContainer -Name "$additionalContainerName" -Context $ctx -Force -ErrorAction Stop
-    
-}
-catch {
-    
-    "...no temporary container found"
-
-}
-
-# Try to write to the container - if failing, use a temporary one
-try {
-
-    "Verifying the existence of the current Azure container..."
-	   
-	# Check if the container name already exists and if it does, upload the WDP modules and additional files to the container
-    Get-AzureStorageContainer -Container $containerName -Context $ctx -ErrorAction Stop
-
-} catch {
-
-    try {
-
-        "Trying to create the container..."
-
-        # Create the main container for the WDPs
-        New-AzureStorageContainer -Name $containerName -Context $ctx -Permission off -ErrorAction Stop
-
-    } catch {
-    
-        "It seems like the container has been deleted very recently... creating a temporary container instead"
-
-		$containerName = $additionalContainerName
-        # Create a temporary container
-        New-AzureStorageContainer -Name $containerName -Context $ctx -Permission off
-
+        else 
+        {
+            $createstorageaccount = $true
+        }
+        if($createstorageaccount)
+        {
+            # Try to create the storage account
+            Write-Host "Creating a new storage account named $($storageAccountName)..." -ForegroundColor Green
+            New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot
+        }
+    } 
+    catch 
+    {		
+        # Create the storage account if one does not exist
+        Write-Host "Creating a new storage account named $($storageAccountName)..."
+        New-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -Location $region -SkuName Standard_GRS -Kind BlobStorage -AccessTier Hot	
     }
-    
+
+    # Get the current storage account
+    $sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName
+
+    # Obtain the storage account context
+    $ctx = $sa.Context
+
+    try 
+    {
+        # Remove the temporary container if it exists
+        "Trying to remove any temporary containers, created on previous runs of the script..."
+        Remove-AzureStorageContainer -Name "$additionalContainerName" -Context $ctx -Force -ErrorAction Stop
+    }
+    catch 
+    {
+        "...no temporary container found"
+    }
+
+    # Try to write to the container - if failing, use a temporary one
+    try 
+    {
+        "Verifying the existence of the current Azure container..."  
+        # Check if the container name already exists and if it does, upload the WDP modules and additional files to the container
+        Get-AzureStorageContainer -Container $containerName -Context $ctx -ErrorAction Stop
+    } 
+    catch 
+    {
+        try 
+        {
+            "Trying to create the container..."
+            # Create the main container for the WDPs
+            New-AzureStorageContainer -Name $containerName -Context $ctx -Permission off -ErrorAction Stop
+        } 
+        catch 
+        {
+            "It seems like the container has been deleted very recently... creating a temporary container instead"
+            $containerName = $additionalContainerName
+            # Create a temporary container
+            New-AzureStorageContainer -Name $containerName -Context $ctx -Permission off
+        } 
+    }
+
+    # set the current values for container and storageaccount in the azureuser-config.json
+    ForEach ($setting in $azureuserconfig.settings)
+    {
+        switch($setting.id)
+        {
+            "containerName"
+            {
+                $setting.value = $containerName
+            }
+            "storageAccountName"
+            {
+                $setting.value = $storageAccountName
+            }
+        }
+    }
+
+    $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
+
+    UploadFiles -cakeJsonConfig $config
+    UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig
+}
+else
+{
+    # Get the current storage account
+    $sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName
+
+    # Obtain the storage account context
+    $ctx = $sa.Context
+
+    UploadFiles -cakeJsonConfig $config -SkipScUpload
+    UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload
 }
 
-UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig
-UploadFiles -cakeJsonConfig $config
 
 ##############################################
 # Get the URL for each WDP blob and record it
@@ -385,7 +455,7 @@ foreach($asset in $assetconfig.prerequisites)
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
                 }
@@ -395,7 +465,7 @@ foreach($asset in $assetconfig.prerequisites)
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
                 }
@@ -415,7 +485,7 @@ ForEach($blob in $blobsList)
                                                                 -Blob $blob.Name `
                                                                 -Permission rwd `
                                                                 -StartTime (Get-Date) `
-                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                -ExpiryTime (Get-Date).AddDays(3650) `
                                                                 -Context $ctx `
                                                                 -FullUri
         }
@@ -425,7 +495,7 @@ ForEach($blob in $blobsList)
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
         }
@@ -435,7 +505,7 @@ ForEach($blob in $blobsList)
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
         }
@@ -451,7 +521,7 @@ ForEach($blob in $blobsList)
                                                                     -Blob $blob.Name `
                                                                     -Permission rwd `
                                                                     -StartTime (Get-Date) `
-                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                    -ExpiryTime (Get-Date).AddDays(3650) `
                                                                     -Context $ctx `
                                                                     -FullUri
             }
@@ -461,7 +531,7 @@ ForEach($blob in $blobsList)
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
             }
@@ -471,7 +541,7 @@ ForEach($blob in $blobsList)
                                                                         -Blob $blob.Name `
                                                                         -Permission rwd `
                                                                         -StartTime (Get-Date) `
-                                                                        -ExpiryTime (Get-Date).AddHours(3) `
+                                                                        -ExpiryTime (Get-Date).AddDays(3650) `
                                                                         -Context $ctx `
                                                                         -FullUri
             }
@@ -481,7 +551,7 @@ ForEach($blob in $blobsList)
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
             }
@@ -491,7 +561,7 @@ ForEach($blob in $blobsList)
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
             }
@@ -501,7 +571,7 @@ ForEach($blob in $blobsList)
                                                                                     -Blob $blob.Name `
                                                                                     -Permission rwd `
                                                                                     -StartTime (Get-Date) `
-                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                     -Context $ctx `
                                                                                     -FullUri
             }
@@ -511,7 +581,7 @@ ForEach($blob in $blobsList)
                                                                                 -Blob $blob.Name `
                                                                                 -Permission rwd `
                                                                                 -StartTime (Get-Date) `
-                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                 -Context $ctx `
                                                                                 -FullUri
             }
@@ -521,7 +591,7 @@ ForEach($blob in $blobsList)
                                                                                         -Blob $blob.Name `
                                                                                         -Permission rwd `
                                                                                         -StartTime (Get-Date) `
-                                                                                        -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                        -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                         -Context $ctx `
                                                                                         -FullUri
             }
@@ -546,7 +616,7 @@ if($config.Topology -eq "single")
                                                                                 -Blob $blob.Name `
                                                                                 -Permission rwd `
                                                                                 -StartTime (Get-Date) `
-                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                 -Context $ctx `
                                                                                 -FullUri
                 }
@@ -556,7 +626,7 @@ if($config.Topology -eq "single")
                                                                                 -Blob $blob.Name `
                                                                                 -Permission rwd `
                                                                                 -StartTime (Get-Date) `
-                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                 -Context $ctx `
                                                                                 -FullUri
                 }
@@ -581,7 +651,7 @@ elseif($config.Topology -eq "scaled")
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
                 }
@@ -591,7 +661,7 @@ elseif($config.Topology -eq "scaled")
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
                 }
@@ -601,7 +671,7 @@ elseif($config.Topology -eq "scaled")
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
                 }
@@ -611,7 +681,7 @@ elseif($config.Topology -eq "scaled")
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
                 }
@@ -621,7 +691,7 @@ elseif($config.Topology -eq "scaled")
                                                                                 -Blob $blob.Name `
                                                                                 -Permission rwd `
                                                                                 -StartTime (Get-Date) `
-                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                 -Context $ctx `
                                                                                 -FullUri
                 }
@@ -631,7 +701,7 @@ elseif($config.Topology -eq "scaled")
                                                                                 -Blob $blob.Name `
                                                                                 -Permission rwd `
                                                                                 -StartTime (Get-Date) `
-                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                 -Context $ctx `
                                                                                 -FullUri
                 }
@@ -641,7 +711,7 @@ elseif($config.Topology -eq "scaled")
                                                                                 -Blob $blob.Name `
                                                                                 -Permission rwd `
                                                                                 -StartTime (Get-Date) `
-                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                 -Context $ctx `
                                                                                 -FullUri
                 }
@@ -651,7 +721,7 @@ elseif($config.Topology -eq "scaled")
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
                 }
@@ -661,7 +731,7 @@ elseif($config.Topology -eq "scaled")
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
                 }
@@ -683,7 +753,7 @@ elseif($config.Topology -eq "scaled")
                                                                                 -Blob $blob.Name `
                                                                                 -Permission rwd `
                                                                                 -StartTime (Get-Date) `
-                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                 -Context $ctx `
                                                                                 -FullUri
                     }
@@ -702,7 +772,7 @@ elseif($config.Topology -eq "scaled")
                                                                                     -Blob $blob.Name `
                                                                                     -Permission rwd `
                                                                                     -StartTime (Get-Date) `
-                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                     -Context $ctx `
                                                                                     -FullUri
             }
@@ -718,7 +788,7 @@ elseif($config.Topology -eq "scaled")
                                                                             -Blob $blob.Name `
                                                                             -Permission rwd `
                                                                             -StartTime (Get-Date) `
-                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                             -Context $ctx `
                                                                             -FullUri
                 }
@@ -728,7 +798,7 @@ elseif($config.Topology -eq "scaled")
                                                                                     -Blob $blob.Name `
                                                                                     -Permission rwd `
                                                                                     -StartTime (Get-Date) `
-                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                     -Context $ctx `
                                                                                     -FullUri
                 }
@@ -738,7 +808,7 @@ elseif($config.Topology -eq "scaled")
                                                                                 -Blob $blob.Name `
                                                                                 -Permission rwd `
                                                                                 -StartTime (Get-Date) `
-                                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                 -Context $ctx `
                                                                                 -FullUri
                 }
@@ -748,7 +818,7 @@ elseif($config.Topology -eq "scaled")
                                                                                     -Blob $blob.Name `
                                                                                     -Permission rwd `
                                                                                     -StartTime (Get-Date) `
-                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                     -Context $ctx `
                                                                                     -FullUri
                 }
@@ -758,7 +828,7 @@ elseif($config.Topology -eq "scaled")
                                                                                     -Blob $blob.Name `
                                                                                     -Permission rwd `
                                                                                     -StartTime (Get-Date) `
-                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                     -Context $ctx `
                                                                                     -FullUri
                 }
@@ -768,7 +838,7 @@ elseif($config.Topology -eq "scaled")
                                                                                             -Blob $blob.Name `
                                                                                             -Permission rwd `
                                                                                             -StartTime (Get-Date) `
-                                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                             -Context $ctx `
                                                                                             -FullUri
                 }
@@ -778,7 +848,7 @@ elseif($config.Topology -eq "scaled")
                                                                                     -Blob $blob.Name `
                                                                                     -Permission rwd `
                                                                                     -StartTime (Get-Date) `
-                                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                    -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                     -Context $ctx `
                                                                                     -FullUri
                 }
@@ -788,7 +858,7 @@ elseif($config.Topology -eq "scaled")
                                                                                             -Blob $blob.Name `
                                                                                             -Permission rwd `
                                                                                             -StartTime (Get-Date) `
-                                                                                            -ExpiryTime (Get-Date).AddHours(3) `
+                                                                                            -ExpiryTime (Get-Date).AddDays(3650) `
                                                                                             -Context $ctx `
                                                                                             -FullUri
                 }
@@ -810,46 +880,47 @@ ForEach ($blob in $blobsList)
                                                         -Blob $blob.Name `
                                                         -Permission rwd `
                                                         -StartTime (Get-Date) `
-                                                        -ExpiryTime (Get-Date).AddHours(3) `
+                                                        -ExpiryTime (Get-Date).AddDays(3650) `
                                                         -Context $ctx `
                                                         -FullUri
-
-    } elseif($blob.Name -like "*def*.json")
+    } 
+    elseif($blob.Name -like "*def*.json")
     {
         $defTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
                                                         -Blob $blob.Name `
                                                         -Permission rwd `
                                                         -StartTime (Get-Date) `
-                                                        -ExpiryTime (Get-Date).AddHours(3) `
+                                                        -ExpiryTime (Get-Date).AddDays(3650) `
                                                         -Context $ctx `
                                                         -FullUri
-
-    } elseif($blob.Name -like "*habitathome.json")
+    } 
+    elseif($blob.Name -like "*habitathome.json")
     {
         $habitatWebsiteTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
                                                                     -Blob $blob.Name `
                                                                     -Permission rwd `
                                                                     -StartTime (Get-Date) `
-                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                    -ExpiryTime (Get-Date).AddDays(3650) `
                                                                     -Context $ctx `
                                                                     -FullUri
-
-    } elseif($blob.Name -like "*xconnect.json")
+    } 
+    elseif($blob.Name -like "*xconnect.json")
     {
         $habitatXconnectTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
                                                                     -Blob $blob.Name `
                                                                     -Permission rwd `
                                                                     -StartTime (Get-Date) `
-                                                                    -ExpiryTime (Get-Date).AddHours(3) `
+                                                                    -ExpiryTime (Get-Date).AddDays(3650) `
                                                                     -Context $ctx `
                                                                     -FullUri
-    } elseif($blob.Name -like "*bootloader.json")
+    } 
+    elseif($blob.Name -like "*bootloader.json")
     {
         $bootloaderTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
                                                                 -Blob $blob.Name `
                                                                 -Permission rwd `
                                                                 -StartTime (Get-Date) `
-                                                                -ExpiryTime (Get-Date).AddHours(3) `
+                                                                -ExpiryTime (Get-Date).AddDays(3650) `
                                                                 -Context $ctx `
                                                                 -FullUri
     }
@@ -885,7 +956,6 @@ if (!$azuredeployConfig) {
 }
 
 # Get all user-defined settings from the azureuser-config.json files and assign them to variables
-
 ForEach ($setting in $azureuserconfig.settings){
 
     Switch($setting.id){
@@ -922,7 +992,56 @@ ForEach ($setting in $azureuserconfig.settings){
         {
             $sqlServerPassword = $setting.value
         }
+        "ArmTemplateUrl"
+		{
+			$ArmTemplateUrl = $setting.value
+		}
+		"templatelinkAccessToken"
+		{
+			$templatelinkAccessToken = $setting.value
+		}
     }
+}
+
+# Set ArmTemplateURl and templateLinkAccessToken if blank
+if([string]::IsNullOrEmpty($templatelinkAccessToken) -or [string]::IsNullOrEmpty($ArmTemplateUrl))
+{
+	if([string]::IsNullOrEmpty($ArmTemplateUrl))
+	{
+		$ArmTemplateUrl = New-AzureStorageBlobSASToken -Container $containerName `
+														-Blob 'arm-templates/azuredeploy.json' `
+														-Permission rwd `
+														-StartTime (Get-Date) `
+														-ExpiryTime (Get-Date).AddDays(3650) `
+														-Context $ctx `
+														-FullUri
+	}
+
+	if([string]::IsNullOrEmpty($templatelinkAccessToken))
+	{
+		$templatelinkAccessToken = New-AzureStorageContainerSASToken $containerName `
+																	-Permission rwd `
+																	-StartTime (Get-Date) `
+																	-ExpiryTime (Get-Date).AddDays(3650) `
+																	-Context $ctx
+    }
+    
+    ForEach ($setting in $azureuserconfig.settings)
+    {
+        switch($setting.id)
+        {
+            "ArmTemplateUrl"
+            {
+                $setting.value = $ArmTemplateUrl
+            }
+            "templatelinkAccessToken"
+            {
+                $setting.value = $templatelinkAccessToken
+            }
+        }
+    }
+
+    $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
 }
 
 # Populate parameters inside the azuredeploy.parameters JSON schema with values from previously prepared variables
@@ -1083,26 +1202,3 @@ elseif($definstall -eq $false)
 {
     $azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($topology, 'azuredeploy.parametersWOdef.json'))
 }
-
-# Populate the "azuredeploy.json" ARM template URL inside the azureuser-config JSON schema and apply the schema to the azureuser-config.json file
-
-ForEach ($setting in $azureuserconfig.settings)
-{
-
-    # Check if an ARM template URL is already present inside the azureuser-config.json file
-
-    switch($setting.id)
-    {
-        "containerName"
-        {
-            $setting.value = $containerName
-        }
-        "storageAccountName"
-        {
-            $setting.value = $storageAccountName
-        }
-    }
-
-}
-
-$azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile

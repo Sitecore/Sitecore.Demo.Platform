@@ -61,6 +61,14 @@ foreach($setting in $azureuserconfig.settings)
 		{
 			$LicenseXmlPath = $setting.value
 		}
+		"ArmTemplateUrl"
+		{
+			$ArmTemplateUrl = $setting.value
+		}
+		"templatelinkAccessToken"
+		{
+			$templatelinkAccessToken = $setting.value
+		}
 		"containerName"
 		{
 			$containerName = $setting.value
@@ -71,25 +79,6 @@ foreach($setting in $azureuserconfig.settings)
 		}
 	}
 }
-
-
-# Obtain the storage account context
-$sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $Name
-$ctx = $sa.Context
-
-$ArmTemplateUrl = New-AzureStorageBlobSASToken -Container $containerName `
-												-Blob 'arm-templates/azuredeploy.json' `
-												-Permission rwd `
-												-StartTime (Get-Date) `
-												-ExpiryTime (Get-Date).AddHours(3) `
-												-Context $ctx `
-												-FullUri
-
-$templatelinkAccessToken = New-AzureStorageContainerSASToken $containerName `
-												   			-Permission rwd `
-													   		-StartTime (Get-Date) `
-													   		-ExpiryTime (Get-Date).AddHours(3) `
-													   		-Context $ctx
 
 $authCertificateBlob = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes($certfilepath));
 

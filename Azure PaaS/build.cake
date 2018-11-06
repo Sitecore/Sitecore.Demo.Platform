@@ -326,11 +326,23 @@ Task("ConvertTo-SCWDPs").Does(() => {
 		});
 
 Task("Azure-Upload-Packages").Does(() => {
+
+if(HasArgument("SkipScUpload"))
+{
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Upload-Packages.ps1", args =>
+        {
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json")
+                .Append("-SkipScUpload");
+        });
+}
+else
+{
+    StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Upload-Packages.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
         });
-		});
+}
+});
 
 Task("Azure-Site-Deploy")
 .IsDependentOn("Deploy-To-Azure")
