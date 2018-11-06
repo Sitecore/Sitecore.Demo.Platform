@@ -1,14 +1,14 @@
 {
-	"serviceprincipal": {
-		"azureSubscriptionName": "",
-		"tenantId": "",
-		"applicationId": "",
-		"applicationPassword": ""
-	},
-	"sitecoreAccount": {
-		"username": "",
-		"password": ""
-	},
+  "serviceprincipal": {
+    "azureSubscriptionName": "",
+    "tenantId": "",
+    "applicationId": "",
+    "applicationPassword": ""
+  },
+  "sitecoreAccount": {
+    "username": "",
+    "password": ""
+  },
   "settings": [
     {
       "id": "AzureDeploymentID",
@@ -53,12 +53,22 @@
     {
       "id": "containerName",
       "value": "",
-      "description": "Leave Blank. Used by the upload and deploy scripts to pass information"
+      "description": "name of the Azure container"
     },
     {
       "id": "storageAccountName",
       "value": "",
-      "description": "Leave Blank. Used by the upload and deploy scripts to pass information"
+      "description": "name of the Azure Storage Account"
+    },
+    {
+      "id": "ArmTemplateUrl",
+      "value": "",
+      "description": "Azure SAS URL of the azuredeploy.json"
+    },
+    {
+      "id": "templatelinkAccessToken",
+      "value": "",
+      "description": "Azure SAS token for the container"
     }
   ]
 }
