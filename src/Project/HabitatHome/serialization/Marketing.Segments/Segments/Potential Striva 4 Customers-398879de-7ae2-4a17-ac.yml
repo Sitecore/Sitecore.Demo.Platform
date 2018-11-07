@@ -1,0 +1,55 @@
+﻿---
+ID: "398879de-7ae2-4a17-aca5-540753df3825"
+Parent: "cd304d58-d53b-420c-9d1a-c83255af1554"
+Template: "95d4ed35-1e47-48e9-95db-de0614a0e86c"
+Path: "/sitecore/system/Marketing Control Panel/Segments/Potential Striva 4 Customers-398879de-7ae2-4a17-aca5-540753df3825"
+DB: master
+SharedFields:
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "75af2497-ada0-4271-80da-84f9dd2e4075"
+  Hint: Rules
+  Value: |
+    [{"Id":"01fd7792-c728-4988-bb34-aef5fdcad76f","Name":"Specify name...","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"Id":"a2df176a-9eaf-4a44-b777-813c79a51a41","DescriptorId":"9805a980-2ee4-4b15-9910-4e449e05fedf","Properties":{"DefinitionId":"{95810E6D-E7B5-4D15-A3E4-B064B148E2E2}"}}},{"Id":"7af7ace6-a588-49ec-9496-802f03ccbf90","Name":"Specify name...","ConditionType":"Sitecore.Marketing.Rules.NullNode, Sitecore.Marketing, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{}}]
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180404T025534Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: Potential Striva 4 Customers
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "e259e500-b38e-41fe-82db-8b604bcf9e75"
+      Hint: Description
+      Value: Users whose pattern of behavior indicates they may be interested in the Striva 4.
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180404T025534Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: "Potential Striva 4 Customers-398879de-7ae2-4a17-aca5-540753df3825"
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous

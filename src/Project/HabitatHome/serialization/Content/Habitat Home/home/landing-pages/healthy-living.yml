@@ -2,7 +2,7 @@
 ID: "902aad71-dd65-4c4e-97be-c2f341962685"
 Parent: "602e4f4d-11e2-44e9-a8ac-12ae5e05a1a4"
 Template: "c2786e73-44c7-43be-954b-1b35aeba4bd0"
-Path: "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living-example"
+Path: "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
 DB: master
 BranchID: "88afe195-bca1-49dd-9aa2-67f0d9a0daa5"
 SharedFields:
@@ -18,51 +18,79 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          uid="{E36CB356-7271-4E46-BDCC-C34F0518E1E0}"
+          uid="{8F767C22-CCFC-45D0-A31D-39CF03E50285}"
           p:before="*"
-          s:ds="{13CB92AF-E4D8-4B4E-8CCE-76C5135B0237}"
+          s:ds="{C24727C9-633A-47CA-8C70-82720C23793F}"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:mvt="{43073E42-34D8-46DA-BE75-8881F79C8F8D}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B37AF3984-2F68-47EC-BAFB-B7A831F910CA%7D&amp;Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=10"
+          s:ph="/main/sxa-content-container/container-1/container-9" />
+        <r
+          uid="{E36CB356-7271-4E46-BDCC-C34F0518E1E0}"
+          p:after="r[@uid='{8F767C22-CCFC-45D0-A31D-39CF03E50285}']"
+          s:cnd=""
+          s:ds="{40CC426C-AAB9-4F9F-9ED5-BBC42F70D33D}"
           s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+          s:mvt=""
           s:par=""
           s:ph="/main/sxa-content-container/container-1/container-5/column-2-6/sitecoreFormsWrapper-7" />
         <r
           uid="{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}"
           p:after="r[@uid='{E36CB356-7271-4E46-BDCC-C34F0518E1E0}']"
+          s:ds=""
           s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
-          s:par="Caching=0|0|0|0|0|0|0|0&amp;DynamicPlaceholderId=7&amp;GridParameters&amp;Styles={AC323A2C-7301-4523-B005-9D4F3CCB2ABC}|{0CC74E1D-658E-460C-8D9F-DB5C73E078FD}"
+          s:par="Styles=%7bAC323A2C-7301-4523-B005-9D4F3CCB2ABC%7d%7c%7b0CC74E1D-658E-460C-8D9F-DB5C73E078FD%7d&amp;DynamicPlaceholderId=7&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0"
           s:ph="/main/sxa-content-container/container-1/container-5/column-2-6" />
         <r
           uid="{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}"
           p:after="r[@uid='{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}']"
+          s:ds=""
           s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
           s:par=""
           s:ph="/main/sxa-content-container/container-1/container-5/column-1-6" />
         <r
-          uid="{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}"
+          uid="{5B2B0F29-BB3E-43C8-9454-442AAA5490B8}"
           p:after="r[@uid='{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}']"
+          s:ds="{14D71DC5-F486-44E4-BCC8-3EA07A3500C0}"
+          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          s:par="DynamicPlaceholderId=8&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d"
+          s:ph="/main/sxa-content-container/container-1/container-5/column-1-6" />
+        <r
+          uid="{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}"
+          p:after="r[@uid='{5B2B0F29-BB3E-43C8-9454-442AAA5490B8}']"
+          s:ds=""
           s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
-          s:par="EnabledPlaceholders=1,2&amp;Caching=0|0|0|0|0|0|0|0&amp;DynamicPlaceholderId=6&amp;ColumnWidth1={F6DC722E-15DB-4826-920B-ACCFDA772432}&amp;Styles1&amp;Reset Caching Options&amp;ColumnWidth2={F6DC722E-15DB-4826-920B-ACCFDA772432}&amp;Styles2"
+          s:par="DynamicPlaceholderId=6&amp;EnabledPlaceholders=1%2c2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;ColumnWidth1=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d&amp;ColumnWidth2=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d"
           s:ph="/main/sxa-content-container/container-1/container-5" />
         <r
           uid="{7DFCF9D1-9E8A-48D3-A97B-B14654888C89}"
           p:after="r[@uid='{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}']"
           s:ds="local:/Data/Page Hero"
           s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:par="Caching=0|0|0|0|0|0|0|0&amp;DynamicPlaceholderId=1"
+          s:par="DynamicPlaceholderId=1&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0"
           s:ph="/main/sxa-content-container/container-1" />
         <r
           uid="{D2B41184-B2CD-4074-AE79-4DADF108989B}"
           p:after="r[@uid='{7DFCF9D1-9E8A-48D3-A97B-B14654888C89}']"
+          s:ds=""
           s:id="{99A633FC-B9A9-44A0-B78A-BCBB08DD02C9}"
-          s:par="Styles={AC323A2C-7301-4523-B005-9D4F3CCB2ABC}|{02E8B498-5953-427B-A29D-68291DCEC9F4}&amp;GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;FieldNames&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:par="Styles=%7bAC323A2C-7301-4523-B005-9D4F3CCB2ABC%7d%7c%7b02E8B498-5953-427B-A29D-68291DCEC9F4%7d&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d"
           s:ph="/main/sxa-content-container/container-1" />
         <r
           uid="{C56FF29E-B1DC-494C-9168-4DA7099D53D1}"
-          p:after="*[1=2]"
+          p:after="r[@uid='{D2B41184-B2CD-4074-AE79-4DADF108989B}']"
           s:cnd=""
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
           s:mvt=""
-          s:par="GridParameters&amp;BackgroundImage&amp;Styles=%7B7390C99D-8055-4E89-9C82-84CA91700184%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:par="Styles=%7b7390C99D-8055-4E89-9C82-84CA91700184%7d%7c%7bDF262DBA-9499-4F97-A9C9-B7885C140ED8%7d&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{6AA37C7C-1BA9-40F8-A07E-AED41CAB0435}"
+          p:after="*[1=2]"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Styles=%7b45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7d%7c%7bF5947911-00C7-4F00-84F4-3D748376BB32%7d&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=9&amp;BackgroundImage=%3cimage+mediaid%3d%22%7b6AB199D6-3E3C-4521-886A-F8A8055A708B%7d%22+%2f%3e"
           s:ph="/main/sxa-content-container/container-1" />
       </d>
     </r>
@@ -74,39 +102,10 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Healthy Living Example
+    Value: Healthy Living
   Versions:
   - Version: 1
     Fields:
-    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
-      Hint: __Final Renderings
-      Type: Layout
-      Value: |
-        <r xmlns:p="p" xmlns:s="s"
-          p:p="1">
-          <d
-            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
-            <r
-              uid="{E36CB356-7271-4E46-BDCC-C34F0518E1E0}"
-              s:cnd=""
-              s:ds="{40CC426C-AAB9-4F9F-9ED5-BBC42F70D33D}"
-              s:mvt="" />
-            <r
-              uid="{5B2B0F29-BB3E-43C8-9454-442AAA5490B8}"
-              p:after="r[@uid='{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}']"
-              s:ds="{14D71DC5-F486-44E4-BCC8-3EA07A3500C0}"
-              s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-              s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=8"
-              s:ph="/main/sxa-content-container/container-1/container-5/column-1-6" />
-            <r
-              uid="{F4D756F7-7127-4F69-9F40-C7D05DA09FC9}"
-              p:after="*[1=2]"
-              s:ds="{30F50135-9BCA-436A-9C02-F3DD35A75411}"
-              s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-              s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=9"
-              s:ph="/main/sxa-content-container/container-1" />
-          </d>
-        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180626T160120Z
@@ -126,5 +125,16 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Healthy Living Example
+    Value: Healthy Living
   Versions:
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180711T173000Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
