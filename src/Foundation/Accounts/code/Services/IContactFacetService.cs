@@ -1,4 +1,4 @@
-﻿using Sitecore.HabitatHome.Foundation.Accounts.Models;                  
+﻿using Sitecore.HabitatHome.Foundation.Accounts.Models;
 
 namespace Sitecore.HabitatHome.Foundation.Accounts.Services
 {
