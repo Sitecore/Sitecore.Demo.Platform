@@ -7,7 +7,7 @@
     {
     <label class="checkcontainer">
         <input type="checkbox" name="@Html.NameFor(m => Model.Value)" @if (item.Selected)
-               {<text> checked</text>} value="@item.Value" data-sc-tracking="@Model.IsTrackingEnabled" data-sc-field-name="@Model.Name" @Html.GenerateUnobtrusiveValidationAttributes(m => Model.Value)/>@item.Text
+               {<text> checked</text>} value="@item.Value" data-sc-tracking="@Model.IsTrackingEnabled" data-sc-field-name="@Model.Name" data-sc-field-key="@Model.ConditionSettings.FieldKey" @Html.GenerateUnobtrusiveValidationAttributes(m => Model.Value)/>@item.Text
                 <span class="checkmark"></span>
     </label>
     }

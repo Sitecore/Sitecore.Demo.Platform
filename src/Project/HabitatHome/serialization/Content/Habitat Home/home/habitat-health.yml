@@ -85,6 +85,73 @@ SharedFields:
           <rls>
             <ruleset>
               <rule
+                uid="{19FF30B2-7F41-499E-8625-906B42C4DE2E}"
+                s:name="Sport Interest: Cycling - Outdoors">
+                <conditions>
+                  <and
+                    uid="36B29940E1434C219C19236A04C2264D">
+                    <condition
+                      uid="CEDFACE0836C41C7A762BB9DC8503848"
+                      s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                      s:Comparison="is case insensitive and equal to"
+                      s:SportNameKey="Cycling" />
+                    <condition
+                      uid="120535C3D7BD4AD58FE1A3EC872F50D7"
+                      s:id="{976567E6-C494-4B84-B51F-A2813F8031E2}"
+                      s:Comparison="is case insensitive and not equal to"
+                      s:SportTypeKey="Stationary" />
+                  </and>
+                </conditions>
+                <actions>
+                  <action
+                    uid="31E96FC1DFD9468095452065F291C5BB"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Hero - Fitness - Cycling - Outdoors" />
+                </actions>
+              </rule>
+              <rule
+                uid="{1C2366E0-C9C9-4D11-9044-17CA18796CE1}"
+                s:name="Sport Interest: Cycling - Stationary">
+                <conditions>
+                  <and
+                    uid="5C27A4DA089740CE943C0030FD92237A">
+                    <condition
+                      uid="A56F5FCBF52B407D8836A57B2A12CE21"
+                      s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                      s:Comparison="is case insensitive and equal to"
+                      s:SportNameKey="Cycling" />
+                    <condition
+                      uid="88C2A4A7F45748D7BD92C933FBCAD2C2"
+                      s:id="{976567E6-C494-4B84-B51F-A2813F8031E2}"
+                      s:Comparison="is case insensitive and equal to"
+                      s:SportTypeKey="Stationary" />
+                  </and>
+                </conditions>
+                <actions>
+                  <action
+                    uid="04B6F6301AEE4575B60BF88E2A959447"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Hero - Fitness - Cycling - Stationary" />
+                </actions>
+              </rule>
+              <rule
+                uid="{A6D5F5D5-7226-4EA7-BFE6-3609CD8844E4}"
+                s:name="Sport Interest: Running">
+                <conditions>
+                  <condition
+                    uid="4A9292150EFB4E4B81D3F7AF3EB03329"
+                    s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                    s:Comparison="is case insensitive and equal to"
+                    s:SportNameKey="Running" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="D307322E1AE84A2E9CBBCEFBBF5492F4"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Hero - Fitness - Running" />
+                </actions>
+              </rule>
+              <rule
                 uid="{03544570-8F36-4BB4-B123-28B16D6F5756}"
                 s:name="Hero - Foodie">
                 <actions>
@@ -679,6 +746,40 @@ SharedFields:
           <rls>
             <ruleset>
               <rule
+                uid="{8958D69D-0451-43B5-BE15-2777AC1B9064}"
+                s:name="Sport Interest: Running">
+                <conditions>
+                  <condition
+                    uid="40387DE6F9E442A4B4F0C2FBBBEA37EE"
+                    s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                    s:Comparison="is case insensitive and equal to"
+                    s:SportNameKey="Running" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="CF06EF1DA8844E4AB06519CE5BFF6551"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{7FFDAD1C-50A6-4CE7-81C5-259DCD6D1FC1}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{F78F3D05-DDAD-49F3-BC0E-4032BE1FD911}"
+                s:name="Sport Interest: Cycling">
+                <conditions>
+                  <condition
+                    uid="19CC7EE374BB4A75B35FE50D7DF5E348"
+                    s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                    s:Comparison="is case insensitive and equal to"
+                    s:SportNameKey="Cycling" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="87A2E23D7CDE4018A35CC48421AEAD08"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{6238B3BB-E9C4-4AFB-B445-BE302466691E}" />
+                </actions>
+              </rule>
+              <rule
                 uid="{46C0CCBD-3A4A-48A5-BEB4-2E9F6163D997}"
                 s:name="Foodie">
                 <conditions>
@@ -755,6 +856,31 @@ SharedFields:
           s:ph="/main/sxa-content-container/container-1/container-7/column-2-8">
           <rls>
             <ruleset>
+              <rule
+                uid="{1E9C14DC-B01D-4BD1-BC18-DE3413E690CA}"
+                s:name="Sport Interest: Cycling &amp;amp; Running">
+                <conditions>
+                  <or
+                    uid="6D4F55D9543E4B2CB810D5C7DA199ECF">
+                    <condition
+                      uid="6428FCE513664C88B2016D92F11D4E6A"
+                      s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                      s:Comparison="is case insensitive and equal to"
+                      s:SportNameKey="Cycling" />
+                    <condition
+                      uid="FA6C99F962B74605A1AA2FF959ACACA3"
+                      s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                      s:Comparison="is case insensitive and equal to"
+                      s:SportNameKey="Running" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="841F768FC8E24EC88D3C5AE14B8959CD"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{8A33684A-7711-4445-A119-BD1EFEC890B6}" />
+                </actions>
+              </rule>
               <rule
                 uid="{26848BAD-958F-4798-9970-DC6994B9A5FD}"
                 s:name="Foodie">

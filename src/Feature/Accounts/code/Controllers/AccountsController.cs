@@ -245,11 +245,6 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
         [RedirectUnauthenticated]
         public virtual ActionResult EditProfile(EditProfile profile)
         {
-            if (!string.IsNullOrEmpty(profile.Interest) && !_userProfileService.GetInterests().Contains(profile.Interest))
-            {
-                ModelState.AddModelError(nameof(profile.Interest), DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Interest Not Found", "Please select an interest from the list."));
-                profile.InterestTypes = _userProfileService.GetInterests();
-            }
             if (!ModelState.IsValid)
             {
                 return View(profile);
