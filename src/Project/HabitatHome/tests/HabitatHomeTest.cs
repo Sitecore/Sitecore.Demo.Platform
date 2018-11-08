@@ -24,7 +24,7 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
-        protected string Capitalize(string text)
+        protected static string Capitalize(string text)
         {
             if (string.IsNullOrEmpty(text))
                 return text;
@@ -35,58 +35,62 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
-        protected User CreateUser()
+        protected void DeleteAccount()
         {
-            var user = new User();
-            user.FirstName = DateTime.Now.ToString("MMMM");
-            user.LastName = NumberToWords(DateTime.Now.Day);
-            user.LastName = user.LastName.Replace(" ", "");
-            user.LastName = Capitalize(user.LastName);
-            user.Email = $"{user.FirstName.ToLower()}.{user.LastName.ToLower()}{DateTime.Now.ToString("HHmm")}@sitecore.net";
-            user.Password = "habitat";
+            GoTo(Host);
+            Click("MY ACCOUNT");
+            Click("Delete Account");
+            Click("input[type='submit']");
+            AcceptAlert();
+        }
+
+
+
+        protected User GetUser()
+        {
+            var user = new User { Email = UserEmail, Password = UserPassword };
+
+            var name = (user.Email ?? "").Split('@')[0];
+
+            char? delimiter = null;
+            foreach (char c in "._-")
+            {
+                if (name.Contains(c))
+                {
+                    delimiter = c;
+                    break;
+                }
+            }
+
+            if (delimiter == null)
+            {
+                user.FirstName = Capitalize(name);
+                user.LastName = "User";
+            }
+            else
+            {
+                user.FirstName = Capitalize(name.Split(delimiter.Value)[0]);
+                user.LastName = Capitalize(name.Split(delimiter.Value)[1]);
+            }
+
             return user;
         }
 
 
 
-        protected void Login()
+        protected void Login(bool doRegisttrationIfMissing = true)
         {
-            var user = new User { Email = UserEmail, Password = UserPassword };
+            User user = GetUser();
 
-            var name = UserEmail.Split('@')[0];
-            if (name.Contains("."))
-            {
-                user.FirstName = Capitalize(name.Split('.')[0]);
-                user.LastName = Capitalize(name.Split('.')[1]);
-            }
-            else
-            {
-                user.FirstName = Capitalize(name);
-                user.LastName = "User";
-            }
-
-            LoginUser(user);
-            if (!GetElements("Logout").Any())
-                RegisterUser(user);
-        }
-
-
-
-        protected void LoginUser(User user)
-        {
-            try
-            {
-                Click("LOGIN");
-            }
-            catch (NoSuchElementException)
-            {
-                GoTo(Host);
-                Click("LOGIN");
-            }
+            GoTo(Host);
+            Click("LOGIN");
 
             EnterText("#loginEmail", user.Email);
             EnterText("#loginPassword", user.Password);
             Click("input[type='submit']");
+
+            if (!GetElements("Logout").Any() && doRegisttrationIfMissing)
+                Register();
         }
 
 
@@ -142,8 +146,10 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
-        protected void RegisterUser(User user)
+        protected void Register()
         {
+            User user = GetUser();
+
             GoTo(Host);
             Click("LOGIN");
             Click("CREATE ACCOUNT");
@@ -154,6 +160,31 @@ namespace Sitecore.HabitatHome.Website.Test
             EnterText("#registerPassword", user.Password);
             EnterText("#registerConfirmPassword", user.Password);
             Click("input[type='submit']");
+        }
+
+
+
+        protected Exception Try(Action action)
+        {
+            try
+            {
+                action();
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return ex;
+            }
+        }
+
+
+
+        [Test]
+        public void TestAccountDeletion()
+        {
+            Login();
+            DeleteAccount();
+            TakeScreenshot("01-DeleteAccountResult");
         }
 
 
@@ -219,11 +250,16 @@ namespace Sitecore.HabitatHome.Website.Test
         [Test]
         public void TestRegistration()
         {
-            var user = CreateUser();
-            RegisterUser(user);
+            Login(false);
+            WaitForDocumentReady();
+            var errors = GetElements("div.field-validation-error");
+            if (!errors.Any(e => e.Text.Contains("Username or password is not valid")))
+                DeleteAccount();
+
+            Register();
             TakeScreenshot("01-RegistrationResult");
             Click("Logout");
-            LoginUser(user);
+            Login();
             TakeScreenshot("02-LoginResult");
         }
 
