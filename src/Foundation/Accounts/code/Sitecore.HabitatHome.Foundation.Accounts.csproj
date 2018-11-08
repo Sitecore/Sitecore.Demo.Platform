@@ -55,6 +55,58 @@
     <PackageReference Include="Kamsar.WebConsole" Version="2.0.0" />
     <PackageReference Include="MicroCHAP" Version="1.2.2.2" />
   </ItemGroup>
+  <Choose>
+    <When Condition=" '$(Configuration)'=='Local' ">
+      <ItemGroup>
+        <Reference Include="Sitecore.Analytics.Core" >
+          <HintPath>..\..\..\..\lib\Sitecore.Analytics.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Analytics.Model" >
+          <HintPath>..\..\..\..\lib\Sitecore.Analytics.Model.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Analytics" >
+          <HintPath>..\..\..\..\lib\Sitecore.Analytics.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Analytics.XConnect">
+          <HintPath>..\..\..\..\lib\Sitecore.Analytics.XConnect.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Kernel">
+          <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XConnect.Client.Configuration" >
+          <HintPath>..\..\..\..\lib\Sitecore.XConnect.Client.Configuration.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XConnect.Client" >
+          <HintPath>..\..\..\..\lib\Sitecore.XConnect.Client.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XConnect.Collection.Model">
+          <HintPath>..\..\..\..\lib\Sitecore.XConnect.Collection.Model.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XConnect">
+          <HintPath>..\..\..\..\lib\Sitecore.XConnect.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+     
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="Sitecore.Analytics.Core" Version="12.0.0-*" />
+        <PackageReference Include="Sitecore.Analytics.Model" Version="12.0.0-*" />
+        <PackageReference Include="Sitecore.Analytics" Version="12.0.0-*" />
+        <PackageReference Include="Sitecore.Analytics.XConnect" Version="12.0.0-*" />
+        <PackageReference Include="Sitecore.Kernel" Version="12.0.0-*" />
+        <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="2.0.0-*" />
+        <PackageReference Include="Sitecore.XConnect.Client" Version="2.0.0-*" />
+        <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="2.0.0-*" />
+        <PackageReference Include="Sitecore.XConnect" Version="2.0.0-*" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+   <ItemGroup>
+        <PackageReference Include="Kamsar.WebConsole" Version="2.0.0" />
+        <PackageReference Include="MicroCHAP" Version="1.2.2.2" />
+        <PackageReference Include="Newtonsoft.Json" Version="11.0.0"/>
+      </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -116,6 +168,15 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'localLib|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>

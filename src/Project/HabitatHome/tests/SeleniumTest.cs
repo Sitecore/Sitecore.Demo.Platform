@@ -21,6 +21,15 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        public void AcceptAlert()
+        {
+            var alertBox = Driver.SwitchTo().Alert();
+            Console.WriteLine($"accepting alert \"{alertBox.Text}\"");
+            alertBox.Accept();
+        }
+
+
+
         protected void ApplyConfig()
         {
             try
@@ -89,7 +98,6 @@ namespace Sitecore.HabitatHome.Website.Test
                 else
                     throw;
             }
-            WaitForDocumentReady();
         }
 
 
@@ -97,6 +105,7 @@ namespace Sitecore.HabitatHome.Website.Test
         protected void Click(string descriptor)
         {
             Console.WriteLine($"clicking \"{descriptor}\"");
+            Wait(descriptor);
             IWebElement element = GetElement(descriptor);
             Click(element);
         }
@@ -127,6 +136,8 @@ namespace Sitecore.HabitatHome.Website.Test
 
         protected void EnterText(string descriptor, string text)
         {
+            Console.WriteLine($"entering \"{text}\" on \"{descriptor}\"");
+            Wait(descriptor);
             EnterText(GetElement(descriptor), text);
         }
 
