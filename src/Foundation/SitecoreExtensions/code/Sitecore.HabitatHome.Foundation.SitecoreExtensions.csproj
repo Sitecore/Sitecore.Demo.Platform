@@ -48,37 +48,37 @@
     <When Condition=" '$(Configuration)'=='Local' ">
       <ItemGroup>
 
-        <Reference Include="Sitecore.Analytics.Core" >
+        <Reference Include="Sitecore.Analytics.Core">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.Core.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Analytics.Model" >
+        <Reference Include="Sitecore.Analytics.Model">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.Model.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Analytics" >
+        <Reference Include="Sitecore.Analytics">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Analytics.XConnect">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.XConnect.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Client" >
+        <Reference Include="Sitecore.Client">
           <HintPath>..\..\..\..\lib\Sitecore.Client.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Kernel">
           <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Marketing" >
+        <Reference Include="Sitecore.Marketing">
           <HintPath>..\..\..\..\lib\Sitecore.Marketing.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Mvc" >
+        <Reference Include="Sitecore.Mvc">
           <HintPath>..\..\..\..\lib\Sitecore.Mvc.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.XConnect.Client.Configuration" >
+        <Reference Include="Sitecore.XConnect.Client.Configuration">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Client.Configuration.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.XConnect.Client">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Client.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.XConnect.Collection.Model" >
+        <Reference Include="Sitecore.XConnect.Collection.Model">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Collection.Model.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.XConnect">
@@ -103,6 +103,11 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+    <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.4" />
+    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.4" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />

@@ -59,22 +59,25 @@
         <Reference Include="Sitecore.Abstractions">
           <HintPath>..\..\..\..\lib\Sitecore.Abstractions.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Analytics.Core" >
+        <Reference Include="Sitecore.Analytics.Core">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.Core.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Analytics.Model" >
+        <Reference Include="Sitecore.Analytics.Model">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.Model.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Analytics">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Analytics.XConnect" >
+        <Reference Include="Sitecore.Analytics.XConnect">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.XConnect.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.CES.DeviceDetection">
           <HintPath>..\..\..\..\lib\Sitecore.CES.DeviceDetection.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Cintel" >
+        <Reference Include="Sitecore.CES.GeoIp.Core">
+          <HintPath>..\..\..\..\lib\Sitecore.CES.GeoIp.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.Cintel">
           <HintPath>..\..\..\..\lib\Sitecore.Cintel.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.ExperienceAnalytics.Core">
@@ -83,13 +86,13 @@
         <Reference Include="Sitecore.ExperienceEditor">
           <HintPath>..\..\..\..\lib\Sitecore.ExperienceEditor.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.ExperienceExplorer.Core" >
+        <Reference Include="Sitecore.ExperienceExplorer.Core">
           <HintPath>..\..\..\..\lib\Sitecore.ExperienceExplorer.Core.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Kernel">
           <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Marketing.Automation" >
+        <Reference Include="Sitecore.Marketing.Automation">
           <HintPath>..\..\..\..\lib\Sitecore.Marketing.Automation.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Marketing">
@@ -101,7 +104,7 @@
         <Reference Include="Sitecore.Mvc.Analytics">
           <HintPath>..\..\..\..\lib\Sitecore.Mvc.Analytics.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Mvc" >
+        <Reference Include="Sitecore.Mvc">
           <HintPath>..\..\..\..\lib\Sitecore.Mvc.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.XA.Foundation.IoC">
@@ -113,22 +116,22 @@
         <Reference Include="Sitecore.XConnect.Client.Configuration">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Client.Configuration.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.XConnect.Client" >
+        <Reference Include="Sitecore.XConnect.Client">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Client.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.XConnect.Collection.Model" >
+        <Reference Include="Sitecore.XConnect.Collection.Model">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Collection.Model.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.XConnect.Diagnostics">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Diagnostics.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.XConnect" >
+        <Reference Include="Sitecore.XConnect">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.XConnect.Search">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Search.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Xdb.MarketingAutomation.Tracking" >
+        <Reference Include="Sitecore.Xdb.MarketingAutomation.Tracking">
           <HintPath>..\..\..\..\lib\Sitecore.Xdb.MarketingAutomation.Tracking.dll</HintPath>
         </Reference>
       </ItemGroup>
@@ -140,6 +143,7 @@
         <PackageReference Include="Sitecore.Analytics" Version="12.0.0-*" />
         <PackageReference Include="Sitecore.Analytics.XConnect" Version="12.0.0-*" />
         <PackageReference Include="Sitecore.CES.DeviceDetection" Version="3.0.0-*" />
+        <PackageReference Include="Sitecore.CES.GeoIp.Core" Version="3.0.0-*" />
         <PackageReference Include="Sitecore.Cintel" Version="4.0.0-*" />
         <PackageReference Include="Sitecore.ExperienceAnalytics.Core" Version="4.0.0-*" />
         <PackageReference Include="Sitecore.ExperienceEditor" Version="5.0.0-*" />
@@ -162,6 +166,11 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+    <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.4" />
+    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.4" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />

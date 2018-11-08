@@ -66,6 +66,9 @@
           <HintPath>..\..\..\..\lib\Sitecore.Zip.dll</HintPath>
         </Reference>
       </ItemGroup>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+      </ItemGroup>
     </When>
     <Otherwise>
       <ItemGroup>
