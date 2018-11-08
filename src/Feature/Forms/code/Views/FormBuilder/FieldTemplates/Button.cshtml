@@ -1,0 +1,23 @@
+﻿@using Sitecore.ExperienceForms.Mvc.Constants
+@model Sitecore.ExperienceForms.Mvc.Models.Fields.ButtonViewModel
+
+@{
+    var cssClass = Model.CssClass;
+    if (Model.NavigationStep < 0)
+    {
+        var classes = Model.CssClass.Split(' ');
+        if (!classes.Contains("cancel", StringComparer.OrdinalIgnoreCase))
+        {
+            if (!string.IsNullOrEmpty(Model.CssClass))
+            {
+                cssClass += " ";
+            }
+
+            cssClass += "cancel";
+        }
+    }
+}
+
+<input value="@Html.DisplayTextFor(t => Model.Title)" type="submit" class="@cssClass" name="@Html.Name(Model.ItemId)" data-sc-field-key="@Model.ConditionSettings.FieldKey" />
+@Html.Hidden(AttributeNames.NavigationButtons, Model.ItemId)
+@Html.Hidden(Model.ItemId, Model.NavigationStep)

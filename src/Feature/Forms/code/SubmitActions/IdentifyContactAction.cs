@@ -44,7 +44,6 @@ namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
                 return false;
             }
                                                                                          
-            //todo: use the data.ReferenceId to retrieve mapping of fields to contact facets
             var item = Context.Database.GetItem(new ID(data.ReferenceId));
             if (item == null || !item.IsDerived(Templates.ContactIdentificationActionSettings.ID))
             {
@@ -63,16 +62,15 @@ namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
                         x[Templates.ContactIdentificationActionMapping.Fields.FacetValue].ToLower() == field.Name.ToLower());
                     if (mapSettingsItem != null)
                     {
-                        Item facetItem;
-
-                        using (new SecurityDisabler())
+                        string facetKey = mapSettingsItem[Templates.ContactIdentificationActionMapping.Fields.FacetKey];
+                     
+                        if (!string.IsNullOrEmpty(facetKey))
                         {
-                            facetItem = Sitecore.Configuration.Factory.GetDatabase("core").GetItem(mapSettingsItem[Templates.ContactIdentificationActionMapping.Fields.FacetKey]);
-                        }
-
-                        if (facetItem != null)
-                        {
-                            contactFacetData[facetItem.Name] = field.GetValue();
+                            string value = field.GetValue();
+                            if (!string.IsNullOrEmpty(value))
+                            {
+                                contactFacetData[facetKey] = value;
+                            }
                         }
                     }
                 }
@@ -88,7 +86,7 @@ namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
                 contactFacetData.EmailKey = "Work Email";
                 _trackerService.IdentifyContact(Context.Site.Domain.Name, contactFacetData.EmailAddress);
             }
-
+            
             _contactFacetService.UpdateContactFacets(contactFacetData);
 
             return true;
