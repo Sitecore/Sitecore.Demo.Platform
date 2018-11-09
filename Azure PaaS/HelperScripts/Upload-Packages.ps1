@@ -273,29 +273,8 @@ if(!($SkipScUpload))
     }
     try 
     {
-        $storageAccountsList = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
-        if ($null -ne $storageAccountsList) 
-        {
-            foreach ($storageAccount in $storageAccountsList) 
-            {
-                # Check if a previously generated storage account already exists
-                if ($storageAccount.StorageAccountName -contains $storageAccountName) 
-                {
-                    Write-Host "A generated storage account named $($storageAccountName) already exists... Skipping storage account creation" -ForegroundColor Yellow
-                    $createstorageaccount = $false
-                    break
-                }
-                else 
-                {
-                    $createstorageaccount = $true
-                }
-            }
-        } 
-        else 
-        {
-            $createstorageaccount = $true
-        }
-        if($createstorageaccount)
+        $storageAccount = Get-AzureRmStorageAccount | Where-Object {$_.StorageAccountName -eq $storageAccountName}
+        if ($null -eq $storageAccount) 
         {
             # Try to create the storage account
             Write-Host "Creating a new storage account named $($storageAccountName)..." -ForegroundColor Green
@@ -310,7 +289,7 @@ if(!($SkipScUpload))
     }
 
     # Get the current storage account
-    $sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName
+    $sa = Get-AzureRmStorageAccount | Where-Object {$_.StorageAccountName -eq $storageAccountName } | Select-Object 
 
     # Obtain the storage account context
     $ctx = $sa.Context
