@@ -1,0 +1,11 @@
+<parameters>
+  <parameter name="Application Path" tags="iisapp">
+    <parameterEntry type="ProviderPath" scope="iisapp" match="WebSite" />
+  </parameter>
+  <parameter name="Core Admin Connection String" tags="Hidden, SQLConnectionString, NoStore">
+    <parameterEntry type="ProviderPath" scope="dbDacFx" match="core.dacpac" />
+  </parameter>
+  <parameter name="Master Admin Connection String" tags="Hidden, SQLConnectionString, NoStore">
+    <parameterEntry type="ProviderPath" scope="dbDacFx" match="master.dacpac" />
+  </parameter>
+</parameters>

@@ -1,0 +1,128 @@
+{
+  "prerequisites": [
+    {
+      "id": "xp0",
+      "name": "Sitecore Experience Platform",
+      "fileName": "Sitecore 9.0.2 rev. 180604 (WDP XPSingle packages).zip",
+      "url": "https://dev.sitecore.net/~/media/BDF5A396761F4769B22B55A89E604C79.ashx",
+      "extract": true,
+      "isWdp": false,
+      "convertToWdp": false,
+      "uploadToAzure": true,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
+      "id": "sat",
+      "name": "Sitecore Azure Toolkit",
+      "fileName": "Sitecore Azure Toolkit 2.0.4 rev. 180605.zip",
+      "url": "https://dev.sitecore.net/~/media/97227BC40EF74028AA1BC7B8F48909A4.ashx",
+      "extract": true,
+      "isWdp": false,
+      "convertToWdp": false,
+      "uploadToAzure": false,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
+      "id": "spe",
+      "name": "Sitecore PowerShell Extensions",
+      "fileName": "Sitecore PowerShell Extensions-4.7.2 for Sitecore 8.scwdp.zip",
+      "url": "https://dev.sitecore.net/~/media/4918E7ADAAF049F4BC7BA5B73561F24F.ashx",
+      "extract": false,
+      "isWdp": true,
+      "convertToWdp": false,
+      "uploadToAzure": true,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
+      "id": "sxa",
+      "name": "Sitecore Experience Accelerator",
+      "fileName": "Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0.scwdp.zip",
+      "url": "https://dev.sitecore.net/~/media/F25F1A9FB9494646A2EB494F32AACC89.ashx",
+      "extract": false,
+      "isWdp": true,
+      "convertToWdp": false,
+      "uploadToAzure": true,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
+      "id": "defGroup",
+      "name": "Data Exchange Framework",
+      "isGroup": true,
+      "extract": false,
+      "isWdp": false,
+      "convertToWdp": true,
+      "uploadToAzure": true,
+      "install": false,
+      "modules": [
+        {
+          "id": "def",
+          "name": "Data Exchange Framework",
+          "fileName": "Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/C50B044E45FE4C4DA9E675CBEED3AA09.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defSitecore",
+          "name": "Sitecore Provider Data Exchange Framework",
+          "fileName": "Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/D57A1FBB98ED4125B78D740E5B5F1772.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defSql",
+          "name": "SQL Provider Data Exchange Framework",
+          "fileName": "SQL Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/F243222B9A95497BAB6B591D39560E95.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defxConnect",
+          "name": "xConnect Provider Data Exchange Framework",
+          "fileName": "xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/C61F1265BB494CAFA4229FC9FC704AB0.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defDynamics",
+          "name": "Dynamics Provider Data Exchange Framework",
+          "fileName": "Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/819FB4C75CC74A8C984C343BEF7B53F1.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defDynamicsConnect",
+          "name": "Dynamics Connect Data Exchange Framework",
+          "fileName": "Connect for Microsoft Dynamics 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/ADBAF4CC6736499EBA0EBA6A9767D825.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+		{
+          "id": "defSalesforce",
+          "name": "Salesforce Provider for Data Exchange Framework",
+          "fileName": "Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/81FC47CC9E7544F1A0726FD74F561C42.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defSalesforceConnect",
+          "name": "Salesforce Connect Data Exchange Framework",
+          "fileName": "Connect for Salesforce 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/8419AEDFD65243939CF929C0A2BEC354.ashx",
+          "extract": false,
+          "source": "sitecore"
+        }
+      ]
+    }
+  ]
+}
