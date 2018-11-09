@@ -1,0 +1,216 @@
+{
+  "prerequisites": [
+    {
+      "id": "xp1",
+      "name": "Sitecore Experience Platform",
+      "fileName": "Sitecore 9.0.2 rev. 180604 (WDP XPScaled packages).zip",
+      "url": "https://dev.sitecore.net/~/media/3215C20804EC4BD48264196246CD6F90.ashx",
+      "extract": true,
+      "isWdp": false,
+      "convertToWdp": false,
+      "uploadToAzure": true,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
+      "id": "sat",
+      "name": "Sitecore Azure Toolkit",
+      "fileName": "Sitecore Azure Toolkit 2.0.4 rev. 180605.zip",
+      "url": "https://dev.sitecore.net/~/media/97227BC40EF74028AA1BC7B8F48909A4.ashx",
+      "extract": true,
+      "isWdp": false,
+      "convertToWdp": false,
+      "uploadToAzure": false,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
+      "id": "spe",
+      "name": "Sitecore PowerShell Extensions",
+      "fileName": "Sitecore PowerShell Extensions-4.7.2 for Sitecore 8.scwdp.zip",
+      "url": "https://dev.sitecore.net/~/media/4918E7ADAAF049F4BC7BA5B73561F24F.ashx",
+      "extract": false,
+      "isWdp": true,
+      "convertToWdp": false,
+      "uploadToAzure": true,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
+      "id": "sxa",
+      "name": "Sitecore Experience Accelerator",
+      "fileName": "Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0.scwdp.zip",
+      "url": "https://dev.sitecore.net/~/media/F25F1A9FB9494646A2EB494F32AACC89.ashx",
+      "extract": false,
+      "isWdp": true,
+      "convertToWdp": false,
+      "uploadToAzure": true,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
+      "id": "sxa-CD",
+      "name": "Sitecore Experience Accelerator CD",
+      "fileName": "Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0 CD.scwdp.zip",
+      "url": "https://dev.sitecore.net/~/media/3CDAB682BB594D37AB9AB2D09B14968D.ashx",
+      "extract": false,
+      "isWdp": true,
+      "convertToWdp": false,
+      "uploadToAzure": true,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
+      "id": "defGroup",
+      "name": "Data Exchange Framework",
+      "isGroup": true,
+      "extract": false,
+      "isWdp": false,
+      "convertToWdp": true,
+      "uploadToAzure": true,
+      "install": false,
+      "modules": [
+        {
+          "id": "def",
+          "name": "Data Exchange Framework",
+          "fileName": "Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/C50B044E45FE4C4DA9E675CBEED3AA09.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defSitecore",
+          "name": "Sitecore Provider Data Exchange Framework",
+          "fileName": "Sitecore Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/D57A1FBB98ED4125B78D740E5B5F1772.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defSql",
+          "name": "SQL Provider Data Exchange Framework",
+          "fileName": "SQL Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/F243222B9A95497BAB6B591D39560E95.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defxConnect",
+          "name": "xConnect Provider Data Exchange Framework",
+          "fileName": "xConnect Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/C61F1265BB494CAFA4229FC9FC704AB0.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defDynamics",
+          "name": "Dynamics Provider Data Exchange Framework",
+          "fileName": "Dynamics Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/819FB4C75CC74A8C984C343BEF7B53F1.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defDynamicsConnect",
+          "name": "Dynamics Connect Data Exchange Framework",
+          "fileName": "Connect for Microsoft Dynamics 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/ADBAF4CC6736499EBA0EBA6A9767D825.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+		{
+          "id": "defSalesforce",
+          "name": "Salesforce Provider for Data Exchange Framework",
+          "fileName": "Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/81FC47CC9E7544F1A0726FD74F561C42.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defSalesforceConnect",
+          "name": "Salesforce Connect Data Exchange Framework",
+          "fileName": "Connect for Salesforce 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/8419AEDFD65243939CF929C0A2BEC354.ashx",
+          "extract": false,
+          "source": "sitecore"
+        }
+      ]
+    },
+    {
+      "id": "defGroup-CD",
+      "name": "Data Exchange Framework CD",
+      "isGroup": true,
+      "extract": false,
+      "isWdp": false,
+      "convertToWdp": true,
+      "uploadToAzure": true,
+      "install": false,
+      "modules": [
+        {
+          "id": "def-CD",
+          "name": "Data Exchange Framework CD",
+          "fileName": "Data Exchange Framework CD Server 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/8950E47E319C4B20AEC27DCFD550B864.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defSitecore-CD",
+          "name": "Sitecore Provider Data Exchange Framework CD",
+          "fileName": "Sitecore Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/C215F7B80C58467BA940DE846504C46A.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defSql-CD",
+          "name": "SQL Provider Data Exchange Framework CD",
+          "fileName": "SQL Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/C205C7BFF5BE4F299B6F71C9C64BAA30.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defxConnect-CD",
+          "name": "xConnect Provider Data Exchange Framework CD",
+          "fileName": "xConnect Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/CF5638996F1B468CB66D2F9C3AAF2A56.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defDynamics-CD",
+          "name": "Dynamics Provider Data Exchange Framework CD",
+          "fileName": "Dynamics Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/62D0066C039C44A7985FCCC2A7AC8272.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defDynamicsConnect-CD",
+          "name": "Dynamics Connect Data Exchange Framework CD",
+          "fileName": "Connect for Microsoft Dynamics CD Server 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/E794C82E62C442628A46A22D73824D1A.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+		    {
+          "id": "defSalesforce-CD",
+          "name": "Salesforce Provider for Data Exchange Framework CD",
+          "fileName": "Salesforce Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/75441EEFAA9E45188CED36FC8D33113C.ashx",
+          "extract": false,
+          "source": "sitecore"
+        },
+        {
+          "id": "defSalesforceConnect-CD",
+          "name": "Salesforce Connect Data Exchange Framework CD",
+          "fileName": "Connect for Salesforce CD Server 2.0.1 rev. 180108.zip",
+          "url": "https://dev.sitecore.net/~/media/7641DD4C7A1E490D8D55A6AC98DBEBF6.ashx",
+          "extract": false,
+          "source": "sitecore"
+        }
+      ] 
+    }
+  ]
+}

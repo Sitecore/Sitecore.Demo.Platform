@@ -4,6 +4,10 @@ Parent: "b813b4a3-4b24-409d-89f4-c21b7ac5434a"
 Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
 Path: "/sitecore/content/Habitat Sites/Habitat Home Basic/Data/Promos/Guides Promos/Promo - Appliance Trends"
 DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
 Languages:
 - Language: en
   Versions:
@@ -19,6 +23,9 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171208T211133Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

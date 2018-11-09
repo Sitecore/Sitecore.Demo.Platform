@@ -1,0 +1,71 @@
+{
+    "$schema":  "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion":  "1.0.0.0",
+    "parameters":  {
+      "deploymentId":  {
+      "value":  ""
+    },
+      "location":  {
+      "value":  ""
+    },
+      "sitecoreAdminPassword":  {
+      "value":  ""
+    },
+      "licenseXml":  {
+      "value":  ""
+    },
+    "sqlServerLogin":  {
+      "value":  ""
+    },
+    "sqlServerPassword":  {
+      "value":  ""
+    },
+    "singleMsDeployPackageUrl":  {
+      "value":  ""
+    },
+    "xcSingleMsDeployPackageUrl":  {
+      "value":  ""
+    },
+    "authCertificatePassword":  {
+      "value":  ""
+    },
+    "allowInvalidClientCertificates":  {
+      "value":  true
+    },
+    "modules":  {
+      "value":  {
+        "items":  [
+          {
+            "name":  "sxa",
+            "templateLink":  "",
+            "parameters":  {
+            "sxaMsDeployPackageUrl":  "",
+            "speMsDeployPackageUrl":  ""
+          }
+      },
+          {
+            "name":  "habitat-home-website",
+            "templateLink":  "",
+            "parameters":  {
+              "habitatWebsiteDeployPackageUrl":  ""
+            }
+      },
+          {
+             "name":  "habitat-home-xc",
+             "templateLink":  "",
+             "parameters":  {
+               "habitatXconnectDeployPackageUrl":  ""
+             }
+      },
+          {
+             "name":  "bootloader",
+             "templateLink":  "",
+             "parameters":  {
+               "msDeployPackageUrl":  ""
+             }
+          }
+        ]
+      }
+    }
+  }
+}
