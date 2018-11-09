@@ -282,7 +282,7 @@ if (!($SkipScUpload)) {
 
     $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
 
-    UploadFiles -cakeJsonConfig $config
+    UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig
     UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig
 }
 else {
@@ -292,7 +292,7 @@ else {
     # Obtain the storage account context
     $ctx = $sa.Context
 
-    UploadFiles -cakeJsonConfig $config -SkipScUpload
+    UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload
     UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload
 }
 
