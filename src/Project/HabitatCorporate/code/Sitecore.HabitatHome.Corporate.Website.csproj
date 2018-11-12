@@ -10,7 +10,6 @@
     <ProjectGuid>{EDBE2FC4-3D91-4B8F-AD00-990CF1A31118}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sitecore.HabitatHome.Basic.Website</RootNamespace>
     <AssemblyName>Sitecore.HabitatHome.Basic.Website</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
@@ -64,10 +63,22 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Project\HabitatHome.Corporate.Website.config" />
     <Content Include="App_Config\Include\Project\HabitatHome.Corporate.Website.Serialization.config" />
+    <Content Include="Areas\Corporate\Views\Shared\MainLayout.cshtml" />
+    <Content Include="Areas\Corporate\Views\Web.config" />
+    <Content Include="Css\Corporate\optimized-min%281%29.css" />
+    <Content Include="Css\Corporate\optimized-min%282%29.css" />
+    <Content Include="Css\Corporate\optimized-min%283%29.css" />
+    <Content Include="Css\Corporate\optimized-min.css" />
+    <Content Include="Scripts\Corporate\optimized-min%281%29.js" />
+    <Content Include="Scripts\Corporate\optimized-min%282%29.js" />
+    <Content Include="Scripts\Corporate\optimized-min%283%29.js" />
+    <Content Include="Scripts\Corporate\optimized-min%284%29.js" />
+    <Content Include="Scripts\Corporate\optimized-min%285%29.js" />
+    <Content Include="Scripts\Corporate\optimized-min%286%29.js" />
+    <Content Include="Scripts\Corporate\optimized-min%287%29.js" />
+    <Content Include="Scripts\Corporate\optimized-min%288%29.js" />
+    <Content Include="Scripts\Corporate\optimized-min.js" />
     <None Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
