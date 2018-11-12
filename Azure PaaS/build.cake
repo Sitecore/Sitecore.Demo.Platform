@@ -291,7 +291,7 @@ Task("Publish-YML").Does(() => {
 Task("Publish-Post-Steps").Does(() => {
 
 	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.poststep";
-    var destination = $@"{configuration.DeployFolder}\Website\HabitatHome\App_Data";
+    var destination = $@"{configuration.DeployFolder}\Website\HabitatHome\App_Data\poststeps";
 
     if (!DirectoryExists(destination))
     {
