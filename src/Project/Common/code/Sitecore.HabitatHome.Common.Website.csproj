@@ -97,6 +97,7 @@
     <Content Include="Utilities\Installation\poststeps\0_Update_HostName.poststep" />
     <Content Include="Utilities\Installation\poststeps\1_Index_Rebuild.poststep" />
     <Content Include="Utilities\Installation\poststeps\2_Index_Deploy_Marketing_Definitions.poststep" />
+    <Content Include="Utilities\Installation\poststeps\3_Smart_Publish.poststep" />
     <None Include="web.azure.config.xdt" />
     <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
@@ -127,6 +128,7 @@
     </Compile>
     <Compile Include="Utilities\Installation\DeployMarketingDefinitionsPostStep.cs" />
     <Compile Include="Utilities\Installation\IndexRebuildPostStep.cs" />
+    <Compile Include="Utilities\Installation\SmartPublishPostStep.cs" />
     <Compile Include="Utilities\Installation\UpdateHostnamePostStep.cs" />
   </ItemGroup>
   <ItemGroup />
