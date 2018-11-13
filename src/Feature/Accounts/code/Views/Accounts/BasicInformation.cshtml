@@ -1,5 +1,5 @@
 ﻿@using System.Web.Mvc.Html
-@using Sitecore.HabitatHome.Foundation.Alerts.Models             
+@using Sitecore.HabitatHome.Foundation.Alerts.Models
 @using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
 @model Sitecore.HabitatHome.Feature.Accounts.Models.EditProfile
 
@@ -15,15 +15,27 @@
         Html.RenderPartial(Sitecore.HabitatHome.Foundation.Alerts.Constants.InfoMessageView, passwordInfo);
     }
 }
-<div class="myAccount-page col-sm-9 col-md-8 col-md-offset-1">
-    <div class="row">
-        <div class="infoPanel col-sm-6">
-            <div class="infoPanel-display">
-                <div class="infoPanel-display-text">
-                    <strong>@string.Format("{0} {1}", Model.FirstName, Model.LastName)</strong>
-                </div>
-                <div class="infoPanel-display-text">@Model.Email</div>
+<div class="myAccount-page">
+    <div class="infoPanel">
+        <div class="infoPanel-display">
+            <div class="infoPanel-display-text">
+                <strong>@string.Format("{0} {1}", Model.FirstName, Model.LastName)</strong>
+            </div>
+            <div class="infoPanel-display-text">@Model.Email</div>
+
+
+            <div class="facet-data">
+                @if (!string.IsNullOrEmpty(Model.SportName))
+                {
+                    <b>@Sitecore.HabitatHome.Feature.Accounts.Models.EditProfile.FitnessActivityCaption:</b><br />
+                    @Model.SportName
+                }
+                @if (!string.IsNullOrEmpty(Model.SportType))
+                {
+                    <span>(@Model.SportType)</span>
+                }
             </div>
         </div>
     </div>
+
 </div>

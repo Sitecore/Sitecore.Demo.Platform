@@ -5,6 +5,7 @@ using Sitecore.Analytics.Tracking;
 using Sitecore.Configuration;
 using Sitecore.Diagnostics;
 using Sitecore.HabitatHome.Foundation.Accounts.Models;
+using Sitecore.HabitatHome.Foundation.Accounts.Models.Facets;
 using Sitecore.HabitatHome.Foundation.Accounts.Providers;
 using Sitecore.HabitatHome.Foundation.DependencyInjection;
 using Sitecore.XConnect;
@@ -24,13 +25,85 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
         private readonly IContactFacetsProvider contactFacetsProvider;
         private readonly IExportFileService exportFileService;
         private readonly ContactManager contactManager;
-        private readonly string[] facetsToUpdate = { PersonalInformation.DefaultFacetKey, AddressList.DefaultFacetKey, EmailAddressList.DefaultFacetKey, ConsentInformation.DefaultFacetKey, PhoneNumberList.DefaultFacetKey, Avatar.DefaultFacetKey, EngagementMeasures.DefaultFacetKey};
+        private readonly string[] facetsToUpdate = {
+            PersonalInformation.DefaultFacetKey,
+            AddressList.DefaultFacetKey,
+            EmailAddressList.DefaultFacetKey,
+            ConsentInformation.DefaultFacetKey,
+            PhoneNumberList.DefaultFacetKey,
+            Avatar.DefaultFacetKey,
+            EngagementMeasures.DefaultFacetKey,
+            SportName.DefaultKey,
+            SportType.DefaultKey
+        };
 
         public ContactFacetService(IContactFacetsProvider contactFacetsProvider, IExportFileService exportFileService)
         {
             this.contactFacetsProvider = contactFacetsProvider;
             this.exportFileService = exportFileService;
             this.contactManager = Factory.CreateObject("tracking/contactManager", true) as ContactManager;
+        }
+
+        public ContactFacetData GetContactData()
+        {
+            ContactFacetData data = new ContactFacetData();
+
+            var id = this.GetContactId();
+
+            if (id != null)
+            {
+
+                var contactReference = new IdentifiedContactReference(id.Source, id.Identifier);
+
+                using (var client = SitecoreXConnectClientConfiguration.GetClient())
+                {
+                    try
+                    {
+                        var contact = client.Get(contactReference, new ContactExpandOptions(this.facetsToUpdate));
+
+                        if (contact != null)
+                        {
+                            PersonalInformation personalInformation = contact.Personal();
+                            if (personalInformation != null)
+                            {
+                                data.FirstName = personalInformation.FirstName;
+                                data.MiddleName = personalInformation.MiddleName;
+                                data.LastName = personalInformation.LastName;
+                                data.Birthday = personalInformation.Birthdate.ToString();
+                                data.Gender = personalInformation.Gender;
+                                data.Language = personalInformation.PreferredLanguage;
+                            }
+
+                            var email = contact.Emails();
+                            if (email != null)
+                            {
+                                data.EmailAddress = email.PreferredEmail?.SmtpAddress;
+                            }
+
+                            var phones = contact.PhoneNumbers();
+                            if (phones != null)
+                            {
+                                data.PhoneNumber = phones.PreferredPhoneNumber?.Number;
+                            }
+
+                            if (contact.Facets.ContainsKey(SportType.DefaultKey))
+                            {
+                                data.SportType = ((SportType)contact.Facets[SportType.DefaultKey]).Value;
+                            }
+                            if (contact.Facets.ContainsKey(SportName.DefaultKey))
+                            {
+                                data.SportName = ((SportName)contact.Facets[SportName.DefaultKey]).Value;
+                            }
+                        }
+                    }
+                    catch (XdbExecutionException ex)
+                    {
+                        Log.Error($"Could not get the xConnect contact facets", ex, this);
+                    }
+                }
+            }
+
+            return data;
         }
 
         public void UpdateContactFacets(ContactFacetData data)
@@ -57,6 +130,7 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
                     changed |= this.SetPhone(data, contact, client);
                     changed |= this.SetEmail(data, contact, client);
                     changed |= this.SetAvatar(data, contact, client);
+                    changed |= SetSportsInterests(data, contact, client);
 
                     if (changed)
                     {
@@ -70,7 +144,7 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
                 }
             }
         }
-
+        
         public string ExportContactData()
         {
             var id = this.GetContactId();
@@ -259,6 +333,43 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Services
             }
             client.SetFacet(contact, PersonalInformation.DefaultFacetKey, personalInfo);
             return true;
+        }
+
+        private static bool SetSportsInterests(ContactFacetData data, XConnect.Contact contact, XConnectClient client)
+        {
+            bool changed = false;
+
+            if (contact.Facets.ContainsKey(SportName.DefaultKey))
+            {
+                SportName facet = (SportName)contact.Facets[SportName.DefaultKey];
+                if (!string.IsNullOrEmpty(data.SportName) && facet.Value != data.SportName)
+                {
+                    changed = true;
+                    facet.Value = data.SportName;
+                    client.SetFacet(contact, SportName.DefaultKey, facet);
+                }
+            }
+            else
+            {
+                client.SetFacet(contact, SportName.DefaultKey, new SportName { Value = data.SportName });
+            }
+
+            if (contact.Facets.ContainsKey(SportType.DefaultKey))
+            {
+                SportType facet = (SportType)contact.Facets[SportType.DefaultKey];
+                if (!string.IsNullOrEmpty(data.SportType) && facet.Value != data.SportType)
+                {
+                    changed = true;
+                    facet.Value = data.SportType;
+                    client.SetFacet(contact, SportType.DefaultKey, facet);
+                }
+            }
+            else
+            {
+                client.SetFacet(contact, SportType.DefaultKey, new SportType { Value = data.SportType });
+            }
+            
+            return changed;
         }
 
         private static bool SetLanguage(ContactFacetData data, PersonalInformation personalInfo)

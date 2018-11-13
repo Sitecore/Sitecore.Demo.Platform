@@ -15,12 +15,22 @@ SharedFields:
 - ID: "589a7ade-81d4-4a60-b9e2-7eaf6ae8a563"
   Hint: Field Type
   Value: "{DF74F55B-47E6-4D1C-92F8-B0D46A7B2704}"
+- ID: "5d09f88a-0e2a-4f87-8151-af4a2aa26ec3"
+  Hint: Value Provider
+  Value: "{B9572B47-4D42-42F3-B417-517ACD33C64B}"
 - ID: "71061c01-a495-4bf3-a52c-d378346bfae2"
   Hint: Max Length
   Value: 255
+- ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
+  Hint: Conditions
+  Value: |
+    {"fieldConditions":[]}
 - ID: "7abaa3f6-6ec0-4b65-a463-7919bfae55aa"
   Hint: Css Class
   Value: 
+- ID: "84ece662-5034-40cb-9c60-744db64bb294"
+  Hint: Field Key
+  Value: FFD5079FDC764C6AB03F5652B6EFC098
 - ID: "8a43af61-0812-4b37-a343-96cde3f12bb1"
   Hint: Required
   Type: Checkbox
@@ -39,6 +49,9 @@ SharedFields:
   Hint: Is Tracking Enabled
   Type: Checkbox
   Value: 1
+- ID: "f6696439-2dac-4183-8f3d-1979188d8336"
+  Hint: Value Provider Parameters
+  Value: Phone
 Languages:
 - Language: en
   Versions:
