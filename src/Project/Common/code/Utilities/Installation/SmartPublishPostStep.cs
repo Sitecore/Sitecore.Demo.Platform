@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using Sitecore.Configuration;
 using Sitecore.Data;
-using Sitecore.Data.Items;
-using Sitecore.Diagnostics;
-using Sitecore.Globalization;
 using Sitecore.Install.Framework;
-using Sitecore.Publishing;
 
 namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
 {
@@ -17,45 +12,45 @@ namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
 
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
-            try
-            {
-                Assert.IsNotNull(_masterDatabase, "Master Database can't be null");
-                Assert.IsNotNull(_webDatabase, "Web Database can't be null.");
+            //try
+            //{
+            //    Assert.IsNotNull(_masterDatabase, "Master Database can't be null");
+            //    Assert.IsNotNull(_webDatabase, "Web Database can't be null.");
 
-                using (new SecurityModel.SecurityDisabler())
-                {
-                    Item sitecoreRootItem = _masterDatabase.GetItem("/sitecore");
+            //    using (new SecurityModel.SecurityDisabler())
+            //    {
+            //        Item sitecoreRootItem = _masterDatabase.GetItem("/sitecore");
 
-                    if (sitecoreRootItem == null)
-                    {
-                        throw new NullReferenceException("The '/sitecore' item does not exist in Sitecore.");
-                    }
+            //        if (sitecoreRootItem == null)
+            //        {
+            //            throw new NullReferenceException("The '/sitecore' item does not exist in Sitecore.");
+            //        }
 
-                    Language[] languages = _masterDatabase.Languages;
+            //        Language[] languages = _masterDatabase.Languages;
 
-                    foreach (Language language in languages)
-                    {
-                        PublishOptions publishOptions = new PublishOptions(
-                            _masterDatabase,
-                            _webDatabase,
-                            PublishMode.Smart,
-                            language,
-                            DateTime.Now)
-                        {
-                            Deep = true
-                        };
+            //        foreach (Language language in languages)
+            //        {
+            //            PublishOptions publishOptions = new PublishOptions(
+            //                _masterDatabase,
+            //                _webDatabase,
+            //                PublishMode.Smart,
+            //                language,
+            //                DateTime.Now)
+            //            {
+            //                Deep = true
+            //            };
 
 
-                        Publisher publisher = new Publisher(publishOptions);
-                        publisher.Options.RootItem = sitecoreRootItem;
-                        publisher.PublishWithResult();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex.Message, ex, this);
-            }
+            //            Publisher publisher = new Publisher(publishOptions);
+            //            publisher.Options.RootItem = sitecoreRootItem;
+            //            publisher.PublishWithResult();
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Log.Error(ex.Message, ex, this);
+            //}
         }
     }
 }
