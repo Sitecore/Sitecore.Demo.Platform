@@ -2,7 +2,7 @@
 @model Sitecore.ExperienceForms.Mvc.Models.Fields.DropDownListViewModel
 <div class="field-group">
     <label for="@Html.IdFor(m => Model.Value)" class="@Model.LabelCssClass">@Html.DisplayTextFor(t => Model.Title)</label>
-    <select id="@Html.IdFor(m => Model.Value)" name="@Html.NameFor(m => Model.Value)" class="@Model.CssClass" data-sc-tracking="@Model.IsTrackingEnabled" data-sc-field-name="@Model.Name" @Html.GenerateUnobtrusiveValidationAttributes(m=>
+    <select id="@Html.IdFor(m => Model.Value)" name="@Html.NameFor(m => Model.Value)" class="@Model.CssClass" data-sc-tracking="@Model.IsTrackingEnabled" data-sc-field-name="@Model.Name" data-sc-field-key="@Model.ConditionSettings.FieldKey" @Html.GenerateUnobtrusiveValidationAttributes(m=>
         m.Value)>
         @if (Model.ShowEmptyItem)
         {

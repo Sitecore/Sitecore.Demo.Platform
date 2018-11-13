@@ -31,6 +31,7 @@ Setup(context =>
 Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
+.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
@@ -50,6 +51,7 @@ Task("Post-Deploy")
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
+.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
@@ -67,10 +69,10 @@ Task("Clean").Does(() => {
 });
 
 Task("Copy-Sitecore-Lib")
-    .WithCriteria(()=>(configuration.BuildConfiguration == "preview"))
+    .WithCriteria(()=>(configuration.BuildConfiguration == "Local"))
     .Does(()=> {
         var files = GetFiles($"{configuration.WebsiteRoot}/bin/Sitecore*.dll");
-        var destination = "./lib/Sitecore";
+        var destination = "./lib";
         EnsureDirectoryExists(destination);
         CopyFiles(files, destination);
 }); 
@@ -81,7 +83,9 @@ Task("Publish-All-Projects")
 .IsDependentOn("Publish-Project-Projects");
 
 
-Task("Build-Solution").Does(() => {
+Task("Build-Solution")
+.IsDependentOn("Copy-Sitecore-Lib")
+.Does(() => {
     MSBuild(configuration.SolutionFile, cfg => InitializeMSBuildSettings(cfg));
 });
 

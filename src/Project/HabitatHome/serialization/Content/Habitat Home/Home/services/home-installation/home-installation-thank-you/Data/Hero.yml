@@ -1,7 +1,7 @@
 ﻿---
 ID: "ade46995-f995-43d7-b7a6-ca61c81e7014"
 Parent: "9d63f43e-dbb2-4cc5-880d-bbb447ddcee8"
-Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
+Template: "643a85f5-c9f1-4836-b17b-35ade22d03d3"
 Path: "/sitecore/content/Habitat Sites/Habitat Home/home/services/home-installation/home-installation-thank-you/Data/Hero"
 DB: master
 Languages:
@@ -19,10 +19,17 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180116T210938Z
+    - ID: "440b5413-5322-4166-9fbe-580f70973751"
+      Hint: HeroTitle
+      Value: "Thank you for  your interest!"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\admin
+    - ID: "9c385368-a554-4a92-9a8d-37f3ef3a09f4"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{0FFA61C8-E0E8-4A47-9DF3-640BC67E5050}" />
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
       Value: Thank You For Your Interest

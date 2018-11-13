@@ -1,0 +1,38 @@
+﻿---
+ID: "317511a9-486f-4df4-c60a-6ee66a65d81e"
+Parent: "cd304d58-d53b-420c-9d1a-c83255af1554"
+Template: "95d4ed35-1e47-48e9-95db-de0614a0e86c"
+Path: "/sitecore/system/Marketing Control Panel/Segments/Foodie Feast Users-317511a9-486f-4df4-c60a-6ee66a65d81e"
+DB: master
+SharedFields:
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "75af2497-ada0-4271-80da-84f9dd2e4075"
+  Hint: Rules
+  Value: |
+    [{"Id":"8a459a2d-cea7-48ac-92b7-157216656e7d","Name":"Specify name...","ConditionType":"Sitecore.Marketing.Rules.AndNode, Sitecore.Marketing, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"LeftType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null","RightType":"Sitecore.Marketing.Rules.NotNode, Sitecore.Marketing, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null","_left":{"Id":"79990616-49be-4e9e-aa90-47d98ed9b92d","DescriptorId":"9805a980-2ee4-4b15-9910-4e449e05fedf","Properties":{"DefinitionId":"{2A2EBECC-D066-4FBC-8701-BBA74AAC9F2E}"}},"_right":{"OperandType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null","_operand":{"Id":"11654630-b401-42e8-a9ce-8bcd2492f3c8","DescriptorId":"d1bf73af-6517-4577-b48c-a8d652c4fc52","Properties":{}}}}}]
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180409T155645Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: Foodie Feast Users
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "e259e500-b38e-41fe-82db-8b604bcf9e75"
+      Hint: Description
+      Value: Send Foodie Users new recipe guides. 
