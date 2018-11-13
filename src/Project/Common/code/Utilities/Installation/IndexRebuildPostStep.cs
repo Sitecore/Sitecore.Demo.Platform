@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Threading;
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Maintenance;
 using Sitecore.Install.Framework;
@@ -36,6 +37,12 @@ namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
                 if (index != null)
                 {
                     IndexCustodian.FullRebuild(index);
+
+                    while (IndexCustodian.IsRebuilding(index))
+                    {
+                        Thread.Sleep(1000);
+                    }
+                    
                 }
             }
             catch (Exception ex)
