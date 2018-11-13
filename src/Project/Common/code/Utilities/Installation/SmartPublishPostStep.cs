@@ -48,7 +48,7 @@ namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
 
                         Publisher publisher = new Publisher(publishOptions);
                         publisher.Options.RootItem = sitecoreRootItem;
-                        publisher.PublishAsync();
+                        publisher.PublishWithResult();
                     }
                 }
             }
