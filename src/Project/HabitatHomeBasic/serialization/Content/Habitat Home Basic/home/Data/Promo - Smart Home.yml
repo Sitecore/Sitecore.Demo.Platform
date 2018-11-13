@@ -108,17 +108,17 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: "プロモ - スマートホーム"
+    Value: "Promo - Smart Home"
   Versions:
   - Version: 1
     Fields:
     - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
       Hint: PromoText
-      Value: <p>スマートホーム ソリューション、簡単に</p>
+      Value: <p>Smart Home Solutions, Made Easy</p>
     - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
       Hint: PromoIcon
       Value: |
-        <image mediaid="{2C34B2E3-DA1E-4603-9901-F8235DAA7141}" alt="ゲーム コンソール" height="" width="" hspace="" vspace="" />
+        <image mediaid="{2C34B2E3-DA1E-4603-9901-F8235DAA7141}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180321T104429Z
@@ -128,8 +128,9 @@ Languages:
         sitecore\admin
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
-      Value: <p>スマート・アプライアンスやマットレス・カバーからスイッチや電球まで、幅広い製品がありますが、どこから始めますか？ ハビタットには「スマートな」提案がいくつかあります。</p>
+      Value: |
+        <p>With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Habitat has a few "smart" suggestions.</p>
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link text="" anchor="" linktype="internal" class="" title=""  querystring="" id="{0A419FC1-C98F-400F-A6A8-8A70562A0A6E}" />
+        <link text="Read More" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{944488EB-297E-4B31-BDC0-9FB119D3366C}" />

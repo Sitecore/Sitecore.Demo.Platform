@@ -27,50 +27,39 @@ SharedFields:
         <r
           uid="{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}"
           p:after="r[@uid='{E36CB356-7271-4E46-BDCC-C34F0518E1E0}']"
-          s:cnd=""
-          s:ds=""
           s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
-          s:mvt=""
-          s:par="GridParameters&amp;Styles=%7B57F07436-109B-4BA2-8D2E-0154A8C743C0%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=7"
+          s:par="Caching=0|0|0|0|0|0|0|0&amp;DynamicPlaceholderId=7&amp;GridParameters&amp;Styles={AC323A2C-7301-4523-B005-9D4F3CCB2ABC}|{0CC74E1D-658E-460C-8D9F-DB5C73E078FD}"
           s:ph="/main/sxa-content-container/container-1/container-5/column-2-6" />
         <r
           uid="{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}"
           p:after="r[@uid='{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}']"
-          s:cnd=""
-          s:ds=""
           s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
-          s:mvt=""
-          s:par="GridParameters&amp;FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:par=""
           s:ph="/main/sxa-content-container/container-1/container-5/column-1-6" />
         <r
           uid="{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}"
           p:after="r[@uid='{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}']"
           s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
-          s:par="DynamicPlaceholderId=6&amp;EnabledPlaceholders=1%2c2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;ColumnWidth1=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d&amp;ColumnWidth2=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d"
+          s:par="EnabledPlaceholders=1,2&amp;Caching=0|0|0|0|0|0|0|0&amp;DynamicPlaceholderId=6&amp;ColumnWidth1={F6DC722E-15DB-4826-920B-ACCFDA772432}&amp;Styles1&amp;Reset Caching Options&amp;ColumnWidth2={F6DC722E-15DB-4826-920B-ACCFDA772432}&amp;Styles2"
           s:ph="/main/sxa-content-container/container-1/container-5" />
         <r
           uid="{7DFCF9D1-9E8A-48D3-A97B-B14654888C89}"
           p:after="r[@uid='{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}']"
-          s:cnd=""
           s:ds="local:/Data/Page Hero"
           s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:mvt=""
-          s:par="GridParameters&amp;FieldNames&amp;Styles=%7B8F3DC40A-9195-4818-AAEB-9C4F529EAFD4%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:par="Caching=0|0|0|0|0|0|0|0&amp;DynamicPlaceholderId=1"
           s:ph="/main/sxa-content-container/container-1" />
         <r
           uid="{D2B41184-B2CD-4074-AE79-4DADF108989B}"
           p:after="r[@uid='{7DFCF9D1-9E8A-48D3-A97B-B14654888C89}']"
           s:id="{99A633FC-B9A9-44A0-B78A-BCBB08DD02C9}"
-          s:par="Styles=%7b4d5ab49a-2315-47c2-9de9-81fd7a67108c%7d%7c%7b217fbb18-0193-4015-a805-529f9e2db226%7d&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d"
+          s:par="Styles={AC323A2C-7301-4523-B005-9D4F3CCB2ABC}|{02E8B498-5953-427B-A29D-68291DCEC9F4}&amp;GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;FieldNames&amp;Reset Caching Options&amp;RenderingIdentifier"
           s:ph="/main/sxa-content-container/container-1" />
         <r
           uid="{C56FF29E-B1DC-494C-9168-4DA7099D53D1}"
           p:after="*[1=2]"
-          s:cnd=""
-          s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:mvt=""
-          s:par="GridParameters&amp;BackgroundImage&amp;Styles=%7B6748D268-D953-4B8D-B86D-45A553C2E557%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:par="DynamicPlaceholderId=5&amp;GridParameters&amp;BackgroundImage&amp;Styles={7390C99D-8055-4E89-9C82-84CA91700184}|{DF262DBA-9499-4F97-A9C9-B7885C140ED8}&amp;Reset Caching Options"
           s:ph="/main/sxa-content-container/container-1" />
       </d>
     </r>
@@ -109,3 +98,32 @@ Languages:
     Hint: __Display name
     Value: Sample with Form
   Versions:
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Sample with Form
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T015523Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FF509B64-B6D4-4FB7-9718-C4218B992740}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Sample with Form
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Bacon ipsum dolor amet chicken corned beef turkey fatback spare ribs drumstick sausage ham short loin pig. Fatback sausage pastrami spare ribs, frankfurter jowl chuck flank ground round hamburger pork chop. Meatloaf drumstick venison corned beef andouille. Capicola ground round pork belly corned beef buffalo salami ribeye leberkas picanha swine sausage drumstick beef ribs ham hock tenderloin. Ham tenderloin pork tongue chicken pork chop sirloin ham hock cupim venison.</p>
+        <p>Shank kielbasa doner ribeye. Sirloin pork belly drumstick sausage. Leberkas tail fatback meatball pork venison chicken cupim pancetta filet mignon shoulder drumstick bresaola boudin ham hock. Spare ribs alcatra andouille fatback shank drumstick t-bone, ground round landjaeger chuck bacon turducken. Turkey boudin landjaeger biltong, chuck jerky ribeye pancetta. Fatback tenderloin corned beef frankfurter tri-tip, ground round ham venison beef burgdoggen alcatra.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Sample with Form
