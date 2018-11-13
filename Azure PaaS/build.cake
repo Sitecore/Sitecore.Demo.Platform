@@ -350,8 +350,8 @@ else
 });
 
 Task("Azure-Site-Deploy")
-.IsDependentOn("Deploy-To-Azure")
-.IsDependentOn("Scale-Down");
+.IsDependentOn("Deploy-To-Azure");
+// .IsDependentOn("Scale-Down");
 
 Task("Deploy-To-Azure").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Deploy.ps1", args =>
