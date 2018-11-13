@@ -4,7 +4,6 @@ using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Install.Framework;
 using Sitecore.SecurityModel;
-using Sitecore.Shell.Framework.Commands.Masters;
 
 namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
 {

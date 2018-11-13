@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Threading;
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Maintenance;
 using Sitecore.Install.Framework;
@@ -14,15 +15,13 @@ namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
 
         public void Run(ITaskOutput output, NameValueCollection metaData)
         {
-            if (_indexNamesToRebuild.Any())
-            {
-                foreach (string indexName in _indexNamesToRebuild)
-                {
-                    RebuildIndex(indexName);
-                }
-            }
-
-           
+            //if (_indexNamesToRebuild.Any())
+            //{
+            //    foreach (string indexName in _indexNamesToRebuild)
+            //    {
+            //        //RebuildIndex(indexName);
+            //    }
+            //}
         }
 
         private void RebuildIndex(string indexName)
@@ -36,6 +35,12 @@ namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
                 if (index != null)
                 {
                     IndexCustodian.FullRebuild(index);
+
+                    //while (IndexCustodian.IsRebuilding(index))
+                    //{
+                    //    Thread.Sleep(1000);
+                    //}
+                    
                 }
             }
             catch (Exception ex)
