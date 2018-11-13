@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Globalization;
+using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Sitecore.DependencyInjection;
 using Sitecore.Install.Framework;
@@ -19,7 +20,8 @@ namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
             DeploymentManager manager = new DeploymentManager(factory);
 
             CultureInfo culture = CultureInfo.CurrentCulture;
-            manager.DeployAllAsync<IMarketingAssetDefinition>(culture);
+            Task deploymentTask = manager.DeployAllAsync<IMarketingAssetDefinition>(culture);
+            deploymentTask.Wait();
 
             Diagnostics.Log.Info("Deploying Marketing Definitions", this);
         }
