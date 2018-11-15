@@ -11,10 +11,10 @@ SharedFields:
   Value: office/32x32/mail_write.png
 - ID: "0934bec4-325a-427b-95bb-46f78cea9591"
   Hint: Message Type
-  Value: 
+  Value: "{B2F77E26-C5AC-4A6B-BBB3-F290100EB3D8}"
 - ID: "09ad7c00-a8de-46f7-bc54-e7572e38c136"
   Hint: Body
-  Value: "{D369FEE5-9F71-4A85-BE2D-263D50D4B259}"
+  Value: "{045E63DB-BB28-41E3-B2FF-D8C43DAB1246}"
 - ID: "21f2a1e0-ac16-443b-b7a9-83504159f2bb"
   Hint: Device
   Value: 
@@ -23,7 +23,7 @@ SharedFields:
   Value: 
 - ID: "6ec7a9e6-9fd5-4892-bbf6-11e76e0e5db8"
   Hint: Start Time
-  Value: 
+  Value: 20181114T204300Z
 - ID: "78f0b1f8-fdf4-4c1c-bec6-1ac68a210a52"
   Hint: Campaign
   Value: 
@@ -31,9 +31,12 @@ SharedFields:
   Hint: __Read Only
   Type: Checkbox
   Value: 0
+- ID: "ac436b75-b307-4409-8479-e299ace64859"
+  Hint: End Time
+  Value: 20190209T204300Z
 - ID: "af0fe26a-a78b-491d-885c-03d95bc17342"
   Hint: State
-  Value: 
+  Value: Active
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
@@ -62,14 +65,3 @@ Languages:
     - ID: "8436a90c-85c0-4f16-8373-393c4c0a82c6"
       Hint: From Name
       Value: Habitat Health
-- Language: "ja-JP"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180820T142401Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous

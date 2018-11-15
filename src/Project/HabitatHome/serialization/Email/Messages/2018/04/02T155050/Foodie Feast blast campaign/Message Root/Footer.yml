@@ -1,8 +1,8 @@
 ﻿---
-ID: "cf052f98-d753-4bab-a85c-ce66f1ab345f"
-Parent: "b6e596d4-4103-4d00-bc6f-024ca6ed9de5"
+ID: "a56bf8ed-07fb-4fd3-84e5-6b87ff72a14d"
+Parent: "33eb80fc-dcc5-4ca8-ab6b-cd22ca3edd4f"
 Template: "d7776780-d054-4c97-a12a-ef41c70cc8e2"
-Path: /sitecore/content/Email/Messages/2018/10/01T083909/BBU Browsing Abandonment Follow Up/Message Root/Footer
+Path: /sitecore/content/Email/Messages/2018/04/02T155050/Foodie Feast blast campaign/Message Root/Footer
 DB: master
 BranchID: "06a7ea2b-a5c7-4091-8e4b-35001a173758"
 SharedFields:
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20181001T180530Z
+      Value: 20180409T161005Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -33,4 +33,20 @@ Languages:
         <image mediaid="{090E2BBF-FD28-412D-BEA8-9A8C4B1C775D}" />
     - ID: "c699c120-b1a1-4884-8951-f476c8c95ab3"
       Hint: Text
-      Value: Live well, live simply, stay connected. That's the Habitat Home way.&nbsp;
+      Value: |
+        Live well, live simply, stay connected. That's the Habitat Home way.
+        <br />
+        <a href="/sitecore%20modules/Web/EXM/Unsubscribe.aspx">Unsubscribe</a> | 
+        <a href="/sitecore%20modules/Web/EXM/UnsubscribeFromAll.aspx">Unsubscribe from All</a> |
+        <a href="/sitecore%20modules/Web/EXM/SubscriptionPreferences.ashx">Update your subscription preferences</a>
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180820T142416Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous

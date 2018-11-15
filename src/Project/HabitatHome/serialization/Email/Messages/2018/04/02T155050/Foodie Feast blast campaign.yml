@@ -1,8 +1,8 @@
 ﻿---
-ID: "36c137a3-0da0-4349-a6ca-ab63df265479"
-Parent: "8b12055e-99ca-4dfb-9738-90bf7d96e486"
+ID: "32246c4c-4639-4dce-9e93-e1208ec1e08a"
+Parent: "f63deae1-5aeb-441b-9403-cdaf44c47d82"
 Template: "078d8a76-f971-4891-b422-76c0bcf9fa03"
-Path: /sitecore/content/Email/Messages/2018/09/26T112634/BBU Mobile Nurture
+Path: /sitecore/content/Email/Messages/2018/04/02T155050/Foodie Feast blast campaign
 DB: master
 BranchID: "06a7ea2b-a5c7-4091-8e4b-35001a173758"
 SharedFields:
@@ -14,16 +14,19 @@ SharedFields:
   Value: "{C2786C9C-B267-4DD8-B8FB-4452A23F9969}"
 - ID: "09ad7c00-a8de-46f7-bc54-e7572e38c136"
   Hint: Body
-  Value: "{A339CF75-1E27-460A-8CE0-58964CB3466E}"
+  Value: "{33EB80FC-DCC5-4CA8-AB6B-CD22CA3EDD4F}"
 - ID: "21f2a1e0-ac16-443b-b7a9-83504159f2bb"
   Hint: Device
-  Value: "{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+  Value: 
 - ID: "2bbf5276-ed11-4cd0-946f-66678b524457"
   Hint: Campaign Position
-  Value: "{C1B8669B-C41A-4ED3-BF0D-E859CF880D42}"
+  Value: 
 - ID: "af0fe26a-a78b-491d-885c-03d95bc17342"
   Hint: State
-  Value: Draft
+  Value: Sent
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
@@ -31,18 +34,37 @@ SharedFields:
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{E6267A85-945B-444B-B246-400D4522A380}"
+- ID: "f8d592cc-f3e5-4a8e-a600-8aebe8cc36e4"
+  Hint: Included Recipient Lists
+  Type: TreelistEx
+  Value: "{5C1E1F80-ECAD-4F3C-A6F5-AC8A86E0A6D2}"
 Languages:
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: BBU Mobile Nurture
+    Value: Foodie Feast blast campaign
   Versions:
   - Version: 1
     Fields:
     - ID: "0d844c9c-bd6c-49b8-9475-947da791f268"
       Hint: From Address
-      Value: homeautomation@sitecoresandbox.net
+      Value: noreply@habitathomedemo.com
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180928T191000Z
+      Value: 20181115T040553Z
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Foodie Feast blast campaign
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180820T142412Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
