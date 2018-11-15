@@ -146,6 +146,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Cors">
+      <Version>5.2.6</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.6" />
