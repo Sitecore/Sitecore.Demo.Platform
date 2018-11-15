@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EDBE2FC4-3D91-4B8F-AD00-990CF1A31118}</ProjectGuid>
+    <ProjectGuid>{A870BED9-A0B7-4E07-A44E-8E16B95D6911}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sitecore.HabitatHome.Corporate.Website</RootNamespace>
-    <AssemblyName>Sitecore.HabitatHome.Corporate.Website</AssemblyName>
+    <RootNamespace>Sitecore.HabitatHome.Feature.Components</RootNamespace>
+    <AssemblyName>Sitecore.HabitatHome.Feature.Components</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -90,25 +90,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Css\Corporate\optimized-min%281%29.css" />
-    <Content Include="Css\Corporate\optimized-min%282%29.css" />
-    <Content Include="Css\Corporate\optimized-min%283%29.css" />
-    <Content Include="Css\Corporate\optimized-min.css" />
-    <Content Include="Scripts\Corporate\optimized-min%281%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%282%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%283%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%284%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%285%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%286%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%287%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%288%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min.js" />
-    <Content Include="Areas\Corporate\Views\Shared\MainLayout.cshtml" />
-    <Content Include="Areas\Corporate\Views\Web.config">
+    <Content Include="Areas\Components\Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Config\Include\Project\HabitatHome.Corporate.Website.config" />
-    <Content Include="App_Config\Include\Project\HabitatHome.Corporate.Website.Serialization.config" />
+    <Content Include="Areas\Components\Views\Shared\HelloWorld.cshtml" />
+    <Content Include="App_Config\Include\Feature\Feature.Components.Serialization.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
