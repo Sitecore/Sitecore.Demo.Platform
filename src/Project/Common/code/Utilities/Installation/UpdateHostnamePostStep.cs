@@ -3,6 +3,7 @@ using Sitecore.Configuration;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Install.Framework;
+using Sitecore.SecurityModel;
 
 namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
 {
@@ -21,8 +22,14 @@ namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
 
                 if (siteDefinitionItem != null)
                 {
-                    Diagnostics.Log.Info("Setting Default Site Definition To *", this);
-                    siteDefinitionItem["HostName"] = "*";
+                    using (new SecurityDisabler())
+                    {
+                        using (new EditContext(siteDefinitionItem))
+                        {
+                            Diagnostics.Log.Info("Setting Default Site Definition To *", this);
+                            siteDefinitionItem["HostName"] = "*";
+                        }
+                    }
                 }
             }
         }
