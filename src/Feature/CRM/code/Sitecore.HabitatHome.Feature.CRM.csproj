@@ -117,21 +117,9 @@
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.dll</HintPath>
         </Reference>
       </ItemGroup>
-      <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
-        <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
-        <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.6" />
-        <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.6" />
-        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
-      </ItemGroup>
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
-        <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
-        <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.6" />
-        <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.6" />
-        <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
         <PackageReference Include="Sitecore.Abstractions" Version="12.0.0-*" />
         <PackageReference Include="Sitecore.Analytics.Model" Version="12.0.0-*" />
         <PackageReference Include="Sitecore.Analytics" Version="12.0.0-*" />
@@ -158,6 +146,13 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.6" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.6" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
