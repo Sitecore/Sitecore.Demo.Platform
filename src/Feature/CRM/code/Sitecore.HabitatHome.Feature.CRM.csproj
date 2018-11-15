@@ -126,7 +126,6 @@
       </ItemGroup>
     </When>
     <Otherwise>
-
       <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
         <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
@@ -177,6 +176,9 @@
   <ItemGroup>
     <Content Include="sitecore\shell\client\Applications\ExperienceProfile\Contact\Details\SalesforceTab.css" />
     <Content Include="sitecore\shell\client\Applications\ExperienceProfile\Contact\Details\SalesforceTab.js" />
+    <None Include="App_Config\ConnectionStrings.azure.config.xdt">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="App_Config\ConnectionStrings.config.xdt">
       <SubType>Designer</SubType>
     </None>
@@ -186,6 +188,10 @@
     <Content Include="App_Config\Include\Feature\Feature.CRM.Serialization.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Config\Include\Feature\Feature.CRM.Serialization.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="web.azure.config.xdt" />
     <None Include="web.config.xdt">
       <SubType>Designer</SubType>
     </None>
@@ -195,6 +201,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.config">

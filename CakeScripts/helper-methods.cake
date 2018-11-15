@@ -100,6 +100,11 @@ public void Transform(string rootFolder) {
 
     foreach (var file in xdtFiles)
     {
+        if (file.FullPath.Contains(".azure"))
+        {
+            continue;
+        }
+        
         Information($"Applying configuration transform:{file.FullPath}");
         var fileToTransform = Regex.Replace(file.FullPath, ".+code/(.+)/*.xdt", "$1");
         fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");

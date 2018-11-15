@@ -169,6 +169,7 @@
     <Content Include="Views\Accounts\BasicInformation.cshtml" />
     <Content Include="Views\Accounts\DeleteAccount.cshtml" />
     <Content Include="Views\Accounts\ExportData.cshtml" />
+     <None Include="web.azure.config.xdt" />
     <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
