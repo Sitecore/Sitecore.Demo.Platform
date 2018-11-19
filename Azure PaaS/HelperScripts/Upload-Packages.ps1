@@ -39,26 +39,14 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
 
     $assetsFolder = (Join-Path $cakeJsonConfig.DeployFolder "assets")
     $sitecoreWDPpathArray = New-Object System.Collections.ArrayList
-
-    foreach ($asset in $assetsJsonConfig.prerequisites) {
-        if ($asset.name -eq "Sitecore Experience Platform") {
-            if ($asset.uploadToAzure -eq $true) {
-                $ScUpload = $true
-            }
-            elseif ($asset.uploadToAzure -eq $false) {
-                $ScUpload = $false
-            }
-        }
-    }
+    $scUpload = $false
+    $scUpload = ($assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Platform"} | Select-Object -first 1).uploadToAzure
 
     # Add Sitecore and habitat WDPs to upload list
     if ($cakeJsonConfig.Topology -eq "single") {
         if (!($SkipScUpload) -and ($ScUpload -eq $true)) {
             $sitecorepackages = Get-ChildItem -path $(Join-Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform')) *) -include *.zip -Exclude *xp1*, *cd*, *cm*, *prc*, *rep*
-
-            foreach ($seppackage in $sitecorepackages) {
-                $sitecoreWDPpathArray.Add($seppackage) | out-null
-            }
+            $sitecoreWDPpathArray.AddRange($sitecorepackages)
         }
 
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip')))) | out-null
@@ -67,10 +55,7 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
     elseif ($cakeJsonConfig.Topology -eq "scaled") {
         if (!($SkipScUpload) -and ($ScUpload -eq $true)) {
             $sitecorepackages = Get-ChildItem -path $(Join-Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Experience Platform')) *) -include *.zip -Exclude *xp0*, *single*
-
-            foreach ($seppackage in $sitecorepackages) {
-                $sitecoreWDPpathArray.Add($seppackage) | out-null
-            }
+            $sitecoreWDPpathArray.AddRange($sitecorepackages) | out-null
         }
         
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathomeCD', 'WDPWorkFolder', 'WDP', 'habitathome_cd.scwdp.zip')))) | out-null
@@ -80,44 +65,35 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
 
     if (!($SkipScUpload)) {
         # Add sitecore azure toolkit module bootloader 
-        foreach ($asset in $assetsJsonConfig.prerequisites) {
-            if ($asset.name -eq "Sitecore Experience Platform") {
-                $sepversion = $($asset.FileName -replace ' rev.*', '')
-                $sepversion = $($sepversion -replace '^Sitecore ', '')
-            }
+        $sitecoreAsset = $assetsJsonConfig.prerequisites | Where-Object {$_.Name -eq "Sitecore Experience Platform"}
+        if ($sitecoreAsset.FileName -match '([0-9]*\.[0-9]\.[0-9])') {
+            $sepversion = $matches[0]
         }
-
+      
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
     }
 
-    # Add Module WDPs to upload list
-    foreach ($asset in $assetsJsonConfig.prerequisites) {
-        if (($asset.uploadToAzure -eq $True) -and ($asset.isWdp -eq $True) -and ($asset.install -eq $True)) {
-            if ((Test-Path $(Join-Path $assetsFolder $asset.name)) -eq $True) {
-                $wdpSingleModuleFolder = ($(Join-Path $assetsFolder $asset.name))
-                ForEach ($blobFile in (Get-ChildItem -File -Recurse $wdpSingleModuleFolder)) {    
-                    $sitecoreWDPpathArray.Add($(Get-Item -Path $blobFile.FullName)) | out-null
-                }            
-            }
-        } 
-        elseif (($asset.uploadToAzure -eq $True) -and ($($asset.isGroup -eq $True) -or $($asset.convertToWdp -eq $True)) -and ($asset.install -eq $True)) {
-            
-            if ((Test-Path $(Join-Path $assetsFolder $asset.name)) -eq $True) { 
-                $wdpGroupModuleFolder = "$($(Join-Path $assetsFolder $asset.name))\WDPWorkFolder\WDP"
-                ForEach ($blobFile in (Get-ChildItem -File -Recurse $wdpGroupModuleFolder)) {           
-                    $sitecoreWDPpathArray.Add($(Get-Item -Path $blobFile.FullName)) | out-null
-                }
-            }
-        }
+    $assetsJsonConfig.prerequisites | Where-Object {
+        $_.uploadToAzure -eq $true -and $_.isWdp -eq $true -and $_.install -eq $true} | ForEach-Object {
+        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path "C:\Deploy\assets" $_.name)))
+    }
+    $assetsJsonConfig.prerequisites | Where-Object {
+        ($_.uploadToAzure -eq $true -and $_.isGroup -eq $true) -or ($_.convertToWdp -eq $true -and $_.install -eq $true)} | ForEach-Object {
+        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path "C:\Deploy\assets" $_.name)))
     }
 
     # Perform Upload
     foreach ($scwdpinarray in $sitecoreWDPpathArray) {
+        if ($null -eq $scwdpinarray) {
+            continue
+        }
         Write-Host "Starting file upload for $($scwdpinarray.Name)" -ForegroundColor Green
         Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force
         Write-Host "Upload of $($scwdpinarray.Name) completed" -ForegroundColor Green
     }
 }
+                
+
 
 ###########################
 # Function for file uploads
@@ -131,34 +107,31 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
     $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'habitathome.json')))) | out-null
     $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'xconnect.json')))) | out-null
 
-    foreach ($asset in $assetsJsonConfig.prerequisites) {
-        if (($asset.uploadToAzure -eq $true) -and ($asset.install -eq $true)) {
-            switch ($asset.name) {
-                "Data Exchange Framework" {
-                    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Data Exchange Framework', 'def_module.json')))) | out-null
-                }
-                "Sitecore Experience Accelerator" {
-                    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
-                }
-            }
-        }
+    $defInstall = $assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Data Exchange Framework"} | % { $_.uploadToAzure -and $_.install}
+    if ($defInstall) {
+        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Data Exchange Framework', 'def_module.json')))) | out-null
+    }
+    
+    $sxaInstall = $assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Accelerator"} | % { $_.uploadToAzure -and $_.install}
+    if ($sxaInstall) {
+        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
     }
     
     if (!($SkipScUpload)) {
-        foreach ($asset in $assetsJsonConfig.prerequisites) {
-            if (($asset.uploadToAzure -eq $true) -and ($asset.install -eq $true) -and ($asset.name -eq "Sitecore Experience Platform")) {
-                $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json')))) | out-null
-                $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json')))) | out-null
-
-                $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
+  
+        $sitecoreInstall = $assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Platform"} | % { $_.uploadToAzure -and $_.install}
+        
+        if ($sitecoreInstall) {
+            $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
             
-                Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
-            
-                    Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
-                    Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Force
-                    Write-Host "Upload of $($_.Name) completed" -ForegroundColor Green
-                }  
+            Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
+        
+                Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
+                Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Force
+                Write-Host "Upload of $($_.Name) completed" -ForegroundColor Green
+        
             }
+      
         }                 
     }
 
@@ -303,451 +276,455 @@ else {
 
 $blobsList = Get-AzureStorageBlob -Container $containerName -Context $ctx
 $assetsFolder = (Join-Path $config.DeployFolder "assets")
+$defInstall = $false
 
-foreach ($asset in $assetconfig.prerequisites) {
-    if (($asset.name -eq "Data Exchange Framework") -and ($asset.install -eq $true)) {
-        $definstall = $true
+$defAsset = $assetconfig.prerequisites | Where-Object {$_.Name -eq "Data Exchange Framework"}
 
-        foreach ($module in $asset.modules) {
-            if ($module.Name -eq "Data Exchange Framework") {
-                $defversion = $($module.FileName -replace '\.zip$', '')
-                $defversion = $($defversion -replace '^Data Exchange Framework ', '')
-            }
-        }
+if ($true -eq $defAsset.install) {
+    $definstall = $true
+    $defModule = $defAsset.modules | Where-Object {$_.Name -eq "Data Exchange Framework"}
+    $defversion = $($defModule.FileName -replace '\.zip$', '')
+    $defversion = $($defversion -replace '^Data Exchange Framework ', '')
+}
+$defCDAsset = $assetconfig.prerequisites | Where-Object {$_.Name -eq "Data Exchange Framework CD"}
+
+if ($true -eq $defCDAsset.install) {
+    $defCDModule = $defAsset.modules | Where-Object {$_.Name -eq "Data Exchange Framework CD"}
+    $defCDversion = $($defCDModule.FileName -replace '\.zip$', '')
+    $defCDversion = $($defCDversion -replace '^Data Exchange Framework CD Server ', '')
+
+}
+
+$sxaFileName = ($assetconfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Accelerator"}).filename.ToString()
+$sxaBlob = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $sxaFileName}
+if ($sxaBlob) {
+    $sxaMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $sxaBlob.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
+}
+
+$speFileName = ($assetconfig.prerequisites | Where-Object {$_.name -eq "Sitecore PowerShell Extensions"}).filename.ToString()
+$speBlob = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $speFileName}
+
+if ($speBlob) {
+    $speMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $speBlob.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
+}
+
+$msDeployPackageUrl = $blobsList | Where-Object {
+    $_.name -eq "wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip"} | Select -First 1 | ForEach-Object {
+    New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $_.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
+}
+$habitatWebsiteDeployPackageUrl = $blobsList | Where-Object {
+    $_.name -eq "wdps/habitathome_single.scwdp.zip"} | Select -First 1 | ForEach-Object {
+    New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $_.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
+}
+$habitatXconnectDeployPackageUrl = $blobsList | Where-Object {
+    $_.name -eq "wdps/xconnect_single.scwdp.zip"} | Select -First 1 | ForEach-Object {
+    New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $_.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
+}
+
+if ($definstall -eq $true) {
+    $defDeployPackageUrl = $blobsList | Where-Object {
+        $_.name -eq "wdps/Data Exchange Framework " + $defversion + "_single.scwdp.zip"} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
     }
-    elseif (($asset.name -eq "Data Exchange Framework CD") -and ($asset.install -eq $true)) {
-        foreach ($module in $asset.modules) {
-            if ($module.Name -eq "Data Exchange Framework CD") {
-                $defCDversion = $($module.FileName -replace '\.zip$', '')
-                $defCDversion = $($defCDversion -replace '^Data Exchange Framework CD Server ', '')
-            }
-        }
+    $defSitecoreDeployPackageUrl = $blobsList | Where-Object {
+        $_.name -eq "wdps/Sitecore Provider for Data Exchange Framework " + $defversion + "_single.scwdp.zip"} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
     }
-    elseif (($asset.name -eq "Data Exchange Framework") -and ($asset.install -eq $false)) {
-        $definstall = $false
+    $defSqlDeployPackageUrl = $blobsList | Where-Object {
+        $_.name -eq "wdps/SQL Provider for Data Exchange Framework " + $defversion + "_single.scwdp.zip"} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }
+    $defxConnectDeployPackageUrl = $blobsList | Where-Object {
+        $_.name -eq "wdps/xConnect Provider for Data Exchange Framework " + $defversion + "_single.scwdp.zip"} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }
+    $defDynamicsDeployPackageUrl = $blobsList | Where-Object {
+        $_.name -eq "wdps/Dynamics Provider for Data Exchange Framework " + $defversion + "_single.scwdp.zip"} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }
+    $defDynamicsConnectDeployPackageUrl = $blobsList | Where-Object {
+        $_.name -eq "wdps/Connect for Microsoft Dynamics " + $defversion + "_single.scwdp.zip"} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }
+
+    $defSalesforceDeployPackageUrl = $blobsList | Where-Object {
+        $_.name -eq "wdps/Salesforce Provider for Data Exchange Framework " + $defversion + "_single.scwdp.zip"} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }
+    $defSalesforceConnectDeployPackageUrl = $blobsList | Where-Object {
+        $_.name -eq "wdps/Connect for Salesforce " + $defversion + "_single.scwdp.zip"} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
     }
 }
 
-foreach ($asset in $assetconfig.prerequisites) {
-    foreach ($blob in $blobsList) {
-        if ($asset.filename -eq $($blob.Name -replace '^wdps\/', '')) {
-            Switch ($asset.Name) {
-                "Sitecore Experience Accelerator" {
-                    $sxaMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                "Sitecore PowerShell Extensions" {
-                    $speMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-            }
-        }
-    }
-}
-
-
-ForEach ($blob in $blobsList) {
-    Switch ($blob.Name) {
-        "wdps/Sitecore.Cloud.Integration.Bootload.wdp.zip" {
-            $msDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                -Blob $blob.Name `
-                -Permission rwd `
-                -StartTime (Get-Date) `
-                -ExpiryTime (Get-Date).AddDays(3650) `
-                -Context $ctx `
-                -FullUri
-        }
-        "wdps/habitathome_single.scwdp.zip" {
-            $habitatWebsiteDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                -Blob $blob.Name `
-                -Permission rwd `
-                -StartTime (Get-Date) `
-                -ExpiryTime (Get-Date).AddDays(3650) `
-                -Context $ctx `
-                -FullUri
-        }
-        "wdps/xconnect_single.scwdp.zip" {
-            $habitatXconnectDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                -Blob $blob.Name `
-                -Permission rwd `
-                -StartTime (Get-Date) `
-                -ExpiryTime (Get-Date).AddDays(3650) `
-                -Context $ctx `
-                -FullUri
-        }
-    }
-
-    if ($definstall -eq $true) {
-        Switch ($blob.Name) {
-            $("wdps/Data Exchange Framework " + $defversion + "_single.scwdp.zip") {
-                $defDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                    -Blob $blob.Name `
-                    -Permission rwd `
-                    -StartTime (Get-Date) `
-                    -ExpiryTime (Get-Date).AddDays(3650) `
-                    -Context $ctx `
-                    -FullUri
-            }
-            $("wdps/Sitecore Provider for Data Exchange Framework " + $defversion + "_single.scwdp.zip") {
-                $defSitecoreDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                    -Blob $blob.Name `
-                    -Permission rwd `
-                    -StartTime (Get-Date) `
-                    -ExpiryTime (Get-Date).AddDays(3650) `
-                    -Context $ctx `
-                    -FullUri
-            }
-            $("wdps/SQL Provider for Data Exchange Framework " + $defversion + "_single.scwdp.zip") {
-                $defSqlDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                    -Blob $blob.Name `
-                    -Permission rwd `
-                    -StartTime (Get-Date) `
-                    -ExpiryTime (Get-Date).AddDays(3650) `
-                    -Context $ctx `
-                    -FullUri
-            }
-            $("wdps/xConnect Provider for Data Exchange Framework " + $defversion + "_single.scwdp.zip") {
-                $defxConnectDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                    -Blob $blob.Name `
-                    -Permission rwd `
-                    -StartTime (Get-Date) `
-                    -ExpiryTime (Get-Date).AddDays(3650) `
-                    -Context $ctx `
-                    -FullUri
-            }
-            $("wdps/Dynamics Provider for Data Exchange Framework " + $defversion + "_single.scwdp.zip") {
-                $defDynamicsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                    -Blob $blob.Name `
-                    -Permission rwd `
-                    -StartTime (Get-Date) `
-                    -ExpiryTime (Get-Date).AddDays(3650) `
-                    -Context $ctx `
-                    -FullUri
-            }
-            $("wdps/Connect for Microsoft Dynamics " + $defversion + "_single.scwdp.zip") {
-                $defDynamicsConnectDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                    -Blob $blob.Name `
-                    -Permission rwd `
-                    -StartTime (Get-Date) `
-                    -ExpiryTime (Get-Date).AddDays(3650) `
-                    -Context $ctx `
-                    -FullUri
-            }
-            $("wdps/Salesforce Provider for Data Exchange Framework " + $defversion + "_single.scwdp.zip") {
-                $defSalesforceDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                    -Blob $blob.Name `
-                    -Permission rwd `
-                    -StartTime (Get-Date) `
-                    -ExpiryTime (Get-Date).AddDays(3650) `
-                    -Context $ctx `
-                    -FullUri
-            }
-            $("wdps/Connect for Salesforce " + $defversion + "_single.scwdp.zip") {
-                $defSalesforceConnectDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                    -Blob $blob.Name `
-                    -Permission rwd `
-                    -StartTime (Get-Date) `
-                    -ExpiryTime (Get-Date).AddDays(3650) `
-                    -Context $ctx `
-                    -FullUri
-            }
-        }
-    }
-}
 
 if ($config.Topology -eq "single") {
 
     $localSitecoreassets = Get-ChildItem -path $(Join-Path $assetsfolder "Sitecore Experience Platform\*") -include *.zip -Exclude *xp1*, *cd*, *cm*, *prc*, *rep*
 
-    foreach ($localSCfile in $localSitecoreassets) {
-        foreach ($blob in $blobsList) {
-            if ($localSCfile.Name -eq $($blob.Name -replace '^wdps\/', '')) {
-                if ($($localSCfile.Name -like "*_single.scwdp.zip")) {
-                    $singleMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                elseif ($($localSCfile.Name -like "*_xp0xconnect.scwdp.zip")) {
-                    $xcSingleMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-            }
-        }
+    $localSCfile = $localSitecoreassets | Where-Object {$_.name -like "*_single.scwdp.zip"}
+
+    $singleMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $localScFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }
+    $localXCFile = $localSitecoreassets | Where-Object {$_.name -like "*_xp0xconnect.scwdp.zip"}
+    $xcSingleMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $localXCFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
     }
 }
 elseif ($config.Topology -eq "scaled") {
 
     $localSitecoreassets = Get-ChildItem -path $(Join-Path $assetsfolder "Sitecore Experience Platform\*") -include *.zip -Exclude *xp0*, *single*
-
-    foreach ($localSCfile in $localSitecoreassets) {
-        foreach ($blob in $blobsList) {
-            if ($localSCfile.Name -eq $($blob.Name -replace '^wdps\/', '')) {
-                if ($($localSCfile.Name -like "*_cm.scwdp.zip")) {
-                    $cmMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                elseif ($($localSCfile.Name -like "*_cd.scwdp.zip")) {
-                    $cdMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                elseif ($($localSCfile.Name -like "*_prc.scwdp.zip")) {
-                    $prcMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                elseif ($($localSCfile.Name -like "*_rep.scwdp.zip")) {
-                    $repMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                elseif ($($localSCfile.Name -like "*_xp1referencedata.scwdp.zip")) {
-                    $xcRefDataMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                elseif ($($localSCfile.Name -like "*_xp1collection.scwdp.zip")) {
-                    $xcCollectMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                elseif ($($localSCfile.Name -like "*_xp1collectionsearch.scwdp.zip")) {
-                    $xcSearchMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                elseif ($($localSCfile.Name -like "*_xp1marketingautomation.scwdp.zip")) {
-                    $maOpsMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                elseif ($($localSCfile.Name -like "*_xp1marketingautomationreporting.scwdp.zip")) {
-                    $maRepMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-            }
-        }
+    ### See TODO above - should be able to directly search against blobsList rather than loop
+    
+    $cmFile = $localSitecoreassets | Where-Object {$_.name -like "*_cm.scwdp.zip" }
+    $cmMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $cmFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
     }
 
-    foreach ($asset in $assetconfig.prerequisites) {
-        foreach ($blob in $blobsList) {
-            if ($asset.filename -eq $($blob.Name -replace '^wdps\/', '')) {
-                Switch ($asset.Name) {
-                    "Sitecore Experience Accelerator CD" {
-                        $sxaCDMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                            -Blob $blob.Name `
-                            -Permission rwd `
-                            -StartTime (Get-Date) `
-                            -ExpiryTime (Get-Date).AddDays(3650) `
-                            -Context $ctx `
-                            -FullUri
-                    }
-                }
-            }
-        }
+    $cdFile = $localSitecoreassets | Where-Object {$_.name -like "*_cd.scwdp.zip" }
+    $cdMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $cdFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
     }
+    $prcFile = $localSitecoreassets | Where-Object {$_.name -like "*_prc.scwdp.zip" }
+    $prcMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $prcFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }
+    $repFile = $localSitecoreassets | Where-Object {$_.name -like "*_rep.scwdp.zip" }
+    $repMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $repFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }             
+    $xcRefFile = $localSitecoreassets | Where-Object {$_.name -like "*_xp1referencedata.scwdp.zip" }
+    $xcRefDataMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $xcRefFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }       
+    $xcCollectFile = $localSitecoreassets | Where-Object {$_.name -like "*_xp1collection.scwdp.zip" }
+    $xcCollectMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $xcCollectFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }  
+    $xcSearchFile = $localSitecoreassets | Where-Object {$_.name -like "*_xp1collectionsearch.scwdp.zip" }
+    $xcSearchMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $xcSearchFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }               
+    $maOpsFile = $localSitecoreassets | Where-Object {$_.name -like "*_xp1marketingautomation.scwdp.zip" }
+    $maOpsMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $maOpsFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }      
+    $maRepFile = $localSitecoreassets | Where-Object {$_.name -like "*_xp1marketingautomationreporting.scwdp.zip" }
+    $maRepMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $maRepFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }                
+                    
+    $sxaCDFile = $assets.prerequisites | Where-Object {$_.Name -eq "Sitecore Experience Accelerator CD"}
+    $sxaCDMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $sxaCDFile.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }      
+   
+   
+    $habitatWebsiteCDdeployPackageUrl = $blobsList | Where-Object {
+        $_.name -eq "wdps/habitathome_cd.scwdp.zip"} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }   
 
-    ForEach ($blob in $blobsList) {
-        Switch ($blob.Name) {
-            "wdps/habitathome_cd.scwdp.zip" {
-                $habitatWebsiteCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                    -Blob $blob.Name `
-                    -Permission rwd `
-                    -StartTime (Get-Date) `
-                    -ExpiryTime (Get-Date).AddDays(3650) `
-                    -Context $ctx `
-                    -FullUri
-            }
+
+
+    if ($definstall -eq $true) {
+        $defCDDeployPackageUrl = $blobsList | Where-Object {
+            $_.name -eq "wdps/Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip"} | Select -First 1 | ForEach-Object {
+            New-AzureStorageBlobSASToken -Container $containerName `
+                -Blob $_.Name `
+                -Permission rwd `
+                -StartTime (Get-Date) `
+                -ExpiryTime (Get-Date).AddDays(3650) `
+                -Context $ctx `
+                -FullUri
+        }
+        $defSitecoreCDDeployPackageUrl = $blobsList | Where-Object {
+            $_.name -eq "wdps/Sitecore Provider for Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip"} | Select -First 1 | ForEach-Object {
+            New-AzureStorageBlobSASToken -Container $containerName `
+                -Blob $_.Name `
+                -Permission rwd `
+                -StartTime (Get-Date) `
+                -ExpiryTime (Get-Date).AddDays(3650) `
+                -Context $ctx `
+                -FullUri
+        }
+        $defSqlCDDeployPackageUrl = $blobsList | Where-Object {
+            $_.name -eq "wdps/SQL Provider for Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip"} | Select -First 1 | ForEach-Object {
+            New-AzureStorageBlobSASToken -Container $containerName `
+                -Blob $_.Name `
+                -Permission rwd `
+                -StartTime (Get-Date) `
+                -ExpiryTime (Get-Date).AddDays(3650) `
+                -Context $ctx `
+                -FullUri
+        }
+        $defxConnectCDDeployPackageUrl = $blobsList | Where-Object {
+            $_.name -eq "wdps/xConnect Provider for Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip"} | Select -First 1 | ForEach-Object {
+            New-AzureStorageBlobSASToken -Container $containerName `
+                -Blob $_.Name `
+                -Permission rwd `
+                -StartTime (Get-Date) `
+                -ExpiryTime (Get-Date).AddDays(3650) `
+                -Context $ctx `
+                -FullUri
+        }
+        $defDynamicsCDDeployPackageUrl = $blobsList | Where-Object {
+            $_.name -eq "wdps/Dynamics Provider for Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip"} | Select -First 1 | ForEach-Object {
+            New-AzureStorageBlobSASToken -Container $containerName `
+                -Blob $_.Name `
+                -Permission rwd `
+                -StartTime (Get-Date) `
+                -ExpiryTime (Get-Date).AddDays(3650) `
+                -Context $ctx `
+                -FullUri
+        }
+        $defDynamicsConnectCDDeployPackageUrl = $blobsList | Where-Object {
+            $_.name -eq "wdps/Connect for Microsoft Dynamics CD Server " + $defCDversion + "_scaled.scwdp.zip"} | Select -First 1 | ForEach-Object {
+            New-AzureStorageBlobSASToken -Container $containerName `
+                -Blob $_.Name `
+                -Permission rwd `
+                -StartTime (Get-Date) `
+                -ExpiryTime (Get-Date).AddDays(3650) `
+                -Context $ctx `
+                -FullUri
         }
 
-        if ($definstall -eq $true) {
-            Switch ($blob.Name) {
-                $("wdps/Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip") {
-                    $defCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                $("wdps/Sitecore Provider for Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip") {
-                    $defSitecoreCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                $("wdps/SQL Provider for Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip") {
-                    $defSqlCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                $("wdps/xConnect Provider for Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip") {
-                    $defxConnectCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                $("wdps/Dynamics Provider for Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip") {
-                    $defDynamicsCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                $("wdps/Connect for Microsoft Dynamics CD Server " + $defCDversion + "_scaled.scwdp.zip") {
-                    $defDynamicsConnectCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                $("wdps/Salesforce Provider for Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip") {
-                    $defSalesforceCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-                $("wdps/Connect for Salesforce CD Server " + $defCDversion + "_scaled.scwdp.zip") {
-                    $defSalesforceConnectCDdeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
-                        -Blob $blob.Name `
-                        -Permission rwd `
-                        -StartTime (Get-Date) `
-                        -ExpiryTime (Get-Date).AddDays(3650) `
-                        -Context $ctx `
-                        -FullUri
-                }
-            }
+        $defSalesforceCDDeployPackageUrl = $blobsList | Where-Object {
+            $_.name -eq "wdps/Salesforce Provider for Data Exchange Framework CD Server " + $defCDversion + "_scaled.scwdp.zip"} | Select -First 1 | ForEach-Object {
+            New-AzureStorageBlobSASToken -Container $containerName `
+                -Blob $_.Name `
+                -Permission rwd `
+                -StartTime (Get-Date) `
+                -ExpiryTime (Get-Date).AddDays(3650) `
+                -Context $ctx `
+                -FullUri
+        }
+        $defSalesforceConnectCDDeployPackageUrl = $blobsList | Where-Object {
+            $_.name -eq "wdps/Connect for Salesforce CD Server " + $defCDversion + "_scaled.scwdp.zip"} | Select -First 1 | ForEach-Object {
+            New-AzureStorageBlobSASToken -Container $containerName `
+                -Blob $_.Name `
+                -Permission rwd `
+                -StartTime (Get-Date) `
+                -ExpiryTime (Get-Date).AddDays(3650) `
+                -Context $ctx `
+                -FullUri
         }
     }
 }
+
 
 
 #############################################################
 # Get the URL of each required additional file and record it
 #############################################################
+$sxaTemplateLink = $blobsList | Where-Object {$_.Name -like "*sxa*.json"} | Select -First 1 | ForEach-Object {
+    New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $_.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
 
-ForEach ($blob in $blobsList) {
-    if ($blob.Name -like "*sxa*.json") {
-        $sxaTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
-            -Blob $blob.Name `
-            -Permission rwd `
-            -StartTime (Get-Date) `
-            -ExpiryTime (Get-Date).AddDays(3650) `
-            -Context $ctx `
-            -FullUri
-    } 
-    elseif ($blob.Name -like "*def*.json") {
-        $defTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
-            -Blob $blob.Name `
-            -Permission rwd `
-            -StartTime (Get-Date) `
-            -ExpiryTime (Get-Date).AddDays(3650) `
-            -Context $ctx `
-            -FullUri
-    } 
-    elseif ($blob.Name -like "*habitathome.json") {
-        $habitatWebsiteTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
-            -Blob $blob.Name `
-            -Permission rwd `
-            -StartTime (Get-Date) `
-            -ExpiryTime (Get-Date).AddDays(3650) `
-            -Context $ctx `
-            -FullUri
-    } 
-    elseif ($blob.Name -like "*xconnect.json") {
-        $habitatXconnectTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
-            -Blob $blob.Name `
-            -Permission rwd `
-            -StartTime (Get-Date) `
-            -ExpiryTime (Get-Date).AddDays(3650) `
-            -Context $ctx `
-            -FullUri
-    } 
-    elseif ($blob.Name -like "*bootloader.json") {
-        $bootloaderTemplateLink = New-AzureStorageBlobSASToken -Container $containerName `
-            -Blob $blob.Name `
-            -Permission rwd `
-            -StartTime (Get-Date) `
-            -ExpiryTime (Get-Date).AddDays(3650) `
-            -Context $ctx `
-            -FullUri
-    }
 }
+$defTemplateLink = $blobsList | Where-Object {$_.Name -like "*def*.json"}|  Select -First 1 | ForEach-Object {
+    New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $_.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
+
+}
+$habitatWebsiteTemplateLink = $blobsList | Where-Object {$_.Name -like "*habitathome.json"}|  Select -First 1 | ForEach-Object {
+    New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $_.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
+
+}
+$habitatXconnectTemplateLink = $blobsList | Where-Object {$_.Name -like "*xconnect.json"}|  Select -First 1 | ForEach-Object {
+    New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $_.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
+
+}
+$bootloaderTemplateLink = $blobsList | Where-Object {$_.Name -like "*bootloader.json"} | Select -First 1 | ForEach-Object {
+    New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $_.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
+}
+  
+
 
 
 ########################################
@@ -761,7 +738,7 @@ ForEach ($blob in $blobsList) {
 if ($definstall -eq $true) {
     $azuredeployConfigFile = $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
 }
-elseif ($definstall -eq $false) {
+else {
     $azuredeployConfigFile = $([IO.Path]::Combine($topology, 'azuredeploy.parametersWOdef.json'))
 }
 
@@ -777,42 +754,17 @@ if (!$azuredeployConfig) {
 }
 
 # Get all user-defined settings from the azureuser-config.json files and assign them to variables
-ForEach ($setting in $azureuserconfig.settings) {
 
-    Switch ($setting.id) {
-    
-        "AzureDeploymentID" {
-            $deploymentId = $setting.value
-        }
-        "AzureRegion" {
-            $location = $setting.value
-        }
-        "XConnectCertFilePath" {
-            $authCertificateFilePath = $setting.value
-        }
-        "XConnectCertificatePassword" {
-            $authCertificatePassword = $setting.value
-        }
-        "SitecoreLoginAdminPassword" {
-            $sitecoreAdminPassword = $setting.value
-        }
-        "SitecoreLicenseXMLPath" {
-            $licenseXml = $setting.value
-        }
-        "SqlServerLoginAdminAccount" {
-            $sqlServerLogin = $setting.value
-        }
-        "SqlServerLoginAdminPassword" {
-            $sqlServerPassword = $setting.value
-        }
-        "ArmTemplateUrl" {
-            $ArmTemplateUrl = $setting.value
-        }
-        "templatelinkAccessToken" {
-            $templatelinkAccessToken = $setting.value
-        }
-    }
-}
+$deploymentId = ($azureuserconfig.settings | Where-Object {$_.id -eq "AzureDeploymentID"}).value
+$location = ($azureuserconfig.settings | Where-Object {$_.id -eq "AzureRegion"}).value
+$authCertificateFilePath = ($azureuserconfig.settings | Where-Object {$_.id -eq "XConnectCertFilePath"}).value
+$authCertificatePassword = ($azureuserconfig.settings | Where-Object {$_.id -eq "XConnectCertificatePassword"}).value
+$sitecoreAdminPassword = ($azureuserconfig.settings | Where-Object {$_.id -eq "SitecoreLoginAdminPassword"}).value
+$licenseXml = ($azureuserconfig.settings | Where-Object {$_.id -eq "SitecoreLicenseXMLPath"}).value
+$sqlServerLogin = ($azureuserconfig.settings | Where-Object {$_.id -eq "SqlServerLoginAdminAccount"}).value
+$sqlServerPassword = ($azureuserconfig.settings | Where-Object {$_.id -eq "SqlServerLoginAdminPassword"}).value
+$ArmTemplateUrl = ($azureuserconfig.settings | Where-Object {$_.id -eq "ArmTemplateUrl"}).value
+$templatelinkAccessToken = ($azureuserconfig.settings | Where-Object {$_.id -eq "templatelinkAccessToken"}).value
 
 # Set ArmTemplateURl and templateLinkAccessToken if blank
 if ([string]::IsNullOrEmpty($templatelinkAccessToken) -or [string]::IsNullOrEmpty($ArmTemplateUrl)) {
@@ -834,16 +786,10 @@ if ([string]::IsNullOrEmpty($templatelinkAccessToken) -or [string]::IsNullOrEmpt
             -Context $ctx
     }
     
-    ForEach ($setting in $azureuserconfig.settings) {
-        switch ($setting.id) {
-            "ArmTemplateUrl" {
-                $setting.value = $ArmTemplateUrl
-            }
-            "templatelinkAccessToken" {
-                $setting.value = $templatelinkAccessToken
-            }
-        }
-    }
+    
+    ($azureuserconfig.settings | Where-Object {$_.id -eq "ArmTemplateUrl"}).value = $ArmTemplateUrl
+    ($azureuserconfig.settings | Where-Object {$_.id -eq "templatelinkAccessToken"}).value = $templatelinkAccessToken
+    
 
     $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
 }
@@ -881,7 +827,8 @@ if ($definstall -eq $true) {
             $_.modules.value.items[4].templateLink = $bootloaderTemplateLink
         }
     }
-    elseif ($config.Topology -eq "scaled") {
+    else {
+        # Topology -eq "scaled"
         $azuredeployConfig.parameters | ForEach-Object {
             $_.deploymentId.value = $deploymentId
             $_.location.value = $location
@@ -932,30 +879,32 @@ if ($definstall -eq $true) {
         }
     }
 }
-elseif ($definstall -eq $false) {
+else {
+    # $definstall -eq $false
     if ($config.Topology -eq "single") {
-        $azuredeployConfig.parameters | ForEach-Object {
-            $_.deploymentId.value = $deploymentId
-            $_.location.value = $location
-            $_.sitecoreAdminPassword.value = $sitecoreAdminPassword
-            $_.licenseXml.value = $licenseXml
-            $_.sqlServerLogin.value = $sqlServerLogin
-            $_.sqlServerPassword.value = $sqlServerPassword
-            $_.authCertificatePassword.value = $authCertificatePassword
-            $_.singleMsDeployPackageUrl.value = $singleMsDeployPackageUrl
-            $_.xcSingleMsDeployPackageUrl.value = $xcSingleMsDeployPackageUrl
-            $_.modules.value.items[0].parameters.sxaMsDeployPackageUrl = $sxaMsDeployPackageUrl
-            $_.modules.value.items[0].parameters.speMsDeployPackageUrl = $speMsDeployPackageUrl
-            $_.modules.value.items[0].templateLink = $sxaTemplateLink
-            $_.modules.value.items[1].parameters.habitatWebsiteDeployPackageUrl = $habitatWebsiteDeployPackageUrl
-            $_.modules.value.items[1].templateLink = $habitatWebsiteTemplateLink
-            $_.modules.value.items[2].parameters.habitatXconnectDeployPackageUrl = $habitatXconnectDeployPackageUrl
-            $_.modules.value.items[2].templateLink = $habitatXconnectTemplateLink
-            $_.modules.value.items[3].parameters.msDeployPackageUrl = $msDeployPackageUrl
-            $_.modules.value.items[3].templateLink = $bootloaderTemplateLink
-        }
+        $params = $azuredeployConfig.parameters 
+        $params.deploymentId.value = $deploymentId
+        $params.location.value = $location
+        $params.sitecoreAdminPassword.value = $sitecoreAdminPassword
+        $params.licenseXml.value = $licenseXml
+        $params.sqlServerLogin.value = $sqlServerLogin
+        $params.sqlServerPassword.value = $sqlServerPassword
+        $params.authCertificatePassword.value = $authCertificatePassword
+        $params.singleMsDeployPackageUrl.value = $singleMsDeployPackageUrl
+        $params.xcSingleMsDeployPackageUrl.value = $xcSingleMsDeployPackageUrl
+        $params.modules.value.items[0].parameters.sxaMsDeployPackageUrl = $sxaMsDeployPackageUrl
+        $params.modules.value.items[0].parameters.speMsDeployPackageUrl = $speMsDeployPackageUrl
+        $params.modules.value.items[0].templateLink = $sxaTemplateLink
+        $params.modules.value.items[1].parameters.habitatWebsiteDeployPackageUrl = $habitatWebsiteDeployPackageUrl
+        $params.modules.value.items[1].templateLink = $habitatWebsiteTemplateLink
+        $params.modules.value.items[2].parameters.habitatXconnectDeployPackageUrl = $habitatXconnectDeployPackageUrl
+        $params.modules.value.items[2].templateLink = $habitatXconnectTemplateLink
+        $params.modules.value.items[3].parameters.msDeployPackageUrl = $msDeployPackageUrl
+        $params.modules.value.items[3].templateLink = $bootloaderTemplateLink
+        
     }
-    elseif ($config.Topology -eq "scaled") {
+    else {
+        # topology -eq scaled
         $azuredeployConfig.parameters | ForEach-Object {
             $_.deploymentId.value = $deploymentId
             $_.location.value = $location
@@ -995,6 +944,6 @@ elseif ($definstall -eq $false) {
 if ($definstall -eq $true) {
     $azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
 }
-elseif ($definstall -eq $false) {
+else {
     $azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($topology, 'azuredeploy.parametersWOdef.json'))
 }
