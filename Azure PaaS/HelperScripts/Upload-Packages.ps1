@@ -295,8 +295,10 @@ if ($true -eq $defCDAsset.install) {
 
 }
 
-$sxaFileName = ($assetconfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Accelerator"}).filename.ToString()
+$sxaFileName = $assetconfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Accelerator"} | Select -First 1 | Foreach-Object {$_.filename.ToString()}
+
 $sxaBlob = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $sxaFileName}
+
 if ($sxaBlob) {
     $sxaMsDeployPackageUrl = New-AzureStorageBlobSASToken -Container $containerName `
         -Blob $sxaBlob.Name `
