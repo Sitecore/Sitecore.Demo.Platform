@@ -134,6 +134,10 @@
       "defaultValue": "xdb"
     },
 
+    "useApplicationInsights": {
+      "type": "bool",
+      "defaultValue": true
+    },
     "applicationInsightsName": {
       "type": "string",
       "minLength": 1,
@@ -159,7 +163,7 @@
 
     "allowInvalidClientCertificates": {
       "type": "bool",
-      "defaultValue":false
+      "defaultValue": false
     },
 
     "passwordSalt": {
@@ -207,7 +211,7 @@
           "Collection Search Index Name": "[variables('xcSearchIndexNameTidy')]",
           "Collection Search Query Api Key": "[listAdminKeys(resourceId('Microsoft.Search/searchServices', variables('searchServiceNameTidy')), variables('searchApiVersion')).primaryKey]",
           "Collection Search Worker Api Key": "[listAdminKeys(resourceId('Microsoft.Search/searchServices', variables('searchServiceNameTidy')), variables('searchApiVersion')).primaryKey]",
-          "XConnect Server Application Insights Key": "[reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey]",
+          "XConnect Server Application Insights Key": "[if(parameters('useApplicationInsights'), reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey, '')]",
           "XConnect Server Instance Name": "CollectionSearch",
           "License Xml": "[parameters('licenseXml')]"
         }

@@ -5,24 +5,22 @@
     "webApiVersion": "2016-08-01",
     "searchApiVersion": "2015-08-19",
     "appInsightsApiVersion": "2015-05-01",
-
     "sqlServerFqdnTidy": "[toLower(trim(parameters('sqlServerFqdn')))]",
-
     "poolsSqlDatabaseNameTidy": "[toLower(trim(parameters('poolsSqlDatabaseName')))]",
     "refDataSqlDatabaseNameTidy": "[toLower(trim(parameters('refDataSqlDatabaseName')))]",
+    "reportingSqlDatabaseNameTidy": "[toLower(trim(parameters('reportingSqlDatabaseName')))]",
     "shard0SqlDatabaseNameTidy": "[toLower(trim(parameters('shard0SqlDatabaseName')))]",
     "shard1SqlDatabaseNameTidy": "[toLower(trim(parameters('shard1SqlDatabaseName')))]",
     "shardMapManagerSqlDatabaseNameTidy": "[toLower(trim(parameters('shardMapManagerSqlDatabaseName')))]",
     "maSqlDatabaseNameTidy": "[toLower(trim(parameters('maSqlDatabaseName')))]",
     "messagingSqlDatabaseNameTidy": "[toLower(trim(parameters('messagingSqlDatabaseName')))]",
-
+    "processingEngineTasksSqlDatabaseNameTidy": "[toLower(trim(parameters('processingEngineTasksSqlDatabaseName')))]",
+    "processingEngineStorageSqlDatabaseNameTidy": "[toLower(trim(parameters('processingEngineStorageSqlDatabaseName')))]",
     "xcSingleWebAppNameTidy": "[toLower(trim(parameters('xcSingleWebAppName')))]",
-
     "searchServiceNameTidy": "[toLower(trim(parameters('searchServiceName')))]",
     "xcSearchIndexNameTidy": "[toLower(trim(parameters('xcSearchIndexName')))]",
-    "appInsightsNameTidy": "[toLower(trim(parameters('applicationInsightsName')))]"
-
-
+    "appInsightsNameTidy": "[toLower(trim(parameters('applicationInsightsName')))]",
+    "machineLearningServerConnectionStringTidy": "[trim(parameters('machineLearningServerConnectionString'))]"
   },
   "parameters": {
     "infrastructure": {
@@ -32,7 +30,6 @@
         "authCertificateThumbprint": null
       }
     },
-
     "deploymentId": {
       "type": "string",
       "defaultValue": "[resourceGroup().name]"
@@ -42,7 +39,6 @@
       "minLength": 1,
       "defaultValue": "[resourceGroup().location]"
     },
-
     "sitecoreAdminPassword": {
       "type": "securestring",
       "minLength": 8
@@ -51,7 +47,6 @@
       "type": "securestring",
       "minLength": 1
     },
-
     "sqlServerFqdn": {
       "type": "string",
       "minLength": 1,
@@ -65,7 +60,6 @@
       "type": "securestring",
       "minLength": 8
     },
-
     "poolsSqlDatabaseName": {
       "type": "string",
       "minLength": 1,
@@ -91,6 +85,11 @@
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-refdata-db')]"
     },
+    "reportingSqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-reporting-db')]"
+    },
     "maSqlDatabaseName": {
       "type": "string",
       "minLength": 1,
@@ -101,7 +100,16 @@
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-messaging-db')]"
     },
-
+    "processingEngineTasksSqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-processingenginetasks-db')]"
+    },
+    "processingEngineStorageSqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-processingenginestorage-db')]"
+    },
     "poolsSqlDatabaseUserName": {
       "type": "string",
       "minLength": 1,
@@ -121,6 +129,16 @@
       "type": "securestring",
       "minLength": 8,
       "defaultValue": "[concat(toUpper(uniqueString('xcrefdata', parameters('passwordSalt'))), uniqueString('xcrefdata', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('xcrefdata', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
+    },
+    "reportingSqlDatabaseUserName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "reportinguser"
+    },
+    "reportingSqlDatabasePassword": {
+      "type": "securestring",
+      "minLength": 8,
+      "defaultValue": "[concat(toUpper(uniqueString('reporting', parameters('passwordSalt'))), uniqueString('reporting', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('reporting', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
     },
     "xcShardMapManagerSqlDatabaseUserName": {
       "type": "string",
@@ -152,7 +170,16 @@
       "minLength": 8,
       "defaultValue": "[concat(toUpper(uniqueString('messaging', parameters('passwordSalt'))), uniqueString('messaging', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('messaging', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
     },
-
+    "processingEngineSqlDatabaseUserName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "processingengineuser"
+    },
+    "processingEngineSqlDatabasePassword": {
+      "type": "securestring",
+      "minLength": 8,
+      "defaultValue": "[concat(toUpper(uniqueString('processingengine', parameters('passwordSalt'))), uniqueString('processingengine', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('processingengine', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
+    },
     "searchServiceName": {
       "type": "string",
       "minLength": 1,
@@ -163,45 +190,70 @@
       "minLength": 1,
       "defaultValue": "xdb"
     },
-
+    "machineLearningServerConnectionString": {
+      "type": "securestring",
+      "minLength": 0,
+      "defaultValue": ""
+    },
+    "useApplicationInsights": {
+      "type": "bool",
+      "defaultValue": true
+    },
     "applicationInsightsName": {
       "type": "string",
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-ai')]"
     },
-
     "xcSingleWebAppName": {
       "type": "string",
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-xc-single')]"
     },
-
     "authCertificateThumbprint": {
       "type": "string",
       "minLength": 8,
       "defaultValue": "[parameters('infrastructure').authCertificateThumbprint]"
     },
-
     "xcSingleMsDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1
     },
-
     "allowInvalidClientCertificates": {
       "type": "bool",
       "defaultValue": false
     },
-
     "passwordSalt": {
       "type": "securestring",
       "minLength": 1,
       "defaultValue": "[resourceGroup().id]"
     },
-
     "xcServerConfigurationEnvironment": {
       "type": "string",
       "defaultValue": "Production",
-      "allowedValues": [ "Development", "Production" ]
+      "allowedValues": [
+        "Development",
+        "Production"
+      ]
+    },
+    "machineLearningServerBlobEndpointCertificatePath": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "machineLearningServerBlobEndpointCertificatePassword": {
+      "type": "securestring",
+      "defaultValue": ""
+    },
+    "machineLearningServerTableEndpointCertificatePath": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "machineLearningServerTableEndpointCertificatePassword": {
+      "type": "securestring",
+      "defaultValue": ""
+    },
+    "machineLearningServerEndpointCertificationAuthorityCertificatePath": {
+      "type": "string",
+      "defaultValue": ""
     }
   },
   "resources": [
@@ -226,29 +278,48 @@
           "Processing Pools Database Name": "[variables('poolsSqlDatabaseNameTidy')]",
           "Marketing Automation Database Name": "[variables('maSqlDatabaseNameTidy')]",
           "Messaging Database Name": "[variables('messagingSqlDatabaseNameTidy')]",
+          "Processing Engine Tasks Database Name": "[variables('processingEngineTasksSqlDatabaseNameTidy')]",
+          "Processing Engine Storage Database Name": "[variables('processingEngineStorageSqlDatabaseNameTidy')]",
           "Reference Data Database Name": "[variables('refDataSqlDatabaseNameTidy')]",
+          "Reporting Database Name": "[variables('reportingSqlDatabaseNameTidy')]",
           "XConnect Server Configuration Environment": "[parameters('xcServerConfigurationEnvironment')]",
           "XConnect Server Certificate Validation Thumbprint": "[parameters('authCertificateThumbprint')]",
           "Marketing Automation Engine Xconnect Collection Client Endpoint": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
           "Marketing Automation Engine Xconnect Collection Client Certificate Thumbprint": "[parameters('authCertificateThumbprint')]",
           "Marketing Automation Engine Xdb Reference Data Endpoint": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
           "Marketing Automation Engine Xdb Reference Data Client Certificate Thumbprint": "[parameters('authCertificateThumbprint')]",
+          "Processing Engine Xconnect Collection Client Endpoint": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
+          "Processing Engine Xconnect Collection Client Certificate Thumbprint": "[parameters('authCertificateThumbprint')]",
+          "Processing Engine Xconnect Search Client Endpoint": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
+          "Processing Engine Xconnect Search Client Certificate Thumbprint": "[parameters('authCertificateThumbprint')]",
+          "Processing Engine Blob Storage WebApi Endpoint": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
+          "Processing Engine Table Storage WebApi Endpoint": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
+          "Processing Engine Machine Learning Server Endpoint": "[variables('machineLearningServerConnectionStringTidy')]",
+          "Machine Learning Server Blob Storage WebApi Endpoint Certificate Path": "[parameters('machineLearningServerBlobEndpointCertificatePath')]",
+          "Machine Learning Server Blob Storage WebApi Endpoint Certificate Password": "[parameters('machineLearningServerBlobEndpointCertificatePassword')]",
+          "Machine Learning Server Table Storage WebApi Endpoint Certificate Path": "[parameters('machineLearningServerTableEndpointCertificatePath')]",
+          "Machine Learning Server Table Storage WebApi Endpoint Certificate Password": "[parameters('machineLearningServerTableEndpointCertificatePassword')]",
+          "Machine Learning Server Storage WebApi Endpoint Certification Authority Certificate Path": "[parameters('machineLearningServerEndpointCertificationAuthorityCertificatePath')]",
           "Collection Database Application User Name": "[parameters('xcShardMapManagerSqlDatabaseUserName')]",
           "Collection Database Application User Password": "[parameters('xcShardMapManagerSqlDatabasePassword')]",
           "Processing Pool Database Application User Name": "[parameters('poolsSqlDatabaseUserName')]",
           "Processing Pool Database Application User Password": "[parameters('poolsSqlDatabasePassword')]",
           "Reference Data Database Application User Name": "[parameters('xcRefDataSqlDatabaseUserName')]",
           "Reference Data Database Application User Password": "[parameters('xcRefDataSqlDatabasePassword')]",
+          "Reporting Database Application User Name": "[parameters('reportingSqlDatabaseUserName')]",
+          "Reporting Database Application User Password": "[parameters('reportingSqlDatabasePassword')]",
           "Marketing Automation Database Application User Name": "[parameters('xcMaSqlDatabaseUserName')]",
           "Marketing Automation Database Application User Password": "[parameters('xcMaSqlDatabasePassword')]",
           "Messaging Database Application User Name": "[parameters('messagingSqlDatabaseUserName')]",
           "Messaging Database Application User Password": "[parameters('messagingSqlDatabasePassword')]",
+          "Processing Engine Database Application User Name": "[parameters('processingEngineSqlDatabaseUserName')]",
+          "Processing Engine Database Application User Password": "[parameters('processingEngineSqlDatabasePassword')]",
           "Allow Invalid Client Certificates": "[parameters('allowInvalidClientCertificates')]",
           "Collection Search Service Url": "[concat('https://', variables('searchServiceNameTidy'), '.search.windows.net')]",
           "Collection Search Index Name": "[variables('xcSearchIndexNameTidy')]",
           "Collection Search Query Api Key": "[listAdminKeys(resourceId('Microsoft.Search/searchServices', variables('searchServiceNameTidy')), variables('searchApiVersion')).primaryKey]",
           "Collection Search Worker Api Key": "[listAdminKeys(resourceId('Microsoft.Search/searchServices', variables('searchServiceNameTidy')), variables('searchApiVersion')).primaryKey]",
-          "XConnect Server Application Insights Key": "[reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey]",
+          "XConnect Server Application Insights Key": "[if(parameters('useApplicationInsights'), reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey, '')]",
           "XConnect Server Instance Name": "XConnectSingle",
           "License Xml": "[parameters('licenseXml')]"
         }

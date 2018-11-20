@@ -4,10 +4,11 @@
   "variables": {
     "webApiVersion": "2016-03-01",
     "searchApiVersion": "2015-08-19",
-    "searchPreviewApiVersion": "2015-02-28-preview",
+    "searchRestApiVersion": "2017-11-11",
     "applicationInsightsApiVersion": "2015-05-01",
     "sqlServerFqdnTidy": "[trim(toLower(parameters('sqlServerFqdn')))]",
     "coreSqlDatabaseNameTidy": "[toLower(trim(parameters('coreSqlDatabaseName')))]",
+    "securitySqlDatabaseNameTidy": "[toLower(trim(parameters('securitySqlDatabaseName')))]",
     "webSqlDatabaseNameTidy": "[toLower(trim(parameters('webSqlDatabaseName')))]",
     "masterSqlDatabaseNameTidy": "[toLower(trim(parameters('masterSqlDatabaseName')))]",
     "repSqlDatabaseNameTidy": "[toLower(trim(parameters('reportingSqlDatabaseName')))]",
@@ -17,6 +18,7 @@
     "tasksSqlDatabaseNameTidy": "[toLower(trim(parameters('tasksSqlDatabaseName')))]",
     "refDataSqlDatabaseNameTidy": "[toLower(trim(parameters('refDataSqlDatabaseName')))]",
     "messagingSqlDatabaseNameTidy": "[toLower(trim(parameters('messagingSqlDatabaseName')))]",
+    "siWebAppNameTidy": "[toLower(trim(parameters('siWebAppName')))]",
     "singleWebAppNameTidy": "[toLower(trim(parameters('singleWebAppName')))]",
     "xcSingleWebAppNameTidy": "[toLower(trim(parameters('xcSingleWebAppName')))]",
     "searchProvider": "[if(empty(parameters('solrConnectionString')), 'Azure', 'Solr')]",
@@ -28,6 +30,8 @@
       "type": "secureObject",
       "defaultValue": {
         "sqlServerFqdn": null,
+        "siWebAppHostName": null,
+        "singleWebAppHostName": null,
         "authCertificateThumbprint": null
       }
     },
@@ -61,6 +65,11 @@
       "minLength": 8
     },
     "coreSqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-core-db')]"
+    },
+    "securitySqlDatabaseName": {
       "type": "string",
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-core-db')]"
@@ -119,6 +128,16 @@
       "type": "securestring",
       "minLength": 8,
       "defaultValue": "[concat(toUpper(uniqueString('core', parameters('passwordSalt'))), uniqueString('core', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('core', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
+    },
+    "securitySqlDatabaseUserName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "securityuser"
+    },
+    "securitySqlDatabasePassword": {
+      "type": "securestring",
+      "minLength": 8,
+      "defaultValue": "[concat(toUpper(uniqueString('security', parameters('passwordSalt'))), uniqueString('security', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('security', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
     },
     "masterSqlDatabaseUserName": {
       "type": "string",
@@ -218,10 +237,34 @@
       "type": "securestring",
       "defaultValue": ""
     },
+
+    "useApplicationInsights": {
+      "type": "bool",
+      "defaultValue": true
+    },
     "applicationInsightsName": {
       "type": "string",
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-ai')]"
+    },
+    "storeSitecoreCountersInApplicationInsights": {
+      "type": "bool",
+      "defaultValue": false
+    },
+    "siWebAppHostName":{
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[parameters('infrastructure').siWebAppHostName]"
+    },
+    "singleWebAppHostName":{
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[parameters('infrastructure').singleWebAppHostName]"
+    },
+    "siWebAppName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-si')]"
     },
     "singleWebAppName": {
       "type": "string",
@@ -241,6 +284,15 @@
     "singleMsDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1
+    },
+    "siMsDeployPackageUrl": {
+      "type": "securestring",
+      "minLength": 1
+    },
+    "siClientSecret": {
+      "type": "securestring",
+      "minLength": 6,
+      "defaultValue": "[toUpper(replace(guid(uniqueString('siClientSecret', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '-',''))]"
     },
     "exmEdsProvider": {
       "type": "string",
@@ -274,9 +326,52 @@
       "type": "securestring",
       "minLength": 1,
       "defaultValue": "[resourceGroup().id]"
+    },
+    "nodeJsVersion": {
+      "type": "string",
+      "defaultValue": "8.11.1"
     }
   },
   "resources": [
+    {
+      "name": "[concat(variables('siWebAppNameTidy'), '/', 'MSDeploy')]",
+      "type": "Microsoft.Web/sites/extensions",
+      "location": "[parameters('location')]",
+      "apiVersion": "[variables('webApiVersion')]",
+      "properties": {
+        "mode": "Incremental",
+        "addOnPackages": [
+          {
+            "packageUri": "[parameters('siMsDeployPackageUrl')]",
+            "setParameters": {
+                "IIS Web Application Name": "[variables('siWebAppNameTidy')]",
+                "Database Server Name": "[variables('sqlServerFqdnTidy')]",
+                "Core DB Name": "[variables('coreSqlDatabaseNameTidy')]",
+                "Core DB User Name": "[parameters('coreSqlDatabaseUserName')]",
+                "Core DB User Password": "[parameters('coreSqlDatabasePassword')]",
+                "CertificateThumbprint": "[parameters('authCertificateThumbprint')]",
+                "CertificateStoreLocation": "CurrentUser",
+                "PasswordRecoveryUrl": "[concat('https://', parameters('singleWebAppHostName'))]",
+                "License Xml": "[parameters('licenseXml')]",
+                "AllowedCorsOrigins": "[concat('https://', parameters('singleWebAppHostName'))]",
+                "ClientSecret": "[parameters('siClientSecret')]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[concat(variables('siWebAppNameTidy'), '/', 'appsettings')]",
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "[variables('webApiVersion')]",
+      "properties": {
+        "WEBSITE_DYNAMIC_CACHE": 0,
+        "WEBSITE_LOAD_CERTIFICATES": "[parameters('authCertificateThumbprint')]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites/extensions', variables('siWebAppNameTidy'),'MSDeploy')]"
+      ]
+    },
     {
       "name": "[concat(variables('singleWebAppNameTidy'), '/', 'MSDeploy')]",
       "type": "Microsoft.Web/sites/extensions",
@@ -294,6 +389,8 @@
               "Sitecore Admin New Password": "[parameters('sitecoreAdminPassword')]",
               "Core DB User Name": "[parameters('coreSqlDatabaseUserName')]",
               "Core DB Password": "[parameters('coreSqlDatabasePassword')]",
+              "Security DB User Name": "[parameters('securitySqlDatabaseUserName')]",
+              "Security DB Password": "[parameters('securitySqlDatabasePassword')]",
               "Master DB User Name": "[parameters('masterSqlDatabaseUserName')]",
               "Master DB Password": "[parameters('masterSqlDatabasePassword')]",
               "Web DB User Name": "[parameters('webSqlDatabaseUserName')]",
@@ -302,18 +399,17 @@
               "Experience Forms DB Password": "[parameters('formsSqlDatabasePassword')]",
               "EXM Master DB User Name": "[parameters('exmMasterSqlDatabaseUserName')]",
               "EXM Master DB Password": "[parameters('exmMasterSqlDatabasePassword')]",
-              "Reporting DB User Name": "[parameters('reportingSqlDatabaseUserName')]",
-              "Reporting DB Password": "[parameters('reportingSqlDatabasePassword')]",
               "XDB Processing Tasks DB User Name": "[parameters('tasksSqlDatabaseUserName')]",
               "XDB Processing Tasks DB Password": "[parameters('tasksSqlDatabasePassword')]",
               "Core Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('coreSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
+              "Security Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('securitySqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
               "Master Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('masterSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
               "Web Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('webSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
               "Experience Forms Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('formsSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
               "EXM Master Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('exmMasterSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
-              "Reporting Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('repSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
               "XDB Processing Tasks Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('tasksSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
               "Core Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('coreSqlDatabaseNameTidy'),';User Id=', parameters('coreSqlDatabaseUserName'), ';Password=', parameters('coreSqlDatabasePassword'), ';')]",
+              "Security Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('securitySqlDatabaseNameTidy'),';User Id=', parameters('securitySqlDatabaseUserName'), ';Password=', parameters('securitySqlDatabasePassword'), ';')]",
               "Master Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('masterSqlDatabaseNameTidy'),';User Id=', parameters('masterSqlDatabaseUserName'), ';Password=', parameters('masterSqlDatabasePassword'), ';')]",
               "Web Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('webSqlDatabaseNameTidy'),';User Id=', parameters('webSqlDatabaseUserName'), ';Password=', parameters('webSqlDatabasePassword'), ';')]",
               "Reporting Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('repSqlDatabaseNameTidy'),';User Id=', parameters('reportingSqlDatabaseUserName'), ';Password=', parameters('reportingSqlDatabasePassword'), ';')]",
@@ -323,21 +419,27 @@
               "XDB Processing Tasks Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('tasksSqlDatabaseNameTidy'),';User Id=', parameters('tasksSqlDatabaseUserName'), ';Password=', parameters('tasksSqlDatabasePassword'), ';')]",
               "XDB Reference Data Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('refDataSqlDatabaseNameTidy'),';User Id=', parameters('xcRefDataSqlDatabaseUserName'), ';Password=', parameters('xcRefDataSqlDatabasePassword'), ';')]",
               "Search Provider": "[variables('searchProvider')]",
-              "Cloud Search Connection String": "[if(equals(variables('searchProvider'), 'Azure'), concat('serviceUrl=https://', variables('searchServiceNameTidy'), '.search.windows.net;apiVersion=', variables('searchPreviewApiVersion'), ';apiKey=', listAdminKeys(resourceId('Microsoft.Search/searchServices', variables('searchServiceNameTidy')), variables('searchApiVersion')).primaryKey), '')]",
+              "Cloud Search Connection String": "[if(equals(variables('searchProvider'), 'Azure'), concat('serviceUrl=https://', variables('searchServiceNameTidy'), '.search.windows.net;apiVersion=', variables('searchRestApiVersion'), ';apiKey=', listAdminKeys(resourceId('Microsoft.Search/searchServices', variables('searchServiceNameTidy')), variables('searchApiVersion')).primaryKey), '')]",
               "SOLR Connection String": "[parameters('solrConnectionString')]",
               "Messaging Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('messagingSqlDatabaseNameTidy'),';User Id=', parameters('messagingSqlDatabaseUserName'), ';Password=', parameters('messagingSqlDatabasePassword'), ';')]",
-              "Application Insights Instrumentation Key": "[reference(resourceId('Microsoft.Insights/Components', variables('applicationInsightsNameTidy')), variables('applicationInsightsApiVersion')).InstrumentationKey]",
-              "Application Insights Role": "Single",
+              "Application Insights Instrumentation Key": "[if(parameters('useApplicationInsights'), reference(resourceId('Microsoft.Insights/Components', variables('applicationInsightsNameTidy')), variables('applicationInsightsApiVersion')).InstrumentationKey, '')]",
+              "Application Insights Role": "[if(parameters('useApplicationInsights'), 'Single', '')]",
+              "Store Sitecore Counters In Application Insights": "[if(parameters('useApplicationInsights'), string(parameters('storeSitecoreCountersInApplicationInsights')), 'false')]",
+              "Use Application Insights": "[string(parameters('useApplicationInsights'))]",
               "XConnect Collection": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
               "XDB Reference Data Client": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
               "XDB MA Reporting Client": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
               "XDB MA Ops Client": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
+              "Cortex Reporting Client": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcSingleWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
               "XConnect Collection Certificate": "[concat('StoreName=My;StoreLocation=CurrentUser;FindType=FindByThumbprint;FindValue=', parameters('authCertificateThumbprint'))]",
               "XDB Reference Data Client Certificate": "[concat('StoreName=My;StoreLocation=CurrentUser;FindType=FindByThumbprint;FindValue=', parameters('authCertificateThumbprint'))]",
               "XDB MA Reporting Client Certificate": "[concat('StoreName=My;StoreLocation=CurrentUser;FindType=FindByThumbprint;FindValue=', parameters('authCertificateThumbprint'))]",
               "XDB MA Ops Client Certificate": "[concat('StoreName=My;StoreLocation=CurrentUser;FindType=FindByThumbprint;FindValue=', parameters('authCertificateThumbprint'))]",
+              "Cortex Reporting Client Certificate": "[concat('StoreName=My;StoreLocation=CurrentUser;FindType=FindByThumbprint;FindValue=', parameters('authCertificateThumbprint'))]",
               "Allow Invalid Client Certificates": "[parameters('allowInvalidClientCertificates')]",
               "License Xml": "[parameters('licenseXml')]",
+              "Sitecore Identity Authority": "[concat('https://', parameters('siWebAppHostName'))]",
+              "Sitecore Identity Secret": "[parameters('siClientSecret')]",
               "Telerik Encryption Key": "[parameters('telerikEncryptionKey')]",
               "EXM EDS Provider": "[parameters('exmEdsProvider')]",
               "EXM Cryptographic Key": "[parameters('exmCryptographicKey')]",
@@ -353,7 +455,8 @@
       "apiVersion": "[variables('webApiVersion')]",
       "properties": {
         "WEBSITE_LOAD_CERTIFICATES": "[parameters('authCertificateThumbprint')]",
-        "WEBSITE_DYNAMIC_CACHE": 0
+        "WEBSITE_DYNAMIC_CACHE": 0,
+        "WEBSITE_NODE_DEFAULT_VERSION":"[parameters('nodeJsVersion')]"
       },
       "dependsOn": [
         "[concat('Microsoft.Web/Sites/', variables('singleWebAppNameTidy'), '/Extensions/MSDeploy')]"

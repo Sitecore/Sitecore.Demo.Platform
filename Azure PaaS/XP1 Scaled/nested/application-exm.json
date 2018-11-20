@@ -4,12 +4,13 @@
   "variables": {
     "webApiVersion": "2016-08-01",
     "searchApiVersion": "2015-08-19",
-    "searchPreviewApiVersion": "2015-02-28-preview",
+    "searchRestApiVersion": "2017-11-11",
     "appInsightsApiVersion": "2015-05-01",
 
     "sqlServerFqdnTidy": "[trim(toLower(parameters('sqlServerFqdn')))]",
 
     "coreSqlDatabaseNameTidy": "[toLower(trim(parameters('coreSqlDatabaseName')))]",
+    "securitySqlDatabaseNameTidy": "[toLower(trim(parameters('securitySqlDatabaseName')))]",
     "webSqlDatabaseNameTidy": "[toLower(trim(parameters('webSqlDatabaseName')))]",
     "masterSqlDatabaseNameTidy": "[toLower(trim(parameters('masterSqlDatabaseName')))]",
     "refDataSqlDatabaseNameTidy": "[toLower(trim(parameters('refDataSqlDatabaseName')))]",
@@ -29,7 +30,7 @@
     "appInsightsNameTidy": "[toLower(trim(parameters('applicationInsightsName')))]",
 
     "searchProvider": "[if(empty(parameters('solrConnectionString')), 'Azure', 'Solr')]",
-    
+
     "searchServiceNameTidy": "[toLower(trim(parameters('searchServiceName')))]",
 
     "dedicatedDispatchService": "/sitecore%20modules/web/exm/dedicateddispatchservice.asmx"
@@ -39,6 +40,7 @@
       "type": "secureObject",
       "defaultValue": {
         "sqlServerFqdn": null,
+        "siWebAppHostName": null,
         "authCertificateThumbprint": null
       }
     },
@@ -84,6 +86,11 @@
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-core-db')]"
     },
+    "securitySqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-core-db')]"
+    },
     "masterSqlDatabaseName": {
       "type": "string",
       "minLength": 1,
@@ -123,6 +130,16 @@
       "type": "securestring",
       "minLength": 8,
       "defaultValue": "[concat(toUpper(uniqueString('core', parameters('passwordSalt'))), uniqueString('core', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('core', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
+    },
+    "securitySqlDatabaseUserName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "securityuser"
+    },
+    "securitySqlDatabasePassword": {
+      "type": "securestring",
+      "minLength": 8,
+      "defaultValue": "[concat(toUpper(uniqueString('security', parameters('passwordSalt'))), uniqueString('security', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('security', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
     },
     "masterSqlDatabaseUserName": {
       "type": "string",
@@ -193,7 +210,11 @@
       "type": "securestring",
       "defaultValue": ""
     },
-    
+
+    "useApplicationInsights": {
+      "type": "bool",
+      "defaultValue": true
+    },
     "applicationInsightsName": {
       "type": "string",
       "minLength": 1,
@@ -239,6 +260,12 @@
       "type": "string",
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-exm-dds')]"
+    },
+
+    "siWebAppHostName":{
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[parameters('infrastructure').siWebAppHostName]"
     },
 
     "authCertificateThumbprint": {
@@ -293,6 +320,11 @@
       "defaultValue": "CustomSMTP"
     },
 
+    "siClientSecret": {
+      "type": "securestring",
+      "minLength": 6,
+      "defaultValue": "[toUpper(replace(guid(uniqueString('siClientSecret', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '-',''))]"
+    },
     "telerikEncryptionKey": {
       "type": "securestring",
       "minLength": 8,
@@ -352,6 +384,7 @@
             "setParameters": {
               "Application Path": "[variables('exmDdsWebAppNameTidy')]",
               "Core Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('coreSqlDatabaseNameTidy'),';User Id=', parameters('coreSqlDatabaseUserName'), ';Password=', parameters('coreSqlDatabasePassword'), ';')]",
+              "Security Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('securitySqlDatabaseNameTidy'),';User Id=', parameters('securitySqlDatabaseUserName'), ';Password=', parameters('securitySqlDatabasePassword'), ';')]",
               "Master Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('masterSqlDatabaseNameTidy'),';User Id=', parameters('masterSqlDatabaseUserName'), ';Password=', parameters('masterSqlDatabasePassword'), ';')]",
               "Web Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('webSqlDatabaseNameTidy'),';User Id=', parameters('webSqlDatabaseUserName'), ';Password=', parameters('webSqlDatabasePassword'), ';')]",
               "EXM Master Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('exmMasterSqlDatabaseNameTidy'),';User Id=', parameters('exmMasterSqlDatabaseUserName'), ';Password=', parameters('exmMasterSqlDatabasePassword'), ';')]",
@@ -365,13 +398,15 @@
               "XDB MA Reporting Client": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('maRepWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
               "XDB MA Ops Client": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('maOpsWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
               "Search Provider": "[variables('searchProvider')]",
-              "Cloud Search Connection String": "[if(equals(variables('searchProvider'), 'Azure'), concat('serviceUrl=https://', variables('searchServiceNameTidy'), '.search.windows.net;apiVersion=', variables('searchPreviewApiVersion'), ';apiKey=', listAdminKeys(resourceId('Microsoft.Search/searchServices', variables('searchServiceNameTidy')), variables('searchApiVersion')).primaryKey), '')]",
+              "Cloud Search Connection String": "[if(equals(variables('searchProvider'), 'Azure'), concat('serviceUrl=https://', variables('searchServiceNameTidy'), '.search.windows.net;apiVersion=', variables('searchRestApiVersion'), ';apiKey=', listAdminKeys(resourceId('Microsoft.Search/searchServices', variables('searchServiceNameTidy')), variables('searchApiVersion')).primaryKey), '')]",
               "SOLR Connection String": "[parameters('solrConnectionString')]",
               "Messaging Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('messagingSqlDatabaseNameTidy'),';User Id=', parameters('messagingSqlDatabaseUserName'), ';Password=', parameters('messagingSqlDatabasePassword'), ';')]",
-              "Application Insights Instrumentation Key": "[reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey]",
-              "Application Insights Role": "DDS",
+              "Application Insights Instrumentation Key": "[if(parameters('useApplicationInsights'), reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey, '')]",
+              "Application Insights Role": "[if(parameters('useApplicationInsights'), 'DDS', '')]",
               "IP Security Client IP": "[parameters('securityClientIp')]",
               "IP Security Client IP Mask": "[parameters('securityClientIpMask')]",
+              "Sitecore Identity Authority": "[concat('https://', parameters('siWebAppHostName'))]",
+              "Sitecore Identity Secret": "[parameters('siClientSecret')]",
               "Telerik Encryption Key": "[parameters('telerikEncryptionKey')]",
               "XConnect Collection Certificate": "[concat('StoreName=My;StoreLocation=CurrentUser;FindType=FindByThumbprint;FindValue=', parameters('authCertificateThumbprint'))]",
               "XDB Reference Data Client Certificate": "[concat('StoreName=My;StoreLocation=CurrentUser;FindType=FindByThumbprint;FindValue=', parameters('authCertificateThumbprint'))]",

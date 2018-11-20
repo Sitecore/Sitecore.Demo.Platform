@@ -6,31 +6,55 @@
       "value": ""
     },
     "location": {
-      "value": "AZURE REGION"
+      "value": ""
     },
     "sitecoreAdminPassword": {
-      "value": "<8 Character Minimum>"
+      "value": ""
     },
     "licenseXml": {
-      "value": "<ABSOLUTE LOCAL PATH\\license.xml>"
+      "value": ""
     },
     "sqlServerLogin": {
-      "value": "<SA is not a valid admin name for Azure SQL>"
+      "value": ""
     },
     "sqlServerPassword": {
       "value": ""
     },
+    "siMsDeployPackageUrl": {
+      "value": ""
+    },
     "singleMsDeployPackageUrl": {
-      "value": "<URL with SAS to Private Azure Storage for XP0>"
+      "value": ""
     },
     "xcSingleMsDeployPackageUrl": {
-      "value": "<URL with SAS to Private Azure Storage for XP0 XC>"
+      "value": ""
+    },
+    "authCertificateBlob": {
+      "value": ""
     },
     "authCertificatePassword": {
-      "value": "<Password for Cert Being passed>"
+      "value": ""
     },
     "allowInvalidClientCertificates": {
       "value": true
+    },
+    "machineLearningServerConnectionString": {
+      "value": ""
+    },
+    "machineLearningServerBlobEndpointCertificatePath": {
+      "value": ""
+    },
+    "machineLearningServerBlobEndpointCertificatePassword": {
+      "value": ""
+    },
+    "machineLearningServerTableEndpointCertificatePath": {
+      "value": ""
+    },
+    "machineLearningServerTableEndpointCertificatePassword": {
+      "value": ""
+    },
+    "machineLearningServerEndpointCertificationAuthorityCertificatePath": {
+      "value": ""
     },
     "modules": {
       "value": {

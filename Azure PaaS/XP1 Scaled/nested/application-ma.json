@@ -78,10 +78,10 @@
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-smm-db')]"
     },
-    "messagingSqlDatabaseName" : {
+    "messagingSqlDatabaseName": {
       "type": "string",
-      "minLength" : 1,
-      "defaultValue" : "[concat(parameters('deploymentId'), '-messaging-db')]"
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-messaging-db')]"
     },
 
     "poolsSqlDatabaseUserName": {
@@ -135,6 +135,10 @@
       "defaultValue": "[concat(toUpper(uniqueString('messaging', parameters('passwordSalt'))), uniqueString('messaging', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('messaging', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
     },
 
+    "useApplicationInsights": {
+      "type": "bool",
+      "defaultValue": true
+    },
     "applicationInsightsName": {
       "type": "string",
       "minLength": 1,
@@ -179,7 +183,7 @@
 
     "allowInvalidClientCertificates": {
       "type": "bool",
-      "defaultValue":false
+      "defaultValue": false
     },
 
     "passwordSalt": {
@@ -232,7 +236,7 @@
           "Marketing Automation Engine Xdb Reference Data Endpoint": "[concat('https://', reference(resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Web/sites', variables('xcRefDataWebAppNameTidy')), variables('webApiVersion')).hostNames[0])]",
           "Marketing Automation Engine Xdb Reference Data Client Certificate Thumbprint": "[parameters('authCertificateThumbprint')]",
           "Allow Invalid Client Certificates": "[parameters('allowInvalidClientCertificates')]",
-          "XConnect Server Application Insights Key": "[reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey]",
+          "XConnect Server Application Insights Key": "[if(parameters('useApplicationInsights'), reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey, '')]",
           "XConnect Server Instance Name": "MarketingAutomation",
           "License Xml": "[parameters('licenseXml')]"
         }
@@ -257,7 +261,7 @@
           "XConnect Server Configuration Environment": "[parameters('xcServerConfigurationEnvironment')]",
           "XConnect Server Certificate Validation Thumbprint": "[parameters('authCertificateThumbprint')]",
           "Allow Invalid Client Certificates": "[parameters('allowInvalidClientCertificates')]",
-          "XConnect Server Application Insights Key": "[reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey]",
+          "XConnect Server Application Insights Key": "[if(parameters('useApplicationInsights'), reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey, '')]",
           "XConnect Server Instance Name": "MarketingAutomationReporting",
           "License Xml": "[parameters('licenseXml')]"
         }

@@ -12,8 +12,11 @@
     "shard0SqlDatabaseNameTidy": "[toLower(trim(parameters('shard0SqlDatabaseName')))]",
     "shard1SqlDatabaseNameTidy": "[toLower(trim(parameters('shard1SqlDatabaseName')))]",
     "refDataSqlDatabaseNameTidy": "[toLower(trim(parameters('refDataSqlDatabaseName')))]",
+    "reportingSqlDatabaseNameTidy": "[toLower(trim(parameters('reportingSqlDatabaseName')))]",
     "maSqlDatabaseNameTidy": "[toLower(trim(parameters('maSqlDatabaseName')))]",
     "messagingSqlDatabaseNameTidy": "[toLower(trim(parameters('messagingSqlDatabaseName')))]",
+    "processingEngineTasksSqlDatabaseNameTidy": "[toLower(trim(parameters('processingEngineTasksSqlDatabaseName')))]",
+    "processingEngineStorageSqlDatabaseNameTidy": "[toLower(trim(parameters('processingEngineStorageSqlDatabaseName')))]",
 
     "xcSingleHostingPlanNameTidy": "[toLower(trim(parameters('xcSingleHostingPlanName')))]",
 
@@ -23,11 +26,14 @@
       "provider": "b51535c2-ab3e-4a68-95f8-e2e3c9a19299",
       "xcSingle": "xc-single",
       "xcRefData": "xc-refdata",
+      "reporting": "reporting",
       "xcShard0": "xc-shard-0",
       "xcShard1": "xc-shard-1",
       "xcShardMapManager": "xc-smm",
       "ma": "ma",
-      "messaging": "messaging"
+      "messaging": "messaging",
+      "cortexProcessingEngineTasks": "processingenginetasks",
+      "cortexProcessingEngineStorage": "processingenginestorage"
     }
   },
   "parameters": {
@@ -88,6 +94,11 @@
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-refdata-db')]"
     },
+    "reportingSqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-reporting-db')]"
+    },
     "maSqlDatabaseName": {
       "type": "string",
       "minLength": 1,
@@ -97,6 +108,16 @@
       "type": "string",
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-messaging-db')]"
+    },
+    "processingEngineTasksSqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-processingenginetasks-db')]"
+    },
+    "processingEngineStorageSqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-processingenginestorage-db')]"
     },
 
     "xcSingleHostingPlanName": {
@@ -189,6 +210,35 @@
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
         "logicalName": "[variables('sitecoreTags').xcRefData]"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "name": "[concat(variables('sqlServerNameTidy'), '/', variables('reportingSqlDatabaseNameTidy'))]",
+      "location": "[parameters('location')]",
+      "apiVersion": "[variables('dbApiVersion')]",
+      "properties": {
+        "edition": "[parameters('sqlDatabaseEdition')]",
+        "collation": "[parameters('sqlDatabaseCollation')]",
+        "maxSizeBytes": "[parameters('sqlDatabaseMaxSize')]",
+        "requestedServiceObjectiveName": "[parameters('sqlBasicDatabaseServiceObjectiveLevel')]"
+      },
+      "resources": [
+        {
+          "name": "current",
+          "type": "transparentDataEncryption",
+          "dependsOn": [
+            "[variables('reportingSqlDatabaseNameTidy')]"
+          ],
+          "apiVersion": "2014-04-01",
+          "properties": {
+            "status": "Enabled"
+          }
+        }
+      ],
+      "tags": {
+        "provider": "[variables('sitecoreTags').provider]",
+        "logicalName": "[variables('sitecoreTags').reporting]"
       }
     },
     {
@@ -334,6 +384,64 @@
       "tags": {
         "provider": "[variables('sitecoreTags').provider]",
         "logicalName": "[variables('sitecoreTags').messaging]"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "name": "[concat(variables('sqlServerNameTidy'), '/', variables('processingEngineTasksSqlDatabaseNameTidy'))]",
+      "location": "[parameters('location')]",
+      "apiVersion": "[variables('dbApiVersion')]",
+      "properties": {
+        "edition": "[parameters('sqlDatabaseEdition')]",
+        "collation": "[parameters('sqlDatabaseCollation')]",
+        "maxSizeBytes": "[parameters('sqlDatabaseMaxSize')]",
+        "requestedServiceObjectiveName": "[parameters('sqlBasicDatabaseServiceObjectiveLevel')]"
+      },
+      "resources": [
+        {
+          "name": "current",
+          "type": "transparentDataEncryption",
+          "dependsOn": [
+            "[variables('processingEngineTasksSqlDatabaseNameTidy')]"
+          ],
+          "apiVersion": "2014-04-01",
+          "properties": {
+            "status": "Enabled"
+          }
+        }
+      ],
+      "tags": {
+        "provider": "[variables('sitecoreTags').provider]",
+        "logicalName": "[variables('sitecoreTags').cortexProcessingEngineTasks]"
+      }
+    },
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "name": "[concat(variables('sqlServerNameTidy'), '/', variables('processingEngineStorageSqlDatabaseNameTidy'))]",
+      "location": "[parameters('location')]",
+      "apiVersion": "[variables('dbApiVersion')]",
+      "properties": {
+        "edition": "[parameters('sqlDatabaseEdition')]",
+        "collation": "[parameters('sqlDatabaseCollation')]",
+        "maxSizeBytes": "[parameters('sqlDatabaseMaxSize')]",
+        "requestedServiceObjectiveName": "[parameters('sqlBasicDatabaseServiceObjectiveLevel')]"
+      },
+      "resources": [
+        {
+          "name": "current",
+          "type": "transparentDataEncryption",
+          "dependsOn": [
+            "[variables('processingEngineStorageSqlDatabaseNameTidy')]"
+          ],
+          "apiVersion": "2014-04-01",
+          "properties": {
+            "status": "Enabled"
+          }
+        }
+      ],
+      "tags": {
+        "provider": "[variables('sitecoreTags').provider]",
+        "logicalName": "[variables('sitecoreTags').cortexProcessingEngineStorage]"
       }
     }
   ]

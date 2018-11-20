@@ -77,6 +77,11 @@
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-refdata-db')]"
     },
+    "reportingSqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-reporting-db')]"
+    },
     "maSqlDatabaseName": {
       "type": "string",
       "minLength": 1,
@@ -86,6 +91,16 @@
       "type": "string",
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-messaging-db')]"
+    },
+    "processingEngineTasksSqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-processingenginetasks-db')]"
+    },
+    "processingEngineStorageSqlDatabaseName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "[concat(parameters('deploymentId'), '-processingenginestorage-db')]"
     },
 
     "poolsSqlDatabaseUserName": {
@@ -138,6 +153,26 @@
       "minLength": 8,
       "defaultValue": "[concat(toUpper(uniqueString('messaging', parameters('passwordSalt'))), uniqueString('messaging', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('messaging', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
     },
+    "processingEngineSqlDatabaseUserName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "processingengineuser"
+    },
+    "processingEngineSqlDatabasePassword": {
+      "type": "securestring",
+      "minLength": 8,
+      "defaultValue": "[concat(toUpper(uniqueString('processingengine', parameters('passwordSalt'))), uniqueString('processingengine', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('processingengine', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
+    },
+    "reportingSqlDatabaseUserName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "reportinguser"
+    },
+    "reportingSqlDatabasePassword": {
+      "type": "securestring",
+      "minLength": 8,
+      "defaultValue": "[concat(toUpper(uniqueString('reporting', parameters('passwordSalt'))), uniqueString('reporting', parameters('sqlServerPassword'), parameters('passwordSalt')), toUpper(uniqueString('reporting', parameters('sitecoreAdminPassword'), parameters('passwordSalt'))), '4@')]"
+    },
 
     "searchServiceName": {
       "type": "string",
@@ -154,6 +189,15 @@
       "defaultValue": ""
     },
 
+    "machineLearningServerConnectionString": {
+      "type": "securestring",
+      "defaultValue": ""
+    },
+
+    "useApplicationInsights": {
+      "type": "bool",
+      "defaultValue": true
+    },
     "applicationInsightsName": {
       "type": "string",
       "minLength": 1,
@@ -186,6 +230,27 @@
       "type": "securestring",
       "minLength": 1,
       "defaultValue": "[resourceGroup().id]"
+    },
+
+    "machineLearningServerBlobEndpointCertificatePath": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "machineLearningServerBlobEndpointCertificatePassword": {
+      "type": "securestring",
+      "defaultValue": ""
+    },
+    "machineLearningServerTableEndpointCertificatePath": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "machineLearningServerTableEndpointCertificatePassword": {
+      "type": "securestring",
+      "defaultValue": ""
+    },
+    "machineLearningServerEndpointCertificationAuthorityCertificatePath": {
+      "type": "string",
+      "defaultValue": ""
     }
   },
   "resources": [
@@ -240,11 +305,20 @@
           "refDataSqlDatabaseName": {
             "value": "[parameters('refDataSqlDatabaseName')]"
           },
+          "reportingSqlDatabaseName": {
+            "value": "[parameters('reportingSqlDatabaseName')]"
+          },
           "maSqlDatabaseName": {
             "value": "[parameters('maSqlDatabaseName')]"
           },
           "messagingSqlDatabaseName": {
             "value": "[parameters('messagingSqlDatabaseName')]"
+          },
+          "processingEngineTasksSqlDatabaseName": {
+            "value": "[parameters('processingEngineTasksSqlDatabaseName')]"
+          },
+          "processingEngineStorageSqlDatabaseName": {
+            "value": "[parameters('processingEngineStorageSqlDatabaseName')]"
           },
 
           "poolsSqlDatabaseUserName": {
@@ -258,6 +332,12 @@
           },
           "xcRefDataSqlDatabasePassword": {
             "value": "[parameters('xcRefDataSqlDatabasePassword')]"
+          },
+          "reportingSqlDatabaseUserName": {
+            "value": "[parameters('reportingSqlDatabaseUserName')]"
+          },
+          "reportingSqlDatabasePassword": {
+            "value": "[parameters('reportingSqlDatabasePassword')]"
           },
           "xcShardMapManagerSqlDatabaseUserName": {
             "value": "[parameters('xcShardMapManagerSqlDatabaseUserName')]"
@@ -277,6 +357,12 @@
           "messagingSqlDatabasePassword": {
             "value": "[parameters('messagingSqlDatabasePassword')]"
           },
+          "processingEngineSqlDatabaseUserName": {
+            "value": "[parameters('processingEngineSqlDatabaseUserName')]"
+          },
+          "processingEngineSqlDatabasePassword": {
+            "value": "[parameters('processingEngineSqlDatabasePassword')]"
+          },
 
           "searchServiceName": {
             "value": "[parameters('searchServiceName')]"
@@ -285,6 +371,13 @@
             "value": "[parameters('xcSearchIndexName')]"
           },
 
+          "machineLearningServerConnectionString": {
+            "value": "[parameters('machineLearningServerConnectionString')]"
+          },
+
+          "useApplicationInsights": {
+            "value": "[parameters('useApplicationInsights')]"
+          },
           "applicationInsightsName": {
             "value": "[parameters('applicationInsightsName')]"
           },
@@ -307,6 +400,22 @@
 
           "passwordSalt": {
             "value": "[parameters('passwordSalt')]"
+          },
+
+          "machineLearningServerBlobEndpointCertificatePath": {
+            "value": "[parameters('machineLearningServerBlobEndpointCertificatePath')]"
+          },
+          "machineLearningServerBlobEndpointCertificatePassword": {
+            "value": "[parameters('machineLearningServerBlobEndpointCertificatePassword')]"
+          },
+          "machineLearningServerTableEndpointCertificatePath": {
+            "value": "[parameters('machineLearningServerTableEndpointCertificatePath')]"
+          },
+          "machineLearningServerTableEndpointCertificatePassword": {
+            "value": "[parameters('machineLearningServerTableEndpointCertificatePassword')]"
+          },
+          "machineLearningServerEndpointCertificationAuthorityCertificatePath": {
+            "value": "[parameters('machineLearningServerEndpointCertificationAuthorityCertificatePath')]"
           }
         }
       }
@@ -362,11 +471,20 @@
           "refDataSqlDatabaseName": {
             "value": "[parameters('refDataSqlDatabaseName')]"
           },
+          "reportingSqlDatabaseName": {
+            "value": "[parameters('reportingSqlDatabaseName')]"
+          },
           "maSqlDatabaseName": {
             "value": "[parameters('maSqlDatabaseName')]"
           },
           "messagingSqlDatabaseName": {
             "value": "[parameters('messagingSqlDatabaseName')]"
+          },
+          "processingEngineTasksSqlDatabaseName": {
+            "value": "[parameters('processingEngineTasksSqlDatabaseName')]"
+          },
+          "processingEngineStorageSqlDatabaseName": {
+            "value": "[parameters('processingEngineStorageSqlDatabaseName')]"
           },
 
           "poolsSqlDatabaseUserName": {
@@ -380,6 +498,12 @@
           },
           "xcRefDataSqlDatabasePassword": {
             "value": "[parameters('xcRefDataSqlDatabasePassword')]"
+          },
+          "reportingSqlDatabaseUserName": {
+            "value": "[parameters('reportingSqlDatabaseUserName')]"
+          },
+          "reportingSqlDatabasePassword": {
+            "value": "[parameters('reportingSqlDatabasePassword')]"
           },
           "xcShardMapManagerSqlDatabaseUserName": {
             "value": "[parameters('xcShardMapManagerSqlDatabaseUserName')]"
@@ -399,6 +523,12 @@
           "messagingSqlDatabasePassword": {
             "value": "[parameters('messagingSqlDatabasePassword')]"
           },
+          "processingEngineSqlDatabaseUserName": {
+            "value": "[parameters('processingEngineSqlDatabaseUserName')]"
+          },
+          "processingEngineSqlDatabasePassword": {
+            "value": "[parameters('processingEngineSqlDatabasePassword')]"
+          },
 
           "xcSearchIndexName": {
             "value": "[parameters('xcSearchIndexName')]"
@@ -408,6 +538,13 @@
             "value": "[parameters('xcSolrConnectionString')]"
           },
 
+          "machineLearningServerConnectionString": {
+            "value": "[parameters('machineLearningServerConnectionString')]"
+          },
+
+          "useApplicationInsights": {
+            "value": "[parameters('useApplicationInsights')]"
+          },
           "applicationInsightsName": {
             "value": "[parameters('applicationInsightsName')]"
           },
@@ -430,6 +567,22 @@
 
           "passwordSalt": {
             "value": "[parameters('passwordSalt')]"
+          },
+
+          "machineLearningServerBlobEndpointCertificatePath": {
+            "value": "[parameters('machineLearningServerBlobEndpointCertificatePath')]"
+          },
+          "machineLearningServerBlobEndpointCertificatePassword": {
+            "value": "[parameters('machineLearningServerBlobEndpointCertificatePassword')]"
+          },
+          "machineLearningServerTableEndpointCertificatePath": {
+            "value": "[parameters('machineLearningServerTableEndpointCertificatePath')]"
+          },
+          "machineLearningServerTableEndpointCertificatePassword": {
+            "value": "[parameters('machineLearningServerTableEndpointCertificatePassword')]"
+          },
+          "machineLearningServerEndpointCertificationAuthorityCertificatePath": {
+            "value": "[parameters('machineLearningServerEndpointCertificationAuthorityCertificatePath')]"
           }
         }
       }

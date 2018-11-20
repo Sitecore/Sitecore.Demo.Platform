@@ -177,6 +177,10 @@
       "defaultValue": ""
     },
 
+    "useApplicationInsights": {
+      "type": "bool",
+      "defaultValue": true
+    },
     "applicationInsightsName": {
       "type": "string",
       "minLength": 1,
@@ -217,10 +221,9 @@
       "type": "securestring",
       "minLength": 1
     },
-
     "allowInvalidClientCertificates": {
       "type": "bool",
-      "defaultValue":false
+      "defaultValue": false
     },
 
     "passwordSalt": {
@@ -256,7 +259,7 @@
           "XConnect Server Configuration Environment": "[parameters('xcServerConfigurationEnvironment')]",
           "XConnect Server Certificate Validation Thumbprint": "[parameters('authCertificateThumbprint')]",
           "Allow Invalid Client Certificates": "[parameters('allowInvalidClientCertificates')]",
-          "XConnect Server Application Insights Key": "[reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey]",
+          "XConnect Server Application Insights Key": "[if(parameters('useApplicationInsights'), reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey, '')]",
           "XConnect Server Instance Name": "ReferenceData",
           "License Xml": "[parameters('licenseXml')]"
         }
@@ -294,7 +297,7 @@
           "XConnect Server Configuration Environment": "[parameters('xcServerConfigurationEnvironment')]",
           "XConnect Server Certificate Validation Thumbprint": "[parameters('authCertificateThumbprint')]",
           "Allow Invalid Client Certificates": "[parameters('allowInvalidClientCertificates')]",
-          "XConnect Server Application Insights Key": "[reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey]",
+          "XConnect Server Application Insights Key": "[if(parameters('useApplicationInsights'), reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey, '')]",
           "XConnect Server Instance Name": "Collection",
           "License Xml": "[parameters('licenseXml')]"
         }
@@ -402,7 +405,10 @@
           "xcSearchIndexName": {
             "value": "[parameters('xcSearchIndexName')]"
           },
-          
+
+          "useApplicationInsights": {
+            "value": "[parameters('useApplicationInsights')]"
+          },
           "applicationInsightsName": {
             "value": "[parameters('applicationInsightsName')]"
           },
@@ -514,6 +520,9 @@
             "value": "[parameters('xcSolrConnectionString')]"
           },
 
+          "useApplicationInsights": {
+            "value": "[parameters('useApplicationInsights')]"
+          },
           "applicationInsightsName": {
             "value": "[parameters('applicationInsightsName')]"
           },
@@ -539,5 +548,6 @@
         "[resourceId('Microsoft.Web/sites/extensions', variables('xcCollectWebAppNameTidy'),'MSDeploy')]"
       ]
     }
+    
   ]
 }

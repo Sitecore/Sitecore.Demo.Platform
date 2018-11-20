@@ -138,6 +138,10 @@
       "minLength": 1
     },
 
+    "useApplicationInsights": {
+      "type": "bool",
+      "defaultValue": true
+    },
     "applicationInsightsName": {
       "type": "string",
       "minLength": 1,
@@ -163,7 +167,7 @@
 
     "allowInvalidClientCertificates": {
       "type": "bool",
-      "defaultValue":false
+      "defaultValue": false
     },
 
     "passwordSalt": {
@@ -207,7 +211,7 @@
           "XConnect Server Configuration Environment": "[parameters('xcServerConfigurationEnvironment')]",
           "XConnect Server Certificate Validation Thumbprint": "[parameters('authCertificateThumbprint')]",
           "Allow Invalid Client Certificates": "[parameters('allowInvalidClientCertificates')]",
-          "XConnect Server Application Insights Key": "[reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey]",
+          "XConnect Server Application Insights Key": "[if(parameters('useApplicationInsights'), reference(resourceId('Microsoft.Insights/Components', variables('appInsightsNameTidy')), variables('appInsightsApiVersion')).InstrumentationKey, '')]",
           "XConnect Server Instance Name": "CollectionSearch",
           "License Xml": "[parameters('licenseXml')]",
           "Search SOLR Core Application Connection String": "[variables('xcSolrConnectionString')]"
