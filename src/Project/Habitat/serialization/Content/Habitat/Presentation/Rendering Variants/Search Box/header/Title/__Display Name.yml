@@ -1,16 +1,20 @@
 ﻿---
-ID: "6d43d8d9-6159-4c76-9886-e72e2cf69135"
-Parent: "d3829de5-375d-47e6-a40e-badbf5ba0cc2"
-Template: "6b8aabef-d650-46e0-97d0-c0b04f7f016b"
-Path: "/sitecore/content/Habitat Sites/Habitat Home/Presentation/Styles/Custom/home-carousel"
+ID: "d7810cc9-9882-4435-a1f0-57870234f410"
+Parent: "d136136f-2957-4b0b-8be8-dd195ce533c7"
+Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
+Path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Search Box/header/Title/__Display Name
 DB: master
 SharedFields:
-- ID: "09147fb2-ebfb-4949-8c8e-26a424409d5e"
-  Hint: Value
-  Value: "home-carousel"
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 1100
+- ID: "4753764c-c05a-4623-841b-97f85135241c"
+  Hint: FieldName
+  Value: __Display name
+- ID: "dcb05e5e-7151-4226-a3b0-108c5e2f05b5"
+  Hint: IsLink
+  Type: Checkbox
+  Value: 1
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{BDDB90D1-DD15-44F3-B6EC-D97D01C83558}"
 Languages:
 - Language: en
   Versions:
@@ -18,7 +22,11 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171109T161334Z
+      Value: 20171115T163324Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -40,9 +48,12 @@ Languages:
       Hint: __Final Renderings
       Type: Layout
       Value: 
+    - ID: "15867cb6-e128-4d78-9d4f-739e5963dfc4"
+      Hint: Suffix
+      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171109T161334Z
+      Value: 20171115T163324Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: 
@@ -66,4 +77,7 @@ Languages:
       Value: 0
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
+      Value: 
+    - ID: "fd5230d8-e68d-4e17-9d85-ea676f27ac3a"
+      Hint: Prefix
       Value: 

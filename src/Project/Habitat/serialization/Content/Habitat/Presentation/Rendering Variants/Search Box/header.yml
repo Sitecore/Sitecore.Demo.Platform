@@ -1,20 +1,20 @@
 ﻿---
-ID: "d7810cc9-9882-4435-a1f0-57870234f410"
-Parent: "d136136f-2957-4b0b-8be8-dd195ce533c7"
-Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
-Path: /sitecore/content/Habitat Sites/Habitat Home Basic/Presentation/Rendering Variants/Search Box/header/Title/__Display Name
+ID: "0a54f96b-00f2-4995-9071-d728cfa34cd7"
+Parent: "a91d1f27-5b85-4e7d-a779-97751f7f2455"
+Template: "fb3e3034-33f8-4ce8-be98-dd05010f4c22"
+Path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Search Box/header
 DB: master
 SharedFields:
-- ID: "4753764c-c05a-4623-841b-97f85135241c"
-  Hint: FieldName
-  Value: __Display name
-- ID: "dcb05e5e-7151-4226-a3b0-108c5e2f05b5"
-  Hint: IsLink
-  Type: Checkbox
-  Value: 1
+- ID: "087c0553-9162-41f5-98d3-87eb0d80edbb"
+  Hint: Compatible Renderings
+  Type: TreelistEx
+  Value: 
+- ID: "e1d5adba-8348-4127-9bb6-455936653839"
+  Hint: CssClass
+  Value: "vertical main-search"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: "{BDDB90D1-DD15-44F3-B6EC-D97D01C83558}"
+  Value: "{05ED7B72-651E-4951-8EC8-0CD9045728B0}"
 Languages:
 - Language: en
   Versions:
@@ -48,9 +48,6 @@ Languages:
       Hint: __Final Renderings
       Type: Layout
       Value: 
-    - ID: "15867cb6-e128-4d78-9d4f-739e5963dfc4"
-      Hint: Suffix
-      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171115T163324Z
@@ -77,7 +74,4 @@ Languages:
       Value: 0
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
-      Value: 
-    - ID: "fd5230d8-e68d-4e17-9d85-ea676f27ac3a"
-      Hint: Prefix
       Value: 

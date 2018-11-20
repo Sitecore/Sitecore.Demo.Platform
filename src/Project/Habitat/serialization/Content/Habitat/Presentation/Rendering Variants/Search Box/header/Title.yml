@@ -1,20 +1,20 @@
 ﻿---
-ID: "72823e25-7cb6-47b3-8cbd-44ce5c2989ed"
-Parent: "9dc877ab-03ba-4b90-b155-09c46458b060"
-Template: "fb3e3034-33f8-4ce8-be98-dd05010f4c22"
-Path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Hero/Default
+ID: "d136136f-2957-4b0b-8be8-dd195ce533c7"
+Parent: "0a54f96b-00f2-4995-9071-d728cfa34cd7"
+Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
+Path: /sitecore/content/Habitat Sites/Habitat/Presentation/Rendering Variants/Search Box/header/Title
 DB: master
 SharedFields:
-- ID: "087c0553-9162-41f5-98d3-87eb0d80edbb"
-  Hint: Compatible Renderings
-  Type: TreelistEx
-  Value: 
-- ID: "e1d5adba-8348-4127-9bb6-455936653839"
-  Hint: CssClass
-  Value: "promo promo-hero full-width-container"
+- ID: "4753764c-c05a-4623-841b-97f85135241c"
+  Hint: FieldName
+  Value: Title
+- ID: "dcb05e5e-7151-4226-a3b0-108c5e2f05b5"
+  Hint: IsLink
+  Type: Checkbox
+  Value: 1
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: "{5DF9B10F-F5B5-4E6A-AD58-08125A701147}"
+  Value: "{DF0CB9B9-6A1E-4089-8935-594998111C7B}"
 Languages:
 - Language: en
   Versions:
@@ -22,11 +22,11 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171027T191711Z
+      Value: 20171115T163324Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\virtualssuser
+        sitecore\admin
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -48,9 +48,12 @@ Languages:
       Hint: __Final Renderings
       Type: Layout
       Value: 
+    - ID: "15867cb6-e128-4d78-9d4f-739e5963dfc4"
+      Hint: Suffix
+      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171027T191711Z
+      Value: 20171115T163324Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: 
@@ -60,7 +63,7 @@ Languages:
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\virtualssuser
+        sitecore\admin
     - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
       Hint: __Content Test
       Value: 
@@ -74,4 +77,7 @@ Languages:
       Value: 0
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
+      Value: 
+    - ID: "fd5230d8-e68d-4e17-9d85-ea676f27ac3a"
+      Hint: Prefix
       Value: 
