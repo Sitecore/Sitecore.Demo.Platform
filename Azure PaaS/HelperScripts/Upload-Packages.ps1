@@ -35,6 +35,30 @@ $topology = $configarray[5]
 # Function for WDP uploads
 ##########################
 
+Function CheckMd5{
+    param(
+        [string] $localFilePath,
+        [string] $remoteBlobPath,
+        $container,
+        $context
+    )
+    $localMD5 = Get-FileHash -Path $localFilePath -Algorithm MD5
+   
+    try {
+       $blob = Get-AzureStorageBlob -Blob $remoteBlobPath -Container $container -Context $context
+       $cloudMD5 =  $blob.ICloudBlob.Properties.ContentMD5
+    }
+    catch{
+        $cloudMd5 = $null
+    }
+    if ($cloudMd5 -ne $localMD5.Hash){
+        return $false
+    }
+    else
+    {
+        return $true
+    }
+}
 Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload) {
 
     $assetsFolder = (Join-Path $cakeJsonConfig.DeployFolder "assets")
@@ -86,9 +110,15 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
         if ($null -eq $scwdpinarray) {
             continue
         }
-        Write-Host "Starting file upload for $($scwdpinarray.Name)" -ForegroundColor Green
-        Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force
-        Write-Host "Upload of $($scwdpinarray.Name) completed" -ForegroundColor Green
+        Write-Host "Uploading '$($scwdpinarray.Name)'" -ForegroundColor Green
+        if (!(CheckMD5 -localFilePath $scwdpinarray.FullName -remoteBlobPath "wdps/$($scwdpinarray.Name)" -container $containerName -context $ctx)){
+            $md5 = Get-FileHash -Path $scwdpinarray.FullName -Algorithm MD5
+        Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force -Properties @{"ContentMD5" = $md5.Hash}
+        Write-Host "Upload of '$($scwdpinarray.Name)' completed" -ForegroundColor Green
+        }
+        else {
+            Write-Host "***  Skipping '$($scwdpinarray.Name)' - already exists" -ForegroundColor Green
+        }
     }
 }
                 
@@ -127,21 +157,34 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
             $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
             
             Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
-        
-                Write-Host "Starting file upload for $($_.Name)" -ForegroundColor Green
-                Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Force
-                Write-Host "Upload of $($_.Name) completed" -ForegroundColor Green
-        
+
+                if (!(CheckMD5 -localFilePath $_.FullName -remoteBlobPath "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -container $containerName -context $ctx)){
+                    $md5 = Get-FileHash -Path $_.FullName -Algorithm MD5
+                    Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Properties @{"ContentMD5" = $md5.Hash} -Force
+                    Write-Host "Upload of '$($_.Name)' completed" -ForegroundColor Green
+                }
+                else {
+                    Write-Host "***  Skipping '$($_.Name)' - already exists" -ForegroundColor Green
+                }
             }
-      
         }                 
     }
 
     # Checking if the files are already uploaded and present in Azure and uploading
-    foreach ($scARMsInArray in $sitecoreARMpathArray) {             
-        Write-Host "Starting file upload for $($scARMsInArray.Name)" -ForegroundColor Green
-        Set-AzureStorageBlobContent -File $scARMsInArray.FullName -Blob "arm-templates/$($scARMsInArray.Name)" -Container $containerName -Context $ctx -Force
-        Write-Host "Upload of $($scARMsInArray.Name) completed" -ForegroundColor Green              
+    foreach ($scARMsInArray in $sitecoreARMpathArray) {      
+        if (!(CheckMD5 -localFilePath $scARMsInArray.FullName -remoteBlobPath "arm-templates/$($scARMsInArray.Name)" -container $containerName -context $ctx))
+        {
+            Write-Host "Uploading $($scARMsInArray.Name)" -ForegroundColor Green
+            $md5 = Get-FileHash -Path $scARMsInArray.FullName -Algorithm MD5
+            Set-AzureStorageBlobContent -File $scARMsInArray.FullName -Blob "arm-templates/$($scARMsInArray.Name)" -Container $containerName -Context $ctx -Properties @{"ContentMD5" = $md5.Hash} -Force
+
+            Write-Host "Upload of '$($_.Name)' completed" -ForegroundColor Green
+
+        }    
+        else{
+            Write-Host "***  Skipping '$($_.Name)' - already exists" -ForegroundColor Green
+
+        }   
     }
 }
 
