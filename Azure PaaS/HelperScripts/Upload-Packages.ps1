@@ -69,7 +69,6 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
         if ($sitecoreAsset.FileName -match '([0-9]*\.[0-9]\.[0-9])') {
             $sepversion = $matches[0]
         }
-      
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
     }
 
@@ -261,7 +260,7 @@ if (!($SkipScUpload)) {
     UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig
     UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig
 }
-else {
+else { #SkipSCUpload
     # Get the current storage account
     $sa = Get-AzureRmStorageAccount | Where-Object {$_.StorageAccountName -eq $storageAccountName } | Select-Object 
 
@@ -564,8 +563,8 @@ elseif ($config.Topology -eq "scaled") {
             -FullUri
     }                
                     
-    $sxaCDFile = $assets.prerequisites | Where-Object {$_.Name -eq "Sitecore Experience Accelerator CD"}
-    $sxaCDMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $sxaCDFile.Name} | Select -First 1 | ForEach-Object {
+    $sxaCDFile = $assetconfig.prerequisites | Where-Object {$_.Name -eq "Sitecore Experience Accelerator CD"}
+    $sxaCDMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $sxaCDFile.FileName} | Select -First 1 | ForEach-Object {
         New-AzureStorageBlobSASToken -Container $containerName `
             -Blob $_.Name `
             -Permission rwd `
