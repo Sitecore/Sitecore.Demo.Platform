@@ -122,6 +122,9 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
         $sitecoreInstall = $assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Platform"} | % { $_.uploadToAzure -and $_.install}
         
         if ($sitecoreInstall) {
+            $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json')))) | out-null
+            $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json')))) | out-null
+        
             $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
             
             Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
