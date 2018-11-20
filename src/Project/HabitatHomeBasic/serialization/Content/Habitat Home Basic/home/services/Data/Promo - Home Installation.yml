@@ -34,6 +34,13 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: <p>Free Smart Home Consultation</p>
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{2C34B2E3-DA1E-4603-9901-F8235DAA7141}" ></image>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180817T180336Z
@@ -41,3 +48,10 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: "Are you ready to make your home more efficient and productive? Schedule an installation appointment with our smart home experts and rest assured your new technology is set up properly."
+    - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
+      Hint: PromoLink
+      Value: |
+        <link id="{d71ac6ee-44fc-4370-90ea-44547da6b3f9}" querystring="" text="Schedule Now" url="/Habitat Sites/Habitat Home Basic/home/services/home-installation" linktype="internal" target="" />
