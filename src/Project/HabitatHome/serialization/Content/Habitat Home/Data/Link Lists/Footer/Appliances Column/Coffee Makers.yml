@@ -77,6 +77,10 @@ Languages:
       Value: |
         <link text="Cuisinières" anchor="" linktype="internal" class="" title=""  querystring="" id="{07556862-A5A2-460A-8D8A-8DA86D405585}" />
 - Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: コーヒーメーカー
   Versions:
   - Version: 1
     Fields:
@@ -87,3 +91,7 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="コーヒーメーカー" anchor="" linktype="internal" class="" title="" target="|Custom" querystring="" id="{07556862-A5A2-460A-8D8A-8DA86D405585}" />

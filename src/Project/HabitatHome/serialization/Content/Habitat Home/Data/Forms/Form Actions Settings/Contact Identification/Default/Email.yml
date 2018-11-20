@@ -30,6 +30,10 @@ Languages:
       Value: |
         extranet\Anonymous
 - Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: メール
   Versions:
   - Version: 1
     Fields:
@@ -45,5 +49,4 @@ Languages:
         sitecore\admin
     - ID: "a9258cff-e39c-4c69-8a69-9e35d9a853d4"
       Hint: FacetKey
-      Type: Treelist
       Value: "{8A11DD2D-E602-4599-8FCC-6414B9BB125E}"
