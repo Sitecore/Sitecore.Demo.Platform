@@ -6,21 +6,24 @@
       "value": ""
     },
     "location": {
-      "value": "<AZURE REGION>"
+      "value": ""
     },
     "sitecoreAdminPassword": {
-      "value": "<8 Character Minimum>"
+      "value": ""
     },
     "licenseXml": {
-      "value": "<ABSOLUTE LOCAL PATH\\license.xml>"
+      "value": ""
     },
     "repAuthenticationApiKey": {
       "value": ""
     },
     "sqlServerLogin": {
-      "value": "<SA is not a valid admin name for Azure SQL>"
+      "value": ""
     },
     "sqlServerPassword": {
+      "value": ""
+    },
+    "siMsDeployPackageUrl": {
       "value": ""
     },
     "cmMsDeployPackageUrl": {
@@ -44,14 +47,41 @@
     "xcSearchMsDeployPackageUrl": {
       "value": ""
     },
+    "cortexProcessingMsDeployPackageUrl": {
+      "value": ""
+    },
+    "cortexReportingMsDeployPackageUrl": {
+      "value": ""
+    },
     "maOpsMsDeployPackageUrl": {
       "value": ""
     },
     "maRepMsDeployPackageUrl": {
       "value": ""
     },
+    "authCertificateBlob": {
+      "value": ""
+    },
     "authCertificatePassword": {
-      "value": "<Password for Cert Being passed>"
+      "value": ""
+    },
+    "machineLearningServerConnectionString": {
+      "value": ""
+    },
+    "machineLearningServerBlobEndpointCertificatePath": {
+      "value": ""
+    },
+    "machineLearningServerBlobEndpointCertificatePassword": {
+      "value": ""
+    },
+    "machineLearningServerTableEndpointCertificatePath": {
+      "value": ""
+    },
+    "machineLearningServerTableEndpointCertificatePassword": {
+      "value": ""
+    },
+    "machineLearningServerEndpointCertificationAuthorityCertificatePath": {
+      "value": ""
     },
     "allowInvalidClientCertificates": {
       "value": true
@@ -59,16 +89,15 @@
     "modules": {
       "value": {
         "items": [
-
           {
             "name": "sxa",
             "templateLink": "https://raw.githubusercontent.com/Sitecore/Sitecore-Azure-Quickstart-Templates/master/SXA%201.3.1/xp/azuredeploy.json",
             "parameters": {
-                "cdSxaMsDeployPackageUrl" : "<URL of the WDP file Sitecore Experience Accelerator * CD.scwdp.zip>",
-                "cmSxaMsDeployPackageUrl" : "<URL of the WDP file Sitecore Experience Accelerator *.scwdp.zip>",
-                "speMsDeployPackageUrl" : "<URL of the WDP file Sitecore PowerShell Extensions *.scwdp.zip>"
+              "cdSxaMsDeployPackageUrl": "<URL of the WDP file Sitecore Experience Accelerator * CD.scwdp.zip>",
+              "cmSxaMsDeployPackageUrl": "<URL of the WDP file Sitecore Experience Accelerator *.scwdp.zip>",
+              "speMsDeployPackageUrl": "<URL of the WDP file Sitecore PowerShell Extensions *.scwdp.zip>"
             }
-        },
+          },
           {
             "name": "habitat-home-website",
             "templateLink": "<URL to the Habitat Home json ARM template>",
