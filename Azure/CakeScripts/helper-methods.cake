@@ -70,6 +70,7 @@ public void PrintHeader(ConsoleColor foregroundColor)
 public void PublishProjects(string rootFolder, string websiteRoot)
 {
     var projects = GetFiles($"{rootFolder}\\**\\code\\*.csproj");
+    var nugetFile = $"{configuration.ProjectFolder}\\nuget-sc-internal.config";
 
     foreach (var project in projects)
     {
@@ -80,7 +81,9 @@ public void PublishProjects(string rootFolder, string websiteRoot)
                                    .WithProperty("WebPublishMethod", "FileSystem")
                                    .WithProperty("DeleteExistingFiles", "false")
                                    .WithProperty("publishUrl", websiteRoot)
-                                   .WithProperty("BuildProjectReferences", "false"));
+                                   .WithProperty("BuildProjectReferences", "false")
+                                   .WithProperty("RestoreConfigFile",nugetFile)
+                                   );
     }
 }
 

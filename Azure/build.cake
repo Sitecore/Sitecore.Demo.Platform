@@ -108,7 +108,11 @@ Task("Publish-All-Projects")
 
 
 Task("Build-Solution").Does(() => {
-    MSBuild(configuration.SolutionFile, cfg => InitializeMSBuildSettings(cfg));
+    var nugetFile = $"{configuration.ProjectFolder}\\nuget-sc-internal.config";
+
+    MSBuild(configuration.SolutionFile, cfg => InitializeMSBuildSettings(cfg)
+        .WithProperty("RestoreConfigFile",nugetFile)
+    );
 });
 
 Task("Publish-Foundation-Projects").Does(() => {
