@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deploymentId": {
+      "value": ""
+    },
+    "location": {
+      "value": "AZURE REGION"
+    },
+    "sitecoreAdminPassword": {
+      "value": "<8 Character Minimum>"
+    },
+    "licenseXml": {
+      "value": "<ABSOLUTE LOCAL PATH\\license.xml>"
+    },
+    "sqlServerLogin": {
+      "value": "<SA is not a valid admin name for Azure SQL>"
+    },
+    "sqlServerPassword": {
+      "value": ""
+    },
+    "singleMsDeployPackageUrl": {
+      "value": "<URL with SAS to Private Azure Storage for XP0>"
+    },
+    "xcSingleMsDeployPackageUrl": {
+      "value": "<URL with SAS to Private Azure Storage for XP0 XC>"
+    },
+    "authCertificatePassword": {
+      "value": "<Password for Cert Being passed>"
+    },
+    "allowInvalidClientCertificates": {
+      "value": true
+    }
+  }
+}

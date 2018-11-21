@@ -1,5 +1,5 @@
 <#
-	This script will deploy Sitecore to Azure PaaS based on the setting in the following files:
+	This script will deploy Sitecore to Azure based on the setting in the following files:
 
 	cake-config.json 
 	azuresuer-config.json
@@ -29,17 +29,8 @@ $topology		 = $configarray[5]
 # Fill in Parameters
 #####################
 
-foreach($asset in $assetconfig.prerequisites)
-{
-	if(($asset.name -eq "Data Exchange Framework") -and ($asset.install -eq $true))
-	{
-		$ArmParametersPath = "$($topology)\azuredeploy.parameters.json"
-	}
-	else
-	{
-		$ArmParametersPath = "$($topology)\azuredeploy.parametersWOdef.json"
-	}	
-}
+$deploymentId = ($azureuserconfig.settings | Where-Object {$_.id -eq "AzureDeploymentID"}).value
+$ArmParametersPath = ("{0}\azuredeploy.parameters-{1}.json" -f $topology, $deploymentId)
 
 foreach($setting in $azureuserconfig.settings)
 {
