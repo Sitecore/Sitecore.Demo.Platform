@@ -1,8 +1,8 @@
-# Habitat Home Sitecore XP1 Scaled Environment Azure PaaS
+# Habitat Home Sitecore XP Environment Azure
 
 ## Instructions
 
-Please follow the instructions on the [Azure PaaS Readme](../Readme.md)
+Please follow the instructions on the [Azure Readme](../Readme.md)
 
 ## Resources provisioned:
 

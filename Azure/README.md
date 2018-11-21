@@ -1,6 +1,6 @@
 # Introduction 
 
-This Section is dedicated to the deployment of the Habitat Home Demo project onto Azure PaaS.
+This Section is dedicated to the deployment of the Habitat Home Demo project onto Azure.
 
 # Important Notice
  
@@ -80,7 +80,7 @@ The following is a list of default values/assumptions for install locations
 **Project Folder**		`c:\projects\sitecore.habitathome.platform`  
 **Deploy Folder**		`c:\Deploy`  
 
-if these values are not correct you will need to edit the cake-config.json in the `\Azure PaaS` folder. 
+if these values are not correct you will need to edit the cake-config.json in the `\Azure` folder. 
 * Do not include a trailing `\` slash in your paths  
 * Do not include any spaces in the Deploy folder directory path
 
@@ -117,7 +117,7 @@ The Azure Container must have the following folder structure:
 
 ### 4. Deploy Sitecore.HabitatHome.Content
 
-From the `\Azure PaaS` folder
+From the `\Azure` folder
 
 - Run **`.\build.ps1`** 
 
