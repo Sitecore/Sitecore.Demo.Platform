@@ -404,8 +404,8 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
     # Assign values to required working folder paths
     
     [String] $assetsFolder = $([IO.Path]::combine($configJson.DeployFolder, 'assets'))
-    [String] $ProjectModulesFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure Paas', 'WDP Components', 'Modules'))
-	[String] $HabitatWDPFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure Paas', 'WDP Components', 'Habitat'))
+    [String] $ProjectModulesFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure', 'WDP Components', 'Modules'))
+	[String] $HabitatWDPFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure', 'WDP Components', 'Habitat'))
     [String] $SitecoreCloudModule = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'Sitecore.Cloud.Cmdlets.psm1'))
 	[String] $IonicZipPath = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'DotNetZip.dll'))
 	[String] $ExampleWDPJsonFile = $([IO.Path]::Combine($ProjectModulesFolder, 'example_config.json'))

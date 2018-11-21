@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Upload necessary files for Sitecore 9 and Habitat home Azure PaaS deployment
+Upload necessary files for Sitecore 9 and Habitat home Azure deployment
 
 .DESCRIPTION
 This script enables the upload of generated/downloaded WDP packages and accompanying Azure deployment files to an Azure storage account.

@@ -1,5 +1,5 @@
 <#
-	This script will deploy Sitecore to Azure PaaS based on the setting in the following files:
+	This script will deploy Sitecore to Azure based on the setting in the following files:
 
 	cake-config.json 
 	azuresuer-config.json
