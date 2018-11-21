@@ -98,11 +98,11 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
 
     $assetsJsonConfig.prerequisites | Where-Object {
         $_.uploadToAzure -eq $true -and $_.isWdp -eq $true -and $_.install -eq $true} | ForEach-Object {
-        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path "C:\Deploy\assets" $_.name)))
+        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name))) | out-null
     }
     $assetsJsonConfig.prerequisites | Where-Object {
         ($_.uploadToAzure -eq $true -and $_.isGroup -eq $true) -or ($_.convertToWdp -eq $true -and $_.install -eq $true)} | ForEach-Object {
-        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path "C:\Deploy\assets" $_.name)))
+        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name))) | out-null
     }
 
     # Perform Upload
