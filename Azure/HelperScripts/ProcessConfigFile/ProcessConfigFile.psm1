@@ -49,11 +49,11 @@ Param(
 
 		if ($config.Topology -eq "single")
 		{
-			[string] $topologyPath = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP0 Single'))
+			[string] $topologyPath = $([io.path]::combine($config.ProjectFolder, 'Azure', 'XPSingle'))
 		}
 		elseif ($config.Topology -eq "scaled")
 		{
-			[string] $topologyPath = $([io.path]::combine($config.ProjectFolder, 'Azure Paas', 'XP1 Scaled'))
+			[string] $topologyPath = $([io.path]::combine($config.ProjectFolder, 'Azure', 'XP'))
 		}
 		else 
 		{

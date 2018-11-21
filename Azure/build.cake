@@ -87,16 +87,16 @@ Task("Clean").Does(() => {
 });
 
 Task("Capture-UserData").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\AzureUser-Config-Capture.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\AzureUser-Config-Capture.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
         });
 		});
 
 Task("Prepare-Environments").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Env-Prep.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Env-Prep.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
         });
 		});        
 
@@ -228,9 +228,9 @@ Task("Publish-Azure-Transforms").Does(()=>{
 
 
 Task("Prepare-Azure-Deploy-CDN").Does(() => {
-   	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Prepare-Azure-Deploy-CDN.ps1", args =>
+   	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Prepare-Azure-Deploy-CDN.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
         });
 	
 });
@@ -317,16 +317,16 @@ Task("Package-Build")
 .IsDependentOn("ConvertTo-SCWDPs");
 
 Task("Generate-HabitatUpdatePackages").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Generate-HabitatUpdatePackages.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatUpdatePackages.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
         });
 		});
 
 Task("ConvertTo-SCWDPs").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\ConvertTo-SCWDPs.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\ConvertTo-SCWDPs.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
         });
 		});
 
@@ -334,17 +334,17 @@ Task("Azure-Upload-Packages").Does(() => {
 
 if(HasArgument("SkipScUpload"))
 {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Upload-Packages.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Upload-Packages.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json")
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json")
                 .Append("-SkipScUpload");
         });
 }
 else
 {
-    StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Upload-Packages.ps1", args =>
+    StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Upload-Packages.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
         });
 }
 });
@@ -354,16 +354,16 @@ Task("Azure-Site-Deploy")
 // .IsDependentOn("Scale-Down");
 
 Task("Deploy-To-Azure").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Deploy.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Azure-Deploy.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
         });
 		});
 
 Task("Scale-Down").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure PaaS\\HelperScripts\\Azure-Scaledown.ps1", args =>
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Azure-Scaledown.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure PaaS\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
         });
 		});
 
