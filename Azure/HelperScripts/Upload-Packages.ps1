@@ -43,13 +43,12 @@ Function CheckMd5{
         $context
     )
     $localMD5 = Get-FileHash -Path $localFilePath -Algorithm MD5
-   
-    try {
-       $blob = Get-AzureStorageBlob -Blob $remoteBlobPath -Container $container -Context $context
-       $cloudMD5 =  $blob.ICloudBlob.Properties.ContentMD5
-    }
-    catch{
-        $cloudMd5 = $null
+
+    $cloudMD5 = $null
+    $blob = Get-AzureStorageBlob -Blob $remoteBlobPath -Container $container -Context $context -ErrorAction SilentlyContinue
+    
+    if ($blob) {
+        $cloudMD5 =  $blob.ICloudBlob.Properties.ContentMD5
     }
     if ($cloudMd5 -ne $localMD5.Hash){
         return $false
