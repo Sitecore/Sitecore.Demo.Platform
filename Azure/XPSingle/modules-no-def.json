@@ -1,0 +1,37 @@
+{
+    "modules": {
+        "value": {
+            "items": [
+                {
+                    "name": "sxa",
+                    "templateLink": "",
+                    "parameters": {
+                        "sxaMsDeployPackageUrl": "",
+                        "speMsDeployPackageUrl": ""
+                    }
+                },
+                {
+                    "name": "habitat-home-website",
+                    "templateLink": "",
+                    "parameters": {
+                        "habitatWebsiteDeployPackageUrl": ""
+                    }
+                },
+                {
+                    "name": "habitat-home-xc",
+                    "templateLink": "",
+                    "parameters": {
+                        "habitatXconnectDeployPackageUrl": ""
+                    }
+                },
+                {
+                    "name": "bootloader",
+                    "templateLink": "",
+                    "parameters": {
+                        "msDeployPackageUrl": ""
+                    }
+                }
+            ]
+        }
+    }
+}
