@@ -1,8 +1,8 @@
-# Habitat Home Sitecore XP0 Single Environment Azure PaaS
+# Habitat Home Sitecore XP0 Single Environment Azure
 
 ## Instructions
 
-Please follow the instructions on the [Azure PaaS Readme](../Readme.md)
+Please follow the instructions on the [Azure Readme](../Readme.md)
 
 ## Resources provisioned:
 

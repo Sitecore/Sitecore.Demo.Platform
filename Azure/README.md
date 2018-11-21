@@ -1,6 +1,6 @@
 # Introduction 
 
-This Section is dedicated to the deployment of the Habitat Home Demo project onto Azure PaaS.
+This Section is dedicated to the deployment of the Habitat Home Demo project onto Azure.
 
 # Important Notice
  
@@ -117,7 +117,7 @@ The Azure Container must have the following folder structure:
 
 ### 4. Deploy Sitecore.HabitatHome.Content
 
-From the `\Azure PaaS` folder
+From the `\Azure` folder
 
 - Run **`.\build.ps1`** 
 
