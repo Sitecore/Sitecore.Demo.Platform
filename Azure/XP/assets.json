@@ -13,6 +13,18 @@
       "source": "sitecore"
     },
     {
+      "id": "si",
+      "name": "Sitecore Identity Server",
+      "fileName": "Sitecore.IdentityServer.2.0.0-r00157.scwdp.zip",
+      "url": "https://set-to-real-url",
+      "extract": false,
+      "isWdp": true,
+      "convertToWdp": false,
+      "uploadToAzure": true,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
       "id": "sat",
       "name": "Sitecore Azure Toolkit",
       "fileName": "Sitecore Azure Toolkit 2.0.4 rev. 180605.zip",
@@ -118,7 +130,7 @@
           "extract": false,
           "source": "sitecore"
         },
-		{
+        {
           "id": "defSalesforce",
           "name": "Salesforce Provider for Data Exchange Framework",
           "fileName": "Salesforce Provider for Data Exchange Framework 2.0.1 rev. 180108.zip",
@@ -194,7 +206,7 @@
           "extract": false,
           "source": "sitecore"
         },
-		    {
+        {
           "id": "defSalesforce-CD",
           "name": "Salesforce Provider for Data Exchange Framework CD",
           "fileName": "Salesforce Provider for Data Exchange Framework CD Server 2.0.1 rev. 180108.zip",
@@ -210,7 +222,7 @@
           "extract": false,
           "source": "sitecore"
         }
-      ] 
+      ]
     }
   ]
 }
