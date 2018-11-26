@@ -50,9 +50,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+   <Choose>
+    <When Condition=" '$(Configuration)'=='Local' ">
+      <ItemGroup>
+        <Reference Include="Sitecore.Kernel">
+          <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
+        </Reference>
+       </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="Sitecore.Kernel" Version="12.0.0-*" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="1.0.3" />
-    <PackageReference Include="Sitecore.Kernel.NoReferences" Version="9.0.180604" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
