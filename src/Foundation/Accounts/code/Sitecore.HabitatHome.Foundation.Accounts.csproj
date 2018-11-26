@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -42,17 +43,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  
+
   <Choose>
     <When Condition=" '$(Configuration)'=='Local' ">
       <ItemGroup>
-        <Reference Include="Sitecore.Analytics.Core" >
+        <Reference Include="Sitecore.Analytics.Core">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.Core.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Analytics.Model" >
+        <Reference Include="Sitecore.Analytics.Model">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.Model.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Analytics" >
+        <Reference Include="Sitecore.Analytics">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Analytics.XConnect">
@@ -61,10 +62,10 @@
         <Reference Include="Sitecore.Kernel">
           <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.XConnect.Client.Configuration" >
+        <Reference Include="Sitecore.XConnect.Client.Configuration">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Client.Configuration.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.XConnect.Client" >
+        <Reference Include="Sitecore.XConnect.Client">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Client.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.XConnect.Collection.Model">
@@ -74,7 +75,7 @@
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.dll</HintPath>
         </Reference>
       </ItemGroup>
-     
+
     </When>
     <Otherwise>
       <ItemGroup>
@@ -90,11 +91,11 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
-   <ItemGroup>
-        <PackageReference Include="Kamsar.WebConsole" Version="2.0.0" />
-        <PackageReference Include="MicroCHAP" Version="1.2.2.2" />
-        <PackageReference Include="Newtonsoft.Json" Version="11.0.0"/>
-      </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Kamsar.WebConsole" Version="2.0.0" />
+    <PackageReference Include="MicroCHAP" Version="1.2.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.0"/>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -116,6 +117,8 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Foundation\Foundation.Accounts.config" />
     <Content Include="App_Config\Include\Foundation\Foundation.Accounts.Serialization.config" />
+    <None Include="App_Config\Security\domains.azure.config.xdt" />
+    <None Include="App_Config\Security\domains.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
