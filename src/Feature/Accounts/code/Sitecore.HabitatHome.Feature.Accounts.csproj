@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" 
-  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -90,16 +89,9 @@
           <HintPath>..\..\..\..\lib\Sitecore.XA.Foundation.Mvc.dll</HintPath>
         </Reference>
       </ItemGroup>
-
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Microsoft.Owin.Security.Facebook">
-          <Version>4.0.0</Version>
-        </PackageReference>
-        <PackageReference Include="Microsoft.Owin.Security.MicrosoftAccount">
-          <Version>4.0.0</Version>
-        </PackageReference>
         <PackageReference Include="Sitecore.Analytics.Core" Version="12.0.0-*" />
         <PackageReference Include="Sitecore.Analytics.Model" Version="12.0.0-*" />
         <PackageReference Include="Sitecore.Analytics" Version="12.0.0-*" />
@@ -123,8 +115,8 @@
     <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
     <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="4.0.0" />
-    <PackageReference Include="Microsoft.Owin.Security.Facebook" Version="4.0.0"/>
-    <PackageReference Include="Microsoft.Owin.Security.MicrosoftAccount" Version="4.0.0"/>
+    <PackageReference Include="Microsoft.Owin.Security.Facebook" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.MicrosoftAccount" Version="4.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -169,6 +161,7 @@
     <Content Include="Views\Accounts\BasicInformation.cshtml" />
     <Content Include="Views\Accounts\DeleteAccount.cshtml" />
     <Content Include="Views\Accounts\ExportData.cshtml" />
+    <None Include="web.azure.config.xdt" />
     <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
