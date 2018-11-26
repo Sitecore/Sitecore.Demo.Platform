@@ -31,9 +31,16 @@ Languages:
       Value: |
         <link linktype="internal" text="Schedule Now" querystring="" target="" id="{24FD6EA9-D99A-47E9-B95E-1553F761923A}" />
 - Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "プロモ - ホームインストレーション"
   Versions:
   - Version: 1
     Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: <p>スマートホームのコンサルは無料</p>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180817T180336Z
@@ -41,3 +48,10 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: "Are you ready to make your home more efficient and productive? Schedule an installation appointment with our smart home experts and rest assured your new technology is set up properly."
+    - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
+      Hint: PromoLink
+      Value: |
+        <link text="ホーム インストレーション" anchor="" linktype="internal" class="" title="" target="|Custom" querystring="" id="{24FD6EA9-D99A-47E9-B95E-1553F761923A}" />

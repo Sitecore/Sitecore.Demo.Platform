@@ -31,13 +31,31 @@ Languages:
       Hint: HeroText
       Value: "Touchscreens and attachable keyboards mean easy navigation and efficient word processing. Front and rear cameras and an easy-to-use stylus let you create, play, and work from anywhere."
 - Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ツーインワン
   Versions:
   - Version: 1
     Fields:
+    - ID: "0d089052-245b-4b23-8042-b63d06c8fe64"
+      Hint: HeroOverlayImage
+      Value: |
+        <image mediaid="{E4783610-C608-4293-BA3C-237792CBB5EE}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180324T011903Z
+    - ID: "440b5413-5322-4166-9fbe-580f70973751"
+      Hint: HeroTitle
+      Value: タッチ、タイプ、ゴー
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "9c385368-a554-4a92-9a8d-37f3ef3a09f4"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{D641BFA2-6363-4D6C-A218-37526BA785A0}" />
+    - ID: "e50b8dc2-0ec1-47af-b1da-0a6622368986"
+      Hint: HeroText
+      Value: <p>タッチスクリーンとアタッチ可能なキーボードは、簡単なナビゲーションと効率的なワープロを意味します。フロントとリアのカメラと使いやすいスタイラスにより、どこからでも作成、再生、作業ができます。</p>

@@ -11,7 +11,7 @@ SharedFields:
   Value: "{CC8A8C28-8D50-4D3E-871B-06816D1F73C4}"
 - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
   Hint: Page Design
-  Value: "{991703E3-22D9-4732-9637-D0C45921EAC4}"
+  Value: "{9AB4EB7F-65D7-433B-861C-EBB88208376B}"
 - ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
   Hint: SxaTags
   Value: "{A076B3E0-6D6F-4308-B1DC-20DC506D55AD}|{7411018E-699A-4E78-B919-73349ECC6D0D}"
@@ -127,9 +127,6 @@ Languages:
       Hint: __Final Renderings
       Type: Layout
       Value: 
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20171112T200021Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
@@ -139,29 +136,18 @@ Languages:
     - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
       Hint: TwitterTitle
       Value: 
-    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
-      Hint: StickyNotes
-      Value: |
-        {"items":[]}
     - ID: "4c346442-e859-4efd-89b2-44aedf467d21"
       Hint: __Valid to
       Value: 
     - ID: "4d263b95-322f-4003-adbd-70920facf823"
       Hint: TwitterDescription
       Value: 
-    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
-      Hint: NavigationTitle
-      Value: Guides
     - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
       Hint: MetaDescription
       Value: 
     - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
       Hint: Content
       Value: 
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\admin
     - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
       Hint: MetaKeywords
       Value: 
@@ -190,10 +176,6 @@ Languages:
       Hint: __Semantics
       Type: Multilist with Search
       Value: 
-    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
-      Hint: Navigation Image
-      Value: |
-        <image mediaid="{62EE8A3C-59ED-4C9A-B7FD-F99B9BE543FD}" alt="guides or blogs navigation image" height="" width="" hspace="" vspace="" />
     - ID: "b8f42732-9cb8-478d-ae95-07e25345fb0f"
       Hint: __Hide version
       Type: checkbox
@@ -217,14 +199,11 @@ Languages:
     - ID: "de457091-0989-414e-addf-59db0ddb6690"
       Hint: TwitterImage
       Value: 
-    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
-      Hint: Title
-      Value: Guides
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: ガイド
+    Value: Guides
   Versions:
   - Version: 1
     Fields:
@@ -234,17 +213,29 @@ Languages:
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Habitat Home Guides
     - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
       Hint: StickyNotes
       Value: |
         {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: "Cutting-edge lifestyle resource for design and product ideas. Whether you are looking for smart home technology or the latest kitchen appliances, we have the right guide for you."
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
-      Value: ガイド
+      Value: Guides
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: "Cutting-edge lifestyle resource for design and product ideas. Whether you are looking for smart home technology or the latest kitchen appliances, we have the right guide for you."
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: smart home, fitness, 
     - ID: "74687d7c-2ef8-47ef-a779-9a8040bb2d1a"
       Hint: Navigation Secondary Promotions
       Type: Treelist
@@ -254,6 +245,12 @@ Languages:
         {C065C5FC-68C2-4C1A-9D9E-25F23536EBE0}
         {59D55B08-438D-4CB7-90B6-93F0F171106B}
         {87AA4F8B-0182-46B8-8412-603735036FFD}
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: "Cutting-edge lifestyle resource for design and product ideas. Whether you are looking for smart home technology or the latest kitchen appliances, we have the right guide for you."
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Habitat Home Guides
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image
       Value: |
@@ -267,4 +264,4 @@ Languages:
         {B2765EA1-DB11-4718-9836-2E110312664C}
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
-      Value: ガイド
+      Value: Guides
