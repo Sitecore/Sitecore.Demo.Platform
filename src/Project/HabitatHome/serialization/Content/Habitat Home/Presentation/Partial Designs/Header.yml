@@ -66,7 +66,38 @@ SharedFields:
           s:ds="{87D70FED-3FB3-4662-BA2E-C5397C88CAD0}"
           s:id="{3972C278-7E7A-4C2B-A293-66AF860F5C3A}"
           s:par="GridParameters&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
-          s:ph="/header/container-1/container-2/column-2-3/container-5" />
+          s:ph="/header/container-1/container-2/column-2-3/container-5">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{63EF0BB6-DADD-4481-8778-BE5B61F7BABC}"
+                s:name="Authenticated">
+                <conditions>
+                  <condition
+                    uid="EA5A3B85742644EA9AE5B108C45E2535"
+                    s:id="{EA0642FA-500B-4B2F-B264-765E771C516F}"
+                    s:except="true" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="0B295DA065894D8B996812FDB12CA543"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{4E8AB109-2424-4CE5-B2F1-5E4F52E4B581}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="C3ADE773420F47E08C97FDE7E887E6E2"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
         <r
           uid="{42F25C87-A50F-4FC0-BBCF-0A17EF2E578C}"
           p:after="r[@uid='{F4D14577-4EA2-4461-B457-B6E56E234078}']"
