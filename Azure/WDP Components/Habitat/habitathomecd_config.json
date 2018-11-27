@@ -1,0 +1,16 @@
+{
+  "scwdps": [
+    {
+      "role": "cd",
+      "parametersXml": "habitathomecd_parameters.xml",
+      "sccpls": [
+        "habitathomecd_cargo.sccpl"
+      ],
+      "embedSccpls": [
+        "habitathomecd_cargo_embeded.sccpl"
+      ],
+      "sourcePackagePattern": "habitathome",
+      "additionalWdpContentsFolders": []
+    }
+  ]
+}
