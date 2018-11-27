@@ -15,9 +15,9 @@ Param(
 )
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray = ProcessConfigFile -Config $ConfigurationFile
+$configarray     = ProcessConfigFile -Config $ConfigurationFile
 $config          = $configarray[0]
-$topology		 = $configarray[5]
+$topologyPath	 = $configarray[5]
 
 #############################################
 # Prepare the azuredeploy.json ARM Template
@@ -43,7 +43,7 @@ $cdnJsonResource =  @"
   }
 "@
 
-$azureDeployFile = $([io.path]::combine($topology, 'azuredeploy.json'))
+$azureDeployFile = $([io.path]::combine($topologyPath, 'azuredeploy.json'))
 
 if (!(Test-Path $azureDeployFile)) 
 {

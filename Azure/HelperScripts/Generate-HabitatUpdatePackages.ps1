@@ -19,16 +19,17 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray = ProcessConfigFile -Config $ConfigurationFile
-$config = $configarray[0]
-$assetconfig = $configarray[1]
-$azureuserconfig = $configarray[2]
+$configarray        = ProcessConfigFile -Config $ConfigurationFile
+$config             = $configarray[0]
+$assetconfig        = $configarray[1]
+$azureuserconfig    = $configarray[2]
+$assetsfolder		= $configarray[7]
 
 ################################################################
 # Prepare folders for update package generation and triggers it
 ################################################################
 
-Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString) {
+Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString, $assetsfolder) {
 
     # Get the output folder path
 
@@ -37,13 +38,13 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
 
     # Create a target folder that will host the generated .update package file
 
-    if (!(Test-Path -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName)))) {
-        Write-Host "Creating" $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName))
-        New-Item -ItemType Directory -Force -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName))        
+    if (!(Test-Path -Path $([IO.Path]::Combine($assetsfolder, $targetFolderName)))) {
+        Write-Host "Creating" $([IO.Path]::Combine($assetsfolder, $targetFolderName))
+        New-Item -ItemType Directory -Force -Path $([IO.Path]::Combine($assetsfolder, $targetFolderName))        
             
     }
 
-    $updateFile = Join-Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderName)) "$($targetFolderName).update"
+    $updateFile = Join-Path $([IO.Path]::Combine($assetsfolder, $targetFolderName)) "$($targetFolderName).update"
     GenerateUpdatePackage -configFile $Configuration -argSourcePackagingFolder $sourceFolder -argOutputPackageFile $updateFile
 
     # Check if scaled configuration is in use and generate an additional CD package
@@ -72,15 +73,15 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
         # Create a separate folder that will host the scaled CD package 
         
         $targetFolderNameCD = $targetFolderName + "CD"
-        if (!(Test-Path -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD)))) {
-            Write-Host "Creating" $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD))
-            New-Item -ItemType Directory -Force -Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD))        
+        if (!(Test-Path -Path $([IO.Path]::Combine($assetsfolder, $targetFolderNameCD)))) {
+            Write-Host "Creating" $([IO.Path]::Combine($assetsfolder, $targetFolderNameCD))
+            New-Item -ItemType Directory -Force -Path $([IO.Path]::Combine($assetsfolder, $targetFolderNameCD))        
                 
         }
 
         # Update the filename for the package and generate the CD update package in a separate folder
         
-        $updateFile = Join-Path $([IO.Path]::Combine($Configuration.DeployFolder, 'assets', $targetFolderNameCD)) "$($targetFolderName).update"
+        $updateFile = Join-Path $([IO.Path]::Combine($assetsfolder, $targetFolderNameCD)) "$($targetFolderName).update"
         GenerateUpdatePackage -configFile $Configuration -argSourcePackagingFolder $sourceFolderCD -argOutputPackageFile $updateFile
 
     }
@@ -234,10 +235,10 @@ ForEach ($folder in $rootFolder) {
     switch ((Get-Item -Path $folder).Name) {  
 
         "HabitatHome" {           
-            Process-UpdatePackage -Configuration $config -FolderString $folder
+            Process-UpdatePackage -Configuration $config -FolderString $folder -assetsfolder $assetsfolder
         }
         "xconnect" {
-            Process-UpdatePackage -Configuration $config -FolderString $folder
+            Process-UpdatePackage -Configuration $config -FolderString $folder -assetsfolder $assetsfolder
         }
     }
 }

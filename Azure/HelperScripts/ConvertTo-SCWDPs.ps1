@@ -32,6 +32,7 @@ $configarray     = ProcessConfigFile -Config $ConfigurationFile
 $config          = $configarray[0]
 $assetconfig     = $configarray[1]
 $azureuserconfig = $configarray[2]
+$assetsFolder	 = $configarray[7]
 
 
 ###########################
@@ -145,7 +146,7 @@ Function Create-CargoPayload
 		ForEach ($file in $files){
 
 			$currentFolder = $file.Directory.ToString()
-			[String]$replacementPath = $currentFolder -replace [Regex]::Escape($XdtSourceFolder), [Regex]::Escape($XdtsPath.FullName)
+			[String]$replacementPath = $currentFolder -replace [Regex]::Escape($XdtSourceFolder), ($XdtsPath.FullName)
 			[System.IO.DirectoryInfo]$destination = $replacementPath
 			if(($destination.FullName -ine $XdtsPath.FullName) -and (!(Test-Path -Path $destination))){
         
@@ -399,11 +400,10 @@ is the path to Ionic's zipping library
 # WDP preparation function which sets up initial components required by the WDP process
 ########################################################################################
 
-Function Prepare-WDP ($configJson, $assetsConfigJson) {
+Function Prepare-WDP ($configJson, $assetsConfigJson, $assetsFolder) {
 
     # Assign values to required working folder paths
     
-    [String] $assetsFolder = $([IO.Path]::combine($configJson.DeployFolder, 'assets'))
     [String] $ProjectModulesFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure', 'WDP Components', 'Modules'))
 	[String] $HabitatWDPFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure', 'WDP Components', 'Habitat'))
     [String] $SitecoreCloudModule = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'Sitecore.Cloud.Cmdlets.psm1'))
@@ -688,4 +688,4 @@ Function Prepare-WDP ($configJson, $assetsConfigJson) {
 # Call in the WDP preparation function
 #######################################
 
-Prepare-WDP -configJson $config -assetsConfigJson $assetconfig
+Prepare-WDP -configJson $config -assetsConfigJson $assetconfig -assetsFolder $assetsFolder

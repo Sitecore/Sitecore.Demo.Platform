@@ -12,11 +12,13 @@ public class Configuration
     public string InstanceUrl {get;set;}
     public string SolutionName {get;set;}
     public string ProjectFolder {get;set;}
+    public string Topology {get;set;}
     public string BuildConfiguration {get;set;}
     public string MessageStatisticsApiKey {get;set;}
     public string MarketingDefinitionsApiKey {get;set;}
     public bool RunCleanBuilds {get;set;}
-    public string BuildToolVersions 
+    public string Version {get;set;}
+    public string BuildToolVersions
     {
         set 
         {
