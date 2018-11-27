@@ -77,6 +77,10 @@ Languages:
       Value: |
         <link text="Récepteurs" anchor="" linktype="internal" class="" title=""  querystring="" id="{B27DE97B-A3B8-481D-893F-D231B8567C03}" />
 - Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: オーディオシステム
   Versions:
   - Version: 1
     Fields:
@@ -87,3 +91,7 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="オーディオ" anchor="" linktype="internal" class="" title="" target="|Custom" querystring="" id="{B27DE97B-A3B8-481D-893F-D231B8567C03}" />
