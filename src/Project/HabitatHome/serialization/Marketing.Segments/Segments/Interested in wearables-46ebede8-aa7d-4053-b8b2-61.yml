@@ -1,0 +1,38 @@
+﻿---
+ID: "46ebede8-aa7d-4053-b8b2-612033abbab9"
+Parent: "cd304d58-d53b-420c-9d1a-c83255af1554"
+Template: "95d4ed35-1e47-48e9-95db-de0614a0e86c"
+Path: "/sitecore/system/Marketing Control Panel/Segments/Interested in wearables-46ebede8-aa7d-4053-b8b2-612033abbab9"
+DB: master
+SharedFields:
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "75af2497-ada0-4271-80da-84f9dd2e4075"
+  Hint: Rules
+  Value: |
+    [{"Id":"2c423682-8cd9-40de-8055-0f67bb418265","Name":"Specify name...","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=12.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"Id":"a8fb84a2-3289-4c96-b2db-e66cbe19d671","DescriptorId":"9805a980-2ee4-4b15-9910-4e449e05fedf","Properties":{"DefinitionId":"{95810E6D-E7B5-4D15-A3E4-B064B148E2E2}"}}}]
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180518T164335Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: Interested in wearables
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "e259e500-b38e-41fe-82db-8b604bcf9e75"
+      Hint: Description
+      Value: People that completed actions making them interested in wearables

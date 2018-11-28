@@ -31,10 +31,12 @@ Setup(context =>
 Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
+.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
+.IsDependentOn("Publish-Transforms")
 .IsDependentOn("Post-Deploy");
 
 Task("Post-Deploy")
@@ -50,6 +52,7 @@ Task("Post-Deploy")
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
 .IsDependentOn("Clean")
+.IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
@@ -66,6 +69,14 @@ Task("Clean").Does(() => {
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
 });
 
+Task("Copy-Sitecore-Lib")
+    .WithCriteria(()=>(configuration.BuildConfiguration == "Local"))
+    .Does(()=> {
+        var files = GetFiles($"{configuration.WebsiteRoot}/bin/Sitecore*.dll");
+        var destination = "./lib";
+        EnsureDirectoryExists(destination);
+        CopyFiles(files, destination);
+}); 
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
 .IsDependentOn("Publish-Foundation-Projects")
@@ -73,8 +84,11 @@ Task("Publish-All-Projects")
 .IsDependentOn("Publish-Project-Projects");
 
 
-Task("Build-Solution").Does(() => {
-    MSBuild(configuration.SolutionFile, cfg => InitializeMSBuildSettings(cfg));
+Task("Build-Solution")
+.IsDependentOn("Copy-Sitecore-Lib")
+.Does(() => {
+    MSBuild(configuration.SolutionFile, cfg => InitializeMSBuildSettings(cfg)
+            .WithProperty("RestoreConfigFile", configuration.NuGetConfigFileName));
 });
 
 Task("Publish-Foundation-Projects").Does(() => {
@@ -87,12 +101,12 @@ Task("Publish-Feature-Projects").Does(() => {
 
 Task("Publish-Project-Projects").Does(() => {
     var common = $"{configuration.ProjectSrcFolder}\\Common";
-    var habitat = $"{configuration.ProjectSrcFolder}\\Habitat";
+    var global = $"{configuration.ProjectSrcFolder}\\Global";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
     var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
 
     PublishProjects(common, configuration.WebsiteRoot);
-    PublishProjects(habitat, configuration.WebsiteRoot);
+    PublishProjects(global, configuration.WebsiteRoot);
     PublishProjects(habitatHome, configuration.WebsiteRoot);
     PublishProjects(habitatHomeBasic, configuration.WebsiteRoot);
 });
@@ -189,15 +203,15 @@ Task("Sync-Unicorn").Does(() => {
 });
 
 Task("Deploy-EXM-Campaigns").Does(() => {
-    var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
-    string responseBody = HttpGet(url);
-
-    Information(responseBody);
+	Spam(() => DeployExmCampaigns(), configuration.DeployExmTimeout);
 });
 
 Task("Deploy-Marketing-Definitions").Does(() => {
     var url = $"{configuration.InstanceUrl}utilities/deploymarketingdefinitions.aspx?apiKey={configuration.MarketingDefinitionsApiKey}";
-    string responseBody = HttpGet(url);
+    var responseBody = HttpGet(url, settings =>
+	{
+		settings.AppendHeader("Connection", "keep-alive");
+	});
 
     Information(responseBody);
 });

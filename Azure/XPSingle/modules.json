@@ -1,0 +1,51 @@
+{
+    "modules": {
+        "value": {
+            "items": [
+                {
+                    "name": "sxa",
+                    "templateLink": "<URL to the SXA json ARM template>",
+                    "parameters": {
+                        "sxaMsDeployPackageUrl": "<URL to the SXA module's WDP>",
+                        "speMsDeployPackageUrl": "<URL to the SPE module's WDP>"
+                    }
+                },
+                {
+                    "name": "def",
+                    "templateLink": "<URL to the DEF json ARM template>",
+                    "parameters": {
+                        "defDeployPackageUrl": "<URL to the def module's WDP>",
+                        "defSitecoreDeployPackageUrl": "<URL to the defSitecore module's WDP>",
+                        "defSqlDeployPackageUrl": "<URL to the defSql module's WDP>",
+                        "defxConnectDeployPackageUrl": "<URL to the defxConnect module's WDP>",
+                        "defDynamicsDeployPackageUrl": "<URL to the defDynamics module's WDP>",
+                        "defDynamicsConnectDeployPackageUrl": "<URL to the defDynamicsConnect module's WDP>",
+                        "defSalesforceDeployPackageUrl": "<URL to the defDynamics module's WDP>",
+                        "defSalesforceConnectDeployPackageUrl": "<URL to the defDynamicsConnect module's WDP>"
+                    }
+                },
+                {
+                    "name": "habitat-home-website",
+                    "templateLink": "<URL to the Habitat Home json ARM template>",
+                    "parameters": {
+                        "habitatWebsiteDeployPackageUrl": "<URL to the Habitat Home WDP>"
+                    }
+                },
+                {
+                    "name": "habitat-home-xc",
+                    "templateLink": "<URL to the Habitat Home json ARM template>",
+                    "parameters": {
+                        "habitatXconnectDeployPackageUrl": "<URL to the Habitat Home XC WDP>"
+                    }
+                },
+                {
+                    "name": "bootloader",
+                    "templateLink": "<URL to the bootloader template (Located in addons folder)>",
+                    "parameters": {
+                        "msDeployPackageUrl": "<URL to the wdp.zip file for specific version of Sitecore (Located in Sitecore Azure Toolkit\\resources\\SITECORE VERSION\\Addons)>"
+                    }
+                }
+            ]
+        }
+    }
+}

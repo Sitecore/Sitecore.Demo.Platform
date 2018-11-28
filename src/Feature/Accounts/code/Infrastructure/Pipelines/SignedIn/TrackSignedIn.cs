@@ -9,21 +9,21 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.SignedI
     public class TrackSignedIn : SignedInProcessor
     {
         private readonly IAccountTrackerService _accountTrackerService;
-        private readonly IContactFacetsService _updateContactFacetsService;
         private readonly FederatedAuthenticationConfiguration _federatedAuthenticationConfiguration;
+        private readonly IUserProfileService _userProfileService;
 
-        public TrackSignedIn(IAccountTrackerService accountTrackerService, IContactFacetsService updateContactFacetsService, FederatedAuthenticationConfiguration federatedAuthenticationConfiguration)
+        public TrackSignedIn(IAccountTrackerService accountTrackerService, FederatedAuthenticationConfiguration federatedAuthenticationConfiguration, IUserProfileService userProfileService)
         {
             _accountTrackerService = accountTrackerService;
-            _updateContactFacetsService = updateContactFacetsService;
             _federatedAuthenticationConfiguration = federatedAuthenticationConfiguration;
+            _userProfileService = userProfileService;
         }
                                                                                                                   
         public override void Process(SignedInArgs args)
         {
-            //Do not track the user signin if this is a response to a membership provider login
+            //Do not track the user signin if this is a response to a membership provider login or a sitecore backend signin
             var provider = this.GetProvider(args.Context.Identity);
-            if (provider.Name == Owin.Authentication.Constants.LocalIdentityProvider)
+            if (provider.Name == Owin.Authentication.Constants.LocalIdentityProvider || Context.Domain.Name == "sitecore")
             {
                 return;
             }
@@ -32,8 +32,9 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.SignedI
             {
                 Tracker.Initialize();
             }
+
             _accountTrackerService.TrackLoginAndIdentifyContact(provider.Name, args.User.Id);
-            _updateContactFacetsService.UpdateContactFacets(args.User.InnerUser.Profile);
+            _userProfileService.UpdateContactFacetData(args.User.InnerUser.Profile);
         }
 
         private IdentityProvider GetProvider(ClaimsIdentity identity)

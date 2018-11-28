@@ -17,6 +17,7 @@ public class Configuration
     public string MessageStatisticsApiKey {get;set;}
     public string MarketingDefinitionsApiKey {get;set;}
     public bool RunCleanBuilds {get;set;}
+	public int DeployExmTimeout {get;set;}
     public string BuildToolVersions 
     {
         set 
@@ -81,7 +82,9 @@ public void PublishProjects(string rootFolder, string websiteRoot)
                                    .WithProperty("WebPublishMethod", "FileSystem")
                                    .WithProperty("DeleteExistingFiles", "false")
                                    .WithProperty("publishUrl", websiteRoot)
-                                   .WithProperty("BuildProjectReferences", "false"));
+                                   .WithProperty("BuildProjectReferences", "false")
+                                   .WithProperty("RestoreConfigFile",configuration.NuGetConfigFileName)
+                                   );
     }
 }
 
@@ -121,6 +124,17 @@ public void RebuildIndex(string indexName)
     string responseBody = HttpGet(url);
 }
 
+public void DeployExmCampaigns()
+{
+	var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
+	var responseBody = HttpGet(url, settings =>
+	{
+		settings.AppendHeader("Connection", "keep-alive");
+	});
+
+    Information(responseBody);
+}
+
 public MSBuildSettings InitializeMSBuildSettings(MSBuildSettings settings)
 {
     settings.SetConfiguration(configuration.BuildConfiguration)
@@ -138,6 +152,30 @@ public void CreateFolder(string folderPath)
     {
         CreateDirectory(folderPath);
     }
+}
+
+public void Spam(Action action, int? timeoutMinutes = null)
+{
+	Exception lastException = null;
+	var startTime = DateTime.Now;
+	while (timeoutMinutes == null || (DateTime.Now - startTime).TotalMinutes < timeoutMinutes)
+	{
+		try {
+			action();
+
+			Information($"Completed in {(DateTime.Now - startTime).Minutes} min {(DateTime.Now - startTime).Seconds} sec.");
+			return;
+		} catch (AggregateException aex) {
+		    foreach (var x in aex.InnerExceptions)
+				Information($"{x.GetType().FullName}: {x.Message}");
+			lastException = aex;
+		} catch (Exception ex) {
+		    Information($"{ex.GetType().FullName}: {ex.Message}");
+			lastException = ex;
+		}
+	}
+
+    throw new TimeoutException($"Unable to complete within {timeoutMinutes} minutes.", lastException);
 }
 
 public void WriteError(string errorMessage)
