@@ -75,15 +75,14 @@ public void PublishProjects(string rootFolder, string websiteRoot)
     foreach (var project in projects)
     {
         MSBuild(project, cfg => InitializeMSBuildSettings(cfg)
-                                   .WithTarget(configuration.BuildTargets)
-                                   .WithProperty("DeployOnBuild", "true")
-                                   .WithProperty("DeployDefaultTarget", "WebPublish")
-                                   .WithProperty("WebPublishMethod", "FileSystem")
-                                   .WithProperty("DeleteExistingFiles", "false")
-                                   .WithProperty("publishUrl", websiteRoot)
-                                   .WithProperty("BuildProjectReferences", "false")
-                                   .WithProperty("RestoreConfigFile",nugetFile)
-                                   );
+                                    .WithTarget(configuration.BuildTargets)
+                                    .WithProperty("DeployOnBuild", "true")
+                                    .WithProperty("DeployDefaultTarget", "WebPublish")
+                                    .WithProperty("WebPublishMethod", "FileSystem")
+                                    .WithProperty("DeleteExistingFiles", "false")
+                                    .WithProperty("publishUrl", websiteRoot)
+                                    .WithProperty("BuildProjectReferences", "false")
+                                    .WithProperty("RestoreConfigFile", configuration.NuGetConfigFileName));
     }
 }
 
@@ -124,6 +123,7 @@ public MSBuildSettings InitializeMSBuildSettings(MSBuildSettings settings)
             .SetMSBuildPlatform(MSBuildPlatform.Automatic)
             .SetPlatformTarget(PlatformTarget.MSIL)
             .UseToolVersion(configuration.MSBuildToolVersion)
+            .WithProperty("RestoreConfigFile", configuration.NuGetConfigFileName)
             .WithRestore();
     return settings;
 }
