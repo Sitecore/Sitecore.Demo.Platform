@@ -1,0 +1,45 @@
+﻿---
+ID: "be2a1204-f7ba-4be3-933d-190c97496700"
+Parent: "05e62e8f-fb81-4fbe-a230-2edb30a14512"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/Habitat Sites/Global/Settings
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/gearwheels.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: |
+    {8517DBE7-68BC-4700-AD41-379C4EBB76A0}
+    {E34966E9-E83A-4C9C-A191-6B54B8DE0254}
+    {CBC14160-BED0-4AA2-9387-4C13179205B9}
+    {D81B405A-B997-4ACE-9068-A15E179A5419}
+    {03CA361C-8524-4505-8EED-2DF7E3C37159}
+    {A7228B46-610D-4A17-9F61-649F3A30AAAE}
+    {59F55DFC-4DB7-422F-9D40-F2ECF66C8499}
+    {35EBD280-C9BE-4E49-BFAE-F90A32C019DD}
+    {6175F4C7-F87F-4F7F-928E-4C5CA5DFFAF4}
+    {9D81C61A-0341-4312-816D-E5204385EA3C}
+    {C6E5A68F-8493-42F3-A8B4-C7FA8A5FB31D}
+    {CB2C27F8-01F4-48FF-82F5-5256F8B1FDC3}
+    {7E5DE17D-5975-40B7-952E-45E646699318}
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1300
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{A1EA5C1A-ED8F-4280-B9DF-23C03905BB50}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T151054Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser

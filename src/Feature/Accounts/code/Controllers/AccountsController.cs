@@ -66,15 +66,11 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 
         private LoginInfo CreateLoginInfo(string returnUrl = null)
         {
-            InternalLinkField link = Context.Site.GetSettingsItem().Fields[Templates.AccountsSettings.Fields.AfterLoginPage];
-            if (link.TargetItem == null)
-            {
-                throw new Exception("Account Settings: After Login Page link isn't set.");
-            }
-
+            string defaultRedirectUrl = _getRedirectUrlService.GetRedirectUrl(AuthenticationStatus.Authenticated);
+            
             return new LoginInfo
             {
-                ReturnUrl = returnUrl ?? link.TargetItem.Url()
+                ReturnUrl = returnUrl ?? defaultRedirectUrl
             };
         }
 
@@ -249,11 +245,6 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
         [RedirectUnauthenticated]
         public virtual ActionResult EditProfile(EditProfile profile)
         {
-            if (!string.IsNullOrEmpty(profile.Interest) && !_userProfileService.GetInterests().Contains(profile.Interest))
-            {
-                ModelState.AddModelError(nameof(profile.Interest), DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Interest Not Found", "Please select an interest from the list."));
-                profile.InterestTypes = _userProfileService.GetInterests();
-            }
             if (!ModelState.IsValid)
             {
                 return View(profile);
@@ -364,7 +355,6 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Controllers
 
                 if (Context.User.Profile.Email != null)
                 {
-                    this.Session.Abandon();
                     _userProfileService.DeleteProfile(Context.User.Profile);
                     _accountRepository.Logout();
                 }

@@ -1,0 +1,34 @@
+﻿---
+ID: "46c4372f-c8b3-4d7e-b79c-12c9d3b1d153"
+Parent: "568d0b5c-eccb-4a2f-a301-79c7761cda36"
+Template: "568d0b5c-eccb-4a2f-a301-79c7761cda36"
+Path: /sitecore/templates/Project/Habitat Sites/Global/Pages/Demo Page/__Standard Values
+DB: master
+SharedFields:
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking
+      ignore="1" />
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{67CC4FBC-DA7E-4EE0-9B58-3D3657EF0324}" />
+    </r>
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171108T144102Z
