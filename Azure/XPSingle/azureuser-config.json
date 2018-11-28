@@ -1,74 +1,74 @@
 {
-  "serviceprincipal": {
-    "azureSubscriptionName": "",
-    "tenantId": "",
-    "applicationId": "",
-    "applicationPassword": ""
-  },
-  "sitecoreAccount": {
-    "username": "",
-    "password": ""
-  },
-  "settings": [
-    {
-      "id": "AzureDeploymentID",
-      "value": "",
-      "description": "Azure Deployment ID"
-    },
-    {
-      "id": "AzureRegion",
-      "value": "",
-      "description": "Azure Region"
-    },
-    {
-      "id": "XConnectCertfilePath",
-      "value": "",
-      "description": "xConnect Certificate Path"
-    },
-    {
-      "id": "XConnectCertificatePassword",
-      "value": "",
-      "description": "xConnect Certificate Password"
-    },
-    {
-      "id": "SitecoreLoginAdminPassword",
-      "value": "",
-      "description": "Sitecore Administrator Password (8 Character Minimum)"
-    },
-    {
-      "id": "SitecoreLicenseXMLPath",
-      "value": "",
-      "description": "Sitecore license.xml Path"
-    },
-    {
-      "id": "SqlServerLoginAdminAccount",
-      "value": "",
-      "description": "SQL Server Administrator Username (SA is not a valid admin name for Azure SQL)"
-    },
-    {
-      "id": "SqlServerLoginAdminPassword",
-      "value": "",
-      "description": "SQL Server Administrator Password"
-    },
-    {
-      "id": "containerName",
-      "value": "",
-      "description": "name of the Azure container"
-    },
-    {
-      "id": "storageAccountName",
-      "value": "",
-      "description": "name of the Azure Storage Account"
-    },
-    {
-      "id": "ArmTemplateUrl",
-      "value": "",
-      "description": "Azure SAS URL of the azuredeploy.json"
-    },
-    {
-      "id": "templatelinkAccessToken",
-      "value": "",
-      "description": "Azure SAS token for the container"
-    }
-  ]
+    "serviceprincipal":  {
+                             "azureSubscriptionName":  "RD-NA_CA-PE-DEV-INT-CMC-NQ",
+                             "tenantId":  "91700184-c314-4dc9-bb7e-a411df456a1e",
+                             "applicationId":  "7233cdab-bcdc-40c0-9a6d-d5090d55b32b",
+                             "applicationPassword":  "nzu2B8JN#\u0026mD^\u0026-N"
+                         },
+    "sitecoreAccount":  {
+                            "username":  "ngotsev@hhogdev.com",
+                            "password":  "Aurora0123!@#"
+                        },
+    "settings":  [
+                     {
+                         "id":  "AzureDeploymentID",
+                         "value":  "testhabitatdeployau",
+                         "description":  "Azure Deployment ID"
+                     },
+                     {
+                         "id":  "AzureRegion",
+                         "value":  "West Europe",
+                         "description":  "Azure Region"
+                     },
+                     {
+                         "id":  "XConnectCertfilePath",
+                         "value":  "C:\\Deploy\\80E99D7A786584A5B6FB6918F1E3045A72193562.pfx",
+                         "description":  "xConnect Certificate Path"
+                     },
+                     {
+                         "id":  "XConnectCertificatePassword",
+                         "value":  "secret",
+                         "description":  "xConnect Certificate Password"
+                     },
+                     {
+                         "id":  "SitecoreLoginAdminPassword",
+                         "value":  "GreaterThan8",
+                         "description":  "Sitecore Administrator Password (8 Character Minimum)"
+                     },
+                     {
+                         "id":  "SitecoreLicenseXMLPath",
+                         "value":  "C:\\Users\\auzunov\\Downloads\\ARM_deploy\\license.xml",
+                         "description":  "Sitecore license.xml Path"
+                     },
+                     {
+                         "id":  "SqlServerLoginAdminAccount",
+                         "value":  "sqladm",
+                         "description":  "SQL Server Administrator Username (SA is not a valid admin name for Azure SQL)"
+                     },
+                     {
+                         "id":  "SqlServerLoginAdminPassword",
+                         "value":  "GreaterThan10!",
+                         "description":  "SQL Server Administrator Password"
+                     },
+                     {
+                         "id":  "containerName",
+                         "value":  "",
+                         "description":  "name of the Azure container"
+                     },
+                     {
+                         "id":  "storageAccountName",
+                         "value":  "",
+                         "description":  "name of the Azure Storage Account"
+                     },
+                     {
+                         "id":  "ArmTemplateUrl",
+                         "value":  "",
+                         "description":  "Azure SAS URL of the azuredeploy.json"
+                     },
+                     {
+                         "id":  "templatelinkAccessToken",
+                         "value":  "",
+                         "description":  "Azure SAS token for the container"
+                     }
+                 ]
 }
