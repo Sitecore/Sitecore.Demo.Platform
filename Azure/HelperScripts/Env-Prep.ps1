@@ -432,19 +432,19 @@ if($config.Topology -eq "single")
 }
 elseif($config.Topology -eq "scaled")
 {
-	$azureInfrastructureFile = Get-Content -Raw $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json')) | ConvertFrom-Json
+	$azureInfrastructureFile = Get-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json'))
 	$azureInfrastructureFile = $oJsSerializer.DeserializeObject($azureInfrastructureFile)
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.cmHostingPlan.SkuName = "P3v2"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.cdHostingPlan.SkuName = "P3v2"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.prcHostingPlan.SkuName = "P3v2"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.repHostingPlan.SkuName = "P3v2"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.coreSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.masterSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.webSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.reportingSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.poolsSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.tasksSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.formsSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue | Where-Object {$_ -eq "Extra Small"}.exmMasterSqlDatabase.ServiceObjectiveLevel = "S3"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cmHostingPlan.SkuName = "P3v2"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cdHostingPlan.SkuName = "P3v2"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".prcHostingPlan.SkuName = "P3v2"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".repHostingPlan.SkuName = "P3v2"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".coreSqlDatabase.ServiceObjectiveLevel = "S3"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".masterSqlDatabase.ServiceObjectiveLevel = "S3"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".webSqlDatabase.ServiceObjectiveLevel = "S3"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".reportingSqlDatabase.ServiceObjectiveLevel = "S3"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".poolsSqlDatabase.ServiceObjectiveLevel = "S3"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".tasksSqlDatabase.ServiceObjectiveLevel = "S3"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".formsSqlDatabase.ServiceObjectiveLevel = "S3"
+	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".exmMasterSqlDatabase.ServiceObjectiveLevel = "S3"
 	$azureInfrastructureFile  | ConvertTo-Json -Depth 50 | Set-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json')) -Encoding Ascii
 }
