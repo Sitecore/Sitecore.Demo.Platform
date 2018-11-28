@@ -192,7 +192,7 @@ Function Clean-Up([PSObject] $Configuration, [String] $FolderString) {
 
     # Clean Assemblies
 
-    $AssembliesToRemove = @("Sitecore.*.dll", "Unicorn*.dll", "Rainbow*.dll", "Kamsar*.dll", "Microsoft.*.dll", "HtmlAgilityPack.dll", "ICSharpCode.SharpZipLib.dll", "Lucene.Net.dll", "Mvp.Xml.dll", "Newtonsoft.Json.dll", "Owin.dll", "Remotion.Linq.dll", "System.*.dll")
+    $AssembliesToRemove = @("Sitecore.*.dll", "Unicorn*.dll", "Rainbow*.dll", "Kamsar*.dll", "Microsoft.Extensions.*.dll", "HtmlAgilityPack.dll", "ICSharpCode.SharpZipLib.dll", "Lucene.Net.dll", "Microsoft.IdentityModel.Protocol.Extensions.dll", "Microsoft.Owin*.dll", "Microsoft.Practices.EnterpriseLibrary.*.dll", "Microsoft.Web.Infrastructure.dll", "Mvp.Xml.dll", "Newtonsoft.Json.dll", "Owin.dll", "Remotion.Linq.dll", "System.*.dll")
     $AssembliesToKeep = @("Sitecore.HabitatHome.*", "Sitecore.DataExchange.*", "Microsoft.Owin.Security.Facebook.dll", "Microsoft.Owin.Security.MicrosoftAccount.dll", "Microsoft.Owin.Security.OpenIdConnect.dll")
 
     Get-ChildItem $FolderString -Include $AssembliesToRemove -Exclude $AssembliesToKeep -Recurse | ForEach-Object($_) { Remove-Item $_.FullName }
