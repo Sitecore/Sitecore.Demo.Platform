@@ -149,7 +149,7 @@ Task("Publish-Transforms").Does(() => {
 });
 
 Task("Modify-Unicorn-Source-Folder").Does(() => {
-    var zzzDevSettingsFile = File($"{configuration.WebsiteRoot}/App_config/Include/Project/z.Common.Website.DevSettings.config");
+    var zzzDevSettingsFile = File($"{configuration.WebsiteRoot}/App_config/Include/Project/z.DevSettings.config");
     
 	var rootXPath = "configuration/sitecore/sc.variable[@name='{0}']/@value";
     var sourceFolderXPath = string.Format(rootXPath, "sourceFolder");
