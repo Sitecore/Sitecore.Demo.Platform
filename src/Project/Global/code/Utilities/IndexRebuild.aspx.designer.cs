@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sitecore.Common.Website.Utilities {
+namespace Sitecore.Global.Website.Utilities {
     
     
     public partial class IndexRebuild {
