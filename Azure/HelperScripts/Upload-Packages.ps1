@@ -24,13 +24,13 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray = ProcessConfigFile -Config $ConfigurationFile
-$config                 = $configarray[0]
-$assetconfig            = $configarray[1]
-$azureuserconfig        = $configarray[2]
-$azureuserconfigfile    = $configarray[4]
-$topologyPath           = $configarray[5]
-$assetsfolder			= $configarray[7]
+$configuration = ProcessConfigFile -Config $ConfigurationFile
+$config          	    = $configuration.cakeConfig
+$assetconfig	 	    = $configuration.assets
+$azureuserconfig 	    = $configuration.azureUserConfig
+$azureuserconfigfile    = $configuration.azureUserConfigFile
+$topologyPath		    = $configuration.topologyPath
+$assetsFolder		    = $configuration.assetsFolder
 
 ##########################
 # Function for WDP uploads
@@ -908,8 +908,7 @@ $parameters.sqlServerLogin.value = $sqlServerLogin
 $parameters.sqlServerPassword.value = $sqlServerPassword
 $parameters.authCertificatePassword.value = $authCertificatePassword
 $parameters.siMsDeployPackageUrl.value = $siMsDeployPackageUrl
-$parameters.cortexProcessingMsDeployPackageUrl.value = $cortexProcessingMsDeployPackageUrl
-$parameters.cortexReportingMsDeployPackageUrl.value = $cortexReportingMsDeployPackageUrl
+
 
 
 if ($config.Topology -eq "single") {
@@ -952,6 +951,8 @@ if ($definstall -eq $true -and $config.topology -eq "single") {
         $parameters.xcSearchMsDeployPackageUrl.value = $xcSearchMsDeployPackageUrl
         $parameters.maOpsMsDeployPackageUrl.value = $maOpsMsDeployPackageUrl
         $parameters.maRepMsDeployPackageUrl.value = $maRepMsDeployPackageUrl
+        $parameters.cortexProcessingMsDeployPackageUrl.value = $cortexProcessingMsDeployPackageUrl
+        $parameters.cortexReportingMsDeployPackageUrl.value = $cortexReportingMsDeployPackageUrl
         ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.cdSxaMsDeployPackageUrl = $sxaCDMsDeployPackageUrl
         ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.cmSxaMsDeployPackageUrl = $sxaMsDeployPackageUrl
         ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.speMsDeployPackageUrl = $speMsDeployPackageUrl

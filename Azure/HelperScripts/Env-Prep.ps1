@@ -30,14 +30,14 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray     		= ProcessConfigFile -Config $ConfigurationFile
-$config          		= $configarray[0]
-$assetconfig     		= $configarray[1]
-$azureuserconfig 		= $configarray[2]
-$azureuserconfigFile 	= $configarray[4]
-$topologyName			= $configarray[6]
-$assetsFolder			= $configarray[7]
-$SCversion				= $configarray[8]
+$configuration = ProcessConfigFile -Config $ConfigurationFile
+$config          	    = $configuration.cakeConfig
+$assetconfig	 	    = $configuration.assets
+$azureuserconfig 	    = $configuration.azureUserConfig
+$azureuserconfigfile    = $configuration.azureUserConfigFile
+$assetsFolder		    = $configuration.assetsFolder
+$topologyName			= $configuration.topologyName
+$SCversion				= $config.version
 
 ############################
 # Get Sitecore Credentials
