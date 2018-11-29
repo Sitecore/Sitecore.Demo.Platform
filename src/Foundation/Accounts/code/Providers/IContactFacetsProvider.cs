@@ -1,6 +1,7 @@
 ﻿namespace Sitecore.HabitatHome.Foundation.Accounts.Providers
 {
     using Sitecore.Analytics.Tracking;
+    using Sitecore.HabitatHome.Foundation.Accounts.Models.Facets;
     using Sitecore.XConnect.Collection.Model;
 
     public interface IContactFacetsProvider
@@ -14,5 +15,7 @@
         PhoneNumberList PhoneNumbers { get; }
         Avatar Picture { get; }
         bool IsKnown { get; }
+        SportType SportType { get; }
+        SportName SportName { get; }
     }
 }

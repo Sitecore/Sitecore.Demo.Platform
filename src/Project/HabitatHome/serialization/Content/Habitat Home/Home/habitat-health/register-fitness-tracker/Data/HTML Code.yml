@@ -1,0 +1,29 @@
+﻿---
+ID: "68fe836c-71e2-4250-89a5-6eba1dfd4287"
+Parent: "28d45004-2fcb-4e6c-93d8-cb52f150d7ee"
+Template: "2ad23d55-aecd-43dd-ae0d-72d2ebcba60f"
+Path: "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/register-fitness-tracker/Data/HTML Code"
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "24cce27c-05db-4473-a1ed-e69b1725ff1c"
+      Hint: HtmlCode
+      Value: |
+        
+                <script src="/sitecore%20modules/Web/ExperienceForms/scripts/jquery-2.1.3.min.js"></script>
+        <script src="/sitecore%20modules/Web/ExperienceForms/scripts/jquery.validate.min.js"></script>
+        <script src="/sitecore%20modules/Web/ExperienceForms/scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="/sitecore%20modules/Web/ExperienceForms/scripts/jquery.unobtrusive-ajax.min.js"></script>
+        <script src="/sitecore%20modules/Web/ExperienceForms/scripts/form.validate.js"></script>
+        <script src="/sitecore%20modules/Web/ExperienceForms/scripts/form.tracking.js"></script>
+        <script src="/sitecore%20modules/Web/ExperienceForms/scripts/form.conditions.js"></script>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181105T202141Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
