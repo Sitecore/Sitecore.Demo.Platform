@@ -81,8 +81,7 @@ public void PublishProjects(string rootFolder, string websiteRoot)
                                     .WithProperty("WebPublishMethod", "FileSystem")
                                     .WithProperty("DeleteExistingFiles", "false")
                                     .WithProperty("publishUrl", websiteRoot)
-                                    .WithProperty("BuildProjectReferences", "false")
-                                    .WithProperty("RestoreConfigFile", configuration.NuGetConfigFileName));
+                                    .WithProperty("BuildProjectReferences", "false"));
     }
 }
 
