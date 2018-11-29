@@ -99,12 +99,10 @@ Task("Publish-Feature-Projects").Does(() => {
 });
 
 Task("Publish-Project-Projects").Does(() => {
-    var common = $"{configuration.ProjectSrcFolder}\\Common";
     var global = $"{configuration.ProjectSrcFolder}\\Global";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
     var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
 
-    PublishProjects(common, configuration.WebsiteRoot);
     PublishProjects(global, configuration.WebsiteRoot);
     PublishProjects(habitatHome, configuration.WebsiteRoot);
     PublishProjects(habitatHomeBasic, configuration.WebsiteRoot);
