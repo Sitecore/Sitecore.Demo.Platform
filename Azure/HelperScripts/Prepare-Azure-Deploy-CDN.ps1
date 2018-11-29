@@ -15,9 +15,9 @@ Param(
 )
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray     = ProcessConfigFile -Config $ConfigurationFile
-$config          = $configarray[0]
-$assetsfolder	 = $configarray[7]
+$configuration     = ProcessConfigFile -Config $ConfigurationFile
+$config          = $configuration.cakeConfig
+$assetsfolder	 = $configuration.assetsFolder
 
 #############################################
 # Prepare the azuredeploy.json ARM Template

@@ -1,5 +1,5 @@
-function ProcessConfigFile{
-<#
+function ProcessConfigFile {
+    <#
 .SYNOPSIS
 Processes json configuration files
 
@@ -25,92 +25,88 @@ $assetsfolder			= $configarray[7]
 $SCversion				= $configarray[8]
 #>
 
-[CmdletBinding()]
-Param(
-	[parameter(Mandatory=$true)]
-	[ValidateNotNullOrEmpty()]
-	[Alias ("Config")]
-    [string] $ConfigurationFile
-)
-		####################################
-		# Find and process cake-config.json
-	    ####################################
+    [CmdletBinding()]
+    Param(
+        [parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [Alias ("Config")]
+        [string] $ConfigurationFile
+    )
+    ####################################
+    # Find and process cake-config.json
+    ####################################
+    $configuration = @{}
 
-		if (!(Test-Path $ConfigurationFile)) 
-		{
-			Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
-			Write-Host  "Please ensure there is a cake-config.json configuration file at '$($ConfigurationFile)'" -ForegroundColor Red
-			Exit 1
-		}
+    if (!(Test-Path $ConfigurationFile)) {
+        Write-Host "Configuration file '$($ConfigurationFile)' not found." -ForegroundColor Red
+        Write-Host  "Please ensure there is a cake-config.json configuration file at '$($ConfigurationFile)'" -ForegroundColor Red
+        Exit 1
+    }
 
-		$config = Get-Content -Raw $ConfigurationFile |  ConvertFrom-Json
-
-		if (!$config) 
-		{
-			throw "Error trying to load configuration!"
-		} 
-
-		# Note the selected topology and assign the correct project path
-
-		if ($config.Topology -eq "single")
-		{
-			[string] $topologyPath = $([io.path]::combine($config.ProjectFolder, 'Azure', 'XPSingle'))
-			$topologyName =	'XPSingle'
-		}
-		elseif ($config.Topology -eq "scaled")
-		{
-			[string] $topologyPath = $([io.path]::combine($config.ProjectFolder, 'Azure', 'XP'))
-			$topologyName =	'XP'
-		}
-		else 
-		{
-			Write-Host "Please select a topology - either 'single' or 'scaled'" -ForegroundColor DarkRed
-		}
-
-		###############################
-		# Find and process assets.json
-		###############################
+    $configuration.cakeConfig = Get-Content -Raw $ConfigurationFile |  ConvertFrom-Json
 		
-		[string] $assetsConfigFile = $([io.path]::combine($topologyPath, 'assets.json'))
+    if (!$configuration.cakeConfig) {
+        throw "Error trying to load configuration!"
+    } 
+    $cakeConfig = $configuration.cakeConfig
 
-		if (!(Test-Path $assetsConfigFile)) 
-		{
-			Write-Host "Assets file '$($assetsConfigFile)' not found." -ForegroundColor Red
-			Write-Host  "Please ensure there is a assets.json file at '$($assetsConfigFile)'" -ForegroundColor Red
-			Exit 1
-		}
+    # Note the selected topology and assign the correct project path
+
+    if ($configuration.cakeConfig.Topology -eq "single") {
+        [string] $topologyPath = $([io.path]::combine($cakeConfig.ProjectFolder, 'Azure', 'XPSingle'))
+        $topologyName =	'XPSingle'
+
+    }
+    elseif ($cakeConfig.Topology -eq "scaled") {
+        [string] $topologyPath = $([io.path]::combine($cakeConfig.ProjectFolder, 'Azure', 'XP'))
+        $topologyName =	'XP'
+    }
+    else {
+        Write-Host "Please select a topology - either 'single' or 'scaled'" -ForegroundColor DarkRed
+    }
+    $configuration.topologyName = $topologyName
+    $configuration.topologyPath = $topologyPath
+
+    ###############################
+    # Find and process assets.json
+    ###############################
 		
-		$assetConfig = Get-Content -Raw $assetsConfigFile |  ConvertFrom-Json
+    [string] $assetsConfigFile = $([io.path]::combine($topologyPath, 'assets.json'))
 
-		if (!$assetConfig)
-		{
-			throw "Error trying to load Assest File!"
-		} 
+    if (!(Test-Path $assetsConfigFile)) {
+        Write-Host "Assets file '$($assetsConfigFile)' not found." -ForegroundColor Red
+        Write-Host  "Please ensure there is a assets.json file at '$($assetsConfigFile)'" -ForegroundColor Red
+        Exit 1
+    }
+	$configuration.assetsConfigFile = $assetsConfigFile
+	$configuration.assets = Get-Content -Raw $assetsConfigFile |  ConvertFrom-Json
 
-		#########################################
-		# Find and process azureuser-config.json
-		#########################################
+    if (!$configuration.assets) {
+        throw "Error trying to load Assest File!"
+    } 
+
+    #########################################
+    # Find and process azureuser-config.json
+    #########################################
 		
-		[string] $azureuserConfigFile = $([io.path]::combine($topologyPath, 'azureuser-config.json'))
+    [string] $azureuserConfigFile = $([io.path]::combine($topologyPath, 'azureuser-config.json'))
 
-		if (!(Test-Path $azureuserConfigFile)) 
-		{
-			Write-Host "azureuser-config file '$($azureuserConfigFile)' not found." -ForegroundColor Red
-			Write-Host  "Please ensure there is a user-config.json configuration file at '$($azureuserConfigFile)'" -ForegroundColor Red
-			Exit 1
-		}
+    if (!(Test-Path $azureuserConfigFile)) {
+        Write-Host "azureuser-config file '$($azureuserConfigFile)' not found." -ForegroundColor Red
+        Write-Host  "Please ensure there is a user-config.json configuration file at '$($azureuserConfigFile)'" -ForegroundColor Red
+        Exit 1
+    }
+	$configuration.azureUserConfigFile = $azureuserConfigFile
+    $configuration.azureUserConfig = Get-Content -Raw $azureuserConfigFile |  ConvertFrom-Json
+	
+	if (!$configuration.azureUserConfig) {
+        throw "Error trying to load azureuser-config.json!"
+    }
 
-		$azureuserconfig = Get-Content -Raw $azureuserConfigFile |  ConvertFrom-Json
-		if (!$azureuserconfig) 
-		{
-			throw "Error trying to load azureuser-config.json!"
-		}
-
-		# Sitecore Version
-		$SCversion = $config.version
-
-		# Specifcy Asset Folder Location
-		$assetsfolder = $([io.path]::combine($config.DeployFolder, $SCversion, $topologyName, 'assets'))
-
-		return $config, $assetConfig, $azureuserConfig, $assetsConfigFile, $azureuserConfigFile, $topologyPath, $topologyName, $assetsfolder, $SCversion
+		
+    # Specifcy Asset Folder Location
+    $assetsfolder = $([io.path]::combine($configuration.cakeConfig.DeployFolder, $configuration.cakeConfig.version, $topologyName, 'assets'))
+    $configuration.assetsFolder = $assetsfolder
+    return $configuration
+    #return $config, $assetConfig, $azureuserConfig, $assetsConfigFile, $azureuserConfigFile, $topologyPath, $topologyName, $assetsfolder, $SCversion
 }
