@@ -24,8 +24,12 @@
 
         public string Birthday { get; set; }
 
-        public string Language { get; set; }
+        public string Language { get; set; }        
         
+        public string SportName { get; set; }
+
+        public string SportType { get; set; }
+
         public string this[string key]
         {
             get
@@ -44,6 +48,8 @@
                     case "Gender": return this.Gender;
                     case "Birthday": return this.Birthday;
                     case "Language": return this.Language;
+                    case "SportType": return this.SportType;
+                    case "SportName": return this.SportName;
                     default: return string.Empty;
                 }
             }
@@ -75,6 +81,11 @@
                         break;
                     case "Language": this.Language = value;
                         break;
+                    case "SportType": this.SportType = value;
+                        break;
+                    case "SportName":this.SportName = value;
+                        break;
+                    
                     default: return;
                 }
             }

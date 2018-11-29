@@ -1,60 +1,87 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "deploymentId": {
-      "value": ""
-    },
-    "location": {
-      "value": "<AZURE REGION>"
-    },
-    "sitecoreAdminPassword": {
-      "value": "<8 Character Minimum>"
-    },
-    "licenseXml": {
-      "value": "<ABSOLUTE LOCAL PATH\\license.xml>"
-    },
-    "repAuthenticationApiKey": {
-      "value": ""
-    },
-    "sqlServerLogin": {
-      "value": "<SA is not a valid admin name for Azure SQL>"
-    },
-    "sqlServerPassword": {
-      "value": ""
-    },
-    "cmMsDeployPackageUrl": {
-      "value": ""
-    },
-    "cdMsDeployPackageUrl": {
-      "value": ""
-    },
-    "prcMsDeployPackageUrl": {
-      "value": ""
-    },
-    "repMsDeployPackageUrl": {
-      "value": ""
-    },
-    "xcRefDataMsDeployPackageUrl": {
-      "value": ""
-    },
-    "xcCollectMsDeployPackageUrl": {
-      "value": ""
-    },
-    "xcSearchMsDeployPackageUrl": {
-      "value": ""
-    },
-    "maOpsMsDeployPackageUrl": {
-      "value": ""
-    },
-    "maRepMsDeployPackageUrl": {
-      "value": ""
-    },
-    "authCertificatePassword": {
-      "value": "<Password for Cert Being passed>"
-    },
-    "allowInvalidClientCertificates": {
-      "value": true
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "deploymentId": {
+        "value": ""
+      },
+      "location": {
+        "value": ""
+      },
+      "sitecoreAdminPassword": {
+        "value": ""
+      },
+      "licenseXml": {
+        "value": ""
+      },
+      "repAuthenticationApiKey": {
+        "value": ""
+      },
+      "sqlServerLogin": {
+        "value": ""
+      },
+      "sqlServerPassword": {
+        "value": ""
+      },
+      "siMsDeployPackageUrl": {
+        "value": ""
+      },
+      "cmMsDeployPackageUrl": {
+        "value": ""
+      },
+      "cdMsDeployPackageUrl": {
+        "value": ""
+      },
+      "prcMsDeployPackageUrl": {
+        "value": ""
+      },
+      "repMsDeployPackageUrl": {
+        "value": ""
+      },
+      "xcRefDataMsDeployPackageUrl": {
+        "value": ""
+      },
+      "xcCollectMsDeployPackageUrl": {
+        "value": ""
+      },
+      "xcSearchMsDeployPackageUrl": {
+        "value": ""
+      },
+      "cortexProcessingMsDeployPackageUrl": {
+        "value": ""
+      },
+      "cortexReportingMsDeployPackageUrl": {
+        "value": ""
+      },
+      "maOpsMsDeployPackageUrl": {
+        "value": ""
+      },
+      "maRepMsDeployPackageUrl": {
+        "value": ""
+      },
+      "authCertificateBlob": {
+        "value": ""
+      },
+      "authCertificatePassword": {
+        "value": ""
+      },
+      "machineLearningServerConnectionString": {
+        "value": ""
+      },
+      "machineLearningServerBlobEndpointCertificatePath": {
+        "value": ""
+      },
+      "machineLearningServerBlobEndpointCertificatePassword": {
+        "value": ""
+      },
+      "machineLearningServerTableEndpointCertificatePath": {
+        "value": ""
+      },
+      "machineLearningServerTableEndpointCertificatePassword": {
+        "value": ""
+      },
+      "machineLearningServerEndpointCertificationAuthorityCertificatePath": {
+        "value": ""
+      }
     }
   }
-}
