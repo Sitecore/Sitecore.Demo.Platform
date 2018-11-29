@@ -8,6 +8,7 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Providers
     using Sitecore.Analytics.XConnect.Facets;
     using Sitecore.Configuration;
     using Sitecore.Data;
+    using Sitecore.HabitatHome.Foundation.Accounts.Models.Facets;
     using Sitecore.HabitatHome.Foundation.DependencyInjection;
     using Sitecore.XConnect;
     using Sitecore.XConnect.Collection.Model;
@@ -23,10 +24,18 @@ namespace Sitecore.HabitatHome.Foundation.Accounts.Providers
         }
                                                                                                                                                                         
         public PersonalInformation PersonalInfo => GetFacet<PersonalInformation>(PersonalInformation.DefaultFacetKey);
+
         public AddressList Addresses => GetFacet<AddressList>(AddressList.DefaultFacetKey);
+
         public EmailAddressList Emails => GetFacet<EmailAddressList>(EmailAddressList.DefaultFacetKey);
+
         public ConsentInformation CommunicationProfile => GetFacet<ConsentInformation>(ConsentInformation.DefaultFacetKey);
+
         public PhoneNumberList PhoneNumbers => GetFacet<PhoneNumberList>(PhoneNumberList.DefaultFacetKey);
+
+        public SportType SportType => GetFacet<SportType>(SportType.DefaultKey);
+
+        public SportName SportName => GetFacet<SportName>(SportName.DefaultKey);
 
         public Analytics.Tracking.Contact Contact
         {

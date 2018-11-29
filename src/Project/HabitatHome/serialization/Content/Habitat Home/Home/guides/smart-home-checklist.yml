@@ -5,6 +5,9 @@ Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
 Path: "/sitecore/content/Habitat Sites/Habitat Home/home/guides/smart-home-checklist"
 DB: master
 SharedFields:
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: 
 - ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
   Hint: Publish Date
   Value: 20171129T211300Z
@@ -72,7 +75,7 @@ SharedFields:
           p:after="r[@uid='{A4A00EAF-C779-48A6-A9E5-917924CC455D}']"
           s:ds="local:/Data/Smart Home Whitepaper"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters&amp;FieldNames=%7B837DA9F8-E307-4615-9B66-7F3B97E1470B%7D&amp;Styles&amp;Reset Caching Options=1&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:par="Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B837DA9F8-E307-4615-9B66-7F3B97E1470B%7D&amp;DynamicPlaceholderId=2"
           s:ph="/main/sxa-article-content/container-1">
           <rls>
             <ruleset>
@@ -245,9 +248,6 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{E59F1330-6FD3-47DC-B708-9B34296D7314}" />
-    - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
-      Hint: Page Design
-      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171128T223521Z

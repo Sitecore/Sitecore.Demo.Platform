@@ -1,0 +1,38 @@
+﻿---
+ID: "83f770c5-06a5-4611-86ab-bf9111f4c30e"
+Parent: "2c6679f9-65b4-4437-8a4c-be4c790b16e0"
+Template: "2c6679f9-65b4-4437-8a4c-be4c790b16e0"
+Path: /sitecore/templates/Project/Habitat Sites/Global/Home/__Standard Values
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {69DD5F28-429F-46B6-B55C-9DA3500A7369}
+    {BD74A392-DACD-4C23-853A-D520762B33A1}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}" />
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T151059Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser

@@ -8,7 +8,7 @@ BranchID: "06a7ea2b-a5c7-4091-8e4b-35001a173758"
 SharedFields:
 - ID: "0487113d-4de1-4ca7-a5d0-9fadfd0ef187"
   Hint: Notification Address
-  Value: mshaw@hhogdev.com
+  Value: 
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: office/32x32/mail_write.png
@@ -20,67 +20,34 @@ SharedFields:
   Value: "{35F24B92-BE51-4584-B689-3B71ADB9A75A}"
 - ID: "21f2a1e0-ac16-443b-b7a9-83504159f2bb"
   Hint: Device
-  Value: "{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+  Value: 
 - ID: "2bbf5276-ed11-4cd0-946f-66678b524457"
   Hint: Campaign Position
-  Value: "{C1B8669B-C41A-4ED3-BF0D-E859CF880D42}"
+  Value: 
 - ID: "6ec7a9e6-9fd5-4892-bbf6-11e76e0e5db8"
   Hint: Start Time
-  Value: 20180402T162444Z
+  Value: 
 - ID: "78f0b1f8-fdf4-4c1c-bec6-1ac68a210a52"
   Hint: Campaign
-  Value: "{43744AA2-0DCB-44ED-AFAA-C4A651BAA8BA}"
+  Value: 
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only
   Type: Checkbox
-  Value: 1
+  Value: 0
 - ID: "af0fe26a-a78b-491d-885c-03d95bc17342"
   Hint: State
-  Value: Active
+  Value: Inactive
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
 - ID: "ee1d1dc9-0c65-4e1c-a1c1-06d5eac23a7c"
   Hint: Enable Notifications
   Type: Checkbox
-  Value: 1
+  Value: 0
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
-  Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{48D55F1B-C559-411D-AC73-A51DF6C02247}">
-        <r
-          ds="{48257197-1B13-4C64-84BB-5D8279502DDF}"
-          id="{69EB7A6D-ACEF-4D06-A923-804918AA245E}"
-          par=""
-          ph="ec-title"
-          uid="{C472E7DB-2977-4A4A-9F58-CF271AAE45F3}" />
-        <r
-          ds="{D7032E1D-B288-4D36-ADA1-9C364359A63A}"
-          id="{87A142FF-6DA2-40E1-93B2-93BAB4560EE6}"
-          par=""
-          ph="ec-header"
-          uid="{15E98787-AEC1-4007-81CC-069D310D7209}" />
-        <r
-          ds="{48257197-1B13-4C64-84BB-5D8279502DDF}"
-          id="{26A4BFDF-B274-46A0-BB76-D4E025B40C47}"
-          par=""
-          ph="ec-main"
-          uid="{A5ECCE8C-CBD2-4669-BA39-5CAD038864FA}" />
-        <r
-          ds="{15DBE800-DF52-445A-B5E8-967B54854115}"
-          id="{6BDA85A1-1CB2-4F84-A777-67025160523F}"
-          par=""
-          ph="ec-main"
-          uid="{F71D3F57-B8AB-48AC-8D72-EEF37982A3B8}" />
-        <r
-          ds="{952F3EBB-B470-44DB-8FD6-B2EC15543D61}"
-          id="{D7040DF2-C910-4353-80E8-53EFAB32495C}"
-          par=""
-          ph="ec-footer"
-          uid="{D6FCB945-D468-40E3-BCFF-3C888A8F33B2}" />
-      </d>
-    </r>
+  Value: 
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{E6267A85-945B-444B-B246-400D4522A380}"

@@ -6,6 +6,28 @@ Path: "/sitecore/content/Habitat Sites/Habitat Home Basic/home/Component Kitchen
 DB: master
 BranchID: "a306f3b4-98f5-4973-9ae8-e3693bcb3252"
 SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{4A6F3558-D2AD-4183-B232-A426B4681E72}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B5423143A-760D-4F0E-BA4D-0B02E649A778%7D&amp;Styles"
+          ph="section-title"
+          uid="{1292FC57-9F1D-48E4-943B-8B4A6EA865A1}" />
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles"
+          ph="section-content"
+          uid="{8D78A6A9-1A4A-438F-9951-03896182E1D1}" />
+      </d>
+    </r>
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{4724B0B1-7CDC-4D58-AA03-CBFB7A0A2001}"

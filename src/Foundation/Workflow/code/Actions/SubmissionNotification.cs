@@ -101,7 +101,8 @@ namespace Sitecore.HabitatHome.Foundation.Workflow.Actions
             text = text.Replace("$itemLanguage$", args.DataItem.Language.ToString());
             text = text.Replace("$itemVersion$", args.DataItem.Version.ToString());
             text = text.Replace("$hostname$", HttpContext.Current.Request.Url.Host);
-            text = text.Replace("$comment$", args.CommentFields["Comments"]);
+            text = text.Replace ( "$comment$" , args.CommentFields[ "Comments" ] );
+
 
             return text;
         }

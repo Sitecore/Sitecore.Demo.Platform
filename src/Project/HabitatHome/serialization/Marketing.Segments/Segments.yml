@@ -1,0 +1,90 @@
+﻿---
+ID: "cd304d58-d53b-420c-9d1a-c83255af1554"
+Parent: "33cfb9ca-f565-4d5b-b88a-7cdfe29a6d71"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/system/Marketing Control Panel/Segments
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: office/32x32/chart_pie.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: "{95D4ED35-1E47-48E9-95DB-DE0614A0E86C}"
+- ID: "39c4902e-9960-4469-aeef-e878e9c8218f"
+  Hint: __Hidden
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Segmenter
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T201040Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Segmente
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T201327Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170131T105128Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: セグメント
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180604T034519Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "zh-CN"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 分片
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T201824Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

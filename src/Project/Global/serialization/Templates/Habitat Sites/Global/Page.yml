@@ -1,0 +1,47 @@
+﻿---
+ID: "bd74a392-dacd-4c23-853a-d520762b33a1"
+Parent: "05e62e8f-fb81-4fbe-a230-2edb30a14512"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/Habitat Sites/Global/Page
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/window.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: |
+    {3F8A6A5D-7B1A-4566-8CD4-0A50F3030BD8}
+    {0A7DA0A0-FCD9-4B7B-A725-E159FA3E7E6C}
+    {371D5FBB-5498-4D94-AB2B-E3B70EEBE78C}
+    {8114D1CE-CB6C-4DC7-930E-173345CB4746}
+    {E94D0466-BC9A-47AA-B0B0-1D626B10BFD6}
+    {A5F4B9CC-25D9-4EDA-A63D-E4CD0C6C6E24}
+    {49B99587-1114-4BEB-894B-1455EBDC0C41}
+    {9B5B9E0E-1CEF-4D54-8C47-27F241CE075B}
+    {4414A1F9-826A-4647-8DF4-ED6A95E64C43}
+    {0EC7A941-BB98-4A56-BD1A-9CDFE12896E9}
+    {11AB06B6-1F36-42D1-8065-77D7CE0FE085}
+    {F39A594A-7BC9-4DB0-BAA1-88543409C1F9}
+    {6650FB34-7EA1-4245-A919-5CC0F002A6D7}
+    {DFD71B66-796C-4BDE-A2BB-B60958D7BAF8}
+    {DDB08F92-1CC2-43E2-B5C1-FE7F98E32EC9}
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{F7887375-3495-4839-BECD-24EF7EC2C59D}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T151047Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
