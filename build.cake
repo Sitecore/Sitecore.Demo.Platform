@@ -99,12 +99,10 @@ Task("Publish-Feature-Projects").Does(() => {
 });
 
 Task("Publish-Project-Projects").Does(() => {
-    var common = $"{configuration.ProjectSrcFolder}\\Common";
     var global = $"{configuration.ProjectSrcFolder}\\Global";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
     var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
 
-    PublishProjects(common, configuration.WebsiteRoot);
     PublishProjects(global, configuration.WebsiteRoot);
     PublishProjects(habitatHome, configuration.WebsiteRoot);
     PublishProjects(habitatHomeBasic, configuration.WebsiteRoot);
@@ -149,7 +147,7 @@ Task("Publish-Transforms").Does(() => {
 });
 
 Task("Modify-Unicorn-Source-Folder").Does(() => {
-    var zzzDevSettingsFile = File($"{configuration.WebsiteRoot}/App_config/Include/Project/z.Common.Website.DevSettings.config");
+    var zzzDevSettingsFile = File($"{configuration.WebsiteRoot}/App_config/Include/Project/z.DevSettings.config");
     
 	var rootXPath = "configuration/sitecore/sc.variable[@name='{0}']/@value";
     var sourceFolderXPath = string.Format(rootXPath, "sourceFolder");

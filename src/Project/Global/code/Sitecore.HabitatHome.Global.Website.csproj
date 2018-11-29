@@ -46,20 +46,32 @@
   <Choose>
     <When Condition=" '$(Configuration)'=='Local' ">
       <ItemGroup>
+        <Reference Include="Sitecore.ContentSearch">
+          <HintPath>..\..\..\..\lib\Sitecore.ContentSearch.dll</HintPath>
+        </Reference>
         <Reference Include="Sitecore.Kernel">
           <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Logging">
           <HintPath>..\..\..\..\lib\Sitecore.Logging.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Mvc.Analytics">
-          <HintPath>..\..\..\..\lib\Sitecore.Mvc.Analytics.dll</HintPath>
+        <Reference Include="Sitecore.Marketing">
+          <HintPath>..\..\..\..\lib\Sitecore.Marketing.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.Mvc">
-          <HintPath>..\..\..\..\lib\Sitecore.Mvc.dll</HintPath>
+        <Reference Include="Sitecore.Marketing.xMgmt">
+          <HintPath>..\..\..\..\lib\Sitecore.Marketing.xMgmt.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Update">
           <HintPath>..\..\..\..\lib\Sitecore.Update.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XA.Foundation.Abstractions">
+          <HintPath>..\..\..\..\lib\Sitecore.XA.Foundation.Abstractions.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XA.Foundation.Multisite">
+          <HintPath>..\..\..\..\lib\Sitecore.XA.Foundation.Multisite.dll</HintPath>
+        </Reference>
+        <Reference Include="Sitecore.XA.Foundation.SitecoreExtensions">
+          <HintPath>..\..\..\..\lib\Sitecore.XA.Foundation.SitecoreExtensions.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Zip">
           <HintPath>..\..\..\..\lib\Sitecore.Zip.dll</HintPath>
@@ -68,11 +80,15 @@
     </When>
     <Otherwise>
       <ItemGroup>
+        <PackageReference Include="Sitecore.ContentSearch" Version="4.0.0-*" />
         <PackageReference Include="Sitecore.Kernel" Version="12.0.0-*" />
         <PackageReference Include="Sitecore.Logging" Version="12.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc.Analytics" Version="12.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc" Version="3.0.0-*" />
+        <PackageReference Include="Sitecore.Marketing" Version="13.0.0-*" />
+        <PackageReference Include="Sitecore.Marketing.xMgmt" Version="13.1.0-*" />
         <PackageReference Include="Sitecore.Update" Version="4.0.0-*" />
+        <PackageReference Include="Sitecore.XA.Foundation.Abstractions" Version="4.8.0.*" />
+        <PackageReference Include="Sitecore.XA.Foundation.Multisite" Version="4.8.0.*" />
+        <PackageReference Include="Sitecore.XA.Foundation.SitecoreExtensions" Version="4.8.0.*" />
         <PackageReference Include="Sitecore.Zip" Version="12.0.0-*" />
       </ItemGroup>
     </Otherwise>
@@ -97,6 +113,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Project\Global.Website.Serialization.config" />
+    <Content Include="App_Config\Include\zz.Foundation.Overrides\Foundation.Logging.config" />
+    <Content Include="App_Config\Include\zz.Foundation.Overrides\Foundation.Search.Azure.config" />
+    <Content Include="App_Config\Include\Project\Global.Website.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Config\Include\Project\Global.Website.SPE.config" />
+    <Content Include="App_Config\Include\Project\z.DevSettings.config" />
+    <Content Include="App_Config\Security\Domains.config" />
+    <Content Include="App_Config\Sitecore\ContentTesting\Sitecore.ContentTesting.PreemptiveScreenshot.config" />
+    <Content Include="Utilities\DeployEmailCampaigns.aspx" />
+    <Content Include="Utilities\DeployMarketingDefinitions.aspx" />
+    <Content Include="Utilities\IndexRebuild.aspx" />
+    <Content Include="Utilities\Installation\poststeps\0_Update_HostName.poststep" />
+    <Content Include="Utilities\Installation\poststeps\1_Smart_Publish.poststep" />
+    <Content Include="Utilities\Installation\poststeps\2_Index_Deploy_Marketing_Definitions.poststep" />
+    <Content Include="Utilities\Installation\poststeps\3_Index_Rebuild.poststep" />
+    <None Include="web.azure.config.xdt" />
+    <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,6 +145,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\DeployMarketingDefinitions.aspx.cs">
+      <DependentUpon>DeployMarketingDefinitions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DeployMarketingDefinitions.aspx.designer.cs">
+      <DependentUpon>DeployMarketingDefinitions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\IndexRebuild.aspx.cs">
+      <DependentUpon>IndexRebuild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\IndexRebuild.aspx.designer.cs">
+      <DependentUpon>IndexRebuild.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Installation\DeployMarketingDefinitionsPostStep.cs" />
+    <Compile Include="Utilities\Installation\IndexRebuildPostStep.cs" />
+    <Compile Include="Utilities\Installation\SmartPublishPostStep.cs" />
+    <Compile Include="Utilities\Installation\UpdateHostnamePostStep.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
