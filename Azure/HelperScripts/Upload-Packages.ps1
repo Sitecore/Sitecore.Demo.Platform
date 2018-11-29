@@ -44,12 +44,11 @@ Function CheckMd5{
     )
     $localMD5 = Get-FileHash -Path $localFilePath -Algorithm MD5
    
-    try {
-       $blob = Get-AzureStorageBlob -Blob $remoteBlobPath -Container $container -Context $context
-       $cloudMD5 =  $blob.ICloudBlob.Properties.ContentMD5
-    }
-    catch{
-        $cloudMd5 = $null
+    $cloudMD5 = $null
+    $blob = Get-AzureStorageBlob -Blob $remoteBlobPath -Container $container -Context $context -ErrorAction SilentlyContinue
+    
+    if ($blob) {
+        $cloudMD5 =  $blob.ICloudBlob.Properties.ContentMD5
     }
     if ($cloudMd5 -ne $localMD5.Hash){
         return $false
@@ -90,7 +89,8 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
     if (!($SkipScUpload)) {
         # Add sitecore azure toolkit module bootloader 
         $sitecoreAsset = $assetsJsonConfig.prerequisites | Where-Object {$_.Name -eq "Sitecore Experience Platform"}
-        if ($sitecoreAsset.FileName -match '([0-9]*\.[0-9]\.[0-9])') {
+        $regex = "((\d+\.)?(\d+\.)?(\*|\d+)(-r)?(\d+)?)"
+        if ($sitecoreAsset.FileName -match $regex) {
             $sepversion = $matches[0]
         }
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
@@ -98,13 +98,13 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
 
     $assetsJsonConfig.prerequisites | Where-Object {
         $_.uploadToAzure -eq $true -and $_.isWdp -eq $true -and $_.install -eq $true} | ForEach-Object {
-        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name))) | out-null
+        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name)))
     }
     $assetsJsonConfig.prerequisites | Where-Object {
         ($_.uploadToAzure -eq $true -and $_.isGroup -eq $true) -or ($_.convertToWdp -eq $true -and $_.install -eq $true)} | ForEach-Object {
-        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name))) | out-null
+        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name)))
     }
-
+  
     # Perform Upload
     foreach ($scwdpinarray in $sitecoreWDPpathArray) {
         if ($null -eq $scwdpinarray) {
@@ -481,7 +481,20 @@ if ($definstall -eq $true) {
             -FullUri
     }
 }
-
+  # Need to set the Sitecore identity Version in order to retrieve the file name later on
+  
+  $sitecoreIdentityAsset  = $assetconfig.prerequisites | Where-Object {$_.Name -eq "Sitecore Identity Server"}
+  $siBlob = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $sitecoreIdentityAsset.fileName}
+  if ($siBlob){
+    $siMsDeployPackageUrl = 
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $siBlob.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }   
 
 if ($config.Topology -eq "single") {
 
@@ -535,6 +548,27 @@ elseif ($config.Topology -eq "scaled") {
             -Context $ctx `
             -FullUri
     }
+    $cortexRep = $localSitecoreassets | Where-Object {$_.name -like "*_xp1cortexreporting.scwdp.zip" }
+    $cortexReportingMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $cortexRep.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }
+    $cortexProc = $localSitecoreassets | Where-Object {$_.name -like "*_xp1cortexprocessing.scwdp.zip" }
+    $cortexProcessingMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $cortexProc.Name} | Select -First 1 | ForEach-Object {
+        New-AzureStorageBlobSASToken -Container $containerName `
+            -Blob $_.Name `
+            -Permission rwd `
+            -StartTime (Get-Date) `
+            -ExpiryTime (Get-Date).AddDays(3650) `
+            -Context $ctx `
+            -FullUri
+    }
+
     $prcFile = $localSitecoreassets | Where-Object {$_.name -like "*_prc.scwdp.zip" }
     $prcMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $prcFile.Name} | Select -First 1 | ForEach-Object {
         New-AzureStorageBlobSASToken -Container $containerName `
@@ -628,8 +662,7 @@ elseif ($config.Topology -eq "scaled") {
             -Context $ctx `
             -FullUri
     }   
-
-
+   
 
     if ($definstall -eq $true) {
         $defCDDeployPackageUrl = $blobsList | Where-Object {
@@ -798,11 +831,10 @@ Function MergeConfigurationFiles {
         $parameters = $parameters  | ConvertTo-Json -Depth 6
         return $parameters
 }
-
 [String] $azuredeployConfigFile = $null
 [string] $moduleConfigFile = $null
-$azuredeployConfigFile = $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
 
+$azuredeployConfigFile = $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
 if ($definstall -eq $true) {
     $moduleConfigFile = Join-Path $topology "modules.json"
 }
@@ -817,7 +849,6 @@ if (!(Test-Path $azuredeployConfigFile) -or !($moduleConfigFile)) {
 }
 
 $azuredeployConfig = MergeConfigurationFiles  -parametersFilePath $azuredeployConfigFile -modulesFilePath $moduleConfigFile  Get-Content -Raw $azuredeployConfigFile |  ConvertFrom-Json
-
 if (!$azuredeployConfig) {
     throw "Error trying to load the Azuredeploy parameters file!"
 }
@@ -858,12 +889,12 @@ if ([string]::IsNullOrEmpty($templatelinkAccessToken) -or [string]::IsNullOrEmpt
     
     ($azureuserconfig.settings | Where-Object {$_.id -eq "ArmTemplateUrl"}).value = $ArmTemplateUrl
     ($azureuserconfig.settings | Where-Object {$_.id -eq "templatelinkAccessToken"}).value = $templatelinkAccessToken
-    
 
     $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
 }
 
 # Populate parameters inside the azuredeploy.parameters JSON schema with values from previously prepared variables
+
 $parameters = $azuredeployConfig.parameters
 
 $parameters.deploymentId.value = $deploymentId
@@ -873,6 +904,9 @@ $parameters.licenseXml.value = $licenseXml
 $parameters.sqlServerLogin.value = $sqlServerLogin
 $parameters.sqlServerPassword.value = $sqlServerPassword
 $parameters.authCertificatePassword.value = $authCertificatePassword
+$parameters.siMsDeployPackageUrl.value = $siMsDeployPackageUrl
+$parameters.cortexProcessingMsDeployPackageUrl.value = $cortexProcessingMsDeployPackageUrl
+$parameters.cortexReportingMsDeployPackageUrl.value = $cortexReportingMsDeployPackageUrl
 
 if ($config.Topology -eq "single") {
     $parameters.singleMsDeployPackageUrl.value = $singleMsDeployPackageUrl
@@ -903,6 +937,7 @@ if ($definstall -eq $true -and $topology -eq "single") {
 
     if ($config.Topology -eq "scaled") 
     {
+        $parameters.repAuthenticationApiKey.value = (New-Guid).ToString()
         $parameters.cmMsDeployPackageUrl.value = $cmMsDeployPackageUrl
         $parameters.cdMsDeployPackageUrl.value = $cdMsDeployPackageUrl
         $parameters.cdMsDeployPackageUrl.value = $cdMsDeployPackageUrl

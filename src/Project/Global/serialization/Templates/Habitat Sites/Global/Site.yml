@@ -1,0 +1,36 @@
+﻿---
+ID: "4f7b68d5-f792-4868-bfd1-c143466aa537"
+Parent: "05e62e8f-fb81-4fbe-a230-2edb30a14512"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/Habitat Sites/Global/Site
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/flag_generic.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: |
+    {6669DC16-F106-44B5-96BE-7A31AE82B5B5}
+    {DCB42A80-68C9-46F9-B036-BC44A27D96FE}
+    {3BC304DB-FE8F-4AA8-B95C-8C331E823F4C}
+    {C6D4DDD5-B912-4C1A-A3A3-E1D90E4D0939}
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1400
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{9AA41696-0496-4F0C-A888-6FF7F29C08ED}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T151051Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser

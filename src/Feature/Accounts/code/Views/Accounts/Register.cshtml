@@ -29,46 +29,6 @@
                 }, "p")
             </div>
 
-            <div class="form-group @Html.ValidationErrorFor(x => x.Email, "has-error")">
-                @Html.LabelFor(x => x.Email, new
-                {
-                    @class = "control-label"
-                })
-
-                @Html.TextBoxFor(x => x.Email, new
-                {
-                    @class = "form-control",
-                    id = "registerEmail",
-                    tabindex = "3",
-                    @placeholder = Html.Sitecore().Dictionary("/Accounts/Register/Register Email Placeholder", "Please enter your e-mail address")
-                })
-                @Html.ValidationMessageFor(x => x.Email, "", new
-                {
-                    @class = "help-block"
-                }, "p")
-            </div>
-
-            <div class="form-group @Html.ValidationErrorFor(x => x.ConfirmPassword, "has-error")">
-                @Html.LabelFor(x => x.ConfirmPassword, new
-                {
-                    @class = "control-label"
-                })
-
-                @Html.PasswordFor(x => x.ConfirmPassword, new
-                {
-                    @class = "form-control",
-                    id = "registerConfirmPassword",
-                    tabindex = "5",
-                    @placeholder = Html.Sitecore().Dictionary("/Accounts/Register/Register Confirm Password Placeholder", "Please confirm you new password")
-                })
-                @Html.ValidationMessageFor(x => x.ConfirmPassword, "", new
-                {
-                    @class = "help-block"
-                }, "p")
-            </div>
-        </div>
-        <div class="col-sm-6">
-
             <div class="form-group @Html.ValidationErrorFor(x => x.LastName, "has-error")">
                 @Html.LabelFor(x => x.LastName, new
                 {
@@ -88,6 +48,27 @@
                 }, "p")
             </div>
 
+            <div class="form-group @Html.ValidationErrorFor(x => x.Email, "has-error")">
+                @Html.LabelFor(x => x.Email, new
+                {
+                    @class = "control-label"
+                })
+
+                @Html.TextBoxFor(x => x.Email, new
+                {
+                    @class = "form-control",
+                    id = "registerEmail",
+                    tabindex = "3",
+                    @placeholder = Html.Sitecore().Dictionary("/Accounts/Register/Register Email Placeholder", "Please enter your e-mail address")
+                })
+                @Html.ValidationMessageFor(x => x.Email, "", new
+                {
+                    @class = "help-block"
+                }, "p")
+            </div>
+
+        </div>
+        <div class="col-sm-6">
             <div class="form-group @Html.ValidationErrorFor(x => x.Password, "has-error")">
                 @Html.LabelFor(x => x.Password, new
                 {
@@ -103,6 +84,25 @@
                     @placeholder = Html.Sitecore().Dictionary("/Accounts/Register/Register Password Placeholder", "Please enter your new password")
                 })
                 @Html.ValidationMessageFor(x => x.Password, "", new
+                {
+                    @class = "help-block"
+                }, "p")
+            </div>
+
+            <div class="form-group @Html.ValidationErrorFor(x => x.ConfirmPassword, "has-error")">
+                @Html.LabelFor(x => x.ConfirmPassword, new
+                {
+                    @class = "control-label"
+                })
+
+                @Html.PasswordFor(x => x.ConfirmPassword, new
+                {
+                    @class = "form-control",
+                    id = "registerConfirmPassword",
+                    tabindex = "5",
+                    @placeholder = Html.Sitecore().Dictionary("/Accounts/Register/Register Confirm Password Placeholder", "Please confirm you new password")
+                })
+                @Html.ValidationMessageFor(x => x.ConfirmPassword, "", new
                 {
                     @class = "help-block"
                 }, "p")

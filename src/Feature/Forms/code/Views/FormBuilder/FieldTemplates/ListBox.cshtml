@@ -4,7 +4,7 @@
     <label for="@Html.IdFor(m => Model.Value)" class="@Model.LabelCssClass">@Html.DisplayTextFor(t => Model.Title)</label>
     <input type="hidden" name="@Html.NameFor(m => Model.Value)" />
     <select id="@Html.IdFor(m => Model.Value)" name="@Html.NameFor(m => Model.Value)" @if (Model.MultipleSelection)
-            {<text> multiple</text>} size="@Model.Rows" class="@Model.CssClass" data-sc-tracking="@Model.IsTrackingEnabled" data-sc-field-name="@Model.Name" @Html.GenerateUnobtrusiveValidationAttributes(m => m.Value)>
+            {<text> multiple</text>} size="@Model.Rows" class="@Model.CssClass" data-sc-tracking="@Model.IsTrackingEnabled" data-sc-field-name="@Model.Name" data-sc-field-key="@Model.ConditionSettings.FieldKey"  @Html.GenerateUnobtrusiveValidationAttributes(m => m.Value)>
     @foreach (var item in Model.Items)
     {
         <option value="@item.Value" selected="@item.Selected">@item.Text</option>

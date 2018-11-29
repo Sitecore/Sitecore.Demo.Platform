@@ -25,6 +25,9 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Models
 
         public IEnumerable<string> InterestTypes { get; set; }
 
+        public string SportType { get; set; }
+        public string SportName { get; set; }
+
         public static string EmailCaption => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Email", "E-mail");
         public static string FirstNameCaption => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/First Name", "First name");
         public static string LastNameCaption => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Last Name", "Last name");
@@ -32,5 +35,6 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Models
         public static string InterestsCaption => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Interests", "Interests");
         public static string MaxLengthExceeded => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Max Length", "{0} length should be less than {1}");
         public static string PhoneNumberFormat => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Phone Number Format", "Phone number should contain only +, ( ) and digits");
+        public static string FitnessActivityCaption => DictionaryPhraseRepository.Current.Get("/Accounts/Edit Profile/Fitness Activity", "Fitness Activity");
     }
 }
