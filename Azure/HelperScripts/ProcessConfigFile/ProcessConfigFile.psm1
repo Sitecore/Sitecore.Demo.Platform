@@ -5,7 +5,9 @@ Processes json configuration files
 
 .DESCRIPTION
 Converts cake-config.json, assets.json, and azureuser-config.json configs to powershell objects.
-The script then returns these 3 objects as an array in the above order.
+Specifices the file path of various folders and config files.
+Specifices version number and topology name.
+The script then returns all these as an array.
 
 .PARAMETER ConfigurationFile
 A cake-config.json file
@@ -13,11 +15,14 @@ A cake-config.json file
 .Example
 $configarray			= ProcessConfigFile -Config $ConfigurationFile
 $config					= $configarray[0]
-$assetconfig			= $configarray[1]
+$assetConfig			= $configarray[1]
 $azureuserconfig		= $configarray[2]
 $assetconfigfile		= $configarray[3]
-$azureuserconfigfile	= $configarray[4]
+$azureuserConfigFile	= $configarray[4]
 $topologypath	        = $configarray[5]
+$topologyName			= $configarray[6]
+$assetsfolder			= $configarray[7]
+$SCversion				= $configarray[8]
 #>
 
 [CmdletBinding()]
@@ -50,10 +55,12 @@ Param(
 		if ($config.Topology -eq "single")
 		{
 			[string] $topologyPath = $([io.path]::combine($config.ProjectFolder, 'Azure', 'XPSingle'))
+			$topologyName =	'XPSingle'
 		}
 		elseif ($config.Topology -eq "scaled")
 		{
 			[string] $topologyPath = $([io.path]::combine($config.ProjectFolder, 'Azure', 'XP'))
+			$topologyName =	'XP'
 		}
 		else 
 		{
@@ -73,9 +80,9 @@ Param(
 			Exit 1
 		}
 		
-		$assetconfig = Get-Content -Raw $assetsConfigFile |  ConvertFrom-Json
+		$assetConfig = Get-Content -Raw $assetsConfigFile |  ConvertFrom-Json
 
-		if (!$assetconfig)
+		if (!$assetConfig)
 		{
 			throw "Error trying to load Assest File!"
 		} 
@@ -84,20 +91,26 @@ Param(
 		# Find and process azureuser-config.json
 		#########################################
 		
-		[string] $azureuserconfigFile = $([io.path]::combine($topologyPath, 'azureuser-config.json'))
+		[string] $azureuserConfigFile = $([io.path]::combine($topologyPath, 'azureuser-config.json'))
 
-		if (!(Test-Path $azureuserconfigFile)) 
+		if (!(Test-Path $azureuserConfigFile)) 
 		{
-			Write-Host "azureuser-config file '$($azureuserconfigFile)' not found." -ForegroundColor Red
-			Write-Host  "Please ensure there is a user-config.json configuration file at '$($azureuserconfigFile)'" -ForegroundColor Red
+			Write-Host "azureuser-config file '$($azureuserConfigFile)' not found." -ForegroundColor Red
+			Write-Host  "Please ensure there is a user-config.json configuration file at '$($azureuserConfigFile)'" -ForegroundColor Red
 			Exit 1
 		}
 
-		$azureuserconfig = Get-Content -Raw $azureuserconfigFile |  ConvertFrom-Json
+		$azureuserconfig = Get-Content -Raw $azureuserConfigFile |  ConvertFrom-Json
 		if (!$azureuserconfig) 
 		{
 			throw "Error trying to load azureuser-config.json!"
 		}
 
-		return $config, $assetconfig, $azureuserconfig, $assetsConfigFile, $azureuserconfigFile, $topologyPath
+		# Sitecore Version
+		$SCversion = $config.version
+
+		# Specifcy Asset Folder Location
+		$assetsfolder = $([io.path]::combine($config.DeployFolder, $SCversion, $topologyName, 'assets'))
+
+		return $config, $assetConfig, $azureuserConfig, $assetsConfigFile, $azureuserConfigFile, $topologyPath, $topologyName, $assetsfolder, $SCversion
 }
