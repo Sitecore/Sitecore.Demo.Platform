@@ -87,8 +87,7 @@ Task("Publish-All-Projects")
 Task("Build-Solution")
 .IsDependentOn("Copy-Sitecore-Lib")
 .Does(() => {
-    MSBuild(configuration.SolutionFile, cfg => InitializeMSBuildSettings(cfg)
-            .WithProperty("RestoreConfigFile", configuration.NuGetConfigFileName));
+    MSBuild(configuration.SolutionFile, cfg => InitializeMSBuildSettings(cfg));
 });
 
 Task("Publish-Foundation-Projects").Does(() => {
