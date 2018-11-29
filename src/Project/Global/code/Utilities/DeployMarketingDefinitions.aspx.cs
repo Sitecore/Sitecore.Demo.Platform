@@ -7,7 +7,7 @@ using Sitecore.Marketing.xMgmt.Pipelines.DeployDefinition;
 using System;
 using System.Globalization;
 
-namespace Sitecore.Common.Website.Utilities
+namespace Sitecore.Global.Website.Utilities
 {
     public partial class DeployMarketingDefinitions : System.Web.UI.Page
     {
