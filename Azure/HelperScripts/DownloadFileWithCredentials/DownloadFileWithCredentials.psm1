@@ -45,5 +45,3 @@ Function Invoke-DownloadFileWithCredentialsTask {
         }
     }
 }
-
-# Register-SitecoreInstallExtension -Command Invoke-DownloadFileWithCredentialsTask -As DownloadFileWithCredentials -Type Task -Force

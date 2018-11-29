@@ -98,11 +98,22 @@ public FilePathCollection GetTransformFiles(string rootFolder)
 public void Transform(string rootFolder) {
     var xdtFiles = GetTransformFiles(rootFolder);
 
+    string topology = null;
+
+    if(configuration.Topology == "single")
+    {
+        topology = "XPSingle";
+    }
+    else if(configuration.Topology == "scaled")
+    {
+        topology = "XP";
+    }
+
     foreach (var file in xdtFiles)
     {
         Information($"Applying configuration transform:{file.FullPath}");
         var fileToTransform = Regex.Replace(file.FullPath, ".+code/(.+)/*.xdt", "$1");
-        var sourceTransform = $"{configuration.DeployFolder}\\Website\\HabitatHome\\{fileToTransform}";
+        var sourceTransform = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome\\{fileToTransform}";
         
         XdtTransformConfig(sourceTransform			                // Source File
                             , file.FullPath			                // Tranforms file (*.xdt)
