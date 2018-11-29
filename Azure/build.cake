@@ -63,7 +63,18 @@ Task("Azure-Deploy")
 
 Task("Clean").Does(() => {
 
-    string[] folders = { "\\assets\\HabitatHome", "\\assets\\HabitatHomeCD", "\\Website", "\\assets\\Xconnect", "\\assets\\Data Exchange Framework\\WDPWorkFolder", "\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
+    string topology = null;
+
+    if(configuration.Topology == "single")
+    {
+        topology = "XPSingle";
+    }
+    else if(configuration.Topology == "scaled")
+    {
+        topology = "XP";
+    }
+
+    string[] folders = { $"\\{configuration.Version}\\{topology}\\assets\\HabitatHome", $"\\{configuration.Version}\\{topology}\\assets\\HabitatHomeCD", "\\Website", $"\\{configuration.Version}\\{topology}\\assets\\Xconnect", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
 
     foreach (string folder in folders)
     {

@@ -25,11 +25,12 @@ Param(
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
 $configarray = ProcessConfigFile -Config $ConfigurationFile
-$config = $configarray[0]
-$assetconfig = $configarray[1]
-$azureuserconfig = $configarray[2]
-$azureuserconfigfile = $configarray[4]
-$topology = $configarray[5]
+$config                 = $configarray[0]
+$assetconfig            = $configarray[1]
+$azureuserconfig        = $configarray[2]
+$azureuserconfigfile    = $configarray[4]
+$topologyPath           = $configarray[5]
+$assetsfolder			= $configarray[7]
 
 ##########################
 # Function for WDP uploads
@@ -43,7 +44,7 @@ Function CheckMd5{
         $context
     )
     $localMD5 = Get-FileHash -Path $localFilePath -Algorithm MD5
-   
+
     $cloudMD5 = $null
     $blob = Get-AzureStorageBlob -Blob $remoteBlobPath -Container $container -Context $context -ErrorAction SilentlyContinue
     
@@ -58,9 +59,9 @@ Function CheckMd5{
         return $true
     }
 }
-Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload) {
 
-    $assetsFolder = (Join-Path $cakeJsonConfig.DeployFolder "assets")
+Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload, $assetsFolder) {
+
     $sitecoreWDPpathArray = New-Object System.Collections.ArrayList
     $scUpload = $false
     $scUpload = ($assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Platform"} | Select-Object -first 1).uploadToAzure
@@ -93,18 +94,18 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
         if ($sitecoreAsset.FileName -match $regex) {
             $sepversion = $matches[0]
         }
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
     }
 
     $assetsJsonConfig.prerequisites | Where-Object {
         $_.uploadToAzure -eq $true -and $_.isWdp -eq $true -and $_.install -eq $true} | ForEach-Object {
-        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name)))
+        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name))) | out-null
     }
     $assetsJsonConfig.prerequisites | Where-Object {
         ($_.uploadToAzure -eq $true -and $_.isGroup -eq $true) -or ($_.convertToWdp -eq $true -and $_.install -eq $true)} | ForEach-Object {
-        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name)))
+        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name))) | out-null
     }
-  
+
     # Perform Upload
     foreach ($scwdpinarray in $sitecoreWDPpathArray) {
         if ($null -eq $scwdpinarray) {
@@ -128,22 +129,22 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
 # Function for file uploads
 ###########################
 
-Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload) {
+Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload, $assetsfolder) {
 
     $sitecoreARMpathArray = New-Object System.Collections.ArrayList
     
     # Fetching all ARM templates' paths
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'habitathome.json')))) | out-null
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'xconnect.json')))) | out-null
+    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topologyPath, 'ARM Templates', 'Habitat', 'habitathome.json')))) | out-null
+    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topologyPath, 'ARM Templates', 'Habitat', 'xconnect.json')))) | out-null
 
     $defInstall = $assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Data Exchange Framework"} | % { $_.uploadToAzure -and $_.install}
     if ($defInstall) {
-        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Data Exchange Framework', 'def_module.json')))) | out-null
+        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topologyPath, 'ARM Templates', 'Data Exchange Framework', 'def_module.json')))) | out-null
     }
     
     $sxaInstall = $assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Accelerator"} | % { $_.uploadToAzure -and $_.install}
     if ($sxaInstall) {
-        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
+        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topologyPath, 'ARM Templates', 'Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
     }
     
     if (!($SkipScUpload)) {
@@ -151,10 +152,10 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
         $sitecoreInstall = $assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Platform"} | % { $_.uploadToAzure -and $_.install}
         
         if ($sitecoreInstall) {
-            $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json')))) | out-null
-            $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json')))) | out-null
+            $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsfolder, 'ArmTemplates', 'azuredeploy.json')))) | out-null
+            $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsfolder, 'ArmTemplates', 'addons', 'bootloader.json')))) | out-null
         
-            $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
+            $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($assetsfolder, 'ArmTemplates', 'nested'))
             
             Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
 
@@ -300,8 +301,8 @@ if (!($SkipScUpload)) {
 
     $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
 
-    UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig
-    UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig
+    UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig -assetsFolder $assetsFolder
+    UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig -assetsFolder $assetsFolder
 }
 else { #SkipSCUpload
     # Get the current storage account
@@ -310,8 +311,8 @@ else { #SkipSCUpload
     # Obtain the storage account context
     $ctx = $sa.Context
 
-    UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload
-    UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload
+    UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload -assetsFolder $assetsFolder
+    UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload -assetsFolder $assetsFolder
 }
 
 
@@ -320,7 +321,6 @@ else { #SkipSCUpload
 ##############################################
 
 $blobsList = Get-AzureStorageBlob -Container $containerName -Context $ctx
-$assetsFolder = (Join-Path $config.DeployFolder "assets")
 $defInstall = $false
 
 $defAsset = $assetconfig.prerequisites | Where-Object {$_.Name -eq "Data Exchange Framework"}
@@ -481,7 +481,7 @@ if ($definstall -eq $true) {
             -FullUri
     }
 }
-  # Need to set the Sitecore identity Version in order to retrieve the file name later on
+# Need to set the Sitecore identity Version in order to retrieve the file name later on
   
   $sitecoreIdentityAsset  = $assetconfig.prerequisites | Where-Object {$_.Name -eq "Sitecore Identity Server"}
   $siBlob = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $sitecoreIdentityAsset.fileName}
@@ -548,7 +548,7 @@ elseif ($config.Topology -eq "scaled") {
             -Context $ctx `
             -FullUri
     }
-    $cortexRep = $localSitecoreassets | Where-Object {$_.name -like "*_xp1cortexreporting.scwdp.zip" }
+	 $cortexRep = $localSitecoreassets | Where-Object {$_.name -like "*_xp1cortexreporting.scwdp.zip" }
     $cortexReportingMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $cortexRep.Name} | Select -First 1 | ForEach-Object {
         New-AzureStorageBlobSASToken -Container $containerName `
             -Blob $_.Name `
@@ -568,7 +568,6 @@ elseif ($config.Topology -eq "scaled") {
             -Context $ctx `
             -FullUri
     }
-
     $prcFile = $localSitecoreassets | Where-Object {$_.name -like "*_prc.scwdp.zip" }
     $prcMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $prcFile.Name} | Select -First 1 | ForEach-Object {
         New-AzureStorageBlobSASToken -Container $containerName `
@@ -662,7 +661,8 @@ elseif ($config.Topology -eq "scaled") {
             -Context $ctx `
             -FullUri
     }   
-   
+
+
 
     if ($definstall -eq $true) {
         $defCDDeployPackageUrl = $blobsList | Where-Object {
@@ -815,7 +815,8 @@ $bootloaderTemplateLink = $blobsList | Where-Object {$_.Name -like "*bootloader.
 Function MergeConfigurationFiles {
     param(
         [string] $parametersFilePath,
-        [string] $modulesFilePath
+        [string] $modulesFilePath,
+        $assetsfolder
     )
     $parameters = Get-Content $parametersFilepath
     $modules = Get-Content $modulesFilePath
@@ -831,15 +832,16 @@ Function MergeConfigurationFiles {
         $parameters = $parameters  | ConvertTo-Json -Depth 6
         return $parameters
 }
+
 [String] $azuredeployConfigFile = $null
 [string] $moduleConfigFile = $null
+$azuredeployConfigFile = $([IO.Path]::Combine($assetsfolder, 'ArmTemplates', 'azuredeploy.parameters.json'))
 
-$azuredeployConfigFile = $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
 if ($definstall -eq $true) {
-    $moduleConfigFile = Join-Path $topology "modules.json"
+    $moduleConfigFile = Join-Path $topologyPath "modules.json"
 }
 else {
-    $moduleConfigFile = Join-Path $topology "modules-no-def.json"
+    $moduleConfigFile = Join-Path $topologyPath "modules-no-def.json"
 }
 
 if (!(Test-Path $azuredeployConfigFile) -or !($moduleConfigFile)) {
@@ -849,6 +851,7 @@ if (!(Test-Path $azuredeployConfigFile) -or !($moduleConfigFile)) {
 }
 
 $azuredeployConfig = MergeConfigurationFiles  -parametersFilePath $azuredeployConfigFile -modulesFilePath $moduleConfigFile  Get-Content -Raw $azuredeployConfigFile |  ConvertFrom-Json
+
 if (!$azuredeployConfig) {
     throw "Error trying to load the Azuredeploy parameters file!"
 }
@@ -889,12 +892,12 @@ if ([string]::IsNullOrEmpty($templatelinkAccessToken) -or [string]::IsNullOrEmpt
     
     ($azureuserconfig.settings | Where-Object {$_.id -eq "ArmTemplateUrl"}).value = $ArmTemplateUrl
     ($azureuserconfig.settings | Where-Object {$_.id -eq "templatelinkAccessToken"}).value = $templatelinkAccessToken
+    
 
     $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
 }
 
 # Populate parameters inside the azuredeploy.parameters JSON schema with values from previously prepared variables
-
 $parameters = $azuredeployConfig.parameters
 
 $parameters.deploymentId.value = $deploymentId
@@ -907,6 +910,7 @@ $parameters.authCertificatePassword.value = $authCertificatePassword
 $parameters.siMsDeployPackageUrl.value = $siMsDeployPackageUrl
 $parameters.cortexProcessingMsDeployPackageUrl.value = $cortexProcessingMsDeployPackageUrl
 $parameters.cortexReportingMsDeployPackageUrl.value = $cortexReportingMsDeployPackageUrl
+
 
 if ($config.Topology -eq "single") {
     $parameters.singleMsDeployPackageUrl.value = $singleMsDeployPackageUrl
@@ -922,7 +926,7 @@ if ($config.Topology -eq "single") {
     ($parameters.modules.value.items | Where-Object {$_.name -eq "bootloader"}).templateLink = $bootloaderTemplateLink
 }
 
-if ($definstall -eq $true -and $topology -eq "single") {
+if ($definstall -eq $true -and $config.topology -eq "single") {
 
     ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDeployPackageUrl = $defDeployPackageUrl
     ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSitecoreDeployPackageUrl = $defSitecoreDeployPackageUrl
@@ -937,7 +941,7 @@ if ($definstall -eq $true -and $topology -eq "single") {
 
     if ($config.Topology -eq "scaled") 
     {
-        $parameters.repAuthenticationApiKey.value = (New-Guid).ToString()
+	    $parameters.repAuthenticationApiKey.value = (New-Guid).ToString()
         $parameters.cmMsDeployPackageUrl.value = $cmMsDeployPackageUrl
         $parameters.cdMsDeployPackageUrl.value = $cdMsDeployPackageUrl
         $parameters.cdMsDeployPackageUrl.value = $cdMsDeployPackageUrl
@@ -961,7 +965,7 @@ if ($definstall -eq $true -and $topology -eq "single") {
         ($parameters.modules.value.items | Where-Object {$_.name -eq "bootloader"}).templateLink = $bootloaderTemplateLink
     }
 
-    if ($definstall -eq $true -and $topology -eq "scaled") {
+    if ($definstall -eq $true -and $config.topology -eq "scaled") {
             ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDeployPackageUrl = $defDeployPackageUrl
             ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSitecoreDeployPackageUrl = $defSitecoreDeployPackageUrl
             ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSqlDeployPackageUrl = $defSqlDeployPackageUrl
@@ -983,4 +987,4 @@ if ($definstall -eq $true -and $topology -eq "single") {
         
 # Apply the azuredeploy.parameters JSON schema to the azuredeploy.parameters.json file
 
-$azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($topology, "azuredeploy.parameters-$($deploymentId).json")) -Encoding Ascii
+$azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($assetsfolder, 'ArmTemplates', "azuredeploy.parameters-$($deploymentId).json")) -Encoding Ascii

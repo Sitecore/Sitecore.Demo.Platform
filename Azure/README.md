@@ -167,6 +167,8 @@ Please post any issues on Slack Community [#habitathome](https://sitecorechat.sl
 Alter the appropriate items in the assets.json file for the topology you are targeting. The only elements that should be changed are the filename and URL, 
 > Do not alter the filename's default format.
 
+Change the version parameter in the `Azure\cake-config.json` to the appropriate value.
+
 ### Assets.json
 Only alter these attributes as instructed, the build/deploy process relies on several of these parameters.
 
