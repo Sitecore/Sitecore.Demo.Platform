@@ -19,11 +19,11 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray        = ProcessConfigFile -Config $ConfigurationFile
-$config             = $configarray[0]
-$assetconfig        = $configarray[1]
-$azureuserconfig    = $configarray[2]
-$assetsfolder		= $configarray[7]
+$configuration = ProcessConfigFile -Config $ConfigurationFile
+$config          	    = $configuration.cakeConfig
+$assetconfig	 	    = $configuration.assets
+$azureuserconfig 	    = $configuration.azureUserConfig
+$assetsFolder		    = $configuration.assetsFolder
 
 ################################################################
 # Prepare folders for update package generation and triggers it
