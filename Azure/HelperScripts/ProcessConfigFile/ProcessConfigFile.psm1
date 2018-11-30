@@ -23,6 +23,7 @@ $topologypath	        = $configarray[5]
 $topologyName			= $configarray[6]
 $assetsfolder			= $configarray[7]
 $SCversion				= $configarray[8]
+$buildFolder			= $configarray[9]
 #>
 
 [CmdletBinding()]
@@ -111,6 +112,7 @@ Param(
 
 		# Specifcy Asset Folder Location
 		$assetsfolder = $([io.path]::combine($config.DeployFolder, $SCversion, $topologyName, 'assets'))
+		$buildFolder  = $([io.path]::combine($config.DeployFolder, $SCversion, $topologyName, 'Website'))
 
-		return $config, $assetConfig, $azureuserConfig, $assetsConfigFile, $azureuserConfigFile, $topologyPath, $topologyName, $assetsfolder, $SCversion
+		return $config, $assetConfig, $azureuserConfig, $assetsConfigFile, $azureuserConfigFile, $topologyPath, $topologyName, $assetsfolder, $SCversion, $buildFolder
 }

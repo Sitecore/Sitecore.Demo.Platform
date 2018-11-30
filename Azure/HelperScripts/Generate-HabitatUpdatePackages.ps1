@@ -23,7 +23,10 @@ $configarray        = ProcessConfigFile -Config $ConfigurationFile
 $config             = $configarray[0]
 $assetconfig        = $configarray[1]
 $azureuserconfig    = $configarray[2]
+$topologyName		= $configarray[6]
 $assetsfolder		= $configarray[7]
+$SCversion			= $configarray[8]
+$buildFolder		= $configarray[9]
 
 ################################################################
 # Prepare folders for update package generation and triggers it
@@ -222,7 +225,7 @@ Function Clean-Up([PSObject] $Configuration, [String] $FolderString) {
 }
 
 
-$rootFolder = Get-ChildItem (Join-Path $([IO.Path]::Combine($config.DeployFolder, 'Website')) *)
+$rootFolder = Get-ChildItem (Join-Path $buildFolder *)
 
 #Prepare Packages
 

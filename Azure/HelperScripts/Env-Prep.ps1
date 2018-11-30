@@ -39,6 +39,7 @@ $topologyPath	        = $configarray[5]
 $topologyName			= $configarray[6]
 $assetsFolder			= $configarray[7]
 $SCversion				= $configarray[8]
+$buildFolder			= $configarray[9]
 
 ############################
 # Get Sitecore Credentials
@@ -66,7 +67,7 @@ $securePassword = ConvertTo-SecureString $sitecoreAccountConfiguration.password 
 
 $foundfiles   = New-Object System.Collections.ArrayList
 $downloadlist = New-Object System.Collections.ArrayList
-[string] $habitathomefilepath = $([io.path]::combine($config.DeployFolder, 'Website', 'HabitatHome'))
+[string] $habitathomefilepath = $([io.path]::combine($buildFolder, 'HabitatHome'))
 $credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $sitecoreAccountConfiguration.username, $securePassword
 
 ##################################################
@@ -266,7 +267,8 @@ function DownloadFilesFromRepo {
 		[string]$DestinationPath
 	)
 
-	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+		[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+		$ProgressPreference = 'SilentlyContinue'
 
 	$baseUri = "https://api.github.com/"
 	$arguments = "repos/$Owner/$Repository/contents/$Path"
@@ -429,36 +431,42 @@ $allowSelfSigned = ConvertFrom-Json $allowSelfSigned
 
 $azureParametersFile = Get-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'azuredeploy.parameters.json'))
 $azureParametersFile = $oJsSerializer.DeserializeObject($azureParametersFile)
-if ($null -ne ($azureParametersFile.parameters.allowInvalidClientCertificates))
+if(!($azureParametersFile.parameters.allowInvalidClientCertificates))
 {
-	$azureParametersFile.parameters.Remove("allowInvalidClientCertificates")
+	$azureParametersFile.parameters.add("allowInvalidClientCertificates",$allowSelfSigned.allowInvalidClientCertificates)
+	$azureParametersFile  | ConvertTo-Json -Depth 50 | Set-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'azuredeploy.parameters.json')) -Encoding Ascii
 }
-$azureParametersFile.parameters.add("allowInvalidClientCertificates",$allowSelfSigned.allowInvalidClientCertificates)
-$azureParametersFile  | ConvertTo-Json -Depth 50 | Set-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'azuredeploy.parameters.json')) -Encoding Ascii
 
 # Scale up App Services
 if($config.Topology -eq "single")
 {
 	$azureInfrastructureFile = Get-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json'))
 	$azureInfrastructureFile = $oJsSerializer.DeserializeObject($azureInfrastructureFile)
-	$azureInfrastructureFile.parameters.singleHostingPlanSkuName.defaultValue = "P3v2"
-	$azureInfrastructureFile  | ConvertTo-Json -Depth 50 | Set-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json')) -Encoding Ascii
+
+	if($azureInfrastructureFile.parameters.singleHostingPlanSkuName.defaultValue -ne "P3v2")
+	{
+		$azureInfrastructureFile.parameters.singleHostingPlanSkuName.defaultValue = "P3v2"
+		$azureInfrastructureFile  | ConvertTo-Json -Depth 50 | Set-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json')) -Encoding Ascii
+	}
 }
 elseif($config.Topology -eq "scaled")
 {
 	$azureInfrastructureFile = Get-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json'))
 	$azureInfrastructureFile = $oJsSerializer.DeserializeObject($azureInfrastructureFile)
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cmHostingPlan.SkuName = "P3v2"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cdHostingPlan.SkuName = "P3v2"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".prcHostingPlan.SkuName = "P3v2"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".repHostingPlan.SkuName = "P3v2"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".coreSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".masterSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".webSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".reportingSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".poolsSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".tasksSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".formsSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".exmMasterSqlDatabase.ServiceObjectiveLevel = "S3"
-	$azureInfrastructureFile  | ConvertTo-Json -Depth 50 | Set-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json')) -Encoding Ascii
+	if($azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cmHostingPlan.SkuName -ne "P3v2")
+	{
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cmHostingPlan.SkuName = "P3v2"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cdHostingPlan.SkuName = "P3v2"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".prcHostingPlan.SkuName = "P3v2"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".repHostingPlan.SkuName = "P3v2"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".coreSqlDatabase.ServiceObjectiveLevel = "S3"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".masterSqlDatabase.ServiceObjectiveLevel = "S3"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".webSqlDatabase.ServiceObjectiveLevel = "S3"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".reportingSqlDatabase.ServiceObjectiveLevel = "S3"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".poolsSqlDatabase.ServiceObjectiveLevel = "S3"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".tasksSqlDatabase.ServiceObjectiveLevel = "S3"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".formsSqlDatabase.ServiceObjectiveLevel = "S3"
+		$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".exmMasterSqlDatabase.ServiceObjectiveLevel = "S3"
+		$azureInfrastructureFile  | ConvertTo-Json -Depth 50 | Set-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json')) -Encoding Ascii
+	}
 }
