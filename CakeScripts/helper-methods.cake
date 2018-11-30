@@ -18,6 +18,11 @@ public class Configuration
     public string MarketingDefinitionsApiKey {get;set;}
     public bool RunCleanBuilds {get;set;}
 	public int DeployExmTimeout {get;set;}
+    public string DeployFolder {get;set;}      
+    public string Version {get;set;}
+    public string Topology {get;set;}
+    public bool CDN {get;set;}
+    
     public string BuildToolVersions 
     {
         set 
