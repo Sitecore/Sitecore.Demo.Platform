@@ -33,6 +33,7 @@ $config          	    = $configuration.cakeConfig
 $assetconfig	 	    = $configuration.assets
 $azureuserconfig 	    = $configuration.azureUserConfig
 $assetsFolder		    = $configuration.assetsFolder
+$buildFolder			= $configuration.buildFolder
 
 
 ###########################
@@ -608,7 +609,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson, $assetsFolder) {
 								-IonicZip $IonicZipPath `
 								-foldername $folder.Name `
 								-assetJSONconfig $assetsConfigJson `
-								-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHome")
+								-XdtSrcFolder $(Join-Path $buildFolder "HabitatHome")
 					
 				} else {
 			
@@ -640,7 +641,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson, $assetsFolder) {
 									-IonicZip $IonicZipPath `
 									-foldername $folder.Name `
 									-assetJSONconfig $assetsConfigJson `
-									-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHomeCD")
+									-XdtSrcFolder $(Join-Path $buildFolder "HabitatHomeCD")
 					}
 					
 				} else {

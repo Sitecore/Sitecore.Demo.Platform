@@ -24,6 +24,9 @@ $config          	    = $configuration.cakeConfig
 $assetconfig	 	    = $configuration.assets
 $azureuserconfig 	    = $configuration.azureUserConfig
 $assetsFolder		    = $configuration.assetsFolder
+$topologyName			= $configuration.topologyName
+$SCversion				= $configuration.version
+$buildFolder			= $configuration.buildFolder
 
 ################################################################
 # Prepare folders for update package generation and triggers it
@@ -222,7 +225,7 @@ Function Clean-Up([PSObject] $Configuration, [String] $FolderString) {
 }
 
 
-$rootFolder = Get-ChildItem (Join-Path $([IO.Path]::Combine($config.DeployFolder, 'Website')) *)
+$rootFolder = Get-ChildItem (Join-Path $buildFolder *)
 
 #Prepare Packages
 
