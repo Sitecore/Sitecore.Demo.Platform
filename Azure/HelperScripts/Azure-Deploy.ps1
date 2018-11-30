@@ -19,12 +19,12 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray     	= ProcessConfigFile -Config $ConfigurationFile
-$config          	= $configarray[0]
-$assetconfig	 	= $configarray[1]
-$azureuserconfig 	= $configarray[2]
-$topologyPath		= $configarray[5]
-$assetsFolder		= $configarray[7]
+$configuration     	= ProcessConfigFile -Config $ConfigurationFile
+$config          	= $configuration.cakeConfig
+$assetconfig	 	= $configuration.assets
+$azureuserconfig 	= $configuration.azureUserConfig
+$topologyPath		= $configuration.topologyPath
+$assetsFolder		= $configuration.assetsFolder
 
 #####################
 # Fill in Parameters
