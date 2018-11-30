@@ -1,0 +1,70 @@
+﻿---
+ID: "6359287a-a305-48b2-88c0-4ee3803ad2a5"
+Parent: "72968e30-6114-4050-be11-647ca4ac5a8c"
+Template: "3f12d78c-b7b7-4157-98fc-da3322ee1a5b"
+Path: /sitecore/content/Email/Messages/2018/11/15T040553/Branded Blast Draft/Message Root
+DB: master
+BranchID: "06a7ea2b-a5c7-4091-8e4b-35001a173758"
+SharedFields:
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: Checkbox
+  Value: 0
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{48D55F1B-C559-411D-AC73-A51DF6C02247}">
+        <r
+          ds="{0C69684E-423B-4E49-B3F5-73B787250247}"
+          id="{69EB7A6D-ACEF-4D06-A923-804918AA245E}"
+          par=""
+          ph="ec-title"
+          uid="{C472E7DB-2977-4A4A-9F58-CF271AAE45F3}" />
+        <r
+          ds="{5EF15A3C-7C83-49AA-81C0-485F9804363C}"
+          id="{87A142FF-6DA2-40E1-93B2-93BAB4560EE6}"
+          par=""
+          ph="ec-header"
+          uid="{15E98787-AEC1-4007-81CC-069D310D7209}" />
+        <r
+          ds="{0C69684E-423B-4E49-B3F5-73B787250247}"
+          id="{26A4BFDF-B274-46A0-BB76-D4E025B40C47}"
+          par=""
+          ph="ec-main"
+          uid="{A5ECCE8C-CBD2-4669-BA39-5CAD038864FA}" />
+        <r
+          ds="{99B91CAF-5DB6-4312-A153-9E8BB7F91C36}"
+          id="{6BDA85A1-1CB2-4F84-A777-67025160523F}"
+          par=""
+          ph="ec-main"
+          uid="{F71D3F57-B8AB-48AC-8D72-EEF37982A3B8}" />
+        <r
+          ds="{10C226D0-69A6-4692-A9B5-C40A0BE5B7C4}"
+          id="{D7040DF2-C910-4353-80E8-53EFAB32495C}"
+          par=""
+          ph="ec-footer"
+          uid="{D6FCB945-D468-40E3-BCFF-3C888A8F33B2}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D369FEE5-9F71-4A85-BE2D-263D50D4B259}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181115T041907Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "c0bfd467-0b74-4efe-b7c9-1ecf7f0e5370"
+      Hint: Subject
+      Value: Welcome
