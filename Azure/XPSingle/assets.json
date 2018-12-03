@@ -3,8 +3,8 @@
     {
       "id": "xp0",
       "name": "Sitecore Experience Platform",
-      "fileName": "Sitecore 9.0.2 rev. 180604 (WDP XPSingle packages).zip",
-      "url": "https://dev.sitecore.net/~/media/BDF5A396761F4769B22B55A89E604C79.ashx",
+      "fileName": "Sitecore 9.1.0 rev. 001564 (WDP XPSingle packages).zip",
+      "url": "https://dev.sitecore.net/~/media/1DF37D33DE724BDD869D2AEFD0558A8E.ashx",
       "extract": true,
       "isWdp": false,
       "convertToWdp": false,
@@ -15,8 +15,8 @@
     {
       "id": "sat",
       "name": "Sitecore Azure Toolkit",
-      "fileName": "Sitecore Azure Toolkit 2.0.4 rev. 180605.zip",
-      "url": "https://dev.sitecore.net/~/media/97227BC40EF74028AA1BC7B8F48909A4.ashx",
+      "fileName": "Sitecore Azure Toolkit 2.1.0 rev. 181023.zip",
+      "url": "https://dev.sitecore.net/~/media/2976CA2FB22C47D18DCCD03581F7E67C.ashx",
       "extract": true,
       "isWdp": false,
       "convertToWdp": false,
@@ -25,10 +25,22 @@
       "source": "sitecore"
     },
     {
+      "id": "si",
+      "name": "Sitecore Identity Server",
+      "fileName": "Sitecore.IdentityServer.2.0.0-r00157.scwdp.zip",
+      "url": "https://dev.sitecore.net/~/media/B6C57F3892E14E0291FC80A38439983D.ashx",
+      "extract": false,
+      "isWdp": true,
+      "convertToWdp": false,  
+      "uploadToAzure": true,
+      "install": true,
+      "source": "sitecore"
+    },
+    {
       "id": "spe",
       "name": "Sitecore PowerShell Extensions",
-      "fileName": "Sitecore PowerShell Extensions-4.7.2 for Sitecore 8.scwdp.zip",
-      "url": "https://dev.sitecore.net/~/media/4918E7ADAAF049F4BC7BA5B73561F24F.ashx",
+      "fileName": "Sitecore PowerShell Extensions-5.0.scwdp.zip",
+      "url": "https://dev.sitecore.net/~/media/2C02EB17879548139937A41E5DA0EFCF.ashx",
       "extract": false,
       "isWdp": true,
       "convertToWdp": false,
@@ -39,8 +51,8 @@
     {
       "id": "sxa",
       "name": "Sitecore Experience Accelerator",
-      "fileName": "Sitecore Experience Accelerator 1.7.1 rev. 180604 for 9.0.scwdp.zip",
-      "url": "https://dev.sitecore.net/~/media/F25F1A9FB9494646A2EB494F32AACC89.ashx",
+      "fileName": "Sitecore Experience Accelerator 1.8 rev. 181112 for 9.1.scwdp.zip",
+      "url": "https://dev.sitecore.net/~/media/D494E255F40A49F097DE86C001495FFD.ashx",
       "extract": false,
       "isWdp": true,
       "convertToWdp": false,
