@@ -58,35 +58,6 @@ Param(
     [string[]]$ScriptArgs
 )
 
-###############################
-# Run AzureUser-Config-Capture
-###############################
-
-if(($Target) -and (($Target -ne "Build") -and ($Target -ne "Clean") -and ($Target -ne "Run-Prerequisites")) -or !($Target))
-{
-	if($SkipPrerequisites -eq $false)
-	{
-		& ".\\HelperScripts\AzureUser-Config-Capture.ps1" -ConfigurationFile "cake-config.json"
-	}
-}
-
-###############################
-# Run Env-Prep
-###############################
-
-if(($SkipPrerequisites -eq $false) -and ($Target -ne "Clean") -and ($Target -ne "Run-Prerequisites"))
-{
-	& ".\\HelperScripts\Env-Prep.ps1" -ConfigurationFile "cake-config.json"
-}
-
-###############################
-# Pass Skip Upload Param
-###############################
-
-if($SkipScUpload)
-{
-    $ScriptArgs += '-SkipScUpload'
-}
 
 # Attempt to set highest encryption available for SecurityProtocol.
 # PowerShell will not set this by default (until maybe .NET 4.6.x). This

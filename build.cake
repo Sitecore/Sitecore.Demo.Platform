@@ -37,7 +37,7 @@ Setup(context =>
 
 });
 
-
+var deployLocal = target == "Default" || target == "Quick-Deploy";
 
 /*===============================================
 ============ Local Build - Main Tasks ===========
@@ -86,7 +86,7 @@ Task("Build-WDP")
 .IsDependentOn("Publish-YML")
 .IsDependentOn("Publish-Azure-Transforms")
 .IsDependentOn("Publish-Post-Steps")
-.IsDependentOn("Package-Build");
+.IsDependentOn("Create-WDP");
 
 /*===============================================
 ======== Azure Deployment - Main Tasks ==========
@@ -99,6 +99,7 @@ Task("Default-Azure")
 
 Task("Azure-Upload")
 .WithCriteria(configuration != null)
+.IsDependentOn("Run-Prerequisites")
 .IsDependentOn("Prepare-Azure-Deploy-CDN")
 .IsDependentOn("Azure-Upload-Packages");
 
@@ -165,27 +166,44 @@ Task("Build-Solution")
 });
 
 Task("Publish-Foundation-Projects").Does(() => {
-    PublishProjects(configuration.FoundationSrcFolder, configuration.WebsiteRoot);
+    var destination = configuration.WebsiteRoot;
+    if (!deployLocal){
+        destination = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome";
+    }
+    PublishProjects(configuration.FoundationSrcFolder, destination);
 });
 
 Task("Publish-Feature-Projects").Does(() => {
-    PublishProjects(configuration.FeatureSrcFolder, configuration.WebsiteRoot);
+     var destination = configuration.WebsiteRoot;
+    if (!deployLocal){
+        destination = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome";
+    }
+     PublishProjects(configuration.FeatureSrcFolder, destination);
 });
 
 Task("Publish-Project-Projects").Does(() => {
     var global = $"{configuration.ProjectSrcFolder}\\Global";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
     var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
+    
+    var destination = configuration.WebsiteRoot;
+    if (!deployLocal){
+        destination = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome";
+    }
 
-    PublishProjects(global, configuration.WebsiteRoot);
-    PublishProjects(habitatHome, configuration.WebsiteRoot);
-    PublishProjects(habitatHomeBasic, configuration.WebsiteRoot);
+    PublishProjects(global, destination);
+    PublishProjects(habitatHome, destination);
+    PublishProjects(habitatHomeBasic, destination);
 });
 
 Task("Publish-xConnect-Project").Does(() => {
     var xConnectProject = $"{configuration.ProjectSrcFolder}\\xConnect";
-
-    PublishProjects(xConnectProject, configuration.XConnectRoot);
+    var destination = configuration.XConnectRoot;
+	
+   if (!deployLocal){
+        destination = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\xConnect";
+    }
+    PublishProjects(xConnectProject, destination);
 });
 
 Task("Apply-Xml-Transform").Does(() => {
@@ -313,21 +331,45 @@ Task("Rebuild-Web-Index").Does(() => {
 /*===============================================
 ============ Packaging Tasks ====================
 ===============================================*/
-Task("Package-Build")
-.IsDependentOn("Generate-HabitatUpdatePackages")
+Task("Create-WDP")
+.IsDependentOn("Generate-HabitatHomeUpdatePackages")
 .IsDependentOn("ConvertTo-SCWDPs");
 
-Task("Generate-HabitatUpdatePackages").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatUpdatePackages.ps1", args =>
+Task("Publish-YML").Does(() => {
+
+	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.yml";
+    var destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome\App_Data";
+
+    if (!DirectoryExists(destination)){
+        CreateFolder(destination);
+    }
+
+    try
+    {
+        var files = GetFiles(serializationFilesFilter).Select(x=>x.FullPath).ToList();
+
+        CopyFiles(files , destination, preserveFolderStructure: true);
+    }
+    catch (System.Exception ex)
+    {
+        WriteError(ex.Message);
+    }
+
+
+});
+
+
+Task("Generate-HabitatHomeUpdatePackages").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatHomeUpdatePackages.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         });
 		});
 
 Task("ConvertTo-SCWDPs").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\ConvertTo-SCWDPs.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         });
 		});
 
@@ -343,13 +385,13 @@ Task("Run-Prerequisites")
 
 Task("Capture-UserData").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\AzureUser-Config-Capture.ps1", args => {
-        args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
+        args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
             });
         });
 
 Task("Prepare-Environments").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Env-Prep.ps1", args => {
-        args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
+        args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         });
     });    
 
@@ -415,34 +457,11 @@ Task("Publish-Azure-Transforms").Does(()=>{
 Task("Prepare-Azure-Deploy-CDN").Does(() => {
    	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Prepare-Azure-Deploy-CDN.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         });
 	
 });
 
-Task("Publish-YML").Does(() => {
-
-	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.yml";
-    var destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome\App_Data";
-
-    if (!DirectoryExists(destination))
-    {
-        CreateFolder(destination);
-    }
-
-    try
-    {
-        var files = GetFiles(serializationFilesFilter).Select(x=>x.FullPath).ToList();
-
-        CopyFiles(files , destination, preserveFolderStructure: true);
-    }
-    catch (System.Exception ex)
-    {
-        WriteError(ex.Message);
-    }
-
-
-});
 
 
 Task("Publish-Post-Steps").Does(() => {
@@ -476,7 +495,7 @@ if(HasArgument("SkipScUpload"))
 {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Upload-Packages.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json")
+            args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json")
                 .Append("-SkipScUpload");
         });
 }
@@ -484,7 +503,7 @@ else
 {
     StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Upload-Packages.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         });
 }
 });
@@ -496,14 +515,14 @@ Task("Azure-Site-Deploy")
 Task("Deploy-To-Azure").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Azure-Deploy.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         });
 		});
 
 Task("Scale-Down").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Azure-Scaledown.ps1", args =>
         {
-            args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
+            args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         });
     });
 
