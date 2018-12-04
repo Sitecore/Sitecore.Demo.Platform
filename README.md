@@ -37,7 +37,19 @@ The code, samples and/or solutions provided in this repository are for example p
 
 ### Sitecore Version
 
+#### Local Deployment
 Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.1** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/91/Sitecore_Experience_Platform_91_Initial_Release.aspx).
+
+[Jump to local deployment instructions](#localInstallation) 
+#### Generating WebDeploy Package (WDP)
+
+
+#### Azure (PaaS) Deployment
+
+
+<a name="localInstallation"></a>
+## Local Build / Deployment
+
 
 ### Additional modules
 In addition to a base XP 9.1 installation, the following modules are required:
@@ -58,7 +70,6 @@ In addition to a base XP 9.1 installation, the following modules are required:
 ### SSL Only
 The demo is configured for **HTTPS/SSL**. Please ensure that you create an HTTPS binding with appropriate self-signed certificates.
 
-### Build / Deployment
 
 In order to deploy the assets, you need either Visual Studio 2017 or MSBuild Tools for Visual Studio 2017.
 
