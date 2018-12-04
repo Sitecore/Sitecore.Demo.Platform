@@ -36,6 +36,18 @@ Setup(context =>
     {
         topology = "XP";
     }
+    var deploymentRootPath ="";
+    switch (configuration.DeploymentTarget){
+        case "OnPrem":
+        case "Azure":
+            deploymentRootPath = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}";
+
+        break;
+        case "Local":
+            deploymentRootPath = configuration.WebsiteRoot;
+        break;
+    }
+
     if ((target.Contains("WDP") || target.Contains("Azure")) && 
     ((string.IsNullOrEmpty(devSitecorePassword)) || (string.IsNullOrEmpty(devSitecoreUserName)))){
         cakeConsole.WriteLine("");
@@ -53,7 +65,7 @@ Setup(context =>
     }
 });
 
-var deployLocal = target == "Default" || target == "Quick-Deploy";
+var deployLocal = configuration.DeploymentTarget == "Local";
 
 /*===============================================
 ============ Local Build - Main Tasks ===========
@@ -98,6 +110,7 @@ Task("Build-WDP")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Clean")
 .IsDependentOn("Publish-All-Projects")
+.IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Publish-YML")
 .IsDependentOn("Publish-Azure-Transforms")
@@ -183,17 +196,17 @@ Task("Build-Solution")
 });
 
 Task("Publish-Foundation-Projects").Does(() => {
-    var destination = configuration.WebsiteRoot;
+    var destination = deploymentRootPath;
     if (!deployLocal){
-        destination = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome";
+        destination = $"{deploymentRootPath}\\Website\\HabitatHome";
     }
     PublishProjects(configuration.FoundationSrcFolder, destination);
 });
 
 Task("Publish-Feature-Projects").Does(() => {
-     var destination = configuration.WebsiteRoot;
+     var destination = deploymentRootPath;
     if (!deployLocal){
-        destination = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome";
+        destination = $"{deploymentRootPath}\\Website\\HabitatHome";
     }
      PublishProjects(configuration.FeatureSrcFolder, destination);
 });
@@ -203,9 +216,9 @@ Task("Publish-Project-Projects").Does(() => {
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
     var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
     
-    var destination = configuration.WebsiteRoot;
+    var destination = deploymentRootPath;
     if (!deployLocal){
-        destination = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome";
+        destination = $"{deploymentRootPath}\\Website\\HabitatHome";
     }
 
     PublishProjects(global, destination);
@@ -218,7 +231,7 @@ Task("Publish-xConnect-Project").Does(() => {
     var destination = configuration.XConnectRoot;
 	
    if (!deployLocal){
-        destination = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\xConnect";
+        destination = $"{deploymentRootPath}\\Website\\xConnect";
     }
     PublishProjects(xConnectProject, destination);
 });
@@ -235,15 +248,10 @@ Task("Apply-Xml-Transform").Does(() => {
 Task("Publish-Transforms").Does(() => {
 
     var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
-    string destination = null;
+    var destination =  $@"{deploymentRootPath}\temp\transforms";
     
-    
-    if (target.Contains("Azure")){
-        destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome\temp\transforms";
-    }
-    else
-    {
-        destination =  $@"{configuration.WebsiteRoot}\temp\transforms";
+    if (!deployLocal){
+        destination = $@"{deploymentRootPath}\Website\HabitatHome\temp\transforms";
     }
     CreateFolder(destination);
 
@@ -422,7 +430,10 @@ Task("Prepare-BuildEnvironment").Does(() => {
         args.AppendSecret(devSitecorePassword);
         });
     });  
-Task("Publish-Azure-Transforms").Does(()=>{
+Task("Publish-Azure-Transforms")
+.WithCriteria(configuration.DeploymentTarget == "Azure")
+.Does(()=>{
+
 
        var codeFoldersFilter = $@"{configuration.ProjectFolder}\**\code";
        var destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome";  
