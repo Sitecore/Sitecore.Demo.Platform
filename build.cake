@@ -13,7 +13,7 @@ var cakeConsole = new CakeConsole();
 var configJsonFile = "cake-config.json";
 var unicornSyncScript = $"./scripts/Unicorn/Sync.ps1";
 var deploymentRootPath ="";
-
+var deploymentTarget = "";
 string topology = null;
 
 var devSitecoreUserName = Argument("DEV_SITECORE_USERNAME", EnvironmentVariable("DEV_SITECORE_USERNAME"));
@@ -39,7 +39,7 @@ Setup(context =>
         topology = "XP";
     }
     
-    var deploymentTarget = Argument<string>("deploymentTarget",configuration.DeploymentTarget);
+    deploymentTarget = Argument<string>("deploymentTarget",configuration.DeploymentTarget);
     
     switch (deploymentTarget){
         case "OnPrem":
@@ -368,7 +368,7 @@ Task("Create-WDP")
 Task("Publish-YML").Does(() => {
 
 	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.yml";
-    var destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome\App_Data";
+    var destination = $@"{deploymentTarget}\Website\HabitatHome\App_Data";
 
     if (!DirectoryExists(destination)){
         CreateFolder(destination);
@@ -440,7 +440,7 @@ Task("Publish-Azure-Transforms")
 
 
        var codeFoldersFilter = $@"{configuration.ProjectFolder}\**\code";
-       var destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome";  
+       var destination = $@"{deploymentTarget}\Website\HabitatHome";  
 
        if (!DirectoryExists(destination))
        {
@@ -509,7 +509,7 @@ Task("Prepare-Azure-Deploy-CDN").Does(() => {
 Task("Publish-Post-Steps").Does(() => {
 
 	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.poststep";
-    var destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome\App_Data\poststeps";
+    var destination = $@"{deploymentTarget}\Website\HabitatHome\App_Data\poststeps";
 
     if (!DirectoryExists(destination))
     {
