@@ -22,6 +22,7 @@ public class Configuration
     public string Version {get;set;}
     public string Topology {get;set;}
     public bool CDN {get;set;}
+    public string DeploymentTarget{get;set;}
     
     public string BuildToolVersions 
     {

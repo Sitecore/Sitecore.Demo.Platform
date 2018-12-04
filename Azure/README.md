@@ -95,7 +95,6 @@ you will need to modify the `azureuser-config.json` for your target topology.
 | tenantId                                  | Also called a DirectoryId. Can be found in the "Azure Active Directoy" Dashboard under Manage -> Properties
 | applicationId                             | appId of the Service Principal
 | applicationPassword                       | the Service Principal password
-| sitecoreAccount                           | The username and password to a dev.sitecore.com accoutn with download permissions
 | AzureDeploymentID                         | The Resource Group name in azure that Habitat will be deployed to. If the group does not exist it will be created.
 | AzureRegion                               | The Geographic Azure Location of the Deployment [Azure Locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/)
 | XConnectCertfilePath                      | xConnect Certificate Path. This will be auto generated if left blank.
