@@ -12,6 +12,8 @@ var configuration = new Configuration();
 var cakeConsole = new CakeConsole();
 var configJsonFile = "cake-config.json";
 var unicornSyncScript = $"./scripts/Unicorn/Sync.ps1";
+var deploymentRootPath ="";
+
 string topology = null;
 
 var devSitecoreUserName = Argument("DEV_SITECORE_USERNAME", EnvironmentVariable("DEV_SITECORE_USERNAME"));
@@ -36,8 +38,10 @@ Setup(context =>
     {
         topology = "XP";
     }
-    var deploymentRootPath ="";
-    switch (configuration.DeploymentTarget){
+    
+    var deploymentTarget = Argument<string>("deploymentTarget",configuration.DeploymentTarget);
+    
+    switch (deploymentTarget){
         case "OnPrem":
         case "Azure":
             deploymentRootPath = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}";
