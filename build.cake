@@ -14,6 +14,8 @@ var configJsonFile = "cake-config.json";
 var unicornSyncScript = $"./scripts/Unicorn/Sync.ps1";
 string topology = null;
 
+var devSitecoreUserName = Argument("DEV_SITECORE_USERNAME", EnvironmentVariable("DEV_SITECORE_USERNAME"));
+var devSitecorePassword = Argument("DEV_SITECORE_PASSWORD", EnvironmentVariable("DEV_SITECORE_PASSWORD"));
 
 /*===============================================
 ================ MAIN TASKS =====================
@@ -34,7 +36,21 @@ Setup(context =>
     {
         topology = "XP";
     }
-
+    if ((target.Contains("WDP") || target.Contains("Azure")) && 
+    ((string.IsNullOrEmpty(devSitecorePassword)) || (string.IsNullOrEmpty(devSitecoreUserName)))){
+        cakeConsole.WriteLine("");
+        cakeConsole.WriteLine("");
+        Warning("       ***********  WARNING  ***************        ");
+        cakeConsole.WriteLine("");
+        Warning("You have not supplied your dev.sitecore.com credentials.");
+        Warning("Some of the build tasks selected require assets that are hosted on dev.sitecore.com.");
+        Warning("If these assets have not previously been downloaded, the script will fail.");
+        Warning("You can avoid this warning by supplying values for 'DEV_SITECORE_USERNAME' and 'DEV_SITECORE_PASSWORD' as environment variables or ScriptArgs");
+        cakeConsole.WriteLine("");
+        Information("Example: .\\build.ps1 -Target Build-WDP -ScriptArgs --DEV_SITECORE_USERNAME=your_user@email.com, --DEV_SITECORE_PASSWORD=<your-password>");
+        cakeConsole.WriteLine("");
+        Warning("       *************************************        ");
+    }
 });
 
 var deployLocal = target == "Default" || target == "Quick-Deploy";
@@ -332,8 +348,9 @@ Task("Rebuild-Web-Index").Does(() => {
 ============ Packaging Tasks ====================
 ===============================================*/
 Task("Create-WDP")
+.IsDependentOn("Prepare-BuildEnvironment")
 .IsDependentOn("Generate-HabitatHomeUpdatePackages")
-.IsDependentOn("ConvertTo-SCWDPs");
+.IsDependentOn("Generate-HabitatHomeWDP");
 
 Task("Publish-YML").Does(() => {
 
@@ -366,8 +383,8 @@ Task("Generate-HabitatHomeUpdatePackages").Does(() => {
         });
 		});
 
-Task("ConvertTo-SCWDPs").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\ConvertTo-SCWDPs.ps1", args =>
+Task("Generate-HabitatHomeWDP").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatHomeWDP.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         });
@@ -390,11 +407,20 @@ Task("Capture-UserData").Does(() => {
         });
 
 Task("Prepare-Environments").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Env-Prep.ps1", args => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Prepare-Environment.ps1", args => {
         args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+        args.AppendSecret(devSitecoreUserName);
+        args.AppendSecret(devSitecorePassword);
         });
     });    
-
+Task("Prepare-BuildEnvironment").Does(() => {
+	
+    StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Prepare-BuildEnvironment.ps1", args => {
+        args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+        args.AppendSecret(devSitecoreUserName);
+        args.AppendSecret(devSitecorePassword);
+        });
+    });  
 Task("Publish-Azure-Transforms").Does(()=>{
 
        var codeFoldersFilter = $@"{configuration.ProjectFolder}\**\code";

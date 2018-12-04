@@ -228,15 +228,15 @@ is the path to Ionic's zipping library
 
 .Example
  Create-WDP -RootFolder "C:\_deployment\website_packaged_test" `
-            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
+            -SitecoreCloudModulePath "C:\Deploy\9.1.0\XPSingle\assets\Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
             -JsonConfigFilename "website_config" `
             -XmlParameterFilename "website_parameters" `
             -SccplCargoFilename "website_cargo" `
             -IonicZip ".\Sitecore Azure Toolkit\tools\DotNetZip.dll"
 
 .Example
- Create-WDP -RootFolder "C:\Users\auzunov\Downloads\ARM_deploy\Modules\DEF" `
-            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
+ Create-WDP -RootFolder "C:\Deploy\Modules\DEF" `
+            -SitecoreCloudModulePath "C:\Deploy\9.1.0\XPSingle\assets\Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
             -JsonConfigFilename "def_config" `
             -XmlParameterFilename "def_parameters" `
             -SccplCargoFilename "def_cargo" `
