@@ -41,6 +41,7 @@ Task("Default")
 
 Task("Post-Deploy")
 .IsDependentOn("Sync-Unicorn")
+.IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Deploy-EXM-Campaigns")
 .IsDependentOn("Deploy-Marketing-Definitions")
@@ -99,12 +100,12 @@ Task("Publish-Feature-Projects").Does(() => {
 
 Task("Publish-Project-Projects").Does(() => {
     var common = $"{configuration.ProjectSrcFolder}\\Common";
-    var habitat = $"{configuration.ProjectSrcFolder}\\Habitat";
+    var global = $"{configuration.ProjectSrcFolder}\\Global";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
     var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
 
     PublishProjects(common, configuration.WebsiteRoot);
-    PublishProjects(habitat, configuration.WebsiteRoot);
+    PublishProjects(global, configuration.WebsiteRoot);
     PublishProjects(habitatHome, configuration.WebsiteRoot);
     PublishProjects(habitatHomeBasic, configuration.WebsiteRoot);
 });
@@ -135,7 +136,7 @@ Task("Publish-Transforms").Does(() => {
         var files = new List<string>();
         foreach(var layer in layers)
         {
-            var xdtFiles = GetTransformFiles(layer).Select(x => x.FullPath).ToList();
+            var xdtFiles = GetTransformFiles(layer).Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
             files.AddRange(xdtFiles);
         }   
 
@@ -180,6 +181,7 @@ Task("Modify-PublishSettings").Does(() => {
     XmlPoke(destination,importXPath,null,xmlSetting);
     XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
 });
+
 Task("Sync-Unicorn").Does(() => {
     var unicornUrl = configuration.InstanceUrl + "unicorn.aspx";
     Information("Sync Unicorn items from url: " + unicornUrl);

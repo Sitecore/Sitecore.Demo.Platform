@@ -32,21 +32,21 @@ SharedFields:
           p:after="p[@uid='{8F07E7AE-AEDE-46D5-B17B-2E6C7B6B5300}']"
           s:ds="local:/Data/Foodie Feast Thank You"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters&amp;FieldNames=%7B37AF3984-2F68-47EC-BAFB-B7A831F910CA%7D&amp;Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=20"
+          s:par="Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;DynamicPlaceholderId=20&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0"
           s:ph="/main/sxa-content-container/container-1/container-19" />
         <r
           uid="{7EF71C93-57B9-4FFE-A7E2-01EAFA7DD3D9}"
           p:after="r[@uid='{79236A15-7C25-4CF2-ACE2-FE6869DEEEDB}']"
           s:ds="local:/Data/Foodie Products"
           s:id="{AB50BF90-23E9-4452-8FA5-DF7A293CB6BE}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Product List=%7BE3A70BD6-DADC-43CA-9941-EEC8F3E02B93%7D&amp;Relationship Type&amp;Use Lazy Loading=1&amp;Max Page Size=4"
+          s:par=""
           s:ph="/main/sxa-content-container/container-1/container-14" />
         <r
           uid="{8F8B9454-9605-46C8-9D4F-64F82F080000}"
           p:after="r[@uid='{7EF71C93-57B9-4FFE-A7E2-01EAFA7DD3D9}']"
           s:ds="local:/Data/Fitness Products"
           s:id="{AB50BF90-23E9-4452-8FA5-DF7A293CB6BE}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Product List=%7B43243E9E-160C-4930-8698-A9138CDFC95D%7D&amp;Relationship Type&amp;Use Lazy Loading=1&amp;Max Page Size=4"
+          s:par=""
           s:ph="/main/sxa-content-container/container-1/container-18">
           <rls>
             <ruleset>
@@ -80,7 +80,7 @@ SharedFields:
           p:after="r[@uid='{4E745665-EE15-4652-8CF0-6EEFCA029C08}']"
           s:ds="local:/Data/Hero"
           s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=1&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -215,88 +215,11 @@ SharedFields:
           </rls>
         </r>
         <r
-          uid="{079B5CE0-61AF-4890-A08A-2AB3D48840D9}"
-          p:after="r[@uid='{CE607538-624F-43DE-A3B5-635D2151A804}']"
-          s:ds="local:/Data/Health Commerce Categories Default"
-          s:id="{4646BD4F-05FF-4A19-9600-4D74F2F1548B}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BBB418DE9-224E-4B3C-842B-310A3473A274%7D&amp;Styles&amp;TitleHeadingLevel=%7B6A44D9C6-61F0-4B69-8E1A-FDC27F96BA0F%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=22"
-          s:ph="/main/sxa-content-container/container-1">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{F80E00D1-9885-4F83-A9A0-A473899796C7}"
-                s:name="Fitness">
-                <conditions>
-                  <or
-                    uid="2503C39897CD4831B2A8CE8275841498">
-                    <condition
-                      uid="76E7B122A4C84FC29F7DD89B7B9C833E"
-                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Fitness" />
-                    <condition
-                      uid="75E44834FF0540B5B7F6C0F716EEFD0F"
-                      s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
-                      s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
-                      s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
-                  </or>
-                </conditions>
-                <actions>
-                  <action
-                    uid="A0BC92C222BB47E0974ACD3B78FEFAE6"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Health Commerce Categories Gym" />
-                </actions>
-              </rule>
-              <rule
-                uid="{A94FAFAD-9F25-44F9-9C48-C34F2049D59C}"
-                s:name="Foodie">
-                <conditions>
-                  <or
-                    uid="B58FCF3FDF8F4D178566F89A74FE70B5">
-                    <condition
-                      uid="694AA7773DE8467E9889078179BDE20F"
-                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Cooking" />
-                    <condition
-                      uid="F513AEE6EE47489C998A2199EE28390F"
-                      s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
-                      s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}"
-                      s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
-                  </or>
-                </conditions>
-                <actions>
-                  <action
-                    uid="D21E1F32A24248CFAC86C4D8D797B8FB"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Health Commerce Categories Foodie" />
-                </actions>
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="9CC9ACD3EA52427786880BD90F7DEF9E"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions>
-                  <action
-                    uid="54B4936B77564DE9BE07210D78992261"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Health Commerce Categories Default" />
-                </actions>
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
           uid="{807D306C-5F71-40F4-9F38-AC9D1B521239}"
-          p:after="r[@uid='{079B5CE0-61AF-4890-A08A-2AB3D48840D9}']"
+          p:after="r[@uid='{CE607538-624F-43DE-A3B5-635D2151A804}']"
           s:ds="local:/Data/Promo - Smart Health"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters&amp;FieldNames=%7B960FD30E-BD7B-4E17-920D-4D331117839C%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:par="DynamicPlaceholderId=3&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7D"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -343,7 +266,7 @@ SharedFields:
           p:after="r[@uid='{807D306C-5F71-40F4-9F38-AC9D1B521239}']"
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage=%3Cimage%20mediaid%3D%22%7BD5B98824-B2DC-4319-9DC8-49F4FF0D86F7%7D%22%20%3E%3B&amp;Styles=%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=19"
+          s:par="Styles=%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=19&amp;BackgroundImage=%3Cimage%20mediaid%3D%22%7BD5B98824-B2DC-4319-9DC8-49F4FF0D86F7%7D%22%20%3E%3B"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -383,7 +306,7 @@ SharedFields:
           p:after="r[@uid='{5B548513-9243-4460-93B2-B58566281362}']"
           s:ds=""
           s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B460B5E75-23EF-430C-94C4-F86DB2DB5EDF%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=12"
+          s:par="Styles=%7B460B5E75-23EF-430C-94C4-F86DB2DB5EDF%7D&amp;DynamicPlaceholderId=12&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -447,7 +370,7 @@ SharedFields:
           p:after="r[@uid='{05B7145C-3B80-48C3-BADB-D5078F12E1AE}']"
           s:ds="local:/Data/Promo - Healthy Kitchen"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters&amp;FieldNames=%7B837DA9F8-E307-4615-9B66-7F3B97E1470B%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:par="DynamicPlaceholderId=4&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7BF8C8F184-053D-4947-840B-A96495DB434C%7D"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -494,7 +417,7 @@ SharedFields:
           p:after="r[@uid='{B950B0FF-8581-45FB-BC08-0CA25414C611}']"
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=14"
+          s:par="Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=14"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -539,7 +462,7 @@ SharedFields:
           p:after="r[@uid='{B27113BF-612F-4507-99D4-059C68D7848B}']"
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=18"
+          s:par="Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=18"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -579,7 +502,7 @@ SharedFields:
           p:after="r[@uid='{47413929-4892-48C8-AAD7-29472C6BB44F}']"
           s:ds="local:/Data/Promo - Healthy Home Tools"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters&amp;FieldNames=%7B960FD30E-BD7B-4E17-920D-4D331117839C%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:par="DynamicPlaceholderId=5&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7D"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -651,7 +574,7 @@ SharedFields:
           p:after="r[@uid='{8E2E788A-E650-444F-9A84-FA47DC476BE8}']"
           s:ds="local:/Data/Promo - New Trainer"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters&amp;FieldNames=%7B837DA9F8-E307-4615-9B66-7F3B97E1470B%7D&amp;Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=13"
+          s:par="Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D&amp;DynamicPlaceholderId=13&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -691,7 +614,7 @@ SharedFields:
           p:after="r[@uid='{A540AD71-F883-4E13-966F-B407058520E7}']"
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage=%3Cimage%20mediaid%3D%22%7BD590210C-4B80-4014-B82E-3DD16DB7331C%7D%22%20%2F%3E&amp;Styles=%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=11"
+          s:par="Styles=%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;DynamicPlaceholderId=11&amp;BackgroundImage"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -755,7 +678,7 @@ SharedFields:
           p:after="r[@uid='{7317C239-24E6-498C-BB50-DBA7187E7FB0}']"
           s:ds="local:/Data/Promo - Trainer"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters&amp;FieldNames=%7B37AF3984-2F68-47EC-BAFB-B7A831F910CA%7D&amp;Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
+          s:par="Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;DynamicPlaceholderId=6&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D"
           s:ph="/main/sxa-content-container/container-1/container-11">
           <rls>
             <ruleset>
@@ -802,28 +725,28 @@ SharedFields:
           p:after="r[@uid='{EFA2EB26-5BCA-4D7F-A607-805347DFE054}']"
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7B45645D8F-56A4-460A-B5FB-51709FEFCE52%7D%7C%7B3D258225-9410-4FAF-A516-43490258337D%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=7"
+          s:par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B9CB76B6C-2B77-4728-8508-CF7041C7B69C%7D&amp;GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;DynamicPlaceholderId=7&amp;BackgroundImage"
           s:ph="/main/sxa-content-container/container-1" />
         <r
           uid="{842210A8-BA15-4152-BD6B-C63869383532}"
           p:after="r[@uid='{133BCAF3-C1E2-4728-B435-2866E3456D27}']"
           s:ds="{48D5F67C-5337-4955-ACB7-A60DB6BA1832}"
           s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=21"
+          s:par="DynamicPlaceholderId=21&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
           s:ph="/main/sxa-content-container/container-1" />
         <r
           uid="{326CFC73-5A94-4202-AE7D-BF7396761FFC}"
           p:after="r[@uid='{842210A8-BA15-4152-BD6B-C63869383532}']"
           s:ds=""
           s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
-          s:par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth2=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=8"
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1=%7BA4747CBB-8D2C-4835-8C9D-D91CB4D1E7E4%7D&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth2=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=8"
           s:ph="/main/sxa-content-container/container-1/container-7" />
         <r
           uid="{6193009E-B1D0-4708-AEEF-334B46A9C08A}"
           p:after="r[@uid='{326CFC73-5A94-4202-AE7D-BF7396761FFC}']"
           s:ds="{B5684B40-75E9-4FE6-912F-2D1C8D761AF2}"
           s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
-          s:par="GridParameters=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=9"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=9&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D&amp;Styles"
           s:ph="/main/sxa-content-container/container-1/container-7/column-1-8">
           <rls>
             <ruleset>
@@ -934,13 +857,13 @@ SharedFields:
           p:after="*[1=2]"
           s:ds="{10F66202-C76C-40F9-8247-66328B96338E}"
           s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
-          s:par="GridParameters=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=10"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=10&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D&amp;Styles"
           s:ph="/main/sxa-content-container/container-1/container-7/column-2-8">
           <rls>
             <ruleset>
               <rule
                 uid="{1E9C14DC-B01D-4BD1-BC18-DE3413E690CA}"
-                s:name="Sport Interest: Cycling &amp;amp; Running">
+                s:name="Sport Interest: Cycling &amp; Running">
                 <conditions>
                   <or
                     uid="6D4F55D9543E4B2CB810D5C7DA199ECF">
@@ -1118,13 +1041,68 @@ Languages:
       Value: |
         extranet\Anonymous
 - Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat ヘルス
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180327T014950Z
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Habitat ヘルス
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: フィットネス目標をより早く満たし、健康的な家庭環境への驚異的な利点を実現します。
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Habitat ヘルス
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment.
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: fitness, cardio, subscription, wearable
+    - ID: "74687d7c-2ef8-47ef-a779-9a8040bb2d1a"
+      Hint: Navigation Secondary Promotions
+      Type: Treelist
+      Value: |
+        {E1A1E78A-0295-4EB6-A74B-1871306BEFD5}
+        {B229B3F1-6EA8-46F6-B05B-8DAEE5EDE1FA}
+        {EA575D40-8251-4019-914D-CF651CACC8FC}
+        {93128DB0-0EA0-47AF-AB05-F970299D3F38}
+        {521B59A7-30E3-46E5-84DF-3386C91CFD2F}
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: フィットネス目標をより早く満たし、健康的な家庭環境への驚異的な利点を実現します。
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Habitat ヘルス
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{AAFC259E-3297-4D6D-8CF7-3536C4D6961B}" alt="ミールをデジタルで確認" height="" width="" hspace="" vspace="" />
+    - ID: "c78d6b36-329e-4dc9-873a-39f4b0ea9a28"
+      Hint: Navigation Promotions
+      Type: Treelist
+      Value: |
+        {92D03D3F-7A5E-42C3-9F4D-C83324C6109D}
+        {88F70ADA-0F91-4787-AD21-F613264DD685}
+        {1F9A5316-80C7-4872-A736-A765543C3B2B}
+    - ID: "ce53062e-4385-4244-8382-c2b4530a51ba"
+      Hint: TwitterCardType
+      Value: "{32F6A4E4-93DD-4A9C-AA60-CDEDB0BEDABB}"
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Habitat ヘルス

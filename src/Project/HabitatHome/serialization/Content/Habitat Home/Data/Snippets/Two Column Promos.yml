@@ -24,21 +24,21 @@ SharedFields:
           p:before="*"
           s:ds="local:/Data/Right Promo"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={F414A716-6088-4281-A446-87EE974AB933}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=4&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0"
           s:ph="/section-content/container-1/column-2-2" />
         <r
           uid="{5515073A-8A71-4E99-A4A0-D98E74063D9B}"
           p:after="r[@uid='{A2A86A21-00E3-4D5B-92B4-26C3FAE56A95}']"
           s:ds="local:/Data/Left Promo"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={F414A716-6088-4281-A446-87EE974AB933}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=3&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0"
           s:ph="/section-content/container-1/column-1-2" />
         <r
           uid="{6FEC2523-A1A9-40F9-B8D6-940EAF5D1F0B}"
           p:after="r[@uid='{5515073A-8A71-4E99-A4A0-D98E74063D9B}']"
           s:ds="{1CDB0F8B-77AC-4939-9BD0-BFE0197DB7BC}"
           s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
-          s:par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=2"
+          s:par="DynamicPlaceholderId=2&amp;EnabledPlaceholders=1%2c2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;ColumnWidth1=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d&amp;ColumnWidth2=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d"
           s:ph="/section-content/container-1" />
         <r
           uid="{105BBB7A-AAC8-4320-B9CC-4533BF6E3C68}"
@@ -47,7 +47,7 @@ SharedFields:
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
           s:mvt=""
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7B45645D8F-56A4-460A-B5FB-51709FEFCE52%7D%7C%7B62BB4AA0-351C-43D1-A474-9F52EA6ECF07%7D%7C%7B3D258225-9410-4FAF-A516-43490258337D%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:par="Styles=%7b45645D8F-56A4-460A-B5FB-51709FEFCE52%7d%7c%7b62BB4AA0-351C-43D1-A474-9F52EA6ECF07%7d%7c%7b3D258225-9410-4FAF-A516-43490258337D%7d&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=1"
           s:ph="section-content" />
       </d>
     </r>
@@ -74,6 +74,10 @@ Languages:
       Value: |
         extranet\Anonymous
 - Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 2 カラム プロモ
   Versions:
   - Version: 1
     Fields:

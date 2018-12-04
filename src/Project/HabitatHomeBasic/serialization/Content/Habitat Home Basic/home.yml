@@ -7,7 +7,7 @@ DB: master
 SharedFields:
 - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
   Hint: Page Design
-  Value: "{91F1292D-FCE1-4B76-867A-9F6E048CDC78}"
+  Value: 
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
@@ -238,15 +238,16 @@ SharedFields:
         <r
           uid="{18DB525E-8B46-42CE-8A1B-4DFE2D108F9C}"
           p:after="r[@uid='{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}']"
+          s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters&amp;BackgroundImage&amp;Styles=%7B66661BFE-015B-467F-B737-8293284691A3%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=10&amp;Personalization&amp;Tests"
+          s:par="GridParameters&amp;BackgroundImage&amp;Styles=%7B66661BFE-015B-467F-B737-8293284691A3%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=10"
           s:ph="/main/sxa-content-container/container-1" />
         <r
           uid="{6B1C256F-3488-4908-BB96-B7746E471A36}"
           p:after="r[@uid='{18DB525E-8B46-42CE-8A1B-4DFE2D108F9C}']"
           s:ds="local:/Data/Promo - Sight and Sound"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="DynamicPlaceholderId=2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7BF8C8F184-053D-4947-840B-A96495DB434C%7D"
+          s:par="GridParameters&amp;FieldNames=%7BF8C8F184-053D-4947-840B-A96495DB434C%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
           s:ph="/main/sxa-content-container/container-1">
           <rls>
             <ruleset>
@@ -498,17 +499,32 @@ Languages:
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Habitat ホーム
     - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
       Hint: StickyNotes
       Value: |
         {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: テクノロジーがあなたの生活を助ける
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
       Value: Habitat ホーム
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: テクノロジーがあなたの生活を助ける
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\admin
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: テクノロジーがあなたの生活を助ける
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Habitat ホーム
     - ID: "ce53062e-4385-4244-8382-c2b4530a51ba"
       Hint: TwitterCardType
       Value: "{32F6A4E4-93DD-4A9C-AA60-CDEDB0BEDABB}"
