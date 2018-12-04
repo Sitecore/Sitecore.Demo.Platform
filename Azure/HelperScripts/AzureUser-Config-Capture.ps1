@@ -68,16 +68,13 @@ Enable-AzureRmContextAutosave
 
 # Add the Azure Service Principal
 
+# TODO: Pass in servicePrincipal name and password through ScriptArgs + Env variable
 $servicePrincipalConfiguration = $azureuserconfig.serviceprincipal;
 
 $securePassword = ConvertTo-SecureString $servicePrincipalConfiguration.applicationPassword -AsPlainText -Force
 $servicePrincipalCredentials = New-Object System.Management.Automation.PSCredential($servicePrincipalConfiguration.applicationId, $securePassword)
 Login-AzureRmAccount -ServicePrincipal -Tenant $servicePrincipalConfiguration.tenantId -Credential $servicePrincipalCredentials
 Set-AzureRmContext -SubscriptionName $servicePrincipalConfiguration.azureSubscriptionName -TenantId $servicePrincipalConfiguration.tenantId
-
-###########################################
-# Get User Input for azureuser-config.json
-###########################################
 
 $certificatePath = ''
 
@@ -92,8 +89,8 @@ else {
 }
 
 $xConnectCertfilePath = $azureuserconfig.settings | Where-Object {$_.id -eq "XConnectCertfilePath"}
-if ([string]::IsNullOrEmpty($xConnectCertfilePath.value)) {
-    $certificatePath = $xConnectCertfilePath
+if (-not [string]::IsNullOrEmpty($xConnectCertfilePath.value)) {
+    $certificatePath = $xConnectCertfilePath.value
 }
 else {
     $cert = Get-SelfSignedCertificate
@@ -103,7 +100,7 @@ else {
     else {
         $certificatePath = $cert.FullName
     }
-    $xConnectCertfilePath = $certificatePath
+    $xConnectCertfilePath.value = $certificatePath
 }
 
 

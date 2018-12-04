@@ -121,6 +121,7 @@ Task("Azure-Upload")
 
 Task("Azure-Deploy")
 .WithCriteria(configuration != null)
+.IsDependentOn("Azure-Upload")
 .IsDependentOn("Azure-Site-Deploy");
 
 /*===============================================
