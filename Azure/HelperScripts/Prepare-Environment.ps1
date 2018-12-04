@@ -10,8 +10,10 @@ and extract tools and files so they can be used by later scripts.
 
 .PARAMETER ConfigurationFile
 A cake-config.json file
+    [string] $devSitecoreUserName,
 .PARAMETER SitecoreDownloadUsername
 dev.sitecore.com username.
+    [string] $devSitecorePassword
 .PARAMETER SitecoreDownloadPassword
 dev.sitecore.com password.
 
@@ -21,7 +23,9 @@ dev.sitecore.com password.
 Param(
     [parameter(Mandatory = $true, HelpMessage = "Please Enter your cake-config.json")]
     [ValidateNotNullOrEmpty()]
-    [string] $ConfigurationFile
+    [string] $ConfigurationFile,
+    [string] $devSitecoreUserName,
+    [string] $devSitecorePassword
 )
 
 ###########################
@@ -45,15 +49,10 @@ $buildFolder = $configuration.buildFolder
 # Get Sitecore Credentials
 ############################
 
-$sitecoreAccountConfiguration = $azureuserconfig.sitecoreAccount;
-
-$sitecoreAccountConfiguration.username = Read-Host "Please provide your dev.sitecore.com username"
-
-$sitecoreAccountConfiguration.password = Read-Host "Please provide your dev.sitecore.com password"
 
 $azureuserconfig | ConvertTo-Json | set-content $azureuserconfigFile
 
-$securePassword = ConvertTo-SecureString $sitecoreAccountConfiguration.password -AsPlainText -Force
+$securePassword = ConvertTo-SecureString $devSitecorePassword -AsPlainText -Force
 
 ###################################
 # Parameters
@@ -62,7 +61,7 @@ $securePassword = ConvertTo-SecureString $sitecoreAccountConfiguration.password 
 $foundfiles = New-Object System.Collections.ArrayList
 $downloadlist = New-Object System.Collections.ArrayList
 [string] $habitathomefilepath = $([io.path]::combine($buildFolder, 'HabitatHome'))
-$credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $sitecoreAccountConfiguration.username, $securePassword
+$credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $devSitecoreUserName, $securePassword
 
 ##################################################
 # Check for existing Files in Deploy\Assets Folder

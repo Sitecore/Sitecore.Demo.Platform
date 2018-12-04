@@ -324,7 +324,7 @@ Task("Publish-Post-Steps").Does(() => {
 
 Task("Package-Build")
 .IsDependentOn("Generate-HabitatUpdatePackages")
-.IsDependentOn("ConvertTo-SCWDPs");
+.IsDependentOn("Generate-HabitatHomeWDP");
 
 Task("Generate-HabitatUpdatePackages").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatUpdatePackages.ps1", args =>
@@ -333,8 +333,8 @@ Task("Generate-HabitatUpdatePackages").Does(() => {
         });
 		});
 
-Task("ConvertTo-SCWDPs").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\ConvertTo-SCWDPs.ps1", args =>
+Task("Generate-HabitatHomeWDP").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatHomeWDP.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
         });
