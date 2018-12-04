@@ -21,11 +21,8 @@ Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
 $configuration = ProcessConfigFile -Config $ConfigurationFile
 $config          	    = $configuration.cakeConfig
-$assetconfig	 	    = $configuration.assets
 $azureuserconfig 	    = $configuration.azureUserConfig
 $assetsFolder		    = $configuration.assetsFolder
-$topologyName			= $configuration.topologyName
-$SCversion				= $configuration.version
 $buildFolder			= $configuration.buildFolder
 
 ################################################################
