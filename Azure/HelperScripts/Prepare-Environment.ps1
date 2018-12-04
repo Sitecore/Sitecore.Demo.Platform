@@ -37,8 +37,6 @@ Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 $configuration = ProcessConfigFile -Config $ConfigurationFile
 $config = $configuration.cakeConfig
 $assetconfig = $configuration.assets
-$azureuserconfig = $configuration.azureUserConfig
-$azureuserconfigfile = $configuration.azureUserConfigFile
 $topologyPath = $configuration.topologyPath
 $assetsFolder = $configuration.assetsFolder
 $topologyName = $configuration.topologyName
@@ -49,8 +47,6 @@ $buildFolder = $configuration.buildFolder
 # Get Sitecore Credentials
 ############################
 
-
-$azureuserconfig | ConvertTo-Json | set-content $azureuserconfigFile
 
 $securePassword = ConvertTo-SecureString $devSitecorePassword -AsPlainText -Force
 
