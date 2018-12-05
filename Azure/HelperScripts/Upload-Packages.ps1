@@ -251,7 +251,7 @@ if ($config.topology -eq "single")
 
     if ($null -ne ($habitatJson.resources[1].properties.addOnPackages[0].setParameters))
     {
-        $habitatJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
+        $habitatJson.resources[1].properties.addOnPackages[0].Remove("setParameters")
     }
 
     $habitatJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitatParamsJson.setParameters)
