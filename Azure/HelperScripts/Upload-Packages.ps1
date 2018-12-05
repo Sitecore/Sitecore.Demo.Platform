@@ -32,9 +32,9 @@ $azureuserconfigfile    = $configarray[4]
 $topologyPath           = $configarray[5]
 $assetsfolder			= $configarray[7]
 
-##########################
+###########################
 # Function for WDP uploads
-##########################
+###########################
 
 Function CheckMd5{
     param(
@@ -124,9 +124,9 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
                 
 
 
-###########################
+############################
 # Function for file uploads
-###########################
+############################
 
 Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload, $assetsfolder) {
 
@@ -188,9 +188,84 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
     }
 }
 
-###################################################
+#############################################################
+# Add custom parameters to habitathome.json before uploading
+#############################################################
+
+[System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions") | Out-Null
+$oJsSerializer = New-Object System.Web.Script.Serialization.JavaScriptSerializer
+[string] $habitatJsonFile = $([IO.Path]::Combine($topologyPath, 'Arm Templates', 'Habitat', 'habitathome.json'))
+[string] $habitatParamsJsonFile = Join-Path $topologyPath "habitat-parameters.json"
+
+if ($config.topology -eq "single")
+{
+    # Testing paths to the required files
+    if (!(Test-Path $habitatJsonFile) -or !($habitatParamsJsonFile)) {
+        Write-Host "The habitathome file '$($habitatJsonFile)' or habitat-parameters file '$($habitatParamsJsonFile) not found." -ForegroundColor Red
+        Write-Host "Please ensure there is a habitathome.json file at '$($habitatJsonFile)'" -ForegroundColor Red
+        Exit 1
+    }
+    
+    $habitatJson = Get-Content $habitatJsonFile
+    $habitatParamsJson = Get-Content $habitatParamsJsonFile
+    
+    $habitatJson = $oJsSerializer.DeserializeObject($habitatJson)
+    $habitatParamsJson = $oJsSerializer.DeserializeObject($habitatParamsJson)
+    
+    # Check if the setParameters node already exists and clean that up
+    if ($null -ne ($habitatJson.resources[0].properties.addOnPackages[0].setParameters))
+    {
+        $habitatJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
+    }
+    $habitatJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitatParamsJson.setParameters)
+    $habitatJson | ConvertTo-Json -Depth 6 | Set-Content $habitatJsonFile
+    
+    if (!$habitatJsonFile) {
+        throw "Error trying to load the Azuredeploy parameters file!"
+    }
+} elseif ($config.topology -eq "scaled")
+{
+    [string] $habitatCdParamsJsonFile = Join-Path $topologyPath "habitatcd-parameters.json"
+
+    # Testing paths to the required files
+    if (!(Test-Path $habitatJsonFile) -or !($habitatParamsJsonFile) -or !($habitatCdParamsJsonFile)) {
+        Write-Host "The habitathome file '$($habitatJsonFile)', habitat-parameters file '$($habitatParamsJsonFile) or habitatcd-parameters file '$($habitatCdParamsJsonFile) not found." -ForegroundColor Red
+        Write-Host "Please ensure there is a habitathome.json file at '$($habitatJsonFile)'" -ForegroundColor Red
+        Exit 1
+    }
+    
+    # Getting JSON content from the files and prepare the JSON file merge
+    $habitatJson = Get-Content $habitatJsonFile
+    $habitatParamsJson = Get-Content $habitatParamsJsonFile
+    $habitatCdParamsJson = Get-Content $habitatCdParamsJsonFile
+    
+    $habitatJson = $oJsSerializer.DeserializeObject($habitatJson)
+    $habitatParamsJson = $oJsSerializer.DeserializeObject($habitatParamsJson)
+    $habitatCdParamsJson = $oJsSerializer.DeserializeObject($habitatCdParamsJson)
+    
+    # Check if the setParameters node already exists and clean that up for both CM and CD scaled
+    if ($null -ne ($habitatJson.resources[0].properties.addOnPackages[0].setParameters))
+    {
+        $habitatJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
+    }
+
+    if ($null -ne ($habitatJson.resources[1].properties.addOnPackages[0].setParameters))
+    {
+        $habitatJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
+    }
+
+    $habitatJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitatParamsJson.setParameters)
+    $habitatJson.resources[1].properties.addOnPackages[0].add("setParameters", $habitatCdParamsJson.setParameters)
+    $habitatJson | ConvertTo-Json -Depth 6 | Set-Content $habitatJsonFile
+    
+    if (!$habitatJsonFile) {
+        throw "Error trying to load the Azuredeploy parameters file!"
+    }
+}
+
+####################################################
 # Upload created WDPs and additional files in Azure
-###################################################
+####################################################
 
 $azureDeploymentIdSetting = $azureuserconfig.settings | Where-Object {$_.id -eq "AzureDeploymentID"}
 [string]$resourceGroupName = $azureDeploymentIdSetting.value 
@@ -795,7 +870,7 @@ Function MergeConfigurationFiles {
         $parameters = $oJsSerializer.DeserializeObject($parameters)
         $modules = $oJsSerializer.DeserializeObject($modules)
         $parameters.parameters.add("modules",$modules.modules)
-        $parameters = $parameters  | ConvertTo-Json -Depth 6
+        $parameters = $parameters | ConvertTo-Json -Depth 6
         return $parameters
 }
 
@@ -816,7 +891,7 @@ if (!(Test-Path $azuredeployConfigFile) -or !($moduleConfigFile)) {
     Exit 1
 }
 
-$azuredeployConfig = MergeConfigurationFiles  -parametersFilePath $azuredeployConfigFile -modulesFilePath $moduleConfigFile  Get-Content -Raw $azuredeployConfigFile |  ConvertFrom-Json
+$azuredeployConfig = MergeConfigurationFiles -parametersFilePath $azuredeployConfigFile -modulesFilePath $moduleConfigFile Get-Content -Raw $azuredeployConfigFile | ConvertFrom-Json
 
 if (!$azuredeployConfig) {
     throw "Error trying to load the Azuredeploy parameters file!"

@@ -1,0 +1,22 @@
+{
+    "setParameters": {
+        "Application Path": "[variables('cmWebAppNameTidy')]",
+        "Core Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('coreSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
+        "Master Admin Connection String": "[concat('Encrypt=True;TrustServerCertificate=False;Data Source=', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=',variables('masterSqlDatabaseNameTidy'),';User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
+        "Demo Dynamics CRM Connection String": "",
+        "Demo CRM SalesForce Connection String": "",
+        "Enable EXM module": "",
+        "Allow Invalid SSL Certificate": "",
+        "Environment Type": "",
+        "Unicorn On/Off": "",
+        "3rd Party Integrations": "",
+        "ASP.NET Debugging": "",
+        "CDN Enabled": "",
+        "Media/Always Include Server URL": "",
+        "Media/Link Server URL": "",
+        "Media Response/Cacheability type": "",
+        "Demo Enabled": "",
+        "Root Host Name": "",
+        "Analytics Cookie Domain": ""
+      }
+}

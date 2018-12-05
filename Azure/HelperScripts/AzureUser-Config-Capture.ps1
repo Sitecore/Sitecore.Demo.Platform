@@ -4,10 +4,10 @@
 Gather use input pretaining to azure upload and deployment
 
 .DESCRIPTION
-This scripts enables a persisent azure session. This will allows future scripts to use this azure 
-session without asking for crednetials again. This script will edit a azureuser-config.json bassed 
+This scripts enables a persisent Azure session. This will allows future scripts to use this azure 
+session without asking for crednetials again. This script will edit a azureuser-config.json based 
 on user respones to prompts. The azureuser-config.json is intedned to be used by other scritps to 
-help access their Azure env.
+help access their Azure environment
 
 .PARAMETER ConfigurationFile
 A cake-config.json file
@@ -27,16 +27,18 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray         = ProcessConfigFile -Config $ConfigurationFile
-$config              = $configarray[0]
-$assetconfig         = $configarray[1]
-$azureuserconfig     = $configarray[2]
-$assetconfigFile     = $configarray[3]
-$azureuserconfigFile = $configarray[4]
+$configarray         		= ProcessConfigFile -Config $ConfigurationFile
+$config              		= $configarray[0]
+$assetconfig         		= $configarray[1]
+$azureuserconfig     		= $configarray[2]
+$assetconfigFile     		= $configarray[3]
+$azureuserconfigFile 		= $configarray[4]
+$habitatParamsConfig		= $configarray[10]
+$habitatParamsConfigFile	= $configarray[11]
 
-########################
+###############################
 # Create SelfSignedCertificate
-########################
+###############################
 
 Function Create-SelfSignedCertificate{
 	$thumbprint = (New-SelfSignedCertificate -Subject "CN=$env:COMPUTERNAME @ Sitecore, Inc." -Type SSLServerAuthentication -FriendlyName "$env:USERNAME Certificate").Thumbprint
@@ -200,3 +202,14 @@ foreach ($setting in $azureuserconfig.settings)
 }
 
 $azureuserconfig | ConvertTo-Json  | set-content $azureuserconfigFile
+
+#############################################
+# Get User Input for habitat-parameters.json
+#############################################
+
+foreach ($habitatSetting in $azureuserconfig.habitatSettings)
+{
+	$habitatParamsConfig.setParameters.$($habitatSetting.id) = $habitatSetting.value
+}
+
+$habitatParamsConfig | ConvertTo-Json  | set-content $habitatParamsConfigFile

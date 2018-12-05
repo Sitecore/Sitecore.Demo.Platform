@@ -13,17 +13,21 @@ The script then returns all these as an array.
 A cake-config.json file
 
 .Example
-$configarray			= ProcessConfigFile -Config $ConfigurationFile
-$config					= $configarray[0]
-$assetConfig			= $configarray[1]
-$azureuserconfig		= $configarray[2]
-$assetconfigfile		= $configarray[3]
-$azureuserConfigFile	= $configarray[4]
-$topologypath	        = $configarray[5]
-$topologyName			= $configarray[6]
-$assetsfolder			= $configarray[7]
-$SCversion				= $configarray[8]
-$buildFolder			= $configarray[9]
+$configarray				= ProcessConfigFile -Config $ConfigurationFile
+$config						= $configarray[0]
+$assetConfig				= $configarray[1]
+$azureuserconfig			= $configarray[2]
+$assetconfigfile			= $configarray[3]
+$azureuserConfigFile		= $configarray[4]
+$topologypath				= $configarray[5]
+$topologyName				= $configarray[6]
+$assetsfolder				= $configarray[7]
+$SCversion					= $configarray[8]
+$buildFolder				= $configarray[9]
+$habitatParamsConfig		= $configarray[10]
+$habitatParamsConfigFile	= $configarray[11]
+$habitatCdParamsConfig		= $configarray[12]
+$habitatCdParamsConfigFile	= $configarray[13]
 #>
 
 [CmdletBinding()]
@@ -97,7 +101,7 @@ Param(
 		if (!(Test-Path $azureuserConfigFile)) 
 		{
 			Write-Host "azureuser-config file '$($azureuserConfigFile)' not found." -ForegroundColor Red
-			Write-Host  "Please ensure there is a user-config.json configuration file at '$($azureuserConfigFile)'" -ForegroundColor Red
+			Write-Host  "Please ensure there is an azureuser-config.json configuration file at '$($azureuserConfigFile)'" -ForegroundColor Red
 			Exit 1
 		}
 
@@ -107,6 +111,44 @@ Param(
 			throw "Error trying to load azureuser-config.json!"
 		}
 
+		###########################################
+		# Find and process habitat-parameters.json
+		###########################################
+		
+		[string] $habitatParamsConfigFile = $([io.path]::combine($topologyPath, 'habitat-parameters.json'))
+
+		if (!(Test-Path $habitatParamsConfigFile)) 
+		{
+			Write-Host "habitat-parameters file '$($habitatParamsConfigFile)' not found." -ForegroundColor Red
+			Write-Host  "Please ensure there is a habitat-parameters.json configuration file at '$($habitatParamsConfigFile)'" -ForegroundColor Red
+			Exit 1
+		}
+
+		$habitatParamsConfig = Get-Content -Raw $habitatParamsConfigFile |  ConvertFrom-Json
+		if (!$habitatParamsConfig) 
+		{
+			throw "Error trying to load habitat-parameters.json!"
+		}
+		
+		# Check if topology is scaled
+		if ($config.topology -eq "scaled")
+		{
+			[string] $habitatCdParamsConfigFile = $([io.path]::combine($topologyPath, 'habitatcd-parameters.json'))
+
+			if (!(Test-Path $habitatCdParamsConfigFile)) 
+			{
+				Write-Host "habitatcd-parameters file '$($habitatCdParamsConfigFile)' not found." -ForegroundColor Red
+				Write-Host  "Please ensure there is a habitatcd-parameters.json configuration file at '$($habitatCdParamsConfigFile)'" -ForegroundColor Red
+				Exit 1
+			}
+
+			$habitatCdParamsConfig = Get-Content -Raw $habitatCdParamsConfigFile |  ConvertFrom-Json
+			if (!$habitatCdParamsConfig) 
+			{
+				throw "Error trying to load habitatcd-parameters.json!"
+			}
+		}
+
 		# Sitecore Version
 		$SCversion = $config.version
 
@@ -114,5 +156,5 @@ Param(
 		$assetsfolder = $([io.path]::combine($config.DeployFolder, $SCversion, $topologyName, 'assets'))
 		$buildFolder  = $([io.path]::combine($config.DeployFolder, $SCversion, $topologyName, 'Website'))
 
-		return $config, $assetConfig, $azureuserConfig, $assetsConfigFile, $azureuserConfigFile, $topologyPath, $topologyName, $assetsfolder, $SCversion, $buildFolder
+		return $config, $assetConfig, $azureuserConfig, $assetsConfigFile, $azureuserConfigFile, $topologyPath, $topologyName, $assetsfolder, $SCversion, $buildFolder, $habitatParamsConfig, $habitatParamsConfigFile, $habitatCdParamsConfig, $habitatCdParamsConfigFile
 }
