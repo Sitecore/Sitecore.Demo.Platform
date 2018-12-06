@@ -1,74 +1,147 @@
 {
-  "serviceprincipal": {
-    "azureSubscriptionName": "",
-    "tenantId": "",
-    "applicationId": "",
-    "applicationPassword": ""
-  },
-  "sitecoreAccount": {
-    "username": "",
-    "password": ""
-  },
-  "settings": [
-    {
-      "id": "AzureDeploymentID",
-      "value": "",
-      "description": "Azure Deployment ID"
+    "serviceprincipal": {
+        "azureSubscriptionName": "MK-NA_US_East-PM-DEMO-INT-JFL-1500",
+        "tenantId": "91700184-c314-4dc9-bb7e-a411df456a1e",
+        "applicationId": "3e6a2658-b522-489f-b41f-20d4f765fb33",
+        "applicationPassword": "Sitecore12!@"
     },
-    {
-      "id": "AzureRegion",
-      "value": "",
-      "description": "Azure Region"
-    },
-    {
-      "id": "XConnectCertfilePath",
-      "value": "",
-      "description": "xConnect Certificate Path"
-    },
-    {
-      "id": "XConnectCertificatePassword",
-      "value": "",
-      "description": "xConnect Certificate Password"
-    },
-    {
-      "id": "SitecoreLoginAdminPassword",
-      "value": "",
-      "description": "Sitecore Administrator Password (8 Character Minimum)"
-    },
-    {
-      "id": "SitecoreLicenseXMLPath",
-      "value": "",
-      "description": "Sitecore license.xml Path"
-    },
-    {
-      "id": "SqlServerLoginAdminAccount",
-      "value": "",
-      "description": "SQL Server Administrator Username (SA is not a valid admin name for Azure SQL)"
-    },
-    {
-      "id": "SqlServerLoginAdminPassword",
-      "value": "",
-      "description": "SQL Server Administrator Password"
-    },
-    {
-      "id": "containerName",
-      "value": "",
-      "description": "name of the Azure container"
-    },
-    {
-      "id": "storageAccountName",
-      "value": "",
-      "description": "name of the Azure Storage Account"
-    },
-    {
-      "id": "ArmTemplateUrl",
-      "value": "",
-      "description": "Azure SAS URL of the azuredeploy.json"
-    },
-    {
-      "id": "templatelinkAccessToken",
-      "value": "",
-      "description": "Azure SAS token for the container"
-    }
-  ]
+    "settings": [
+        {
+            "id": "AzureDeploymentID",
+            "value": "hh91-xp-jf",
+            "description": "Azure Deployment ID"
+        },
+        {
+            "id": "AzureRegion",
+            "value": "eastus",
+            "description": "Azure Region"
+        },
+        {
+            "id": "XConnectCertfilePath",
+            "value": "C:\\Deploy\\CFA27046E90D6D5047AF7C92BA8C150FF4844F01.pfx",
+            "description": "xConnect Certificate Path"
+        },
+        {
+            "id": "XConnectCertificatePassword",
+            "value": "Sitecore12!@",
+            "description": "xConnect Certificate Password"
+        },
+        {
+            "id": "SitecoreLoginAdminPassword",
+            "value": "Sitecore12!@",
+            "description": "Sitecore Administrator Password (8 Character Minimum)"
+        },
+        {
+            "id": "SitecoreLicenseXMLPath",
+            "value": "c:\\assets\\license.xml",
+            "description": "Sitecore license.xml Path"
+        },
+        {
+            "id": "SqlServerLoginAdminAccount",
+            "value": "jflarente",
+            "description": "SQL Server Administrator Username (SA is not a valid admin name for Azure SQL)"
+        },
+        {
+            "id": "SqlServerLoginAdminPassword",
+            "value": "Sitecore12!@",
+            "description": "SQL Server Administrator Password"
+        },
+        {
+            "id": "containerName",
+            "value": "v91-xpsingle",
+            "description": "name of the Azure container"
+        },
+        {
+            "id": "storageAccountName",
+            "value": "v9assets",
+            "description": "name of the Azure Storage Account"
+        },
+        {
+            "id": "ArmTemplateUrl",
+            "value": "https://v9assets.blob.core.windows.net/v91-xpsingle/arm-templates/azuredeploy.json?sv=2017-04-17\u0026sr=b\u0026sig=jJQKUQcYNOuE1r7FI%2BwlWazpiI%2F1A9AnwVr0xM%2F9IEo%3D\u0026st=2018-12-04T10%3A59%3A13Z\u0026se=2028-12-01T10%3A59%3A13Z\u0026sp=rwd",
+            "description": "Azure SAS URL of the azuredeploy.json"
+        },
+        {
+            "id": "templatelinkAccessToken",
+            "value": "?sv=2017-04-17\u0026sr=c\u0026sig=EZBi%2FXGD%2B%2FmSEZjMXXHGr7UC40GXnbuhMuWIfWl9K%2Bk%3D\u0026st=2018-12-04T10%3A59%3A13Z\u0026se=2028-12-01T10%3A59%3A13Z\u0026sp=rwd",
+            "description": "Azure SAS token for the container"
+        }
+    ],
+    "habitatHomeSettings": [
+        {
+            "id": "Demo Dynamics CRM Connection String",
+            "value": "",
+            "description": "Connection string for Dynamics CRM"
+        },
+        {
+            "id": "Demo CRM SalesForce Connection String",
+            "value": "",
+            "description": "Connection string for Dynamics CRM SalesForce connector"
+        },
+        {
+            "id": "Enable EXM module",
+            "value": "yes",
+            "description": "Enable or disable the EXM module. Values: 'yes' or 'no'"
+        },
+        {
+            "id": "Allow Invalid SSL Certificate",
+            "value": "True",
+            "description": "Allows the use of self-signed certificates for communication with XConnect. Values: 'True' or 'False'"
+        },
+        {
+            "id": "Environment Type",
+            "value": "Production",
+            "description": "Define the environment (Local or Production) - this affect some configuration settings"
+        },
+        {
+            "id": "Unicorn On/Off",
+            "value": "Off",
+            "description": "Turn Unicorn functionality on or off"
+        },
+        {
+            "id": "3rd Party Integrations",
+            "value": "None",
+            "description": "Use a keyword like CDN, Dynamics, Salesforce, Facebook, MS to enable"
+        },
+        {
+            "id": "ASP.NET Debugging",
+            "value": "true",
+            "description": "Turn debugging on or off for the environment. Values: 'true' or 'false'"
+        },
+        {
+            "id": "CDN Enabled",
+            "value": "False",
+            "description": "Enable or disable CDN. Values: 'True' or 'False'"
+        },
+        {
+            "id": "Media/Always Include Server URL",
+            "value": "False",
+            "description": "Enable or disable Media URL display behavior. Values: 'True' or 'False'"
+        },
+        {
+            "id": "Media/Link Server URL",
+            "value": "",
+            "description": "URL to the media server (if any)"
+        },
+        {
+            "id": "Media Response/Cacheability type",
+            "value": "private",
+            "description": "The type of cacheability of the media files on remote or proxy servers - private or public"
+        },
+        {
+            "id": "Demo Enabled",
+            "value": "True",
+            "description": "Enable or disable the demo mode. Values: 'True' or 'False'"
+        },
+        {
+            "id": "Root Host Name",
+            "value": "",
+            "description": "Habitat hostname"
+        },
+        {
+            "id": "Analytics Cookie Domain",
+            "value": "",
+            "description": "Analytics cookie domain name"
+        }
+    ]
 }

@@ -69,7 +69,7 @@ Setup(context =>
     }
 });
 
-var deployLocal = configuration.DeploymentTarget == "Local";
+    var deployLocal = configuration.DeploymentTarget == "Local";
 
 /*===============================================
 ============ Local Build - Main Tasks ===========
@@ -368,7 +368,7 @@ Task("Create-WDP")
 Task("Publish-YML").Does(() => {
 
 	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.yml";
-    var destination = $@"{deploymentTarget}\Website\HabitatHome\App_Data";
+    var destination = $@"{deploymentRootPath}\Website\HabitatHome\App_Data";
 
     if (!DirectoryExists(destination)){
         CreateFolder(destination);
@@ -440,7 +440,7 @@ Task("Publish-Azure-Transforms")
 
 
        var codeFoldersFilter = $@"{configuration.ProjectFolder}\**\code";
-       var destination = $@"{deploymentTarget}\Website\HabitatHome";  
+       var destination = $@"{deploymentRootPath}\Website\HabitatHome";  
 
        if (!DirectoryExists(destination))
        {
@@ -509,7 +509,7 @@ Task("Prepare-Azure-Deploy-CDN").Does(() => {
 Task("Publish-Post-Steps").Does(() => {
 
 	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.poststep";
-    var destination = $@"{deploymentTarget}\Website\HabitatHome\App_Data\poststeps";
+    var destination = $@"{deploymentRootPath}\Website\HabitatHome\App_Data\poststeps";
 
     if (!DirectoryExists(destination))
     {
