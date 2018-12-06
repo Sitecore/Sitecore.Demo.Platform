@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sitecore.Global.Website.Utilities {
+namespace Sitecore.HabitatHome.Global.Website.Utilities {
     
     
     public partial class DeployMarketingDefinitions {
