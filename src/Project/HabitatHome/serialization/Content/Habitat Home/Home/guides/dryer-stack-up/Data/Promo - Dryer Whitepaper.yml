@@ -4,6 +4,10 @@ Parent: "f26ba089-fbae-45c3-ac0f-b618f503dfe4"
 Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
 Path: "/sitecore/content/Habitat Sites/Habitat Home/home/guides/dryer-stack-up/Data/Promo - Dryer Whitepaper"
 DB: master
+SharedFields:
+- ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
+  Hint: SxaTags
+  Value: "{F8DCAAE1-339F-4360-8ACA-1E03C783D348}|{64AC34DB-FEF2-4CF8-A9EB-690CCF1B20DF}|{BD1504C7-3CF3-482A-8E93-8C3F2B00B17A}|{BE8602EF-82E4-495A-8D2D-E9C39353F441}|{E80E129F-5193-4446-A4C9-2A9174A3A6F6}|{8D9E5351-F4A8-431B-84FF-09F12FB0CBA5}"
 Languages:
 - Language: en
   Versions:
@@ -12,6 +16,10 @@ Languages:
     - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
       Hint: PromoText
       Value: <p>Dryer Efficiency Whitepaper</p>
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{4F832EF4-CF4E-4A61-A577-5F722E01DC97}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171228T182349Z
