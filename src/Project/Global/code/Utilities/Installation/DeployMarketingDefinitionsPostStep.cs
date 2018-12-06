@@ -1,7 +1,7 @@
 ﻿using System.Collections.Specialized;
 using Sitecore.Install.Framework;
 
-namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
+namespace  Sitecore.HabitatHome.Global.Website.Utilities.Installation
 {
     public class DeployMarketingDefinitionsPostStep : IPostStep
     {
