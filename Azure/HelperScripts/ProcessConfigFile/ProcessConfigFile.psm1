@@ -116,5 +116,50 @@ Param(
 		$buildFolder  = $([io.path]::combine($configuration.cakeConfig.DeployFolder, $configuration.cakeConfig.version, $topologyName, 'Website'))
 		$configuration.assetsFolder = $assetsfolder
 		$configuration.buildFolder = $buildFolder
+
+
+		###########################################
+		# Find and process habitathome-parameters.json
+		###########################################
+		
+		[string] $habitatHomeParamsConfigFile = $([io.path]::combine($topologyPath, 'habitathome-parameters.json'))
+ 		if (!(Test-Path $habitatHomeParamsConfigFile)) 
+		{
+			Write-Host "habitathome-parameters file '$($habitatHomeParamsConfigFile)' not found." -ForegroundColor Red
+			Write-Host  "Please ensure there is a habitathome-parameters.json configuration file at '$($habitatHomeParamsConfigFile)'" -ForegroundColor Red
+			Exit 1
+		}
+ 		$habitatHomeParamsConfig = Get-Content -Raw $habitatHomeParamsConfigFile |  ConvertFrom-Json
+		if (!$habitatHomeParamsConfig) 
+		{
+			throw "Error trying to load habitathome-parameters.json!"
+		}
+		
+		# Check if topology is scaled
+		if ($config.topology -eq "scaled")
+		{
+			[string] $habitatHomecdParamsConfigFile = $([io.path]::combine($topologyPath, 'habitathomecd-parameters.json'))
+ 			if (!(Test-Path $habitatHomecdParamsConfigFile)) 
+			{
+				Write-Host "habitatHomecd-parameters file '$($habitatHomecdParamsConfigFile)' not found." -ForegroundColor Red
+				Write-Host  "Please ensure there is a habitatHomecd-parameters.json configuration file at '$($habitatHomecdParamsConfigFile)'" -ForegroundColor Red
+				Exit 1
+			}
+ 			$habitatHomecdParamsConfig = Get-Content -Raw $habitatHomecdParamsConfigFile |  ConvertFrom-Json
+			if (!$habitatHomecdParamsConfig) 
+			{
+				throw "Error trying to load habitatHomecd-parameters.json!"
+			}
+		}
+
+		$configuration.habitatHomeParamsConfig = $habitatHomeParamsConfig
+		$configuration.habitatHomeParamsConfigFile = $habitatHomeParamsConfigFile
+		$configuration.habitatHomeCDParamsConfigFile = $habitatHomeCDParamsConfigFile
+		$configuration.habitatHomeCDParamsConfig = $habitatHomeCDParamsConfig
+		
+
+
+
+
 		return $configuration
 }
