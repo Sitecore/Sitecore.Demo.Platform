@@ -31,10 +31,12 @@ $configuration = ProcessConfigFile -Config $ConfigurationFile
 $config = $configuration.cakeConfig
 $azureuserconfig = $configuration.azureUserConfig
 $azureuserconfigfile = $configuration.azureUserConfigFile
+$habitatHomeParamsConfig = $configuration.habitatHomeParamsConfig =
+$habitatHomeParamsConfigFile = $configuration.habitatHomeParamsConfigFile 
 
-########################
+##############################
 # Create SelfSignedCertificate
-########################
+##############################
 
 Function Get-SelfSignedCertificate {
     $thumbprint = (New-SelfSignedCertificate -Subject "CN=$env:COMPUTERNAME @ Sitecore, Inc." -Type SSLServerAuthentication -FriendlyName "$env:USERNAME Certificate").Thumbprint
@@ -105,3 +107,12 @@ else {
 
 
 $azureuserconfig | ConvertTo-Json  | set-content $azureuserconfigFile
+
+#############################################
+# Get User Input for habitat-parameters.json
+#############################################
+foreach ($habitatHomeSetting in $azureuserconfig.habitatHomeSettings)
+{
+	$habitatHomeParamsConfig.setParameters.$($habitatHomeSetting.id) = $habitatHomeSetting.value
+}
+ $habitatHomeParamsConfig | ConvertTo-Json  | set-content $habitatHomeParamsConfigFile 

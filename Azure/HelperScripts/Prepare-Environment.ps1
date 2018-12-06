@@ -277,7 +277,7 @@ elseif (!(Test-Path $([io.path]::combine($assetsFolder, 'ArmTemplates', '*')))) 
 
 # Copy over the infrastructure-cdn.json file to the appropriate nested folder
 
-$sourceCdnPath = $([IO.Path]::Combine($topologyPath, 'ARM Templates', 'Habitat', 'infrastructure-cdn.json'))
+$sourceCdnPath = $([IO.Path]::Combine($topologyPath, 'ARM Templates', 'HabitatHome', 'infrastructure-cdn.json'))
 $destinationCdnPath = $([IO.Path]::Combine($assetsFolder, 'ArmTemplates', 'nested'))
 
 if ((Test-Path $sourceCdnPath) -and (Test-Path $destinationCdnPath)) {
