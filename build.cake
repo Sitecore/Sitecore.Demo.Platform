@@ -6,6 +6,7 @@
 #addin "Newtonsoft.Json"
 
 #load "local:?path=CakeScripts/helper-methods.cake"
+#load "local:?path=CakeScripts/xml-helpers.cake"
 
 var target = Argument<string>("Target", "Default");
 var configuration = new Configuration();
@@ -567,5 +568,13 @@ Task("Scale-Down").Does(() => {
             args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         });
     });
+
+/*===============================================
+=============== Utility Tasks ===================
+===============================================*/
+
+Task("Prepare-Transform-Files").Does(()=>{
+    MergeFile("C:\\projects\\feature-accounts.web.config.xdt", "C:\\projects\\global.web.config.xdt","c:\\projects\\web.config.xdt");
+});
 
 RunTarget(target);
