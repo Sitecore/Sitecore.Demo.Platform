@@ -108,7 +108,9 @@ Prior to attempting the demo installation, ensure you have a working **Sitecore 
 
 [Jump to local deployment instructions](#localInstallation) 
 #### Generating WebDeploy Package (WDP)
-It is now possible to build a custom Web Deploy Package of the Habitat Home project (including xConnect components. The generated WDP can then be installed using SIF for OnPrem or ARM for Azure.
+It is now possible to build a custom Web Deploy Package of the Habitat Home project (including xConnect components). The generated WDP can then be installed using SIF for OnPrem or ARM for Azure. 
+
+The [Sitecore.HabitatHome.Utilities repo](https://github.com/sitecore/sitecore.habitathome.utilities) now includes an `install-habitathome.ps1` script and relevant SIF tasks to download and install Habitat Home as a package (or of course use your own generated package).
 
 [Jump to WDP build instructions](#wdp)
 

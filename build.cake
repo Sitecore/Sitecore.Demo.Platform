@@ -6,6 +6,7 @@
 #addin "Newtonsoft.Json"
 
 #load "local:?path=CakeScripts/helper-methods.cake"
+#load "local:?path=CakeScripts/xml-helpers.cake"
 
 var target = Argument<string>("Target", "Default");
 var configuration = new Configuration();
@@ -82,12 +83,10 @@ Task("Default")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Publish-Transforms")
 .IsDependentOn("Post-Deploy");
 
 Task("Post-Deploy")
 .IsDependentOn("Sync-Unicorn")
-.IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Deploy-EXM-Campaigns")
 .IsDependentOn("Deploy-Marketing-Definitions")
@@ -103,7 +102,6 @@ Task("Quick-Deploy")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project");
 
 /*===============================================
@@ -114,10 +112,9 @@ Task("Build-WDP")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Clean")
 .IsDependentOn("Publish-All-Projects")
-.IsDependentOn("Publish-Transforms")
 .IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Publish-YML")
-.IsDependentOn("Publish-Azure-Transforms")
+.IsDependentOn("Prepare-Transform-Files")
 .IsDependentOn("Publish-Post-Steps")
 .IsDependentOn("Create-WDP");
 
@@ -434,66 +431,7 @@ Task("Prepare-BuildEnvironment").Does(() => {
         args.AppendSecret(devSitecorePassword);
         });
     });  
-Task("Publish-Azure-Transforms")
-.WithCriteria(configuration.DeploymentTarget == "Azure")
-.Does(()=>{
 
-
-       var codeFoldersFilter = $@"{configuration.ProjectFolder}\**\code";
-       var destination = $@"{deploymentRootPath}\Website\HabitatHome";  
-
-       if (!DirectoryExists(destination))
-       {
-             CreateFolder(destination);
-       }
-
-        try
-        {    
-            var projectDirectories = GetDirectories(codeFoldersFilter);
-         
-            foreach (var directory in projectDirectories)
-            {
-                var xdtFiles = GetTransformFiles(directory.FullPath).ToList();
-
-                foreach (var file in xdtFiles)
-                {
-                    var relativeFilePath = file.FullPath;
-
-                    if (!file.FullPath.Contains(".azure."))
-                    {
-                        continue;
-                    }
-
-                    var indexToTrimFrom = file.FullPath.IndexOf("/code/", StringComparison.InvariantCultureIgnoreCase);
-
-                    if (indexToTrimFrom > -1)
-                    {
-                        relativeFilePath = file.FullPath.Substring(indexToTrimFrom + 5);
-                    }
-                    else
-                    {
-                        relativeFilePath = file.GetFilename().FullPath;
-                    }
-
-                    var destinationFilePath = new FilePath ($@"{destination}{relativeFilePath.Replace(".azure", string.Empty)}");
-
-                    if (!DirectoryExists(destinationFilePath.GetDirectory().FullPath))
-                    {
-                         CreateFolder(destinationFilePath.GetDirectory().FullPath);
-                    }                   
-                   
-                    CopyFile(file.FullPath, destinationFilePath.FullPath);
-                                       
-                }  
-            }   
-
-        }
-        catch (System.Exception ex)
-        {
-            WriteError(ex.Message);
-        }
-
-});
 
 
 Task("Prepare-Azure-Deploy-CDN").Does(() => {
@@ -567,5 +505,50 @@ Task("Scale-Down").Does(() => {
             args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         });
     });
+
+/*===============================================
+=============== Utility Tasks ===================
+===============================================*/
+
+Task("Prepare-Transform-Files").Does(()=>{
+    
+    var destination = $@"{deploymentRootPath}\Website\HabitatHome\App_Data\Transforms";  
+    var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
+  
+    foreach(var layer in layers)
+    {
+        var xdtFiles = GetTransformFiles(layer);
+        
+        List<string> files;
+        
+        if (configuration.DeploymentTarget == "Azure"){
+            files = xdtFiles.Select(x => x.FullPath).Where(x=>x.Contains(".azure")).ToList();
+        }
+        else{
+            files = xdtFiles.Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
+        }
+
+        foreach (var file in files)
+        {
+            FilePath xdtFilePath = (FilePath)file;
+            
+            var fileToTransform = Regex.Replace(xdtFilePath.FullPath, ".+code/(.+/*.xdt)", "$1");
+            fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
+            fileToTransform = Regex.Replace(fileToTransform, ".azure","");
+
+            FilePath sourceTransform = $"{destination}\\{fileToTransform}";
+            
+            if (!FileExists(sourceTransform)){
+                CreateFolder(sourceTransform.GetDirectory().FullPath);
+                CopyFile(xdtFilePath.FullPath,sourceTransform);
+            }
+            else {
+                MergeFile(sourceTransform.FullPath	    // Source File
+                        , xdtFilePath.FullPath			// Tranforms file (*.xdt)
+                        , sourceTransform.FullPath);		// Target File
+            }
+        }
+    }
+});
 
 RunTarget(target);
