@@ -213,9 +213,9 @@ if ($config.topology -eq "single")
     $habitathomeParamsJson = $oJsSerializer.DeserializeObject($habitathomeParamsJson)
 
     # Check if there are empty / not filled in parameters and remove these from the deployment
-    foreach ($habitathomeParameter in $habitathomeParamsJson.setParameters)
+    foreach ($habitathomeParameter in $habitathomeParamsJson.setParameters.Keys.Clone())
     {
-        if ([string]::IsNullOrEmpty($habitathomeParameter))
+        if ([string]::IsNullOrEmpty($habitathomeParamsJson.setParameters[$habitathomeParameter]))
         {
             $habitathomeParamsJson.setParameters.Remove($habitathomeParameter)
         }
@@ -253,18 +253,18 @@ if ($config.topology -eq "single")
     $habitathomeCdParamsJson = $oJsSerializer.DeserializeObject($habitathomeCdParamsJson)
 
     # Check if there are empty / not filled in parameters and remove these from the deployment for CM
-    foreach ($habitathomeParameter in $habitathomeParamsJson.setParameters)
+    foreach ($habitathomeParameter in $habitathomeParamsJson.setParameters.Keys.Clone())
     {
-        if ([string]::IsNullOrEmpty($habitathomeParameter))
+        if ([string]::IsNullOrEmpty($habitathomeParamsJson.setParameters[$habitathomeParameter]))
         {
             $habitathomeParamsJson.setParameters.Remove($habitathomeParameter)
         }
     }
 
     # Check if there are empty / not filled in parameters and remove these from the deployment for CD
-    foreach ($habitathomeCdParameter in $habitathomeCdParamsJson.setParameters)
+    foreach ($habitathomeCdParameter in $habitathomeCdParamsJson.setParameters.Keys.Clone())
     {
-        if ([string]::IsNullOrEmpty($habitathomeCdParameter))
+        if ([string]::IsNullOrEmpty($habitathomeCdParamsJson.setParameters[$habitathomeCdParameter]))
         {
             $habitathomeCdParamsJson.setParameters.Remove($habitathomeCdParameter)
         }
