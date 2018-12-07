@@ -46,15 +46,15 @@
   </parameter>
   <parameter name="Media/Always Include Server URL" description="Enable or disable Media URL display behavior" tags="Hidden,NoStore">
     <parameterValidation kind="AllowEmpty" />
-    <parameterEntry kind="XmlFile" scope="App_Config\\Include\\Foundation\\Foundation\.CDN\.config$" match="//configuration/sitecore/settings/setting[@name='Media.AlwaysIncludeServerUrl']/patch:attribute[@name='value']" />
+    <parameterEntry kind="XmlFile" scope="App_Config\\Include\\Foundation\\Foundation\.CDN\.config$" match="//configuration/sitecore/settings/setting[@name='Media.AlwaysIncludeServerUrl']/patch:attribute[@name='value']/text()" />
   </parameter>
   <parameter name="Media/Link Server URL" description="URL to the media server (if any)" tags="Hidden,NoStore">
     <parameterValidation kind="AllowEmpty" />
-    <parameterEntry kind="XmlFile" scope="App_Config\\Include\\Foundation\\Foundation\.CDN\.config$" match="//configuration/sitecore/settings/setting[@name='Media.MediaLinkServerUrl']/patch:attribute[@name='value']" />
+    <parameterEntry kind="XmlFile" scope="App_Config\\Include\\Foundation\\Foundation\.CDN\.config$" match="//configuration/sitecore/settings/setting[@name='Media.MediaLinkServerUrl']/patch:attribute[@name='value']/text()" />
   </parameter>
   <parameter name="Media Response/Cacheability type" description="The type of cacheability of the media files on remote or proxy servers - private or public" tags="Hidden,NoStore">
     <parameterValidation kind="AllowEmpty" />
-    <parameterEntry kind="XmlFile" scope="App_Config\\Include\\Foundation\\Foundation\.CDN\.config$" match="//configuration/sitecore/settings/setting[@name='MediaResponse.Cacheability']/patch:attribute[@name='value']" />
+    <parameterEntry kind="XmlFile" scope="App_Config\\Include\\Foundation\\Foundation\.CDN\.config$" match="//configuration/sitecore/settings/setting[@name='MediaResponse.Cacheability']/patch:attribute[@name='value']/text()" />
   </parameter>
   <parameter name="Demo Enabled" description="Enable or disable the demo mode" tags="Hidden,NoStore">
     <parameterValidation kind="AllowEmpty" />
