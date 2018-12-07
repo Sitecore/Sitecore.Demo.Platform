@@ -194,71 +194,71 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
 
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions") | Out-Null
 $oJsSerializer = New-Object System.Web.Script.Serialization.JavaScriptSerializer
-[string] $habitatJsonFile = $([IO.Path]::Combine($topologyPath, 'Arm Templates', 'Habitat', 'habitathome.json'))
-[string] $habitatParamsJsonFile = Join-Path $topologyPath "habitat-parameters.json"
+[string] $habitathomeJsonFile = $([IO.Path]::Combine($topologyPath, 'Arm Templates', 'Habitat', 'habitathome.json'))
+[string] $habitathomeParamsJsonFile = Join-Path $topologyPath "habitathome-parameters.json"
 
 if ($config.topology -eq "single")
 {
     # Testing paths to the required files
-    if (!(Test-Path $habitatJsonFile) -or !($habitatParamsJsonFile)) {
-        Write-Host "The habitathome file '$($habitatJsonFile)' or habitat-parameters file '$($habitatParamsJsonFile) not found." -ForegroundColor Red
-        Write-Host "Please ensure there is a habitathome.json file at '$($habitatJsonFile)'" -ForegroundColor Red
+    if (!(Test-Path $habitathomeJsonFile) -or !($habitathomeParamsJsonFile)) {
+        Write-Host "The habitathome file '$($habitathomeJsonFile)' or habitathome-parameters file '$($habitathomeParamsJsonFile) not found." -ForegroundColor Red
+        Write-Host "Please ensure there is a habitathome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
         Exit 1
     }
     
-    $habitatJson = Get-Content $habitatJsonFile
-    $habitatParamsJson = Get-Content $habitatParamsJsonFile
+    $habitathomeJson = Get-Content $habitathomeJsonFile
+    $habitathomeParamsJson = Get-Content $habitathomeParamsJsonFile
     
-    $habitatJson = $oJsSerializer.DeserializeObject($habitatJson)
-    $habitatParamsJson = $oJsSerializer.DeserializeObject($habitatParamsJson)
+    $habitathomeJson = $oJsSerializer.DeserializeObject($habitathomeJson)
+    $habitathomeParamsJson = $oJsSerializer.DeserializeObject($habitathomeParamsJson)
     
     # Check if the setParameters node already exists and clean that up
-    if ($null -ne ($habitatJson.resources[0].properties.addOnPackages[0].setParameters))
+    if ($null -ne ($habitathomeJson.resources[0].properties.addOnPackages[0].setParameters))
     {
-        $habitatJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
+        $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
     }
-    $habitatJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitatParamsJson.setParameters)
-    $habitatJson | ConvertTo-Json -Depth 6 | Set-Content $habitatJsonFile
+    $habitathomeJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitathomeParamsJson.setParameters)
+    $habitathomeJson | ConvertTo-Json -Depth 6 | Set-Content $habitathomeJsonFile
     
-    if (!$habitatJsonFile) {
+    if (!$habitathomeJsonFile) {
         throw "Error trying to load the Azuredeploy parameters file!"
     }
 } elseif ($config.topology -eq "scaled")
 {
-    [string] $habitatCdParamsJsonFile = Join-Path $topologyPath "habitatcd-parameters.json"
+    [string] $habitathomeCdParamsJsonFile = Join-Path $topologyPath "habitathomecd-parameters.json"
 
     # Testing paths to the required files
-    if (!(Test-Path $habitatJsonFile) -or !($habitatParamsJsonFile) -or !($habitatCdParamsJsonFile)) {
-        Write-Host "The habitathome file '$($habitatJsonFile)', habitat-parameters file '$($habitatParamsJsonFile) or habitatcd-parameters file '$($habitatCdParamsJsonFile) not found." -ForegroundColor Red
-        Write-Host "Please ensure there is a habitathome.json file at '$($habitatJsonFile)'" -ForegroundColor Red
+    if (!(Test-Path $habitathomeJsonFile) -or !($habitathomeParamsJsonFile) -or !($habitathomeCdParamsJsonFile)) {
+        Write-Host "The habitathome file '$($habitathomeJsonFile)', habitathome-parameters file '$($habitathomeParamsJsonFile) or habitathomecd-parameters file '$($habitathomeCdParamsJsonFile) not found." -ForegroundColor Red
+        Write-Host "Please ensure there is a habitathome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
         Exit 1
     }
     
     # Getting JSON content from the files and prepare the JSON file merge
-    $habitatJson = Get-Content $habitatJsonFile
-    $habitatParamsJson = Get-Content $habitatParamsJsonFile
-    $habitatCdParamsJson = Get-Content $habitatCdParamsJsonFile
+    $habitathomeJson = Get-Content $habitathomeJsonFile
+    $habitathomeParamsJson = Get-Content $habitathomeParamsJsonFile
+    $habitathomeCdParamsJson = Get-Content $habitathomeCdParamsJsonFile
     
-    $habitatJson = $oJsSerializer.DeserializeObject($habitatJson)
-    $habitatParamsJson = $oJsSerializer.DeserializeObject($habitatParamsJson)
-    $habitatCdParamsJson = $oJsSerializer.DeserializeObject($habitatCdParamsJson)
+    $habitathomeJson = $oJsSerializer.DeserializeObject($habitathomeJson)
+    $habitathomeParamsJson = $oJsSerializer.DeserializeObject($habitathomeParamsJson)
+    $habitathomeCdParamsJson = $oJsSerializer.DeserializeObject($habitathomeCdParamsJson)
     
     # Check if the setParameters node already exists and clean that up for both CM and CD scaled
-    if ($null -ne ($habitatJson.resources[0].properties.addOnPackages[0].setParameters))
+    if ($null -ne ($habitathomeJson.resources[0].properties.addOnPackages[0].setParameters))
     {
-        $habitatJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
+        $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
     }
 
-    if ($null -ne ($habitatJson.resources[1].properties.addOnPackages[0].setParameters))
+    if ($null -ne ($habitathomeJson.resources[1].properties.addOnPackages[0].setParameters))
     {
-        $habitatJson.resources[1].properties.addOnPackages[0].Remove("setParameters")
+        $habitathomeJson.resources[1].properties.addOnPackages[0].Remove("setParameters")
     }
 
-    $habitatJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitatParamsJson.setParameters)
-    $habitatJson.resources[1].properties.addOnPackages[0].add("setParameters", $habitatCdParamsJson.setParameters)
-    $habitatJson | ConvertTo-Json -Depth 6 | Set-Content $habitatJsonFile
+    $habitathomeJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitathomeParamsJson.setParameters)
+    $habitathomeJson.resources[1].properties.addOnPackages[0].add("setParameters", $habitathomeCdParamsJson.setParameters)
+    $habitathomeJson | ConvertTo-Json -Depth 6 | Set-Content $habitathomeJsonFile
     
-    if (!$habitatJsonFile) {
+    if (!$habitathomeJsonFile) {
         throw "Error trying to load the Azuredeploy parameters file!"
     }
 }
@@ -945,6 +945,7 @@ $parameters.deploymentId.value = $deploymentId
 $parameters.location.value = $location
 $parameters.sitecoreAdminPassword.value = $sitecoreAdminPassword
 $parameters.licenseXml.value = $licenseXml
+$parameters.repAuthenticationApiKey.value = $(New-Guid)
 $parameters.sqlServerLogin.value = $sqlServerLogin
 $parameters.sqlServerPassword.value = $sqlServerPassword
 $parameters.authCertificatePassword.value = $authCertificatePassword

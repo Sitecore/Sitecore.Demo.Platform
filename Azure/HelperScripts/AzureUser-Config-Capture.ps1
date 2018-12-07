@@ -33,8 +33,10 @@ $assetconfig         		= $configarray[1]
 $azureuserconfig     		= $configarray[2]
 $assetconfigFile     		= $configarray[3]
 $azureuserconfigFile 		= $configarray[4]
-$habitatParamsConfig		= $configarray[10]
-$habitatParamsConfigFile	= $configarray[11]
+$habitathomeParamsConfig		= $configarray[10]
+$habitathomeParamsConfigFile	= $configarray[11]
+$habitathomeCdParamsConfig		= $configarray[12]
+$habitathomeCdParamsConfigFile	= $configarray[13]
 
 ###############################
 # Create SelfSignedCertificate
@@ -203,13 +205,22 @@ foreach ($setting in $azureuserconfig.settings)
 
 $azureuserconfig | ConvertTo-Json  | set-content $azureuserconfigFile
 
-#############################################
-# Get User Input for habitat-parameters.json
-#############################################
+###################################################################################
+# Get User Input for habitathome-parameters.json and habitathomecd-parameters.json
+###################################################################################
 
-foreach ($habitatSetting in $azureuserconfig.habitatSettings)
+foreach ($habitathomeSetting in $azureuserconfig.habitathomeSettings)
 {
-	$habitatParamsConfig.setParameters.$($habitatSetting.id) = $habitatSetting.value
+	$habitathomeParamsConfig.setParameters.$($habitathomeSetting.id) = $habitathomeSetting.value
 }
 
-$habitatParamsConfig | ConvertTo-Json  | set-content $habitatParamsConfigFile
+if ($config.Topology -eq "scaled")
+{
+	foreach ($habitathomeCdSetting in $azureuserconfig.habitathomeCdSettings)
+	{
+		$habitathomeCdParamsConfig.setParameters.$($habitathomeCdSetting.id) = $habitathomeCdSetting.value
+	}	
+}
+
+$habitathomeParamsConfig | ConvertTo-Json  | set-content $habitathomeParamsConfigFile
+$habitathomeCdParamsConfig | ConvertTo-Json  | set-content $habitathomeCdParamsConfigFile

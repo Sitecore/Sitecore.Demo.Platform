@@ -60,7 +60,7 @@
     <parameterValidation kind="AllowEmpty" />
     <parameterEntry kind="XmlFile" scope="App_Config\\Include\\Feature\\Feature\.Demo\.config$" match="//configuration/sitecore/settings/setting[@name='Demo.Enabled']/@value" />
   </parameter>
-  <parameter name="Root Host Name" description="Habitat hostname" tags="Hidden,NoStore">
+  <parameter name="Root Host Name" description="Habitat Home hostname" tags="Hidden,NoStore">
     <parameterValidation kind="AllowEmpty" />
     <parameterEntry kind="XmlFile" scope="App_Config\\Include\\Project\\Common\.Website\.config$" match="//configuration/sitecore/sc.variable[@name='rootHostName']/@value" />
   </parameter>

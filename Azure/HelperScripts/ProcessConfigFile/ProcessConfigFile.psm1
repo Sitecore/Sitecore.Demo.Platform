@@ -24,10 +24,10 @@ $topologyName				= $configarray[6]
 $assetsfolder				= $configarray[7]
 $SCversion					= $configarray[8]
 $buildFolder				= $configarray[9]
-$habitatParamsConfig		= $configarray[10]
-$habitatParamsConfigFile	= $configarray[11]
-$habitatCdParamsConfig		= $configarray[12]
-$habitatCdParamsConfigFile	= $configarray[13]
+$habitathomeParamsConfig		= $configarray[10]
+$habitathomeParamsConfigFile	= $configarray[11]
+$habitathomeCdParamsConfig		= $configarray[12]
+$habitathomeCdParamsConfigFile	= $configarray[13]
 #>
 
 [CmdletBinding()]
@@ -111,41 +111,41 @@ Param(
 			throw "Error trying to load azureuser-config.json!"
 		}
 
-		###########################################
-		# Find and process habitat-parameters.json
-		###########################################
+		#################################################################################
+		# Find and process habitathome-parameters.json and habitathomecd-parameters.json
+		#################################################################################
 		
-		[string] $habitatParamsConfigFile = $([io.path]::combine($topologyPath, 'habitat-parameters.json'))
+		[string] $habitathomeParamsConfigFile = $([io.path]::combine($topologyPath, 'habitathome-parameters.json'))
 
-		if (!(Test-Path $habitatParamsConfigFile)) 
+		if (!(Test-Path $habitathomeParamsConfigFile)) 
 		{
-			Write-Host "habitat-parameters file '$($habitatParamsConfigFile)' not found." -ForegroundColor Red
-			Write-Host  "Please ensure there is a habitat-parameters.json configuration file at '$($habitatParamsConfigFile)'" -ForegroundColor Red
+			Write-Host "habitathome-parameters file '$($habitathomeParamsConfigFile)' not found." -ForegroundColor Red
+			Write-Host  "Please ensure there is a habitathome-parameters.json configuration file at '$($habitathomeParamsConfigFile)'" -ForegroundColor Red
 			Exit 1
 		}
 
-		$habitatParamsConfig = Get-Content -Raw $habitatParamsConfigFile |  ConvertFrom-Json
-		if (!$habitatParamsConfig) 
+		$habitathomeParamsConfig = Get-Content -Raw $habitathomeParamsConfigFile |  ConvertFrom-Json
+		if (!$habitathomeParamsConfig) 
 		{
-			throw "Error trying to load habitat-parameters.json!"
+			throw "Error trying to load habitathome-parameters.json!"
 		}
 		
 		# Check if topology is scaled
 		if ($config.topology -eq "scaled")
 		{
-			[string] $habitatCdParamsConfigFile = $([io.path]::combine($topologyPath, 'habitatcd-parameters.json'))
+			[string] $habitathomeCdParamsConfigFile = $([io.path]::combine($topologyPath, 'habitathomecd-parameters.json'))
 
-			if (!(Test-Path $habitatCdParamsConfigFile)) 
+			if (!(Test-Path $habitathomeCdParamsConfigFile)) 
 			{
-				Write-Host "habitatcd-parameters file '$($habitatCdParamsConfigFile)' not found." -ForegroundColor Red
-				Write-Host  "Please ensure there is a habitatcd-parameters.json configuration file at '$($habitatCdParamsConfigFile)'" -ForegroundColor Red
+				Write-Host "habitathomecd-parameters file '$($habitathomeCdParamsConfigFile)' not found." -ForegroundColor Red
+				Write-Host  "Please ensure there is a habitathomecd-parameters.json configuration file at '$($habitathomeCdParamsConfigFile)'" -ForegroundColor Red
 				Exit 1
 			}
 
-			$habitatCdParamsConfig = Get-Content -Raw $habitatCdParamsConfigFile |  ConvertFrom-Json
-			if (!$habitatCdParamsConfig) 
+			$habitathomeCdParamsConfig = Get-Content -Raw $habitathomeCdParamsConfigFile |  ConvertFrom-Json
+			if (!$habitathomeCdParamsConfig) 
 			{
-				throw "Error trying to load habitatcd-parameters.json!"
+				throw "Error trying to load habitathomecd-parameters.json!"
 			}
 		}
 
@@ -156,5 +156,5 @@ Param(
 		$assetsfolder = $([io.path]::combine($config.DeployFolder, $SCversion, $topologyName, 'assets'))
 		$buildFolder  = $([io.path]::combine($config.DeployFolder, $SCversion, $topologyName, 'Website'))
 
-		return $config, $assetConfig, $azureuserConfig, $assetsConfigFile, $azureuserConfigFile, $topologyPath, $topologyName, $assetsfolder, $SCversion, $buildFolder, $habitatParamsConfig, $habitatParamsConfigFile, $habitatCdParamsConfig, $habitatCdParamsConfigFile
+		return $config, $assetConfig, $azureuserConfig, $assetsConfigFile, $azureuserConfigFile, $topologyPath, $topologyName, $assetsfolder, $SCversion, $buildFolder, $habitathomeParamsConfig, $habitathomeParamsConfigFile, $habitathomeCdParamsConfig, $habitathomeCdParamsConfigFile
 }
