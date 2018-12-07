@@ -83,18 +83,18 @@ Clone the Sitecore.HabitatHome.Platform repository locally - defaults are config
 
 The following is a list of default values / assumptions for settings (`cake-config.json`)
 
-|Parameter                                  | Description | Default Value |
-|-------------------------------------------|----------------------------------|----------------------
-| ProjectFolder                     | Location of Sitecore.HabitatHome.Platform project | c:\projects\Sitecore.HabitatHome.Platform |
-| Website Root	|	Location of IIS Website Root	|	c:\\inetpub\\wwwroot\\habitathome.dev.local
-| XConnect Root | Location of IIS xConnect Site Root | C:\\Inetpub\\wwwroot\\habitathome_xconnect.dev.local\\
-| Instance Url | Url of site | https://habitathome.dev.local/
-| BuildConfiguration | 'Debug/Release' point to NuGet, 'Local' copies DLLs from an existing installation | Debug
-| DeploymentTarget  | Local/OnPrem/Azure - see below for details | Local
-| DeployFolder | Used for WDP generation and Azure deployments | C:\\deploy
-| Version | Version of Sitecore being targeted. Must match official 3-digit version | 9.1.0
-| Topology | Target topology for WDP creation and Azure deployment. Values are single or scaled | single
-| CDN | Content Delivery Network enabled (true/false). Used only when deploying to Azure | false
+|Parameter                                  | Description 														| Default Value 
+|-------------------------------------------|----------------------------------|-------------------------------------------------------
+| ProjectFolder         | Location of Sitecore.HabitatHome.Platform project 									| c:\projects\Sitecore.HabitatHome.Platform |
+| Website Root			|	Location of IIS Website Root														|	c:\\inetpub\\wwwroot\\habitathome.dev.local
+| XConnect Root 		| Location of IIS xConnect Site Root 													| C:\\Inetpub\\wwwroot\\habitathome_xconnect.dev.local\\
+| Instance Url 			| Url of site 																			| https://habitathome.dev.local/
+| BuildConfiguration 	| 'Debug/Release' point to NuGet, 'Local' copies DLLs from an existing installation 	| Debug
+| DeploymentTarget  	| Local/OnPrem/Azure - see below for details 											| Local
+| DeployFolder 			| Used for WDP generation and Azure deployments 										| C:\\deploy
+| Version 				| Version of Sitecore being targeted. Must match official 3-digit version 				| 9.1.0
+| Topology 				| Target topology for WDP creation and Azure deployment. Values are single or scaled 	| single
+| CDN 					| Content Delivery Network enabled (true/false). Used only when deploying to Azure 		| false
 
 **DeploymentTarget:**
 - Local: Set to deploy the site to the local Sitecore instance
