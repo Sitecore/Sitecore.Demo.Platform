@@ -1,7 +1,7 @@
 resources:
 - repo: self
 queue:
-  name: DEVDEMO1US1
+  name: 
 steps:
 - powershell: |
    $deploymentFolder = "$(Build.StagingDirectory)"
@@ -60,14 +60,16 @@ steps:
 
     repositoryName: Sitecore/Sitecore.HabitatHome.Platform
 
+    tagSource: manual
+
+    tag: '$(Build.SourceVersion)'
+
     title: '$(Build.SourceVersion)'
 
     assets: |
-     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/HabitatHome.scwdp.zip
-     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/xConnect/WDPWorkFolder/WDP/xConnect.scwdp.zip
+          $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/HabitatHome.scwdp.zip
+          $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/xConnect/WDPWorkFolder/WDP/xConnect.scwdp.zip
 
     isDraft: true
 
     isPreRelease: true
-
-    
