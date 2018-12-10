@@ -52,3 +52,22 @@ steps:
   displayName: 'Cake - Build WDP'
   env:
     DEV_SITECORE_PASSWORD: $(sdn_password)
+    
+- task: GithubRelease@0
+  displayName: 'Create GitHub Release'
+  inputs:
+    githubConnection: 'GitHub connection 1'
+
+    repositoryName: Sitecore/Sitecore.HabitatHome.Platform
+
+    title: '$(Build.SourceVersion)'
+
+    assets: |
+     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/HabitatHome.scwdp.zip
+     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/xConnect/WDPWorkFolder/WDP/xConnect.scwdp.zip
+
+    isDraft: true
+
+    isPreRelease: true
+
+    
