@@ -2,11 +2,6 @@ resources:
 - repo: self
 queue:
   name: DEVDEMO1US1
-#Your build pipeline references an undefined variable named ‘deployment.folder’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
-#Your build pipeline references an undefined variable named ‘project.folder’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
-#Your build pipeline references a secret variable named ‘sdn_password’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
-variables:
-  sdn_username: $(sdn_username)
 steps:
 - powershell: |
    $deploymentFolder = "$(Build.StagingDirectory)"
