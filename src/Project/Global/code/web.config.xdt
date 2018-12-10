@@ -34,7 +34,8 @@
             <rules xdt:Transform="InsertIfMissing" >
                 <rule name="HTTP/S to HTTPS Redirect" enabled="true" stopProcessing="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)">
                     <match url="(.*)" />
-                    <conditions logicalGrouping="MatchAny">
+                    <conditions logicalGrouping="MatchAll">
+                        <add input="{REQUEST_URI}" negate="true" pattern="^/sitecore/api/jss/import$" ignoreCase="true" />
                         <add input="{SERVER_PORT_SECURE}" pattern="^0$" />
                     </conditions>
                     <action type="Redirect" url="https://{HTTP_HOST}{REQUEST_URI}" redirectType="Permanent"  appendQueryString="true" />
