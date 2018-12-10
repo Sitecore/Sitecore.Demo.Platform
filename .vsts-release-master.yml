@@ -1,7 +1,7 @@
 resources:
 - repo: self
 queue:
-  name: 
+  name: $(build_queue)
 steps:
 - powershell: |
    $deploymentFolder = "$(Build.StagingDirectory)"
