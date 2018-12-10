@@ -52,6 +52,6 @@ steps:
   inputs:
     target: 'Build-WDP'
 
-    arguments: '-ScriptArgs --DEV_SITECORE_USERNAME=$(sdn_username), --DEV_SITECORE_PASSWORD=$env:DEV_SITECORE_USERNAME'
+    arguments: '-ScriptArgs --DEV_SITECORE_USERNAME=$(sdn_username), --DEV_SITECORE_PASSWORD=$($env:DEV_SITECORE_PASSWORD)'
 
 
