@@ -1,0 +1,62 @@
+resources:
+- repo: self
+queue:
+  name: DEVDEMO1US1
+#Your build pipeline references an undefined variable named ‘deployment.folder’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘project.folder’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references a secret variable named ‘sdn_password’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+variables:
+  sdn_username: 'jfl@sitecore.net'
+steps:
+- powershell: |
+   $deploymentFolder = "$(Build.StagingDirectory)"
+   $deploymentFolder = ($deploymentFolder -replace '\\','\\')
+   Write-Host "##vso[task.setvariable variable=deployment.folder]$deploymentFolder"
+  displayName: 'Escape the Deployment Folder'
+
+- powershell: |
+   $projectFolder = "$(Build.SourcesDirectory)"
+   $projectFolder = ($projectFolder -replace '\\','\\')
+   Write-Host "##vso[task.setvariable variable=project.folder]$projectFolder"
+  displayName: 'Escape the Project folder'
+
+- task: kasunkodagoda.regex-match-replace.regex-match-replace.RegExMatchReplace@2
+  displayName: 'Modify deployment folder'
+  inputs:
+    PathToFile: 'cake-config.json'
+
+    RegEx: '"DeployFolder":(\s*"[^"]+?([^\/"]+)")'
+
+    ValueToReplace: '"DeployFolder":"$(deployment.folder)"'
+
+
+- task: kasunkodagoda.regex-match-replace.regex-match-replace.RegExMatchReplace@2
+  displayName: 'Modify DeploymentTarget'
+  inputs:
+    PathToFile: 'cake-config.json'
+
+    RegEx: '"DeploymentTarget":(\s*"[^"]+?([^\/"]+)")'
+
+    ValueToReplace: '"DeploymentTarget":"OnPrem"'
+
+
+- task: kasunkodagoda.regex-match-replace.regex-match-replace.RegExMatchReplace@2
+  displayName: 'Modify ProjectFolder'
+  inputs:
+    PathToFile: 'cake-config.json'
+
+    RegEx: '"ProjectFolder":(\s*"[^"]+?([^\/"]+)")'
+
+    ValueToReplace: '"ProjectFolder":"$(project.folder)"'
+
+
+- task: cake-build.cake.cake-build-task.Cake@0
+  displayName: 'Cake '
+  env:
+    DEV_SITECORE_PASSWORD:$sdn_password
+  inputs:
+    target: 'Build-WDP'
+
+    arguments: '-ScriptArgs --DEV_SITECORE_USERNAME=$(sdn_username), --DEV_SITECORE_PASSWORD=$(sdn_password)'
+
+
