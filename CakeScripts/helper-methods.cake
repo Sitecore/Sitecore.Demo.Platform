@@ -75,10 +75,10 @@ public void PrintHeader(ConsoleColor foregroundColor)
     cakeConsole.ResetColor();
 }
 
-public void PublishProjects(string rootFolder, string websiteRoot)
+public void PublishProjects(string rootFolder, string publishRoot)
 {
     var projects = GetFiles($"{rootFolder}\\**\\code\\*.csproj");
-
+    Information("Publishing " + rootFolder + " to " + publishRoot);
     foreach (var project in projects)
     {
         MSBuild(project, cfg => InitializeMSBuildSettings(cfg)
@@ -87,7 +87,7 @@ public void PublishProjects(string rootFolder, string websiteRoot)
                                    .WithProperty("DeployDefaultTarget", "WebPublish")
                                    .WithProperty("WebPublishMethod", "FileSystem")
                                    .WithProperty("DeleteExistingFiles", "false")
-                                   .WithProperty("publishUrl", websiteRoot)
+                                   .WithProperty("publishUrl", publishRoot)
                                    .WithProperty("BuildProjectReferences", "false")
                                    );
     }

@@ -15,6 +15,7 @@ var configJsonFile = "cake-config.json";
 var unicornSyncScript = $"./scripts/Unicorn/Sync.ps1";
 var deploymentRootPath ="";
 var deploymentTarget = "";
+bool deployLocal = false;
 string topology = null;
 
 var devSitecoreUserName = Argument("DEV_SITECORE_USERNAME", EnvironmentVariable("DEV_SITECORE_USERNAME"));
@@ -41,6 +42,7 @@ Setup(context =>
     }
     
     deploymentTarget = Argument<string>("deploymentTarget",configuration.DeploymentTarget);
+    deployLocal = deploymentTarget == "Local";
     
     switch (deploymentTarget){
         case "OnPrem":
@@ -53,7 +55,7 @@ Setup(context =>
         break;
     }
 
-    if ((target.Contains("WDP") || target.Contains("Azure")) && 
+        if ((target.Contains("WDP") || target.Contains("Azure")) && 
     ((string.IsNullOrEmpty(devSitecorePassword)) || (string.IsNullOrEmpty(devSitecoreUserName)))){
         cakeConsole.WriteLine("");
         cakeConsole.WriteLine("");
@@ -69,8 +71,7 @@ Setup(context =>
         Warning("       *************************************        ");
     }
 });
-
-    var deployLocal = configuration.DeploymentTarget == "Local";
+   
 
 /*===============================================
 ============ Local Build - Main Tasks ===========
@@ -198,6 +199,7 @@ Task("Build-Solution")
 
 Task("Publish-Foundation-Projects").Does(() => {
     var destination = deploymentRootPath;
+    
     if (!deployLocal){
         destination = $"{deploymentRootPath}\\Website\\HabitatHome";
     }
