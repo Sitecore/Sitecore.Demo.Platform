@@ -1,7 +1,7 @@
 <#
 
 .SYNOPSIS
-This script generates a Sitecore update package out of the Habitat build output
+This script generates a Sitecore update package out of the Habitat Home build output
 
 .PARAMETER ConfigurationFile
 A cake-config.json file
@@ -21,9 +21,9 @@ Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
 $configuration = ProcessConfigFile -Config $ConfigurationFile
 $config          	    = $configuration.cakeConfig
-$assetconfig	 	    = $configuration.assets
 $azureuserconfig 	    = $configuration.azureUserConfig
 $assetsFolder		    = $configuration.assetsFolder
+$buildFolder			= $configuration.buildFolder
 
 ################################################################
 # Prepare folders for update package generation and triggers it
@@ -192,7 +192,7 @@ Function Clean-Up([PSObject] $Configuration, [String] $FolderString) {
 
     # Clean Assemblies
 
-    $AssembliesToRemove = @("Sitecore.*.dll", "Unicorn*.dll", "Rainbow*.dll", "Kamsar*.dll", "Microsoft.*.dll", "HtmlAgilityPack.dll", "ICSharpCode.SharpZipLib.dll", "Lucene.Net.dll", "Mvp.Xml.dll", "Newtonsoft.Json.dll", "Owin.dll", "Remotion.Linq.dll", "System.*.dll")
+    $AssembliesToRemove = @("Sitecore.*.dll", "Unicorn*.dll", "Rainbow*.dll", "Kamsar*.dll", "Microsoft.*.dll", "HtmlAgilityPack.dll", "ICSharpCode.SharpZipLib.dll", "Lucene.Net.*", "Mvp.Xml.dll", "Newtonsoft.Json.dll", "Owin.dll", "Remotion.Linq.dll", "System.*.dll")
     $AssembliesToKeep = @("Sitecore.HabitatHome.*", "Sitecore.DataExchange.*", "Microsoft.Owin.Security.Facebook.dll", "Microsoft.Owin.Security.MicrosoftAccount.dll", "Microsoft.Owin.Security.OpenIdConnect.dll")
 
     Get-ChildItem $FolderString -Include $AssembliesToRemove -Exclude $AssembliesToKeep -Recurse | ForEach-Object($_) { Remove-Item $_.FullName }
@@ -222,7 +222,7 @@ Function Clean-Up([PSObject] $Configuration, [String] $FolderString) {
 }
 
 
-$rootFolder = Get-ChildItem (Join-Path $([IO.Path]::Combine($config.DeployFolder, 'Website')) *)
+$rootFolder = Get-ChildItem (Join-Path $buildFolder *)
 
 #Prepare Packages
 

@@ -33,6 +33,7 @@ $config          	    = $configuration.cakeConfig
 $assetconfig	 	    = $configuration.assets
 $azureuserconfig 	    = $configuration.azureUserConfig
 $assetsFolder		    = $configuration.assetsFolder
+$buildFolder			= $configuration.buildFolder
 
 
 ###########################
@@ -227,15 +228,15 @@ is the path to Ionic's zipping library
 
 .Example
  Create-WDP -RootFolder "C:\_deployment\website_packaged_test" `
-            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
+            -SitecoreCloudModulePath "C:\Deploy\9.1.0\XPSingle\assets\Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
             -JsonConfigFilename "website_config" `
             -XmlParameterFilename "website_parameters" `
             -SccplCargoFilename "website_cargo" `
             -IonicZip ".\Sitecore Azure Toolkit\tools\DotNetZip.dll"
 
 .Example
- Create-WDP -RootFolder "C:\Users\auzunov\Downloads\ARM_deploy\Modules\DEF" `
-            -SitecoreCloudModulePath "C:\Users\auzunov\Downloads\ARM_deploy\1_Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
+ Create-WDP -RootFolder "C:\Deploy\Modules\DEF" `
+            -SitecoreCloudModulePath "C:\Deploy\9.1.0\XPSingle\assets\Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1" `
             -JsonConfigFilename "def_config" `
             -XmlParameterFilename "def_parameters" `
             -SccplCargoFilename "def_cargo" `
@@ -405,7 +406,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson, $assetsFolder) {
     # Assign values to required working folder paths
     
     [String] $ProjectModulesFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure', 'WDP Components', 'Modules'))
-	[String] $HabitatWDPFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure', 'WDP Components', 'Habitat'))
+	[String] $HabitatHomeWDPFolder = $([IO.Path]::Combine($configJson.ProjectFolder, 'Azure', 'WDP Components', 'HabitatHome'))
     [String] $SitecoreCloudModule = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'Sitecore.Cloud.Cmdlets.psm1'))
 	[String] $IonicZipPath = $([IO.Path]::combine($assetsFolder, 'Sitecore Azure Toolkit', 'tools', 'DotNetZip.dll'))
 	[String] $ExampleWDPJsonFile = $([IO.Path]::Combine($ProjectModulesFolder, 'example_config.json'))
@@ -597,8 +598,8 @@ Function Prepare-WDP ($configJson, $assetsConfigJson, $assetsFolder) {
 
 					# Fetch the json and xml files needed for the WDP package generation and start the WDP package creation process
 
-					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include "habitathome_config.json" | ForEach-Object { $WDPJsonFile = $_.FullName }
-					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include "habitathome_parameters.xml" | ForEach-Object { $WDPXMLFile = $_.FullName }
+					Get-ChildItem -Path "$($HabitatHomeWDPFolder)\*" -Include "habitathome_config.json" | ForEach-Object { $WDPJsonFile = $_.FullName }
+					Get-ChildItem -Path "$($HabitatHomeWDPFolder)\*" -Include "habitathome_parameters.xml" | ForEach-Object { $WDPXMLFile = $_.FullName }
 					[String] $SccplCargoName = -join ($folder.Name, "_cargo")
 					Create-WDP -RootFolder $folder.FullName `
 								-SitecoreCloudModulePath $SitecoreCloudModule `
@@ -608,7 +609,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson, $assetsFolder) {
 								-IonicZip $IonicZipPath `
 								-foldername $folder.Name `
 								-assetJSONconfig $assetsConfigJson `
-								-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHome")
+								-XdtSrcFolder $(Join-Path $buildFolder "HabitatHome")
 					
 				} else {
 			
@@ -629,8 +630,8 @@ Function Prepare-WDP ($configJson, $assetsConfigJson, $assetsFolder) {
 
 						# Fetch the json and xml files needed for the WDP package generation and start the WDP package creation process
 
-						Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include "habitathomecd_config.json" | ForEach-Object { $WDPJsonFile = $_.FullName }
-						Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include "habitathomecd_parameters.xml" | ForEach-Object { $WDPXMLFile = $_.FullName }
+						Get-ChildItem -Path "$($HabitatHomeWDPFolder)\*" -Include "habitathomecd_config.json" | ForEach-Object { $WDPJsonFile = $_.FullName }
+						Get-ChildItem -Path "$($HabitatHomeWDPFolder)\*" -Include "habitathomecd_parameters.xml" | ForEach-Object { $WDPXMLFile = $_.FullName }
 						[String] $SccplCargoName = -join ($folder.Name, "_cargo")
 						Create-WDP -RootFolder $folder.FullName `
 									-SitecoreCloudModulePath $SitecoreCloudModule `
@@ -640,7 +641,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson, $assetsFolder) {
 									-IonicZip $IonicZipPath `
 									-foldername $folder.Name `
 									-assetJSONconfig $assetsConfigJson `
-									-XdtSrcFolder $(Join-Path $configJson.DeployFolder "Website\HabitatHomeCD")
+									-XdtSrcFolder $(Join-Path $buildFolder "HabitatHomeCD")
 					}
 					
 				} else {
@@ -658,8 +659,8 @@ Function Prepare-WDP ($configJson, $assetsConfigJson, $assetsFolder) {
 				[String] $HabitatWDPTarget = "$($folder.FullName)\WDPWorkFolder\WDP"
 				If((Test-Path -Path $HabitatWDPTarget) -eq $False){
 
-					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
-					Get-ChildItem -Path "$($HabitatWDPFolder)\*" -Include *$($folder)*.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
+					Get-ChildItem -Path "$($HabitatHomeWDPFolder)\*" -Include *$($folder)*.json | ForEach-Object { $WDPJsonFile = $_.FullName }
+					Get-ChildItem -Path "$($HabitatHomeWDPFolder)\*" -Include *$($folder)*.xml | ForEach-Object { $WDPXMLFile = $_.FullName }
 					[String] $SccplCargoName = -join ($folder.Name, "_cargo")
 					Create-WDP -RootFolder $folder.FullName `
 								-SitecoreCloudModulePath $SitecoreCloudModule `

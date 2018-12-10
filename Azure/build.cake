@@ -13,6 +13,7 @@ var target = Argument<string>("Target", "Default");
 var configuration = new Configuration();
 var cakeConsole = new CakeConsole();
 var configJsonFile = "cake-config.json";
+string topology = null;
 
 /*===============================================
 ================ MAIN TASKS =====================
@@ -25,6 +26,15 @@ Setup(context =>
 	
     var configFile = new FilePath(configJsonFile);
     configuration = DeserializeJsonFromFile<Configuration>(configFile);
+
+    if(configuration.Topology == "single")
+    {
+        topology = "XPSingle";
+    }
+    else if(configuration.Topology == "scaled")
+    {
+        topology = "XP";
+    }
 });
 
 Task("Default")
@@ -62,17 +72,6 @@ Task("Azure-Deploy")
 ===============================================*/
 
 Task("Clean").Does(() => {
-
-    string topology = null;
-
-    if(configuration.Topology == "single")
-    {
-        topology = "XPSingle";
-    }
-    else if(configuration.Topology == "scaled")
-    {
-        topology = "XP";
-    }
 
     string[] folders = { $"\\{configuration.Version}\\{topology}\\assets\\HabitatHome", $"\\{configuration.Version}\\{topology}\\assets\\HabitatHomeCD", "\\Website", $"\\{configuration.Version}\\{topology}\\assets\\Xconnect", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
 
@@ -123,11 +122,11 @@ Task("Build-Solution").Does(() => {
 });
 
 Task("Publish-Foundation-Projects").Does(() => {
-    PublishProjects(configuration.FoundationSrcFolder, $"{configuration.DeployFolder}\\Website\\HabitatHome");
+    PublishProjects(configuration.FoundationSrcFolder, $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome");
 });
 
 Task("Publish-Feature-Projects").Does(() => {
-    PublishProjects(configuration.FeatureSrcFolder, $"{configuration.DeployFolder}\\Website\\HabitatHome");
+    PublishProjects(configuration.FeatureSrcFolder, $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome");
 });
 
 Task("Publish-Project-Projects").Does(() => {
@@ -135,14 +134,14 @@ Task("Publish-Project-Projects").Does(() => {
     var habitat = $"{configuration.ProjectSrcFolder}\\Habitat";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
 
-    PublishProjects(common, $"{configuration.DeployFolder}\\Website\\HabitatHome");
-    PublishProjects(habitat, $"{configuration.DeployFolder}\\Website\\HabitatHome");
-    PublishProjects(habitatHome, $"{configuration.DeployFolder}\\Website\\HabitatHome");
+    PublishProjects(common, $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome");
+    PublishProjects(habitat, $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome");
+    PublishProjects(habitatHome, $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome");
 });
 
 Task("Publish-xConnect-Project").Does(() => {
     var xConnectProject = $"{configuration.ProjectSrcFolder}\\xConnect";
-	var xConnectDeployFolder = $"{configuration.DeployFolder}\\Website\\xConnect";
+	var xConnectDeployFolder = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\xConnect";
 	
     PublishProjects(xConnectProject, xConnectDeployFolder);
 });
@@ -158,7 +157,7 @@ Task("Apply-Xml-Transform").Does(() => {
 
 Task("Publish-Transforms").Does(() => {
     var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
-    var destination = $@"{configuration.DeployFolder}\Website\HabitatHome\temp\transforms";
+    var destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome\temp\transforms";
 
     CreateFolder(destination);
 
@@ -182,7 +181,7 @@ Task("Publish-Transforms").Does(() => {
 Task("Publish-Azure-Transforms").Does(()=>{
 
        var codeFoldersFilter = $@"{configuration.ProjectFolder}\**\code";
-       var destination = $@"{configuration.DeployFolder}\Website\HabitatHome";  
+       var destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome";  
 
        if (!DirectoryExists(destination))
        {
@@ -277,7 +276,7 @@ Task("Rebuild-Web-Index").Does(() => {
 Task("Publish-YML").Does(() => {
 
 	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.yml";
-    var destination = $@"{configuration.DeployFolder}\Website\HabitatHome\App_Data";
+    var destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome\App_Data";
 
     if (!DirectoryExists(destination))
     {
@@ -302,7 +301,7 @@ Task("Publish-YML").Does(() => {
 Task("Publish-Post-Steps").Does(() => {
 
 	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.poststep";
-    var destination = $@"{configuration.DeployFolder}\Website\HabitatHome\App_Data\poststeps";
+    var destination = $@"{configuration.DeployFolder}\{configuration.Version}\{topology}\Website\HabitatHome\App_Data\poststeps";
 
     if (!DirectoryExists(destination))
     {
@@ -325,7 +324,7 @@ Task("Publish-Post-Steps").Does(() => {
 
 Task("Package-Build")
 .IsDependentOn("Generate-HabitatUpdatePackages")
-.IsDependentOn("ConvertTo-SCWDPs");
+.IsDependentOn("Generate-HabitatHomeWDP");
 
 Task("Generate-HabitatUpdatePackages").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatUpdatePackages.ps1", args =>
@@ -334,8 +333,8 @@ Task("Generate-HabitatUpdatePackages").Does(() => {
         });
 		});
 
-Task("ConvertTo-SCWDPs").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\ConvertTo-SCWDPs.ps1", args =>
+Task("Generate-HabitatHomeWDP").Does(() => {
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatHomeWDP.ps1", args =>
         {
             args.AppendQuoted($"{configuration.ProjectFolder}\\Azure\\cake-config.json");
         });
