@@ -512,7 +512,7 @@ Task("Scale-Down").Does(() => {
 
 Task("Prepare-Transform-Files").Does(()=>{
     
-    var destination = $@"{deploymentRootPath}\Website\HabitatHome\App_Data\Transforms";  
+    var destination = $@"{deploymentRootPath}\Website\HabitatHome\";  
     var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
   
     foreach(var layer in layers)
