@@ -21,6 +21,8 @@ string topology = null;
 var devSitecoreUserName = Argument("DEV_SITECORE_USERNAME", EnvironmentVariable("DEV_SITECORE_USERNAME"));
 var devSitecorePassword = Argument("DEV_SITECORE_PASSWORD", EnvironmentVariable("DEV_SITECORE_PASSWORD"));
 
+Information("password:" + devSitecorePassword);
+
 /*===============================================
 ================ MAIN TASKS =====================
 ===============================================*/
