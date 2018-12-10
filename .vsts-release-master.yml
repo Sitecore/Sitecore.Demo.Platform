@@ -45,13 +45,9 @@ steps:
     ValueToReplace: '"ProjectFolder":"$(project.folder)"'
 
 
-- task: cake-build.cake.cake-build-task.Cake@0
-  displayName: 'Cake '
+- powershell: ./build.ps1
+  arguments: '-ScriptArgs --DEV_SITECORE_USERNAME=$(sdn_username), --DEV_SITECORE_PASSWORD=$env:DEV_SITECORE_PASSWORD'
+
+  displayName: 'PowerShell Script'
   env:
     DEV_SITECORE_PASSWORD: $(sdn_password)
-  inputs:
-    target: 'Build-WDP'
-
-    arguments: '-ScriptArgs --DEV_SITECORE_USERNAME=$(sdn_username), --DEV_SITECORE_PASSWORD=$($env:DEV_SITECORE_PASSWORD)'
-
-
