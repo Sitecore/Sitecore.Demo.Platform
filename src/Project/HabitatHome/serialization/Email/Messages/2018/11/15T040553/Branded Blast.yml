@@ -1,0 +1,69 @@
+﻿---
+ID: "647f948a-9e7d-4d41-915c-6c17f4726231"
+Parent: "090ce0a2-3493-4f03-aede-1bee8c57bf44"
+Template: "078d8a76-f971-4891-b422-76c0bcf9fa03"
+Path: /sitecore/content/Email/Messages/2018/11/15T040553/Branded Blast
+DB: master
+BranchID: "06a7ea2b-a5c7-4091-8e4b-35001a173758"
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: office/32x32/mail_write.png
+- ID: "0934bec4-325a-427b-95bb-46f78cea9591"
+  Hint: Message Type
+  Value: "{C2786C9C-B267-4DD8-B8FB-4452A23F9969}"
+- ID: "09ad7c00-a8de-46f7-bc54-e7572e38c136"
+  Hint: Body
+  Value: "{0EB936F7-F280-4C86-83A4-24B35FAB18BF}"
+- ID: "21f2a1e0-ac16-443b-b7a9-83504159f2bb"
+  Hint: Device
+  Value: "{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+- ID: "2bbf5276-ed11-4cd0-946f-66678b524457"
+  Hint: Campaign Position
+  Value: "{C1B8669B-C41A-4ED3-BF0D-E859CF880D42}"
+- ID: "6ec7a9e6-9fd5-4892-bbf6-11e76e0e5db8"
+  Hint: Start Time
+  Value: 20181130T194326Z
+- ID: "78f0b1f8-fdf4-4c1c-bec6-1ac68a210a52"
+  Hint: Campaign
+  Value: "{99572572-8DCA-4EA3-B377-9AEE0700FAF8}"
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: Checkbox
+  Value: 0
+- ID: "ac436b75-b307-4409-8479-e299ace64859"
+  Hint: End Time
+  Value: 20181130T194346Z
+- ID: "af0fe26a-a78b-491d-885c-03d95bc17342"
+  Hint: State
+  Value: Sent
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: 
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{E6267A85-945B-444B-B246-400D4522A380}"
+- ID: "f8d592cc-f3e5-4a8e-a600-8aebe8cc36e4"
+  Hint: Included Recipient Lists
+  Type: TreelistEx
+  Value: "{24FA49C7-CE46-4B68-B772-CD97ADA21FFF}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Branded Blast
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0d844c9c-bd6c-49b8-9475-947da791f268"
+      Hint: From Address
+      Value: noreply@habitathomedemo.com
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181115T041907Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

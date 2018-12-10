@@ -5,6 +5,9 @@ Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
 Path: "/sitecore/content/Habitat Sites/Habitat Home/home/guides/sound-matters"
 DB: master
 SharedFields:
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: 
 - ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
   Hint: Publish Date
   Value: 20171228T204100Z
@@ -13,7 +16,7 @@ SharedFields:
   Value: "{612AD435-5BBC-4900-9EBD-B5646C57C4EA}"
 - ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
   Hint: SxaTags
-  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}"
+  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}|{669B2466-6113-4CB4-B809-C2117A0A8DF4}|{1A7509B8-4BB1-495D-9D4B-852F33AF3BD4}|{3CFA2153-55AD-4F55-B936-BE95B1DC4C15}|{2D91069A-82DE-4AD6-91EC-D9AF42FD1099}|{B329BFB2-1A96-41FB-938F-832BC040958C}|{2EC4B804-7FAA-4432-9592-B95E04122452}|{1181BB9C-BF58-48B3-86CC-8FC89980AD03}|{F7CC2D1F-585F-45FD-BE49-7EEE202B7392}|{66C4527B-EC6F-4CF2-B08E-75858C41DA81}|{38B9F2D1-56B0-4F25-B63C-F798F8194136}|{1B13EF12-CDAF-4AF2-8892-4AD69EC99453}"
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
@@ -120,14 +123,14 @@ SharedFields:
           p:after="r[@uid='{87E119BB-70A1-4E3C-9106-E723FC306811}']"
           s:ds="local:/Data/Habitat Aura 4 Speaker Pack Promo"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b837DA9F8-E307-4615-9B66-7F3B97E1470B%7d&amp;DynamicPlaceholderId=3"
+          s:par="GridParameters&amp;FieldNames=%7B184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
           s:ph="/main/sxa-recommended-content/container-1/container-1/container-2" />
         <r
           uid="{5DFD0C2B-F570-4115-A33E-3ADE6F829AE8}"
           p:after="r[@uid='{449C8321-29D1-4359-8847-71DDB88A28A0}']"
           s:ds="local:/Data/Habitat Aura 5 1 Promo"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b960FD30E-BD7B-4E17-920D-4D331117839C%7d&amp;DynamicPlaceholderId=2"
+          s:par="GridParameters&amp;FieldNames=%7BF8C8F184-053D-4947-840B-A96495DB434C%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
           s:ph="/main/sxa-recommended-content/container-1/container-1" />
         <r
           uid="{D38E0A83-F50B-4D10-89B6-2B242FAB38C8}"
@@ -148,7 +151,7 @@ SharedFields:
           p:after="*[1=2]"
           s:ds="local:/Data/Habitat Aura Cinetech Promo"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b837DA9F8-E307-4615-9B66-7F3B97E1470B%7d&amp;DynamicPlaceholderId=1"
+          s:par="GridParameters&amp;FieldNames=%7B184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
           s:ph="/main/sxa-article-content/container-1" />
       </d>
     </r>
@@ -265,9 +268,6 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{FD45FB7F-9212-43A9-B1DF-96E75BE92363}" alt="headphone article" height="" width="" hspace="" vspace="" />
-    - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
-      Hint: Page Design
-      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171206T185300Z

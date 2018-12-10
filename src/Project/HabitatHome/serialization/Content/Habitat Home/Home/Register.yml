@@ -9,6 +9,9 @@ SharedFields:
   Hint: NavigationFilter
   Type: Checklist
   Value: "{D063E9D1-C7B5-4B1E-B31E-69886C9C59F5}"
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: 
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
@@ -58,6 +61,19 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{2A7EA3D0-C956-47D3-998D-7249AB6E7CA3}"
+              s:par="GridParameters=%7B1E34DFC6-3B3F-4AC0-AC85-6B8F577C6587%7D%7C%7BF5C8995F-754E-4E6D-8F68-935842100DC6%7D%7C%7B28F7C698-2AEB-4A8F-8B37-55988FDD198E%7D&amp;BackgroundImage&amp;Styles=%7B7390C99D-8055-4E89-9C82-84CA91700184%7D%7C%7B3DB38958-4B3E-42BA-BC25-F95ADE745720%7D%7C%7B09FB530A-31C0-4644-B3A4-A5DEBA744EDB%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1" />
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171115T192426Z
@@ -95,15 +111,12 @@ Languages:
       Hint: __Final Renderings
       Type: Layout
       Value: 
-    - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
-      Hint: Page Design
-      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171115T192426Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{FF509B64-B6D4-4FB7-9718-C4218B992740}"
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
     - ID: "45ce257a-6060-4c4a-9a0f-ae77bf705b25"
       Hint: TwitterSite
       Value: 

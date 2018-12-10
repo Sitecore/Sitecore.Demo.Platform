@@ -5,6 +5,9 @@ Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
 Path: "/sitecore/content/Habitat Sites/Habitat Home/home/guides/dryer-stack-up"
 DB: master
 SharedFields:
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: 
 - ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
   Hint: Publish Date
   Value: 20171129T214400Z
@@ -13,7 +16,7 @@ SharedFields:
   Value: "{6991E232-7E09-4CF8-BB77-90D45AA781A9}"
 - ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
   Hint: SxaTags
-  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}"
+  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}|{13F27CE3-0D2A-4EF0-BB62-5713CB104136}|{F8DCAAE1-339F-4360-8ACA-1E03C783D348}|{64AC34DB-FEF2-4CF8-A9EB-690CCF1B20DF}|{A2B6F988-6C8B-438D-9BE9-7ECBEFA71494}|{75095611-51EE-4802-9105-9CE6B5A1EAA6}|{74B69ACA-1353-47A5-99D0-A97CE3C257E3}|{7B354993-572B-447B-B2A4-6920465C9DBF}|{E80E129F-5193-4446-A4C9-2A9174A3A6F6}|{FEF112F6-CF88-4B29-BDF2-2D77817392AD}|{1BFC8110-67FE-4E6C-B66F-639284087C5D}|{6C592E76-7831-447A-A930-0E7874DBB61B}|{226BD541-09CD-41E7-AD15-4206312B11F5}|{B7D05D25-FA43-4337-B587-C0C79540C33F}|{DF64AE1F-0D2B-49CC-A5DC-C72B855CABA3}|{F4519C8F-F856-4903-80C7-5B26EA3EEB75}|{BA56DF3A-F7E1-4BF9-9342-88DE0304BF74}|{8F8286B0-C3C5-40AC-8524-4F68F3E766D3}|{F82B9523-F69B-4F59-8AEA-10B1BE0473E2}|{FE6381F0-778B-4DA8-95ED-EFA7F8C5C979}|{164B5020-6C06-4C26-95D0-2C89713C612B}|{50797D7B-1726-4653-ABFF-58F11ED46A42}|{46DFBDE2-60E5-4096-9222-DADB89853EB8}|{CD8C0356-A0DE-4AA7-A965-A2ADB93218A4}"
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
@@ -158,6 +161,25 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{28DEAF7A-F645-4B19-821A-D141C144E527}"
+              s:ds="" />
+            <r
+              uid="{CAB127A7-3E8C-4BDB-B8A6-B7031B9F81E4}"
+              s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D%7C%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2" />
+            <r
+              uid="{C95F089A-273E-4AB8-B6BC-C2CE2300B01C}"
+              s:par="Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7BB8DCE263-F093-4EF3-9B53-B4A4B919A337%7D&amp;DynamicPlaceholderId=3&amp;GridParameters&amp;Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options" />
+          </d>
+        </r>
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
       Hint: Image
       Value: |
@@ -297,9 +319,6 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{4F3BDCA5-4B83-4C3F-BDF3-6D5BF616FF12}" alt="Does-your-dryer-stack-up" height="" width="" hspace="" vspace="" />
-    - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
-      Hint: Page Design
-      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171129T212932Z

@@ -1,0 +1,318 @@
+﻿---
+ID: "902aad71-dd65-4c4e-97be-c2f341962685"
+Parent: "602e4f4d-11e2-44e9-a8ac-12ae5e05a1a4"
+Template: "c2786e73-44c7-43be-954b-1b35aeba4bd0"
+Path: "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+DB: master
+BranchID: "88afe195-bca1-49dd-9aa2-67f0d9a0daa5"
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{8F767C22-CCFC-45D0-A31D-39CF03E50285}"
+          p:before="*"
+          s:ds="{31C9D4F1-B4CD-4EB7-8B6E-AC31C5D4DE7C}"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=10&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0"
+          s:ph="/main/sxa-content-container/container-1/container-9" />
+        <r
+          uid="{E36CB356-7271-4E46-BDCC-C34F0518E1E0}"
+          p:after="r[@uid='{8F767C22-CCFC-45D0-A31D-39CF03E50285}']"
+          s:cnd=""
+          s:ds="{40CC426C-AAB9-4F9F-9ED5-BBC42F70D33D}"
+          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+          s:mvt=""
+          s:par=""
+          s:ph="/main/sxa-content-container/container-1/container-5/column-2-6/sitecoreFormsWrapper-7" />
+        <r
+          uid="{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}"
+          p:after="r[@uid='{E36CB356-7271-4E46-BDCC-C34F0518E1E0}']"
+          s:ds=""
+          s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
+          s:par="Styles=%7BAC323A2C-7301-4523-B005-9D4F3CCB2ABC%7D%7C%7B0CC74E1D-658E-460C-8D9F-DB5C73E078FD%7D&amp;DynamicPlaceholderId=7&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;GridParameters"
+          s:ph="/main/sxa-content-container/container-1/container-5/column-2-6" />
+        <r
+          uid="{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}"
+          p:after="r[@uid='{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}']"
+          s:ds=""
+          s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          s:par=""
+          s:ph="/main/sxa-content-container/container-1/container-5/column-1-6" />
+        <r
+          uid="{5B2B0F29-BB3E-43C8-9454-442AAA5490B8}"
+          p:after="r[@uid='{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}']"
+          s:ds="{14D71DC5-F486-44E4-BCC8-3EA07A3500C0}"
+          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          s:par="DynamicPlaceholderId=8&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          s:ph="/main/sxa-content-container/container-1/container-5/column-1-6" />
+        <r
+          uid="{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}"
+          p:after="r[@uid='{5B2B0F29-BB3E-43C8-9454-442AAA5490B8}']"
+          s:ds=""
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="DynamicPlaceholderId=6&amp;EnabledPlaceholders=1%2C2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D"
+          s:ph="/main/sxa-content-container/container-1/container-5" />
+        <r
+          uid="{7DFCF9D1-9E8A-48D3-A97B-B14654888C89}"
+          p:after="r[@uid='{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}']"
+          s:ds="local:/Data/Page Hero"
+          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+          s:par="GridParameters&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{D2B41184-B2CD-4074-AE79-4DADF108989B}"
+          p:after="r[@uid='{7DFCF9D1-9E8A-48D3-A97B-B14654888C89}']"
+          s:ds=""
+          s:id="{99A633FC-B9A9-44A0-B78A-BCBB08DD02C9}"
+          s:par="Styles=%7BAC323A2C-7301-4523-B005-9D4F3CCB2ABC%7D%7C%7B02E8B498-5953-427B-A29D-68291DCEC9F4%7D&amp;GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{C56FF29E-B1DC-494C-9168-4DA7099D53D1}"
+          p:after="r[@uid='{D2B41184-B2CD-4074-AE79-4DADF108989B}']"
+          s:cnd=""
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:mvt=""
+          s:par="Styles=%7B7390C99D-8055-4E89-9C82-84CA91700184%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{6AA37C7C-1BA9-40F8-A07E-AED41CAB0435}"
+          p:after="*[1=2]"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Styles=%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;DynamicPlaceholderId=9&amp;BackgroundImage"
+          s:ph="/main/sxa-content-container/container-1" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{8CF49AB7-B197-4A9E-AA48-3D2424F78EC8}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Healthy Living
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{6AA37C7C-1BA9-40F8-A07E-AED41CAB0435}"
+              p:before="*"
+              s:ph="/main/sxa-content-container/container-1/container-5" />
+            <r
+              uid="{8F767C22-CCFC-45D0-A31D-39CF03E50285}"
+              s:ph="/main/sxa-content-container/container-1/container-5/container-9" />
+            <r
+              uid="{E36CB356-7271-4E46-BDCC-C34F0518E1E0}">
+              <p:d />
+            </r>
+            <r
+              uid="{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}">
+              <p:d />
+            </r>
+            <r
+              uid="{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}">
+              <p:d />
+            </r>
+            <r
+              uid="{5B2B0F29-BB3E-43C8-9454-442AAA5490B8}">
+              <p:d />
+            </r>
+            <r
+              uid="{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}">
+              <p:d />
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180626T160120Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Healthy Living
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: "<p>Join our Healthy Living list to get updated on the coolest and newest healthy and active lifestyle trends!</p>"
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: "Join our Healthy Living list to get healthy living tips and updates for an active lifestyle!"
+  - Version: 2
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{6AA37C7C-1BA9-40F8-A07E-AED41CAB0435}"
+              p:before="*"
+              s:ph="/main/sxa-content-container/container-1/container-5" />
+            <r
+              uid="{8F767C22-CCFC-45D0-A31D-39CF03E50285}"
+              s:mvt="{7F20D783-D4B9-408D-AD8E-65B1FE88D2F5}"
+              s:ph="/main/sxa-content-container/container-1/container-5/container-9" />
+            <r
+              uid="{E36CB356-7271-4E46-BDCC-C34F0518E1E0}">
+              <p:d />
+            </r>
+            <r
+              uid="{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}">
+              <p:d />
+            </r>
+            <r
+              uid="{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}">
+              <p:d />
+            </r>
+            <r
+              uid="{5B2B0F29-BB3E-43C8-9454-442AAA5490B8}">
+              <p:d />
+            </r>
+            <r
+              uid="{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}">
+              <p:d />
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181130T213116Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Healthy Living
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: "<p>Join our Healthy Living list to get updated on the coolest and newest healthy and active lifestyle trends!</p>"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 20181130T213116Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: "Join our Healthy Living list to get healthy living tips and updates for an active lifestyle!"
+  - Version: 3
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{6AA37C7C-1BA9-40F8-A07E-AED41CAB0435}"
+              p:before="*"
+              s:ph="/main/sxa-content-container/container-1/container-5" />
+            <r
+              uid="{8F767C22-CCFC-45D0-A31D-39CF03E50285}"
+              s:mvt="{7F20D783-D4B9-408D-AD8E-65B1FE88D2F5}"
+              s:ph="/main/sxa-content-container/container-1/container-5/container-9" />
+            <r
+              uid="{E36CB356-7271-4E46-BDCC-C34F0518E1E0}">
+              <p:d />
+            </r>
+            <r
+              uid="{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}">
+              <p:d />
+            </r>
+            <r
+              uid="{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}">
+              <p:d />
+            </r>
+            <r
+              uid="{5B2B0F29-BB3E-43C8-9454-442AAA5490B8}">
+              <p:d />
+            </r>
+            <r
+              uid="{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}">
+              <p:d />
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181130T213352Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Healthy Living
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: "<p>Join our Healthy Living list to get updated on the coolest and newest healthy and active lifestyle trends!</p>"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 20181130T213352Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: "Join our Healthy Living list to get healthy living tips and updates for an active lifestyle!"
+  - Version: 4
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181130T213535Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 20181130T213535Z
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Healthy Living
+  Versions:
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Healthy Living Example
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180711T173000Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous

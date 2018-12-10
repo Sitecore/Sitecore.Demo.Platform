@@ -1,0 +1,192 @@
+﻿---
+ID: "3ec3a117-8d9e-4702-8fb1-3ac84188b89f"
+Parent: "84506350-9a71-4acb-962f-b875f07d0f62"
+Template: "bd74a392-dacd-4c23-853a-d520762b33a1"
+Path: "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/register-fitness-tracker/thank-you"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{F8317CF8-BC39-4424-96E2-A0CB8DD7BC62}"
+          p:before="*"
+          s:ds=""
+          s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/main/sxa-content-container/container-1/container-3" />
+        <r
+          uid="{36312E3F-7056-48CF-B502-062B88EB3D7A}"
+          p:after="r[@uid='{F8317CF8-BC39-4424-96E2-A0CB8DD7BC62}']"
+          s:ds=""
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B4AA37DA1-3A7B-4DAA-A226-A82B450BB966%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-content-container/container-1/container-3">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{4C5BA625-D5CB-45FE-BEEE-1E1086FF61DB}"
+                s:name="Sport Interest: Running">
+                <actions>
+                  <action
+                    uid="D15C212FC114459CBE6F79AE68AF6997"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{7FFDAD1C-50A6-4CE7-81C5-259DCD6D1FC1}" />
+                </actions>
+                <conditions>
+                  <condition
+                    uid="C08C88264D7C48EAB23AB8AF6218E0F6"
+                    s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                    s:Comparison="is case insensitive and equal to"
+                    s:SportNameKey="Running" />
+                </conditions>
+              </rule>
+              <rule
+                uid="{2CD92D6F-93A4-44CA-B550-920C1C40F52B}"
+                s:name="Sport Interest: Cycling">
+                <conditions>
+                  <condition
+                    uid="79946E3655104AEBA48D8B43546739F6"
+                    s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                    s:Comparison="is case insensitive and equal to"
+                    s:SportNameKey="Cycling" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="B84718BBF7E54B1AA2B9F58ED67726BA"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{6238B3BB-E9C4-4AFB-B445-BE302466691E}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="99474F13DC764FB097E6805935F66644"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="1DEBF52E52D749ABA8367A5D58C241C7"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{8A33684A-7711-4445-A119-BD1EFEC890B6}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{6FBFE501-402E-44F2-89F8-5E6562565E7F}"
+          p:after="r[@uid='{36312E3F-7056-48CF-B502-062B88EB3D7A}']"
+          s:ds=""
+          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{19DE6C49-C812-40B0-A8DF-A13F67E9B33F}"
+                s:name="Sport Interest: Cycling">
+                <conditions>
+                  <condition
+                    uid="AF33796408AA4F3988428DD8A9D98839"
+                    s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                    s:Comparison="is case insensitive and equal to"
+                    s:SportNameKey="Cycling" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="22E73650A7514F399CD198775BCEF55B"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Hero - Cycling" />
+                </actions>
+              </rule>
+              <rule
+                uid="{C5448B66-AB64-41BA-BE73-B0270A85A847}"
+                s:name="Sport Interest: Running">
+                <conditions>
+                  <condition
+                    uid="0EF85ADCAF97437080F69ABEF90020A6"
+                    s:id="{F178DC55-8330-46A5-91D2-3449B4802048}"
+                    s:Comparison="is case insensitive and equal to"
+                    s:SportNameKey="Running" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="888CDA1F7D024124BD1E1CED6E4D90AF"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Hero - Running" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="ED60726CB02E4A8B83D951C83A9893D1"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="E48449E077B74056969F0143ECBDBB49"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Hero - Running" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{29B3A388-B2E4-42C6-8E19-7B9AEF6CFADE}"
+          p:after="*[1=2]"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-content-container/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Thank You
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181106T175230Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Thank You
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h2>Thank you for registering your tracker!&nbsp;</h2>
+        <p>Purchasing a Habitat fitness tracker is a great first step in your journey to a healthier and happier you. Check out this Habitat Home Fitness guide aimed at helping you stay on track!</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: "Thank You for registering your tracker!"
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Thank You
+  Versions:

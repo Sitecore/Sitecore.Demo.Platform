@@ -91,43 +91,46 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          ds="{91A995B9-1CF5-4434-AEEC-294056A113F8}"
-          id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
-          par=""
-          ph="/main/sxa-content-container/container-1/container-4/sitecoreFormsWrapper-3"
-          uid="{2416BDC4-800F-4FDC-A052-BFF90D1A8E97}" />
+          uid="{AE312B66-3606-434B-A98E-660644F4ECC3}"
+          p:before="*"
+          s:ds="local:/Data/HTML Code"
+          s:id="{F0DE3E5B-F5E0-4299-B3A2-59C234B985C3}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="/main/sxa-content-container/container-1/container-4" />
         <r
-          ds=""
-          id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
-          par="GridParameters&amp;Styles={0CC74E1D-658E-460C-8D9F-DB5C73E078FD}&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
-          ph="/main/sxa-content-container/container-1/container-4"
-          uid="{E04B0C05-FF09-4BF2-8C35-F4B655D682E7}" />
+          uid="{2416BDC4-800F-4FDC-A052-BFF90D1A8E97}"
+          p:after="r[@uid='{AE312B66-3606-434B-A98E-660644F4ECC3}']"
+          s:ds="{91A995B9-1CF5-4434-AEEC-294056A113F8}"
+          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+          s:par=""
+          s:ph="/main/sxa-content-container/container-1/container-4/sitecoreFormsWrapper-3" />
         <r
-          ds="local:/Data/Hero - Find A Trainer"
-          id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          ph="/main/sxa-content-container/container-1"
-          uid="{43CE0CAA-587D-4AEF-B672-B651F54F3EE6}" />
+          uid="{E04B0C05-FF09-4BF2-8C35-F4B655D682E7}"
+          p:after="r[@uid='{2416BDC4-800F-4FDC-A052-BFF90D1A8E97}']"
+          s:ds=""
+          s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
+          s:par="GridParameters&amp;Styles=%7B0CC74E1D-658E-460C-8D9F-DB5C73E078FD%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-content-container/container-1/container-4" />
         <r
-          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;BackgroundImage&amp;Styles={DF262DBA-9499-4F97-A9C9-B7885C140ED8}&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
-          ph="/main/sxa-content-container/container-1"
-          uid="{A63CC628-3632-41A9-9E37-363B286B62E1}" />
+          uid="{43CE0CAA-587D-4AEF-B672-B651F54F3EE6}"
+          p:after="r[@uid='{E04B0C05-FF09-4BF2-8C35-F4B655D682E7}']"
+          s:ds="local:/Data/Hero - Find A Trainer"
+          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/sxa-content-container/container-1" />
         <r
-          ds="{2703D97F-76D2-4D4A-9E01-A8DA501E4B4D}"
-          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          par="GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
-          ph="/main/sxa-content-container/container-1"
-          uid="{1E5B153F-D7F4-4F07-9944-501B3CD14DAA}" />
+          uid="{A63CC628-3632-41A9-9E37-363B286B62E1}"
+          p:after="*[1=2]"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BA4747CBB-8D2C-4835-8C9D-D91CB4D1E7E4%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/main/sxa-content-container/container-1" />
       </d>
-      <d
-        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
-        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en

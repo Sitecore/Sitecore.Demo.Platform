@@ -13,7 +13,7 @@ SharedFields:
   Value: "{CCA66699-B6C8-43D1-BF33-68492C373174}"
 - ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
   Hint: SxaTags
-  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}"
+  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}|{DB725896-4BE4-4869-9608-7DE25CA545A8}|{72E587B3-2D52-489C-AEDC-9395D70277DB}|{C92EA305-DBEF-46B3-AC4C-FCDC53D675D5}|{76B279A7-CD28-43BA-86F5-0318143967B1}|{8FF2792B-A1B5-4E95-8B6E-C7CAA073C64D}|{D5019035-40D2-4C92-B84E-60FF79837C39}|{80464D49-2184-48E6-B571-3E09AE50E585}|{5D111BDA-C188-4E62-A818-A767437F7472}|{BF4A3665-50C4-48C2-BEC1-C31AB9042278}|{667AD11B-3321-410C-B405-436C7C4F30ED}|{38C6D4AA-D61C-4ECD-9CB4-891ED7EA49C9}"
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
@@ -79,26 +79,28 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
-          uid="{7C711950-2AED-4F7A-9E69-F533C188B55B}"
-          p:before="*"
-          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-article-content/author-1-" />
+          ds=""
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="/main/sxa-article-content/author-1-"
+          uid="{7C711950-2AED-4F7A-9E69-F533C188B55B}" />
         <r
-          uid="{4C1AAEFA-4445-43DF-84A0-A2A1C6402C46}"
-          p:after="*[1=2]"
-          s:cnd=""
-          s:ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
-          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          s:mvt=""
-          s:par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          s:ph="/main/sxa-recommended-content/container-3" />
+          cnd=""
+          ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          mvt=""
+          par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-recommended-content/container-3"
+          uid="{4C1AAEFA-4445-43DF-84A0-A2A1C6402C46}" />
       </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en
@@ -134,9 +136,9 @@ Languages:
     - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
       Hint: Content
       Value: |
-        <p>Cake icing brownie pudding macaroon drag&eacute;e. Candy canes chocolate lollipop souffl&eacute; fruitcake dessert candy pastry. Chocolate bar chupa chups cupcake tiramisu apple pie jujubes cake toffee. Liquorice chocolate cake cotton candy candy chocolate bar. Icing tiramisu sugar plum sweet roll croissant. Tiramisu biscuit cake cotton candy sugar plum sweet macaroon. Cupcake chocolate cake biscuit oat cake jujubes sweet roll tiramisu bear claw jelly beans. Macaroon brownie tootsie roll pie gummies lollipop jelly tootsie roll pie. Dessert jujubes donut. Pastry halvah liquorice oat cake topping wafer biscuit. Liquorice carrot cake pudding carrot cake halvah liquorice topping. Danish drag&eacute;e chocolate bar jelly-o danish.</p>
-        <p>Dessert jelly beans tootsie roll brownie bonbon. Croissant jelly-o souffl&eacute; chocolate cupcake chocolate bar muffin souffl&eacute; halvah. Drag&eacute;e oat cake gummi bears drag&eacute;e fruitcake souffl&eacute; lemon drops marshmallow. Topping pudding dessert cookie marshmallow. Tiramisu sugar plum muffin oat cake. Sesame snaps macaroon pastry ice cream tootsie roll sesame snaps jelly. Cotton candy dessert lemon drops tiramisu sesame snaps. Chocolate drag&eacute;e croissant cake tart. Caramels tootsie roll sweet oat cake lemon drops cake fruitcake biscuit. Liquorice cheesecake icing carrot cake marzipan fruitcake croissant marzipan. Carrot cake pie gingerbread topping marshmallow jelly gingerbread pudding cupcake. Gummi bears marshmallow brownie muffin lollipop jujubes. Tart pudding cotton candy. Jelly chocolate cake jelly-o biscuit sweet roll.</p>
-        <p>Wafer donut pudding cookie drag&eacute;e topping. Powder wafer sugar plum souffl&eacute;. Carrot cake cake carrot cake sesame snaps halvah liquorice sugar plum. Donut cotton candy tart lollipop pie candy canes chocolate cake. Souffl&eacute; gummies macaroon bear claw cake. Oat cake sesame snaps tootsie roll sesame snaps dessert chocolate cake cotton candy marzipan. Ice cream jelly-o chocolate bar cake. Dessert wafer jelly beans brownie tootsie roll sweet roll. Jelly cake powder chocolate sugar plum donut danish icing jujubes. Powder chocolate cake biscuit ice cream souffl&eacute;. Icing fruitcake macaroon pastry gingerbread. Liquorice pastry sugar plum brownie jelly carrot cake lollipop carrot cake candy canes. Bonbon sugar plum chocolate fruitcake carrot cake oat cake carrot cake gummi bears. Ice cream cake gingerbread marzipan ice cream candy canes donut candy canes.</p>
+        <p>Cake icing brownie pudding macaroon dragée. Candy canes chocolate lollipop soufflé fruitcake dessert candy pastry. Chocolate bar chupa chups cupcake tiramisu apple pie jujubes cake toffee. Liquorice chocolate cake cotton candy candy chocolate bar. Icing tiramisu sugar plum sweet roll croissant. Tiramisu biscuit cake cotton candy sugar plum sweet macaroon. Cupcake chocolate cake biscuit oat cake jujubes sweet roll tiramisu bear claw jelly beans. Macaroon brownie tootsie roll pie gummies lollipop jelly tootsie roll pie. Dessert jujubes donut. Pastry halvah liquorice oat cake topping wafer biscuit. Liquorice carrot cake pudding carrot cake halvah liquorice topping. Danish dragée chocolate bar jelly-o danish.</p>
+        <p>Dessert jelly beans tootsie roll brownie bonbon. Croissant jelly-o soufflé chocolate cupcake chocolate bar muffin soufflé halvah. Dragée oat cake gummi bears dragée fruitcake soufflé lemon drops marshmallow. Topping pudding dessert cookie marshmallow. Tiramisu sugar plum muffin oat cake. Sesame snaps macaroon pastry ice cream tootsie roll sesame snaps jelly. Cotton candy dessert lemon drops tiramisu sesame snaps. Chocolate dragée croissant cake tart. Caramels tootsie roll sweet oat cake lemon drops cake fruitcake biscuit. Liquorice cheesecake icing carrot cake marzipan fruitcake croissant marzipan. Carrot cake pie gingerbread topping marshmallow jelly gingerbread pudding cupcake. Gummi bears marshmallow brownie muffin lollipop jujubes. Tart pudding cotton candy. Jelly chocolate cake jelly-o biscuit sweet roll.</p>
+        <p>Wafer donut pudding cookie dragée topping. Powder wafer sugar plum soufflé. Carrot cake cake carrot cake sesame snaps halvah liquorice sugar plum. Donut cotton candy tart lollipop pie candy canes chocolate cake. Soufflé gummies macaroon bear claw cake. Oat cake sesame snaps tootsie roll sesame snaps dessert chocolate cake cotton candy marzipan. Ice cream jelly-o chocolate bar cake. Dessert wafer jelly beans brownie tootsie roll sweet roll. Jelly cake powder chocolate sugar plum donut danish icing jujubes. Powder chocolate cake biscuit ice cream soufflé. Icing fruitcake macaroon pastry gingerbread. Liquorice pastry sugar plum brownie jelly carrot cake lollipop carrot cake candy canes. Bonbon sugar plum chocolate fruitcake carrot cake oat cake carrot cake gummi bears. Ice cream cake gingerbread marzipan ice cream candy canes donut candy canes.</p>
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
