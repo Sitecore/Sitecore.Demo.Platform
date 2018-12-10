@@ -44,7 +44,7 @@ steps:
 
     ValueToReplace: '"ProjectFolder":"$(project.folder)"'
 
- - task: powershell@2
+ - task: powershell
     inputs:
       targetType: filePath
       filePath: build.ps1
