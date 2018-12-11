@@ -1,7 +1,10 @@
 resources:
 - repo: self
+name: 9.0.1.0$(Rev:.r)
 queue:
   name: DEVDEMO1US1
+env:
+  BUILD_NUMBER - 9.0.1.0$(Rev:.r)
 steps:
 - powershell: |
    $deploymentFolder = "$(Build.StagingDirectory)"
@@ -59,12 +62,12 @@ steps:
     githubConnection: 'GitHub connection 1'
 
     repositoryName: Sitecore/Sitecore.HabitatHome.Platform
+    target: $(build.sourceVersion)
+    tagSource: auto
 
-    tagSource: manual
+    tag: '$env:DEV_SITECORE_PASSWORD'
 
-    tag: '$(Build.SourceVersion)'
-
-    title: '$(Build.SourceVersion)'
+    title: '$env:DEV_SITECORE_PASSWORD'
 
     assets: |
           $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/*
