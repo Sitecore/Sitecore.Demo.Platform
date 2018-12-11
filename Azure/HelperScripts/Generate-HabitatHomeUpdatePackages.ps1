@@ -54,20 +54,13 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
         # Copy the contents of the HabitatHome build output to a new folder, but exclude the YML files inside the serialization folder
 
         $sourceFolderCD = $sourceFolder + "CD"
-        $exclusionFolder = "$($sourceFolderCD)\App_Data\"
+        
         Copy-Item -Path $sourceFolder -Destination $sourceFolderCD -Exclude *.yml -Recurse -Force
 
-        # Clean empty folders from the resulting copy
-
-        $folderList = (Get-ChildItem $exclusionFolder -Recurse -Directory)
-        foreach ($filesystemObject in $folderList) {
-
-            Remove-Item $filesystemObject.FullName -Recurse
-            $folderList = (Get-ChildItem $exclusionFolder -Recurse -Directory)
-            if ($null -eq $folderList) {
-                break
-            }
-
+        # Remove App_Data folder from CD
+        $exclusionFolder = "$($sourceFolderCD)\App_Data\"
+        if (Test-Path $exclusionFolder){
+            Remove-Item $exclusionFolder
         }
 
         # Create a separate folder that will host the scaled CD package 
