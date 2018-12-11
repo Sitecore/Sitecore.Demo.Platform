@@ -212,6 +212,25 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        protected void HoverOn(IWebElement element)
+        {
+            Actions actions = new Actions(Driver);
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
+
+
+
+        protected void HoverOn(string descriptor)
+        {
+            Console.WriteLine($"hovering on \"{descriptor}\"");
+            Wait(descriptor);
+            IWebElement element = GetElement(descriptor);
+            HoverOn(element);
+        }
+
+
+
         public void TakeFullPageScreenshot(string name)
         {
             // Add html2canvas if it isn't already loaded.
@@ -273,9 +292,11 @@ namespace Sitecore.HabitatHome.Website.Test
         {
             if (onElement != null)
             {
-                Actions actions = new Actions(Driver);
-                actions.MoveToElement(onElement);
-                actions.Perform();
+                string centerOnElement = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);" +
+                    "var elementTop = arguments[0].getBoundingClientRect().top;" +
+                    "window.scrollBy(0, elementTop-(viewPortHeight/2));";
+
+                ((IJavaScriptExecutor)Driver).ExecuteScript(centerOnElement, onElement);
             }
 
             var its = driver as ITakesScreenshot;

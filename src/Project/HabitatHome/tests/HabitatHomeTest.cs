@@ -263,5 +263,27 @@ namespace Sitecore.HabitatHome.Website.Test
             TakeScreenshot("02-LoginResult");
         }
 
+
+
+        [Test]
+        public void TestVisuals()
+        {
+            GoTo($"{Host}");
+            // If cookie warning of doom is present, click confirm to remove it.
+            var element = GetElement("div.privacy-warning div.submit a");
+            if (element != null)
+                Click(element);
+            TakeScreenshot("01-TopNavigation");
+
+            Click("#header div.megadrop");
+            HoverOn("Appliances");
+            TakeScreenshot("02-TopNavigationOpen");
+
+            TakeScreenshot("03-Promo-ConnectedLiving", "div.field-promolink a[href*='home-entertainment']");
+            TakeScreenshot("04-Promo-Gaming", "div.field-promolink a[href*='guides/gaming']");
+
+            TakeScreenshot("05-Footer", "#footer");
+        }
+
     }
 }
