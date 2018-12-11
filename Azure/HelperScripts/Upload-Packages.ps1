@@ -191,13 +191,13 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
 #############################################################
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions") | Out-Null
 $oJsSerializer = New-Object System.Web.Script.Serialization.JavaScriptSerializer
-[string] $habitathomeJsonFile = $([IO.Path]::Combine($topologyPath, 'Arm Templates', 'habitathome', 'habitathomehome.json'))
+[string] $habitathomeJsonFile = $([IO.Path]::Combine($topologyPath, 'Arm Templates', 'habitathome', 'habitathome.json'))
 [string] $habitathomeParamsJsonFile = Join-Path $topologyPath "habitathome-parameters.json"
 if ($config.topology -eq "single") {
     # Testing paths to the required files
     if (!(Test-Path $habitathomeJsonFile) -or !($habitathomeParamsJsonFile)) {
-        Write-Host "The habitathomehome file '$($habitathomeJsonFile)' or habitathome-parameters file '$($habitathomeParamsJsonFile) not found." -ForegroundColor Red
-        Write-Host "Please ensure there is a habitathomehome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
+        Write-Host "The habitathome file '$($habitathomeJsonFile)' or habitathome-parameters file '$($habitathomeParamsJsonFile) not found." -ForegroundColor Red
+        Write-Host "Please ensure there is a habitathome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
         Exit 1
     }
     
@@ -222,8 +222,8 @@ elseif ($config.topology -eq "scaled") {
     [string] $habitathomeCdParamsJsonFile = Join-Path $topologyPath "habitathomecd-parameters.json"
     # Testing paths to the required files
     if (!(Test-Path $habitathomeJsonFile) -or !($habitathomeParamsJsonFile) -or !($habitathomeCdParamsJsonFile)) {
-        Write-Host "The habitathomehome file '$($habitathomeJsonFile)', habitathome-parameters file '$($habitathomeParamsJsonFile) or habitathomecd-parameters file '$($habitathomeCdParamsJsonFile) not found." -ForegroundColor Red
-        Write-Host "Please ensure there is a habitathomehome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
+        Write-Host "The habitathome file '$($habitathomeJsonFile)', habitathome-parameters file '$($habitathomeParamsJsonFile) or habitathomecd-parameters file '$($habitathomeCdParamsJsonFile) not found." -ForegroundColor Red
+        Write-Host "Please ensure there is a habitathome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
         Exit 1
     }
     

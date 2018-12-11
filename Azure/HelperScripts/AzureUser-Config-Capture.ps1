@@ -31,7 +31,7 @@ $configuration = ProcessConfigFile -Config $ConfigurationFile
 $config = $configuration.cakeConfig
 $azureuserconfig = $configuration.azureUserConfig
 $azureuserconfigfile = $configuration.azureUserConfigFile
-$habitatHomeParamsConfig = $configuration.habitatHomeParamsConfig =
+$habitatHomeParamsConfig = $configuration.habitatHomeParamsConfig
 $habitatHomeParamsConfigFile = $configuration.habitatHomeParamsConfigFile 
 
 ##############################

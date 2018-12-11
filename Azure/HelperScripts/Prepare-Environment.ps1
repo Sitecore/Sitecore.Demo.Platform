@@ -42,21 +42,21 @@ $assetsFolder = $configuration.assetsFolder
 $topologyName = $configuration.topologyName
 $SCversion = $config.version
 $buildFolder = $configuration.buildFolder
-
+$securePassword = ""
 ############################
 # Get Sitecore Credentials
 ############################
 
-
-$securePassword = ConvertTo-SecureString $devSitecorePassword -AsPlainText -Force
-
+if (![string]::IsNullOrEmpty($devSitecorePassword)) {
+    $securePassword = ConvertTo-SecureString $devSitecorePassword -AsPlainText -Force
+}
 ###################################
 # Parameters
 ###################################
 
 $foundfiles = New-Object System.Collections.ArrayList
 $downloadlist = New-Object System.Collections.ArrayList
-[string] $habitathomefilepath = $([io.path]::combine($buildFolder, 'HabitatHome'))
+
 $credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $devSitecoreUserName, $securePassword
 
 ##################################################

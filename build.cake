@@ -44,6 +44,12 @@ Setup(context =>
     }
     
     deploymentTarget = Argument<string>("deploymentTarget",configuration.DeploymentTarget);
+    
+    if (target.Contains("Azure")){
+        // DeploymentTarget is set to either Local or OnPrem but the user has selected Deploy to Azure.
+        // Automatically switch the deploymentTarget based on the build target
+        deploymentTarget = "Azure";
+    }
     deployLocal = deploymentTarget == "Local";
     
     switch (deploymentTarget){
