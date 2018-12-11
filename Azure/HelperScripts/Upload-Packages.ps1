@@ -207,6 +207,15 @@ if ($config.topology -eq "single") {
     $habitathomeJson = $oJsSerializer.DeserializeObject($habitathomeJson)
     $habitathomeParamsJson = $oJsSerializer.DeserializeObject($habitathomeParamsJson)
     
+     # Check if there are empty / not filled in parameters and remove these from the deployment
+     foreach ($habitathomeParameter in $habitathomeParamsJson.setParameters.Keys.Clone())
+     {
+         if ([string]::IsNullOrEmpty($habitathomeParamsJson.setParameters[$habitathomeParameter]))
+         {
+             $habitathomeParamsJson.setParameters.Remove($habitathomeParameter)
+         }
+     }
+
     # Check if the setParameters node already exists and clean that up
     if ($null -ne ($habitathomeJson.resources[0].properties.addOnPackages[0].setParameters)) {
         $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
@@ -236,6 +245,24 @@ elseif ($config.topology -eq "scaled") {
     $habitathomeParamsJson = $oJsSerializer.DeserializeObject($habitathomeParamsJson)
     $habitathomeCdParamsJson = $oJsSerializer.DeserializeObject($habitathomeCdParamsJson)
     
+     # Check if there are empty / not filled in parameters and remove these from the deployment for CM
+     foreach ($habitathomeParameter in $habitathomeParamsJson.setParameters.Keys.Clone())
+     {
+         if ([string]::IsNullOrEmpty($habitathomeParamsJson.setParameters[$habitathomeParameter]))
+         {
+             $habitathomeParamsJson.setParameters.Remove($habitathomeParameter)
+         }
+     }
+ 
+     # Check if there are empty / not filled in parameters and remove these from the deployment for CD
+     foreach ($habitathomeCdParameter in $habitathomeCdParamsJson.setParameters.Keys.Clone())
+     {
+         if ([string]::IsNullOrEmpty($habitathomeCdParamsJson.setParameters[$habitathomeCdParameter]))
+         {
+             $habitathomeCdParamsJson.setParameters.Remove($habitathomeCdParameter)
+         }
+     }
+     
     # Check if the setParameters node already exists and clean that up for both CM and CD scaled
     if ($null -ne ($habitathomeJson.resources[0].properties.addOnPackages[0].setParameters)) {
         $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
