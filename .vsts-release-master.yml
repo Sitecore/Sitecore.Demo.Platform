@@ -66,9 +66,8 @@ steps:
 
     repositoryName: Sitecore/Sitecore.HabitatHome.Platform
     target: $(build.sourceVersion)
-    tagSource: manual
+    tagSource: auto
     
-    tag: $(major).$(minor).$(patch)
     title: $(major).$(minor).$(patch)
 
     assets: |
