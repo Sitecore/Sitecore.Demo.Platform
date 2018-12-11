@@ -3,7 +3,7 @@ HabitatHome  Demo and the tools and processes in it is a Sitecore&reg; solution 
 
 
 # Important Notice
-
+<details>
 ## Is Habitat Home a starter kit or template solution?
 
 No. You should not clone this repository for the purposes of starting a new Sitecore project. There are other community solutions which can be used as a starter for Helix-based Sitecore implementations. Habitat Home is intended as a **demo site demonstrating the full Sitecore platform capabilities and development best practices**.
@@ -30,6 +30,7 @@ It is assumed that you already have a working instance of Sitecore XP and all pr
 ### Warranty
 
 The code, samples and/or solutions provided in this repository are for example purposes only and **without warranty (expressed or implied)**. The code has not been extensively tested and is not guaranteed to be bug free.  
+</details>
 
 # Getting Started
 
@@ -38,8 +39,9 @@ The code, samples and/or solutions provided in this repository are for example p
 The latest Habitat Home demo is built to support **[Sitecore Experience Platform 9.1](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/91/Sitecore_Experience_Platform_91_Initial_Release.aspx)** using **[Sitecore Experience Accelerator (SXA) 1.8](https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/18/Sitecore_Experience_Accelerator_180.aspx)**.
 
 ***In order to follow the build instructions in the README, you need to have [MSBuild Tools for Visual Studio 2017](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2017) installed.***
-
 ### Optional Modules
+<details>
+	
 In addition to base XP 9.1 with SXA, the following optional modules are required to enable additional demo functionality:
 
 > **We will be upgrading Data Exchange Framework to 2.1 and have not yet tested the 9.1 version of Habitat Home with DEF 2.0.1**
@@ -60,10 +62,12 @@ The following optional modules enable synchronization with Dynamics CRM or Sales
 			  - [Salesforce CRM Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_201.aspx#)
 			  - [Sitecore Connect for Salesforce CRM 2.0.1](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_201.aspx#)
 
+</details>
+
 ### SSL Only
 The demo is configured for **HTTPS/SSL**. Please ensure that you create an HTTPS binding with appropriate self-signed certificates.
-
 ### Clone this repository
+<details>
 
 #### Setting Git for Long Paths
 
@@ -77,10 +81,10 @@ Clone the Sitecore.HabitatHome.Platform repository locally - defaults are config
 - Clone 
 -- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Platform.git` 
 -- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Platform.git`
-
+</details>
 
 #### Parameters - explained
-
+<details>
 The following is a list of default values / assumptions for settings (`cake-config.json`)
 
 |Parameter                                  | Description 														| Default Value 
@@ -101,7 +105,7 @@ The following is a list of default values / assumptions for settings (`cake-conf
 	- Ignored when calling Build-WDP target where OnPrem is assumed
 - **OnPrem**: Used when generating a WDP. Targets the WDP for OnPrem transforms (a.k.a. not Azure)
 - **Azure**: Used when deploying to Azure or generating WDPs which target Azure PaaS deployments
-
+</details>
 
 #### Deploying HabitatHome Locally
 Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.1** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/91/Sitecore_Experience_Platform_91_Initial_Release.aspx).
@@ -121,7 +125,7 @@ It is now possible to build, package and depoy to Azure (PaaS) with one command.
 
 <a name="localInstallation"></a>
 ## Local Build / Deployment
-
+<details>
 #### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
 
 If you do not use habitathome.dev.local you will need to modify the Host Name in 
@@ -161,12 +165,12 @@ When Unicorn is active, the Content Editor will display warnings that certain it
 
     <add key="unicorn:define" value="Off"/>
 This appSetting is `On` by default. Setting it to `Off` ensures that none of the Unicorn serialization configuration files are loaded.
-
+</details>
 
 
 <a name="wdp"></a>
 ## Generating Web Deploy Package (WDP)
-
+<details>
 CakeBuild (```build.cake```) contains tasks to build and package Habitat Home for use either OnPrem or in Azure PaaS. The settings in the cake-config.json file drive the packaging behaviour.
 
 The process of creating a WDP of Habitat Home and its xConnect project is quite simple. The build process requires dev.sitecore.com credentials since it has a dependency on Sitecore Azure Toolkit and it will download and extract it automatically.
@@ -186,10 +190,11 @@ Once you got the settings just right, you can call the cake build script and pas
 Once the process completes, you should have WDPs for HabitatHome as well as xConnect in `<DeployFolder>\9.1.0\XPSingle\assets\HabitatHome\WDPWorkFolder\WDP` and `<DeployFolder>\9.1.0\XPSingle\assets\xConnect\WDPWorkFolder\WDP`
 
 You can then install these WDPs using SIF. An [example script](https://github.com/Sitecore/Sitecore.HabitatHome.Utilities/blob/master/XP/install/install-habitathome.ps1) already exists in the [HabitatHome.Utilities](https://github.com/Sitecore/Sitecore.HabitatHome.Utilities/tree/master) repo
+</details>
 
 <a name="azure"></a>
 ## Azure (PaaS) Deployment
-
+<details>
 This is probably the most comprehensive script which makes getting your own version. Once your variables are set and your Azure Service Principal is created, you can deploy Habitat Home to Azure PaaS in a single command.
 
 ### One-time step
@@ -290,7 +295,7 @@ Only alter these attributes as instructed, the build/deploy process relies on se
 | install                                   | asset should be downloaded and installed (the only asset this currently functions with is DEF)
 | source                                    | download source, sitecore or github have specific requirements for downloading (e.g. credentials )
 | modules                                   | list modules for groups
-
+</details>
 
 # Contribute or Issues
 Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Platform/issues). Contributions are always welcome!
