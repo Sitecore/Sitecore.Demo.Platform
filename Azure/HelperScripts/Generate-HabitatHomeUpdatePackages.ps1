@@ -20,10 +20,10 @@ Param(
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
 $configuration = ProcessConfigFile -Config $ConfigurationFile
-$config          	    = $configuration.cakeConfig
-$azureuserconfig 	    = $configuration.azureUserConfig
-$assetsFolder		    = $configuration.assetsFolder
-$buildFolder			= $configuration.buildFolder
+$config = $configuration.cakeConfig
+$azureuserconfig = $configuration.azureUserConfig
+$assetsFolder = $configuration.assetsFolder
+$buildFolder = $configuration.buildFolder
 
 ################################################################
 # Prepare folders for update package generation and triggers it
@@ -59,8 +59,8 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
 
         # Remove App_Data folder from CD
         $exclusionFolder = "$($sourceFolderCD)\App_Data\"
-        if (Test-Path $exclusionFolder){
-            Remove-Item $exclusionFolder
+        if (Test-Path $exclusionFolder) {
+            Remove-Item $exclusionFolder -Force
         }
 
         # Create a separate folder that will host the scaled CD package 
@@ -157,18 +157,14 @@ Function SetupCDN([PSObject] $Configuration, [String] $FolderString) {
         $mediaLinkServerUrlPatchNode = $foundationCDNConfig.SelectSingleNode("//setting[@name='Media.MediaLinkServerUrl']/patch:attribute", $namespace)
  
         if ($Configuration.CDN -eq "true") { 
-            foreach ($setting in $azureuserconfig.settings) {
-                switch ($setting.id) {
-                    "AzureDeploymentID" {
-                        $AzureDeploymentID = $setting.value
-                    }
-                }
-                if ($mediaLinkServerUrlPatchNode) {                    
+            $config = $azureuserconfig.settings | Where-Object {$_.id -eq "AzureDeploymentID"}
+            $AzureDeploymentID = $config.value
+                
+            if ($mediaLinkServerUrlPatchNode) {                    
         
-                    $mediaLinkServerUrlPatchNode.InnerText = $AzureDeploymentID + "-endpoint.azureedge.net";
-                }
-
+                $mediaLinkServerUrlPatchNode.InnerText = $AzureDeploymentID + "-endpoint.azureedge.net";
             }
+
             $foundationCDNConfig.Save($foundationCdnConfigFilePath)
         }
 	
