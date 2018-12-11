@@ -47,7 +47,8 @@ Task("Post-Deploy")
 .IsDependentOn("Deploy-Marketing-Definitions")
 .IsDependentOn("Rebuild-Core-Index")
 .IsDependentOn("Rebuild-Master-Index")
-.IsDependentOn("Rebuild-Web-Index");
+.IsDependentOn("Rebuild-Web-Index")
+.IsDependentOn("Rebuild-Test-Index");
 
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
@@ -225,6 +226,9 @@ Task("Rebuild-Web-Index").Does(() => {
     RebuildIndex("sitecore_web_index");
 });
 
+Task("Rebuild-Test-Index").Does(() => {
+    RebuildIndex("sitecore_testing_index");
+});
 
 
 RunTarget(target);
