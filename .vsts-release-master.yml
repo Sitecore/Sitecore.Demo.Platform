@@ -59,21 +59,23 @@ steps:
   env:
     DEV_SITECORE_PASSWORD: $(sdn_password)
     
-- task: GithubRelease@0
+- task: marcelo-formentao.github-tools.github-release-publish-task.GitHubReleasePublish@1
   displayName: 'Create GitHub Release'
   inputs:
-    githubConnection: 'GitHub connection 1'
+    githubEndpoint: 'GitHub connection 1'
 
-    repositoryName: Sitecore/Sitecore.HabitatHome.Platform
-    target: $(build.sourceVersion)
-    tagSource: auto
-    
-    title: $(major).$(minor).$(patch)
+    githubRepository: Sitecore/Sitecore.HabitatHome.Platform
 
-    assets: |
-          $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/*
-          $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/xConnect/WDPWorkFolder/WDP/*
+    githubTag: '$(major).$(minor).$(patch)'
 
-    isDraft: true
+    githubReleaseTitle: '$(major).$(minor).$(patch)'
+
+    githubReleasePrerelease: true
+
+    githubReleaseAsset: |
+     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/*
+     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/xConnect/WDPWorkFolder/WDP/*
+
+    githubEditRelease: true
 
     isPreRelease: true
