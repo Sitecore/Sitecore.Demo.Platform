@@ -61,11 +61,10 @@ steps:
 
     repositoryName: Sitecore/Sitecore.HabitatHome.Platform
     target: $(build.sourceVersion)
-    tagSource: auto
-
-    tag: '$env:BUILD_NUMBER'
-
-    title: '$env:BUILD_NUMBER'
+    tagSource: manual
+    
+    tag: '9.1.0$(Rev:.r)'
+    title: '9.1.0$(Rev:.r)'
 
     assets: |
           $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/*
@@ -74,5 +73,3 @@ steps:
     isDraft: true
 
     isPreRelease: true
-  env:
-    BUILD_NUMBER: '9.0.1.0$(Rev:.r)'
