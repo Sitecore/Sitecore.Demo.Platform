@@ -3,8 +3,6 @@ resources:
 name: 9.0.1.0$(Rev:.r)
 queue:
   name: DEVDEMO1US1
-env:
-  BUILD_NUMBER = 9.0.1.0$(Rev:.r)
 steps:
 - powershell: |
    $deploymentFolder = "$(Build.StagingDirectory)"
@@ -76,3 +74,5 @@ steps:
     isDraft: true
 
     isPreRelease: true
+  env:
+    BUILD_NUMBER = 9.0.1.0$(Rev:.r)
