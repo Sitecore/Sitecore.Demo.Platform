@@ -1,6 +1,11 @@
 resources:
 - repo: self
-name: 9.1.0$(Rev:.r)
+variables:
+  major: 9.1
+  minor: 0
+  # creates a counter called versioncounter and seeds it at 100 and then assigns the value to a variable named patch.
+  patch: $[counter('versioncounter', 1)]
+name: $(major).$(minor).$(patch)
 queue:
   name: DEVDEMO1US1
 steps:
@@ -54,22 +59,23 @@ steps:
   env:
     DEV_SITECORE_PASSWORD: $(sdn_password)
     
-- task: GithubRelease@0
+- task: marcelo-formentao.github-tools.github-release-publish-task.GitHubReleasePublish@1
   displayName: 'Create GitHub Release'
   inputs:
-    githubConnection: 'GitHub connection 1'
+    githubEndpoint: 'GitHub connection 1'
 
-    repositoryName: Sitecore/Sitecore.HabitatHome.Platform
-    target: $(build.sourceVersion)
-    tagSource: manual
-    
-    tag: '9.1.0$(Rev:.r)'
-    title: '9.1.0$(Rev:.r)'
+    githubRepository: Sitecore/Sitecore.HabitatHome.Platform
 
-    assets: |
-          $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/*
-          $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/xConnect/WDPWorkFolder/WDP/*
+    githubTag: '$(major).$(minor).$(patch)'
 
-    isDraft: true
+    githubReleaseTitle: '$(major).$(minor).$(patch)'
+
+    githubReleasePrerelease: true
+
+    githubReleaseAsset: |
+     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/*
+     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/xConnect/WDPWorkFolder/WDP/*
+
+    githubEditRelease: true
 
     isPreRelease: true
