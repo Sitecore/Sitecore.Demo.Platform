@@ -60,7 +60,7 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
         # Remove App_Data folder from CD
         $exclusionFolder = "$($sourceFolderCD)\App_Data\"
         if (Test-Path $exclusionFolder) {
-            Remove-Item $exclusionFolder -Force
+            Remove-Item $exclusionFolder -Recurse -Force
         }
 
         # Create a separate folder that will host the scaled CD package 
@@ -216,7 +216,7 @@ $rootFolder = Get-ChildItem (Join-Path $buildFolder *)
 #Prepare Packages
 
 ForEach ($folder in $rootFolder) {
-    Clean-Up -Configuration $config -FolderString (Get-Item -Path $folder).FullName
+    #Clean-Up -Configuration $config -FolderString (Get-Item -Path $folder).FullName
     SetupCDN -Configuration $config -FolderString (Get-Item -Path $folder).FullName
 
     Write-Host $folder
