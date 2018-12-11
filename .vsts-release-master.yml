@@ -63,9 +63,9 @@ steps:
     target: $(build.sourceVersion)
     tagSource: auto
 
-    tag: '$env:DEV_SITECORE_PASSWORD'
+    tag: '$env:BUILD_NUMBER'
 
-    title: '$env:DEV_SITECORE_PASSWORD'
+    title: '$env:BUILD_NUMBER'
 
     assets: |
           $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/*
@@ -75,4 +75,4 @@ steps:
 
     isPreRelease: true
   env:
-    BUILD_NUMBER = 9.0.1.0$(Rev:.r)
+    BUILD_NUMBER: '9.0.1.0$(Rev:.r)'
