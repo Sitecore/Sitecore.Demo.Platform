@@ -97,10 +97,10 @@ The following is a list of default values / assumptions for settings (`cake-conf
 | CDN 					| Content Delivery Network enabled (true/false). Used only when deploying to Azure 		| false
 
 **DeploymentTarget:**
-- Local: Set to deploy the site to the local Sitecore instance
+- **Local**: Set to deploy the site to the local Sitecore instance
 	- Ignored when calling Build-WDP target where OnPrem is assumed
-- OnPrem: Used when generating a WDP. Targets the WDP for OnPrem transforms (a.k.a. not Azure)
-- Azure: Used when deploying to Azure or generating WDPs which target Azure PaaS deployments
+- **OnPrem**: Used when generating a WDP. Targets the WDP for OnPrem transforms (a.k.a. not Azure)
+- **Azure**: Used when deploying to Azure or generating WDPs which target Azure PaaS deployments
 
 
 #### Deploying HabitatHome Locally
@@ -116,7 +116,7 @@ The [Sitecore.HabitatHome.Utilities repo](https://github.com/sitecore/sitecore.h
 
 #### Azure (PaaS) Deployment
 It is now possible to build, package and depoy to Azure (PaaS) with one command. The script will build Habitat Home, package it for Azure, download the required Sitecore assets and upload them to a (specified) Azure Storage Account.
-[Jump to Azure deployment instructions](#wdp)
+[Jump to Azure deployment instructions](#azure)
 
 
 <a name="localInstallation"></a>
@@ -128,12 +128,7 @@ If you do not use habitathome.dev.local you will need to modify the Host Name in
 `/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
 The Habitat Home site will not respond / render correctly until this value is modified. 
 
-If you do **not want to use the default settings**, you need to adjust the appropriate values in `cake-config.json` file:
-
-- **WebsiteRoot**
-- **XConnectRoot**
-- **ProjectFolder**
-- **InstanceUrl**
+If you do **not want to use the default settings**, you need to adjust the appropriate values in `cake-config.json` file based on the values described earlier.
 
 The cake script will automatically create a publishSettings.targets.user file with the value of the InstanceUrl specified in the cake-config.json file.
 
@@ -173,6 +168,128 @@ This appSetting is `On` by default. Setting it to `Off` ensures that none of the
 ## Generating Web Deploy Package (WDP)
 
 CakeBuild (```build.cake```) contains tasks to build and package Habitat Home for use either OnPrem or in Azure PaaS. The settings in the cake-config.json file drive the packaging behaviour.
+
+The process of creating a WDP of Habitat Home and its xConnect project is quite simple. The build process requires dev.sitecore.com credentials since it has a dependency on Sitecore Azure Toolkit and it will download and extract it automatically.
+
+A few settings are important in the `cake-config.json` file:
+- **DeploymentTarget**: Set to **OnPrem** for deploying locally or in Azure IaaS. Azure for **PaaS** deployments
+- **DeployFolder**: Temporary location where work will be performed. Defaults to c:\deploy	
+- **Version**:	Version of Sitecore being targeted. Must match official 3-digit version	9.1.0 and of course the Habitat Home target version you're working with.
+- **Topology**: Values are **single** (XP0/XPSingle) or **scaled** (XP1/XPScaled)
+- **CDN**: Configure the WDP to support Content Delivery Network (**true/false**). Used only when deploying to Azure.
+
+Once you got the settings just right, you can call the cake build script and pass it in the correct target and your dev.sitecore.net credentials (either at command line or as a user environment variable).
+
+```.\build.ps1 -Target Build-WDP -ScriptArgs --DEV_SITECORE_USERNAME=your_e-mail, --DEV_SITECORE_PASSWORD=YourPassword```
+> if you've set DEV_SITECORE_USERNAME and DEV_SITECORE_PASSWORD as environment variables you can omit them from the command line.
+
+Once the process completes, you should have WDPs for HabitatHome as well as xConnect in `<DeployFolder>\9.1.0\XPSingle\assets\HabitatHome\WDPWorkFolder\WDP` and `<DeployFolder>\9.1.0\XPSingle\assets\xConnect\WDPWorkFolder\WDP`
+
+You can then install these WDPs using SIF. An [example script](https://github.com/Sitecore/Sitecore.HabitatHome.Utilities/blob/master/XP/install/install-habitathome.ps1) already exists in the [HabitatHome.Utilities](https://github.com/Sitecore/Sitecore.HabitatHome.Utilities/tree/master) repo
+
+<a name="azure"></a>
+## Azure (PaaS) Deployment
+
+This is probably the most comprehensive script which makes getting your own version. Once your variables are set and your Azure Service Principal is created, you can deploy Habitat Home to Azure PaaS in a single command.
+
+### One-time step
+
+### 1. Create an Azure Service Principal
+> Only needs to be created once
+
+In order for the upload and deployment process to authenticate to your Azure tenant you will need to provide a Service principal using password-based authentication, and its related information.
+
+This is best done from Azure's CLI: [Azure CLI Documentation](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart)
+
+Run the following, replacing *ServicePrincipalName* and *PASSWORD* with your own values:
+
+`az ad sp create-for-rbac --name ServicePrincipalName --password PASSWORD`
+
+This will return the following:
+
+```json
+{
+  "appId": "APP_ID",
+  "displayName": "ServicePrincipalName",
+  "name": "http://ServicePrincipalName",
+  "password": ...,
+  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+}
+```
+
+The `appId`, `password`, and `tenant` values will be required later so make sure to record them!
+
+[Create a Service Principal Documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+
+### 2. Setting up the parameters
+
+In the Azure/XP or XPSingle folders there is an `azureuser-config.json.example` file. Make a copy of that file and remove the .example extension.
+
+Set the following values in the `XP\azureuser-config.json` *(scaled topology)* or `XPSingle\azureuser-config.json` *(single topology)* in  based on your needs:
+
+|Parameter                                  | Description
+|-------------------------------------------|---------------------------------------------------------------------------------------------
+| azureSubscriptionName                     | The name or id of the Azure subscription. Can be found under the "Subscriptions" Dashboard
+| tenantId                                  | Also called a DirectoryId. Can be found in the "Azure Active Directoy" Dashboard under Manage -> Properties
+| applicationId                             | appId of the Service Principal *(Created in previous step)*
+| applicationPassword                       | the Service Principal password *(Created in previous step)*
+| AzureDeploymentID                         | The Resource Group name in azure that Habitat will be deployed to. If the group does not exist it will be created.
+| AzureRegion                               | The Geographic Azure Location of the Deployment [Azure Locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/)
+| XConnectCertfilePath                      | xConnect Certificate Path. **This will be auto generated if left blank.**
+| XConnectCertificatePassword               | xConnect Certificate Password. Defaults to 'secret' if this and *XConnectCertfilePath* is left blank.
+| SitecoreLoginAdminPassword                | Sitecore Administrator Password (8 Character Minimum)
+| SitecoreLicenseXMLPath                    | Sitecore license.xml Path
+| SqlServerLoginAdminAccount                | SQL Server Administrator Username (SA is not a valid admin name for Azure SQL)
+| SqlServerLoginAdminPassword               | SQL Server Administrator Password
+| containerName                             | name of the Azure container. This will be auto generated if left blank. Defaults to 'hh-toolkit'
+| storageAccountName                        | name of the Azure Storage Account. This will be auto generated if left blank. By default *AzureDeploymentID + Random Number*
+| ArmTemplateUrl                            | Azure SAS URL of the azuredeploy.json. This will be auto generated if left blank.
+| templatelinkAccessToken                   | Azure SAS token for the container. This will be auto generated if left blank.
+
+### 3. Deploy
+
+Once you got the settings just right, you can call the cake build script and pass it in the correct target and your dev.sitecore.net credentials (either at command line or as a user environment variable).
+
+```.\build.ps1 -Target Default-Azure -ScriptArgs --DEV_SITECORE_USERNAME=your_e-mail, --DEV_SITECORE_PASSWORD=YourPassword```
+> if you've set DEV_SITECORE_USERNAME and DEV_SITECORE_PASSWORD as environment variables you can omit them from the command line.
+
+Once the process completes, you should have a single or scaled deployment to Azure (AzureDeploymentID is the resource group name).
+
+#### Azure Deployment - Process Explained
+
+The Azure deployment scripts will perform the following tasks, in one single command:
+1. Compile Habitat Home solution
+1. Generate a WDP based on the topology and DeploymentTarget
+1. Download all Sitecore assets and optional modules required for a depoyment based on topology (stores them in *DeployFolder*)
+2. Downloads relevant ARM templates from [GitHub](https://github.com/Sitecore/Sitecore-Azure-Quickstart-Templates), applies necessary transformations and uploads them to your specified storage account.
+3. Uploads all assets (Sitecore, modules and Habitat Home) to storage account (only if missing or newer)
+4. Creates the Deployment
+5. Executes postSteps
+
+# Scaling down - IMPORTANT
+During the deployment process, certain infrastructure pieces are scaled up to ensure an efficient deployment. These are generally more costly and can be scaled down since they don't need to be so large.
+
+A [scale-down](https://github.com/Sitecore/Sitecore.HabitatHome.Platform/blob/master/Azure/HelperScripts/Azure-Scaledown.ps1) script is available. It currently only supports the App Service plans but there is a commented out section for scaling down the databases. 
+
+Alternatively this can be done directly from the Azure Portal. 
+
+### Assets.json
+Only alter these attributes as instructed, the build/deploy process relies on several of these parameters and are maintained by the repository maintainers.
+
+|Parameter                                  | Description
+|-------------------------------------------|---------------------------------------------------------------------------------------------
+| id                                        | short-name
+| name                                      | long-name
+| isGroup                                   | denotes if the asset is a collection of modules.
+| fileName                                  | Exact default filename
+| url                                       | download link
+| extract                                   | instructs the script that a zip file should be extracted. It will extract it to deploy/assets/name of asset
+| isWdp                                     | asset is already a scwdp (this is false for "Sitecore Experience Platform" as the file decalred in the asset.json is a .zip)
+| convertToWdp                              | asset needs to be converted to an scwdp
+| uploadToAzure                             | asset should be uploaded to Azure. if isGroup is true, will upload the assetes in the modules parameter.
+| install                                   | asset should be downloaded and installed (the only asset this currently functions with is DEF)
+| source                                    | download source, sitecore or github have specific requirements for downloading (e.g. credentials )
+| modules                                   | list modules for groups
 
 
 # Contribute or Issues
