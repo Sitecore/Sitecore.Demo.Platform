@@ -1,6 +1,11 @@
 resources:
 - repo: self
-name: 9.1.0$(Rev:.r)
+variables:
+  major: 9.1
+  minor: 0
+  # creates a counter called versioncounter and seeds it at 100 and then assigns the value to a variable named patch.
+  patch: $[counter('versioncounter', 1)]
+name: $(major).$(minor).$(patch)
 queue:
   name: DEVDEMO1US1
 steps:
@@ -63,8 +68,8 @@ steps:
     target: $(build.sourceVersion)
     tagSource: manual
     
-    tag: '9.1.0$(Rev:.r)'
-    title: '9.1.0$(Rev:.r)'
+    tag: $(major).$(minor).$(patch)
+    title: $(major).$(minor).$(patch)
 
     assets: |
           $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/*
