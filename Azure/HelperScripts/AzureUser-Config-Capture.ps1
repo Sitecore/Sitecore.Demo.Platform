@@ -17,8 +17,7 @@ A cake-config.json file
 Param(
     [parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
-    [string] $ConfigurationFile,
-    [switch] $SkipScUpload
+    [string] $ConfigurationFile
 )
 
 ###########################
@@ -34,13 +33,13 @@ $azureuserconfigfile = $configuration.azureUserConfigFile
 $habitatHomeParamsConfig = $configuration.habitatHomeParamsConfig
 $habitatHomeParamsConfigFile = $configuration.habitatHomeParamsConfigFile 
 $habitathomeCdParamsConfig = $configuration.habitatHomeCdParamsConfig
-$habitathomeCdParamsConfigFile	= $configuration.habitatHomeCdParamsConfigFile
+$habitathomeCdParamsConfigFile	= $configuration.habitatHomeCDParamsConfigFile
 
 ###############################
 # Create SelfSignedCertificate
 ###############################
 
-Function Create-SelfSignedCertificate {
+Function New-SelfSignedCertificate {
     $thumbprint = (New-SelfSignedCertificate -Subject "CN=$env:COMPUTERNAME @ Sitecore, Inc." -Type SSLServerAuthentication -FriendlyName "$env:USERNAME Certificate").Thumbprint
 	
     if (!(Test-Path -Path $config.DeployFolder)) {
@@ -100,7 +99,7 @@ if (-not [string]::IsNullOrEmpty($xConnectCertfilePath.value)) {
     $certificatePath = $xConnectCertfilePath.value
 }
 else {
-    $cert = Get-SelfSignedCertificate
+    $cert = New-SelfSignedCertificate
     if ($cert -is [array]) {
         $certificatePath = $cert[-1].FullName
     } 
