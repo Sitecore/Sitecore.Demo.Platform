@@ -440,7 +440,6 @@ Task("Prepare-Environments").Does(() => {
         });
     });    
 Task("Prepare-BuildEnvironment").Does(() => {
-	Information("Calling Prepare-BuildEnvironment with username: " + devSitecoreUserName + " and password: " + devSitecorePassword);
     StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Prepare-BuildEnvironment.ps1", args => {
         args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
         args.AppendSecret(devSitecoreUserName);

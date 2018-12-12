@@ -39,7 +39,7 @@ $habitathomeCdParamsConfigFile	= $configuration.habitatHomeCDParamsConfigFile
 # Create SelfSignedCertificate
 ###############################
 
-Function New-SelfSignedCertificate {
+Function Create-SelfSignedCertificate {
     $thumbprint = (New-SelfSignedCertificate -Subject "CN=$env:COMPUTERNAME @ Sitecore, Inc." -Type SSLServerAuthentication -FriendlyName "$env:USERNAME Certificate").Thumbprint
 	
     if (!(Test-Path -Path $config.DeployFolder)) {
@@ -99,7 +99,7 @@ if (-not [string]::IsNullOrEmpty($xConnectCertfilePath.value)) {
     $certificatePath = $xConnectCertfilePath.value
 }
 else {
-    $cert = New-SelfSignedCertificate
+    $cert = Create-SelfSignedCertificate
     if ($cert -is [array]) {
         $certificatePath = $cert[-1].FullName
     } 
@@ -121,11 +121,13 @@ foreach ($habitathomeSetting in $azureuserconfig.habitathomeSettings) {
     $habitathomeParamsConfig.setParameters.$($habitathomeSetting.id) = $habitathomeSetting.value
 }
 
+$habitathomeParamsConfig | ConvertTo-Json  | set-content $habitathomeParamsConfigFile
+
 if ($config.Topology -eq "scaled") {
     foreach ($habitathomeCdSetting in $azureuserconfig.habitathomeCdSettings) {
         $habitathomeCdParamsConfig.setParameters.$($habitathomeCdSetting.id) = $habitathomeCdSetting.value
     }	
+    $habitathomeCdParamsConfig | ConvertTo-Json  | set-content $habitathomeCdParamsConfigFile
 }
 
-$habitathomeParamsConfig | ConvertTo-Json  | set-content $habitathomeParamsConfigFile
-$habitathomeCdParamsConfig | ConvertTo-Json  | set-content $habitathomeCdParamsConfigFile
+
