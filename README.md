@@ -176,7 +176,7 @@ CakeBuild (```build.cake```) contains tasks to build and package Habitat Home fo
 The process of creating a WDP of Habitat Home and its xConnect project is quite simple. The build process requires dev.sitecore.com credentials since it has a dependency on Sitecore Azure Toolkit and it will download and extract it automatically.
 
 A few settings are important in the `cake-config.json` file:
-- **DeploymentTarget**: Set to **OnPrem** for deploying locally or in Azure IaaS. Azure for **PaaS** deployments
+- **DeploymentTarget**: Set to **OnPrem** for deploying locally or in Azure IaaS. Set to **Azure** for PaaS deployments
 - **DeployFolder**: Temporary location where work will be performed. Defaults to c:\deploy	
 - **Version**:	Version of Sitecore being targeted. Must match official 3-digit version	9.1.0 and of course the Habitat Home target version you're working with.
 - **Topology**: Values are **single** (XP0/XPSingle) or **scaled** (XP1/XPScaled)
