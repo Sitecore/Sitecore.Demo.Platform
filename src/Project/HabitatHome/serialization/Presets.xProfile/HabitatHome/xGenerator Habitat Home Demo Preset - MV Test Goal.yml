@@ -1,0 +1,1531 @@
+﻿---
+ID: "14b4e25e-3a7a-4547-9ad7-b0918ecc7d09"
+Parent: "9606fa4e-cf07-4951-ba81-146c638104d8"
+Template: "c7089ebd-7af0-4f14-beea-680a465231b1"
+Path: "/sitecore/client/Applications/ExperienceGenerator/Common/Contacts/HabitatHome/xGenerator Habitat Home Demo Preset - MV Test Goal Data"
+DB: core
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181212T170122Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "a0ee2080-2cc8-4de0-8efd-8e29cd39194f"
+      Hint: Specification
+      Value: |
+        [
+          {
+            "itemId": "5a4aa4f9-596b-4023-bf6a-d013cc1add3d",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  }
+                ],
+                "recency": 4,
+                "geoData": {
+                  "GeoNameId": 2644210,
+                  "Name": "Liverpool",
+                  "AsciiName": "liverpool",
+                  "Latitude": 53.416667,
+                  "Longitude": -3,
+                  "CountryCode": "GB",
+                  "RegionCode": "H8",
+                  "Population": 468946,
+                  "TimeZone": "Europe/London",
+                  "Country": {
+                    "Iso": "GB",
+                    "Iso3": "GBR",
+                    "IsoNumeric": 826,
+                    "Fips": "UK",
+                    "Name": "United Kingdom",
+                    "Capital": "London",
+                    "Area": 244820,
+                    "Population": 62348447,
+                    "Continent": "EU",
+                    "TopLevelDomain": ".uk",
+                    "DomainPostFix": ".co.uk",
+                    "CurrencyCode": "GBP",
+                    "CurrencyName": "Pound",
+                    "Phone": "44",
+                    "PostalCodeFormat": "@# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA",
+                    "PostalCodeRegex": "^(([A-Z]\\d{2}[A-Z]{2})|([A-Z]\\d{3}[A-Z]{2})|([A-Z]{2}\\d{2}[A-Z]{2})|([A-Z]{2}\\d{3}[A-Z]{2})|([A-Z]\\d[A-Z]\\d[A-Z]{2})|([A-Z]{2}\\d[A-Z]\\d[A-Z]{2})|(GIR0AA))$",
+                    "Languages": [
+                      "en-GB",
+                      "cy-GB",
+                      "gd"
+                    ],
+                    "GeoNameId": 2635167,
+                    "Neighbours": [
+                      "IE"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "150",
+                    "SubcontinentCode": "154"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "LiverpoolGB",
+                "outcomes": [],
+                "itemId": "40b388e4-cfa0-48db-92ef-64700d746163"
+              },
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{CB96DF66-E22F-4906-9ABE-E0403794D485}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/guides/choose-your-perfect-wearable",
+                    "goals": [
+                      {
+                        "itemId": "{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}",
+                        "$displayName": "Content Sign up - Onboarding accepted"
+                      }
+                    ]
+                  }
+                ],
+                "recency": 6,
+                "geoData": {
+                  "GeoNameId": 2644210,
+                  "Name": "Liverpool",
+                  "AsciiName": "liverpool",
+                  "Latitude": 53.416667,
+                  "Longitude": -3,
+                  "CountryCode": "GB",
+                  "RegionCode": "H8",
+                  "Population": 468946,
+                  "TimeZone": "Europe/London",
+                  "Country": {
+                    "Iso": "GB",
+                    "Iso3": "GBR",
+                    "IsoNumeric": 826,
+                    "Fips": "UK",
+                    "Name": "United Kingdom",
+                    "Capital": "London",
+                    "Area": 244820,
+                    "Population": 62348447,
+                    "Continent": "EU",
+                    "TopLevelDomain": ".uk",
+                    "DomainPostFix": ".co.uk",
+                    "CurrencyCode": "GBP",
+                    "CurrencyName": "Pound",
+                    "Phone": "44",
+                    "PostalCodeFormat": "@# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA",
+                    "PostalCodeRegex": "^(([A-Z]\\d{2}[A-Z]{2})|([A-Z]\\d{3}[A-Z]{2})|([A-Z]{2}\\d{2}[A-Z]{2})|([A-Z]{2}\\d{3}[A-Z]{2})|([A-Z]\\d[A-Z]\\d[A-Z]{2})|([A-Z]{2}\\d[A-Z]\\d[A-Z]{2})|(GIR0AA))$",
+                    "Languages": [
+                      "en-GB",
+                      "cy-GB",
+                      "gd"
+                    ],
+                    "GeoNameId": 2635167,
+                    "Neighbours": [
+                      "IE"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "150",
+                    "SubcontinentCode": "154"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "LiverpoolGB",
+                "outcomes": [],
+                "itemId": "68bb1261-e2d1-4887-aad2-cb6f674da4fe"
+              }
+            ],
+            "firstName": "Albert",
+            "middleName": "",
+            "lastName": "Smith",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "al.smith@coteco.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "4dca8f3e-711b-458f-b26c-3dd1b456912e",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  }
+                ],
+                "recency": 2,
+                "geoData": {
+                  "GeoNameId": 4274994,
+                  "Name": "Manhattan",
+                  "AsciiName": "manhattan",
+                  "Latitude": 39.1836111,
+                  "Longitude": -96.5713889,
+                  "CountryCode": "US",
+                  "RegionCode": "KS",
+                  "Population": 52281,
+                  "TimeZone": "America/Chicago",
+                  "Country": {
+                    "Iso": "US",
+                    "Iso3": "USA",
+                    "IsoNumeric": 840,
+                    "Fips": "US",
+                    "Name": "United States",
+                    "Capital": "Washington",
+                    "Area": 9629091,
+                    "Population": 310232863,
+                    "Continent": "NA",
+                    "TopLevelDomain": ".us",
+                    "DomainPostFix": ".com",
+                    "CurrencyCode": "USD",
+                    "CurrencyName": "Dollar",
+                    "Phone": "1",
+                    "PostalCodeFormat": "#####-####",
+                    "PostalCodeRegex": "^\\d{5}(-\\d{4})?$",
+                    "Languages": [
+                      "en-US",
+                      "es-US",
+                      "haw",
+                      "fr"
+                    ],
+                    "GeoNameId": 6252001,
+                    "Neighbours": [
+                      "CA",
+                      "MX",
+                      "CU"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "019",
+                    "SubcontinentCode": "021"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "ManhattanUS",
+                "outcomes": [],
+                "itemId": "d716984d-974c-4eb9-bba9-2ba596dbb442"
+              }
+            ],
+            "firstName": "Marco",
+            "middleName": "",
+            "lastName": "Enola",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "menola@fairplay.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "c1c51efa-be5d-4568-ad2d-b36378fdbf57",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{10F66202-C76C-40F9-8247-66328B96338E}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/guides/automate-dinner"
+                  },
+                  {
+                    "itemId": "{10083CA0-5093-4D67-99DB-2579ABB421D3}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home"
+                  },
+                  {
+                    "itemId": "{055766BE-D42E-4E94-B53B-3F6D223EC3D5}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health",
+                    "goals": []
+                  }
+                ],
+                "recency": 7,
+                "geoData": {
+                  "GeoNameId": 2803138,
+                  "Name": "Antwerp",
+                  "AsciiName": "antwerp",
+                  "Latitude": 51.216667,
+                  "Longitude": 4.416667,
+                  "CountryCode": "BE",
+                  "RegionCode": "01",
+                  "Population": 459805,
+                  "TimeZone": "Europe/Brussels",
+                  "Country": {
+                    "Iso": "BE",
+                    "Iso3": "BEL",
+                    "IsoNumeric": 56,
+                    "Fips": "BE",
+                    "Name": "Belgium",
+                    "Capital": "Brussels",
+                    "Area": 30510,
+                    "Population": 10403000,
+                    "Continent": "EU",
+                    "TopLevelDomain": ".be",
+                    "DomainPostFix": ".be",
+                    "CurrencyCode": "EUR",
+                    "CurrencyName": "Euro",
+                    "Phone": "32",
+                    "PostalCodeFormat": "####",
+                    "PostalCodeRegex": "^(\\d{4})$",
+                    "Languages": [
+                      "nl-BE",
+                      "fr-BE",
+                      "de-BE"
+                    ],
+                    "GeoNameId": 2802361,
+                    "Neighbours": [
+                      "DE",
+                      "NL",
+                      "LU",
+                      "FR"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "150",
+                    "SubcontinentCode": "155"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "AntwerpBE",
+                "outcomes": [],
+                "itemId": "d67a4a92-fe11-4705-a5b9-097e7bc3c37f"
+              }
+            ],
+            "firstName": "Elena",
+            "middleName": "",
+            "lastName": "Moor",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "elena.moor@genworthinc.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "ade951d3-d563-4396-83eb-ef11eab52c06",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{10083CA0-5093-4D67-99DB-2579ABB421D3}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home"
+                  }
+                ],
+                "recency": 7,
+                "geoData": {
+                  "GeoNameId": 5037649,
+                  "Name": "Minneapolis",
+                  "AsciiName": "minneapolis",
+                  "Latitude": 44.98,
+                  "Longitude": -93.2636111,
+                  "CountryCode": "US",
+                  "RegionCode": "MN",
+                  "Population": 382578,
+                  "TimeZone": "America/Chicago",
+                  "Country": {
+                    "Iso": "US",
+                    "Iso3": "USA",
+                    "IsoNumeric": 840,
+                    "Fips": "US",
+                    "Name": "United States",
+                    "Capital": "Washington",
+                    "Area": 9629091,
+                    "Population": 310232863,
+                    "Continent": "NA",
+                    "TopLevelDomain": ".us",
+                    "DomainPostFix": ".com",
+                    "CurrencyCode": "USD",
+                    "CurrencyName": "Dollar",
+                    "Phone": "1",
+                    "PostalCodeFormat": "#####-####",
+                    "PostalCodeRegex": "^\\d{5}(-\\d{4})?$",
+                    "Languages": [
+                      "en-US",
+                      "es-US",
+                      "haw",
+                      "fr"
+                    ],
+                    "GeoNameId": 6252001,
+                    "Neighbours": [
+                      "CA",
+                      "MX",
+                      "CU"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "019",
+                    "SubcontinentCode": "021"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "MinneapolisUS",
+                "outcomes": [],
+                "itemId": "6c9d688e-bf89-49dd-88a5-3a5cb7c78e36"
+              }
+            ],
+            "firstName": "Richard",
+            "middleName": "",
+            "lastName": "Meelan",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "rick.meelan@redico.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "f8bc8484-5d35-4aab-9b46-8b1733ee6ea1",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{4D30B785-2CD0-44C1-94F5-E16E84244EA2}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/guides/best-in-wearable-fitness-technology"
+                  }
+                ],
+                "recency": 13,
+                "geoData": {
+                  "GeoNameId": 2657324,
+                  "Name": "Andover",
+                  "AsciiName": "andover",
+                  "Latitude": 51.2,
+                  "Longitude": -1.483333,
+                  "CountryCode": "GB",
+                  "RegionCode": "F2",
+                  "Population": 39951,
+                  "TimeZone": "Europe/London",
+                  "Country": {
+                    "Iso": "GB",
+                    "Iso3": "GBR",
+                    "IsoNumeric": 826,
+                    "Fips": "UK",
+                    "Name": "United Kingdom",
+                    "Capital": "London",
+                    "Area": 244820,
+                    "Population": 62348447,
+                    "Continent": "EU",
+                    "TopLevelDomain": ".uk",
+                    "DomainPostFix": ".co.uk",
+                    "CurrencyCode": "GBP",
+                    "CurrencyName": "Pound",
+                    "Phone": "44",
+                    "PostalCodeFormat": "@# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA",
+                    "PostalCodeRegex": "^(([A-Z]\\d{2}[A-Z]{2})|([A-Z]\\d{3}[A-Z]{2})|([A-Z]{2}\\d{2}[A-Z]{2})|([A-Z]{2}\\d{3}[A-Z]{2})|([A-Z]\\d[A-Z]\\d[A-Z]{2})|([A-Z]{2}\\d[A-Z]\\d[A-Z]{2})|(GIR0AA))$",
+                    "Languages": [
+                      "en-GB",
+                      "cy-GB",
+                      "gd"
+                    ],
+                    "GeoNameId": 2635167,
+                    "Neighbours": [
+                      "IE"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "150",
+                    "SubcontinentCode": "154"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "AndoverGB",
+                "outcomes": [],
+                "itemId": "6f3050f2-9f3d-4dc3-a441-26c3b897c7e9"
+              }
+            ],
+            "firstName": "Jerry",
+            "middleName": "",
+            "lastName": "Lochlan",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "jerry.lochlan@fairwaymelon.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "13511faf-b729-4135-891e-347a6a1bf106",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{C9D2D5F3-E258-4483-AF1C-CE18B7857BEA}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/guides/design-your-connected-home",
+                    "goals": [
+                      {
+                        "itemId": "{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}",
+                        "$displayName": "Content Sign up - Onboarding accepted"
+                      }
+                    ]
+                  }
+                ],
+                "recency": 10,
+                "geoData": {
+                  "GeoNameId": 2661604,
+                  "Name": "Basel",
+                  "AsciiName": "basel",
+                  "Latitude": 47.558395,
+                  "Longitude": 7.573271,
+                  "CountryCode": "CH",
+                  "RegionCode": "04",
+                  "Population": 164488,
+                  "TimeZone": "Europe/Zurich",
+                  "Country": {
+                    "Iso": "CH",
+                    "Iso3": "CHE",
+                    "IsoNumeric": 756,
+                    "Fips": "SZ",
+                    "Name": "Switzerland",
+                    "Capital": "Berne",
+                    "Area": 41290,
+                    "Population": 7581000,
+                    "Continent": "EU",
+                    "TopLevelDomain": ".ch",
+                    "DomainPostFix": ".ch",
+                    "CurrencyCode": "CHF",
+                    "CurrencyName": "Franc",
+                    "Phone": "41",
+                    "PostalCodeFormat": "####",
+                    "PostalCodeRegex": "^(\\d{4})$",
+                    "Languages": [
+                      "de-CH",
+                      "fr-CH",
+                      "it-CH",
+                      "rm"
+                    ],
+                    "GeoNameId": 2658434,
+                    "Neighbours": [
+                      "DE",
+                      "IT",
+                      "LI",
+                      "FR",
+                      "AT"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "150",
+                    "SubcontinentCode": "155"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "BaselCH",
+                "outcomes": [],
+                "itemId": "b487d2e2-6310-41cd-bde5-22e8983579e8"
+              }
+            ],
+            "firstName": "Elain",
+            "middleName": "",
+            "lastName": "Rooks",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "elaine_rooks@easychampions.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "7744ab3c-df8b-4793-8230-2d697b8e6b90",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{10083CA0-5093-4D67-99DB-2579ABB421D3}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home"
+                  },
+                  {
+                    "itemId": "{055766BE-D42E-4E94-B53B-3F6D223EC3D5}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health"
+                  }
+                ],
+                "recency": 3,
+                "geoData": {
+                  "GeoNameId": 3128760,
+                  "Name": "Barcelona",
+                  "AsciiName": "barcelona",
+                  "Latitude": 41.398371,
+                  "Longitude": 2.1741,
+                  "CountryCode": "ES",
+                  "RegionCode": "56",
+                  "Population": 1621537,
+                  "TimeZone": "Europe/Madrid",
+                  "Country": {
+                    "Iso": "ES",
+                    "Iso3": "ESP",
+                    "IsoNumeric": 724,
+                    "Fips": "SP",
+                    "Name": "Spain",
+                    "Capital": "Madrid",
+                    "Area": 504782,
+                    "Population": 46505963,
+                    "Continent": "EU",
+                    "TopLevelDomain": ".es",
+                    "DomainPostFix": ".es",
+                    "CurrencyCode": "EUR",
+                    "CurrencyName": "Euro",
+                    "Phone": "34",
+                    "PostalCodeFormat": "#####",
+                    "PostalCodeRegex": "^(\\d{5})$",
+                    "Languages": [
+                      "es-ES",
+                      "ca",
+                      "gl",
+                      "eu",
+                      "oc"
+                    ],
+                    "GeoNameId": 2510769,
+                    "Neighbours": [
+                      "AD",
+                      "PT",
+                      "GI",
+                      "FR",
+                      "MA"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "150",
+                    "SubcontinentCode": "039"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "BarcelonaES",
+                "outcomes": [],
+                "itemId": "873ea3ab-af90-4c17-9c02-c08f3863e10c"
+              }
+            ],
+            "firstName": "Frederik",
+            "middleName": "",
+            "lastName": "Anderson",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "fred.anderson@xtargetco.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "73732468-7bd2-422e-9d3c-755ee69e3e43",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{10F66202-C76C-40F9-8247-66328B96338E}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/guides/automate-dinner"
+                  }
+                ],
+                "recency": 7,
+                "geoData": {
+                  "GeoNameId": 2172517,
+                  "Name": "Canberra",
+                  "AsciiName": "canberra",
+                  "Latitude": -35.27603,
+                  "Longitude": 149.13435,
+                  "CountryCode": "AU",
+                  "RegionCode": "01",
+                  "Population": 367752,
+                  "TimeZone": "Australia/Sydney",
+                  "Country": {
+                    "Iso": "AU",
+                    "Iso3": "AUS",
+                    "IsoNumeric": 36,
+                    "Fips": "AS",
+                    "Name": "Australia",
+                    "Capital": "Canberra",
+                    "Area": 7686850,
+                    "Population": 21515754,
+                    "Continent": "OC",
+                    "TopLevelDomain": ".au",
+                    "DomainPostFix": ".au",
+                    "CurrencyCode": "AUD",
+                    "CurrencyName": "Dollar",
+                    "Phone": "61",
+                    "PostalCodeFormat": "####",
+                    "PostalCodeRegex": "^(\\d{4})$",
+                    "Languages": [
+                      "en-AU"
+                    ],
+                    "GeoNameId": 2077456,
+                    "Neighbours": [],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "009",
+                    "SubcontinentCode": "053"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "CanberraAU",
+                "outcomes": [],
+                "itemId": "b8e4e020-f73a-4e4e-a8a3-928fa3c9bded"
+              }
+            ],
+            "firstName": "Zareb",
+            "middleName": "",
+            "lastName": "Maron",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "z.maron@unionrest.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "3eb634cc-9b66-49d5-82c9-dd7373c3c868",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{64F922B1-D57D-4AFA-AE26-9D59502F69A6}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/guides"
+                  }
+                ],
+                "recency": 17,
+                "geoData": {
+                  "GeoNameId": 2803138,
+                  "Name": "Antwerp",
+                  "AsciiName": "antwerp",
+                  "Latitude": 51.216667,
+                  "Longitude": 4.416667,
+                  "CountryCode": "BE",
+                  "RegionCode": "01",
+                  "Population": 459805,
+                  "TimeZone": "Europe/Brussels",
+                  "Country": {
+                    "Iso": "BE",
+                    "Iso3": "BEL",
+                    "IsoNumeric": 56,
+                    "Fips": "BE",
+                    "Name": "Belgium",
+                    "Capital": "Brussels",
+                    "Area": 30510,
+                    "Population": 10403000,
+                    "Continent": "EU",
+                    "TopLevelDomain": ".be",
+                    "DomainPostFix": ".be",
+                    "CurrencyCode": "EUR",
+                    "CurrencyName": "Euro",
+                    "Phone": "32",
+                    "PostalCodeFormat": "####",
+                    "PostalCodeRegex": "^(\\d{4})$",
+                    "Languages": [
+                      "nl-BE",
+                      "fr-BE",
+                      "de-BE"
+                    ],
+                    "GeoNameId": 2802361,
+                    "Neighbours": [
+                      "DE",
+                      "NL",
+                      "LU",
+                      "FR"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "150",
+                    "SubcontinentCode": "155"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "AntwerpBE",
+                "outcomes": [],
+                "itemId": "cd290726-d9dd-4972-a951-17711ce3a1e2"
+              }
+            ],
+            "firstName": "Erik",
+            "middleName": "",
+            "lastName": "Landon",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "erik.landon@greatlifeco.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "7c1dcc0c-41c2-407f-a9fc-1f5866d8d5f5",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{10083CA0-5093-4D67-99DB-2579ABB421D3}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home"
+                  },
+                  {
+                    "itemId": "{055766BE-D42E-4E94-B53B-3F6D223EC3D5}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health"
+                  }
+                ],
+                "recency": 22,
+                "geoData": {
+                  "GeoNameId": 2673730,
+                  "Name": "Stockholm",
+                  "AsciiName": "stockholm",
+                  "Latitude": 59.333333,
+                  "Longitude": 18.05,
+                  "CountryCode": "SE",
+                  "RegionCode": "26",
+                  "Population": 1253309,
+                  "TimeZone": "Europe/Stockholm",
+                  "Country": {
+                    "Iso": "SE",
+                    "Iso3": "SWE",
+                    "IsoNumeric": 752,
+                    "Fips": "SW",
+                    "Name": "Sweden",
+                    "Capital": "Stockholm",
+                    "Area": 449964,
+                    "Population": 9555893,
+                    "Continent": "EU",
+                    "TopLevelDomain": ".se",
+                    "DomainPostFix": ".se",
+                    "CurrencyCode": "SEK",
+                    "CurrencyName": "Krona",
+                    "Phone": "46",
+                    "PostalCodeFormat": "### ##",
+                    "PostalCodeRegex": "^(?:SE)*(\\d{5})$",
+                    "Languages": [
+                      "sv-SE",
+                      "se",
+                      "sma",
+                      "fi-SE"
+                    ],
+                    "GeoNameId": 2661886,
+                    "Neighbours": [
+                      "NO",
+                      "FI"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "150",
+                    "SubcontinentCode": "154"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "StockholmSE",
+                "outcomes": [],
+                "itemId": "fd2b8b00-97c4-4c7a-8ee9-4b0a18acb9bb"
+              }
+            ],
+            "firstName": "Cederic",
+            "middleName": "",
+            "lastName": "Easton",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "cederic_easton@termpointcrescent.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "a9c41194-dc8a-4f16-9916-728b7af51a50",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{64F922B1-D57D-4AFA-AE26-9D59502F69A6}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/guides"
+                  },
+                  {
+                    "itemId": "{C9D2D5F3-E258-4483-AF1C-CE18B7857BEA}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/guides/design-your-connected-home"
+                  }
+                ],
+                "recency": 4,
+                "geoData": {
+                  "GeoNameId": 4274994,
+                  "Name": "Manhattan",
+                  "AsciiName": "manhattan",
+                  "Latitude": 39.1836111,
+                  "Longitude": -96.5713889,
+                  "CountryCode": "US",
+                  "RegionCode": "KS",
+                  "Population": 52281,
+                  "TimeZone": "America/Chicago",
+                  "Country": {
+                    "Iso": "US",
+                    "Iso3": "USA",
+                    "IsoNumeric": 840,
+                    "Fips": "US",
+                    "Name": "United States",
+                    "Capital": "Washington",
+                    "Area": 9629091,
+                    "Population": 310232863,
+                    "Continent": "NA",
+                    "TopLevelDomain": ".us",
+                    "DomainPostFix": ".com",
+                    "CurrencyCode": "USD",
+                    "CurrencyName": "Dollar",
+                    "Phone": "1",
+                    "PostalCodeFormat": "#####-####",
+                    "PostalCodeRegex": "^\\d{5}(-\\d{4})?$",
+                    "Languages": [
+                      "en-US",
+                      "es-US",
+                      "haw",
+                      "fr"
+                    ],
+                    "GeoNameId": 6252001,
+                    "Neighbours": [
+                      "CA",
+                      "MX",
+                      "CU"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "019",
+                    "SubcontinentCode": "021"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "ManhattanUS",
+                "outcomes": [],
+                "itemId": "0788e9ad-a14d-4135-a1af-d8ad30ec1340"
+              }
+            ],
+            "firstName": "Mo",
+            "middleName": "",
+            "lastName": "Alahayn",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "m.alahayn@unitedfloorgroup.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "c8239245-b707-4969-9354-2a322848b74d",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  },
+                  {
+                    "itemId": "{7FFDAD1C-50A6-4CE7-81C5-259DCD6D1FC1}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/guides/importance-of-stretching"
+                  }
+                ],
+                "recency": 5,
+                "geoData": {
+                  "GeoNameId": 325363,
+                  "Name": "Adana",
+                  "AsciiName": "adana",
+                  "Latitude": 37.001667,
+                  "Longitude": 35.328889,
+                  "CountryCode": "TR",
+                  "RegionCode": "81",
+                  "Population": 1249680,
+                  "TimeZone": "Europe/Istanbul",
+                  "Country": {
+                    "Iso": "TR",
+                    "Iso3": "TUR",
+                    "IsoNumeric": 792,
+                    "Fips": "TU",
+                    "Name": "Turkey",
+                    "Capital": "Ankara",
+                    "Area": 780580,
+                    "Population": 77804122,
+                    "Continent": "AS",
+                    "TopLevelDomain": ".tr",
+                    "DomainPostFix": ".tr",
+                    "CurrencyCode": "TRY",
+                    "CurrencyName": "Lira",
+                    "Phone": "90",
+                    "PostalCodeFormat": "#####",
+                    "PostalCodeRegex": "^(\\d{5})$",
+                    "Languages": [
+                      "tr-TR",
+                      "ku",
+                      "diq",
+                      "az",
+                      "av"
+                    ],
+                    "GeoNameId": 298795,
+                    "Neighbours": [
+                      "SY",
+                      "GE",
+                      "IQ",
+                      "IR",
+                      "GR",
+                      "AM",
+                      "AZ",
+                      "BG"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "142",
+                    "SubcontinentCode": "145"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "AdanaTR",
+                "outcomes": [],
+                "itemId": "e90bbcd7-0549-42c0-8714-f122582b00dc"
+              }
+            ],
+            "firstName": "Markus",
+            "middleName": "",
+            "lastName": "Small",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "mark.small@relianthouseco.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "475413a2-8081-498c-b302-079aa903a31a",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  }
+                ],
+                "recency": 8,
+                "geoData": {
+                  "GeoNameId": 2147714,
+                  "Name": "Sydney",
+                  "AsciiName": "sydney",
+                  "Latitude": -33.861481,
+                  "Longitude": 151.205475,
+                  "CountryCode": "AU",
+                  "RegionCode": "02",
+                  "Population": 4627345,
+                  "TimeZone": "Australia/Sydney",
+                  "Country": {
+                    "Iso": "AU",
+                    "Iso3": "AUS",
+                    "IsoNumeric": 36,
+                    "Fips": "AS",
+                    "Name": "Australia",
+                    "Capital": "Canberra",
+                    "Area": 7686850,
+                    "Population": 21515754,
+                    "Continent": "OC",
+                    "TopLevelDomain": ".au",
+                    "DomainPostFix": ".au",
+                    "CurrencyCode": "AUD",
+                    "CurrencyName": "Dollar",
+                    "Phone": "61",
+                    "PostalCodeFormat": "####",
+                    "PostalCodeRegex": "^(\\d{4})$",
+                    "Languages": [
+                      "en-AU"
+                    ],
+                    "GeoNameId": 2077456,
+                    "Neighbours": [],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "009",
+                    "SubcontinentCode": "053"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "SydneyAU",
+                "outcomes": [],
+                "itemId": "07e7da72-8055-4c79-b3f8-7b4dab508aff"
+              }
+            ],
+            "firstName": "Alexei",
+            "middleName": "",
+            "lastName": "Melnik",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "alexei.melnik@softwareguru.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "45981782-9cb4-4510-acc2-0d290e6cee88",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  }
+                ],
+                "recency": 1,
+                "geoData": {
+                  "GeoNameId": 524901,
+                  "Name": "Moscow",
+                  "AsciiName": "moscow",
+                  "Latitude": 55.752222,
+                  "Longitude": 37.615556,
+                  "CountryCode": "RU",
+                  "RegionCode": "48",
+                  "Population": 10381288,
+                  "TimeZone": "Europe/Moscow",
+                  "Country": {
+                    "Iso": "RU",
+                    "Iso3": "RUS",
+                    "IsoNumeric": 643,
+                    "Fips": "RS",
+                    "Name": "Russia",
+                    "Capital": "Moscow",
+                    "Area": 17100000,
+                    "Population": 140702000,
+                    "Continent": "AS",
+                    "TopLevelDomain": ".ru",
+                    "DomainPostFix": ".ru",
+                    "CurrencyCode": "RUB",
+                    "CurrencyName": "Ruble",
+                    "Phone": "7",
+                    "PostalCodeFormat": "######",
+                    "PostalCodeRegex": "^(\\d{6})$",
+                    "Languages": [
+                      "ru",
+                      "tt",
+                      "xal",
+                      "cau",
+                      "ady",
+                      "kv",
+                      "ce",
+                      "tyv",
+                      "cv",
+                      "udm",
+                      "tut",
+                      "mns",
+                      "bua",
+                      "myv",
+                      "mdf",
+                      "chm",
+                      "ba",
+                      "inh",
+                      "tut",
+                      "kbd",
+                      "krc",
+                      "ava",
+                      "sah",
+                      "nog"
+                    ],
+                    "GeoNameId": 2017370,
+                    "Neighbours": [
+                      "GE",
+                      "CN",
+                      "BY",
+                      "UA",
+                      "KZ",
+                      "LV",
+                      "PL",
+                      "EE",
+                      "LT",
+                      "FI",
+                      "MN",
+                      "NO",
+                      "AZ",
+                      "KP"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "150",
+                    "SubcontinentCode": "151"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "MoscowRU",
+                "outcomes": [],
+                "itemId": "e01f7bdb-4faf-4a77-bd0b-9a7e502fdc9d"
+              }
+            ],
+            "firstName": "Mei",
+            "middleName": "",
+            "lastName": "Long",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "mei.long@readinesscompany.com",
+            "phone": "",
+            "address": ""
+          },
+          {
+            "itemId": "86ddac72-ec99-4763-867f-f1b2d4e5044e",
+            "image": "",
+            "interactions": [
+              {
+                "pages": [
+                  {
+                    "itemId": "{902AAD71-DD65-4C4E-97BE-C2F341962685}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-living"
+                  },
+                  {
+                    "itemId": "{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder"
+                  },
+                  {
+                    "itemId": "{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}",
+                    "path": "/sitecore/content/Habitat Sites/Habitat Home/home/habitat-health/trainer-finder/recommendations",
+                    "goals": [
+                      {
+                        "itemId": "{A39866FF-6B67-49A1-9D42-34890ABB4815}",
+                        "$displayName": "Trainer Finder Complete"
+                      }
+                    ]
+                  }
+                ],
+                "recency": 3,
+                "geoData": {
+                  "GeoNameId": 1735161,
+                  "Name": "Kuala Lumpur",
+                  "AsciiName": "kuala lumpur",
+                  "Latitude": 3.166667,
+                  "Longitude": 101.7,
+                  "CountryCode": "MY",
+                  "RegionCode": "14",
+                  "Population": 1453978,
+                  "TimeZone": "Asia/Kuala_Lumpur",
+                  "Country": {
+                    "Iso": "MY",
+                    "Iso3": "MYS",
+                    "IsoNumeric": 458,
+                    "Fips": "MY",
+                    "Name": "Malaysia",
+                    "Capital": "Kuala Lumpur",
+                    "Area": 329750,
+                    "Population": 28274729,
+                    "Continent": "AS",
+                    "TopLevelDomain": ".my",
+                    "DomainPostFix": ".my",
+                    "CurrencyCode": "MYR",
+                    "CurrencyName": "Ringgit",
+                    "Phone": "60",
+                    "PostalCodeFormat": "#####",
+                    "PostalCodeRegex": "^(\\d{5})$",
+                    "Languages": [
+                      "ms-MY",
+                      "en",
+                      "zh",
+                      "ta",
+                      "te",
+                      "ml",
+                      "pa",
+                      "th"
+                    ],
+                    "GeoNameId": 1733045,
+                    "Neighbours": [
+                      "BN",
+                      "TH",
+                      "ID"
+                    ],
+                    "EquivalentFipsCode": "",
+                    "ContinentCode": "142",
+                    "SubcontinentCode": "035"
+                  }
+                },
+                "channelName": "Email marketing",
+                "channelId": "{DDAFB85B-1511-48B8-9374-2A8A1F371645}",
+                "campaignName": "Search - Fitness",
+                "campaignId": "{0292C2AA-99EE-4010-86B9-1B862BBA99CA}",
+                "location": "Kuala LumpurMY",
+                "outcomes": [],
+                "itemId": "48a908ca-6ed6-474e-bfa0-d8e831f962a2"
+              }
+            ],
+            "firstName": "RR",
+            "middleName": "",
+            "lastName": "Donovan",
+            "jobTitle": "",
+            "gender": "",
+            "birthday": "",
+            "email": "rr_donovan@readygo.com",
+            "phone": "",
+            "address": ""
+          }
+        ]
