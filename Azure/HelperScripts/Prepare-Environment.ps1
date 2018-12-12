@@ -233,7 +233,7 @@ function DownloadFilesFromRepo {
 
     $baseUri = "https://api.github.com/"
     $arguments = "repos/$Owner/$Repository/contents/$Path"
-    $wr = Invoke-WebRequest -Uri $($baseuri + $arguments)
+    $wr = Invoke-WebRequest -Uri $($baseuri + $arguments) -UseBasicParsing
     $objects = $wr.Content | ConvertFrom-Json
     $files = $objects | where {$_.type -eq "file"} | Select -exp download_url
     $directories = $objects | where {$_.type -eq "dir"}
@@ -255,7 +255,7 @@ function DownloadFilesFromRepo {
     foreach ($file in $files) {
         $fileDestination = Join-Path $DestinationPath (Split-Path $file -Leaf)
         try {
-            Invoke-WebRequest -Uri $file -OutFile $fileDestination -ErrorAction Stop -Verbose
+            Invoke-WebRequest -Uri $file -OutFile $fileDestination -ErrorAction Stop -Verbose -UseBasicParsing
             "Grabbed '$($file)' to '$fileDestination'"
         }
         catch {
