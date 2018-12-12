@@ -5,6 +5,8 @@
 #addin "Cake.XdtTransform"
 #addin "Newtonsoft.Json"
 
+
+
 #load "local:?path=CakeScripts/helper-methods.cake"
 #load "local:?path=CakeScripts/xml-helpers.cake"
 
@@ -20,8 +22,6 @@ string topology = null;
 
 var devSitecoreUserName = Argument("DEV_SITECORE_USERNAME", EnvironmentVariable("DEV_SITECORE_USERNAME"));
 var devSitecorePassword = Argument("DEV_SITECORE_PASSWORD", EnvironmentVariable("DEV_SITECORE_PASSWORD"));
-
-Information("password:" + devSitecorePassword);
 
 /*===============================================
 ================ MAIN TASKS =====================
@@ -86,7 +86,7 @@ Setup(context =>
 ===============================================*/
 Task("Default")
 .WithCriteria(configuration != null)
-.IsDependentOn("Clean")
+.IsDependentOn("CleanBuildFolders")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
@@ -105,7 +105,7 @@ Task("Post-Deploy")
 
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
-.IsDependentOn("Clean")
+.IsDependentOn("CleanBuildFolders")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
@@ -119,7 +119,7 @@ Task("Quick-Deploy")
 Task("Build-WDP")
 .WithCriteria(configuration != null)
 .IsDependentOn("Copy-Sitecore-Lib")
-.IsDependentOn("Clean")
+.IsDependentOn("CleanAll")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Publish-YML")
@@ -151,16 +151,18 @@ Task("Azure-Deploy")
 ================= SUB TASKS =====================
 ===============================================*/
 
+Task("CleanAll")
+.IsDependentOn("CleanBuildFolders")
+.IsDependentOn("CleanDeployFolder");
 
-/*===============================================
-=============== Generic Tasks ===================
-===============================================*/
-
-
-Task("Clean").Does(() => {
+Task("CleanBuildFolders").Does(() => {
     // Clean project build folders
     CleanDirectories($"{configuration.SourceFolder}/**/obj");
     CleanDirectories($"{configuration.SourceFolder}/**/bin");
+
+});
+
+Task("CleanDeployFolder").Does(() => {
 
     // Clean deployment folders
      string[] folders = { $"\\{configuration.Version}\\{topology}\\assets\\HabitatHome", $"\\{configuration.Version}\\{topology}\\assets\\HabitatHomeCD", "\\Website", $"\\{configuration.Version}\\{topology}\\assets\\Xconnect", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
@@ -182,6 +184,10 @@ Task("Clean").Does(() => {
         }
     }
 });
+
+/*===============================================
+=============== Generic Tasks ===================
+===============================================*/
 
 Task("Copy-Sitecore-Lib")
     .WithCriteria(()=>(configuration.BuildConfiguration == "Local"))
