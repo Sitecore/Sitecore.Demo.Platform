@@ -64,19 +64,23 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
-        protected static string CodeBasePath
+        protected void CenterOn(IWebElement element)
         {
-            get
-            {
-                if (codeBasePath != null)
-                    return codeBasePath;
+            string centerOnElement = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);" +
+                "var elementTop = arguments[0].getBoundingClientRect().top;" +
+                "window.scrollBy(0, elementTop-(viewPortHeight/2));";
 
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-                UriBuilder uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
-                codeBasePath = Path.GetDirectoryName(path);
-                return CodeBasePath;
-            }
+            ((IJavaScriptExecutor)Driver).ExecuteScript(centerOnElement, element);
+        }
+
+
+
+        protected void CenterOn(string descriptor)
+        {
+            Console.WriteLine($"centering on \"{descriptor}\"");
+            Wait(descriptor);
+            IWebElement element = GetElement(descriptor);
+            CenterOn(element);
         }
 
 
@@ -108,6 +112,23 @@ namespace Sitecore.HabitatHome.Website.Test
             Wait(descriptor);
             IWebElement element = GetElement(descriptor);
             Click(element);
+        }
+
+
+
+        protected static string CodeBasePath
+        {
+            get
+            {
+                if (codeBasePath != null)
+                    return codeBasePath;
+
+                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                UriBuilder uri = new UriBuilder(codeBase);
+                string path = Uri.UnescapeDataString(uri.Path);
+                codeBasePath = Path.GetDirectoryName(path);
+                return CodeBasePath;
+            }
         }
 
 
@@ -231,6 +252,25 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        protected void ScrollTo(IWebElement element)
+        {
+            Actions actions = new Actions(Driver);
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
+
+
+
+        protected void ScrollTo(string descriptor)
+        {
+            Console.WriteLine($"scrolling to \"{descriptor}\"");
+            Wait(descriptor);
+            IWebElement element = GetElement(descriptor);
+            HoverOn(element);
+        }
+
+
+
         public void TakeFullPageScreenshot(string name)
         {
             // Add html2canvas if it isn't already loaded.
@@ -291,13 +331,7 @@ namespace Sitecore.HabitatHome.Website.Test
         public void TakeScreenshot(string name, IWebElement onElement)
         {
             if (onElement != null)
-            {
-                string centerOnElement = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);" +
-                    "var elementTop = arguments[0].getBoundingClientRect().top;" +
-                    "window.scrollBy(0, elementTop-(viewPortHeight/2));";
-
-                ((IJavaScriptExecutor)Driver).ExecuteScript(centerOnElement, onElement);
-            }
+                CenterOn(onElement);
 
             var its = driver as ITakesScreenshot;
             Screenshot s = its.GetScreenshot();
