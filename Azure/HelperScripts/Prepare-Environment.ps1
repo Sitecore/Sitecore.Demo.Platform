@@ -46,10 +46,13 @@ $securePassword = ""
 ############################
 # Get Sitecore Credentials
 ############################
+[PSCredential] $credentials
 
 if (![string]::IsNullOrEmpty($devSitecorePassword)) {
     $securePassword = ConvertTo-SecureString $devSitecorePassword -AsPlainText -Force
+    $credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $devSitecoreUserName, $securePassword
 }
+
 ###################################
 # Parameters
 ###################################
@@ -57,7 +60,7 @@ if (![string]::IsNullOrEmpty($devSitecorePassword)) {
 $foundfiles = New-Object System.Collections.ArrayList
 $downloadlist = New-Object System.Collections.ArrayList
 
-$credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $devSitecoreUserName, $securePassword
+
 
 ##################################################
 # Check for existing Files in Deploy\Assets Folder
@@ -390,6 +393,7 @@ if ($config.Topology -eq "single") {
 elseif ($config.Topology -eq "scaled") {
     $azureInfrastructureFile = Get-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json'))
     $azureInfrastructureFile = $oJsSerializer.DeserializeObject($azureInfrastructureFile)
+    #TODO: Need to support  DYNAMICALLY increasing HostingPlan.SkuName to P3v2 and all "sql" related resources to S3
     if ($azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cmHostingPlan.SkuName -ne "P3v2") {
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cmHostingPlan.SkuName = "P3v2"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cdHostingPlan.SkuName = "P3v2"
@@ -398,7 +402,7 @@ elseif ($config.Topology -eq "scaled") {
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".coreSqlDatabase.ServiceObjectiveLevel = "S3"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".masterSqlDatabase.ServiceObjectiveLevel = "S3"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".webSqlDatabase.ServiceObjectiveLevel = "S3"
-        $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".reportingSqlDatabase.ServiceObjectiveLevel = "S3"
+        #$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".reportingSqlDatabase.ServiceObjectiveLevel = "S3"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".poolsSqlDatabase.ServiceObjectiveLevel = "S3"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".tasksSqlDatabase.ServiceObjectiveLevel = "S3"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".formsSqlDatabase.ServiceObjectiveLevel = "S3"

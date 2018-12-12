@@ -268,7 +268,7 @@ elseif ($config.topology -eq "scaled") {
         $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
     }
     if ($null -ne ($habitathomeJson.resources[1].properties.addOnPackages[0].setParameters)) {
-        $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
+        $habitathomeJson.resources[1].properties.addOnPackages[0].Remove("setParameters")
     }
     $habitathomeJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitathomeParamsJson.setParameters)
     $habitathomeJson.resources[1].properties.addOnPackages[0].add("setParameters", $habitathomeCdParamsJson.setParameters)
