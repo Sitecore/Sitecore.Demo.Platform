@@ -134,11 +134,11 @@ Param(
 		{
 			throw "Error trying to load habitathome-parameters.json!"
 		}
-		
+		[string] $habitatHomecdParamsConfigFile
 		# Check if topology is scaled
-		if ($config.topology -eq "scaled")
+		if ($configuration.cakeConfig.Topology -eq "scaled")
 		{
-			[string] $habitatHomecdParamsConfigFile = $([io.path]::combine($topologyPath, 'habitathomecd-parameters.json'))
+			$habitatHomecdParamsConfigFile = $([io.path]::combine($topologyPath, 'habitathomecd-parameters.json'))
  			if (!(Test-Path $habitatHomecdParamsConfigFile)) 
 			{
 				Write-Host "habitatHomecd-parameters file '$($habitatHomecdParamsConfigFile)' not found." -ForegroundColor Red

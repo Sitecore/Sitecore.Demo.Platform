@@ -4,10 +4,10 @@
 Gather use input pretaining to azure upload and deployment
 
 .DESCRIPTION
-This scripts enables a persisent azure session. This will allows future scripts to use this azure 
-session without asking for crednetials again. This script will edit a azureuser-config.json bassed 
+This scripts enables a persisent Azure session. This will allows future scripts to use this azure 
+session without asking for crednetials again. This script will edit a azureuser-config.json based 
 on user respones to prompts. The azureuser-config.json is intedned to be used by other scritps to 
-help access their Azure env.
+help access their Azure environment
 
 .PARAMETER ConfigurationFile
 A cake-config.json file
@@ -17,8 +17,7 @@ A cake-config.json file
 Param(
     [parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
-    [string] $ConfigurationFile,
-    [switch] $SkipScUpload
+    [string] $ConfigurationFile
 )
 
 ###########################
@@ -31,14 +30,16 @@ $configuration = ProcessConfigFile -Config $ConfigurationFile
 $config = $configuration.cakeConfig
 $azureuserconfig = $configuration.azureUserConfig
 $azureuserconfigfile = $configuration.azureUserConfigFile
-$habitatHomeParamsConfig = $configuration.habitatHomeParamsConfig =
+$habitatHomeParamsConfig = $configuration.habitatHomeParamsConfig
 $habitatHomeParamsConfigFile = $configuration.habitatHomeParamsConfigFile 
+$habitathomeCdParamsConfig = $configuration.habitatHomeCdParamsConfig
+$habitathomeCdParamsConfigFile	= $configuration.habitatHomeCDParamsConfigFile
 
-##############################
+###############################
 # Create SelfSignedCertificate
-##############################
+###############################
 
-Function Get-SelfSignedCertificate {
+Function Create-SelfSignedCertificate {
     $thumbprint = (New-SelfSignedCertificate -Subject "CN=$env:COMPUTERNAME @ Sitecore, Inc." -Type SSLServerAuthentication -FriendlyName "$env:USERNAME Certificate").Thumbprint
 	
     if (!(Test-Path -Path $config.DeployFolder)) {
@@ -69,14 +70,17 @@ Import-Module AzureRM
 Enable-AzureRmContextAutosave
 
 # Add the Azure Service Principal
-
 # TODO: Pass in servicePrincipal name and password through ScriptArgs + Env variable
+
 $servicePrincipalConfiguration = $azureuserconfig.serviceprincipal;
+
+
 
 $securePassword = ConvertTo-SecureString $servicePrincipalConfiguration.applicationPassword -AsPlainText -Force
 $servicePrincipalCredentials = New-Object System.Management.Automation.PSCredential($servicePrincipalConfiguration.applicationId, $securePassword)
 Login-AzureRmAccount -ServicePrincipal -Tenant $servicePrincipalConfiguration.tenantId -Credential $servicePrincipalCredentials
 Set-AzureRmContext -SubscriptionName $servicePrincipalConfiguration.azureSubscriptionName -TenantId $servicePrincipalConfiguration.tenantId
+
 
 $certificatePath = ''
 
@@ -95,7 +99,7 @@ if (-not [string]::IsNullOrEmpty($xConnectCertfilePath.value)) {
     $certificatePath = $xConnectCertfilePath.value
 }
 else {
-    $cert = Get-SelfSignedCertificate
+    $cert = Create-SelfSignedCertificate
     if ($cert -is [array]) {
         $certificatePath = $cert[-1].FullName
     } 
@@ -103,16 +107,27 @@ else {
         $certificatePath = $cert.FullName
     }
     $xConnectCertfilePath.value = $certificatePath
+
 }
 
 
 $azureuserconfig | ConvertTo-Json  | set-content $azureuserconfigFile
 
-#############################################
-# Get User Input for habitat-parameters.json
-#############################################
-foreach ($habitatHomeSetting in $azureuserconfig.habitatHomeSettings)
-{
-	$habitatHomeParamsConfig.setParameters.$($habitatHomeSetting.id) = $habitatHomeSetting.value
+###################################################################################
+# Get User Input for habitathome-parameters.json and habitathomecd-parameters.json
+###################################################################################
+
+foreach ($habitathomeSetting in $azureuserconfig.habitathomeSettings) {
+    $habitathomeParamsConfig.setParameters.$($habitathomeSetting.id) = $habitathomeSetting.value
 }
- $habitatHomeParamsConfig | ConvertTo-Json  | set-content $habitatHomeParamsConfigFile 
+
+$habitathomeParamsConfig | ConvertTo-Json  | set-content $habitathomeParamsConfigFile
+
+if ($config.Topology -eq "scaled") {
+    foreach ($habitathomeCdSetting in $azureuserconfig.habitathomeCdSettings) {
+        $habitathomeCdParamsConfig.setParameters.$($habitathomeCdSetting.id) = $habitathomeCdSetting.value
+    }	
+    $habitathomeCdParamsConfig | ConvertTo-Json  | set-content $habitathomeCdParamsConfigFile
+}
+
+
