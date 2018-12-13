@@ -216,7 +216,7 @@ $rootFolder = Get-ChildItem (Join-Path $buildFolder *)
 #Prepare Packages
 
 ForEach ($folder in $rootFolder) {
-    #Clean-Up -Configuration $config -FolderString (Get-Item -Path $folder).FullName
+    Clean-Up -Configuration $config -FolderString (Get-Item -Path $folder).FullName
     SetupCDN -Configuration $config -FolderString (Get-Item -Path $folder).FullName
 
     Write-Host $folder

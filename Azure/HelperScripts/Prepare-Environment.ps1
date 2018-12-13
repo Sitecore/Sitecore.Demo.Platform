@@ -385,10 +385,10 @@ if ($config.Topology -eq "single") {
     $azureInfrastructureFile = Get-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json'))
     $azureInfrastructureFile = $oJsSerializer.DeserializeObject($azureInfrastructureFile)
 
-    if ($azureInfrastructureFile.parameters.singleHostingPlanSkuName.defaultValue -ne "P3v2") {
         $azureInfrastructureFile.parameters.singleHostingPlanSkuName.defaultValue = "P3v2"
+        $azureInfrastructureFile.parameters.sqlDatabaseServiceObjectiveLevel.defaultValue = "S3"
+
         $azureInfrastructureFile  | ConvertTo-Json -Depth 50 | Set-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json')) -Encoding Ascii
-    }
 }
 elseif ($config.Topology -eq "scaled") {
     $azureInfrastructureFile = Get-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json'))
