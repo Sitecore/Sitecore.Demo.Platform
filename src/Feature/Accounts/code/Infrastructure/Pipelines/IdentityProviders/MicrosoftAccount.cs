@@ -1,7 +1,6 @@
 ﻿using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.MicrosoftAccount;
-using Sitecore.Configuration;
 using Sitecore.Diagnostics;
 using Sitecore.Owin.Authentication.Configuration;
 using Sitecore.Owin.Authentication.Extensions;
@@ -15,8 +14,8 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.Identit
 {        
     public class MicrosoftAccount : IdentityProvidersProcessor
     {
-        //TODO: Fix with proper parameters
-        public MicrosoftAccount(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration,ICookieManager cookieManager,BaseSettings baseSettings) : base(federatedAuthenticationConfiguration,cookieManager,baseSettings)
+        public MicrosoftAccount(FederatedAuthenticationConfiguration federatedAuthenticationConfiguration, ICookieManager cookieManager, BaseSettings baseSettings) 
+            : base(federatedAuthenticationConfiguration, cookieManager, baseSettings)
         {
         }
 
@@ -32,6 +31,11 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.Identit
             string clientSecret = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.Microsoft.ClientSecret");     //todo: move this to site-specific configuration item   
             string clientId = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.Microsoft.ClientId"); //todo: move this to site-specific configuration item        
                 
+            if(string.IsNullOrEmpty(clientSecret) || string.IsNullOrEmpty(clientId))
+            {
+                return;
+            }
+
             var options = new MicrosoftAccountAuthenticationOptions
             {                                
                 Caption = identityProvider.Caption,
