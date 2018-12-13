@@ -11,7 +11,7 @@ to determine if the results match.
 1. Install [NodeJS](https://nodejs.org/en/download/) (aka uninstall your
 old NodeJS and install the newest one) *
 2. In `cmd.exe` (as Administrator), run the following commands...
-    * > `CD \projects\Sitecore.HabitatHome.Content\src\Project\HabitatHome\tests\backstop`
+    * > `CD \projects\Sitecore.HabitatHome.Platform\src\Project\HabitatHome\tests\backstop`
     * > `npm install -g backstopjs`
     * > `backstop init`
 
@@ -26,5 +26,5 @@ old NodeJS and install the newest one) *
 3. Run `node backstopReport.js` in Command Line
     * run **cmd.exe**
     * goto backstop directory
-    `\projects\Sitecore.HabitatHome.Content\src\Project\HabitatHome\tests\backstop`
+    `\projects\Sitecore.HabitatHome.Platform\src\Project\HabitatHome\tests\backstop`
     * run `node backstopReport.js`
