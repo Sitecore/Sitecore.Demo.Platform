@@ -20,10 +20,10 @@ Param(
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
 $configuration = ProcessConfigFile -Config $ConfigurationFile
-$config          	    = $configuration.cakeConfig
-$azureuserconfig 	    = $configuration.azureUserConfig
-$assetsFolder		    = $configuration.assetsFolder
-$buildFolder			= $configuration.buildFolder
+$config = $configuration.cakeConfig
+$azureuserconfig = $configuration.azureUserConfig
+$assetsFolder = $configuration.assetsFolder
+$buildFolder = $configuration.buildFolder
 
 ################################################################
 # Prepare folders for update package generation and triggers it
@@ -54,20 +54,13 @@ Function Process-UpdatePackage([PSObject] $Configuration, [String] $FolderString
         # Copy the contents of the HabitatHome build output to a new folder, but exclude the YML files inside the serialization folder
 
         $sourceFolderCD = $sourceFolder + "CD"
-        $exclusionFolder = "$($sourceFolderCD)\App_Data\"
+        
         Copy-Item -Path $sourceFolder -Destination $sourceFolderCD -Exclude *.yml -Recurse -Force
 
-        # Clean empty folders from the resulting copy
-
-        $folderList = (Get-ChildItem $exclusionFolder -Recurse -Directory)
-        foreach ($filesystemObject in $folderList) {
-
-            Remove-Item $filesystemObject.FullName -Recurse
-            $folderList = (Get-ChildItem $exclusionFolder -Recurse -Directory)
-            if ($null -eq $folderList) {
-                break
-            }
-
+        # Remove App_Data folder from CD
+        $exclusionFolder = "$($sourceFolderCD)\App_Data\"
+        if (Test-Path $exclusionFolder) {
+            Remove-Item $exclusionFolder -Recurse -Force
         }
 
         # Create a separate folder that will host the scaled CD package 
@@ -164,18 +157,14 @@ Function SetupCDN([PSObject] $Configuration, [String] $FolderString) {
         $mediaLinkServerUrlPatchNode = $foundationCDNConfig.SelectSingleNode("//setting[@name='Media.MediaLinkServerUrl']/patch:attribute", $namespace)
  
         if ($Configuration.CDN -eq "true") { 
-            foreach ($setting in $azureuserconfig.settings) {
-                switch ($setting.id) {
-                    "AzureDeploymentID" {
-                        $AzureDeploymentID = $setting.value
-                    }
-                }
-                if ($mediaLinkServerUrlPatchNode) {                    
+            $config = $azureuserconfig.settings | Where-Object {$_.id -eq "AzureDeploymentID"}
+            $AzureDeploymentID = $config.value
+                
+            if ($mediaLinkServerUrlPatchNode) {                    
         
-                    $mediaLinkServerUrlPatchNode.InnerText = $AzureDeploymentID + "-endpoint.azureedge.net";
-                }
-
+                $mediaLinkServerUrlPatchNode.InnerText = $AzureDeploymentID + "-endpoint.azureedge.net";
             }
+
             $foundationCDNConfig.Save($foundationCdnConfigFilePath)
         }
 	

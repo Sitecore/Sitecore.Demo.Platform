@@ -42,13 +42,16 @@ $assetsFolder = $configuration.assetsFolder
 $topologyName = $configuration.topologyName
 $SCversion = $config.version
 $buildFolder = $configuration.buildFolder
-
+$securePassword = ""
 ############################
 # Get Sitecore Credentials
 ############################
+[PSCredential] $credentials
 
-
-$securePassword = ConvertTo-SecureString $devSitecorePassword -AsPlainText -Force
+if (![string]::IsNullOrEmpty($devSitecorePassword)) {
+    $securePassword = ConvertTo-SecureString $devSitecorePassword -AsPlainText -Force
+    $credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $devSitecoreUserName, $securePassword
+}
 
 ###################################
 # Parameters
@@ -56,8 +59,8 @@ $securePassword = ConvertTo-SecureString $devSitecorePassword -AsPlainText -Forc
 
 $foundfiles = New-Object System.Collections.ArrayList
 $downloadlist = New-Object System.Collections.ArrayList
-[string] $habitathomefilepath = $([io.path]::combine($buildFolder, 'HabitatHome'))
-$credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $devSitecoreUserName, $securePassword
+
+
 
 ##################################################
 # Check for existing Files in Deploy\Assets Folder
@@ -230,7 +233,7 @@ function DownloadFilesFromRepo {
 
     $baseUri = "https://api.github.com/"
     $arguments = "repos/$Owner/$Repository/contents/$Path"
-    $wr = Invoke-WebRequest -Uri $($baseuri + $arguments)
+    $wr = Invoke-WebRequest -Uri $($baseuri + $arguments) -UseBasicParsing
     $objects = $wr.Content | ConvertFrom-Json
     $files = $objects | where {$_.type -eq "file"} | Select -exp download_url
     $directories = $objects | where {$_.type -eq "dir"}
@@ -252,7 +255,7 @@ function DownloadFilesFromRepo {
     foreach ($file in $files) {
         $fileDestination = Join-Path $DestinationPath (Split-Path $file -Leaf)
         try {
-            Invoke-WebRequest -Uri $file -OutFile $fileDestination -ErrorAction Stop -Verbose
+            Invoke-WebRequest -Uri $file -OutFile $fileDestination -ErrorAction Stop -Verbose -UseBasicParsing
             "Grabbed '$($file)' to '$fileDestination'"
         }
         catch {
@@ -382,14 +385,15 @@ if ($config.Topology -eq "single") {
     $azureInfrastructureFile = Get-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json'))
     $azureInfrastructureFile = $oJsSerializer.DeserializeObject($azureInfrastructureFile)
 
-    if ($azureInfrastructureFile.parameters.singleHostingPlanSkuName.defaultValue -ne "P3v2") {
         $azureInfrastructureFile.parameters.singleHostingPlanSkuName.defaultValue = "P3v2"
+        $azureInfrastructureFile.parameters.sqlDatabaseServiceObjectiveLevel.defaultValue = "S3"
+
         $azureInfrastructureFile  | ConvertTo-Json -Depth 50 | Set-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json')) -Encoding Ascii
-    }
 }
 elseif ($config.Topology -eq "scaled") {
     $azureInfrastructureFile = Get-Content $([io.path]::combine($assetsFolder, 'ArmTemplates', 'nested', 'infrastructure.json'))
     $azureInfrastructureFile = $oJsSerializer.DeserializeObject($azureInfrastructureFile)
+    #TODO: Need to support  DYNAMICALLY increasing HostingPlan.SkuName to P3v2 and all "sql" related resources to S3
     if ($azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cmHostingPlan.SkuName -ne "P3v2") {
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cmHostingPlan.SkuName = "P3v2"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".cdHostingPlan.SkuName = "P3v2"
@@ -398,7 +402,7 @@ elseif ($config.Topology -eq "scaled") {
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".coreSqlDatabase.ServiceObjectiveLevel = "S3"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".masterSqlDatabase.ServiceObjectiveLevel = "S3"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".webSqlDatabase.ServiceObjectiveLevel = "S3"
-        $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".reportingSqlDatabase.ServiceObjectiveLevel = "S3"
+        #$azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".reportingSqlDatabase.ServiceObjectiveLevel = "S3"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".poolsSqlDatabase.ServiceObjectiveLevel = "S3"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".tasksSqlDatabase.ServiceObjectiveLevel = "S3"
         $azureInfrastructureFile.parameters.skuMap.defaultValue."Extra Small".formsSqlDatabase.ServiceObjectiveLevel = "S3"
