@@ -35,6 +35,23 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        protected void ConfirmCookies()
+        {
+            try
+            {
+                // If cookie warning of doom is present, click confirm to remove it.
+                var element = GetElement("div.privacy-warning div.submit a");
+                if (element != null)
+                    Click(element);
+            }
+            catch (NoSuchElementException)
+            {
+                // Cookie doom box must not be present.  Do nothing.  All is well.
+            }
+        }
+
+
+
         protected void DeleteAccount()
         {
             GoTo(Host);
@@ -83,6 +100,7 @@ namespace Sitecore.HabitatHome.Website.Test
             User user = GetUser();
 
             GoTo(Host);
+            ConfirmCookies();
             Click("LOGIN");
 
             EnterText("#loginEmail", user.Email);
@@ -146,11 +164,27 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        protected void OpenInfoPanel(string panelText)
+        {
+            Wait("button.btn-info.sidebar-closed");
+            var element = GetElement("button.btn-info.sidebar-closed");
+            if (element.Displayed)
+                Click(element);
+            Click(panelText);
+            Wait(1000);
+            var elements = GetElements("#sidebar div.panel-primary");
+            ScrollTo(elements.LastOrDefault());
+        }
+
+
+
         protected void Register()
         {
             User user = GetUser();
 
             GoTo(Host);
+            ConfirmCookies();
+
             Click("LOGIN");
             Click("CREATE ACCOUNT");
 
@@ -196,22 +230,14 @@ namespace Sitecore.HabitatHome.Website.Test
             TakeScreenshot("01-Bing");
 
             Click("How to Design Your Smart Home");
-            // If cookie warning of doom is present, click confirm to remove it.
-            var element = GetElement("div.privacy-warning div.submit a");
-            if (element != null)
-                Click(element);
-            Wait("button.btn-info.sidebar-closed");
-            Click("button.btn-info.sidebar-closed");
-            Click("Referral");
+            ConfirmCookies();
+            OpenInfoPanel("Referral");
             TakeScreenshot("02-CampaignActivated");
 
-            Click("a[title='Logo']");
+            Click("#header a");
             TakeScreenshot("03-PersonalizedHomepage", "SMART HOME CHECKLIST");
-            Wait("button.btn-info.sidebar-closed");
-            Click("button.btn-info.sidebar-closed");
-            Click("Onsite Behavior");
-            var elements = GetElements("#onSiteBehaviorProfileCurrent div.progress-bar.progress-bar-success");
-            TakeScreenshot("04-CampaignTriggered", elements.LastOrDefault());
+            OpenInfoPanel("Onsite Behavior");
+            TakeScreenshot("04-CampaignTriggered");
 
             Click("START HERE");
             Click("label.smart-home");
@@ -225,24 +251,18 @@ namespace Sitecore.HabitatHome.Website.Test
             TakeScreenshot("06-RecommendedGuides", "a[href*='dryer-stack-up']");
 
             Click("a[href*='dryer-stack-up']");
-            Wait("button.btn-info.sidebar-closed");
-            Click("button.btn-info.sidebar-closed");
-            Click("Onsite Behavior");
-            elements = GetElements("#onsiteBehaviorPanel div.media div.text-nowrap");
-            TakeScreenshot("07-ContentFinderCompleted", elements.FirstOrDefault(e => e.Text.Contains("Content Finder Completed")));
-            Click("a[title='Logo']");
+            OpenInfoPanel("Onsite Behavior");
+            TakeScreenshot("07-ContentFinderCompleted");
+            Click("#header a");
             TakeScreenshot("08-PersonalizedHomepage2", "CONTENT FINDER");
 
             GoTo($"{Host}/en/guides/dryer-stack-up");
             GetElement("input[data-sc-field-name='Email']").SendKeys("test.user@sitecore.net");
             Click("input[value='Sign Me Up!']");
-            Wait("button.btn-info.sidebar-closed");
-            Click("button.btn-info.sidebar-closed");
-            Click("Personal Information");
+            OpenInfoPanel("Personal Information");
             TakeScreenshot("09-IdentityEstablished");
-            Click("Onsite Behavior");
-            elements = GetElements("#onsiteBehaviorPanel div.media div.text-nowrap");
-            TakeScreenshot("10-ContentSignup", elements.FirstOrDefault(e => e.Text.Contains("Content Sign up")));
+            OpenInfoPanel("Onsite Behavior");
+            TakeScreenshot("10-ContentSignup");
         }
 
 
@@ -261,6 +281,25 @@ namespace Sitecore.HabitatHome.Website.Test
             Click("Logout");
             Login();
             TakeScreenshot("02-LoginResult");
+        }
+
+
+
+        [Test]
+        public void TestVisuals()
+        {
+            GoTo(Host);
+            ConfirmCookies();
+            TakeScreenshot("01-TopNavigation");
+
+            Click("#header div.megadrop");
+            HoverOn("Appliances");
+            TakeScreenshot("02-TopNavigationOpen");
+
+            TakeScreenshot("03-Promo-ConnectedLiving", "div.field-promolink a[href*='home-entertainment']");
+            TakeScreenshot("04-Promo-Gaming", "div.field-promolink a[href*='guides/gaming']");
+
+            TakeScreenshot("05-Footer", "#footer");
         }
 
     }
