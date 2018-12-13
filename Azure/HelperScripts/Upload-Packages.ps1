@@ -191,13 +191,13 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
 #############################################################
 [System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions") | Out-Null
 $oJsSerializer = New-Object System.Web.Script.Serialization.JavaScriptSerializer
-[string] $habitathomeJsonFile = $([IO.Path]::Combine($topologyPath, 'Arm Templates', 'habitathome', 'habitathomehome.json'))
+[string] $habitathomeJsonFile = $([IO.Path]::Combine($topologyPath, 'Arm Templates', 'habitathome', 'habitathome.json'))
 [string] $habitathomeParamsJsonFile = Join-Path $topologyPath "habitathome-parameters.json"
 if ($config.topology -eq "single") {
     # Testing paths to the required files
     if (!(Test-Path $habitathomeJsonFile) -or !($habitathomeParamsJsonFile)) {
-        Write-Host "The habitathomehome file '$($habitathomeJsonFile)' or habitathome-parameters file '$($habitathomeParamsJsonFile) not found." -ForegroundColor Red
-        Write-Host "Please ensure there is a habitathomehome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
+        Write-Host "The habitathome file '$($habitathomeJsonFile)' or habitathome-parameters file '$($habitathomeParamsJsonFile) not found." -ForegroundColor Red
+        Write-Host "Please ensure there is a habitathome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
         Exit 1
     }
     
@@ -207,6 +207,15 @@ if ($config.topology -eq "single") {
     $habitathomeJson = $oJsSerializer.DeserializeObject($habitathomeJson)
     $habitathomeParamsJson = $oJsSerializer.DeserializeObject($habitathomeParamsJson)
     
+     # Check if there are empty / not filled in parameters and remove these from the deployment
+     foreach ($habitathomeParameter in $habitathomeParamsJson.setParameters.Keys.Clone())
+     {
+         if ([string]::IsNullOrEmpty($habitathomeParamsJson.setParameters[$habitathomeParameter]))
+         {
+             $habitathomeParamsJson.setParameters.Remove($habitathomeParameter)
+         }
+     }
+
     # Check if the setParameters node already exists and clean that up
     if ($null -ne ($habitathomeJson.resources[0].properties.addOnPackages[0].setParameters)) {
         $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
@@ -222,8 +231,8 @@ elseif ($config.topology -eq "scaled") {
     [string] $habitathomeCdParamsJsonFile = Join-Path $topologyPath "habitathomecd-parameters.json"
     # Testing paths to the required files
     if (!(Test-Path $habitathomeJsonFile) -or !($habitathomeParamsJsonFile) -or !($habitathomeCdParamsJsonFile)) {
-        Write-Host "The habitathomehome file '$($habitathomeJsonFile)', habitathome-parameters file '$($habitathomeParamsJsonFile) or habitathomecd-parameters file '$($habitathomeCdParamsJsonFile) not found." -ForegroundColor Red
-        Write-Host "Please ensure there is a habitathomehome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
+        Write-Host "The habitathome file '$($habitathomeJsonFile)', habitathome-parameters file '$($habitathomeParamsJsonFile) or habitathomecd-parameters file '$($habitathomeCdParamsJsonFile) not found." -ForegroundColor Red
+        Write-Host "Please ensure there is a habitathome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
         Exit 1
     }
     
@@ -236,12 +245,30 @@ elseif ($config.topology -eq "scaled") {
     $habitathomeParamsJson = $oJsSerializer.DeserializeObject($habitathomeParamsJson)
     $habitathomeCdParamsJson = $oJsSerializer.DeserializeObject($habitathomeCdParamsJson)
     
+     # Check if there are empty / not filled in parameters and remove these from the deployment for CM
+     foreach ($habitathomeParameter in $habitathomeParamsJson.setParameters.Keys.Clone())
+     {
+         if ([string]::IsNullOrEmpty($habitathomeParamsJson.setParameters[$habitathomeParameter]))
+         {
+             $habitathomeParamsJson.setParameters.Remove($habitathomeParameter)
+         }
+     }
+ 
+     # Check if there are empty / not filled in parameters and remove these from the deployment for CD
+     foreach ($habitathomeCdParameter in $habitathomeCdParamsJson.setParameters.Keys.Clone())
+     {
+         if ([string]::IsNullOrEmpty($habitathomeCdParamsJson.setParameters[$habitathomeCdParameter]))
+         {
+             $habitathomeCdParamsJson.setParameters.Remove($habitathomeCdParameter)
+         }
+     }
+     
     # Check if the setParameters node already exists and clean that up for both CM and CD scaled
     if ($null -ne ($habitathomeJson.resources[0].properties.addOnPackages[0].setParameters)) {
         $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
     }
     if ($null -ne ($habitathomeJson.resources[1].properties.addOnPackages[0].setParameters)) {
-        $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
+        $habitathomeJson.resources[1].properties.addOnPackages[0].Remove("setParameters")
     }
     $habitathomeJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitathomeParamsJson.setParameters)
     $habitathomeJson.resources[1].properties.addOnPackages[0].add("setParameters", $habitathomeCdParamsJson.setParameters)
