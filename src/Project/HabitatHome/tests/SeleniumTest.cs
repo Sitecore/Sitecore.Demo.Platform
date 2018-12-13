@@ -10,6 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using ElementNotVisibleException = OpenQA.Selenium.ElementNotVisibleException;
 
 namespace Sitecore.HabitatHome.Website.Test
 {
@@ -94,7 +95,8 @@ namespace Sitecore.HabitatHome.Website.Test
             catch (WebDriverException wde)
             {
                 if (wde.Message.Contains("is not clickable at point") &&
-                    wde.Message.Contains("Other element would receive the click"))
+                    wde.Message.Contains("Other element would receive the click") ||
+                    wde.Message.Contains("element not interactable"))
                 {
                     var js = Driver as IJavaScriptExecutor;
                     js.ExecuteScript("arguments[0].click();", element);
@@ -106,10 +108,10 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
-        protected void Click(string descriptor)
+        protected void Click(string descriptor, int? milliseconds = null)
         {
             Console.WriteLine($"clicking \"{descriptor}\"");
-            Wait(descriptor);
+            Wait(descriptor, milliseconds);
             IWebElement element = GetElement(descriptor);
             Click(element);
         }
@@ -314,21 +316,21 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
-        public void TakeScreenshot(string name)
+        public void TakeScreenshot(string name, string language="en")
         {
-            TakeScreenshot(name, (IWebElement)null);
+            TakeScreenshot(name, (IWebElement)null, language);
         }
 
 
 
-        public void TakeScreenshot(string name, string onElement)
+        public void TakeScreenshot(string name, string onElement, string language)
         {
-            TakeScreenshot(name, GetElement(onElement));
+            TakeScreenshot(name, GetElement(onElement), language);
         }
 
 
 
-        public void TakeScreenshot(string name, IWebElement onElement)
+        public void TakeScreenshot(string name, IWebElement onElement, string language)
         {
             if (onElement != null)
                 CenterOn(onElement);
@@ -337,7 +339,7 @@ namespace Sitecore.HabitatHome.Website.Test
             Screenshot s = its.GetScreenshot();
             Directory.CreateDirectory(BitmapsPath);
             name = Path.Combine(BitmapsPath,
-                $"{GetType().Name}_{TestContext.CurrentContext.Test.Name}_{name}.png");
+                $"{GetType().Name}_{TestContext.CurrentContext.Test.Name}_{name}-{language}.png");
             s.SaveAsFile(name, ScreenshotImageFormat.Png);
         }
 
