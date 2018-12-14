@@ -59,6 +59,9 @@ Setup(context =>
 
         break;
         case "Local":
+            if (target == "Build-WDP"){
+                throw new Exception("Invalid DeploymentTarget in cake-config.json file. Valid values for DeploymentTarget are 'OnPrem' and 'Azure' when using -Target Build-WDP");
+            }
             deploymentRootPath = configuration.WebsiteRoot;
         break;
     }
@@ -165,10 +168,11 @@ Task("CleanBuildFolders").Does(() => {
 Task("CleanDeployFolder").Does(() => {
 
     // Clean deployment folders
-     string[] folders = { $"\\{configuration.Version}\\{topology}\\assets\\HabitatHome", $"\\{configuration.Version}\\{topology}\\assets\\HabitatHomeCD", "\\Website", $"\\{configuration.Version}\\{topology}\\assets\\Xconnect", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
+     string[] folders = { $"\\{configuration.Version}\\{topology}\\assets\\HabitatHome", $"\\{configuration.Version}\\{topology}\\assets\\HabitatHomeCD", $"\\{configuration.Version}\\{topology}\\Website", $"\\{configuration.Version}\\{topology}\\assets\\Xconnect", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
 
     foreach (string folder in folders)
     {
+        Information($"Cleaning: {folder}");
         if (DirectoryExists($"{configuration.DeployFolder}{folder}"))
         {
             try
