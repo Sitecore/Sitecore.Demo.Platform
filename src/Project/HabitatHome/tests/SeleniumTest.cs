@@ -10,6 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using ElementNotVisibleException = OpenQA.Selenium.ElementNotVisibleException;
 
 namespace Sitecore.HabitatHome.Website.Test
 {
@@ -64,19 +65,23 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
-        protected static string CodeBasePath
+        protected void CenterOn(IWebElement element)
         {
-            get
-            {
-                if (codeBasePath != null)
-                    return codeBasePath;
+            string centerOnElement = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);" +
+                "var elementTop = arguments[0].getBoundingClientRect().top;" +
+                "window.scrollBy(0, elementTop-(viewPortHeight/2));";
 
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-                UriBuilder uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
-                codeBasePath = Path.GetDirectoryName(path);
-                return CodeBasePath;
-            }
+            ((IJavaScriptExecutor)Driver).ExecuteScript(centerOnElement, element);
+        }
+
+
+
+        protected void CenterOn(string descriptor)
+        {
+            Console.WriteLine($"centering on \"{descriptor}\"");
+            Wait(descriptor);
+            IWebElement element = GetElement(descriptor);
+            CenterOn(element);
         }
 
 
@@ -90,7 +95,8 @@ namespace Sitecore.HabitatHome.Website.Test
             catch (WebDriverException wde)
             {
                 if (wde.Message.Contains("is not clickable at point") &&
-                    wde.Message.Contains("Other element would receive the click"))
+                    wde.Message.Contains("Other element would receive the click") ||
+                    wde.Message.Contains("element not interactable"))
                 {
                     var js = Driver as IJavaScriptExecutor;
                     js.ExecuteScript("arguments[0].click();", element);
@@ -102,12 +108,29 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
-        protected void Click(string descriptor)
+        protected void Click(string descriptor, int? milliseconds = null)
         {
             Console.WriteLine($"clicking \"{descriptor}\"");
-            Wait(descriptor);
+            Wait(descriptor, milliseconds);
             IWebElement element = GetElement(descriptor);
             Click(element);
+        }
+
+
+
+        protected static string CodeBasePath
+        {
+            get
+            {
+                if (codeBasePath != null)
+                    return codeBasePath;
+
+                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                UriBuilder uri = new UriBuilder(codeBase);
+                string path = Uri.UnescapeDataString(uri.Path);
+                codeBasePath = Path.GetDirectoryName(path);
+                return CodeBasePath;
+            }
         }
 
 
@@ -212,6 +235,44 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
+        protected void HoverOn(IWebElement element)
+        {
+            Actions actions = new Actions(Driver);
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
+
+
+
+        protected void HoverOn(string descriptor)
+        {
+            Console.WriteLine($"hovering on \"{descriptor}\"");
+            Wait(descriptor);
+            IWebElement element = GetElement(descriptor);
+            HoverOn(element);
+        }
+
+
+
+        protected void ScrollTo(IWebElement element)
+        {
+            Actions actions = new Actions(Driver);
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
+
+
+
+        protected void ScrollTo(string descriptor)
+        {
+            Console.WriteLine($"scrolling to \"{descriptor}\"");
+            Wait(descriptor);
+            IWebElement element = GetElement(descriptor);
+            HoverOn(element);
+        }
+
+
+
         public void TakeFullPageScreenshot(string name)
         {
             // Add html2canvas if it isn't already loaded.
@@ -255,34 +316,30 @@ namespace Sitecore.HabitatHome.Website.Test
 
 
 
-        public void TakeScreenshot(string name)
+        public void TakeScreenshot(string name, string language="en")
         {
-            TakeScreenshot(name, (IWebElement)null);
+            TakeScreenshot(name, (IWebElement)null, language);
         }
 
 
 
-        public void TakeScreenshot(string name, string onElement)
+        public void TakeScreenshot(string name, string onElement, string language)
         {
-            TakeScreenshot(name, GetElement(onElement));
+            TakeScreenshot(name, GetElement(onElement), language);
         }
 
 
 
-        public void TakeScreenshot(string name, IWebElement onElement)
+        public void TakeScreenshot(string name, IWebElement onElement, string language)
         {
             if (onElement != null)
-            {
-                Actions actions = new Actions(Driver);
-                actions.MoveToElement(onElement);
-                actions.Perform();
-            }
+                CenterOn(onElement);
 
             var its = driver as ITakesScreenshot;
             Screenshot s = its.GetScreenshot();
             Directory.CreateDirectory(BitmapsPath);
             name = Path.Combine(BitmapsPath,
-                $"{GetType().Name}_{TestContext.CurrentContext.Test.Name}_{name}.png");
+                $"{GetType().Name}_{TestContext.CurrentContext.Test.Name}_{name}-{language}.png");
             s.SaveAsFile(name, ScreenshotImageFormat.Png);
         }
 
