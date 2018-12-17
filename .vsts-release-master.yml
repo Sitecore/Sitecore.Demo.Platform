@@ -74,7 +74,7 @@ steps:
 
     githubReleaseAsset: |
      $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/*
-     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/xConnect/WDPWorkFolder/WDP/*
+     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/habitatHome_xConnect/WDPWorkFolder/WDP/*
 
     githubEditRelease: true
 

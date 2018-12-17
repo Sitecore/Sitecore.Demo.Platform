@@ -235,7 +235,7 @@ function DownloadFilesFromRepo {
     $arguments = "repos/$Owner/$Repository/contents/$Path"
     $wr = Invoke-WebRequest -Uri $($baseuri + $arguments) -UseBasicParsing
     $objects = $wr.Content | ConvertFrom-Json
-    $files = $objects | where {$_.type -eq "file"} | Select -exp download_url
+    $files = $objects | where {$_.type -eq "file"} | Select-Object -exp download_url
     $directories = $objects | where {$_.type -eq "dir"}
 	
     $directories | ForEach-Object { 
