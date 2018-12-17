@@ -73,7 +73,7 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
         }
 
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip')))) | out-null
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitatHome_xConnect', 'WDPWorkFolder', 'WDP', 'habitatHome_xConnect.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitatHome_xConnect', 'WDPWorkFolder', 'WDP', 'habitatHome_xConnect_single.scwdp.zip')))) | out-null
     }
     elseif ($cakeJsonConfig.Topology -eq "scaled") {
         if (!($SkipScUpload) -and ($ScUpload -eq $true)) {
@@ -83,7 +83,7 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
         
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathomeCD', 'WDPWorkFolder', 'WDP', 'habitathome_cd.scwdp.zip')))) | out-null
         $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitathome', 'WDPWorkFolder', 'WDP', 'habitathome_single.scwdp.zip')))) | out-null   
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitatHome_xConnect', 'WDPWorkFolder', 'WDP', 'habitatHome_xConnect.scwdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'habitatHome_xConnect', 'WDPWorkFolder', 'WDP', 'habitatHome_xConnect_single.scwdp.zip')))) | out-null
     }
 
     if (!($SkipScUpload)) {
@@ -478,7 +478,7 @@ $habitatHomeWebsiteDeployPackageUrl = $blobsList | Where-Object {
         -FullUri
 }
 $habitatHomeXconnectDeployPackageUrl = $blobsList | Where-Object {
-    $_.name -eq "wdps/habitatHome_xConnect.scwdp.zip"} | Select-Object -First 1 | ForEach-Object {
+    $_.name -eq "wdps/habitatHome_xConnect_single.scwdp.zip"} | Select-Object -First 1 | ForEach-Object {
     New-AzureStorageBlobSASToken -Container $containerName `
         -Blob $_.Name `
         -Permission rwd `

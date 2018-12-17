@@ -282,7 +282,7 @@ Task("Publish-Transforms").Does(() => {
         var files = new List<string>();
         foreach(var layer in layers)
         {
-            var xdtFiles = GetTransformFiles(layer).Select-Object(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
+            var xdtFiles = GetTransformFiles(layer).Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
             files.AddRange(xdtFiles);
         }   
 
@@ -397,7 +397,7 @@ Task("Publish-YML").Does(() => {
 
     try
     {
-        var files = GetFiles(serializationFilesFilter).Select-Object(x=>x.FullPath).ToList();
+        var files = GetFiles(serializationFilesFilter).Select(x=>x.FullPath).ToList();
 
         CopyFiles(files , destination, preserveFolderStructure: true);
     }
@@ -479,7 +479,7 @@ Task("Publish-Post-Steps").Does(() => {
 
     try
     {
-        var files = GetFiles(serializationFilesFilter).Select-Object(x=>x.FullPath).ToList();
+        var files = GetFiles(serializationFilesFilter).Select(x=>x.FullPath).ToList();
 
         CopyFiles(files, destination, preserveFolderStructure: false);
     }
@@ -545,10 +545,10 @@ Task("Prepare-Transform-Files").Does(()=>{
         List<string> files;
         
         if (configuration.DeploymentTarget == "Azure"){
-            files = xdtFiles.Select-Object(x => x.FullPath).Where(x=>x.Contains(".azure")).ToList();
+            files = xdtFiles.Select(x => x.FullPath).Where(x=>x.Contains(".azure")).ToList();
         }
         else{
-            files = xdtFiles.Select-Object(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
+            files = xdtFiles.Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
         }
 
         foreach (var file in files)
