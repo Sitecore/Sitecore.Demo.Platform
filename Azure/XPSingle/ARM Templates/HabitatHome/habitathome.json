@@ -28,7 +28,7 @@
                        "extension":  {
                                          "type":  "secureObject",
                                          "defaultValue":  {
-                                                              "habitatWebsiteDeployPackageUrl":  null
+                                                              "habitatHomeWebsiteDeployPackageUrl":  null
                                                           }
                                      },
                        "templateLinkBase":  {
@@ -75,10 +75,10 @@
                                                 "minLength":  1,
                                                 "defaultValue":  "[coalesce(parameters(\u0027standard\u0027).singleWebAppName, concat(parameters(\u0027deploymentId\u0027), \u0027-single\u0027))]"
                                             },
-                       "habitatWebsiteDeployPackageUrl":  {
+                       "habitatHomeWebsiteDeployPackageUrl":  {
                                                               "type":  "securestring",
                                                               "minLength":  1,
-                                                              "defaultValue":  "[parameters(\u0027extension\u0027).habitatWebsiteDeployPackageUrl]"
+                                                              "defaultValue":  "[parameters(\u0027extension\u0027).habitatHomeWebsiteDeployPackageUrl]"
                                                           }
                    },
     "resources":  [
@@ -91,7 +91,7 @@
                                              "mode":  "Incremental",
                                              "addOnPackages":  [
                                                                    {
-                                                                       "packageUri":  "[parameters(\u0027habitatWebsiteDeployPackageUrl\u0027)]",
+                                                                       "packageUri":  "[parameters(\u0027habitatHomeWebsiteDeployPackageUrl\u0027)]",
                                                                        "dbType":  "SQL",
                                                                        "connectionString":  "[concat(\u0027Data Source=tcp:\u0027, variables(\u0027sqlServerFqdnTidy\u0027), \u0027,1433;Initial Catalog=master;User Id=\u0027, parameters(\u0027sqlServerLogin\u0027), \u0027;Password=\u0027, parameters(\u0027sqlServerPassword\u0027), \u0027;\u0027)]",
                                                                        "setParameters":  {

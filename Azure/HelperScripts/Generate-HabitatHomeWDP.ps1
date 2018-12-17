@@ -651,7 +651,7 @@ Function Prepare-WDP ($configJson, $assetsConfigJson, $assetsFolder) {
 				}
 
 			}
-			"xconnect"
+			"habitatHome_xConnect"
 			{
 				
 				# Do a check if the WDP package already exists and if not, proceed with package generation

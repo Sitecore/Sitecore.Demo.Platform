@@ -39,7 +39,7 @@
     "extension": {
       "type": "secureObject",
       "defaultValue": {
-        "habitatXconnectDeployPackageUrl": null
+        "habitatHomeXconnectDeployPackageUrl": null
       }
     },
 
@@ -111,10 +111,10 @@
       "minLength": 1,
       "defaultValue": "[coalesce(parameters('standard').maOpsWebAppName, concat(parameters('deploymentId'), '-ma-ops'))]"
     },
-    "habitatXconnectDeployPackageUrl": {
+    "habitatHomeXconnectDeployPackageUrl": {
       "type": "securestring",
       "minLength": 1,
-      "defaultValue": "[parameters('extension').habitatXconnectDeployPackageUrl]"
+      "defaultValue": "[parameters('extension').habitatHomeXconnectDeployPackageUrl]"
     }
   },
 
@@ -127,7 +127,7 @@
       "properties": {
         "addOnPackages": [
            {
-            "packageUri": "[parameters('habitatXconnectDeployPackageUrl')]",
+            "packageUri": "[parameters('habitatHomeXconnectDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -147,7 +147,7 @@
       "properties": {
         "addOnPackages": [
           {
-            "packageUri": "[parameters('habitatXconnectDeployPackageUrl')]",
+            "packageUri": "[parameters('habitatHomeXconnectDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -167,7 +167,7 @@
       "properties": {
         "addOnPackages": [
           {
-            "packageUri": "[parameters('habitatXconnectDeployPackageUrl')]",
+            "packageUri": "[parameters('habitatHomeXconnectDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -187,7 +187,7 @@
       "properties": {
         "addOnPackages": [
           {
-            "packageUri": "[parameters('habitatXconnectDeployPackageUrl')]",
+            "packageUri": "[parameters('habitatHomeXconnectDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
@@ -207,7 +207,7 @@
       "properties": {
         "addOnPackages": [
           {
-            "packageUri": "[parameters('habitatXconnectDeployPackageUrl')]",
+            "packageUri": "[parameters('habitatHomeXconnectDeployPackageUrl')]",
             "dbType": "SQL",
             "connectionString": "[concat('Data Source=tcp:', variables('sqlServerFqdnTidy'), ',1433;Initial Catalog=master;User Id=', parameters('sqlServerLogin'), ';Password=', parameters('sqlServerPassword'), ';')]",
             "setParameters": {
