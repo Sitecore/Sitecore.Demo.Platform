@@ -1,0 +1,65 @@
+﻿---
+ID: "e2b450de-7e4a-4e5f-9896-7bb19e04f533"
+Parent: "b41dbff7-8c53-4e8f-99ca-ced01bc9d154"
+Template: "45fb02e9-70b3-4cfe-8050-06ead4b5db3e"
+Path: /sitecore/system/Marketing Control Panel/Test Lab/2018/12/03/17/49/login B2EC138D611B4A708EBB471D2FAA4E73
+DB: master
+SharedFields:
+- ID: "0410bcd6-1c08-4bc6-a4f4-1e288c5483d7"
+  Hint: Guess
+  Value: 0
+- ID: "30f291c9-cf14-41bf-8173-1ee796e423d1"
+  Hint: Device
+  Value: "{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+- ID: "54ab2781-4a1b-4db3-86be-1797fd041af3"
+  Hint: Name
+  Value: login B2EC138D611B4A708EBB471D2FAA4E73
+- ID: "6997d734-2b0b-4ce4-8cd0-b4f73a3999a6"
+  Hint: Test Strategy
+  Value: "{5E06B64F-6EA7-495C-AA66-7B69F7B94C19}"
+- ID: "8c0f9980-5a09-4874-a96e-468c13853b3a"
+  Hint: TrackWithEngagement
+  Type: Checkbox
+  Value: 1
+- ID: "8d275b38-730d-4ab1-9280-761a3fbefad9"
+  Hint: Content Item
+  Value: "sitecore://{79902BF1-F289-4B38-A8A1-9DAD2E65AC01}?lang=en&ver=2"
+- ID: "936e7737-5d1e-45d5-ae4d-c207f16238a0"
+  Hint: ConfidenceLevel
+  Value: 90
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: Checkbox
+  Value: 1
+- ID: "a023b285-3ff4-423c-b6d2-aeb6f7993f70"
+  Hint: MinDuration
+  Value: 3
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{2BAE793F-7392-4790-9E67-9C60B6BF7D7B}"
+- ID: "abd7b792-203a-4389-833d-7b91d010f638"
+  Hint: MaxDuration
+  Value: 90
+- ID: "b29e799e-1d2e-4d53-98b8-7576eac7a162"
+  Hint: Language
+  Value: en
+- ID: "c25e3617-ca6f-4dfc-a02e-b4ea0e083d70"
+  Hint: __Is Running
+  Value: 1
+- ID: "d685e9a2-41a2-49ad-a396-21d5492392e0"
+  Hint: Traffic Allocation
+  Value: 100
+- ID: "fdaa16a6-81df-4a0a-8fca-01704164e4db"
+  Hint: Select Winner Strategy
+  Value: "{9551FA9B-2C25-40A1-9C00-038DE67ABDC2}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181203T174933Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{1789B344-EA1D-4DF7-BA53-1BB2814F7A5A}"

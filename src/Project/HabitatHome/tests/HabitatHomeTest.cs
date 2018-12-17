@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
+using System.Configuration;
+using System.Globalization;
 using System.Linq;
 
 namespace Sitecore.HabitatHome.Website.Test
@@ -16,13 +18,17 @@ namespace Sitecore.HabitatHome.Website.Test
             public string Password { get; set; }
         }
 
+        public HabitatHomeTest()
+        {
+            var settings = ConfigurationManager.AppSettings;
+            Host = settings["Host"];
+            UserEmail = settings["UserEmail"];
+            UserPassword = settings["UserPassword"];
+        }
 
-
-        public string Host { get; set; } = "http://habitathome.dev.local";
-        public string UserEmail { get; set; } = "test.user@sitecore.net";
-        public string UserPassword { get; set; } = "habitat";
-
-
+        public string Host { get; set; }
+        public string UserEmail { get; set; }
+        public string UserPassword { get; set; }
 
         protected static string Capitalize(string text)
         {
@@ -33,7 +39,20 @@ namespace Sitecore.HabitatHome.Website.Test
             return text.Substring(0, 1).ToUpper() + text.Substring(1);
         }
 
-
+        protected void ConfirmCookies()
+        {
+            try
+            {
+                // If cookie warning of doom is present, click confirm to remove it.
+                var element = GetElement("div.privacy-warning div.submit a");
+                if (element != null)
+                    Click(element);
+            }
+            catch (NoSuchElementException)
+            {
+                // Cookie doom box must not be present.  Do nothing.  All is well.
+            }
+        }
 
         protected void DeleteAccount()
         {
@@ -43,8 +62,6 @@ namespace Sitecore.HabitatHome.Website.Test
             Click("input[type='submit']");
             AcceptAlert();
         }
-
-
 
         protected User GetUser()
         {
@@ -76,13 +93,12 @@ namespace Sitecore.HabitatHome.Website.Test
             return user;
         }
 
-
-
         protected void Login(bool doRegisttrationIfMissing = true)
         {
             User user = GetUser();
 
             GoTo(Host);
+            ConfirmCookies();
             Click("LOGIN");
 
             EnterText("#loginEmail", user.Email);
@@ -92,8 +108,6 @@ namespace Sitecore.HabitatHome.Website.Test
             if (!GetElements("Logout").Any() && doRegisttrationIfMissing)
                 Register();
         }
-
-
 
         protected static string NumberToWords(int number)
         {
@@ -144,13 +158,25 @@ namespace Sitecore.HabitatHome.Website.Test
             return words;
         }
 
-
+        protected void OpenInfoPanel(string panelText)
+        {
+            Wait("button.btn-info.sidebar-closed");
+            var element = GetElement("button.btn-info.sidebar-closed");
+            if (element.Displayed)
+                Click(element);
+            Click(panelText);
+            Wait(1000);
+            var elements = GetElements("#sidebar div.panel-primary");
+            ScrollTo(elements.LastOrDefault());
+        }
 
         protected void Register()
         {
             User user = GetUser();
 
             GoTo(Host);
+            ConfirmCookies();
+
             Click("LOGIN");
             Click("CREATE ACCOUNT");
 
@@ -161,8 +187,6 @@ namespace Sitecore.HabitatHome.Website.Test
             EnterText("#registerConfirmPassword", user.Password);
             Click("input[type='submit']");
         }
-
-
 
         protected Exception Try(Action action)
         {
@@ -177,8 +201,6 @@ namespace Sitecore.HabitatHome.Website.Test
             }
         }
 
-
-
         [Test]
         public void TestAccountDeletion()
         {
@@ -187,65 +209,48 @@ namespace Sitecore.HabitatHome.Website.Test
             TakeScreenshot("01-DeleteAccountResult");
         }
 
-
-
         [Test]
         public void TestNewUser()
         {
+            var language = "en";
             GoTo($"{Host}/landing-pages/bing-smart-home-design");
             TakeScreenshot("01-Bing");
 
             Click("How to Design Your Smart Home");
-            // If cookie warning of doom is present, click confirm to remove it.
-            var element = GetElement("div.privacy-warning div.submit a");
-            if (element != null)
-                Click(element);
-            Wait("button.btn-info.sidebar-closed");
-            Click("button.btn-info.sidebar-closed");
-            Click("Referral");
+            ConfirmCookies();
+            OpenInfoPanel("Referral");
             TakeScreenshot("02-CampaignActivated");
 
-            Click("a[title='Logo']");
-            TakeScreenshot("03-PersonalizedHomepage", "SMART HOME CHECKLIST");
-            Wait("button.btn-info.sidebar-closed");
-            Click("button.btn-info.sidebar-closed");
-            Click("Onsite Behavior");
-            var elements = GetElements("#onSiteBehaviorProfileCurrent div.progress-bar.progress-bar-success");
-            TakeScreenshot("04-CampaignTriggered", elements.LastOrDefault());
+            Click("#header a");
+            TakeScreenshot("03-PersonalizedHomepage", "SMART HOME CHECKLIST", language);
+            OpenInfoPanel("Onsite Behavior");
+            TakeScreenshot("04-CampaignTriggered");
 
             Click("START HERE");
             Click("label.smart-home");
-            TakeScreenshot("05-Guide", "input[value='Next']");
+            TakeScreenshot("05-Guide", "input[value='Next']", language);
 
             Click("input[value='Next']");
             Click("label.entire-house");
             Click("input[value='Next']");
             Click("label.n-a");
             Click("input[value='Next']");
-            TakeScreenshot("06-RecommendedGuides", "a[href*='dryer-stack-up']");
+            TakeScreenshot("06-RecommendedGuides", "a[href*='dryer-stack-up']", language);
 
             Click("a[href*='dryer-stack-up']");
-            Wait("button.btn-info.sidebar-closed");
-            Click("button.btn-info.sidebar-closed");
-            Click("Onsite Behavior");
-            elements = GetElements("#onsiteBehaviorPanel div.media div.text-nowrap");
-            TakeScreenshot("07-ContentFinderCompleted", elements.FirstOrDefault(e => e.Text.Contains("Content Finder Completed")));
-            Click("a[title='Logo']");
-            TakeScreenshot("08-PersonalizedHomepage2", "CONTENT FINDER");
+            OpenInfoPanel("Onsite Behavior");
+            TakeScreenshot("07-ContentFinderCompleted");
+            Click("#header a");
+            TakeScreenshot("08-PersonalizedHomepage2", "CONTENT FINDER", language);
 
             GoTo($"{Host}/en/guides/dryer-stack-up");
             GetElement("input[data-sc-field-name='Email']").SendKeys("test.user@sitecore.net");
             Click("input[value='Sign Me Up!']");
-            Wait("button.btn-info.sidebar-closed");
-            Click("button.btn-info.sidebar-closed");
-            Click("Personal Information");
+            OpenInfoPanel("Personal Information");
             TakeScreenshot("09-IdentityEstablished");
-            Click("Onsite Behavior");
-            elements = GetElements("#onsiteBehaviorPanel div.media div.text-nowrap");
-            TakeScreenshot("10-ContentSignup", elements.FirstOrDefault(e => e.Text.Contains("Content Sign up")));
+            OpenInfoPanel("Onsite Behavior");
+            TakeScreenshot("10-ContentSignup");
         }
-
-
 
         [Test]
         public void TestRegistration()
@@ -263,5 +268,68 @@ namespace Sitecore.HabitatHome.Website.Test
             TakeScreenshot("02-LoginResult");
         }
 
+        [Test]
+        public void TestVisuals()
+        {
+            var language = "en";
+            GoTo(Host);
+            ConfirmCookies();
+            TakeScreenshot("01-TopNavigation");
+
+            Click("#header div.megadrop");
+            HoverOn("Appliances");
+            TakeScreenshot("02-TopNavigationOpen");
+
+            TakeScreenshot("03-Promo-ConnectedLiving", "div.field-promolink a[href*='home-entertainment']", language);
+            TakeScreenshot("04-Promo-Gaming", "div.field-promolink a[href*='guides/gaming']", language);
+
+            TakeScreenshot("05-Footer", "#footer");
+        }
+
+        [Test]
+        public void TestJapaneseVisuals()
+        {
+            GoTo(Host);
+            ConfirmCookies();
+            var language = "ja-JP";
+            ChangeLanguage(language);
+
+            TakeScreenshot($"01--TopNavigation", language);
+
+            Click("#header div.megadrop");
+            HoverOn("家電製品");
+            TakeScreenshot($"02-TopNavigationOpen", language);
+
+            TakeScreenshot($"03-Promo-ConnectedLiving", $"div.field-promolink a[href*='/{language}/home-entertainment']", language);
+            TakeScreenshot($"04-Promo-Gaming", $"div.field-promolink a[href*='/{language}/guides/gaming']", language);
+
+            TakeScreenshot($"05-Footer", "#footer", language);
+        }
+
+        [Test]
+        public void TestFrenchCanadaVisuals()
+        {
+            GoTo(Host);
+            ConfirmCookies();
+            var language = "fr-CA";
+            ChangeLanguage(language);
+
+            TakeScreenshot($"01-TopNavigation", language);
+
+            Click("#header div.megadrop");
+            HoverOn("Électroménagers");
+            TakeScreenshot($"02-TopNavigationOpen", language);
+
+            TakeScreenshot($"03-Promo-ConnectedLiving", $"div.field-promolink a[href*='/{language}/home-entertainment']", language);
+            TakeScreenshot($"04-Promo-Gaming", $"div.field-promolink a[href*='/{language}/guides/gaming']", language);
+
+            TakeScreenshot($"05-Footer", "#footer", language);
+        }
+
+        private void ChangeLanguage(string language)
+        {
+            Click("a.language-selector-select-link");
+            Click($"a[href*='/{language}']",1000);
+        }
     }
 }
