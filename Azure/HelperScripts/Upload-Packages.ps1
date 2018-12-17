@@ -24,18 +24,19 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray = ProcessConfigFile -Config $ConfigurationFile
-$config = $configarray[0]
-$assetconfig = $configarray[1]
-$azureuserconfig = $configarray[2]
-$azureuserconfigfile = $configarray[4]
-$topology = $configarray[5]
+$configuration = ProcessConfigFile -Config $ConfigurationFile
+$config = $configuration.cakeConfig
+$assetconfig = $configuration.assets
+$azureuserconfig = $configuration.azureUserConfig
+$azureuserconfigfile = $configuration.azureUserConfigFile
+$topologyPath = $configuration.topologyPath
+$assetsFolder = $configuration.assetsFolder
 
 ##########################
 # Function for WDP uploads
 ##########################
 
-Function CheckMd5{
+Function CheckMd5 {
     param(
         [string] $localFilePath,
         [string] $remoteBlobPath,
@@ -43,24 +44,23 @@ Function CheckMd5{
         $context
     )
     $localMD5 = Get-FileHash -Path $localFilePath -Algorithm MD5
-   
+
     $cloudMD5 = $null
     $blob = Get-AzureStorageBlob -Blob $remoteBlobPath -Container $container -Context $context -ErrorAction SilentlyContinue
     
     if ($blob) {
-        $cloudMD5 =  $blob.ICloudBlob.Properties.ContentMD5
+        $cloudMD5 = $blob.ICloudBlob.Properties.ContentMD5
     }
-    if ($cloudMd5 -ne $localMD5.Hash){
+    if ($cloudMd5 -ne $localMD5.Hash) {
         return $false
     }
-    else
-    {
+    else {
         return $true
     }
 }
-Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload) {
 
-    $assetsFolder = (Join-Path $cakeJsonConfig.DeployFolder "assets")
+Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload, $assetsFolder) {
+
     $sitecoreWDPpathArray = New-Object System.Collections.ArrayList
     $scUpload = $false
     $scUpload = ($assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Platform"} | Select-Object -first 1).uploadToAzure
@@ -93,28 +93,28 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
         if ($sitecoreAsset.FileName -match $regex) {
             $sepversion = $matches[0]
         }
-        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($cakeJsonConfig.DeployFolder, 'assets', 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
+        $sitecoreWDPpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsFolder, 'Sitecore Azure Toolkit', 'resources', $sepversion, 'Addons', 'Sitecore.Cloud.Integration.Bootload.wdp.zip')))) | out-null
     }
 
     $assetsJsonConfig.prerequisites | Where-Object {
         $_.uploadToAzure -eq $true -and $_.isWdp -eq $true -and $_.install -eq $true} | ForEach-Object {
-        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name)))
+        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name))) | out-null
     }
     $assetsJsonConfig.prerequisites | Where-Object {
         ($_.uploadToAzure -eq $true -and $_.isGroup -eq $true) -or ($_.convertToWdp -eq $true -and $_.install -eq $true)} | ForEach-Object {
-        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name)))
+        $sitecoreWDPpathArray.Add((Get-ChildItem (Join-Path $assetsFolder $_.name))) | out-null
     }
-  
+
     # Perform Upload
     foreach ($scwdpinarray in $sitecoreWDPpathArray) {
         if ($null -eq $scwdpinarray) {
             continue
         }
         Write-Host "Uploading '$($scwdpinarray.Name)'" -ForegroundColor Green
-        if (!(CheckMD5 -localFilePath $scwdpinarray.FullName -remoteBlobPath "wdps/$($scwdpinarray.Name)" -container $containerName -context $ctx)){
+        if (!(CheckMD5 -localFilePath $scwdpinarray.FullName -remoteBlobPath "wdps/$($scwdpinarray.Name)" -container $containerName -context $ctx)) {
             $md5 = Get-FileHash -Path $scwdpinarray.FullName -Algorithm MD5
-        Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force -Properties @{"ContentMD5" = $md5.Hash}
-        Write-Host "Upload of '$($scwdpinarray.Name)' completed" -ForegroundColor Green
+            Set-AzureStorageBlobContent -File $scwdpinarray.FullName -Blob "wdps/$($scwdpinarray.Name)" -Container $containerName -Context $ctx -Force -Properties @{"ContentMD5" = $md5.Hash}
+            Write-Host "Upload of '$($scwdpinarray.Name)' completed" -ForegroundColor Green
         }
         else {
             Write-Host "***  Skipping '$($scwdpinarray.Name)' - already exists" -ForegroundColor Green
@@ -128,22 +128,22 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
 # Function for file uploads
 ###########################
 
-Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload) {
+Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJsonConfig, [Switch] $SkipScUpload, $assetsfolder) {
 
     $sitecoreARMpathArray = New-Object System.Collections.ArrayList
     
     # Fetching all ARM templates' paths
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'habitathome.json')))) | out-null
-    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Habitat', 'xconnect.json')))) | out-null
+    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topologyPath, 'ARM Templates', 'HabitatHome', 'habitathome.json')))) | out-null
+    $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topologyPath, 'ARM Templates', 'HabitatHome', 'xconnect.json')))) | out-null
 
     $defInstall = $assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Data Exchange Framework"} | % { $_.uploadToAzure -and $_.install}
     if ($defInstall) {
-        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Data Exchange Framework', 'def_module.json')))) | out-null
+        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topologyPath, 'ARM Templates', 'Data Exchange Framework', 'def_module.json')))) | out-null
     }
     
     $sxaInstall = $assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Accelerator"} | % { $_.uploadToAzure -and $_.install}
     if ($sxaInstall) {
-        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'ARM Templates', 'Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
+        $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topologyPath, 'ARM Templates', 'Sitecore Experience Accelerator', 'sxa_module.json')))) | out-null
     }
     
     if (!($SkipScUpload)) {
@@ -151,14 +151,14 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
         $sitecoreInstall = $assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Platform"} | % { $_.uploadToAzure -and $_.install}
         
         if ($sitecoreInstall) {
-            $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'azuredeploy.json')))) | out-null
-            $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($topology, 'addons', 'bootloader.json')))) | out-null
+            $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsfolder, 'ArmTemplates', 'azuredeploy.json')))) | out-null
+            $sitecoreARMpathArray.Add($(Get-Item -Path $([IO.Path]::Combine($assetsfolder, 'ArmTemplates', 'addons', 'bootloader.json')))) | out-null
         
-            $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($topology, 'nested'))
+            $nestedArmTemplates = Get-Item -Path $([IO.Path]::Combine($assetsfolder, 'ArmTemplates', 'nested'))
             
             Get-ChildItem -File -Path $nestedArmTemplates.FullName | ForEach-Object { 
 
-                if (!(CheckMD5 -localFilePath $_.FullName -remoteBlobPath "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -container $containerName -context $ctx)){
+                if (!(CheckMD5 -localFilePath $_.FullName -remoteBlobPath "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -container $containerName -context $ctx)) {
                     $md5 = Get-FileHash -Path $_.FullName -Algorithm MD5
                     Set-AzureStorageBlobContent -File $_.FullName -Blob "arm-templates/$($nestedArmTemplates.Name)/$($_.Name)" -Container $containerName -Context $ctx -Properties @{"ContentMD5" = $md5.Hash} -Force
                     Write-Host "Upload of '$($_.Name)' completed" -ForegroundColor Green
@@ -172,8 +172,7 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
 
     # Checking if the files are already uploaded and present in Azure and uploading
     foreach ($scARMsInArray in $sitecoreARMpathArray) {      
-        if (!(CheckMD5 -localFilePath $scARMsInArray.FullName -remoteBlobPath "arm-templates/$($scARMsInArray.Name)" -container $containerName -context $ctx))
-        {
+        if (!(CheckMD5 -localFilePath $scARMsInArray.FullName -remoteBlobPath "arm-templates/$($scARMsInArray.Name)" -container $containerName -context $ctx)) {
             Write-Host "Uploading $($scARMsInArray.Name)" -ForegroundColor Green
             $md5 = Get-FileHash -Path $scARMsInArray.FullName -Algorithm MD5
             Set-AzureStorageBlobContent -File $scARMsInArray.FullName -Blob "arm-templates/$($scARMsInArray.Name)" -Container $containerName -Context $ctx -Properties @{"ContentMD5" = $md5.Hash} -Force
@@ -181,13 +180,104 @@ Function UploadFiles ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assets
             Write-Host "Upload of '$($scARMsInArray.Name)' completed" -ForegroundColor Green
 
         }    
-        else{
+        else {
             Write-Host "***  Skipping '$($scARMsInArray.Name)' - already exists" -ForegroundColor Green
 
         }   
     }
 }
+#############################################################
+# Add custom parameters to habitathome.json before uploading
+#############################################################
+[System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions") | Out-Null
+$oJsSerializer = New-Object System.Web.Script.Serialization.JavaScriptSerializer
+[string] $habitathomeJsonFile = $([IO.Path]::Combine($topologyPath, 'Arm Templates', 'habitathome', 'habitathome.json'))
+[string] $habitathomeParamsJsonFile = Join-Path $topologyPath "habitathome-parameters.json"
+if ($config.topology -eq "single") {
+    # Testing paths to the required files
+    if (!(Test-Path $habitathomeJsonFile) -or !($habitathomeParamsJsonFile)) {
+        Write-Host "The habitathome file '$($habitathomeJsonFile)' or habitathome-parameters file '$($habitathomeParamsJsonFile) not found." -ForegroundColor Red
+        Write-Host "Please ensure there is a habitathome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
+        Exit 1
+    }
+    
+    $habitathomeJson = Get-Content $habitathomeJsonFile
+    $habitathomeParamsJson = Get-Content $habitathomeParamsJsonFile
+    
+    $habitathomeJson = $oJsSerializer.DeserializeObject($habitathomeJson)
+    $habitathomeParamsJson = $oJsSerializer.DeserializeObject($habitathomeParamsJson)
+    
+     # Check if there are empty / not filled in parameters and remove these from the deployment
+     foreach ($habitathomeParameter in $habitathomeParamsJson.setParameters.Keys.Clone())
+     {
+         if ([string]::IsNullOrEmpty($habitathomeParamsJson.setParameters[$habitathomeParameter]))
+         {
+             $habitathomeParamsJson.setParameters.Remove($habitathomeParameter)
+         }
+     }
 
+    # Check if the setParameters node already exists and clean that up
+    if ($null -ne ($habitathomeJson.resources[0].properties.addOnPackages[0].setParameters)) {
+        $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
+    }
+    $habitathomeJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitathomeParamsJson.setParameters)
+    $habitathomeJson | ConvertTo-Json -Depth 6 | Set-Content $habitathomeJsonFile
+    
+    if (!$habitathomeJsonFile) {
+        throw "Error trying to load the Azuredeploy parameters file!"
+    }
+}
+elseif ($config.topology -eq "scaled") {
+    [string] $habitathomeCdParamsJsonFile = Join-Path $topologyPath "habitathomecd-parameters.json"
+    # Testing paths to the required files
+    if (!(Test-Path $habitathomeJsonFile) -or !($habitathomeParamsJsonFile) -or !($habitathomeCdParamsJsonFile)) {
+        Write-Host "The habitathome file '$($habitathomeJsonFile)', habitathome-parameters file '$($habitathomeParamsJsonFile) or habitathomecd-parameters file '$($habitathomeCdParamsJsonFile) not found." -ForegroundColor Red
+        Write-Host "Please ensure there is a habitathome.json file at '$($habitathomeJsonFile)'" -ForegroundColor Red
+        Exit 1
+    }
+    
+    # Getting JSON content from the files and prepare the JSON file merge
+    $habitathomeJson = Get-Content $habitathomeJsonFile
+    $habitathomeParamsJson = Get-Content $habitathomeParamsJsonFile
+    $habitathomeCdParamsJson = Get-Content $habitathomeCdParamsJsonFile
+    
+    $habitathomeJson = $oJsSerializer.DeserializeObject($habitathomeJson)
+    $habitathomeParamsJson = $oJsSerializer.DeserializeObject($habitathomeParamsJson)
+    $habitathomeCdParamsJson = $oJsSerializer.DeserializeObject($habitathomeCdParamsJson)
+    
+     # Check if there are empty / not filled in parameters and remove these from the deployment for CM
+     foreach ($habitathomeParameter in $habitathomeParamsJson.setParameters.Keys.Clone())
+     {
+         if ([string]::IsNullOrEmpty($habitathomeParamsJson.setParameters[$habitathomeParameter]))
+         {
+             $habitathomeParamsJson.setParameters.Remove($habitathomeParameter)
+         }
+     }
+ 
+     # Check if there are empty / not filled in parameters and remove these from the deployment for CD
+     foreach ($habitathomeCdParameter in $habitathomeCdParamsJson.setParameters.Keys.Clone())
+     {
+         if ([string]::IsNullOrEmpty($habitathomeCdParamsJson.setParameters[$habitathomeCdParameter]))
+         {
+             $habitathomeCdParamsJson.setParameters.Remove($habitathomeCdParameter)
+         }
+     }
+     
+    # Check if the setParameters node already exists and clean that up for both CM and CD scaled
+    if ($null -ne ($habitathomeJson.resources[0].properties.addOnPackages[0].setParameters)) {
+        $habitathomeJson.resources[0].properties.addOnPackages[0].Remove("setParameters")
+    }
+    if ($null -ne ($habitathomeJson.resources[1].properties.addOnPackages[0].setParameters)) {
+        $habitathomeJson.resources[1].properties.addOnPackages[0].Remove("setParameters")
+    }
+    $habitathomeJson.resources[0].properties.addOnPackages[0].add("setParameters", $habitathomeParamsJson.setParameters)
+    $habitathomeJson.resources[1].properties.addOnPackages[0].add("setParameters", $habitathomeCdParamsJson.setParameters)
+    $habitathomeJson | ConvertTo-Json -Depth 6 | Set-Content $habitathomeJsonFile
+    
+    if (!$habitathomeJsonFile) {
+        throw "Error trying to load the Azuredeploy parameters file!"
+    }
+}
 ###################################################
 # Upload created WDPs and additional files in Azure
 ###################################################
@@ -300,18 +390,19 @@ if (!($SkipScUpload)) {
 
     $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
 
-    UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig
-    UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig
+    UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig -assetsFolder $assetsFolder
+    UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig -assetsFolder $assetsFolder
 }
-else { #SkipSCUpload
+else {
+    #SkipSCUpload
     # Get the current storage account
     $sa = Get-AzureRmStorageAccount | Where-Object {$_.StorageAccountName -eq $storageAccountName } | Select-Object 
 
     # Obtain the storage account context
     $ctx = $sa.Context
 
-    UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload
-    UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload
+    UploadFiles -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload -assetsFolder $assetsFolder
+    UploadWDPs -cakeJsonConfig $config -assetsJsonConfig $assetconfig -SkipScUpload -assetsFolder $assetsFolder
 }
 
 
@@ -320,7 +411,6 @@ else { #SkipSCUpload
 ##############################################
 
 $blobsList = Get-AzureStorageBlob -Container $containerName -Context $ctx
-$assetsFolder = (Join-Path $config.DeployFolder "assets")
 $defInstall = $false
 
 $defAsset = $assetconfig.prerequisites | Where-Object {$_.Name -eq "Data Exchange Framework"}
@@ -481,20 +571,20 @@ if ($definstall -eq $true) {
             -FullUri
     }
 }
-  # Need to set the Sitecore identity Version in order to retrieve the file name later on
+# Need to set the Sitecore identity Version in order to retrieve the file name later on
   
-  $sitecoreIdentityAsset  = $assetconfig.prerequisites | Where-Object {$_.Name -eq "Sitecore Identity Server"}
-  $siBlob = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $sitecoreIdentityAsset.fileName}
-  if ($siBlob){
+$sitecoreIdentityAsset = $assetconfig.prerequisites | Where-Object {$_.Name -eq "Sitecore Identity Server"}
+$siBlob = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $sitecoreIdentityAsset.fileName}
+if ($siBlob) {
     $siMsDeployPackageUrl = 
-        New-AzureStorageBlobSASToken -Container $containerName `
-            -Blob $siBlob.Name `
-            -Permission rwd `
-            -StartTime (Get-Date) `
-            -ExpiryTime (Get-Date).AddDays(3650) `
-            -Context $ctx `
-            -FullUri
-    }   
+    New-AzureStorageBlobSASToken -Container $containerName `
+        -Blob $siBlob.Name `
+        -Permission rwd `
+        -StartTime (Get-Date) `
+        -ExpiryTime (Get-Date).AddDays(3650) `
+        -Context $ctx `
+        -FullUri
+}   
 
 if ($config.Topology -eq "single") {
 
@@ -568,7 +658,6 @@ elseif ($config.Topology -eq "scaled") {
             -Context $ctx `
             -FullUri
     }
-
     $prcFile = $localSitecoreassets | Where-Object {$_.name -like "*_prc.scwdp.zip" }
     $prcMsDeployPackageUrl = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $prcFile.Name} | Select -First 1 | ForEach-Object {
         New-AzureStorageBlobSASToken -Container $containerName `
@@ -662,7 +751,8 @@ elseif ($config.Topology -eq "scaled") {
             -Context $ctx `
             -FullUri
     }   
-   
+
+
 
     if ($definstall -eq $true) {
         $defCDDeployPackageUrl = $blobsList | Where-Object {
@@ -815,31 +905,33 @@ $bootloaderTemplateLink = $blobsList | Where-Object {$_.Name -like "*bootloader.
 Function MergeConfigurationFiles {
     param(
         [string] $parametersFilePath,
-        [string] $modulesFilePath
+        [string] $modulesFilePath,
+        $assetsfolder
     )
     $parameters = Get-Content $parametersFilepath
     $modules = Get-Content $modulesFilePath
 
-            [System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions") `
-            | Out-Null
-        $oJsSerializer = `
-            New-Object System.Web.Script.Serialization.JavaScriptSerializer
+    [System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions") `
+        | Out-Null
+    $oJsSerializer = `
+        New-Object System.Web.Script.Serialization.JavaScriptSerializer
 
-        $parameters = $oJsSerializer.DeserializeObject($parameters)
-        $modules = $oJsSerializer.DeserializeObject($modules)
-        $parameters.parameters.add("modules",$modules.modules)
-        $parameters = $parameters  | ConvertTo-Json -Depth 6
-        return $parameters
+    $parameters = $oJsSerializer.DeserializeObject($parameters)
+    $modules = $oJsSerializer.DeserializeObject($modules)
+    $parameters.parameters.add("modules", $modules.modules)
+    $parameters = $parameters  | ConvertTo-Json -Depth 6
+    return $parameters
 }
+
 [String] $azuredeployConfigFile = $null
 [string] $moduleConfigFile = $null
+$azuredeployConfigFile = $([IO.Path]::Combine($assetsfolder, 'ArmTemplates', 'azuredeploy.parameters.json'))
 
-$azuredeployConfigFile = $([IO.Path]::Combine($topology, 'azuredeploy.parameters.json'))
 if ($definstall -eq $true) {
-    $moduleConfigFile = Join-Path $topology "modules.json"
+    $moduleConfigFile = Join-Path $topologyPath "modules.json"
 }
 else {
-    $moduleConfigFile = Join-Path $topology "modules-no-def.json"
+    $moduleConfigFile = Join-Path $topologyPath "modules-no-def.json"
 }
 
 if (!(Test-Path $azuredeployConfigFile) -or !($moduleConfigFile)) {
@@ -849,6 +941,7 @@ if (!(Test-Path $azuredeployConfigFile) -or !($moduleConfigFile)) {
 }
 
 $azuredeployConfig = MergeConfigurationFiles  -parametersFilePath $azuredeployConfigFile -modulesFilePath $moduleConfigFile  Get-Content -Raw $azuredeployConfigFile |  ConvertFrom-Json
+
 if (!$azuredeployConfig) {
     throw "Error trying to load the Azuredeploy parameters file!"
 }
@@ -889,12 +982,12 @@ if ([string]::IsNullOrEmpty($templatelinkAccessToken) -or [string]::IsNullOrEmpt
     
     ($azureuserconfig.settings | Where-Object {$_.id -eq "ArmTemplateUrl"}).value = $ArmTemplateUrl
     ($azureuserconfig.settings | Where-Object {$_.id -eq "templatelinkAccessToken"}).value = $templatelinkAccessToken
+    
 
     $azureuserconfig | ConvertTo-Json -Depth 5 | Set-Content $azureuserconfigfile
 }
 
 # Populate parameters inside the azuredeploy.parameters JSON schema with values from previously prepared variables
-
 $parameters = $azuredeployConfig.parameters
 
 $parameters.deploymentId.value = $deploymentId
@@ -905,8 +998,8 @@ $parameters.sqlServerLogin.value = $sqlServerLogin
 $parameters.sqlServerPassword.value = $sqlServerPassword
 $parameters.authCertificatePassword.value = $authCertificatePassword
 $parameters.siMsDeployPackageUrl.value = $siMsDeployPackageUrl
-$parameters.cortexProcessingMsDeployPackageUrl.value = $cortexProcessingMsDeployPackageUrl
-$parameters.cortexReportingMsDeployPackageUrl.value = $cortexReportingMsDeployPackageUrl
+
+
 
 if ($config.Topology -eq "single") {
     $parameters.singleMsDeployPackageUrl.value = $singleMsDeployPackageUrl
@@ -914,15 +1007,15 @@ if ($config.Topology -eq "single") {
     ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.sxaMsDeployPackageUrl = $sxaMsDeployPackageUrl
     ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.speMsDeployPackageUrl = $speMsDeployPackageUrl
     ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).templateLink = $sxaTemplateLink
-    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitat-home-website"}).parameters.habitatWebsiteDeployPackageUrl = $habitatWebsiteDeployPackageUrl
-    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitat-home-website"}).templateLink = $habitatWebsiteTemplateLink
-    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitat-home-xc"}).parameters.habitatXconnectDeployPackageUrl = $habitatXconnectDeployPackageUrl
-    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitat-home-xc"}).templateLink = $habitatXconnectTemplateLink
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitathome-website"}).parameters.habitatWebsiteDeployPackageUrl = $habitatWebsiteDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitathome-website"}).templateLink = $habitatWebsiteTemplateLink
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitathome-xc"}).parameters.habitatXconnectDeployPackageUrl = $habitatXconnectDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitathome-xc"}).templateLink = $habitatXconnectTemplateLink
     ($parameters.modules.value.items | Where-Object {$_.name -eq "bootloader"}).parameters.msDeployPackageUrl = $msDeployPackageUrl
     ($parameters.modules.value.items | Where-Object {$_.name -eq "bootloader"}).templateLink = $bootloaderTemplateLink
 }
 
-if ($definstall -eq $true -and $topology -eq "single") {
+if ($definstall -eq $true -and $config.topology -eq "single") {
 
     ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDeployPackageUrl = $defDeployPackageUrl
     ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSitecoreDeployPackageUrl = $defSitecoreDeployPackageUrl
@@ -935,52 +1028,53 @@ if ($definstall -eq $true -and $topology -eq "single") {
     ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).templateLink = $defTemplateLink
 }
 
-    if ($config.Topology -eq "scaled") 
-    {
-        $parameters.repAuthenticationApiKey.value = (New-Guid).ToString()
-        $parameters.cmMsDeployPackageUrl.value = $cmMsDeployPackageUrl
-        $parameters.cdMsDeployPackageUrl.value = $cdMsDeployPackageUrl
-        $parameters.cdMsDeployPackageUrl.value = $cdMsDeployPackageUrl
-        $parameters.prcMsDeployPackageUrl.value = $prcMsDeployPackageUrl
-        $parameters.repMsDeployPackageUrl.value = $repMsDeployPackageUrl
-        $parameters.xcRefDataMsDeployPackageUrl.value = $xcRefDataMsDeployPackageUrl
-        $parameters.xcCollectMsDeployPackageUrl.value = $xcCollectMsDeployPackageUrl
-        $parameters.xcSearchMsDeployPackageUrl.value = $xcSearchMsDeployPackageUrl
-        $parameters.maOpsMsDeployPackageUrl.value = $maOpsMsDeployPackageUrl
-        $parameters.maRepMsDeployPackageUrl.value = $maRepMsDeployPackageUrl
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.cdSxaMsDeployPackageUrl = $sxaCDMsDeployPackageUrl
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.cmSxaMsDeployPackageUrl = $sxaMsDeployPackageUrl
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.speMsDeployPackageUrl = $speMsDeployPackageUrl
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).templateLink = $sxaTemplateLink
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "habitat-home-website"}).parameters.habitatWebsiteCdMsDeployPackageUrl = $habitatWebsiteCDdeployPackageUrl
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "habitat-home-website"}).parameters.habitatWebsiteCmMsDeployPackageUrl = $habitatWebsiteDeployPackageUrl
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "habitat-home-website"}).templateLink = $habitatWebsiteTemplateLink
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "habitat-home-xc"}).parameters.habitatXconnectDeployPackageUrl = $habitatXconnectDeployPackageUrl
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "habitat-home-xc"}).templateLink = $habitatXconnectTemplateLink
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "bootloader"}).parameters.msDeployPackageUrl = $msDeployPackageUrl
-        ($parameters.modules.value.items | Where-Object {$_.name -eq "bootloader"}).templateLink = $bootloaderTemplateLink
-    }
+if ($config.Topology -eq "scaled") {
+    $parameters.repAuthenticationApiKey.value = (New-Guid).ToString()
+    $parameters.cmMsDeployPackageUrl.value = $cmMsDeployPackageUrl
+    $parameters.cdMsDeployPackageUrl.value = $cdMsDeployPackageUrl
+    $parameters.cdMsDeployPackageUrl.value = $cdMsDeployPackageUrl
+    $parameters.prcMsDeployPackageUrl.value = $prcMsDeployPackageUrl
+    $parameters.repMsDeployPackageUrl.value = $repMsDeployPackageUrl
+    $parameters.xcRefDataMsDeployPackageUrl.value = $xcRefDataMsDeployPackageUrl
+    $parameters.xcCollectMsDeployPackageUrl.value = $xcCollectMsDeployPackageUrl
+    $parameters.xcSearchMsDeployPackageUrl.value = $xcSearchMsDeployPackageUrl
+    $parameters.maOpsMsDeployPackageUrl.value = $maOpsMsDeployPackageUrl
+    $parameters.maRepMsDeployPackageUrl.value = $maRepMsDeployPackageUrl
+    $parameters.cortexProcessingMsDeployPackageUrl.value = $cortexProcessingMsDeployPackageUrl
+    $parameters.cortexReportingMsDeployPackageUrl.value = $cortexReportingMsDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.cdSxaMsDeployPackageUrl = $sxaCDMsDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.cmSxaMsDeployPackageUrl = $sxaMsDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).parameters.speMsDeployPackageUrl = $speMsDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "sxa"}).templateLink = $sxaTemplateLink
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitathome-website"}).parameters.habitatWebsiteCdMsDeployPackageUrl = $habitatWebsiteCDdeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitathome-website"}).parameters.habitatWebsiteCmMsDeployPackageUrl = $habitatWebsiteDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitathome-website"}).templateLink = $habitatWebsiteTemplateLink
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitathome-xc"}).parameters.habitatXconnectDeployPackageUrl = $habitatXconnectDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "habitathome-xc"}).templateLink = $habitatXconnectTemplateLink
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "bootloader"}).parameters.msDeployPackageUrl = $msDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "bootloader"}).templateLink = $bootloaderTemplateLink
+}
 
-    if ($definstall -eq $true -and $topology -eq "scaled") {
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDeployPackageUrl = $defDeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSitecoreDeployPackageUrl = $defSitecoreDeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSqlDeployPackageUrl = $defSqlDeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defxConnectDeployPackageUrl = $defxConnectDeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDynamicsDeployPackageUrl = $defDynamicsDeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDynamicsConnectDeployPackageUrl = $defDynamicsConnectDeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSalesforceDeployPackageUrl = $defSalesforceDeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSalesforceConnectDeployPackageUrl = $defSalesforceConnectDeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defCdDeployPackageUrl = $defCDdeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSitecoreCdDeployPackageUrl = $defSitecoreCDdeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSqlCdDeployPackageUrl = $defSqlCDdeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defxConnectCdDeployPackageUrl = $defxConnectCDdeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDynamicsCdDeployPackageUrl = $defDynamicsCDdeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDynamicsConnectCdDeployPackageUrl = $defDynamicsConnectCDdeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSalesforceCdDeployPackageUrl = $defSalesforceCDdeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSalesforceConnectCdDeployPackageUrl = $defSalesforceConnectCDdeployPackageUrl
-            ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).templateLink = $defTemplateLink
-    }
+if ($definstall -eq $true -and $config.topology -eq "scaled") {
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDeployPackageUrl = $defDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSitecoreDeployPackageUrl = $defSitecoreDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSqlDeployPackageUrl = $defSqlDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defxConnectDeployPackageUrl = $defxConnectDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDynamicsDeployPackageUrl = $defDynamicsDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDynamicsConnectDeployPackageUrl = $defDynamicsConnectDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSalesforceDeployPackageUrl = $defSalesforceDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSalesforceConnectDeployPackageUrl = $defSalesforceConnectDeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defCdDeployPackageUrl = $defCDdeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSitecoreCdDeployPackageUrl = $defSitecoreCDdeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSqlCdDeployPackageUrl = $defSqlCDdeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defxConnectCdDeployPackageUrl = $defxConnectCDdeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDynamicsCdDeployPackageUrl = $defDynamicsCDdeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defDynamicsConnectCdDeployPackageUrl = $defDynamicsConnectCDdeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSalesforceCdDeployPackageUrl = $defSalesforceCDdeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).parameters.defSalesforceConnectCdDeployPackageUrl = $defSalesforceConnectCDdeployPackageUrl
+    ($parameters.modules.value.items | Where-Object {$_.name -eq "def"}).templateLink = $defTemplateLink
+}
         
 # Apply the azuredeploy.parameters JSON schema to the azuredeploy.parameters.json file
 
-$azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($topology, "azuredeploy.parameters-$($deploymentId).json")) -Encoding Ascii
+$azuredeployConfig | ConvertTo-Json -Depth 20 | Set-Content $([IO.Path]::Combine($assetsfolder, 'ArmTemplates', "azuredeploy.parameters-$($deploymentId).json")) -Encoding Ascii

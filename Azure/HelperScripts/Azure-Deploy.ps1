@@ -19,18 +19,20 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray     = ProcessConfigFile -Config $ConfigurationFile
-$config          = $configarray[0]
-$assetconfig	 = $configarray[1]
-$azureuserconfig = $configarray[2]
-$topology		 = $configarray[5]
+$configuration     	= ProcessConfigFile -Config $ConfigurationFile
+$config          	= $configuration.cakeConfig
+$assetconfig	 	= $configuration.assets
+$azureuserconfig 	= $configuration.azureUserConfig
+$topologyPath		= $configuration.topologyPath
+$assetsFolder		= $configuration.assetsFolder
 
 #####################
 # Fill in Parameters
 #####################
-$deploymentId = ($azureuserconfig.settings | Where-Object {$_.id -eq "AzureDeploymentID"}).value
-$ArmParametersPath = ("{0}\azuredeploy.parameters-{1}.json" -f $topology, $deploymentId)
 
+$deploymentId = ($azureuserconfig.settings | Where-Object {$_.id -eq "AzureDeploymentID"}).value
+$armTemplateFolder = Join-Path $assetsFolder 'ArmTemplates'
+$ArmParametersPath = ("{0}\azuredeploy.parameters-{1}.json" -f $armTemplateFolder, $deploymentId)
 
 foreach($setting in $azureuserconfig.settings)
 {
@@ -79,7 +81,7 @@ $setKeyValue = @{
 }
 
 #Point to the sitecore cloud tools on your local filesystem
-Import-Module "$($config.DeployFolder)\assets\Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1"
+Import-Module "$($assetsFolder)\Sitecore Azure Toolkit\tools\Sitecore.Cloud.Cmdlets.psm1"
 
 Start-SitecoreAzureDeployment -Location $Location `
 							  -Name $Name `

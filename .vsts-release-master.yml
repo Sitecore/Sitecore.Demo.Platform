@@ -1,0 +1,81 @@
+resources:
+- repo: self
+variables:
+  major: 9.1
+  minor: 0
+  # creates a counter called versioncounter and seeds it at 100 and then assigns the value to a variable named patch.
+  patch: $[counter('versioncounter', 1)]
+name: $(major).$(minor).$(patch)
+queue:
+  name: DEVDEMO1US1
+steps:
+- powershell: |
+   $deploymentFolder = "$(Build.StagingDirectory)"
+   $deploymentFolder = ($deploymentFolder -replace '\\','\\')
+   Write-Host "##vso[task.setvariable variable=deployment.folder]$deploymentFolder"
+  displayName: 'Escape the Deployment Folder'
+
+- powershell: |
+   $projectFolder = "$(Build.SourcesDirectory)"
+   $projectFolder = ($projectFolder -replace '\\','\\')
+   Write-Host "##vso[task.setvariable variable=project.folder]$projectFolder"
+  displayName: 'Escape the Project folder'
+
+- task: kasunkodagoda.regex-match-replace.regex-match-replace.RegExMatchReplace@2
+  displayName: 'Modify deployment folder'
+  inputs:
+    PathToFile: 'cake-config.json'
+
+    RegEx: '"DeployFolder":(\s*"[^"]+?([^\/"]+)")'
+
+    ValueToReplace: '"DeployFolder":"$(deployment.folder)"'
+
+
+- task: kasunkodagoda.regex-match-replace.regex-match-replace.RegExMatchReplace@2
+  displayName: 'Modify DeploymentTarget'
+  inputs:
+    PathToFile: 'cake-config.json'
+
+    RegEx: '"DeploymentTarget":(\s*"[^"]+?([^\/"]+)")'
+
+    ValueToReplace: '"DeploymentTarget":"OnPrem"'
+
+
+- task: kasunkodagoda.regex-match-replace.regex-match-replace.RegExMatchReplace@2
+  displayName: 'Modify ProjectFolder'
+  inputs:
+    PathToFile: 'cake-config.json'
+
+    RegEx: '"ProjectFolder":(\s*"[^"]+?([^\/"]+)")'
+
+    ValueToReplace: '"ProjectFolder":"$(project.folder)"'
+
+- task: powershell@2
+  inputs:
+    targetType: filePath
+    filePath: build.ps1
+    arguments: '-Target Build-WDP -ScriptArgs --DEV_SITECORE_USERNAME=$(sdn_username), --DEV_SITECORE_PASSWORD=$env:DEV_SITECORE_PASSWORD'
+  displayName: 'Cake - Build WDP'
+  env:
+    DEV_SITECORE_PASSWORD: $(sdn_password)
+    
+- task: marcelo-formentao.github-tools.github-release-publish-task.GitHubReleasePublish@1
+  displayName: 'Create GitHub Release'
+  inputs:
+    githubEndpoint: 'GitHub connection 1'
+
+    githubRepository: Sitecore/Sitecore.HabitatHome.Platform
+
+    githubTag: '$(major).$(minor).$(patch)'
+
+    githubReleaseTitle: '$(major).$(minor).$(patch)'
+
+    githubReleasePrerelease: true
+
+    githubReleaseAsset: |
+     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/HabitatHome/WDPWorkFolder/WDP/*
+     $(Build.ArtifactStagingDirectory)/9.1.0/XPSingle/assets/xConnect/WDPWorkFolder/WDP/*
+
+    githubEditRelease: true
+
+    isPreRelease: true

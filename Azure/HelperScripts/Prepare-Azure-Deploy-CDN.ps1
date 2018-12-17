@@ -9,21 +9,21 @@ A cake-config.json file
 
 [CmdletBinding()]
 Param(
-	[parameter(Mandatory=$true, HelpMessage="Please Enter your cake-config.json")]
-	[ValidateNotNullOrEmpty()]
+    [parameter(Mandatory = $true, HelpMessage = "Please Enter your cake-config.json")]
+    [ValidateNotNullOrEmpty()]
     [string] $ConfigurationFile
 )
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray = ProcessConfigFile -Config $ConfigurationFile
-$config          = $configarray[0]
-$topology		 = $configarray[5]
+$configuration = ProcessConfigFile -Config $ConfigurationFile
+$config = $configuration.cakeConfig
+$assetsfolder = $configuration.assetsFolder
 
 #############################################
 # Prepare the azuredeploy.json ARM Template
 #############################################
 
-$cdnJsonResource =  @"
+$cdnJsonResource = @"
 {
     "apiVersion": "[variables('resourcesApiVersion')]",
     "name": "[concat(parameters('deploymentId'), '-infrastructure-cdn')]",
@@ -43,10 +43,9 @@ $cdnJsonResource =  @"
   }
 "@
 
-$azureDeployFile = $([io.path]::combine($topology, 'azuredeploy.json'))
+$azureDeployFile = $([io.path]::combine($assetsfolder, 'ArmTemplates', 'azuredeploy.json'))
 
-if (!(Test-Path $azureDeployFile)) 
-{
+if (!(Test-Path $azureDeployFile)) {
     Write-Host  "azuredeploy file '$($azureDeployFile)' not found." -ForegroundColor Red
     Write-Host  "Please ensure there is a azuredeploy.json file at '$($azureDeployFile)'" -ForegroundColor Red
     Exit 1
@@ -57,28 +56,13 @@ $azureDeploy = Get-Content -Raw -Path $azureDeployFile | ConvertFrom-Json
 [System.Collections.ArrayList] $resourcesArray = $azureDeploy.resources
 $cdnJson = ConvertFrom-Json $cdnJsonResource 
 
-$index = -1;
+$cdnResource = $azureDeploy.resources | Where-Object {$_.name -match "cdn"}
 
-for ($i=0; $i -lt $resourcesArray.Count; $i++)
-{    
-    if ($resourcesArray[$i].name -match "cdn")
-    {        
-        $index = $i;
-        break;
-    }
-   
+if ($config.CDN -eq "true" -and $null -eq $cdnResource) { 
+    $resourcesArray.Insert(0, $cdnJson) 
 }
-
-if ($config.CDN -eq "true")
-{ 
-    if ($index -eq -1)
-    {
-        $resourcesArray.Insert(0, $cdnJson) 
-    }    
-}
-else 
-{
-    $resourcesArray.RemoveAt($index)     
+elseif ($config.CDN -eq "false" -and (-not $null -eq $cdnResource)) {
+    $azureDeploy.resources | Where-Object {$_.name -match "cdn"} | Remove-Item
 }
 
 $azureDeploy.resources = $resourcesArray  

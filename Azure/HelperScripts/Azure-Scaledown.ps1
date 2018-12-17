@@ -22,10 +22,10 @@ Param(
 
 Import-Module "$($PSScriptRoot)\ProcessConfigFile\ProcessConfigFile.psm1" -Force
 
-$configarray     = ProcessConfigFile -Config $ConfigurationFile
-$config          = $configarray[0]
-$azureuserconfig = $configarray[2]
-$topology		 = $configarray[5]
+$configuration = ProcessConfigFile -Config $ConfigurationFile
+$config          	    = $configuration.cakeConfig
+$azureuserconfig 	    = $configuration.azureUserConfig
+$topologyName			= $configuration.topologyName
 
 ###########################
 # Scale down service plans
