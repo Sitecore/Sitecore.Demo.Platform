@@ -226,7 +226,7 @@ ForEach ($folder in $rootFolder) {
         "HabitatHome" {           
             Process-UpdatePackage -Configuration $config -FolderString $folder -assetsfolder $assetsfolder
         }
-        "xconnect" {
+        "habitatHome_xConnect" {
             Process-UpdatePackage -Configuration $config -FolderString $folder -assetsfolder $assetsfolder
         }
     }

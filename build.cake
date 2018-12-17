@@ -169,7 +169,7 @@ Task("CleanBuildFolders").Does(() => {
 Task("CleanDeployFolder").Does(() => {
 
     // Clean deployment folders
-     string[] folders = { $"\\{configuration.Version}\\{topology}\\assets\\HabitatHome", $"\\{configuration.Version}\\{topology}\\assets\\HabitatHomeCD", $"\\{configuration.Version}\\{topology}\\Website", $"\\{configuration.Version}\\{topology}\\assets\\Xconnect", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
+     string[] folders = { $"\\{configuration.Version}\\{topology}\\assets\\HabitatHome", $"\\{configuration.Version}\\{topology}\\assets\\HabitatHomeCD", $"\\{configuration.Version}\\{topology}\\Website", $"\\{configuration.Version}\\{topology}\\assets\\habitatHome_xConnect", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
 
     foreach (string folder in folders)
     {
@@ -253,7 +253,7 @@ Task("Publish-xConnect-Project").Does(() => {
     var destination = configuration.XConnectRoot;
 	
    if (!deployLocal){
-        destination = $"{deploymentRootPath}\\Website\\xConnect";
+        destination = $"{deploymentRootPath}\\Website\\habitatHome_xConnect";
     }
     PublishProjects(xConnectProject, destination);
 });
