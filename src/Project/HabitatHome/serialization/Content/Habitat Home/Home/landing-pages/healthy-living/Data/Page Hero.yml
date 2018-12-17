@@ -6,6 +6,9 @@ Path: "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/healthy-l
 DB: master
 BranchID: "88afe195-bca1-49dd-9aa2-67f0d9a0daa5"
 SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{9430BA22-6E0B-499D-9067-994D783A1ADC}"
@@ -17,13 +20,16 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180626T160121Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
     - ID: "440b5413-5322-4166-9fbe-580f70973751"
       Hint: HeroTitle
       Value: "Healthy Living - Your way"
     - ID: "9c385368-a554-4a92-9a8d-37f3ef3a09f4"
       Hint: HeroImage
       Value: |
-        <image mediaid="{F5E11C3E-6AF7-4B25-AF41-08A6F173B45A}" />
+        <image mediaid="{F5E11C3E-6AF7-4B25-AF41-08A6F173B45A}" alt="Healthy Living Hero Image" height="" width="" hspace="" vspace="" />
 - Language: "ja-JP"
   Versions:
   - Version: 1
