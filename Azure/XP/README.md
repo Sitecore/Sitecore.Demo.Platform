@@ -1,4 +1,4 @@
-# Habitat Home Sitecore XP Environment Azure
+# Habitat Home Sitecore XP1 Scaled Environment Azure
 
 ## Instructions
 

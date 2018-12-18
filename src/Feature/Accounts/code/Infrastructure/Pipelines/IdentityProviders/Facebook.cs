@@ -30,13 +30,21 @@ namespace Sitecore.HabitatHome.Feature.Accounts.Infrastructure.Pipelines.Identit
             var identityProvider = GetIdentityProvider();
             var authenticationType = GetAuthenticationType();
 
+            string appId = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.Facebook.AppId");   //todo: move this to site-specific configuration item
+            string appSecret = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.Facebook.AppSecret");  //todo: move this to site-specific configuration item
+
+            if (string.IsNullOrEmpty(appId) || string.IsNullOrEmpty(appSecret))
+            {
+                return;
+            }
+
             var options = new FacebookAuthenticationOptions
             {
                 Caption = identityProvider.Caption,
                 AuthenticationType = authenticationType,
                 AuthenticationMode = AuthenticationMode.Passive,
-                AppId = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.Facebook.AppId"),   //todo: move this to site-specific configuration item
-                AppSecret = Settings.GetSetting("Sitecore.HabitatHome.Feature.Accounts.Facebook.AppSecret"),  //todo: move this to site-specific configuration item
+                AppId = appId,
+                AppSecret = appSecret,
                 Provider = new FacebookAuthenticationProvider
                 {
                     OnAuthenticated = context =>

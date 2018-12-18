@@ -1,0 +1,39 @@
+﻿---
+Username: |
+  sitecore\demoadmin
+Email: admin@demo.com
+Comment: Demo Administrator
+Created: "2018-11-26T18:22:28.0000000Z"
+IsApproved: True
+Properties:
+- Key: FullName
+  Value: Demo Administrator
+  ValueType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  IsCustom: False
+- Key: IsAdministrator
+  Value: False
+  ValueType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  IsCustom: False
+- Key: Portrait
+  Value: office/16x16/default_user.png
+  ValueType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  IsCustom: False
+- Key: digestcredentialhash
+  Value: bed66512968747aa57b6d0546aeb6636
+  ValueType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  IsCustom: True
+- Key: digestcredentialhashwithoutdomain
+  Value: 2e294d69e04a0d46a25a027ba3ae1878
+  ValueType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  IsCustom: True
+Roles:
+  MemberOf: |
+    sitecore\Analytics Reporting
+  MemberOf: |
+    sitecore\Analytics Testing
+  MemberOf: |
+    sitecore\Author
+  MemberOf: |
+    sitecore\EXM Users
+  MemberOf: |
+    sitecore\Marketing Automation Editors
