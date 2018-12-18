@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" 
-  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -72,11 +71,11 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Kernel" Version="12.0.0-*" />
+        <PackageReference Include="Sitecore.Kernel" Version="12.0.1-*" />
         <PackageReference Include="Sitecore.Logging" Version="12.0.0-*" />
         <PackageReference Include="Sitecore.Mvc.Analytics" Version="12.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc" Version="3.0.0-*" />
-        <PackageReference Include="Sitecore.Update" Version="4.0.0-*" />
+        <PackageReference Include="Sitecore.Mvc" Version="3.0.1-*" />
+        <PackageReference Include="Sitecore.Update" Version="4.0.1-*" />
         <PackageReference Include="Sitecore.Zip" Version="12.0.0-*" />
       </ItemGroup>
     </Otherwise>
