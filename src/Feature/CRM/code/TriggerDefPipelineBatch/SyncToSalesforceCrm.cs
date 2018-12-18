@@ -26,8 +26,8 @@ namespace Sitecore.HabitatHome.Feature.CRM.TriggerDefPipelineBatch
                 PipelineBatch pipelineBatch = convertResult.ConvertedValue;
                 PipelineBatchContext pipelineBatchContext = new PipelineBatchContext();
                 var runner = new InProcessPipelineBatchRunner();
-                runner.RunAsync(pipelineBatch, pipelineBatchContext);
-
+               // runner.RunAsync(pipelineBatch, pipelineBatchContext);
+               //TODO: SCM or EMO - Fix
                 Log.Info("Successfully synced xConnect contact to Salesforce on session end via DEF", this);
                 return true;
             }

@@ -56,7 +56,7 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Kernel" Version="12.0.1-*" />
+        <PackageReference Include="Sitecore.Kernel" Version="13.0.0-*" />
         <PackageReference Include="Sitecore.XA.Feature.CreativeExchange" Version="4.9.0.*" />
       </ItemGroup>
     </Otherwise>
