@@ -6,7 +6,7 @@ using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Maintenance;
 using Sitecore.Install.Framework;
 
-namespace Sitecore.HabitatHome.Common.Website.Utilities.Installation
+namespace  Sitecore.HabitatHome.Global.Website.Utilities.Installation
 {
     public class IndexRebuildPostStep : IPostStep
     {

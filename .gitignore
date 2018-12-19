@@ -20,9 +20,15 @@ lib/Modules/*
 packages/
 *sc-internal*
 /generate-scinternal-files.ps1
+azureuser-config.json
 
 tools/*
 !tools/packages.config
 
 /Azure/tools/*
 !/Azure/tools/packages.config
+
+**/backstop/*.json
+**/backstop_data/bitmaps_test
+**/backstop_data/engine_scripts
+**/backstop_data/html_report

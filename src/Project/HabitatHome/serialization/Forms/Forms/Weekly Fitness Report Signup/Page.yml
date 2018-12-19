@@ -1,5 +1,5 @@
 ﻿---
-ID: "c1c54282-413f-4846-91b6-fc323379e1e9"
+ID: "c34f1ca3-91e5-4227-a35b-26e273ec31f6"
 Parent: "91a995b9-1cf5-4434-aeec-294056a113f8"
 Template: "cfee7b51-8505-45ce-b843-9358f827df87"
 Path: /sitecore/Forms/Weekly Fitness Report Signup/Page
@@ -17,7 +17,10 @@ SharedFields:
   Value: 
 - ID: "84ece662-5034-40cb-9c60-744db64bb294"
   Hint: Field Key
-  Value: 35EA389C871246E2BD570AE4D622B7A9
+  Value: 7F2F10B7F256433EB111D5763E074860
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
 Languages:
 - Language: en
   Versions:
@@ -25,8 +28,19 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20181023T200823Z
+      Value: 20180321T175941Z
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ページ
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181024T125759Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\Admin
+        sitecore\admin

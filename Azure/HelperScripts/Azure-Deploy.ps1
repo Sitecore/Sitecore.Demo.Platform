@@ -31,7 +31,7 @@ $assetsFolder		= $configuration.assetsFolder
 #####################
 
 $deploymentId = ($azureuserconfig.settings | Where-Object {$_.id -eq "AzureDeploymentID"}).value
-$armTemplateFolder = Join-Path($assetsFolder 'ArmTemplates')
+$armTemplateFolder = Join-Path $assetsFolder 'ArmTemplates'
 $ArmParametersPath = ("{0}\azuredeploy.parameters-{1}.json" -f $armTemplateFolder, $deploymentId)
 
 foreach($setting in $azureuserconfig.settings)
