@@ -1,4 +1,4 @@
-﻿# BackstopJS Integration
+# BackstopJS Integration
 This project uses BackstopJS and its screenshot comparison and report
 generation functionality to determine if test steps pass or fail.  NUnit
 tests using Selenium automate browser interaction and generate screenshots
@@ -28,3 +28,12 @@ old NodeJS and install the newest one) *
     * goto backstop directory
     `\projects\Sitecore.HabitatHome.Platform\src\Project\HabitatHome\tests\backstop`
     * run `node backstopReport.js`
+
+## Approving tests
+In cases where tests are failing due to changes that need to be retained, and you want to update the test images with the changes
+
+1. Run `backstop approve` in Command Line
+	* run **cmd.exe**
+	* goto backstop directory
+    `\projects\Sitecore.HabitatHome.Platform\src\Project\HabitatHome\tests\backstop`
+    * run `backstop approve`
