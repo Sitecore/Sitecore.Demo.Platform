@@ -17,11 +17,17 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{411E4948-E7F2-4D86-BEAD-451F79D83BCF}">
         <r
+          uid="{D26E6B1B-1108-4238-AAA4-85C65E22093C}"
+          ds=""
+          id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=2"
+          ph="section-content" />
+        <r
+          uid="{E84563C1-E7DE-432E-8BEF-06C21F338C2D}"
           ds="/sitecore/content/Habitat Sites/Habitat Home/home/guides/sheet-pan-jambalaya"
           id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
           par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D&amp;Styles&amp;Reset Caching Options=1&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
-          ph="/section-content/container-1/column-2-2"
-          uid="{E84563C1-E7DE-432E-8BEF-06C21F338C2D}">
+          ph="/section-content/column-2-2">
           <rls>
             <ruleset>
               <rule
@@ -170,11 +176,11 @@ SharedFields:
           </rls>
         </r>
         <r
+          uid="{4EF9A41F-3AE5-4367-9514-D2A39B2E418F}"
           ds="/sitecore/content/Habitat Sites/Habitat Home/home/guides/design-your-connected-home"
           id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
           par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D&amp;Styles&amp;Reset Caching Options=1&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
-          ph="/section-content/container-1/column-1-2"
-          uid="{4EF9A41F-3AE5-4367-9514-D2A39B2E418F}">
+          ph="/section-content/column-1-2">
           <rls>
             <ruleset>
               <rule
@@ -322,20 +328,6 @@ SharedFields:
             </ruleset>
           </rls>
         </r>
-        <r
-          ds=""
-          id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
-          par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D%7C%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D%7C%7B2040C827-8640-4E61-907E-D3D5A25696C3%7D%7C%7BF58A39D5-1B62-4A8A-95AD-65B3878BB873%7D&amp;ColumnWidth2=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D%7C%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D%7C%7B2040C827-8640-4E61-907E-D3D5A25696C3%7D%7C%7BF58A39D5-1B62-4A8A-95AD-65B3878BB873%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=2"
-          ph="/section-content/container-1"
-          uid="{D26E6B1B-1108-4238-AAA4-85C65E22093C}" />
-        <r
-          cnd=""
-          ds=""
-          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          mvt=""
-          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles=%7B45645D8F-56A4-460A-B5FB-51709FEFCE52%7D%7C%7B3D258225-9410-4FAF-A516-43490258337D%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          ph="section-content"
-          uid="{EB82EF4D-3B00-44ED-BF55-BDD520D43B28}" />
       </d>
     </r>
 Languages:
@@ -343,28 +335,6 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
-      Hint: __Final Renderings
-      Type: Layout
-      Value: |
-        <r xmlns:p="p" xmlns:s="s"
-          p:p="1">
-          <d
-            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
-            <r
-              uid="{E84563C1-E7DE-432E-8BEF-06C21F338C2D}"
-              s:ds="/sitecore/content/Habitat Sites/Habitat Home/home/guides/sheet-pan-jambalaya" />
-            <r
-              uid="{4EF9A41F-3AE5-4367-9514-D2A39B2E418F}"
-              s:ds="/sitecore/content/Habitat Sites/Habitat Home/home/guides/design-your-connected-home" />
-            <r
-              uid="{D26E6B1B-1108-4238-AAA4-85C65E22093C}"
-              s:ds="" />
-            <r
-              uid="{EB82EF4D-3B00-44ED-BF55-BDD520D43B28}"
-              s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B3D258225-9410-4FAF-A516-43490258337D%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1" />
-          </d>
-        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180801T140951Z
