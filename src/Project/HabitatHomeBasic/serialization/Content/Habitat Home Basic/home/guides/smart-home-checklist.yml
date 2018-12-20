@@ -60,13 +60,14 @@ SharedFields:
         <r
           uid="{A4211DCF-2282-4492-A8C8-E25F428F07F7}"
           p:before="*"
+          s:ds=""
           s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
           s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
           s:ph="/main/sxa-article-content/author-1-" />
         <r
           uid="{A4A00EAF-C779-48A6-A9E5-917924CC455D}"
           p:after="r[@uid='{A4211DCF-2282-4492-A8C8-E25F428F07F7}']"
-          s:ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          s:ds="{0096F709-9D19-4233-A296-A24E04DF53F4}"
           s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
           s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
           s:ph="/main/sxa-recommended-content/container-1" />
@@ -75,7 +76,7 @@ SharedFields:
           p:after="r[@uid='{A4A00EAF-C779-48A6-A9E5-917924CC455D}']"
           s:ds="local:/Data/Smart Home Whitepaper"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B837DA9F8-E307-4615-9B66-7F3B97E1470B%7D&amp;DynamicPlaceholderId=2"
+          s:par="GridParameters&amp;FieldNames=%7B184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
           s:ph="/main/sxa-article-content/container-1">
           <rls>
             <ruleset>
@@ -124,19 +125,11 @@ SharedFields:
         </r>
         <r
           uid="{90D035D0-9D61-48CF-AF7B-A2430202F772}"
-          p:after="r[@uid='{A287189C-D6B9-4414-9958-70626DF4F0CE}']"
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="DynamicPlaceholderId=2"
-          s:ph="/main/sxa-content-container/container-1" />
-        <r
-          uid="{AC55CEF8-27C6-43D7-9FB4-8CBF8C7A4AF8}"
           p:after="*[1=2]"
-          s:cnd=""
-          s:ds="{68EF1B35-AC47-48B8-A507-6EBD3D611108}"
-          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          s:mvt=""
-          s:par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
-          s:ph="/main/sxa-recommended-content/container-3" />
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters&amp;BackgroundImage&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/sxa-content-container/container-1" />
       </d>
     </r>
 Languages:
@@ -240,10 +233,13 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
-      Hint: __Final Renderings
-      Type: Layout
-      Value: 
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{E59F1330-6FD3-47DC-B708-9B34296D7314}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181220T035055Z
     - ID: "45ce257a-6060-4c4a-9a0f-ae77bf705b25"
       Hint: TwitterSite
       Value: 
@@ -261,6 +257,17 @@ Languages:
       Hint: MetaDescription
       Value: |
         Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Habitat has a few "smart" suggestions.
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <div>What if all the devices in your life could connect to the Internet? Not just computers and smartphones, but everything: clocks, speakers, lights, doorbells, cameras, windows, window blinds, hot water heaters, appliances, cooking utensils, you name it. And what if those devices could all communicate, send you information, and take your commands? It's not science fiction; it's the Internet of Things (IoT), and it's a key component of home automation and smart homes.</div>
+        <div>&nbsp;</div>
+        <div>Home automation is exactly what it sounds like: automating the ability to control items around the house—from window shades to pet feeders—with a simple push of a button (or a voice command). Some activities, like setting up a lamp to turn on and off at your whim, are simple and relatively inexpensive. Others, like advanced surveillance cameras, may require a more serious investment of time and money.</div>
+        <p>There are a plethora of different accessories that work only with certain products, and some work better than others. Here's a guide to help you sort through the jumble and become acclimated to your first voice-controlled smart home.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
       Hint: __Content Test
       Value: 
@@ -285,10 +292,13 @@ Languages:
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
       Hint: Introduction
       Value: |
-        Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Habitat has a few "smart" suggestions in its newest whitepaper.
+        <p>Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Habitat has a few "smart" suggestions in its newest whitepaper.</p>
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: 
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Your Smart Home Checklist
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
