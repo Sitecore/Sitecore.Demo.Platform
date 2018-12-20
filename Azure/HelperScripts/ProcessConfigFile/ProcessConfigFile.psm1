@@ -110,9 +110,17 @@ $buildFolder			= $configarray[9]
     # Sitecore Version
     $SCversion = $config.version
 
+    # Determine deployment target
+    $deploymentTarget = $configuration.cakeConfig.DeploymentTarget
+    if ($deploymentTarget -eq "Local" -or $deploymentTarget -eq "OnPrem") {
+        $deploymentTarget = "OnPrem"
+    }
+    else {
+        $deploymentTarget = "Cloud"
+    }
     # Specifcy Asset Folder Location
-    $assetsfolder = $([io.path]::combine($configuration.cakeConfig.DeployFolder, $configuration.cakeConfig.version, $topologyName, 'assets'))
-    $buildFolder = $([io.path]::combine($configuration.cakeConfig.DeployFolder, $configuration.cakeConfig.version, $topologyName, 'Website'))
+    $assetsfolder = $([io.path]::combine($configuration.cakeConfig.DeployFolder, $configuration.cakeConfig.version, $deploymentTarget, $topologyName , 'assets'))
+    $buildFolder = $([io.path]::combine($configuration.cakeConfig.DeployFolder, $configuration.cakeConfig.version, $deploymentTarget, $topologyName,  'Website'))
     $configuration.assetsFolder = $assetsfolder
     $configuration.buildFolder = $buildFolder
 
