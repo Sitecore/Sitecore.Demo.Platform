@@ -54,16 +54,17 @@ Setup(context =>
     
     switch (deploymentTarget){
         case "OnPrem":
+            deploymentRootPath = $"{configuration.DeployFolder}\\{configuration.Version}\\OnPrem\\{topology}";
+            break;
         case "Azure":
-            deploymentRootPath = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}";
-
-        break;
+            deploymentRootPath = $"{configuration.DeployFolder}\\{configuration.Version}\\Cloud\\{topology}";
+            break;
         case "Local":
             if (target == "Build-WDP"){
                 throw new Exception("Invalid DeploymentTarget in cake-config.json file. Valid values for DeploymentTarget are 'OnPrem' and 'Azure' when using -Target Build-WDP");
             }
             deploymentRootPath = configuration.WebsiteRoot;
-        break;
+            break;
     }
 
         if ((target.Contains("WDP") || target.Contains("Azure")) && 
@@ -167,9 +168,16 @@ Task("CleanBuildFolders").Does(() => {
 });
 
 Task("CleanDeployFolder").Does(() => {
-
+var deploymentTarget ="";
+if (configuration.DeploymentTarget == "OnPrem" || configuration.DeploymentTarget == "Local"){
+    deploymentTarget = "OnPrem";
+}
+else{
+    deploymentTarget = "Cloud";
+}
+var folderBase = $"{configuration.Version}\\{deploymentTarget}\\{topology}";
     // Clean deployment folders
-     string[] folders = { $"\\{configuration.Version}\\{topology}\\assets\\HabitatHome", $"\\{configuration.Version}\\{topology}\\assets\\HabitatHomeCD", $"\\{configuration.Version}\\{topology}\\Website", $"\\{configuration.Version}\\{topology}\\assets\\habitatHome_xConnect", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{configuration.Version}\\{topology}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
+     string[] folders = { $"\\{folderBase}\\assets\\HabitatHome", $"\\{folderBase}\\assets\\HabitatHomeCD", $"\\{folderBase}\\Website", $"\\{folderBase}\\assets\\habitatHome_xConnect", $"\\{folderBase}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{folderBase}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
 
     foreach (string folder in folders)
     {
