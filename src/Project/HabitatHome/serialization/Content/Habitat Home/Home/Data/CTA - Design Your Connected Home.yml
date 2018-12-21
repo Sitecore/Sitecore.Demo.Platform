@@ -11,11 +11,11 @@ Languages:
     Fields:
     - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
       Hint: PromoText
-      Value: <p>Connected Living</p>
+      Value: <p>How to Design Your Connected Home</p>
     - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
       Hint: PromoIcon
       Value: |
-        <image mediaid="{815FCF64-4D70-46E4-A3C2-75F0619EB12A}" />
+        <image mediaid="{D355AF3D-77F9-4CEF-83AA-410B62010433}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171107T222441Z
@@ -23,9 +23,12 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
+    - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
+      Hint: PromoText3
+      Value: <p>Connected Living</p>
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
-      Value: <p>How to Design Your Connected Home</p>
+      Value: 
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
@@ -53,10 +56,11 @@ Languages:
       Value: 
     - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
       Hint: PromoText
-      Value: <p>vie branchée</p>
+      Value: <p>Conception de votre maison branch&eacute;e</p>
     - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
       Hint: PromoIcon
-      Value: 
+      Value: |
+        <image mediaid="{D355AF3D-77F9-4CEF-83AA-410B62010433}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171107T222441Z
@@ -78,14 +82,14 @@ Languages:
       Value: 
     - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
       Hint: PromoText3
-      Value: 
+      Value: <p>vie branchée</p>
     - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
       Hint: __Semantics
       Type: Multilist with Search
       Value: 
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
-      Value: <p>Conception de votre maison branchée</p>
+      Value: 
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
@@ -107,7 +111,11 @@ Languages:
     Fields:
     - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
       Hint: PromoText
-      Value: <p>リビング</p>
+      Value: <p>コネクテッドホームをどうデザインするか？</p>
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{D355AF3D-77F9-4CEF-83AA-410B62010433}" alt="キッチン CTA" height="" width="" hspace="" vspace="" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180321T104428Z
@@ -115,10 +123,13 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
+    - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
+      Hint: PromoText3
+      Value: <p>リビング</p>
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
-      Value: <p>コネクテッドホームをどうデザインするか？</p>
+      Value: 
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link linktype="external" text="Read More" url="https://ui-hh.habitathomedemo.com/guides/design-your-connected-home" anchor="" target="" />
+        <link linktype="internal" text="Read More" querystring="" target="" id="{C9D2D5F3-E258-4483-AF1C-CE18B7857BEA}" />
