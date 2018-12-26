@@ -1,16 +1,19 @@
 ﻿---
-ID: "4dbb9b6b-fafa-4937-bed2-84dc58d0256c"
+ID: "bca727fe-ed01-4d6d-bb09-337f1fb0bbd9"
 Parent: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
 Template: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
 Path: /sitecore/templates/Project/Habitat Sites/Habitat Corporate/Pages/Page/__Standard Values
 DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: "{E427E2C2-F0E1-490F-81EC-4F968837B8C5}"
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Value: "20181108T162136:636772908963869778Z"
-    - ID: "a3877a10-df8a-4104-b11a-f8bace606f65"
-      Hint: Title
-      Value: $name
+      Hint: __Created
+      Value: 20181226T161323Z
