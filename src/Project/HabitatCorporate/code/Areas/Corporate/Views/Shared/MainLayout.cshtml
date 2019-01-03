@@ -2,49 +2,26 @@
 <html class="js applicationcache geolocation history postmessage svg websockets localstorage sessionstorage websqldatabase webworkers hashchange audio canvas canvastext webgl video cssgradients opacity multiplebgs rgba inlinesvg hsla supports svgclippaths smil generatedcontent fontface textshadow cssanimations borderimage backgroundsize boxshadow borderradius csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox cssreflections csstransforms csstransitions csstransforms3d indexeddb indexeddb-deletedatabase" lang="en"><!--<![endif]-->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="/Css/Corporate/optimized-min.css" rel="stylesheet">
-        <link href="/Css/Corporate/optimized-min(1).css" rel="stylesheet">
-        <link href="/Css/Corporate/optimized-min(2).css" rel="stylesheet">
-        <link href="/Css/Corporate/optimized-min(3).css" rel="stylesheet">    
-        <title>Habitat Home</title>
-        <link href="https://habitathome.dev.local/" rel="shortcut icon">
-        <meta content="Technology to help you live well" property="og:description">
-        <meta content="Habitat Home" property="og:title">
-        <meta content="https://habitathome.dev.local/en" property="og:url">
-        <meta content="Technology to help you live well" name="description">
-        <meta content="Technology to help you live well" property="twitter:description">
-        <meta content="Habitat Home" property="twitter:title">
-        <meta content="summary_large_image" property="twitter:card">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="/Css/Corporate/habitatcorporate.css">
+
+        <!-- TODO: Get favicon from CMS -->
+        <link href="https://habitathome.dev.local/" rel="shortcut icon">
+
+        <!-- TODO: Get title text from CMS -->
+        <title>Habitat Corporate</title>
     </head>
     <body class="default-device bodyclass">
-        <!-- #wrapper -->
-        <div id="wrapper">
-            @Html.Sitecore().Placeholder("content-body")
-        </div>
-        <!-- /#wrapper -->
-        <div class="privacy-warning permisive" style="">
-                <div class="close">
+        @Html.Sitecore().Placeholder("content-header")
 
-                    <a onclick="XA.cookies.removeCookieWarning();">X</a>
-                </div>
-            <div class="info">
-                Cookies help us improve your website experience.<br>
-                By using our website, you agree to our use of cookies.
-            </div>
-            <div class="submit">
-                <a onclick="XA.cookies.createCookie(&#39;privacy-notification&#39;, 1, 365);XA.cookies.removeCookieWarning();">Confirm</a>
-            </div>
-        </div>
 
-        <script src="/Scripts/Corporate/optimized-min.js"></script>
-        <script src="/Scripts/Corporate/optimized-min(1).js"></script>
-        <script src="/Scripts/Corporate/optimized-min(2).js"></script>
-        <script src="/Scripts/Corporate/optimized-min(3).js"></script>
-        <script src="/Scripts/Corporate/optimized-min(4).js"></script>
-        <script src="/Scripts/Corporate/optimized-min(5).js"></script>
-        <script src="/Scripts/Corporate/optimized-min(6).js"></script>
-        <script src="/Scripts/Corporate/optimized-min(7).js"></script>
-        <script src="/Scripts/Corporate/optimized-min(8).js"></script>
+        @Html.Sitecore().Placeholder("content-main")
+        @Html.Sitecore().Placeholder("content-footer")
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     </body>
 </html>

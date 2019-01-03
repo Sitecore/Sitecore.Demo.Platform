@@ -1,0 +1,22 @@
+﻿@using Sitecore.HabitatHome.Feature.Components.Models
+
+@model Component
+
+<div class="container">
+    @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(Model.Title))
+    {
+        <h1 class="display-4">@Html.Sitecore().Edit(Model, m => m.Title)</h1>
+    }
+    @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(Model.Subtitle))
+    {
+        <h2>@Html.Sitecore().Edit(Model, m => m.Subtitle)</h2>
+    }
+    @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(Model.Lead))
+    {
+        <p class="lead">@Html.Sitecore().Edit(Model, m => m.Lead)</p>
+    }
+    @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(Model.Content))
+    {
+        @Html.Sitecore().Edit(Model, m => m.Content)
+    }
+</div>

@@ -95,6 +95,9 @@
     </Content>
     <Content Include="Areas\Components\Views\Shared\HelloWorld.cshtml" />
     <Content Include="App_Config\Include\Feature\Feature.Components.Serialization.config" />
+    <Content Include="Areas\Components\Views\Component\Navbar.cshtml" />
+    <Compile Include="Controllers\ComponentController.cs" />
+    <Content Include="Areas\Components\Views\Component\Page.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -106,11 +109,15 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Site.cs" />
+    <Compile Include="Models\ItemBase.cs" />
+    <Compile Include="Models\Component.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -90,19 +90,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Css\Corporate\optimized-min%281%29.css" />
-    <Content Include="Css\Corporate\optimized-min%282%29.css" />
-    <Content Include="Css\Corporate\optimized-min%283%29.css" />
-    <Content Include="Css\Corporate\optimized-min.css" />
-    <Content Include="Scripts\Corporate\optimized-min%281%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%282%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%283%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%284%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%285%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%286%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%287%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min%288%29.js" />
-    <Content Include="Scripts\Corporate\optimized-min.js" />
+    <Content Include="Css\Corporate\habitatcorporate.css" />
     <Content Include="Areas\Corporate\Views\Shared\MainLayout.cshtml" />
     <Content Include="Areas\Corporate\Views\Web.config">
       <SubType>Designer</SubType>
@@ -124,6 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\Corporate\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
