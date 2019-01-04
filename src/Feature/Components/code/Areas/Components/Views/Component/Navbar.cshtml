@@ -1,12 +1,12 @@
 ﻿@using Sitecore.HabitatHome.Feature.Components.Models
+@using Sitecore.Resources.Media
 
 @model Component
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="@Model.Site.Home.Url">
-            <!-- TODO: Get logo from CMS -->
-            <img src="/-/media/Project/Habitat-Sites/Habitat-Home/Images/Habitat-Logo.png">
+            <img src="@MediaManager.GetMediaUrl(Model.Site.GetSettings<Settings>().Brand))">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,6 +39,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <!-- TODO: Get search placeholder from CMS -->
+                <!-- TODO: Implement search -->
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             </form>
         </div>

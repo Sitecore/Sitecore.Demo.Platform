@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿@using Sitecore.HabitatHome.Feature.Components.Models
+
+<!doctype html>
+
 <html class="js applicationcache geolocation history postmessage svg websockets localstorage sessionstorage websqldatabase webworkers hashchange audio canvas canvastext webgl video cssgradients opacity multiplebgs rgba inlinesvg hsla supports svgclippaths smil generatedcontent fontface textshadow cssanimations borderimage backgroundsize boxshadow borderradius csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox cssreflections csstransforms csstransitions csstransforms3d indexeddb indexeddb-deletedatabase" lang="en"><!--<![endif]-->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,7 +14,7 @@
         <link href="https://habitathome.dev.local/" rel="shortcut icon">
 
         <!-- TODO: Get title text from CMS -->
-        <title>Habitat Corporate</title>
+        <title>@(new Site().GetSettings<Settings>().Title)</title>
     </head>
     <body class="default-device bodyclass">
         @Html.Sitecore().Placeholder("content-header")

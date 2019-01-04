@@ -1,4 +1,5 @@
-﻿using Sitecore.Data.Items;
+﻿using Sitecore.Data.Fields;
+using Sitecore.Data.Items;
 using Sitecore.Links;
 using Sitecore.Mvc.Helpers;
 using System;
@@ -63,15 +64,23 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
 
                 if (prop.PropertyType == typeof(string))
                     prop.SetValue(this, value);
-                else if (prop.PropertyType == typeof(Component))
+                else if (prop.PropertyType == typeof(MediaItem))
                 {
-                    Component component = null;
+                    MediaItem mi = null;
+                    if (!string.IsNullOrEmpty(value))
+                        mi = ((ImageField)item.Fields[prop.Name]).MediaItem;
+                    prop.SetValue(this, mi);
+                }
+                else if (typeof(ItemBase).IsAssignableFrom(prop.PropertyType))
+                {
+                    ItemBase ib = null;
                     if (!string.IsNullOrEmpty(value))
                     {
                         var relatedItem = Context.Database.GetItem(value);
-                        component = new Component() { Item = relatedItem };
+                        ib = Activator.CreateInstance(prop.PropertyType) as ItemBase;
+                        ib.Item = relatedItem;
                     }
-                    prop.SetValue(this, component);
+                    prop.SetValue(this, ib);
                 }
                 //else if (prop.PropertyType == typeof(Item))
                 //{

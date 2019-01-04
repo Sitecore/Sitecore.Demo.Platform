@@ -116,6 +116,12 @@
   <ItemGroup>
     <Folder Include="Scripts\Corporate\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Feature\Components\code\Sitecore.HabitatHome.Feature.Components.csproj">
+      <Project>{a870bed9-a0b7-4e07-a44e-8e16b95d6911}</Project>
+      <Name>Sitecore.HabitatHome.Feature.Components</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -12,7 +12,15 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
     public class Site : ItemBase
     {
         private Component home;
-        private Item settings;
+        private Item settingsItem;
+        private ItemBase lastSettingsGot;
+
+
+
+        public Site()
+        {
+            Item = Context.Database.GetItem(Context.Site.ContentStartPath);
+        }
 
 
 
@@ -31,14 +39,14 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
 
 
 
-        public Item Settings
+        public Item SettingsItem
         {
             get
             {
                 var sitePath = Context.Site.ContentStartPath;
-                if (settings == null && Item != null)
-                    settings = Context.Database.GetItem(sitePath + "/" + Item["Settings"]);
-                return settings;
+                if (settingsItem == null && Item != null)
+                    settingsItem = Context.Database.GetItem(sitePath + "/" + Item["Settings"]);
+                return settingsItem;
             }
         }
 
@@ -46,7 +54,10 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
 
         public T GetSettings<T>() where T : ItemBase, new()
         {
-            return new T() { Item = Settings };
+            if (lastSettingsGot == null ||
+                lastSettingsGot.GetType() != typeof(T))
+                lastSettingsGot = new T() { Item = SettingsItem };
+            return lastSettingsGot as T;
         }
     }
 }

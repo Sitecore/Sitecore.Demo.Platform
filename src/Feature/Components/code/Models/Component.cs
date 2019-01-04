@@ -27,10 +27,7 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
             get
             {
                 if (site == null)
-                {
                     site = new Site();
-                    site.Item = Context.Database.GetItem(Context.Site.ContentStartPath);
-                }
                 return site;
             }
         }

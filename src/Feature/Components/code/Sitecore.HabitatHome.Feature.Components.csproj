@@ -109,6 +109,7 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Site.cs" />
     <Compile Include="Models\ItemBase.cs" />
     <Compile Include="Models\Component.cs" />
