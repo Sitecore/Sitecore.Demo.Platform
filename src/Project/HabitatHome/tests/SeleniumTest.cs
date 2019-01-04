@@ -143,7 +143,7 @@ namespace Sitecore.HabitatHome.Website.Test
                     return driver;
 
                 driver = new ChromeDriver();
-                driver.Manage().Window.Size = new Size(1800, 1000);
+                driver.Manage().Window.Size = new Size(1024, 768);
                 return driver;
             }
         }
