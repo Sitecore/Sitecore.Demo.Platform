@@ -1,0 +1,43 @@
+﻿@using Sitecore.HabitatHome.Feature.Components.Models
+
+@model Component
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-deck">
+                @{ 
+                    var count = 0;
+                    var settings = Model.Site.GetSettings<Settings>();
+                }
+                @foreach (var component in Model.GetChildren<Component>())
+                {
+                    if (count > 0 && count % 4 == 0)
+                    {
+                        <div class="w-100 py-2"></div>
+                    }
+
+                    <div class="card">
+                        <img class="card-img-top img-adjusted" src="">
+                        <div class="card-body">
+
+                            @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(component.Title))
+                            {
+                                <h5 class="card-title">@Html.Sitecore().Edit(component, c => c.Title)</h5>
+                            }
+                            @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(component.Subtitle))
+                            {
+                                <p class="card-text">@Html.Sitecore().Edit(component, c => c.Subtitle)</p>
+                            }
+                            <!-- TODO: Change button text to pull from Sitecore (from settings?) -->
+                            <a href="@component.Url" class="btn btn-info">Read More</a>
+                        </div>
+                    </div>
+
+                    count++;
+                }
+
+                <div class="w-100 py-2"></div>
+            </div>
+        </div>
+    </div>
+</div>

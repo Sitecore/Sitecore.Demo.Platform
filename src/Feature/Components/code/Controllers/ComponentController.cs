@@ -42,6 +42,27 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
 
 
 
+        public ViewResult Carousel()
+        {
+            return View(Component);
+        }
+
+
+
+        public ViewResult CardContainer()
+        {
+            return View(Component);
+        }
+
+
+
+        public ViewResult Hero()
+        {
+            return View(Component);
+        }
+
+
+
         public ViewResult Navbar()
         {
             var component = Component;
@@ -53,6 +74,20 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
 
 
         public ViewResult Page()
+        {
+            return View(Component);
+        }
+
+
+
+        public ViewResult PromoImageLeft()
+        {
+            return View(Component);
+        }
+
+
+
+        public ViewResult PromoImageRight()
         {
             return View(Component);
         }
