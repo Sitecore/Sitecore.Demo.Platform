@@ -14,32 +14,24 @@
                     <tbody>
                         <tr>
                             <td>
-                                <a style="width:30px; height: 30px; display: block; color:#1b8f9c; fill: #1b8f9c;">
-                                    <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M 211.9 197.4 h -36.7 v 59.9 h 36.7 V 433.1 h 70.5 V 256.5 h 49.2 l 5.2 -59.1 h -54.4 c 0 0 0 -22.1 0 -33.7 c 0 -13.9 2.8 -19.5 16.3 -19.5 c 10.9 0 38.2 0 38.2 0 V 82.9 c 0 0 -40.2 0 -48.8 0 c -52.5 0 -76.1 23.1 -76.1 67.3 C 211.9 188.8 211.9 197.4 211.9 197.4 Z"></path>
-                                    </svg>
-                                </a>
+                                @Html.Sitecore().BeginField(Templates.Footer.Fields.FacebookLink.ToString(), Model.Item, new { haschildren = true, style = "width:30px; height: 30px; display: block; color:#1b8f9c; fill: #1b8f9c;" })
+                                @Html.Sitecore().Field(Templates.Footer.Fields.FacebookLogo.ToString(), Model.Item, new { width = "32", height = "23", style = "width: 32px; height: 23px;" })
+                                @Html.Sitecore().EndField()
                             </td>
                             <td>
-                                <a style="width:30px; height: 30px; display: block; color:#1b8f9c; fill: #1b8f9c;">
-                                    <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">                                   
-                                        <path d="M 419.6 168.6 c -11.7 5.2 -24.2 8.7 -37.4 10.2 c 13.4 -8.1 23.8 -20.8 28.6 -36 c -12.6 7.5 -26.5 12.9 -41.3 15.8 c -11.9 -12.6 -28.8 -20.6 -47.5 -20.6 c -42 0 -72.9 39.2 -63.4 79.9 c -54.1 -2.7 -102.1 -28.6 -134.2 -68 c -17 29.2 -8.8 67.5 20.1 86.9 c -10.7 -0.3 -20.7 -3.3 -29.5 -8.1 c -0.7 30.2 20.9 58.4 52.2 64.6 c -9.2 2.5 -19.2 3.1 -29.4 1.1 c 8.3 25.9 32.3 44.7 60.8 45.2 c -27.4 21.4 -61.8 31 -96.4 27 c 28.8 18.5 63 29.2 99.8 29.2 c 120.8 0 189.1 -102.1 185 -193.6 C 399.9 193.1 410.9 181.7 419.6 168.6 Z"></path>
-                                    </svg>
-                                </a>
+                                @Html.Sitecore().BeginField(Templates.Footer.Fields.TwitterLink.ToString(), Model.Item, new { haschildren = true, style = "width:30px; height: 30px; display: block; color:#1b8f9c; fill: #1b8f9c;" })
+                                @Html.Sitecore().Field(Templates.Footer.Fields.TwitterLogo.ToString(), Model.Item, new { width = "32", height = "23", style = "width: 32px; height: 23px;" })
+                                @Html.Sitecore().EndField()
                             </td>
                             <td>
-                                <a style="width:30px; height: 30px; display: block; color:#1b8f9c; fill: #1b8f9c;">
-                                    <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M 422.6 193.6 c -5.3 -45.3 -23.3 -51.6 -59 -54 c -50.8 -3.5 -164.3 -3.5 -215.1 0 c -35.7 2.4 -53.7 8.7 -59 54 c -4 33.6 -4 91.1 0 124.8 c 5.3 45.3 23.3 51.6 59 54 c 50.9 3.5 164.3 3.5 215.1 0 c 35.7 -2.4 53.7 -8.7 59 -54 C 426.6 284.8 426.6 227.3 422.6 193.6 Z M 222.2 303.4 v -94.6 l 90.7 47.3 L 222.2 303.4 Z"></path>
-                                    </svg>
-                                </a>
+                                @Html.Sitecore().BeginField(Templates.Footer.Fields.YoutubeLink.ToString(), Model.Item, new { haschildren = true, style = "width:30px; height: 30px; display: block; color:#1b8f9c; fill: #1b8f9c;" })
+                                @Html.Sitecore().Field(Templates.Footer.Fields.YoutubeLogo.ToString(), Model.Item, new { width = "32", height = "23", style = "width: 32px; height: 23px;" })
+                                @Html.Sitecore().EndField()
                             </td>
                             <td>
-                                <a style="width:30px; height: 30px; display: block; color:#1b8f9c; fill: #1b8f9c;">
-                                    <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M 186.4 142.4 c 0 19 -15.3 34.5 -34.2 34.5 c -18.9 0 -34.2 -15.4 -34.2 -34.5 c 0 -19 15.3 -34.5 34.2 -34.5 C 171.1 107.9 186.4 123.4 186.4 142.4 Z M 181.4 201.3 h -57.8 V 388.1 h 57.8 V 201.3 Z M 273.8 201.3 h -55.4 V 388.1 h 55.4 c 0 0 0 -69.3 0 -98 c 0 -26.3 12.1 -41.9 35.2 -41.9 c 21.3 0 31.5 15 31.5 41.9 c 0 26.9 0 98 0 98 h 57.5 c 0 0 0 -68.2 0 -118.3 c 0 -50 -28.3 -74.2 -68 -74.2 c -39.6 0 -56.3 30.9 -56.3 30.9 v -25.2 H 273.8 Z"></path>
-                                    </svg>
-                                </a>
+                                @Html.Sitecore().BeginField(Templates.Footer.Fields.LinkedinLink.ToString(), Model.Item, new { haschildren = true, style = "width:30px; height: 30px; display: block; color:#1b8f9c; fill: #1b8f9c;" })
+                                @Html.Sitecore().Field(Templates.Footer.Fields.LinkedinLogo.ToString(), Model.Item, new { width = "32", height = "23", style = "width: 32px; height: 23px;" })
+                                @Html.Sitecore().EndField()
                             </td>
                         </tr>
                     </tbody>

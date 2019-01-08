@@ -26,6 +26,15 @@ namespace Sitecore.HabitatHome.Feature.Email
                 public static readonly ID Logo = new ID("{C32E54A4-E8A6-4968-B7B2-E42351043D27}");
                 public static readonly ID Text = new ID("{C699C120-B1A1-4884-8951-F476C8C95AB3}");
                 public static readonly ID Copyright = new ID("{61ABBFBA-383B-4E6C-B744-E714B4CC1A4F}");
+                public static readonly ID FacebookLogo = new ID("{F2205047-2736-412F-AA5C-0CE074859943}");
+                public static readonly ID FacebookLink = new ID("{E36931DE-C4B5-4DBD-B54B-AA67BBE50F7A}");
+                public static readonly ID TwitterLogo = new ID("{B620D0E4-40D6-4292-8DD7-366473CBF721}");
+                public static readonly ID TwitterLink = new ID("{F62307DE-AC61-4808-9747-092AB8FBA8B9}");
+                public static readonly ID YoutubeLogo = new ID("{A0775839-F666-4348-B080-F2618F4D999C}");
+                public static readonly ID YoutubeLink = new ID("{4EEE16D0-D4E4-4894-A9CB-AF0B47B6F969}");
+                public static readonly ID LinkedinLogo = new ID("{EDA7563A-AC3F-4A89-9AD9-1DFAFE802640}");
+                public static readonly ID LinkedinLink = new ID("{425F54E4-BAE3-4C2A-BC5C-9EFEAA74926E}");
+
             }
         }
 
