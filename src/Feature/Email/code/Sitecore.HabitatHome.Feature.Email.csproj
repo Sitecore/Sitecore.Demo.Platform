@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" 
-  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -50,11 +49,15 @@
         <Reference Include="Sitecore.Kernel">
           <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
         </Reference>
+        <Reference Include="Sitecore.Mvc">
+          <HintPath>..\..\..\..\lib\Sitecore.Mvc.dll</HintPath>
+        </Reference>
       </ItemGroup>
     </When>
     <Otherwise>
       <ItemGroup>
         <PackageReference Include="Sitecore.Kernel" Version="12.0.0-*" />
+        <PackageReference Include="Sitecore.Mvc" Version="3.0.0-*" />
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -85,6 +88,7 @@
     <Content Include="Views\Email\PageTeaser.cshtml" />
     <Content Include="Views\Email\Promo.cshtml" />
     <Content Include="Views\Email\Image.cshtml" />
+    <Content Include="App_Config\Include\Feature\Feature.Email.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -100,6 +104,10 @@
     <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\Dictionary\code\Sitecore.HabitatHome.Foundation.Dictionary.csproj">
+      <Project>{0d6ba4d8-c469-4ae9-9ebb-93bdf7d7e78f}</Project>
+      <Name>Sitecore.HabitatHome.Foundation.Dictionary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Foundation\SitecoreExtensions\code\Sitecore.HabitatHome.Foundation.SitecoreExtensions.csproj">
       <Project>{1c7b40c7-aea6-4038-9d45-0f5440908929}</Project>
       <Name>Sitecore.HabitatHome.Foundation.SitecoreExtensions</Name>
