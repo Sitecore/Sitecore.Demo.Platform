@@ -26,7 +26,8 @@
    
    Default value: None
     -->
-        <add key="integrations:define" value="None" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />     
+        <add key="integrations:define" value="None" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+        <add key="xgenerator:define" value="On" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
     </appSettings>
 
     <system.webServer>
