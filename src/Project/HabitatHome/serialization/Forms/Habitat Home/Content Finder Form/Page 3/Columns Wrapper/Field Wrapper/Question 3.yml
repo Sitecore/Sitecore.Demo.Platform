@@ -1,0 +1,80 @@
+﻿---
+ID: "16ef3c02-9be4-4fe5-9c71-e0985bd4a049"
+Parent: "0ede31c6-a189-43c4-b521-573b13c2cd82"
+Template: "5b672865-55d2-413e-b699-fdfc7e732ccf"
+Path: /sitecore/Forms/Habitat Sites/Habitat Home/Content Finder Form/Page 3/Columns Wrapper/Field Wrapper/Question 3
+DB: master
+SharedFields:
+- ID: "10e5829a-1943-4597-b9ee-406ce3d13e13"
+  Hint: Validations
+  Type: Treelist
+  Value: 
+- ID: "21ed172d-97e2-4ac4-8eaf-0a8860b891f4"
+  Hint: Default Selection
+  Value: 
+- ID: "467c22b4-b1a2-4620-b8bb-74c2d8b369fc"
+  Hint: Label Css Class
+  Value: "content-finder-label"
+- ID: "492361e0-72d8-4847-82ba-ebfc235cf57b"
+  Hint: Display Field Name
+  Value: Value
+- ID: "54424e06-0e7a-47a7-8cb2-7383d700472f"
+  Hint: Is Dynamic
+  Type: Checkbox
+  Value: 1
+- ID: "589a7ade-81d4-4a60-b9e2-7eaf6ae8a563"
+  Hint: Field Type
+  Value: "{10DC4D60-0550-4CD4-A978-BAE7A8F0CED9}"
+- ID: "5be76442-950f-4c1f-a797-bebd71101abb"
+  Hint: Datasource
+  Value: "{78FA0B30-A853-4649-A19C-160CEAD19B1B}"
+- ID: "78778432-6327-4cea-a28b-e190e3541d28"
+  Hint: Value Field Name
+  Value: Key
+- ID: "7abaa3f6-6ec0-4b65-a463-7919bfae55aa"
+  Hint: Css Class
+  Value: 
+- ID: "8a43af61-0812-4b37-a343-96cde3f12bb1"
+  Hint: Required
+  Type: Checkbox
+  Value: 0
+- ID: "90c4f94c-ec2c-4ee4-b4c8-f3e29cbe630e"
+  Hint: Allow Save
+  Type: Checkbox
+  Value: 1
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "d99833ea-238a-4505-90ef-c69bf3eba946"
+  Hint: Is Tracking Enabled
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171121T215008Z
+    - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
+      Hint: Title
+      Value: "What type of products are you interested in?"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 質問３
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T104944Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
+      Hint: Title
+      Value: どんなタイプの製品に興味がありますか？
