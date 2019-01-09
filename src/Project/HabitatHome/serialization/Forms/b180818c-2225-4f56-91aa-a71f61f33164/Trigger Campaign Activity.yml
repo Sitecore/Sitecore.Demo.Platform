@@ -1,0 +1,44 @@
+﻿---
+ID: "dbb7b708-b2bd-4ba2-aed4-9829ab42d1e9"
+Parent: "b180818c-2225-4f56-91aa-a71f61f33164"
+Template: "05fe45d4-b9c7-40de-b767-7c5abe7119f9"
+Path: /sitecore/Forms/Habitat Sites/Habitat Home/Newsletter Signup/Page/Section/Text/SubmitActions/Trigger Campaign Activity
+DB: master
+SharedFields:
+- ID: "5c796924-3f06-4d1f-8510-8ad9a4244477"
+  Hint: Parameters
+  Value: |
+    {"referenceId":"{DEB14F37-4DE3-48D0-A3B9-3E361F143C35}"}
+- ID: "abc57b6d-5542-4ab9-a889-106225a032e6"
+  Hint: Submit Action
+  Value: "{4A937D74-7986-4E19-9D8E-EC14675B17F0}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T202848Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: キャンペーンアクティビティのトリガー
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181024T125755Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
