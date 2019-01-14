@@ -1,0 +1,35 @@
+﻿---
+ID: "290429cf-b947-46a5-8ce5-a5deaa538f4c"
+Parent: "03ff5210-fb00-427a-a034-41fb55915dfd"
+Template: "8cddb194-f456-4a75-89b7-346f8f39f95c"
+Path: /sitecore/Forms/Habitat Sites/Habitat Home/Weekly Fitness Report Signup/Page/Section/ProvinceSection
+DB: master
+SharedFields:
+- ID: "589a7ade-81d4-4a60-b9e2-7eaf6ae8a563"
+  Hint: Field Type
+  Value: "{447AA745-6D29-4B65-A5A3-8173AA8AF548}"
+- ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
+  Hint: Conditions
+  Value: |
+    {"fieldConditions":[{"matchTypeId":"{365C94DA-C1CD-4783-A91D-0D17A16C7117}","conditions":[{"fieldId":"D6051C495AED416180A22F07DDFB6729","operatorId":"{49F47E77-E8C5-46F9-BF39-78D6B0D40B48}","value":"US"}],"actions":[{"fieldId":"81017AAFF9C5486782A3558FFF33BBF9","actionTypeId":"{AAE07A52-46A4-49EF-98B0-C2595BAC2382}","value":null}]},{"matchTypeId":"{365C94DA-C1CD-4783-A91D-0D17A16C7117}","conditions":[{"fieldId":"D6051C495AED416180A22F07DDFB6729","operatorId":"{1D38B217-A2EE-4E7B-B6ED-13E751462FEB}","value":"US"}],"actions":[{"fieldId":"81017AAFF9C5486782A3558FFF33BBF9","actionTypeId":"{7F58C8DD-D7C0-4FB7-BB44-8EC6B5E1C3D9}","value":null}]}]}
+- ID: "7abaa3f6-6ec0-4b65-a463-7919bfae55aa"
+  Hint: Css Class
+  Value: 
+- ID: "84ece662-5034-40cb-9c60-744db64bb294"
+  Hint: Field Key
+  Value: 81017AAFF9C5486782A3558FFF33BBF9
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181105T212423Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
