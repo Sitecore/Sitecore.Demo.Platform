@@ -1,8 +1,11 @@
 resources:
 - repo: self
 variables:
-  version: 9.1.0.2
-name: $(version)
+  major: 9.1
+  minor: 0
+  # creates a counter called versioncounter and seeds it at 100 and then assigns the value to a variable named patch.
+  patch: $[counter('versioncounter', 1)]
+name: $(major).$(minor).$(patch)
 queue:
   name: DEVDEMO1US1
 steps:
@@ -63,9 +66,9 @@ steps:
 
     githubRepository: Sitecore/Sitecore.HabitatHome.Platform
 
-    githubTag: '$(version)'
+    githubTag: '$(major).$(minor).$(patch)'
 
-    githubReleaseTitle: '$(version)'
+    githubReleaseTitle: '$(major).$(minor).$(patch)'
 
     githubReleasePrerelease: true
 
