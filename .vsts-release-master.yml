@@ -5,7 +5,7 @@ variables:
   minor: 0
   # creates a counter called versioncounter and seeds it at 100 and then assigns the value to a variable named patch.
   patch: $[counter('versioncounter', 1)]
-name: $(major).$(minor).$(patch)
+name: "9.1.0.2"
 queue:
   name: DEVDEMO1US1
 steps:
