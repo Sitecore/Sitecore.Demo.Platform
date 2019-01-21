@@ -63,7 +63,7 @@ Function UploadWDPs ([PSCustomObject] $cakeJsonConfig, [PSCustomObject] $assetsJ
 
     $sitecoreWDPpathArray = New-Object System.Collections.ArrayList
     $scUpload = $false
-    $scUpload = ($assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Platform"} | Select-Object-Object -first 1).uploadToAzure
+    $scUpload = ($assetsJsonConfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Platform"} | Select-Object -first 1).uploadToAzure
 
     # Add Sitecore and habitat WDPs to upload list
     if ($cakeJsonConfig.Topology -eq "single") {
@@ -345,7 +345,7 @@ if (!($SkipScUpload)) {
     }
 
     # Get the current storage account
-    $sa = Get-AzureRmStorageAccount | Where-Object {$_.StorageAccountName -eq $storageAccountName } | Select-Object-Object 
+    $sa = Get-AzureRmStorageAccount | Where-Object {$_.StorageAccountName -eq $storageAccountName } | Select-Object 
 
     # Obtain the storage account context
     $ctx = $sa.Context
@@ -396,7 +396,7 @@ if (!($SkipScUpload)) {
 else {
     #SkipSCUpload
     # Get the current storage account
-    $sa = Get-AzureRmStorageAccount | Where-Object {$_.StorageAccountName -eq $storageAccountName } | Select-Object-Object 
+    $sa = Get-AzureRmStorageAccount | Where-Object {$_.StorageAccountName -eq $storageAccountName } | Select-Object 
 
     # Obtain the storage account context
     $ctx = $sa.Context
@@ -430,7 +430,7 @@ if ($true -eq $defCDAsset.install) {
 
 }
 
-$sxaFileName = $assetconfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Accelerator"} | Select-Object-Object -First 1 | Foreach-Object {$_.filename.ToString()}
+$sxaFileName = $assetconfig.prerequisites | Where-Object {$_.name -eq "Sitecore Experience Accelerator"} | Select-Object -First 1 | Foreach-Object {$_.filename.ToString()}
 
 $sxaBlob = $blobsList | Where-Object {($_.Name -replace "^wdps\/(.*)", '$1') -eq $sxaFileName}
 
