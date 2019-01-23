@@ -1,34 +1,32 @@
 ﻿using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
-using Sitecore.Links;
 using Sitecore.Mvc.Helpers;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Web;
-using System.Web.Mvc;
 
 namespace Sitecore.HabitatHome.Feature.Components.Models
 {
     public class ItemBase
     {
-        private Item item;
-        private static readonly ConcurrentDictionary<Type, PropertyInfo[]> propertyCache =
-            new ConcurrentDictionary<Type, PropertyInfo[]>();
-
-
+        private Item _item;
+        private static readonly ConcurrentDictionary<Type, PropertyInfo[]> propertyCache = new ConcurrentDictionary<Type, PropertyInfo[]>();
 
         public IEnumerable<T> GetChildren<T>() where T : ItemBase, new()
         {
             var children = new List<T>();
-            foreach (Item child in item.Children)
+
+            if (_item != null)
             {
-                var t = new T();
-                t.Item = child;
-                children.Add(t);
+                foreach (Item child in _item.Children)
+                {
+                    var t = new T();
+                    t.Item = child;
+                    children.Add(t);
+                }
             }
             return children;
         }
@@ -39,11 +37,11 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
         {
             get
             {
-                return item;
+                return _item;
             }
             set
             {
-                item = value;
+                _item = value;
                 SetProperties();
             }
         }
@@ -56,50 +54,56 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
             var props = propertyCache.GetOrAdd(type, t => t.GetProperties());
 
             foreach (var prop in props)
-            if (prop.CanWrite && prop.Name != "Item")
             {
-                string value = null;
-                if (item != null)
-                    value = item[prop.Name];
-
-                if (prop.PropertyType == typeof(string))
-                    prop.SetValue(this, value);
-                else if (prop.PropertyType == typeof(MediaItem))
+                if (prop.CanWrite && prop.Name != "Item")
                 {
-                    MediaItem mi = null;
-                    if (!string.IsNullOrEmpty(value))
-                        mi = ((ImageField)item.Fields[prop.Name]).MediaItem;
-                    prop.SetValue(this, mi);
-                }
-                else if (typeof(ItemBase).IsAssignableFrom(prop.PropertyType))
-                {
-                    ItemBase ib = null;
-                    if (!string.IsNullOrEmpty(value))
+                    string value = null;
+                    if (_item != null)
                     {
-                        var relatedItem = Context.Database.GetItem(value);
-                        ib = Activator.CreateInstance(prop.PropertyType) as ItemBase;
-                        ib.Item = relatedItem;
+                        value = _item[prop.Name];
                     }
-                    prop.SetValue(this, ib);
+
+                    if (prop.PropertyType == typeof(string))
+                    {
+                        prop.SetValue(this, value);
+                    }
+                    else if (prop.PropertyType == typeof(MediaItem))
+                    {
+                        MediaItem mi = null;
+                        if (!string.IsNullOrEmpty(value))
+                        {
+                            mi = ((ImageField)_item.Fields[prop.Name]).MediaItem;
+                        }
+                        prop.SetValue(this, mi);
+                    }
+                    else if(prop.PropertyType == typeof(ImageField))
+                    {
+                        string fieldName = prop.Name.Contains("Field") ? prop.Name.Replace("Field", string.Empty) : prop.Name;
+                        prop.SetValue(this, (ImageField)_item.Fields[fieldName]);
+                    }
+                    else if (typeof(ItemBase).IsAssignableFrom(prop.PropertyType))
+                    {
+                        ItemBase ib = null;
+                        if (!string.IsNullOrEmpty(value))
+                        {
+                            var relatedItem = Context.Database.GetItem(value);
+                            ib = Activator.CreateInstance(prop.PropertyType) as ItemBase;
+                            ib.Item = relatedItem;
+                        }
+                        prop.SetValue(this, ib);
+                    }
                 }
-                //else if (prop.PropertyType == typeof(Item))
-                //{
-                //    Item relatedItem = null;
-                //    if (!string.IsNullOrEmpty(value))
-                //        relatedItem = Context.Database.GetItem(value);
-                //    prop.SetValue(this, item);
-                //}
             }
         }
     }
 
 
-
+    //todo: move to Foundation.SitecoreExtensions
     public static class SitecoreHelperExtensions
     {
 
-        public static HtmlString Edit<TBase, TProp>(this SitecoreHelper sitecoreHelper,
-            TBase itemBase, Expression<Func<TBase, TProp>> property) where TBase : ItemBase
+        public static HtmlString Edit<TBase, TProp>(this SitecoreHelper sitecoreHelper, 
+            TBase itemBase, Expression<Func<TBase, TProp>> property, object parameters = null) where TBase : ItemBase
         {
             Type type = typeof(TBase);
 
@@ -118,7 +122,7 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
                 !type.IsSubclassOf(propInfo.ReflectedType))
                 throw new ArgumentException($"Expression '{property.ToString()}' refers to a property that is not from type {type.FullName}.");
 
-            return sitecoreHelper.Field(propInfo.Name, itemBase.Item);
+            return sitecoreHelper.Field(propInfo.Name, itemBase.Item, parameters);
         }
 
     }

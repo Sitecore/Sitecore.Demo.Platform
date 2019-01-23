@@ -6,7 +6,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="@Model.Site.Home.Url">
-            <img src="@MediaManager.GetMediaUrl(Model.Site.GetSettings<Settings>().Brand))">
+            @Html.Sitecore().Edit(Model.Site.GetSettings<Settings>(), m => m.Logo)
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -1,8 +1,13 @@
 ﻿@using Sitecore.HabitatHome.Feature.Components.Models
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
 
 @model Component
 
-<div class="jumbotron jumbotron-fluid">
+@{ 
+    
+  var style = Model.ImageField.ImageUrl().ToCssUrlValue();
+}
+<div class="jumbotron jumbotron-fluid" style="background-image:@style">
     <div class="container">
         @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(Model.Title))
         {

@@ -1,11 +1,13 @@
 ﻿@using Sitecore.HabitatHome.Feature.Components.Models
+@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
 
 @model Component
 <div class="container">
     <div class="row">
         <div class="col-12">
             <div class="card-deck">
-                @{ 
+                <div class="w-100 py-2"></div>
+                @{
                     var count = 0;
                     var settings = Model.Site.GetSettings<Settings>();
                 }
@@ -17,7 +19,8 @@
                     }
 
                     <div class="card">
-                        <img class="card-img-top img-adjusted" src="">
+                        @Html.Sitecore().Edit(component, c => c.Image, new { @class = "card-img-top img-adjusted", mw = "500" })
+
                         <div class="card-body">
 
                             @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(component.Title))
@@ -28,8 +31,9 @@
                             {
                                 <p class="card-text">@Html.Sitecore().Edit(component, c => c.Subtitle)</p>
                             }
-                            <!-- TODO: Change button text to pull from Sitecore (from settings?) -->
-                            <a href="@component.Url" class="btn btn-info">Read More</a>
+                            <a href="@component.Url" class="btn btn-info">
+                                @Html.Sitecore().Dictionary("/Buttons/Read More", "Read More")
+                            </a>
                         </div>
                     </div>
 

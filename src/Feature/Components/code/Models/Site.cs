@@ -1,11 +1,4 @@
 ﻿using Sitecore.Data.Items;
-using Sitecore.Links;
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web.Mvc;
 
 namespace Sitecore.HabitatHome.Feature.Components.Models
 {
@@ -15,15 +8,11 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
         private Item settingsItem;
         private ItemBase lastSettingsGot;
 
-
-
         public Site()
         {
             Item = Context.Database.GetItem(Context.Site.ContentStartPath);
         }
-
-
-
+        
         public Component Home
         {
             get
@@ -35,9 +24,7 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
                 }
                 return home;
             }
-        }
-
-
+        }        
 
         public Item SettingsItem
         {
@@ -49,9 +36,7 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
                 return settingsItem;
             }
         }
-
-
-
+        
         public T GetSettings<T>() where T : ItemBase, new()
         {
             if (lastSettingsGot == null ||

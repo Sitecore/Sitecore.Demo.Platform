@@ -1,11 +1,6 @@
-﻿using Sitecore.Data.Items;
+﻿using Sitecore.Data.Fields;
+using Sitecore.Data.Items;
 using Sitecore.Links;
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web.Mvc;
 
 namespace Sitecore.HabitatHome.Feature.Components.Models
 {
@@ -19,6 +14,8 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
         public string Content { get; set; }
         public Component TargetPage { get; set; }
         public string TargetUrl { get; set; }
+        public MediaItem Image { get; set; }
+        public ImageField ImageField { get; set; }
 
 
 
@@ -27,22 +24,31 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
             get
             {
                 if (site == null)
+                {
                     site = new Site();
+                }
                 return site;
             }
         }
 
 
 
+        //todo: use Foundation.SitecoreExtensions to resolve link field
         public string Url
         {
             get
             {
                 string url = TargetPage?.Url;
+
                 if (string.IsNullOrEmpty(url))
+                {
                     url = TargetUrl;
+                }
                 if (string.IsNullOrEmpty(url))
+                {
                     url = LinkManager.GetItemUrl(Item);
+                }
+
                 return url;
             }
         }

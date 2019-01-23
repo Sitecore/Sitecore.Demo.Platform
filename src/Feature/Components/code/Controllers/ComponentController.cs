@@ -44,7 +44,9 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
 
         public ViewResult Carousel()
         {
-            return View(Component);
+            CarouselModel model = new CarouselModel() { Item = Component.Item };
+            model.Slides = model.GetChildren<CarouselSlideModel>();
+            return View(model);
         }
 
 
