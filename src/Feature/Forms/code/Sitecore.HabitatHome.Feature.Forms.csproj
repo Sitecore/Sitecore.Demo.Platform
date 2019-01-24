@@ -46,22 +46,22 @@
   <Choose>
     <When Condition=" '$(Configuration)'=='Local' ">
       <ItemGroup>
-        <Reference Include="Sitecore.Analytics.Model" >
+        <Reference Include="Sitecore.Analytics.Model">
           <HintPath>..\..\..\..\lib\Sitecore..Analytics.Model.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Analytics">
           <HintPath>..\..\..\..\lib\Sitecore.Analytics.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.ExperienceForms.Client" >
+        <Reference Include="Sitecore.ExperienceForms.Client">
           <HintPath>..\..\..\..\lib\Sitecore.ExperienceForms.Client.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.ExperienceForms.Mvc">
           <HintPath>..\..\..\..\lib\Sitecore.ExperienceForms.Mvc.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.ExperienceForms" >
+        <Reference Include="Sitecore.ExperienceForms">
           <HintPath>..\..\..\..\lib\Sitecore.ExperienceForms.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.ExperienceForms.SubmitActions" >
+        <Reference Include="Sitecore.ExperienceForms.SubmitActions">
           <HintPath>..\..\..\..\lib\Sitecore.ExperienceForms.SubmitActions.dll</HintPath>
         </Reference>
         <Reference Include="Sitecore.Kernel">
@@ -86,8 +86,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
-
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -123,6 +122,8 @@
     <Content Include="Views\FormBuilder\FieldTemplates\SingleLineText.cshtml" />
     <Content Include="Views\FormBuilder\FieldTemplates\Telephone.cshtml" />
     <Content Include="Views\FormBuilder\FieldTemplates\NonGroupedRadioButtonList.cshtml" />
+    <Content Include="Areas\Forms\Views\FormWrapper\FormWrapper.cshtml" />
+    <Content Include="Areas\Forms\Views\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,6 +1,4 @@
 ﻿@using Sitecore.HabitatHome.Feature.Components.Models
-@using Sitecore.Resources.Media
-
 @model Component
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -37,11 +35,8 @@
                     }
                 }
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <!-- TODO: Get search placeholder from CMS -->
-                <!-- TODO: Implement search -->
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </form>
+
+        @Html.Sitecore().Placeholder("utility-navigation")
         </div>
     </div>
 </nav>

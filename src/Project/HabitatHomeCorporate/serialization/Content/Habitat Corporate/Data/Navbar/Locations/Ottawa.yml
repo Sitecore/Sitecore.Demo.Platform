@@ -4,6 +4,10 @@ Parent: "43c014de-6240-4074-bcae-6484e9e4a479"
 Template: "9bcd885b-8b18-4ea5-aea1-bc5f918d5b90"
 Path: /sitecore/content/Habitat Corporate/Data/Navbar/Locations/Ottawa
 DB: master
+SharedFields:
+- ID: "805d01db-3c84-4181-9025-1c0a0c0fd4c9"
+  Hint: TargetPage
+  Value: "{0C7B0932-4630-4744-9BEA-40B5C4B9862D}"
 Languages:
 - Language: en
   Versions:
@@ -12,9 +16,6 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190102T192817Z
-    - ID: "805d01db-3c84-4181-9025-1c0a0c0fd4c9"
-      Hint: TargetPage
-      Value: "{0C7B0932-4630-4744-9BEA-40B5C4B9862D}"
     - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
       Hint: Title
       Value: Ottawa
