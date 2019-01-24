@@ -1,12 +1,13 @@
-﻿namespace Sitecore.HabitatHome.Feature.Demo.Services
-{
-    using Sitecore.Configuration;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;
-    using System;
-    using System.Web;
+﻿using System;
+using System.Web;
+using Sitecore.Configuration;
+using Sitecore.HabitatHome.Feature.Demo.Services;
+using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
-    [Service]
-    public class DemoStateService
+namespace Sitecore.HabitatHome.Feature.Demo.Services
+{
+    [Service(typeof(IDemoStateService))]
+    public class DemoStateService : IDemoStateService
     {
         public DemoStateService(HttpContextBase httpContext)
         {

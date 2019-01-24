@@ -2,13 +2,16 @@
 ID: "6dcb5cdf-9e06-40f8-9068-dbcaceb8da22"
 Parent: "2089ad73-1c64-4ea5-b6e9-1822296d94ed"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
-Path: /sitecore/layout/Renderings/Feature/Habitat Sites/Demo/Sidebar
+Path: /sitecore/layout/Renderings/Feature/Habitat Sites/Demo/Demo Sidebar
 DB: master
 SharedFields:
 - ID: "069a8361-b1cd-437c-8c32-a3be78941446"
   Hint: Placeholders
   Type: Treelist
   Value: 
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/surveillance_camera2.png
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
@@ -21,7 +24,7 @@ SharedFields:
   Value: 
 - ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
   Hint: Controller Action
-  Value: Index
+  Value: ExperienceData
 - ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
   Hint: Controller
   Value: Demo

@@ -90,6 +90,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\Corporate\component-canvas-sidebar.css" />
     <Content Include="Css\Corporate\habitatcorporate.css" />
     <Content Include="Areas\Corporate\Views\Shared\MainLayout.cshtml" />
     <Content Include="Areas\Corporate\Views\Web.config">
@@ -97,6 +98,8 @@
     </Content>
     <Content Include="App_Config\Include\Project\HabitatHome.Corporate.Website.config" />
     <Content Include="App_Config\Include\Project\HabitatHome.Corporate.Website.Serialization.config" />
+    <Content Include="Scripts\Corporate\component-canvas-sidebar.js" />
+    <Content Include="Scripts\Corporate\component-demo-visitdetails.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -113,9 +116,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\Corporate\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Feature\Components\code\Sitecore.HabitatHome.Feature.Components.csproj">
       <Project>{a870bed9-a0b7-4e07-a44e-8e16b95d6911}</Project>

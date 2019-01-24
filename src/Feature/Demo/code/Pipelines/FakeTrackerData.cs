@@ -14,9 +14,9 @@ namespace Sitecore.HabitatHome.Feature.Demo.Pipelines
 
     public class FakeTrackerData
     {
-        public DemoStateService DemoStateService { get; }
+        public IDemoStateService DemoStateService { get; }
 
-        public FakeTrackerData(DemoStateService demoStateService)
+        public FakeTrackerData(IDemoStateService demoStateService)
         {
             this.DemoStateService = demoStateService;
         }
