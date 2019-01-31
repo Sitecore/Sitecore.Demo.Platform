@@ -129,7 +129,6 @@
     <Content Include="Utilities\Installation\poststeps\1_Smart_Publish.poststep" />
     <Content Include="Utilities\Installation\poststeps\2_Index_Deploy_Marketing_Definitions.poststep" />
     <Content Include="Utilities\Installation\poststeps\3_Index_Rebuild.poststep" />
-    <Content Include="App_Config\Layers.config.xdt" />
     <None Include="web.azure.config.xdt" />
     <None Include="web.config.xdt" />
     <None Include="Web.Debug.config">
@@ -169,15 +168,6 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TDS|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>

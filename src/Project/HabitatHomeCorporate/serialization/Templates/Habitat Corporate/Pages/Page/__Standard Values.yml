@@ -18,11 +18,46 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{7D197C33-3B86-4973-B6C2-AC9A2C4EE6F2}">
         <r
-          ds=""
+          ds="{CF5BF1B9-4A1F-41F9-9F6A-737DD889D931}"
           id="{5362A7A8-C270-4B18-83E9-22ACFD02C616}"
           par=""
           ph="hh-content-header"
-          uid="{34E7E66B-AB4D-4830-B5E4-D318BAAB2C52}" />
+          uid="{34E7E66B-AB4D-4830-B5E4-D318BAAB2C52}">
+          <rls>
+            <ruleset>
+              <rule
+                name="Anonymous"
+                uid="{933936BD-A11D-43E5-94DF-B954C6AEF7A4}">
+                <conditions>
+                  <condition
+                    id="{EA0642FA-500B-4B2F-B264-765E771C516F}"
+                    uid="D95CF69A031B45EEBDC45D81BFA91E0E" />
+                </conditions>
+                <actions>
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="4C54F798C52149FBA09884659530D1C0"
+                    DataSource="{7E2C85C4-4A2B-4F3D-A164-F4455F9098AD}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                name="Default">
+                <conditions>
+                  <condition
+                    id="{4888ABBB-F17D-4485-B14B-842413F88732}"
+                    uid="5991C2B1DF3D4257B6C622B3A8CADD56" />
+                </conditions>
+                <actions>
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="B45780851FA74798A946EA97167BA1E7"
+                    DataSource="{B54CA801-9D76-4004-840F-E7E06D0350BA}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
         <r
           ds=""
           id="{4EEE0E0B-11C9-429D-B15F-C214BE96FD97}"
@@ -35,6 +70,12 @@ SharedFields:
           par=""
           ph="hh-content-main"
           uid="{3131F9DE-2696-4D4E-8C8B-BEF6E7648554}" />
+        <r
+          ds="{652C86FA-6F03-4596-A76C-9B996D78F682}"
+          id="{4EEE0E0B-11C9-429D-B15F-C214BE96FD97}"
+          par=""
+          ph="hh-content-footer"
+          uid="{6670AB2D-F452-4271-89F9-B94DD807E87D}" />
       </d>
     </r>
 Languages:

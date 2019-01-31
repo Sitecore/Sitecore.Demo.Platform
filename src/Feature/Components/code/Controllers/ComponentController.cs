@@ -75,7 +75,13 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
 
 
 
-        public ViewResult Page()
+        public ViewResult PageContent()
+        {
+            return View(Component);
+        }
+
+
+        public ViewResult PageTitle()
         {
             return View(Component);
         }

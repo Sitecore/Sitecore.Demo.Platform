@@ -20,6 +20,7 @@
 .jumbotron {
     background-size: cover;
     background-position: center;
+    min-height: 350px;
 }
 
 .featurette {
@@ -33,4 +34,34 @@
 
 .hidden {
     display: none;
+}
+
+footer {
+    background-color: #343a40;
+    color: #d5d7dc;
+    padding-top: 20px;
+    margin-top: 80px;
+    width: 100%;
+}
+
+    footer .container {
+        padding-bottom: 10px;
+    }
+
+.form-signin .col-sm-6 {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: -15px;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+main > .container {
+    margin-bottom: 30px;
 }

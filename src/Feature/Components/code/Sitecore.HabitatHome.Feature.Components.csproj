@@ -96,12 +96,13 @@
     <Content Include="App_Config\Include\Feature\Feature.Components.Serialization.config" />
     <Content Include="Areas\Components\Views\Component\Navbar.cshtml" />
     <Compile Include="Controllers\ComponentController.cs" />
-    <Content Include="Areas\Components\Views\Component\Page.cshtml" />
+    <Content Include="Areas\Components\Views\Component\PageContent.cshtml" />
     <Content Include="Areas\Components\Views\Component\CardContainer.cshtml" />
     <Content Include="Areas\Components\Views\Component\Carousel.cshtml" />
     <Content Include="Areas\Components\Views\Component\Hero.cshtml" />
     <Content Include="Areas\Components\Views\Component\PromoImageLeft.cshtml" />
     <Content Include="Areas\Components\Views\Component\PromoImageRight.cshtml" />
+    <Content Include="Areas\Components\Views\Component\PageTitle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
