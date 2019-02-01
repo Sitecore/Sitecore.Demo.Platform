@@ -29,7 +29,7 @@
         <add key="integrations:define" value="None" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 
         <!-- Enable/Disable SXA -->
-        <add key="sxa:require" value="On" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+        <add key="sxa:define" value="On" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
     </appSettings>
 
     <system.webServer>
