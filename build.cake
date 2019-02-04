@@ -245,6 +245,7 @@ Task("Publish-Project-Projects").Does(() => {
     var global = $"{configuration.ProjectSrcFolder}\\Global";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
     var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
+    var habitatHomeCorporate = $"{configuration.ProjectSrcFolder}\\HabitatHomeCorporate";
     
     var destination = deploymentRootPath;
     if (!deployLocal){
@@ -254,6 +255,7 @@ Task("Publish-Project-Projects").Does(() => {
     PublishProjects(global, destination);
     PublishProjects(habitatHome, destination);
     PublishProjects(habitatHomeBasic, destination);
+    PublishProjects(habitatHomeCorporate, destination);
 });
 
 Task("Publish-xConnect-Project").Does(() => {
