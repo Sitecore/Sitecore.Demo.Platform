@@ -1,11 +1,9 @@
-#addin "Cake.Azure"
-#addin "Cake.Http"
-#addin "Cake.Json"
-#addin "Cake.Powershell"
-#addin "Cake.XdtTransform"
-#addin "Newtonsoft.Json"
-
-
+#addin nuget:?package=Cake.Azure&version=0.3.0
+#addin nuget:?package=Cake.Http&version=0.5.0
+#addin nuget:?package=Cake.Json&version=3.0.1
+#addin nuget:?package=Cake.Powershell&version=0.4.7
+#addin nuget:?package=Cake.XdtTransform&version=0.16.0
+#addin nuget:?package=Newtonsoft.Json&version=11.0.1
 
 #load "local:?path=CakeScripts/helper-methods.cake"
 #load "local:?path=CakeScripts/xml-helpers.cake"
@@ -95,6 +93,7 @@ Task("Default")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
+.IsDependentOn("Modify-SXA-Variable")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
 .IsDependentOn("Post-Deploy");
 
@@ -116,6 +115,7 @@ Task("Quick-Deploy")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
+.IsDependentOn("Modify-SXA-Variable")
 .IsDependentOn("Publish-xConnect-Project");
 
 /*===============================================
@@ -317,6 +317,13 @@ Task("Modify-Unicorn-Source-Folder").Does(() => {
         }
     };
     XmlPoke(zzzDevSettingsFile, sourceFolderXPath, directoryPath, xmlSetting);
+});
+
+Task("Modify-SXA-Variable").Does(() => {
+	var webConfigFile = File($"{configuration.WebsiteRoot}/Web.config");
+	var appSetting = "configuration/appSettings/add[@key='sxa:define']/@value";
+	var appSettingValue = configuration.SXA ? "On" : "Off";	
+    XmlPoke(webConfigFile, appSetting, appSettingValue);
 });
 
 Task("Modify-PublishSettings").Does(() => {
