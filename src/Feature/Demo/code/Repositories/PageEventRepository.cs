@@ -5,12 +5,17 @@
     using System.Globalization;
     using System.Linq;
     using Sitecore.Analytics;
-    using Sitecore.Analytics.Model;       
+    using Sitecore.Analytics.Model;
+    using Sitecore.Analytics.Tracking;
+    using Sitecore.Common;
+    using Sitecore.Data;
     using Sitecore.HabitatHome.Feature.Demo.Models;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;         
-    using Sitecore.Marketing.Definitions;                 
-    using Sitecore.Marketing.Definitions.PageEvents;         
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
     using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
+    using Sitecore.Marketing.Definitions;
+    using Sitecore.Marketing.Definitions.Goals;
+    using Sitecore.Marketing.Definitions.PageEvents;
+    using Sitecore.Marketing.Definitions.PageEvents.Data;
 
     [Service]
     public class PageEventRepository

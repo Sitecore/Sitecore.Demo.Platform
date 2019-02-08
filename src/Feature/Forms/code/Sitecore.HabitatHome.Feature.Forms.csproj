@@ -122,6 +122,8 @@
     <Content Include="Views\FormBuilder\FieldTemplates\SingleLineText.cshtml" />
     <Content Include="Views\FormBuilder\FieldTemplates\Telephone.cshtml" />
     <Content Include="Views\FormBuilder\FieldTemplates\NonGroupedRadioButtonList.cshtml" />
+    <Content Include="Areas\Forms\Views\FormWrapper\FormWrapper.cshtml" />
+    <Content Include="Areas\Forms\Views\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

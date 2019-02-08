@@ -20,7 +20,8 @@ lib/Modules/*
 packages/
 *.bak
 /.github
-/tools
+tools/*
+!tools/packages.config
 /lib
 **/backstop/*.json
 **/backstop_data/bitmaps_test
