@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" 
-  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -43,7 +42,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-
   <Choose>
     <When Condition=" '$(Configuration)'=='Local' ">
       <ItemGroup>
@@ -75,7 +73,6 @@
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.dll</HintPath>
         </Reference>
       </ItemGroup>
-
     </When>
     <Otherwise>
       <ItemGroup>
@@ -94,7 +91,7 @@
   <ItemGroup>
     <PackageReference Include="Kamsar.WebConsole" Version="2.0.0" />
     <PackageReference Include="MicroCHAP" Version="1.2.2.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.0"/>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
