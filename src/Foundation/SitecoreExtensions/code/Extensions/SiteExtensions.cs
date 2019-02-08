@@ -44,7 +44,7 @@ namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
             }
 
             var defaultSettingsItem = site.GetRootItem().Children
-                .FirstOrDefault(x => x.TemplateID == Templates.Settings.TemplateID);
+                .FirstOrDefault(x => x.Name == "Settings");
 
             if (defaultSettingsItem == null)
             {

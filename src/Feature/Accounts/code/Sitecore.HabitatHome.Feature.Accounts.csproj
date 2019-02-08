@@ -82,12 +82,6 @@
         <Reference Include="Sitecore.Speak.Client">
           <HintPath>..\..\..\..\lib\Sitecore.Speak.Client.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.XA.Foundation.IoC">
-          <HintPath>..\..\..\..\lib\Sitecore.XA.Foundation.IoC.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.XA.Foundation.Mvc">
-          <HintPath>..\..\..\..\lib\Sitecore.XA.Foundation.Mvc.dll</HintPath>
-        </Reference>
       </ItemGroup>
     </When>
     <Otherwise>
@@ -104,8 +98,6 @@
         <PackageReference Include="Sitecore.Owin.Authentication" Version="2.0.1-*" />
         <PackageReference Include="Sitecore.Owin" Version="2.0.1-*" />
         <PackageReference Include="Sitecore.Speak.Client" Version="4.0.0-*" />
-        <PackageReference Include="Sitecore.XA.Foundation.IoC" Version="4.9.0.*" />
-        <PackageReference Include="Sitecore.XA.Foundation.Mvc" Version="4.9.0.*" />
       </ItemGroup>
     </Otherwise>
   </Choose>
