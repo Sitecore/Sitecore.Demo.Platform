@@ -57,6 +57,7 @@
     <Otherwise>
       <ItemGroup>
         <PackageReference Include="Sitecore.Kernel" Version="13.0.0-*" />
+        <PackageReference Include="Sitecore.Mvc" Version="4.0.0-*" />
       </ItemGroup>
     </Otherwise>
   </Choose>

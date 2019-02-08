@@ -1,9 +1,8 @@
-﻿using Sitecore.Analytics.Model;
-
-namespace Sitecore.HabitatHome.Feature.Demo.Pipelines
+﻿namespace Sitecore.HabitatHome.Feature.Demo.Pipelines
 {
     using Sitecore.Analytics;
     using Sitecore.Analytics.Pipelines.ParseReferrer;
+    using Sitecore.CES.GeoIp.Core.Model;
     using Sitecore.HabitatHome.Feature.Demo.Models;
     using Sitecore.HabitatHome.Feature.Demo.Services;
     using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
@@ -90,7 +89,7 @@ namespace Sitecore.HabitatHome.Feature.Demo.Pipelines
 
             if (Tracker.Current.Interaction.HasGeoIpData && Tracker.Current.Interaction.GeoData.Latitude.HasValue)
                 return;
-            Tracker.Current.Interaction.SetGeoData(trackerData.GeoData);
+            Tracker.Current.Interaction.SetWhoIsInformation(trackerData.GeoData);
             Tracker.Current.Interaction.UpdateLocationReference();
         }
 
