@@ -20,8 +20,158 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}"
+          uid="{96440B7A-F411-4281-B690-302C5468E355}"
           p:before="*"
+          s:ds="{658E89F6-3F0C-4072-88CA-50CE81757A9D}"
+          s:id="{5A21C781-8E74-4DD0-8261-8CCDA1BF0454}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B5F1937B9-3A84-4F4B-A96E-C60419A06667%7D&amp;Navigation=%7BF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7D&amp;Transition=%7BD4B706CC-7EEC-4DB9-A87D-123B29803490%7D&amp;Timeout=6000&amp;PauseOnHover=1&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=13"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{B3EE3027-9A67-4696-800B-2F7B4D619DD4}"
+                s:name="Foodie">
+                <conditions>
+                  <or
+                    uid="58709978E4BB4AF7A9814D1CD8EF7EC6">
+                    <or
+                      uid="4F0B55B8EAA94AE284B2DE656A69F16B">
+                      <condition
+                        uid="73058D8C9428448DACD02E3D6D630283"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="A64E09ABEEB7406AA29207D109D92D5E"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Topic Interest Category"
+                        s:PatternName="Cooking" />
+                    </or>
+                    <condition
+                      uid="21A4C1FE5B7145069C0B322AD2936B82"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{B7A02EED-A729-42B0-978B-2C6EF479FC8F}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="EB19DB65DA0A4273B21828B383D0B574"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{C531430C-246D-4AC0-86D2-61B834F07269}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{240EE7CC-91A4-4B98-BEDE-04E8FEFF6A3A}"
+                s:name="Fitness">
+                <conditions>
+                  <or
+                    uid="275A8B68734449A9AB0E387A6A22624B">
+                    <or
+                      uid="E353884EDC154CD9AB308F69D5E8E30D">
+                      <condition
+                        uid="1C3861C3015C455BA1F3C6B1D59D58BE"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="242568A0E1F1411CBC239C45F7D1A58A"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Topic Interest Category"
+                        s:PatternName="Fitness" />
+                    </or>
+                    <condition
+                      uid="0BCFE743AEA64EA79CC230E65828F7DD"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{753836A7-AEA0-4572-89E7-0DBC55A631FD}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="B8C715E32AC2409C894ECF387393C11F"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{9182C53A-69C9-4588-97B1-8B5245803984}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{08E782F7-42FC-4EF7-8266-C0180C38BB04}"
+                s:name="Gaming">
+                <conditions>
+                  <or
+                    uid="3C11A562CC714494B49FAA6099A58881">
+                    <or
+                      uid="A75857D21ED342B29ED1E5DF1A0B791E">
+                      <condition
+                        uid="714D3F3E2E6F4B4AB717418149F645A2"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{43CF5A42-2D0C-4E82-BAB6-03E996E4097C}"
+                        s:CustomFieldId="{13F24114-C29B-4ACB-A39B-445CCE2ED60C}" />
+                      <condition
+                        uid="3A068A4C55FA4B02BDC491C6F591DFAE"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Electronics Category"
+                        s:PatternName="Games" />
+                    </or>
+                    <condition
+                      uid="30DCA781AD634A7387596A4027738C80"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{7C0D0B32-E1B3-4969-890F-3793C1CFDB6A}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="DDC08EC686554F7E8606EDC5DB4E79C8"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{DDB0AADF-94A9-4832-AE6F-DA30E97A5C5E}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{512D3C8A-E435-4EEF-BE19-2526EE2582E3}"
+                s:name="Home Theater">
+                <conditions>
+                  <or
+                    uid="0EE225E1318F4EB186B57BF47EBE1D4E">
+                    <or
+                      uid="28D74F1CCD524835867E10C6ACAED2B3">
+                      <condition
+                        uid="BD162CEC62204F909286489C89F16C57"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{67AFC2F1-234A-4AD5-9075-36C61BBFEBAE}"
+                        s:CustomFieldId="{13F24114-C29B-4ACB-A39B-445CCE2ED60C}" />
+                      <condition
+                        uid="5E1915B3752B458EA9DE56F95E5D27D0"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Electronics Category"
+                        s:PatternName="Home Cinema" />
+                    </or>
+                    <condition
+                      uid="F8981CC8486845EAB0F4A866AD7692C1"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{CDCADE11-E1F4-4792-8FA3-9F95C6954772}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="F3D05DF865C142B897EA7D455F4487AD"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{71E00FFC-3502-4151-B984-870A4C028BA1}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="BBF68A5C3CD945C19DF62D9294C74DF5"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}"
+          p:after="r[@uid='{96440B7A-F411-4281-B690-302C5468E355}']"
           s:ds="{874ED455-AF6F-438D-BEA8-1916B7FAB5BD}"
           s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
           s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=12"
@@ -73,162 +223,8 @@ SharedFields:
           s:par="GridParameters&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
           s:ph="/main/sxa-content-container/container-1/container-9" />
         <r
-          uid="{F0D732F5-0FE5-42A7-8006-4DFEBF378BB1}"
-          p:after="r[@uid='{E1FA64CF-6A5A-4364-9830-C32D63D64B58}']"
-          s:ds="local:/Data/Carousels/Smart and Connected Carousel"
-          s:id="{5A21C781-8E74-4DD0-8261-8CCDA1BF0454}"
-          s:par="GridParameters=%7B08B60EE1-3F06-4C49-9449-E7420AFE5A2F%7D&amp;Styles=%7B5F1937B9-3A84-4F4B-A96E-C60419A06667%7D&amp;Navigation=%7BF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7D&amp;Transition=%7BD4B706CC-7EEC-4DB9-A87D-123B29803490%7D&amp;Timeout=6000&amp;PauseOnHover=1&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-content-container/container-1">
-          <rls>
-            <ruleset>
-              <rule
-                uid="{4DDFE347-2754-466C-8E79-8C5BDB6BC543}"
-                s:name="Foodie">
-                <conditions>
-                  <or
-                    uid="8A2C98414D3A4948B41576312ACA3861">
-                    <or
-                      uid="411A2B78B61B412884C3D3D8C4763D21">
-                      <condition
-                        uid="B5291D5B94664241B14CC113CA15712C"
-                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
-                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}"
-                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
-                      <condition
-                        uid="1493CB9F4B354C228E2F84F28AD1B9C2"
-                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                        s:ProfileName="Topic Interest Category"
-                        s:PatternName="Cooking" />
-                    </or>
-                    <condition
-                      uid="8ED72D764EA94C2381E1EC46A61050AF"
-                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Cooking" />
-                  </or>
-                </conditions>
-                <actions>
-                  <action
-                    uid="21BBA80B0E4C41588007912E3208DA0C"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Carousels/Foodie Carousel" />
-                </actions>
-              </rule>
-              <rule
-                uid="{A9F449D9-AEBB-46A0-A08E-E9A534C78EFF}"
-                s:name="Fitness">
-                <conditions>
-                  <or
-                    uid="A71FBA93046D4FB392609F8CCBBD2442">
-                    <or
-                      uid="9FF110837A9D4F22A7028633F5864363">
-                      <condition
-                        uid="351B28A32DA145A1B3D07A4D3D062478"
-                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
-                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
-                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
-                      <condition
-                        uid="0B651EB6502F437E8F705B5B772B02C6"
-                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                        s:ProfileName="Topic Interest Category"
-                        s:PatternName="Fitness" />
-                    </or>
-                    <condition
-                      uid="AFFE725499DF48DC957A70A0F980529D"
-                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Fitness" />
-                  </or>
-                </conditions>
-                <actions>
-                  <action
-                    uid="C43F3142132043809ABFFC9F579798DD"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Carousels/Fitness Carousel" />
-                </actions>
-              </rule>
-              <rule
-                uid="{BFD25921-FC3B-416F-ABE3-3DE4FCE624CC}"
-                s:name="Gaming">
-                <conditions>
-                  <or
-                    uid="3A54C964E5E14D62A2F18CB4DBD7D36C">
-                    <or
-                      uid="4891B61EFBD14A068BD9A23C28131F9F">
-                      <condition
-                        uid="D9C0B3706F984F6D9C474899320262D2"
-                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
-                        s:ExpectedAncestorTaxonId="{43CF5A42-2D0C-4E82-BAB6-03E996E4097C}"
-                        s:CustomFieldId="{13F24114-C29B-4ACB-A39B-445CCE2ED60C}" />
-                      <condition
-                        uid="B23569B16CCD4B59ADFE6518F258E767"
-                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                        s:ProfileName="Electronics Category"
-                        s:PatternName="Games" />
-                    </or>
-                    <condition
-                      uid="887401A85FA34516A529C0E0C6E1F62B"
-                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      s:ProfileName="Electronics Category"
-                      s:PatternName="Games" />
-                  </or>
-                </conditions>
-                <actions>
-                  <action
-                    uid="3570A75E92714FE0A5BA66CD0CA4F207"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Carousels/Gaming Carousel" />
-                </actions>
-              </rule>
-              <rule
-                uid="{8BF8AC5F-25C7-4CE2-A83B-D4376FB56F33}"
-                s:name="Home Theater">
-                <conditions>
-                  <or
-                    uid="6365BE20017A45EF877BF10AA97A3705">
-                    <or
-                      uid="C60EF118BC9A43D0BEBB8A48ADA75860">
-                      <condition
-                        uid="AE40E4DAB3C4412DB5C4F0149FE1ECD5"
-                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
-                        s:ExpectedAncestorTaxonId="{67AFC2F1-234A-4AD5-9075-36C61BBFEBAE}"
-                        s:CustomFieldId="{13F24114-C29B-4ACB-A39B-445CCE2ED60C}" />
-                      <condition
-                        uid="FBE606B73D7F480885743B12FDEAF397"
-                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                        s:ProfileName="Electronics Category"
-                        s:PatternName="Home Cinema" />
-                    </or>
-                    <condition
-                      uid="CC409075E85848158744DBD703C62F8E"
-                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      s:ProfileName="Electronics Category"
-                      s:PatternName="Home Cinema" />
-                  </or>
-                </conditions>
-                <actions>
-                  <action
-                    uid="6ABB7C7939FB43A8905F1549748E33CB"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/Carousels/Home Entertainment Carousel" />
-                </actions>
-              </rule>
-              <rule
-                uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
-                <conditions>
-                  <condition
-                    uid="92225A1E4A8A4563B26B91CA5EE4F286"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
-                </conditions>
-                <actions />
-              </rule>
-            </ruleset>
-          </rls>
-        </r>
-        <r
           uid="{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}"
-          p:after="r[@uid='{F0D732F5-0FE5-42A7-8006-4DFEBF378BB1}']"
+          p:after="r[@uid='{E1FA64CF-6A5A-4364-9830-C32D63D64B58}']"
           s:ds="local:/Data/Promo - Content Finder"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
           s:par="GridParameters&amp;FieldNames=%7B184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
