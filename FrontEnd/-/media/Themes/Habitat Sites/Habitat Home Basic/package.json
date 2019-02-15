@@ -1,0 +1,77 @@
+{
+    "name": "gulptheme",
+    "version": "0.9.0",
+    "description": "Gulp Theme",
+    "main": "index.js",
+    "scripts": {
+        "gulp": "./node_modules/gulp/bin/gulp.js",
+        "postinstall": "node gulp/util/postInit.js"
+    },
+    "keywords": [
+        "Gulp",
+        "Theme"
+    ],
+    "author": "Kulahin Anton",
+    "license": "ISC",
+    "dependencies": {
+        "gulp": "^3.9.1",
+        "gulp-sass": "^3.1.0",
+        "gulp-watch": "^4.3.11",
+        "gulp-cli": "^1.2.2",
+        "gulp-sourcemaps": "^2.5.0",
+        "gulp-rename": "^1.2.2",
+        "gulp-concat": "^2.6.1",
+        "gulp.spritesmith": "^6.4.0",
+        "gulp-autoprefixer": "^3.1.1",
+        "gulp-sass-grapher": "^0.1.4",
+        "path": "^0.12.7",
+        "gulp-prompt": "^0.2.0",
+        "inquirer": "^3.0.6",
+        "babel-core": "^6.24.1",
+        "babel-preset-es2015": "^6.24.1",
+        "gulp-filter": "^5.0.0",
+        "gulp-sass-bulk-import": "^1.0.1",
+        "gulp-upload": "^0.0.3",
+        "urllib": "^2.22.0",
+        "formstream": "^1.1.0",
+        "form-data": "^2.1.4",
+        "request": "^2.81.0",
+        "gulp-if": "^2.0.2",
+        "colors": "^1.1.2",
+        "gulp-eslint": "^3.0.1"
+    },
+    "devDependencies": {
+        "gulp-debug": "^3.1.0"
+    },
+    "babel": {
+        "presets": ["es2015"]
+    },
+    "eslintConfig": {
+        "extends": "eslint:recommended",
+        "ecmaVersion": 5,
+        "sourceType": "module",
+        "rules": {
+            "no-alert": 0,
+            "no-bitwise": 0,
+            "camelcase": 1,
+            "curly": 1,
+            "eqeqeq": 0,
+            "no-eq-null": 0,
+            "guard-for-in": 1,
+            "no-empty": 1
+        },
+        "globals": {
+            "$": false,
+            "jQuery": false,
+            "Sitecore": false,
+            "XA": false,
+            "_": false
+        },
+        "env": {
+            "browser": true,
+            "node": true
+        }
+
+    }
+
+}

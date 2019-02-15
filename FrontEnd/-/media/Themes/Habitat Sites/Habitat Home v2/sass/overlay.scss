@@ -1,0 +1,188 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+@import "base/fontawesome/font-awesome-mix-var";
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../Images/overlay-bg.png);
+    z-index: 9999;
+    display: none;
+    width: 100%;
+    &.component {
+        margin: 0;
+    }
+    >.component-content {
+        border-radius: 5px;
+        display: block;
+        position: absolute;
+        background-color: #E6E6E6;
+        padding: 10px;
+        max-width: 90%;
+        background: $overlay-bg;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        .component {
+            margin: 0;
+            &.image {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .overlay-inner {
+        min-width: 25px;
+        max-height: inherit;
+        height: inherit;
+        overflow: auto;
+        &.overlay-percent {
+            max-height: 100%;
+            height: auto;
+        }
+        #InnerCenter {
+            width: auto;
+            height: auto;
+        }
+        .container {
+            width: 100%;
+        }
+        >img {
+            width: 100%;
+        }
+    }
+    .overlay-inner:focus {
+        border: 1px solid #cccccc;
+    }
+    .overlay-close {
+        cursor: pointer;
+        font-size: 30px;
+        position: absolute;
+        top: -20px;
+        right: -10px;
+        &:before {
+            content: $fa-var-times-circle-o;
+            background: #FFFFFF;
+            border-radius: 50%;
+            @include fa-icon();
+        }
+        &:hover {
+            &:before {
+                background: #cccccc;
+            }
+        }
+        a {
+            display: block;
+            text-indent: -9999px;
+        }
+    }
+    .overlay-close-link:focus {
+        color: #cccccc;
+    }
+    .overlay-close-link:hover {
+        color: #cccccc;
+    }
+    .overlay-close-link {
+        text-decoration: none;
+    }
+}
+
+/* this css class is used on overlay page */
+
+.overlay-page {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../Images/overlay-bg.png);
+    z-index: 9999;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    >.component-content {
+        display: inline-block;
+        vertical-align: middle;
+        zoom: 1;
+        *display: inline;
+        background-color: #E6E6E6;
+        border-radius: 5px;
+        position: relative;
+        padding: 10px 10px 25px;
+        margin: 100px 60px 60px;
+        max-width: 90%;
+        background: $overlay-bg;
+        .component {
+            margin: 0;
+            &.image {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .overlay-inner {
+        min-width: 25px;
+        height: inherit;
+        max-height: inherit;
+        min-height: 135px;
+        overflow: auto;
+        &.overlay-percent {
+            max-height: 100%;
+            height: auto;
+            &.edit {
+                max-height: inherit;
+            }
+        }
+        .container {
+            width: 100%;
+        }
+    }
+    .overlay-inner:focus {
+        border: 1px solid #cccccc;
+    }
+    .overlay-close {
+        bottom: 8px;
+        color: #000;
+        cursor: pointer;
+        font-size: 30px;
+        position: absolute;
+        right: -5px;
+        bottom: -15px;
+    }
+    .overlay-close-link:focus {
+        color: #cccccc;
+    }
+    .overlay-close-link:hover {
+        color: #cccccc;
+    }
+    .overlay-close-link {
+        text-decoration: none;
+    }
+}
+#wrapper {
+    overflow: hidden;
+    &.overlay-page {
+        margin-bottom: -80px;
+    }
+}
+body.preview {
+    .overlay-page {
+        position: fixed;
+    }
+}
+.overlay-page .main {
+    width: 100%;
+}
+.on-page-editor {
+    .overlay {
+        .overlay-inner {
+            margin: auto;
+        }
+    }
+    .overlay-page {
+        z-index: 9000;
+    }
+}

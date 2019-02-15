@@ -1,0 +1,22 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+.media-link-horizontal {
+    div {
+        .field-filetypeicon {
+            span {
+                height: 25px;
+                width: 100%;
+                &:before {
+                    font-size: 24px !important;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+    .component-content>* {
+        display: block;
+        text-align: center;
+    }
+}

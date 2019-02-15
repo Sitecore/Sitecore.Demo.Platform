@@ -1,0 +1,38 @@
+@import "styles/container/*";
+@import "abstracts/mixins";
+@import "abstracts/vars";
+.container {
+	.component-content {
+        @include clearfix();
+    }
+
+    &.col-sm-12,
+    &.col-xs-12 {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        max-width: $max-content-width;
+
+        @media (min-width: 768px) {
+            width: auto;
+        }
+        @media (min-width: 768px) {
+            float: none;
+        }        
+        @media (min-width: 1200px) {
+            width: auto;
+        }
+        @media (min-width: 992px) {
+            width: auto;
+        }
+        @media (min-width: 768px) {
+            width: auto;;
+        }        
+    }
+
+    .full-width-container {
+        @include full-width-container;
+    }
+}
+

@@ -1,0 +1,106 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+@import "base/fontawesome/font-awesome-mix-var";
+
+main {
+  .article-list {
+    
+    @include proxima-font;
+
+    .items {
+      .item {
+        font-size: $font-big;
+        padding: 1em;
+        border-bottom: none;
+        color: $text-light;
+        margin: 3em 0;
+
+        @include clearfix;
+
+        div.col-text {
+          h3 {
+            color: $text-heading-color;
+            margin: 1em 0 0 0;
+            
+            @include respond-to(tablet) {
+              margin: 0;
+            }            
+          }
+          p {
+            margin: 1em 0;
+          }
+          a {
+            @include btn-secondary;
+            margin-top: 0.25em;
+            display: block;
+            width: auto;
+          }
+        }
+        .field-image {
+          width: 100%;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .article-content {
+    font-size: $font-big;
+  }
+
+  .article-author {
+    border-top: 1px solid rgba(177, 179, 172, 0.5);
+    border-bottom: 1px solid rgba(177, 179, 172, 0.5);
+    margin: 1.75em 0;
+    padding: 0.6em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond-to(mobile-large) {
+      flex-direction: column;
+      padding: 1em 0;
+    }
+
+    .field-author-image {
+      flex-basis: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid #eee;
+      img {
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+      }
+    }
+
+    .author-info {
+      flex-basis: 40%;
+      font-weight: 700;
+      text-align: center;
+      span {
+        margin-right: .5em;
+        padding-right: .5em;
+        border-right: 1px solid #141919;
+        &:last-child {
+          border-right: none;
+        }
+      }
+
+      @include respond-to(mobile-large) {
+        flex-basis: 100%;
+        padding: 1em 0;
+      }
+
+    }
+    .field-author-bio {
+      flex-basis: 50%;
+      font-size: .8em;
+    }
+  }
+
+}

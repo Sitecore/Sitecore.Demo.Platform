@@ -1,0 +1,22 @@
+/* breakpoints */
+.social-media-share {
+  background: transparent;
+}
+
+.social-media-share ul {
+  overflow: hidden;
+}
+
+.social-media-share li {
+  float: left;
+  margin: 0 10px;
+}
+
+.social-media-share li:first-child {
+  margin-left: 0;
+}
+
+.social-media-share li .fb_iframe_widget {
+  display: block;
+  margin-top: -2px;
+}

@@ -1,0 +1,48 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+.field-editor {
+    background: $field-editor-bg;
+    overflow: hidden;
+    .field-table {
+        table {
+            word-wrap: break-word;
+            table-layout: fixed;
+        }
+        width: 100%;
+        border-collapse: collapse;
+        tbody {
+            border: none;
+            background: none;
+            tr {
+                background: none;
+            }
+        }
+        th {
+            color: $field-editor-text-header;
+            padding: 5px 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        td {
+            color: $field-editor-text;
+            padding: 5px 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+    }
+    @import "variants/field-editor/*";
+}
+.field-editor.position-right {
+    .field-table {
+        td {
+            text-align: right;
+        }
+    }
+}
+.field-editor.position-center {
+    .field-table {
+        td {
+            text-align: center;
+        }
+    }
+}
