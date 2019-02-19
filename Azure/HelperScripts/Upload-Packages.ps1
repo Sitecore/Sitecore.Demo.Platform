@@ -1006,6 +1006,7 @@ if ($definstall -eq $true -and $config.topology -eq "single") {
 
     if ($config.Topology -eq "scaled") 
     {
+        $parameters.repAuthenticationApiKey.value = (New-Guid).ToString()    
         $parameters.cmMsDeployPackageUrl.value = $cmMsDeployPackageUrl
         $parameters.cdMsDeployPackageUrl.value = $cdMsDeployPackageUrl
         $parameters.cdMsDeployPackageUrl.value = $cdMsDeployPackageUrl
