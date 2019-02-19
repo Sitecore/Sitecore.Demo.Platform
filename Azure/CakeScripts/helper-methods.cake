@@ -12,11 +12,13 @@ public class Configuration
     public string InstanceUrl {get;set;}
     public string SolutionName {get;set;}
     public string ProjectFolder {get;set;}
+    public string Topology {get;set;}
     public string BuildConfiguration {get;set;}
     public string MessageStatisticsApiKey {get;set;}
     public string MarketingDefinitionsApiKey {get;set;}
     public bool RunCleanBuilds {get;set;}
-    public string BuildToolVersions 
+    public string Version {get;set;}
+    public string BuildToolVersions
     {
         set 
         {
@@ -96,11 +98,22 @@ public FilePathCollection GetTransformFiles(string rootFolder)
 public void Transform(string rootFolder) {
     var xdtFiles = GetTransformFiles(rootFolder);
 
+    string topology = null;
+
+    if(configuration.Topology == "single")
+    {
+        topology = "XPSingle";
+    }
+    else if(configuration.Topology == "scaled")
+    {
+        topology = "XP";
+    }
+
     foreach (var file in xdtFiles)
     {
         Information($"Applying configuration transform:{file.FullPath}");
         var fileToTransform = Regex.Replace(file.FullPath, ".+code/(.+)/*.xdt", "$1");
-        var sourceTransform = $"{configuration.DeployFolder}\\Website\\HabitatHome\\{fileToTransform}";
+        var sourceTransform = $"{configuration.DeployFolder}\\{configuration.Version}\\{topology}\\Website\\HabitatHome\\{fileToTransform}";
         
         XdtTransformConfig(sourceTransform			                // Source File
                             , file.FullPath			                // Tranforms file (*.xdt)
