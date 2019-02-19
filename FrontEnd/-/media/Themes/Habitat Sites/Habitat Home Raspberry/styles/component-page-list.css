@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* breakpoints */
+.page-list {
+  margin: 2em 0;
+}
+
+.page-list .item .field-title {
+  color: #000;
+}
+
+.page-list .item .field-title a:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  color: #c8244f;
+  font-size: 0.9em;
+  margin-right: 0.25em;
+}
+
+.page-list .item .field-title a:hover {
+  text-decoration: none;
+}
+
+.page-list .field-title {
+  font-weight: bold;
+}

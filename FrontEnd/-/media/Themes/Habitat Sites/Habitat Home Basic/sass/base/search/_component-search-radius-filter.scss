@@ -1,0 +1,24 @@
+.radius-filter {
+    .radius-button {
+        &.selected {
+            font-weight: bold;
+            background: #ffffff;
+        }
+    }
+    ul {
+        li {
+            display: block;
+            @include border-basic();
+            float: left;
+            padding: 5px 5px;
+            cursor: pointer;
+        }
+        height: 30px;
+    }
+    .bottom-remove-filter {
+        height: 30px;
+        button {
+            @include border-basic();
+        }
+    }
+}

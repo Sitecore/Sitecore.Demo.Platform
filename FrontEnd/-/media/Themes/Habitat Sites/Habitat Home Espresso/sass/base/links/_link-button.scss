@@ -1,0 +1,54 @@
+.button-default, .default {
+    @include border-basic();
+    @include font-size(1.2);
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin: 5px 0;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    background: #f6f6f6;
+    color: $text-basic;
+    font-weight: bold;
+    &:hover {
+        color: $text-basic;
+        background: $bg-light-gray;
+    }
+}
+.button-success, .success {
+    @include font-size(1.2);
+    @include border-basic();
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin: 5px 0;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    background: $btn-green-light;
+    color: $text-white;
+    font-weight: bold;
+    &:hover {
+        color: $text-white;
+        background: $btn-green;
+    }
+}
+.button-warning, .warning {
+    @include font-size(1.2);
+    @include border-basic();
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin: 5px 0;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    background: $btn-red;
+    color: $text-white;
+    font-weight: bold;
+    &:hover {
+        color: $text-white;
+        background: $btn-red-active;
+    }
+}
