@@ -22,6 +22,7 @@ public class Configuration
     public string Version {get;set;}
     public string Topology {get;set;}
     public bool CDN {get;set;}
+	public bool SXA {get;set;}
     public string DeploymentTarget{get;set;}
     
     public string BuildToolVersions 
@@ -95,7 +96,7 @@ public void PublishProjects(string rootFolder, string publishRoot)
 
 public FilePathCollection GetTransformFiles(string rootFolder)
 {
-    Func<IFileSystemInfo, bool> exclude_obj_bin_folder =fileSystemInfo => !fileSystemInfo.Path.FullPath.Contains("/obj/") && !fileSystemInfo.Path.FullPath.Contains("/bin/");
+    Func<IFileSystemInfo, bool> exclude_obj_bin_folder =fileSystemInfo => !fileSystemInfo.Path.FullPath.Contains("/obj/") || !fileSystemInfo.Path.FullPath.Contains("/bin/");
 
     var xdtFiles = GetFiles($"{rootFolder}\\**\\*.xdt", exclude_obj_bin_folder);
 
