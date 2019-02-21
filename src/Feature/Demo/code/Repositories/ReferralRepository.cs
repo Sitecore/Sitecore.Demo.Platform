@@ -8,8 +8,8 @@
     using Sitecore.HabitatHome.Feature.Demo.Models;
     using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
-    [Service]
-    public class ReferralRepository
+    [Service(typeof(IReferralRepository))]
+    public class ReferralRepository : IReferralRepository
     {
         private readonly ICampaignRepository campaignRepository;
 
