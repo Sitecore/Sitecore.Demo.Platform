@@ -108,26 +108,28 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
           uid="{9675001F-A884-48A0-A1AC-6EF079FC451F}"
-          p:before="*"
-          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-article-content/author-1-" />
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="/main/sxa-article-content/author-1-"
+          ds="" />
         <r
           uid="{3442462D-5024-4C8B-AE7B-9BA60AC3D078}"
-          p:after="*[1=2]"
-          s:cnd=""
-          s:ds="{68EF1B35-AC47-48B8-A507-6EBD3D611108}"
-          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          s:mvt=""
-          s:par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          s:ph="/main/sxa-recommended-content/container-3" />
+          cnd=""
+          ds="{68EF1B35-AC47-48B8-A507-6EBD3D611108}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          mvt=""
+          par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-recommended-content/container-3" />
       </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en
@@ -170,9 +172,9 @@ Languages:
         <p>Once considered a luxury, home theaters have soared in popularity over the past five years.</p>
         <p>Habitat's research experts predict the home theater market will grow by eight percent annually, with sales exceeding $28 billion by 2020. The growing number of smart devices, as well as the wide range of high-quality components, makes home theaters a more viable, and popular, option.</p>
         <p>Setting up a home theater requires extensive planning and the help of a contractor and other professionals. Here are a few things to consider to make your dream home theater a reality.</p>
-        <p style="color: #141919; background-color: #fefefe;"><strong style="margin-bottom: 0px;">Choose the right room</strong></p>
-        <p style="color: #141919; background-color: #fefefe; margin-bottom: 15px;">The ideal room will have enough space for seating and few windows, closets and doors. You'll also need to make sure its sound doesn't disturb the rest of the house or your neighbors. If possible, the chosen room will be located in or over the basement (it's easier to run cables and wires this way) and will have a high ceiling for mounting a projector.</p>
-        <p style="color: #141919; background-color: #fefefe; margin-bottom: 15px;"><img alt="" src="-/media/36E2F65B319C45A792CDE8DE70459CCF.ashx?h=520&amp;w=860" style="height: 520px; width: 860px;" /></p>
+        <p><strong>Choose the right room</strong></p>
+        <p>The ideal room will have enough space for seating and few windows, closets and doors. You'll also need to make sure its sound doesn't disturb the rest of the house or your neighbors. If possible, the chosen room will be located in or over the basement (it's easier to run cables and wires this way) and will have a high ceiling for mounting a projector.</p>
+        <p style="text-align: center;"><img alt="" src="-/media/36E2F65B319C45A792CDE8DE70459CCF.ashx" /></p>
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -193,10 +195,10 @@ Languages:
       Hint: Additional Content
       Value: |
         <p><strong>Configure your surround sound system</strong></p>
-        <p>Without stunning sound quality, a home theater is just a dark room with a big TV. Choose components wisely.</p><p><br /></p>
-        <p>The heart of the audio system, an A/V receiver, routes the video source to the TV or projection screen and the audio to the speakers. Position the receiver in an easy-to-reach location so you can easily mix and change cables. The Habitat Aura 200-Watt 7.2-Channel, Network-Ready 4K UHD Receiver offers 100 watts per channel—more than enough power for your movies, music, games, and more.</p><p><br /></p>
-        <p>When choosing speakers, listen to several models to find a package that suits your taste. You can configure the speakers for 5.1 surround sound—the standard—or 7.1, which gives you even more presence. Look for certified DTS or Dolby Digital surround, multiple audio and A/V connections, and at least 100 watts of sound per channel.</p><p><br /></p>
-        <p>Habitat Aura high-performance speakers provide stunning audio for an amazing home theater experience. As a space-saving alternative, consider a sound bar, which delivers surround-sound quality in a diminutive package.</p><p><br /></p>
+        <p>Without stunning sound quality, a home theater is just a dark room with a big TV. Choose components wisely.</p>
+        <p>The heart of the audio system, an A/V receiver, routes the video source to the TV or projection screen and the audio to the speakers. Position the receiver in an easy-to-reach location so you can easily mix and change cables. The Habitat Aura 200-Watt 7.2-Channel, Network-Ready 4K UHD Receiver offers 100 watts per channel—more than enough power for your movies, music, games, and more.</p>
+        <p>When choosing speakers, listen to several models to find a package that suits your taste. You can configure the speakers for 5.1 surround sound—the standard—or 7.1, which gives you even more presence. Look for certified DTS or Dolby Digital surround, multiple audio and A/V connections, and at least 100 watts of sound per channel.</p>
+        <p>Habitat Aura high-performance speakers provide stunning audio for an amazing home theater experience. As a space-saving alternative, consider a sound bar, which delivers surround-sound quality in a diminutive package.</p>
         <p style="margin-bottom: 15px;">Unwind with friends and family by watching a new release in your expertly designed home theater. Let Habitat's A/V experts help you design the ultimate movie night.</p>
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image

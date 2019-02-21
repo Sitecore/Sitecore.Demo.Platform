@@ -1,0 +1,15 @@
+@import "../../abstracts/vars";
+$highlightedPosition :( "top", "bottom", "left", "right");
+@each $pos in $highlightedPosition {
+    .highlighted-#{$pos} {
+        background: #ffffff;
+        border-#{$pos}-width: 3px;
+        border-#{$pos}-color: $border-basic-active;
+        border-style: solid;
+        padding: 25px;
+        margin: 0;
+        h1, h2, h3, h4 {
+            margin: 0 0 10px 0;
+        }
+    }
+}

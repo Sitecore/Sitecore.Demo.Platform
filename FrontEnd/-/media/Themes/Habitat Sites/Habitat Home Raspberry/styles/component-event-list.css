@@ -1,0 +1,329 @@
+@charset "UTF-8";
+/* breakpoints */
+.event-list li, .event-list li > .scLooseFrameZone {
+  background: #FFFFFF;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #747474;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.event-list li:after, .event-list li > .scLooseFrameZone:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.event-list {
+  /* breakpoints */
+  background: transparent;
+}
+
+.event-list .field-filetypeicon > a > span, .event-list .pdf, .event-list .xls, .event-list .xlsx, .event-list .pptx, .event-list .ppt, .event-list .docx, .event-list .doc, .event-list .bmp, .event-list .png, .event-list .jpg, .event-list .jpeg, .event-list .psd, .event-list .gif, .event-list .avi, .event-list .mp4, .event-list .wmv, .event-list .mov, .event-list .mp3, .event-list .wma, .event-list .txt, .event-list .zip {
+  display: inline-block;
+  box-sizing: border-box;
+  font-weight: normal;
+  width: 15px;
+  height: 21px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.event-list .field-filetypeicon > a > span:before, .event-list .pdf:before, .event-list .xls:before, .event-list .xlsx:before, .event-list .pptx:before, .event-list .ppt:before, .event-list .docx:before, .event-list .doc:before, .event-list .bmp:before, .event-list .png:before, .event-list .jpg:before, .event-list .jpeg:before, .event-list .psd:before, .event-list .gif:before, .event-list .avi:before, .event-list .mp4:before, .event-list .wmv:before, .event-list .mov:before, .event-list .mp3:before, .event-list .wma:before, .event-list .txt:before, .event-list .zip:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px !important;
+  position: absolute;
+  display: block;
+  top: 50%;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.event-list .field-filetypeicon span:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .pdf:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .xlsx:before, .event-list .field-filetypeicon .xls:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .pptx:before, .event-list .field-filetypeicon .ppt:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .docx:before, .event-list .field-filetypeicon .doc:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .bmp:before, .event-list .field-filetypeicon .png:before, .event-list .field-filetypeicon .jpg:before, .event-list .field-filetypeicon .jpeg:before, .event-list .field-filetypeicon .psd:before, .event-list .field-filetypeicon .gif:before, .event-list .field-filetypeicon .tif:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .avi:before, .event-list .field-filetypeicon .mp4:before, .event-list .field-filetypeicon .wmv:before, .event-list .field-filetypeicon .mov:before, .event-list .field-filetypeicon .mpg:before, .event-list .field-filetypeicon .mkv:before, .event-list .field-filetypeicon .vp6:before, .event-list .field-filetypeicon .vid:before, .event-list .field-filetypeicon .rv:before, .event-list .field-filetypeicon .webm:before, .event-list .field-filetypeicon .swf:before, .event-list .field-filetypeicon .flv:before, .event-list .field-filetypeicon .m4v:before, .event-list .field-filetypeicon .h264:before, .event-list .field-filetypeicon .mk3d:before, .event-list .field-filetypeicon .gifv:before, .event-list .field-filetypeicon .oggv:before, .event-list .field-filetypeicon .movie:before, .event-list .field-filetypeicon .divx:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .mp3:before, .event-list .field-filetypeicon .wma:before, .event-list .field-filetypeicon .wav:before, .event-list .field-filetypeicon .fla:before, .event-list .field-filetypeicon .flac:before, .event-list .field-filetypeicon .ra:before, .event-list .field-filetypeicon .rma:before, .event-list .field-filetypeicon .aif:before, .event-list .field-filetypeicon .aiff:before, .event-list .field-filetypeicon .aa:before, .event-list .field-filetypeicon .aac:before, .event-list .field-filetypeicon .mid:before, .event-list .field-filetypeicon .midi:before, .event-list .field-filetypeicon .aax:before, .event-list .field-filetypeicon .ac3:before, .event-list .field-filetypeicon .au:before, .event-list .field-filetypeicon .ogg:before, .event-list .field-filetypeicon .avr:before, .event-list .field-filetypeicon .m4a:before, .event-list .field-filetypeicon .mp4a:before, .event-list .field-filetypeicon .amz:before, .event-list .field-filetypeicon .mka:before, .event-list .field-filetypeicon .asx:before, .event-list .field-filetypeicon .pcm:before, .event-list .field-filetypeicon .m3u:before, .event-list .field-filetypeicon .xwma:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .txt:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .zip:before, .event-list .field-filetypeicon .zipx:before, .event-list .field-filetypeicon .rar:before, .event-list .field-filetypeicon .tar:before, .event-list .field-filetypeicon .gz:before, .event-list .field-filetypeicon .dmg:before, .event-list .field-filetypeicon .iso:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .css:before, .event-list .field-filetypeicon .js:before, .event-list .field-filetypeicon .py:before, .event-list .field-filetypeicon .git:before, .event-list .field-filetypeicon .py:before, .event-list .field-filetypeicon .cpp:before, .event-list .field-filetypeicon .h:before, .event-list .field-filetypeicon .ini:before, .event-list .field-filetypeicon .config:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .exe:before, .event-list .field-filetypeicon .jar:before, .event-list .field-filetypeicon .dll:before, .event-list .field-filetypeicon .bat:before, .event-list .field-filetypeicon .pl:before, .event-list .field-filetypeicon .scr:before, .event-list .field-filetypeicon .msi:before, .event-list .field-filetypeicon .app:before, .event-list .field-filetypeicon .deb:before, .event-list .field-filetypeicon .apk:before, .event-list .field-filetypeicon .jar:before, .event-list .field-filetypeicon .vb:before, .event-list .field-filetypeicon .prg:before, .event-list .field-filetypeicon .sh:before {
+  content: "";
+}
+
+.event-list .field-filetypeicon .com:before, .event-list .field-filetypeicon .net:before, .event-list .field-filetypeicon .org:before, .event-list .field-filetypeicon .edu:before, .event-list .field-filetypeicon .gov:before, .event-list .field-filetypeicon .mil:before, .event-list .field-filetypeicon .html:before, .event-list .field-filetypeicon .htm:before, .event-list .field-filetypeicon .xhtml:before, .event-list .field-filetypeicon .jhtml:before, .event-list .field-filetypeicon .php:before, .event-list .field-filetypeicon .php3:before, .event-list .field-filetypeicon .php4:before, .event-list .field-filetypeicon .php5:before, .event-list .field-filetypeicon .phtmle:before, .event-list .field-filetypeicon .asp:before, .event-list .field-filetypeicon .aspx:before, .event-list .field-filetypeicon .cfm:before {
+  content: "";
+}
+
+.event-list h1, .event-list h2, .event-list h3, .event-list h4 {
+  color: #c8244f;
+}
+
+.event-list h5, .event-list h6 {
+  color: #747474;
+}
+
+.event-list h1, .event-list h2 {
+  margin: 1em 0;
+}
+
+.event-list h3, .event-list h4, .event-list p {
+  margin: 1em 0;
+}
+
+.event-list h5, .event-list h6 {
+  margin: 0.25px 0 0;
+}
+
+.event-list strong {
+  font-weight: 700;
+}
+
+.event-list ul, .event-list ol {
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  margin-left: 0.5em;
+}
+
+.event-list li {
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+.event-list ul li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.event-list ol li {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+.event-list a {
+  color: #de232f;
+  text-decoration: underline;
+  font-size: 1em;
+}
+
+.event-list a:hover {
+  color: #B1B3AC;
+}
+
+.event-list table {
+  height: auto !important;
+  border: 2px solid #d2d2d2;
+}
+
+.event-list table, .event-list table tr, .event-list table th, .event-list table td {
+  border: solid 2px #d2d2d2;
+  background: #FFFFFF;
+  border-collapse: collapse;
+  vertical-align: middle;
+}
+
+.event-list table tr, .event-list table th, .event-list table td {
+  padding: 5px;
+}
+
+.event-list table caption {
+  background-color: #f7f7f7;
+  overflow: hidden;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+.event-list table tr {
+  border: none;
+}
+
+.event-list table th, .event-list table td {
+  border-width: 2px 0 0 2px;
+}
+
+.event-list table th {
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 7px;
+}
+
+.event-list table th:first-child {
+  border-left: 0;
+}
+
+.event-list table td:first-child {
+  border-left: 0;
+}
+
+.event-list h1,
+.event-list h2,
+.event-list h3,
+.event-list h4,
+.event-list h5,
+.event-list h6 {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #c8244f;
+}
+
+.event-list ul {
+  margin: 0.5em 0;
+}
+
+.event-list li {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  margin-left: 0;
+  box-sizing: border-box;
+  padding: 15px 15px 40px 15px;
+  position: relative;
+  margin: 0.5em 0;
+}
+
+.event-list li > .scLooseFrameZone > .scEmptyPlaceholder {
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+}
+
+.event-list .event-list-time {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  font-weight: bold;
+  min-width: 115px;
+  max-width: 20%;
+}
+
+.event-list .event-list-time .scWebEditInput {
+  display: inline;
+}
+
+.event-list .event-list-info {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  -webkit-box-flex: 2;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
+  margin: 0 15px;
+  max-width: 75%;
+}
+
+.event-list .event-list-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.event-list .event-list-place,
+.event-list .event-list-link {
+  position: absolute;
+  bottom: 5px;
+  padding-left: 15px;
+}
+
+.event-list .event-list-place:before,
+.event-list .event-list-link:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.event-list .event-list-place {
+  left: 10px;
+}
+
+.event-list .event-list-place:before {
+  content: "";
+}
+
+.event-list .event-list-link {
+  right: 10px;
+}
+
+.event-list .event-list-link a {
+  font-size: 1em;
+  color: #747474;
+}
+
+.event-list .event-list-link a:hover {
+  color: #B1B3AC;
+  text-decoration: none;
+  border-bottom: 1px solid #c8244f;
+}
+
+.event-list .event-list-link:before {
+  content: "";
+}
+
+.event-list .scWebEditInput {
+  font-family: "Open Sans", Helvetica, Verdana, Tahoma, sans-serif;
+}

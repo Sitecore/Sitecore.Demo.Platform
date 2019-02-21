@@ -1,0 +1,224 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+@import "abstracts/functions";
+@import "base/fonts/fonts";
+@import "base/fontawesome/font-awesome";
+@import "styles/header/header";
+@import "styles/footer/footer";
+@import "privacy-warning";
+
+body {
+    color: $text-basic;
+    font-size: $font-medium;
+    background: $page-bg;
+    &.on-page-editor {
+        background: $page-bg-editor !important;
+    }
+}
+
+a {
+    color: $text-basic;
+    &:hover {
+        color: $text-basic-active;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $brand-primary;
+} 
+
+h1, h2, h3, h4 {color: $text-heading-color;}
+h5, h6 {color: $text-basic;}
+h1, h2 { margin: $middle-margin 0;}
+h3, h4, p {margin: $middle-margin 0;}
+h5, h6 {margin: $extrasmall-margin 0 0;}
+
+p {
+    font-size: $font-medium;
+}
+
+//Forms
+
+input, select, textarea {
+    border: 1px solid $form-control-border;
+    background-color: $form-control-bg;
+    color: $form-control-color;
+
+    &:active,
+    &:focus {
+        border-color: $form-control-border-active;
+    }
+}
+
+.account-management-page {
+    .field-title {
+        color: $brand-primary;
+        font-weight: bold;
+        font-size: 1.5em;
+        margin: 1em 0 0.5em 0;
+    }
+
+    .account-summary {
+        padding-bottom: 5em;
+        
+        .link-list h3 {
+            border: 0;
+        }
+    
+        .link-list {
+            margin-bottom: 0;            
+        }
+        
+        .logout,
+        .link-list > .component-content li {
+            padding-right: 2em;
+            margin: 0;
+
+            a {
+                padding: 1em;
+                border-top: 1px solid #D8D9D5;
+                display: block;
+                font-weight: bold;
+                border-bottom: 0;
+        
+                &:before {
+                    content: '';
+                }                
+            }
+   
+            &.active {
+                a {
+                    color: #1d8c96;
+                }
+            }
+        } 
+
+        .rich-text { 
+            margin: 0;
+            padding-right: 40px;
+        }
+        .rich-text h4 {
+            font-size: 20px;
+            line-height: 1.3;
+            font-weight: 700;
+            padding-bottom: 0.3125em;
+            border-bottom: 1px solid #D8D9D5;
+            margin-bottom: 2.25em;
+        }
+
+        .cxa-addresslist-component,
+        .cxa-profileview-component {
+            margin-top: 0;
+        }
+
+        .edit-profile {
+            color: #ADAFA8;
+        }
+        .edit-profile-text{
+            display: none;
+        }
+    }
+
+    input[type="submit"] {
+        width: auto;
+        float: right;
+        margin-top: 1em;
+        @include btn-primary();
+        padding: 1em 2em;
+    }
+    
+}
+
+.privacy-warning, .cookie-notification {  
+    background: $bg-black;
+    color: $text-white;
+    
+    .close {
+      a {
+        color: $text-white;
+      }
+    }
+  }
+
+  
+.footer-links-container {  
+    .link-list {
+        a {
+            color: $text-basic;
+            &:hover {
+                color: $text-white;
+            }
+        }
+
+        &:last-child a,
+        .first a {
+            color: $text-white;
+            border-bottom: 1px solid $brand-primary;
+        }        
+    }
+}
+
+#footer {
+    background-color: $bg-charcoal;
+}
+
+#footer .search-box{
+
+    button{
+        background-color: $text-light !important;
+        
+        &:after {
+            color: $brand-primary;                        
+        }
+    }
+
+    input[type="text"] {
+        background-color: $text-light !important;
+    }
+
+}
+
+
+.megadrop {
+    &:before {        
+        line-height: $primary-nav-height - 8px;        
+        color: $brand-primary;
+        height: $primary-nav-height;                        
+        width: $primary-nav-height;          
+    }
+
+    & > .component-content {
+        background-color: $bg-charcoal;
+    }
+
+    &.open {
+        &:before {
+            background-color: $bg-charcoal;
+            border-color: $megadrop-hamburger-border;
+        }
+    }
+
+    .megadrop-secondary-title-link {
+        a {
+            color: $megadrop-link;
+
+            &:hover {
+                color: $megadrop-link-active;
+                background-color: $megadrop-bg-secondary;
+
+                &:after {
+                    color: $brand-primary;
+                }
+            }
+        }    
+    }
+}
+
+.header-container-inner {       
+    max-width: $max-header-width !important;
+}

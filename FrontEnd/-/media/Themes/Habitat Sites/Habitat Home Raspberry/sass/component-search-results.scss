@@ -1,0 +1,120 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.search-results {
+    @import "base/reset/inputs";
+    .search-result-list {
+        padding-top: 5px;
+    }
+    &.vertical, &.component-details, &.standard-fields {
+        .search-result-list {
+            >li {
+                @include border-basic(all, $border-width: 1px 1px 2px 1px);
+                display: inline-block;
+                vertical-align: top;
+                box-sizing: border-box;
+                position: relative;
+                width: 100%;
+                padding: 5px;
+                margin: 0 7px 10px 0;
+                .field-title {
+                    display: block;
+                    margin-top: 10px;
+                    a {
+                        font-size: $font-medium;
+                        line-height: 20px;
+                        text-decoration: none;
+                        font-weight: normal;
+                        display: block;
+                    }
+                }
+                a {
+                    img {
+                        max-width: 100%;
+                        height:auto;
+                    }
+                }
+                &:hover {
+                    @include border-basic(bottom, $search-item-border-active, 1px 1px 2px 1px);
+                }
+            }
+        }
+    }
+    &.horizontal, &.components, &.example-fields {
+        .search-result-list {
+            @include clearfix();
+            width: 100%;
+            display: inline-flex;
+            flex-wrap: wrap;
+            >li {
+                box-sizing: border-box;
+                @include border-basic(all, $border-width: 1px 1px 2px 1px);
+                position: relative;
+                min-height: 120px;
+                margin: 0 2% 10px 0;
+                padding: 5px;
+                flex: 1;
+                min-height: 175px;
+                min-width: 23%;
+                .field-title {
+                    display: block;
+                    padding: 0 5px;
+                    text-align: center;
+                    a {
+                        font-size: 18px;
+                        line-height: 20px;
+                        text-decoration: none;
+                        font-weight: normal;
+                    }
+                }
+                a {
+                    img {
+                        max-width: 100%;
+                        height:auto;
+                    }
+                }
+                &:hover {
+                    @include border-basic(bottom, $search-item-border-active, 1px 1px 2px 1px);
+                }
+            }
+        }
+    }
+    .search-results-overlay {
+        display: none;
+    }
+    &.loading-in-progress {
+        min-height: 200px;
+        .search-result-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            &:after {
+                content: "";
+                background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJibGFjayI+CiAgPHBhdGggIG9wYWNpdHk9Ii4yNSIgZD0iTTE2IDAgQTE2IDE2IDAgMCAwIDE2IDMyIEExNiAxNiAwIDAgMCAxNiAwIE0xNiA0IEExMiAxMiAwIDAgMSAxNiAyOCBBMTIgMTIgMCAwIDEgMTYgNCIvPgogIDxwYXRoIGZpbGw9JyNkZGRkZGQnIGQ9Ik0xNiAwIEExNiAxNiAwIDAgMSAzMiAxNiBMMjggMTYgQTEyIDEyIDAgMCAwIDE2IDR6Ij4KICAgIDxhbmltYXRlVHJhbnNmb3JtIGF0dHJpYnV0ZU5hbWU9InRyYW5zZm9ybSIgdHlwZT0icm90YXRlIiBmcm9tPSIwIDE2IDE2IiB0bz0iMzYwIDE2IDE2IiBkdXI9IjAuOHMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogIDwvcGF0aD4KPC9zdmc+);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                top: 50%;
+                left: 0;
+                right: 0;
+                margin: -30px auto 0;
+            }
+        }
+    }
+    &.loading-more-in-progress {
+        &:after {
+            content: "";
+            display: block;
+            @include loading-gif();
+            background-size: 50% 50%;
+            height: 100px;
+        }
+    }
+    .no-results {
+        padding: 5px;
+    }
+}

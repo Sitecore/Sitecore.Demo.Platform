@@ -1,0 +1,10 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+.logout {
+    @import "base/reset/links";
+    .component-content {
+        >a, >p {
+            display: inline-block;
+        }
+    }
+}

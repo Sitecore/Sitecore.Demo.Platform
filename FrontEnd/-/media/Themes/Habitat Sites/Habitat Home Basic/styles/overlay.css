@@ -1,0 +1,216 @@
+@charset "UTF-8";
+/* breakpoints */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../Images/overlay-bg.png);
+  z-index: 9999;
+  display: none;
+  width: 100%;
+}
+
+.overlay.component {
+  margin: 0;
+}
+
+.overlay > .component-content {
+  border-radius: 5px;
+  display: block;
+  position: absolute;
+  background-color: #E6E6E6;
+  padding: 10px;
+  max-width: 90%;
+  background: #f7f7f7;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.overlay > .component-content .component {
+  margin: 0;
+}
+
+.overlay > .component-content .component.image img {
+  width: 100%;
+}
+
+.overlay .overlay-inner {
+  min-width: 25px;
+  max-height: inherit;
+  height: inherit;
+  overflow: auto;
+}
+
+.overlay .overlay-inner.overlay-percent {
+  max-height: 100%;
+  height: auto;
+}
+
+.overlay .overlay-inner #InnerCenter {
+  width: auto;
+  height: auto;
+}
+
+.overlay .overlay-inner .container {
+  width: 100%;
+}
+
+.overlay .overlay-inner > img {
+  width: 100%;
+}
+
+.overlay .overlay-inner:focus {
+  border: 1px solid #cccccc;
+}
+
+.overlay .overlay-close {
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  top: -20px;
+  right: -10px;
+}
+
+.overlay .overlay-close:before {
+  content: "";
+  background: #FFFFFF;
+  border-radius: 50%;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.overlay .overlay-close:hover:before {
+  background: #cccccc;
+}
+
+.overlay .overlay-close a {
+  display: block;
+  text-indent: -9999px;
+}
+
+.overlay .overlay-close-link:focus {
+  color: #cccccc;
+}
+
+.overlay .overlay-close-link:hover {
+  color: #cccccc;
+}
+
+.overlay .overlay-close-link {
+  text-decoration: none;
+}
+
+/* this css class is used on overlay page */
+.overlay-page {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../Images/overlay-bg.png);
+  z-index: 9999;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.overlay-page > .component-content {
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  *display: inline;
+  background-color: #E6E6E6;
+  border-radius: 5px;
+  position: relative;
+  padding: 10px 10px 25px;
+  margin: 100px 60px 60px;
+  max-width: 90%;
+  background: #f7f7f7;
+}
+
+.overlay-page > .component-content .component {
+  margin: 0;
+}
+
+.overlay-page > .component-content .component.image img {
+  width: 100%;
+}
+
+.overlay-page .overlay-inner {
+  min-width: 25px;
+  height: inherit;
+  max-height: inherit;
+  min-height: 135px;
+  overflow: auto;
+}
+
+.overlay-page .overlay-inner.overlay-percent {
+  max-height: 100%;
+  height: auto;
+}
+
+.overlay-page .overlay-inner.overlay-percent.edit {
+  max-height: inherit;
+}
+
+.overlay-page .overlay-inner .container {
+  width: 100%;
+}
+
+.overlay-page .overlay-inner:focus {
+  border: 1px solid #cccccc;
+}
+
+.overlay-page .overlay-close {
+  bottom: 8px;
+  color: #000;
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  right: -5px;
+  bottom: -15px;
+}
+
+.overlay-page .overlay-close-link:focus {
+  color: #cccccc;
+}
+
+.overlay-page .overlay-close-link:hover {
+  color: #cccccc;
+}
+
+.overlay-page .overlay-close-link {
+  text-decoration: none;
+}
+
+#wrapper {
+  overflow: hidden;
+}
+
+#wrapper.overlay-page {
+  margin-bottom: -80px;
+}
+
+body.preview .overlay-page {
+  position: fixed;
+}
+
+.overlay-page .main {
+  width: 100%;
+}
+
+.on-page-editor .overlay .overlay-inner {
+  margin: auto;
+}
+
+.on-page-editor .overlay-page {
+  z-index: 9000;
+}

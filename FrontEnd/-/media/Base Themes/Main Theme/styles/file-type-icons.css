@@ -1,0 +1,30 @@
+.file-filetypeicon span { width: 32px; height: 32px; display: block; }
+
+.file-filetypeicon .xls, 
+ .file-filetypeicon  .xlsx
+{ background-image: url(/~/icon/WordProcessing/32x32/imp_exp_excel.png); }
+
+.file-filetypeicon .pdf{ background-image: url(/~/icon/WordProcessing/32x32/imp_exp_pdf.png); }
+
+.file-filetypeicon .ppt,
+ .file-filetypeicon .pptx { background-image: url(/~/icon/WordProcessing/32x32/imp_exp_powerpoint.png); }
+ 
+.file-filetypeicon .rtf { background-image: url(/~/icon/WordProcessing/32x32/imp_exp_rtf.png); }
+
+.file-filetypeicon .txt { background-image: url(/~/icon/Applications/32x32/document_text.png); }
+
+.file-filetypeicon .vsd { background-image: url(/~/icon/WordProcessing/32x32/imp_exp_visio.png); }
+
+.file-filetypeicon .doc,
+ .file-filetypeicon .docx { background-image: url(/~/icon/WordProcessing/32x32/imp_exp_word.png); }
+
+.file-filetypeicon .xml { background-image: url(/~/icon/WordProcessing/32x32/imp_exp_xml.png); }
+
+.file-filetypeicon .bmp,
+ .file-filetypeicon .gif,
+ .file-filetypeicon .jpg,
+ .file-filetypeicon .png { background-image: url(/~/icon/Imaging/32x32/drop_shadow.png); }
+
+.file-filetypeicon .mp3,
+ .file-filetypeicon .ogg,
+ .file-filetypeicon .wav { background-image: url(/~/icon/Multimedia/32x32/play_blue.png); }
