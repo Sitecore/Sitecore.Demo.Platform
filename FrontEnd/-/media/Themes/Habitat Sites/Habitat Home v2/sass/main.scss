@@ -30,7 +30,7 @@ h4,
 h5,
 h6 {
     color: $brand-primary;
-}
+} 
 
 h1, h2, h3, h4 {color: $text-heading-color;}
 h5, h6 {color: $text-basic;}
@@ -217,4 +217,8 @@ input, select, textarea {
             }
         }    
     }
+}
+
+.header-container-inner {       
+    max-width: $max-header-width !important;
 }

@@ -49,6 +49,12 @@ main {
 
   .article-content {
     font-size: $font-big;
+
+    .article-header {
+      h1 {
+        margin: 0;
+      }
+    }
   }
 
   .article-author {

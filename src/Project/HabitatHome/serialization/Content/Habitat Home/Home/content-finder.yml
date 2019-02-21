@@ -41,21 +41,21 @@ SharedFields:
           p:after="r[@uid='{42CC1746-5F1B-415D-9C1F-36DE5EC0ECF9}']"
           s:ds=""
           s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;Styles=%7BD839E403-F6A6-481C-B360-C796575CFEED%7D%7C%7BC6EC5467-7E4D-4B22-B72B-63E933C8B482%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:par="Styles=%7bD839E403-F6A6-481C-B360-C796575CFEED%7d&amp;DynamicPlaceholderId=2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d"
           s:ph="/main/sxa-content-container/container-1/container-4" />
         <r
           uid="{1BE80D1B-7A59-4A0E-8D13-1CD711116F5B}"
           p:after="r[@uid='{10813A4F-6CCF-4D7F-A7E3-FB37E775DD9B}']"
           s:ds="local:/Data/Hero"
           s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:par="GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=3&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7d"
           s:ph="/main/sxa-content-container/container-1" />
         <r
           uid="{502DEE5C-F6CB-485E-B83F-A49530530CF5}"
           p:after="*[1=2]"
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:par="GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=4"
           s:ph="/main/sxa-content-container/container-1" />
       </d>
     </r>
@@ -133,7 +133,16 @@ Languages:
     - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
       Hint: __Final Renderings
       Type: Layout
-      Value: 
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{502DEE5C-F6CB-485E-B83F-A49530530CF5}"
+              s:par="GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=4" />
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171115T192356Z

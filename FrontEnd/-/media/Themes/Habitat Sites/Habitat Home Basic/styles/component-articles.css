@@ -67,6 +67,10 @@ main .article-content {
   font-size: 20px;
 }
 
+main .article-content .article-header h1 {
+  margin: 0;
+}
+
 main .article-author {
   border-top: 1px solid rgba(177, 179, 172, 0.5);
   border-bottom: 1px solid rgba(177, 179, 172, 0.5);

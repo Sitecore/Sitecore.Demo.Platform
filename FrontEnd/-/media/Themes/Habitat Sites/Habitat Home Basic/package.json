@@ -44,7 +44,9 @@
         "gulp-debug": "^3.1.0"
     },
     "babel": {
-        "presets": ["es2015"]
+        "presets": [
+            "es2015"
+        ]
     },
     "eslintConfig": {
         "extends": "eslint:recommended",
@@ -71,7 +73,5 @@
             "browser": true,
             "node": true
         }
-
     }
-
 }
