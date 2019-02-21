@@ -1,0 +1,71 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+@import "base/fontawesome/font-awesome-mix-var";
+.sxa-archive {
+    .level-1 {
+        display: block !important;
+        padding-left: 10px;
+        &>li>.group-header {
+            font-weight: bold;
+        }
+    }
+    .group-header {
+        position: relative;
+        &:before {
+            @include font-size(1.0);
+            @include fa-icon();
+            line-height: 10px;
+            position: absolute;
+            content: $fa-var-plus-square;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -20px;
+            padding: 0;
+        }
+        &.opened {
+            &:before {
+                content: $fa-var-minus-square;
+            }
+        }
+    }
+    ul {
+        display: none;
+        margin-left: 10px;
+        cursor: pointer;
+        li {
+            position: relative;
+        }
+    }
+    .archive-items {
+        display: none;
+        .navigation-title {
+            margin: 0;
+        }
+        .archive-item {
+            //@import "base/reset/links";
+            a {
+                display: inline-block;
+                position: relative;
+                padding-left: 10px;
+                margin: 0.25em 0;
+                text-decoration: none;
+
+                &:before {
+                    @include fa-icon();
+                    content: $fa-var-chevron-right;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 10px;
+                    color: $link-list-icon-color;
+                }
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            cursor: default;
+        }
+    }
+    @import "variants/archive/*";
+}

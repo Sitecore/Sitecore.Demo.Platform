@@ -1,0 +1,10 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+.component-content-clearfix {
+    .component-content {
+        @include clearfix;
+    }
+}
+.component-clearfix {
+    @include clearfix;
+}

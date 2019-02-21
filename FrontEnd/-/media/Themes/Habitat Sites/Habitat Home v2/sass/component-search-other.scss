@@ -1,0 +1,69 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.facet-component {
+    box-sizing: border-box;
+    background: transparent;
+    @import "base/reset/inputs";
+    @include clearfix();
+    .bottom-filter-button {
+        float: right;
+    }
+    .facet-heading {
+        @include border-basic(bottom, $search-title-border);
+        padding: 0 0 5px 0;
+        margin: 0 0 5px 0;
+        position: relative;
+        .facet-title {
+            display: inline-block;
+            vertical-align: middle;
+            color: $search-title-color;
+            padding-right: 25px;
+        }
+        .clear-filter {
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 15px;
+            font-size: 10px;
+            text-align: center !important;
+            width: 15px;
+            cursor: pointer;
+            position: absolute;
+            color: $search-filter;
+            right: 3px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: $search-btn-bg;
+            &:hover {
+                background: $search-btn-active-bg;
+                border-color: $search-btn-active-border;
+                text-decoration: none;
+                color: $search-filter;
+            }
+            &.has-active-facet {
+                background: $search-btn-active-bg;
+                color: $search-filter;
+                &:hover {
+                    background: $search-btn-active-bg;
+                    color: $search-filter;
+                }
+            }
+        }
+    }
+}
+@import "base/search/component-filter-checklist";
+@import "base/search/component-filter-date";
+@import "base/search/component-filter-dropdown";
+@import "base/search/component-filter-managed-range";
+@import "base/search/component-filter-range-slider";
+@import "base/search/component-filter-radius";
+@import "base/search/component-filter-slider";
+@import "base/search/component-load-more";
+@import "base/search/component-location";
+@import "base/search/component-page-selector";
+@import "base/search/component-page-size";
+@import "base/search/component-results-count";
+@import "base/search/component-results-filter";
+@import "base/search/component-variant-selector";
+@import "base/search/component-search-box";
+@import "styles/search/*";
+@import "base/search/component-sort-results";

@@ -1,0 +1,108 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+@import "base/fontawesome/font-awesome-mix-var";
+.breadcrumb.component {
+    background: $breadcrumb-bg;
+    @include clearfix();
+    &.breadcrumb-navigation {
+        overflow: visible;
+    }
+    a {
+        text-decoration: none;
+        font-size: $breadcrumb-font;
+        font-weight: 400;
+        color: $breadcrumb-color;
+    }
+    ol {
+        list-style: none;
+    }
+    .field-title {
+        display: inline-block;
+    }
+    .separator {
+        margin: 0 5px;
+        display: inline-block;
+        vertical-align: middle
+    }
+    li {
+        position: relative;
+        display: block;
+        float: left;
+        >.navigation-title {
+            display: inline-block;
+            vertical-align: middle;
+            >a:hover {
+                color: $breadcrumb-color-active;
+            }
+        }
+        &.last {
+            .separator {
+                display: none;
+            }
+        }
+        &.item-hide {
+            &:hover {
+                >ol {
+                    display: none;
+                }
+            }
+        }
+        &:hover {
+            >ol {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: auto;
+                z-index: 100;
+            }
+        }
+        >ol {
+            box-sizing: border-box;
+            display: none;
+            margin: 0;
+            background: $bg-basic-color;
+            @include border-basic();
+            li {
+                @include border-basic(bottom);
+                box-sizing: border-box;
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                float: none;
+                margin: 0;
+                padding: 2px 20px;
+                width: 100%;
+                min-width: 140px;
+                cursor: pointer;
+                .fa {
+                    float: left;
+                }
+                &:hover {
+                    background: $breadcrumb-dropdown-bg-active;
+                    color: $breadcrumb-dropdown-text-active;
+                    a {
+                        color: $breadcrumb-dropdown-text-active !important;
+                    }
+                }
+                &:before {
+                    @include font-size(1.4);
+                    @include fa-icon();
+                    transform: translateY(-50%);
+                    position: absolute;
+                    content: $fa-var-globe;
+                    top: 50%;
+                    left: 2px;
+                }
+                >a {
+                    display: block;
+                    padding: 2px 0 2px 10px;
+                }
+                &:last-child {
+                    border-bottom-width: 0;
+                }
+            }
+        }
+    }
+    @import "variants/breadcrumb/*";
+}
+@import "styles/breadcrumb/*";

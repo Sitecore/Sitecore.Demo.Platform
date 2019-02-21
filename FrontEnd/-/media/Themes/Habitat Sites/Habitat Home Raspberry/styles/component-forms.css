@@ -1,0 +1,888 @@
+@charset "UTF-8";
+/* breakpoints */
+.form {
+  margin: 10px 0;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.form table {
+  width: 100%;
+}
+
+.form .scfSectionContent > div {
+  margin: 5px 0 0 0;
+  padding: 0;
+}
+
+.form .scfSectionContent > div ~ div {
+  margin: 0;
+}
+
+.form .scfSectionContent > div > label, .form .scfSectionContent > div > div {
+  width: 100%;
+  display: block;
+  padding: 0;
+}
+
+.form .has-feedback:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.form .scfRequired {
+  display: none !important;
+}
+
+.form fieldset {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  padding: 15px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.form fieldset legend {
+  font-weight: 700;
+  padding: 0 5px;
+  font-size: 16px;
+  position: absolute;
+  top: -33px;
+  background: #fff;
+  left: 0;
+}
+
+.form .scfSectionContent > div {
+  box-sizing: border-box;
+  margin: 15px 0;
+  border: 1px dashed gray;
+  padding: 10px;
+  position: relative;
+}
+
+.form .scfSectionContent > div:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.form .scfSectionContent > div:hover [class$="GeneralPanel"] > [class$="UsefulInfo"] {
+  opacity: 1;
+}
+
+.form .scfSectionContent > div select, .form .scfSectionContent > div input {
+  margin-left: 5px;
+}
+
+.form .scfSectionContent [class$="UsefulInfo"] {
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+  box-sizing: border-box;
+  opacity: 0;
+  font-size: 12px;
+  margin-left: 5px;
+  position: absolute;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  left: 0px;
+  top: -15px;
+  padding: 4px 8px;
+  max-width: 98%;
+  width: auto;
+  background-color: #F5F5F5;
+  color: #808080;
+}
+
+.form input, .form select, .form textarea {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  padding: 2px 4px;
+  max-width: 98%;
+}
+
+.form .scfCaptcha input[type="text"] {
+  margin: 0;
+}
+
+.form .scfCaptchaLimitGeneralPanel, .form .scfCaptchStrongTextPanel {
+  max-width: 100%;
+  width: auto;
+}
+
+.form .scfCaptchaLabel {
+  display: none;
+}
+
+.form .scfSectionContent .scfCaptchaGeneralPanel embed {
+  max-width: 180px;
+}
+
+.form input[type="image"] {
+  border: none;
+}
+
+.form input[type="submit"], .form button {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  background: #FFFFFF;
+  cursor: pointer;
+  margin-left: 0;
+}
+
+.form input[type="text"], .form input[type="password"], .form textarea, .form input[type="file"] {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #d2d2d2;
+  width: 95%;
+  padding: 2px;
+}
+
+.form input[type="text"] + span, .form input[type="password"] + span, .form textarea + span, .form input[type="file"] + span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.form input[type="file"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form input[type="radio"] {
+  position: absolute;
+}
+
+.form input[type="radio"] + label:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #FFFFFF;
+}
+
+.form input[type="radio"] + label:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  display: block;
+  width: 16px;
+  height: 15px;
+  background: image-url("radiobox.png");
+}
+
+.form input[type="radio"]:checked + label:after {
+  background-position: -16px 0;
+}
+
+.form input[type="radio"] + label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-left: 20px;
+  margin-left: 5px;
+  position: relative;
+}
+
+.form select {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  max-height: 30px;
+  position: relative;
+  text-indent: 2px;
+}
+
+.form .scfListBox {
+  background: none;
+  max-height: none;
+}
+
+.form .scfDateSelectorDay, .form .scfDateSelectorMonth, .form .scfDateSelectorYear {
+  width: 30%;
+}
+
+.content-finder form {
+  margin: 1em 0;
+}
+
+.content-finder form .col-right > input[type="radio"] {
+  position: absolute;
+  z-index: -100;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.content-finder form .col-right > label {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  border: 1px solid #D8D9D5;
+  background: -webkit-linear-gradient(282.57deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(167.43deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+  background-color: rgba(216, 217, 213, 0.5);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  width: 31%;
+  min-height: 160px;
+  margin: 0 0 20px 1.8%;
+  padding: 20px 16px;
+  cursor: pointer;
+  -webkit-transition: border-color .2s ease-out, background-color .2s ease-out;
+  transition: border-color .2s ease-out, background-color .2s ease-out;
+}
+
+@media only screen and (max-width: 639px) {
+  .content-finder form .col-right > label {
+    width: 47%;
+  }
+}
+
+.content-finder form .col-right > label:before {
+  color: #c8244f;
+  font-family: "SitecoreDemoIcons";
+  font-weight: normal;
+  display: block;
+  font-size: 84px;
+  line-height: 1;
+}
+
+.content-finder form .col-right > input[type="radio"]:checked + label {
+  background: #c8244f;
+  color: white;
+}
+
+.content-finder form .col-right > input[type="radio"]:checked + label:before {
+  color: white;
+}
+
+.content-finder form label.content-finder-label {
+  display: none;
+}
+
+.content-finder form h3.question-title {
+  font-size: 32px;
+  font-weight: bold;
+  padding: 0;
+  margin: 15px 0 0 0;
+  border: none;
+  color: #c8244f;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0);
+  margin-bottom: 65px;
+  background: transparent;
+}
+
+.content-finder form .columns:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media only screen and (min-width: 1024px) {
+  .content-finder form .col-left {
+    float: left;
+    width: 33%;
+    padding-right: 20px;
+  }
+  .content-finder form .col-right {
+    float: left;
+    width: 66%;
+  }
+}
+
+.content-finder form label.one-two-days:before {
+  content: "";
+}
+
+.content-finder form label.three-four-days:before {
+  content: "";
+}
+
+.content-finder form label.five-or-more:before {
+  content: "";
+}
+
+.content-finder form label.aerobics:before {
+  content: "";
+}
+
+.content-finder form label.cardio:before {
+  content: "";
+}
+
+.content-finder form label.low {
+  overflow: hidden;
+}
+
+.content-finder form label.low:before {
+  content: "";
+  font-size: 52px;
+  line-height: 84px;
+}
+
+.content-finder form label.medium {
+  overflow: hidden;
+}
+
+.content-finder form label.medium:before {
+  content: "";
+  font-size: 52px;
+  line-height: 84px;
+}
+
+.content-finder form label.high {
+  overflow: hidden;
+}
+
+.content-finder form label.high:before {
+  content: "";
+  font-size: 52px;
+  line-height: 84px;
+}
+
+.content-finder form label.strength:before {
+  content: "";
+}
+
+.content-finder form label.weight-lifting {
+  overflow: hidden;
+}
+
+.content-finder form label.weight-lifting:before {
+  content: "";
+  font-size: 51px;
+  line-height: 84px;
+}
+
+.content-finder form label.yoga:before {
+  content: "";
+}
+
+.content-finder form label.smart-home:before {
+  content: "";
+}
+
+.content-finder form label.child-safety:before {
+  content: "";
+}
+
+.content-finder form label.energy-efficiency:before {
+  content: "";
+}
+
+.content-finder form label.newest-coolest:before {
+  content: "";
+}
+
+.content-finder form label.over-clocking:before {
+  content: "";
+}
+
+.content-finder form label.n-a:before {
+  content: "";
+}
+
+.content-finder form label.bedroom:before {
+  content: "";
+}
+
+.content-finder form label.entire-house:before {
+  content: "";
+}
+
+.content-finder form label.kitchen:before {
+  content: "";
+}
+
+.content-finder form label.laundry:before {
+  content: "";
+}
+
+.content-finder form label.living-room:before {
+  content: "";
+}
+
+.content-finder form label.office:before {
+  content: "";
+}
+
+.content-finder form label.theater-room:before {
+  content: "";
+}
+
+.content-finder form label.appliances:before {
+  content: "";
+}
+
+.content-finder form label.cameras:before {
+  content: "";
+}
+
+.content-finder form label.desktops-laptops:before {
+  content: "";
+}
+
+.content-finder form label.fitness-tech:before {
+  content: "";
+}
+
+.content-finder form label.gaming:before {
+  content: "";
+}
+
+.content-finder form label.phones-tablets:before {
+  content: "";
+}
+
+.content-finder form label.tv-audio:before {
+  content: "";
+}
+
+.content-finder form .help-block {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: normal;
+  color: black;
+  margin: 0 0 1.5em;
+}
+
+.content-finder form .help-block:first-child {
+  margin-top: 0;
+}
+
+.content-finder form .help-block-subtext {
+  display: block;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.form-narrow {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-submit-border {
+  border-bottom: 1px solid #D8D9D5;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.form-submit-border .btn-next,
+.form-submit-border .btn-previous {
+  position: relative;
+  display: inline-block;
+  padding: 1.25em 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #c8244f !important;
+  border: 1px solid #c8244f;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+  min-width: 200px;
+}
+
+.form-submit-border .btn-next:hover,
+.form-submit-border .btn-previous:hover {
+  color: white;
+  background-color: #dd426b !important;
+  border: 1px solid #dd426b;
+}
+
+.newsletter-form {
+  padding: 0;
+  font-size: 24px;
+  margin: 40px 0;
+}
+
+@media only screen and (min-width: 786px) {
+  .newsletter-form {
+    padding: 5em;
+    margin: 80px 0;
+  }
+}
+
+.newsletter-form .field-bgimage {
+  display: none;
+}
+
+.newsletter-form .field-bgimage img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  font-family: "object-fit: cover; object-position: center;";
+}
+
+@media only screen and (min-width: 786px) {
+  .newsletter-form .field-bgimage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+.newsletter-form.image-top .field-bgimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: top;
+  object-position: top;
+  font-family: "object-fit: cover; object-position: top;";
+}
+
+.newsletter-form.image-center .field-bgimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  font-family: "object-fit: cover; object-position: center;";
+}
+
+.newsletter-form.image-bottom .field-bgimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: bottom;
+  object-position: bottom;
+  font-family: "object-fit: cover; object-position: bottom;";
+}
+
+.newsletter-form form {
+  background: #fff;
+  padding: 2em;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+@media only screen and (min-width: 786px) {
+  .newsletter-form form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.newsletter-form label {
+  display: none;
+}
+
+.newsletter-form .field-group-inline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.newsletter-form .field-group-inline .field-group {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.newsletter-form .field-group-inline input[type="email"] {
+  height: 48px;
+  width: 100%;
+}
+
+.newsletter-form .field-group-inline input[type="submit"] {
+  display: inline-block;
+  padding: 1.25em 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #c8244f !important;
+  border: 1px solid #c8244f;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  padding: 0.5em;
+  font-size: 14px;
+  height: 48px;
+}
+
+.newsletter-form .field-group-inline input[type="submit"]:hover {
+  color: white;
+  background-color: #dd426b !important;
+  border: 1px solid #dd426b;
+}
+
+@media only screen and (min-width: 786px) {
+  .newsletter-form .field-group-inline input[type="submit"] {
+    padding: 0.5em 2em;
+    font-size: 16px;
+  }
+}
+
+.register-panel input[type="submit"] {
+  display: block;
+  width: 150px;
+  text-align: center;
+  padding: 1em;
+  margin: 2em auto;
+}
+
+.form.hints-below .scfSectionContent [class$="UsefulInfo"] {
+  position: static;
+  opacity: 1;
+  max-width: 100%;
+  width: 100%;
+  margin: 5px 0 0 5px;
+}
+
+.form.labels-above label {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.form.labels-above .scfEmailGeneralPanel, .form.labels-above .scfMultipleLineGeneralPanel, .form.labels-above .scfSingleLineGeneralPanel, .form.labels-above .scfPasswordGeneralPanel, .form.labels-above .scfNumberGeneralPanel, .form.labels-above .scfDatePickerGeneralPanel, .form.labels-above .scfListBoxGeneralPanel, .form.labels-above .scfDropListGeneralPanel, .form.labels-above .scfDateGeneralPanel, .form.labels-above .scfRadioButtonListGeneralPanel, .form.labels-above .scfCheckBoxListGeneralPanel, .form.labels-above .scfFileUploadGeneralPanel, .form.labels-above .scfDateSelectorGeneralPanel, .form.labels-above .scfCreditCardGeneralPanel, .form.labels-above .scfConfirmPasswordGeneralPanel, .form.labels-above .scfCaptchaGeneralPanel, .form.labels-above .scfTelephoneGeneralPanel, .form.labels-above .scfSmsTelephoneGeneralPanel {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  width: 93%;
+}
+
+.form.labels-above .scfSectionContent .scfRequired {
+  margin: 0 5px;
+}
+
+.form.labels-above .scfMultipleLineGeneralPanel {
+  width: 95%;
+}
+
+.form.labels-above .scfMultipleLineTextBox {
+  margin: 0 0 0 5px;
+}
+
+.login-panel {
+  left: 0;
+  padding: 0 0 80px;
+}
+
+@media only screen and (min-width: 786px) {
+  .login-panel {
+    left: 16.66666667%;
+  }
+}
+
+.login-panel .title {
+  padding: 0;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 1em 0;
+  color: #c8244f;
+}
+
+.login-panel .article-content {
+  padding: 0;
+}
+
+.login-panel .rich-text h4 {
+  font-size: 30px;
+}
+
+.login-panel .promo {
+  padding: 0;
+  margin: 0;
+}
+
+.login-panel .promo > .component-content {
+  padding: 0;
+}
+
+.login-panel .promo > .component-content > div {
+  width: 100%;
+}
+
+.login-panel .promo > .component-content p {
+  color: #747474;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.login-panel .promo .field-promotext {
+  font-size: 30px;
+  margin: 1em 0;
+}
+
+.login-panel .col-sm-6:first-child {
+  padding: 0 2em;
+}
+
+@media only screen and (min-width: 786px) {
+  .login-panel .col-sm-6:first-child {
+    border-right: 1px solid #d2d2d2;
+    padding: 0 2em 0 0;
+  }
+}
+
+.login-panel .col-sm-6:last-child {
+  padding: 0 2em;
+}
+
+@media only screen and (min-width: 786px) {
+  .login-panel .col-sm-6:last-child {
+    padding: 0 0 0 2em;
+  }
+}
+
+.login-panel .col-sm-6 {
+  width: 100%;
+}
+
+@media only screen and (min-width: 786px) {
+  .login-panel .col-sm-6 {
+    width: 50%;
+  }
+}
+
+.login-panel .form-signin {
+  padding: 0 0 1em;
+  max-width: none;
+}
+
+.login-panel .m-t-1 {
+  margin: 1em 0;
+}
+
+.two-column-form {
+  left: 0;
+  padding: 80px 0;
+}
+
+@media only screen and (min-width: 786px) {
+  .two-column-form {
+    left: 16.66666667%;
+  }
+}
+
+.two-column-form .title {
+  padding: 0;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 1em 0;
+  color: #c8244f;
+}
+
+.two-column-form .article-content {
+  padding: 0;
+}
+
+.two-column-form .rich-text h4 {
+  font-size: 30px;
+}
+
+.two-column-form .promo {
+  padding: 0;
+  margin: 0;
+}
+
+.two-column-form .promo > .component-content {
+  padding: 0;
+}
+
+.two-column-form .promo > .component-content > div {
+  width: 100%;
+}
+
+.two-column-form .promo > .component-content p {
+  color: #747474;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.two-column-form .promo .field-promotext {
+  font-size: 30px;
+  margin: 1em 0;
+}
+
+.two-column-form .col-sm-6:first-child {
+  padding: 0 2em;
+}
+
+@media only screen and (min-width: 786px) {
+  .two-column-form .col-sm-6:first-child {
+    padding: 0 2em 0 0;
+  }
+}
+
+.two-column-form .col-sm-6:last-child {
+  padding: 0 2em;
+}
+
+@media only screen and (min-width: 786px) {
+  .two-column-form .col-sm-6:last-child {
+    padding: 0 0 0 2em;
+  }
+}
+
+.two-column-form .col-sm-6 {
+  width: 100%;
+}
+
+@media only screen and (min-width: 786px) {
+  .two-column-form .col-sm-6 {
+    width: 50%;
+  }
+}
+
+.two-column-form .form-signin {
+  padding: 0 0 1em;
+  max-width: none;
+}
+
+.two-column-form .m-t-1 {
+  margin: 1em 0;
+}
+
+.two-column-form .border-right {
+  border-right: 1px solid #d2d2d2;
+}
+
+.two-column-form .border-left {
+  border-left: 1px solid #d2d2d2;
+}

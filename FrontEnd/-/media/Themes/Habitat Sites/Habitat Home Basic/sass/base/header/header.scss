@@ -1,0 +1,46 @@
+
+#header > .row {
+    margin: 0;
+}
+
+
+
+.header-container-outer {    
+    .brand-logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .link a:before{
+        display: none;
+    }
+
+    .language-selector,
+    .link {
+        display: none;
+    } 
+
+    background-color: $primary-nav-bg;
+    border-top: 4px solid $primary-nav-border-color;             
+    padding: 0;
+    max-width: none !important;        
+    width: 100vw !important;
+
+    &.overlay-header {
+        position: absolute;        
+        z-index: 999;
+    }
+
+    @include respond-to(tablet) {
+        .language-selector,
+        .link {
+            display: block;
+        }
+    }
+}
+
+
+
+#footer {
+    background-color: $bg-charcoal;
+}

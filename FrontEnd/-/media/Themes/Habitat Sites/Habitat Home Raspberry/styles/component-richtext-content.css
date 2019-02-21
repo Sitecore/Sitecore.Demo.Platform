@@ -1,0 +1,258 @@
+@charset "UTF-8";
+/* breakpoints */
+.content, .rich-text {
+  background: transparent;
+  color: #747474;
+  border: transparent;
+  line-height: 1.5;
+  font-size: 16px;
+  overflow: hidden;
+  /* breakpoints */
+}
+
+.content *, .rich-text * {
+  max-width: 100%;
+}
+
+.content .field-filetypeicon > a > span, .content .pdf, .content .xls, .content .xlsx, .content .pptx, .content .ppt, .content .docx, .content .doc, .content .bmp, .content .png, .content .jpg, .content .jpeg, .content .psd, .content .gif, .content .avi, .content .mp4, .content .wmv, .content .mov, .content .mp3, .content .wma, .content .txt, .content .zip, .rich-text .field-filetypeicon > a > span, .rich-text .pdf, .rich-text .xls, .rich-text .xlsx, .rich-text .pptx, .rich-text .ppt, .rich-text .docx, .rich-text .doc, .rich-text .bmp, .rich-text .png, .rich-text .jpg, .rich-text .jpeg, .rich-text .psd, .rich-text .gif, .rich-text .avi, .rich-text .mp4, .rich-text .wmv, .rich-text .mov, .rich-text .mp3, .rich-text .wma, .rich-text .txt, .rich-text .zip {
+  display: inline-block;
+  box-sizing: border-box;
+  font-weight: normal;
+  width: 15px;
+  height: 21px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.content .field-filetypeicon > a > span:before, .content .pdf:before, .content .xls:before, .content .xlsx:before, .content .pptx:before, .content .ppt:before, .content .docx:before, .content .doc:before, .content .bmp:before, .content .png:before, .content .jpg:before, .content .jpeg:before, .content .psd:before, .content .gif:before, .content .avi:before, .content .mp4:before, .content .wmv:before, .content .mov:before, .content .mp3:before, .content .wma:before, .content .txt:before, .content .zip:before, .rich-text .field-filetypeicon > a > span:before, .rich-text .pdf:before, .rich-text .xls:before, .rich-text .xlsx:before, .rich-text .pptx:before, .rich-text .ppt:before, .rich-text .docx:before, .rich-text .doc:before, .rich-text .bmp:before, .rich-text .png:before, .rich-text .jpg:before, .rich-text .jpeg:before, .rich-text .psd:before, .rich-text .gif:before, .rich-text .avi:before, .rich-text .mp4:before, .rich-text .wmv:before, .rich-text .mov:before, .rich-text .mp3:before, .rich-text .wma:before, .rich-text .txt:before, .rich-text .zip:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px !important;
+  position: absolute;
+  display: block;
+  top: 50%;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.content .field-filetypeicon span:before, .rich-text .field-filetypeicon span:before {
+  content: "";
+}
+
+.content .field-filetypeicon .pdf:before, .rich-text .field-filetypeicon .pdf:before {
+  content: "";
+}
+
+.content .field-filetypeicon .xlsx:before, .content .field-filetypeicon .xls:before, .rich-text .field-filetypeicon .xlsx:before, .rich-text .field-filetypeicon .xls:before {
+  content: "";
+}
+
+.content .field-filetypeicon .pptx:before, .content .field-filetypeicon .ppt:before, .rich-text .field-filetypeicon .pptx:before, .rich-text .field-filetypeicon .ppt:before {
+  content: "";
+}
+
+.content .field-filetypeicon .docx:before, .content .field-filetypeicon .doc:before, .rich-text .field-filetypeicon .docx:before, .rich-text .field-filetypeicon .doc:before {
+  content: "";
+}
+
+.content .field-filetypeicon .bmp:before, .content .field-filetypeicon .png:before, .content .field-filetypeicon .jpg:before, .content .field-filetypeicon .jpeg:before, .content .field-filetypeicon .psd:before, .content .field-filetypeicon .gif:before, .content .field-filetypeicon .tif:before, .rich-text .field-filetypeicon .bmp:before, .rich-text .field-filetypeicon .png:before, .rich-text .field-filetypeicon .jpg:before, .rich-text .field-filetypeicon .jpeg:before, .rich-text .field-filetypeicon .psd:before, .rich-text .field-filetypeicon .gif:before, .rich-text .field-filetypeicon .tif:before {
+  content: "";
+}
+
+.content .field-filetypeicon .avi:before, .content .field-filetypeicon .mp4:before, .content .field-filetypeicon .wmv:before, .content .field-filetypeicon .mov:before, .content .field-filetypeicon .mpg:before, .content .field-filetypeicon .mkv:before, .content .field-filetypeicon .vp6:before, .content .field-filetypeicon .vid:before, .content .field-filetypeicon .rv:before, .content .field-filetypeicon .webm:before, .content .field-filetypeicon .swf:before, .content .field-filetypeicon .flv:before, .content .field-filetypeicon .m4v:before, .content .field-filetypeicon .h264:before, .content .field-filetypeicon .mk3d:before, .content .field-filetypeicon .gifv:before, .content .field-filetypeicon .oggv:before, .content .field-filetypeicon .movie:before, .content .field-filetypeicon .divx:before, .rich-text .field-filetypeicon .avi:before, .rich-text .field-filetypeicon .mp4:before, .rich-text .field-filetypeicon .wmv:before, .rich-text .field-filetypeicon .mov:before, .rich-text .field-filetypeicon .mpg:before, .rich-text .field-filetypeicon .mkv:before, .rich-text .field-filetypeicon .vp6:before, .rich-text .field-filetypeicon .vid:before, .rich-text .field-filetypeicon .rv:before, .rich-text .field-filetypeicon .webm:before, .rich-text .field-filetypeicon .swf:before, .rich-text .field-filetypeicon .flv:before, .rich-text .field-filetypeicon .m4v:before, .rich-text .field-filetypeicon .h264:before, .rich-text .field-filetypeicon .mk3d:before, .rich-text .field-filetypeicon .gifv:before, .rich-text .field-filetypeicon .oggv:before, .rich-text .field-filetypeicon .movie:before, .rich-text .field-filetypeicon .divx:before {
+  content: "";
+}
+
+.content .field-filetypeicon .mp3:before, .content .field-filetypeicon .wma:before, .content .field-filetypeicon .wav:before, .content .field-filetypeicon .fla:before, .content .field-filetypeicon .flac:before, .content .field-filetypeicon .ra:before, .content .field-filetypeicon .rma:before, .content .field-filetypeicon .aif:before, .content .field-filetypeicon .aiff:before, .content .field-filetypeicon .aa:before, .content .field-filetypeicon .aac:before, .content .field-filetypeicon .mid:before, .content .field-filetypeicon .midi:before, .content .field-filetypeicon .aax:before, .content .field-filetypeicon .ac3:before, .content .field-filetypeicon .au:before, .content .field-filetypeicon .ogg:before, .content .field-filetypeicon .avr:before, .content .field-filetypeicon .m4a:before, .content .field-filetypeicon .mp4a:before, .content .field-filetypeicon .amz:before, .content .field-filetypeicon .mka:before, .content .field-filetypeicon .asx:before, .content .field-filetypeicon .pcm:before, .content .field-filetypeicon .m3u:before, .content .field-filetypeicon .xwma:before, .rich-text .field-filetypeicon .mp3:before, .rich-text .field-filetypeicon .wma:before, .rich-text .field-filetypeicon .wav:before, .rich-text .field-filetypeicon .fla:before, .rich-text .field-filetypeicon .flac:before, .rich-text .field-filetypeicon .ra:before, .rich-text .field-filetypeicon .rma:before, .rich-text .field-filetypeicon .aif:before, .rich-text .field-filetypeicon .aiff:before, .rich-text .field-filetypeicon .aa:before, .rich-text .field-filetypeicon .aac:before, .rich-text .field-filetypeicon .mid:before, .rich-text .field-filetypeicon .midi:before, .rich-text .field-filetypeicon .aax:before, .rich-text .field-filetypeicon .ac3:before, .rich-text .field-filetypeicon .au:before, .rich-text .field-filetypeicon .ogg:before, .rich-text .field-filetypeicon .avr:before, .rich-text .field-filetypeicon .m4a:before, .rich-text .field-filetypeicon .mp4a:before, .rich-text .field-filetypeicon .amz:before, .rich-text .field-filetypeicon .mka:before, .rich-text .field-filetypeicon .asx:before, .rich-text .field-filetypeicon .pcm:before, .rich-text .field-filetypeicon .m3u:before, .rich-text .field-filetypeicon .xwma:before {
+  content: "";
+}
+
+.content .field-filetypeicon .txt:before, .rich-text .field-filetypeicon .txt:before {
+  content: "";
+}
+
+.content .field-filetypeicon .zip:before, .content .field-filetypeicon .zipx:before, .content .field-filetypeicon .rar:before, .content .field-filetypeicon .tar:before, .content .field-filetypeicon .gz:before, .content .field-filetypeicon .dmg:before, .content .field-filetypeicon .iso:before, .rich-text .field-filetypeicon .zip:before, .rich-text .field-filetypeicon .zipx:before, .rich-text .field-filetypeicon .rar:before, .rich-text .field-filetypeicon .tar:before, .rich-text .field-filetypeicon .gz:before, .rich-text .field-filetypeicon .dmg:before, .rich-text .field-filetypeicon .iso:before {
+  content: "";
+}
+
+.content .field-filetypeicon .css:before, .content .field-filetypeicon .js:before, .content .field-filetypeicon .py:before, .content .field-filetypeicon .git:before, .content .field-filetypeicon .py:before, .content .field-filetypeicon .cpp:before, .content .field-filetypeicon .h:before, .content .field-filetypeicon .ini:before, .content .field-filetypeicon .config:before, .rich-text .field-filetypeicon .css:before, .rich-text .field-filetypeicon .js:before, .rich-text .field-filetypeicon .py:before, .rich-text .field-filetypeicon .git:before, .rich-text .field-filetypeicon .py:before, .rich-text .field-filetypeicon .cpp:before, .rich-text .field-filetypeicon .h:before, .rich-text .field-filetypeicon .ini:before, .rich-text .field-filetypeicon .config:before {
+  content: "";
+}
+
+.content .field-filetypeicon .exe:before, .content .field-filetypeicon .jar:before, .content .field-filetypeicon .dll:before, .content .field-filetypeicon .bat:before, .content .field-filetypeicon .pl:before, .content .field-filetypeicon .scr:before, .content .field-filetypeicon .msi:before, .content .field-filetypeicon .app:before, .content .field-filetypeicon .deb:before, .content .field-filetypeicon .apk:before, .content .field-filetypeicon .jar:before, .content .field-filetypeicon .vb:before, .content .field-filetypeicon .prg:before, .content .field-filetypeicon .sh:before, .rich-text .field-filetypeicon .exe:before, .rich-text .field-filetypeicon .jar:before, .rich-text .field-filetypeicon .dll:before, .rich-text .field-filetypeicon .bat:before, .rich-text .field-filetypeicon .pl:before, .rich-text .field-filetypeicon .scr:before, .rich-text .field-filetypeicon .msi:before, .rich-text .field-filetypeicon .app:before, .rich-text .field-filetypeicon .deb:before, .rich-text .field-filetypeicon .apk:before, .rich-text .field-filetypeicon .jar:before, .rich-text .field-filetypeicon .vb:before, .rich-text .field-filetypeicon .prg:before, .rich-text .field-filetypeicon .sh:before {
+  content: "";
+}
+
+.content .field-filetypeicon .com:before, .content .field-filetypeicon .net:before, .content .field-filetypeicon .org:before, .content .field-filetypeicon .edu:before, .content .field-filetypeicon .gov:before, .content .field-filetypeicon .mil:before, .content .field-filetypeicon .html:before, .content .field-filetypeicon .htm:before, .content .field-filetypeicon .xhtml:before, .content .field-filetypeicon .jhtml:before, .content .field-filetypeicon .php:before, .content .field-filetypeicon .php3:before, .content .field-filetypeicon .php4:before, .content .field-filetypeicon .php5:before, .content .field-filetypeicon .phtmle:before, .content .field-filetypeicon .asp:before, .content .field-filetypeicon .aspx:before, .content .field-filetypeicon .cfm:before, .rich-text .field-filetypeicon .com:before, .rich-text .field-filetypeicon .net:before, .rich-text .field-filetypeicon .org:before, .rich-text .field-filetypeicon .edu:before, .rich-text .field-filetypeicon .gov:before, .rich-text .field-filetypeicon .mil:before, .rich-text .field-filetypeicon .html:before, .rich-text .field-filetypeicon .htm:before, .rich-text .field-filetypeicon .xhtml:before, .rich-text .field-filetypeicon .jhtml:before, .rich-text .field-filetypeicon .php:before, .rich-text .field-filetypeicon .php3:before, .rich-text .field-filetypeicon .php4:before, .rich-text .field-filetypeicon .php5:before, .rich-text .field-filetypeicon .phtmle:before, .rich-text .field-filetypeicon .asp:before, .rich-text .field-filetypeicon .aspx:before, .rich-text .field-filetypeicon .cfm:before {
+  content: "";
+}
+
+.content h1, .content h2, .content h3, .content h4, .rich-text h1, .rich-text h2, .rich-text h3, .rich-text h4 {
+  color: #c8244f;
+}
+
+.content h5, .content h6, .rich-text h5, .rich-text h6 {
+  color: #747474;
+}
+
+.content h1, .content h2, .rich-text h1, .rich-text h2 {
+  margin: 1em 0;
+}
+
+.content h3, .content h4, .content p, .rich-text h3, .rich-text h4, .rich-text p {
+  margin: 1em 0;
+}
+
+.content h5, .content h6, .rich-text h5, .rich-text h6 {
+  margin: 0.25px 0 0;
+}
+
+.content strong, .rich-text strong {
+  font-weight: 700;
+}
+
+.content ul, .content ol, .rich-text ul, .rich-text ol {
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  margin-left: 0.5em;
+}
+
+.content li, .rich-text li {
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+.content ul li, .rich-text ul li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.content ol li, .rich-text ol li {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+.content a, .rich-text a {
+  color: #de232f;
+  text-decoration: underline;
+  font-size: 1em;
+}
+
+.content a:hover, .rich-text a:hover {
+  color: #B1B3AC;
+}
+
+.content table, .rich-text table {
+  height: auto !important;
+  border: 2px solid #d2d2d2;
+}
+
+.content table, .content table tr, .content table th, .content table td, .rich-text table, .rich-text table tr, .rich-text table th, .rich-text table td {
+  border: solid 2px #d2d2d2;
+  background: #FFFFFF;
+  border-collapse: collapse;
+  vertical-align: middle;
+}
+
+.content table tr, .content table th, .content table td, .rich-text table tr, .rich-text table th, .rich-text table td {
+  padding: 5px;
+}
+
+.content table caption, .rich-text table caption {
+  background-color: #f7f7f7;
+  overflow: hidden;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+.content table tr, .rich-text table tr {
+  border: none;
+}
+
+.content table th, .content table td, .rich-text table th, .rich-text table td {
+  border-width: 2px 0 0 2px;
+}
+
+.content table th, .rich-text table th {
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 7px;
+}
+
+.content table th:first-child, .rich-text table th:first-child {
+  border-left: 0;
+}
+
+.content table td:first-child, .rich-text table td:first-child {
+  border-left: 0;
+}
+
+/* breakpoints */
+.rich-text-lists ul, .field-featurelist ul {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.rich-text-lists ul li, .field-featurelist ul li {
+  font-size: 13px;
+  font-size: 1.3rem;
+  position: relative;
+  line-height: 21px;
+  list-style: none;
+  margin: 0;
+  padding: 5px 0 5px 25px;
+}
+
+.rich-text-lists ul li:before, .field-featurelist ul li:before {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-family: 'FontAwesome', sans-serif;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  color: #747474;
+  text-align: center;
+  content: "\f00c";
+  width: 20px;
+  margin: 0 5px 0 0;
+  padding: 0;
+}
+
+.field-featurelist ul li:before {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-family: 'FontAwesome', sans-serif;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  color: #747474;
+  text-align: center;
+  content: "\f046";
+  width: 20px;
+  margin: 0 5px 0 0;
+  padding: 0;
+}
+
+.media-link.file-type-icon-media-link {
+  float: left;
+}
+
+.media-link.file-type-icon-media-link .field-filetypeicon {
+  text-align: center;
+}

@@ -1,0 +1,33 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+.tabs.tabs-vertical {
+    &.tabs-vertical-right {
+        .tabs-heading {
+            float: right;
+            margin-left: -1px;
+            li {
+                @include border-basic(top, $tab-heading-bg);
+                @include border-basic(left, $tab-heading-bg);
+                @include border-basic(right, $tab-container-border, 2px);
+                @include border-basic(bottom, $tab-heading-bg);
+                &.active {
+                    @include border-basic(right, $tab-container-border, 2px);
+                    @include border-basic(left, $tab-container-border);
+                    a {
+                        border: none;
+                    }
+                }
+                &:hover {
+                    @include border-basic(left, $tab-container-border);
+                }
+            }
+        }
+        .tabs-container {
+            float: right;
+            @include border-basic(right, $tab-container-border, 1px);
+            border-top: none;
+            margin-left: -1px;
+            border-left: none;
+        }
+    }
+}

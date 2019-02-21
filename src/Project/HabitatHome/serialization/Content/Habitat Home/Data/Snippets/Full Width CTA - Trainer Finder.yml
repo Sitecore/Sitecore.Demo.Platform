@@ -15,24 +15,26 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{411E4948-E7F2-4D86-BEAD-451F79D83BCF}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          ds="local:/Data/Full CTA Promo"
-          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          par="Styles=%7B80F76F3C-6196-45EF-8383-8E25D5955C04%7D%7C%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;DynamicPlaceholderId=2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0"
-          ph="/section-content/container-1"
-          uid="{C28D8BDB-6B79-4D81-8A99-40FEACAA78DC}" />
+          uid="{C28D8BDB-6B79-4D81-8A99-40FEACAA78DC}"
+          p:before="*"
+          s:ds="local:/Data/Full CTA Promo"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="DynamicPlaceholderId=2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0"
+          s:ph="/section-content/container-1" />
         <r
-          cnd=""
-          ds=""
-          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          mvt=""
-          par="Styles=%7B45D6B71F-C87D-4CFA-8DEA-94BCACC1AE8B%7D%7C%7BF5947911-00C7-4F00-84F4-3D748376BB32%7D&amp;GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;DynamicPlaceholderId=1&amp;BackgroundImage"
-          ph="section-content"
-          uid="{A83822E9-8054-4007-B80D-B2CEA0FBF56F}" />
+          uid="{A83822E9-8054-4007-B80D-B2CEA0FBF56F}"
+          p:after="*[1=2]"
+          s:cnd=""
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:mvt=""
+          s:par="GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=1"
+          s:ph="section-content" />
       </d>
     </r>
 Languages:

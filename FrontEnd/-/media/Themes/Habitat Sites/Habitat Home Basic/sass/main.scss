@@ -1,0 +1,492 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+@import "abstracts/functions";
+@import "base/fonts/fonts";
+@import "base/fontawesome/font-awesome";
+@import "base/header/header";
+
+// Universal Box Sizing
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 0px;
+}
+
+body {
+    @include opensans-font-stack();
+    position: relative;
+    overflow: auto;
+    color: $text-basic;
+    font-size: $font-medium;
+    line-height: 1.5;
+    background: $page-bg;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &.on-page-editor {
+        background: $page-bg-editor !important;
+    }
+}
+
+a {
+    color: $text-basic;
+    cursor: pointer;
+    font-size: 0.85em;
+    &:hover {
+        color: $text-basic-active;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include proxima-font;
+    color: $brand-primary;
+    font-weight: bold;
+}
+
+h1, h2, h3, h4 {color: $text-heading-color;}
+h5, h6 {color: $text-basic;}
+h1, h2 { margin: $middle-margin 0;}
+h3, h4, p {margin: $middle-margin 0;}
+h5, h6 {margin: $extrasmall-margin 0 0;}
+
+h1 {font-size: 3.5em;}
+h2 {font-size: 2em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.1em;}
+h5 {font-size: 1em;}
+h6 {font-size: 0.8em;} 
+
+p {
+    font-size: $font-medium;
+}
+
+//Forms
+
+label, input, select, textarea {
+    @include proxima-font;
+    transition: all 0.2s ease;
+    font-size: 0.7778em;
+}
+
+input, select, textarea {
+    padding: 0.25em 0.5em;
+    border: 1px solid $form-control-border;
+    background-color: $form-control-bg;
+    color: $form-control-color;
+    border-radius: 4px;
+    font-weight: 300;
+
+    &:active,
+    &:focus {
+        border-color: $form-control-border-active;
+    }
+}
+
+input[type="submit"],
+button {
+    @include btn-primary;
+    padding: 0.5em 1em;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+.field-group {
+    display: block;
+    vertical-align: top;
+    margin: 1em 0.5em 1em 0;
+    >span, >input, >label, >textarea, >select {
+        display: block;
+        width: 100%;
+    }
+}
+
+.form-control,
+input,
+input[type="submit"], 
+button,
+select,
+textarea,
+label.checkcontainer,
+.btn {
+    border-radius: 0;    
+    font-weight: 400;
+}
+
+
+.checkcontainer {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 30px;
+    font-weight: 300;
+    margin: 0.5em 0;
+  
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+  
+    .checkmark {
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 20px;
+      width: 20px;
+      border: 1px solid $form-control-border;
+  
+      &:after {      
+        content: "";
+        position: absolute;
+        display: none;            
+        top: 0;
+        left: 5px;
+        width: 8px;
+        height: 15px;
+        border: solid $form-control-border-active;
+        border-width: 0 3px 3px 0;        
+        transform: rotate(45deg);
+      }
+    }
+  
+    input:checked + .checkmark:after {
+      display: block    
+    }
+  
+    input[type='radio'] + .checkmark {     
+      border-radius: 50%;
+  
+      &:after {
+        width: 14px;
+        height: 14px;   
+        border-radius: 50%;             
+        top: 50%;
+        left: 50%;            
+        transform: translate(-50%, -50%);
+        background: $form-control-border-active;
+      }      
+    }
+  
+  }
+
+.xa-variable {
+    border: 0px;
+    padding: 1px;
+    margin: 0px;
+    background-color: #ebebe4;
+    color: #545454;
+    user-select: none;
+    pointer-events: none;
+}
+
+//Navigation Bar fix 
+#breadcrumbMenuSubcontrol_context_menu * {
+    box-sizing: initial;
+}
+//End navigation bar fix
+
+//grid fix to undo col styles when they don't appear in a row, as bootstrap intends
+
+
+button {
+    background-color: $btn-primary-bg;
+    border: 1px solid $btn-primary-bg;
+    color: $btn-primary;    
+    @include proxima-font;
+    text-transform: uppercase;
+}
+
+.primary-nav {
+    .link a {
+        color: $nav-color-root;
+        border: 0;
+        text-transform: uppercase;
+        @include proxima-font;
+        font-size: $navigation-font-basic;
+        height: $primary-nav-height - 4px;
+        display: flex;
+        align-items: center;
+        padding: 0 1em;
+    }    
+}
+
+.primary-nav-container {
+    width: auto;
+    & > .component-content {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.brand-logo {
+    height: $primary-nav-height - 4px;
+}
+
+.megadrop {
+    @include uncontainer;
+    margin: 0;
+    position: relative;
+    top: -4px;
+    @include proxima-font;
+    
+
+    &:before {        
+        content: "";
+        font-family: FontAwesome;
+        font-size: 1.5em;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: inline-block;
+        line-height: $primary-nav-height - 8px;        
+        padding-bottom: 4px;
+        color: $brand-primary;
+        height: $primary-nav-height;                        
+        width: $primary-nav-height;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        border-top: 4px solid transparent;        
+        
+    }
+
+    & > .component-content {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transform: translateY(100%);
+        z-index: 100;
+        background-color: $bg-charcoal;
+        min-width: 300px;
+        display: none;        
+        padding: 0.25em 0;
+    }
+
+    &.open {
+        .component-content {
+            display: block;
+        }
+        &:before {
+            background-color: $bg-charcoal;
+            content: "\f00d";
+            border-color: $megadrop-hamburger-border;
+        }
+    }
+
+    .megadrop-secondary-title-link {
+        a {
+            font-weight: 400;
+            font-size: 1em;
+            padding: 0.25em 0 0.25em 1.25em;
+            //margin: 0 0 0 20px;
+            display: inline-block;
+            color: $megadrop-link;
+            width: 100%;
+
+            &:hover {
+                text-decoration: none;
+                color: $megadrop-link-active;
+                background-color: $megadrop-bg-secondary;
+
+                &:after {
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-size: inherit;
+                    line-height: inherit;
+                    font-family: FontAwesome;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    content: "";
+                    font-size: 0.9em;
+                    line-height: 1.42857;
+                    margin-left: 0.71429em;
+                    color: #1d8c96;
+                    vertical-align: middle;
+                }
+            }
+        }    
+    }
+}
+
+#footer {
+    background-color: $bg-charcoal;
+    padding: 1em 0;
+
+    .image img {
+        width: 60%;
+    }
+}
+
+.footer-links-container {
+    * {
+        float: none;
+    }
+    .component-content {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include respond-to(tablet) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    .row {
+        >div {
+            @include clearfix;
+        }
+    }
+
+    .link-list {
+        width: 50%;
+
+        ul {
+            width: 100%;
+        }
+
+        a {
+            display: inline-block;
+            color: #747474;
+            position: relative;
+            padding: 0.5em 0;
+            font-size: 1em;
+            text-decoration: none;
+            @include proxima-font;
+
+            &:before {
+                display: none;
+            }
+
+            &:hover {
+                color: white;
+                border: 0;
+            }
+        }
+
+        &:last-child a,
+        .first a {
+            color: white;
+            font-weight: bold;
+            display: block;
+            border-bottom: 1px solid $brand-primary;
+        }        
+    }
+
+    @include respond-to(tablet) {
+        .link-list {
+            width: auto;
+        }
+    }
+}
+
+#footer .search-box{
+    .component-content {
+        >.twitter-typeahead {
+            margin: 0;
+        }
+    }
+
+    button{
+        //@include btn-primary;
+        border: 0;       
+        font-size: 0;
+        background-color: $text-light !important;
+        
+        &:after {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: 20px;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            content: "\f002";
+            color: $brand-primary;                        
+        }
+    }
+
+    input[type="text"] {
+        border: 0;
+        box-shadow: none;
+        background-color: $text-light !important;
+    }
+
+}
+
+
+.social-link-list {
+    h3 {
+        display: none;
+    }
+
+    a {
+        font-size: 0;
+        padding: 1em;
+        display: inline-block;
+        width: 32px;
+
+        &:hover {
+            border: 0;
+        }
+
+        &:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: 20px;
+            color: $brand-primary;            
+        }
+
+        &.social-links-facebook:before {            
+            content: "\f09a";
+        }
+        &.social-links-linkedin:before {            
+            content: "\f0e1";
+        }
+        &.social-links-twitter:before {            
+            content: "\f099";
+        }
+        &.social-links-youtube:before {            
+            content: "\f167";
+        }
+    }
+
+    ul {
+        padding: 1em 0;
+        border-bottom: 1px solid $text-light;
+        margin: 1em 0;
+    }
+    li {
+        display: inline-block;
+    }
+}
+
+
+
+
+.navigation-title {
+    margin: 1em 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
