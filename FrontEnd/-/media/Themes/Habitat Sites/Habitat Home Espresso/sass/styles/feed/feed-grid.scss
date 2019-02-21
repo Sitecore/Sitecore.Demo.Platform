@@ -1,0 +1,16 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+.feed.feed-grid {
+    .feed-item {
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+        @include border-basic();
+        width: 32%;
+        margin: 0 1% 10px 0;
+        padding: 20px;
+        @include respond-to(mobile-horizontal) {
+            width: 100%;
+        }
+    }
+}

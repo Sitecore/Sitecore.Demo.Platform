@@ -1,0 +1,31 @@
+ .flip.flip-slide-top {
+     .Side0, .Side1 {
+         transition-property: height, visibility, padding-top;
+         transition-duration: 1s, 1s, 1s;
+         transition-timing-function: linear, linear, linear;
+         box-sizing: border-box;
+     }
+     .Side1 {
+         transform: rotateY(0deg);
+         overflow: hidden;
+         height: 0;
+         visibility: hidden;
+         padding-top: 0;
+         padding-bottom: 0;
+         .slide-heading {
+             margin-top: 16px;
+         }
+     }
+     &.active {
+         .Side0 {
+             transform: rotateY(0deg);
+         }
+         .Side1 {
+             height: 100%;
+             transform: rotateY(0deg);
+             visibility: visible;
+             padding-top: 0;
+             padding-bottom: 10px;
+         }
+     }
+ }

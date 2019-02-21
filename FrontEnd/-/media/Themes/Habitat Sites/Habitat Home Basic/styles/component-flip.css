@@ -1,0 +1,179 @@
+/* breakpoints */
+.flip {
+  background: transparent;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+.flip h2 {
+  margin-bottom: 5px;
+}
+
+.flip .Side1, .flip .Side0, .flip .Side0_EDIT, .flip .Side1_EDIT {
+  background: #FFFFFF;
+  width: 96%;
+  padding: 2%;
+}
+
+.flip .Side1:after, .flip .Side0:after, .flip .Side0_EDIT:after, .flip .Side1_EDIT:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.flip .Side1_EDIT {
+  margin-top: 5px;
+}
+
+.flip .flipsides {
+  position: relative;
+  word-wrap: break-word;
+}
+
+.flip .Side1, .flip .Side0 {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+}
+
+.flip .Side1 .slide-heading:after, .flip .Side1 .slide-content:after, .flip .Side0 .slide-heading:after, .flip .Side0 .slide-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.flip .Side1 {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.flip.active .Side0 {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.flip.active .Side1 {
+  -webkit-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+
+.flip.flip-fade .Side0, .flip.flip-fade .Side1 {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+
+.flip.flip-fade .Side1 {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  opacity: 0;
+}
+
+.flip.flip-fade.active .Side0 {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  opacity: 0;
+}
+
+.flip.flip-fade.active .Side1 {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+.flip.flip-slide-top .Side0, .flip.flip-slide-top .Side1 {
+  -webkit-transition-property: height, visibility, padding-top;
+  transition-property: height, visibility, padding-top;
+  -webkit-transition-duration: 1s, 1s, 1s;
+  transition-duration: 1s, 1s, 1s;
+  -webkit-transition-timing-function: linear, linear, linear;
+  transition-timing-function: linear, linear, linear;
+  box-sizing: border-box;
+}
+
+.flip.flip-slide-top .Side1 {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  overflow: hidden;
+  height: 0;
+  visibility: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.flip.flip-slide-top .Side1 .slide-heading {
+  margin-top: 16px;
+}
+
+.flip.flip-slide-top.active .Side0 {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.flip.flip-slide-top.active .Side1 {
+  height: 100%;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  visibility: visible;
+  padding-top: 0;
+  padding-bottom: 10px;
+}
+
+.flip.flip-vertical .Side1 {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.flip.flip-vertical.active .Side0 {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.flip.flip-vertical.active .Side1 {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  -webkit-transform: rotateX(360deg);
+  transform: rotateX(360deg);
+}
+
+.no-csstransforms3d .flip .Side1 {
+  display: none;
+}
+
+.no-csstransforms3d .flip.active .Side0 {
+  display: none;
+}
+
+.no-csstransforms3d .flip.active .Side1 {
+  display: block;
+}
+
+.on-page-editor .flipsides {
+  height: auto;
+}
+
+.on-page-editor .flipsides .Side0, .on-page-editor .flipsides .Side1 {
+  margin-bottom: 10px;
+}

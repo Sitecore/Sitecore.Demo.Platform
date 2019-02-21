@@ -1,0 +1,22 @@
+.facet-managed-range {
+    box-sizing: border-box;
+    //margin: 10px 0;
+    .min-range-value {
+        display: inline-block;
+        vertical-align: middle;
+        width: 48%;
+        input[type=text] {
+            min-width: 100%;
+            width: 100%;
+        }
+    }
+    .max-range-value {
+        display: inline-block;
+        vertical-align: middle;
+        width: 49%;
+        input[type=text] {
+            min-width: 100%;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+.breadcrumb.breadcrumb-hide {
+    li {
+        white-space: nowrap;
+        &.item-hide+li.item-hide {
+            display: none;
+        }
+        &.item-hide {
+            a {
+                display: none;
+            }
+            &:before {
+                content: "...";
+                display: inline;
+            }
+        }
+        &.hide-full {
+            display: none;
+        }
+    }
+}

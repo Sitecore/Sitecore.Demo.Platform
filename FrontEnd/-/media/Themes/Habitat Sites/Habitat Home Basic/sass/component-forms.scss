@@ -1,0 +1,291 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.form {
+    margin: 10px 0;
+    font-size: 14px;
+    overflow: hidden;
+    table {
+        width: 100%;
+    }
+    .scfSectionContent>div {
+        // Remove spacings between form elements
+        margin: 5px 0 0 0;
+        padding: 0;
+        &~div {
+            margin: 0;
+        }
+        &>label, &>div {
+            width: 100%;
+            display: block;
+            padding: 0;
+        }
+    }
+    .has-feedback {
+        @include clearfix();
+    }
+    .scfRequired {
+        display: none !important;
+    }
+    fieldset {
+        @include border-basic();
+        padding: 15px;
+        margin: 10px 0;
+        position: relative;
+        legend {
+            font-weight: 700;
+            padding: 0 5px;
+            font-size: 16px;
+            position: absolute;
+            top: -33px;
+            background: #fff;
+            left: 0;
+        }
+    }
+    .scfSectionContent {
+        >div {
+            box-sizing: border-box;
+            margin: 15px 0;
+            border: 1px dashed gray;
+            padding: 10px;
+            position: relative;
+            &:after {
+                clear: both;
+                content: "";
+                display: block;
+            }
+            &:hover [class$="GeneralPanel"]>[class$="UsefulInfo"] {
+                opacity: 1;
+            }
+            select, input {
+                margin-left: 5px;
+            }
+        }
+        [class$="UsefulInfo"] {
+            transition: opacity 0.75s;
+            box-sizing: border-box;
+            opacity: 0;
+            font-size: 12px;
+            margin-left: 5px;
+            position: absolute;
+            @include border-basic();
+            left: 0px;
+            top: -15px;
+            padding: 4px 8px;
+            max-width: 98%;
+            width: auto;
+            background-color: #F5F5F5;
+            color: #808080;
+        }
+    }
+    input, select, textarea {
+        @include border-basic();
+        padding: 2px 4px;
+        max-width: 98%;
+    }
+    .scfCaptcha {
+        input[type="text"] {
+            margin: 0;
+        }
+    }
+    .scfCaptchaLimitGeneralPanel, .scfCaptchStrongTextPanel {
+        max-width: 100%;
+        width: auto;
+    }
+    .scfCaptchaLabel {
+        display: none;
+    }
+    .scfSectionContent .scfCaptchaGeneralPanel embed {
+        max-width: 180px;
+    }
+    input[type="image"] {
+        border: none;
+    }
+    input[type="submit"], button {
+        @include border-basic();
+        background: $bg-basic-color;
+        cursor: pointer;
+        margin-left: 0;
+    }
+    input[type="text"], input[type="password"], textarea, input[type="file"] {
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: border-box;
+        @include border-basic(bottom);
+        width: 95%;
+        padding: 2px;
+        &+span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    input[type="file"] {
+        appearance: none;
+    }
+    input[type="radio"] {
+        position: absolute;
+        &+label:before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            display: block;
+            width: 16px;
+            height: 16px;
+            background-color: $bg-basic-color;
+        }
+        &+label:after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            display: block;
+            width: 16px;
+            height: 15px;
+            background: image-url("radiobox.png");
+        }
+        &:checked+label:after {
+            background-position: -16px 0;
+        }
+        &+label {
+            user-select: none;
+            padding-left: 20px;
+            margin-left: 5px;
+            position: relative;
+        }
+    }
+    select {
+        @include border-basic();
+        max-height: 30px;
+        position: relative;
+        text-indent: 2px;
+    }
+    .scfListBox {
+        background: none;
+        max-height: none;
+    }
+    .scfDateSelectorDay, .scfDateSelectorMonth, .scfDateSelectorYear {
+        width: 30%;
+    }
+}
+
+.form-narrow {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-submit-border {
+  border-bottom: 1px solid #D8D9D5;
+  text-align: center;
+  margin-bottom: 100px;
+
+  .btn-next, 
+  .btn-previous {
+    position: relative;
+    @include btn-primary;    
+    transform: translateY(50%);    
+    min-width: 200px;
+  }
+}
+
+.newsletter-form {                       
+  padding: 0;
+  font-size: 24px;
+  margin: 40px 0;
+
+  @include respond-to(tablet) {
+    padding: 5em;
+    margin: 80px 0;
+  }
+
+  .field-bgimage {
+    display: none;
+
+    img {
+      width: 100%;
+      @include object-fit;
+    }
+
+    @include respond-to(tablet) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }  
+
+  &.image-top .field-bgimage img{        
+      @include object-fit(cover, top);
+  }
+
+  &.image-center .field-bgimage img{
+      @include object-fit(cover, center);
+  }
+
+  &.image-bottom .field-bgimage img{
+      @include object-fit(cover, bottom);
+  }
+
+  form {
+    background: #fff;
+    padding: 2em;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    
+    @include respond-to(tablet) {
+      max-width: 600px;
+      margin: 0 auto;      
+    }
+    
+  }
+
+  label {
+    display: none !important;
+  }
+
+  .field-group-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  
+    .field-group {
+      margin: 0;    
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
+    }
+  
+    input[type="email"] {
+      height: 48px;
+      width: 100%;
+    }
+
+    input[type="submit"] {
+      @include btn-primary();
+      padding: 0.5em;
+      font-size: 14px;
+      height: 48px;
+
+      @include respond-to(tablet) {
+        padding: 0.5em 2em;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.register-panel {
+  input[type="submit"] {
+    display: block;
+    width: 150px;
+    text-align: center;
+    padding: 1em;
+    margin: 2em auto;
+  }
+}
+
+@import "styles/forms/*";

@@ -1,0 +1,38 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.list-pagination {
+    background: $list-pagination-bg;
+    nav {
+        font-size: $font-normal;
+        >span, >a {
+            display: inline-block;
+            margin: 2px 1px 2px 0;
+            padding: 4px 8px;
+            @include border-basic();
+            font-size: 1em;
+            font-weight: bold;
+            &:hover {
+                color: $list-pagination-active-color;
+                background: $list-pagination-active-bg;
+                text-decoration: none;
+                @include border-basic(all, $list-pagination-active-border)
+            }
+            &:focus {
+                text-decoration: none;
+                color: $list-pagination-active-color;
+            }
+        }
+        >span.active {
+            background: $list-pagination-active-bg;
+            color: $list-pagination-active-color;
+            @include border-basic();
+        }
+        >span.inactive {
+            color: $text-disabled;
+            &:hover {
+                background: none;
+                @include border-basic();
+            }
+        }
+    }
+}

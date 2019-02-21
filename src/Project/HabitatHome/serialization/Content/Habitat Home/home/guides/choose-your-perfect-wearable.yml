@@ -91,53 +91,52 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
           uid="{976933B5-CA2D-4690-8ED1-9E3B15E79819}"
-          p:before="*"
-          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
-          s:ph="/main/sxa-article-content/author-1-" />
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=5&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0"
+          ph="/main/sxa-article-content/author-1-"
+          ds="" />
         <r
           uid="{99496185-5995-4131-9EBC-4B77C8A3B027}"
-          p:after="r[@uid='{976933B5-CA2D-4690-8ED1-9E3B15E79819}']"
-          s:ds=""
-          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
-          s:par="SplitterSize=2&amp;EnabledPlaceholders=1,2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1={F6DC722E-15DB-4826-920B-ACCFDA772432}&amp;ColumnWidth2={F6DC722E-15DB-4826-920B-ACCFDA772432}&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-article-content/container-1/container-4" />
+          ds=""
+          id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          par="DynamicPlaceholderId=1&amp;EnabledPlaceholders=1%2C2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D"
+          ph="/main/sxa-article-content/container-1/container-4" />
         <r
           uid="{74D5B791-82FD-4FC7-8CD2-F7BA9A25EFB2}"
-          p:after="r[@uid='{99496185-5995-4131-9EBC-4B77C8A3B027}']"
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters={F2FCE948-4F77-44AF-A188-B2030061F793}&amp;BackgroundImage&amp;Styles={45645D8F-56A4-460A-B5FB-51709FEFCE52}|{3D258225-9410-4FAF-A516-43490258337D}&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
-          s:ph="/main/sxa-article-content/container-1" />
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B9CB76B6C-2B77-4728-8508-CF7041C7B69C%7D&amp;GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;DynamicPlaceholderId=4"
+          ph="/main/sxa-article-content/container-1"
+          ds="" />
         <r
           uid="{D5C1A844-3812-484C-BB6D-DFD238B883E7}"
-          p:after="r[@uid='{74D5B791-82FD-4FC7-8CD2-F7BA9A25EFB2}']"
-          s:ds="{6238B3BB-E9C4-4AFB-B445-BE302466691E}"
-          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
-          s:ph="/main/sxa-article-content/container-1/container-4/column-2-1" />
+          ds="{6238B3BB-E9C4-4AFB-B445-BE302466691E}"
+          id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=3&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D"
+          ph="/main/sxa-article-content/container-1/container-4/column-2-1" />
         <r
           uid="{B19B6E22-6E62-4A76-B481-204DC416A907}"
-          p:after="r[@uid='{D5C1A844-3812-484C-BB6D-DFD238B883E7}']"
-          s:ds="{4D30B785-2CD0-44C1-94F5-E16E84244EA2}"
-          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          s:ph="/main/sxa-article-content/container-1/container-4/column-1-1" />
+          ds="{4D30B785-2CD0-44C1-94F5-E16E84244EA2}"
+          id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D"
+          ph="/main/sxa-article-content/container-1/container-4/column-1-1" />
         <r
           uid="{8A75DEE1-6F23-403D-9077-9D0DF9B92817}"
-          p:after="*[1=2]"
-          s:cnd=""
-          s:ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
-          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          s:mvt=""
-          s:par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
-          s:ph="/main/sxa-recommended-content/container-3" />
+          cnd=""
+          ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          mvt=""
+          par="DynamicPlaceholderId=6"
+          ph="/main/sxa-recommended-content/container-3" />
       </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en
@@ -173,11 +172,9 @@ Languages:
     - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
       Hint: Content
       Value: |
-        <p><span style="font-size: 20px;">Brownie cookie jelly beans toffee chocolate croissant icing. Pie fruitcake chupa chups jujubes. Danish tiramisu biscuit sweet caramels wafer chocolate bar. Chupa chups chocolate sugar plum. Tiramisu wafer jelly beans cotton candy apple pie pudding fruitcake gingerbread sugar plum. Gummi bears jelly beans chocolate cake macaroon bonbon candy canes candy chocolate cake croissant. Chocolate pie lollipop brownie tiramisu sugar plum fruitcake. Macaroon brownie halvah sweet croissant. Tootsie roll halvah ice cream jelly-o caramels jelly beans cookie halvah. Cupcake lollipop danish donut biscuit cookie topping. Jelly cheesecake pie soufflé carrot cake sugar plum gingerbread pudding jujubes. Topping ice cream chupa chups donut powder. Cupcake sweet macaroon cookie tiramisu marshmallow croissant halvah. Marzipan macaroon bonbon.</span><br /></p><p>
-        <br />
-        Muffin toffee cake sweet roll bear claw macaroon icing chupa chups. Jelly beans jelly beans chocolate. Pudding cookie wafer chupa chups chupa chups dragée halvah gummies. Sesame snaps lollipop marzipan soufflé lemon drops gummies marzipan chocolate bar cake. Sesame snaps marshmallow apple pie tiramisu jelly beans. Jelly beans candy oat cake gingerbread halvah. Caramels soufflé dragée dragée tart topping pastry sweet roll. Marzipan chupa chups lollipop donut gingerbread powder. Gummies dessert cake tart jelly beans. Pudding pie topping soufflé cake icing. Ice cream cupcake topping. Cotton candy pie marshmallow gummi bears.<br />
-        <br />
-        Soufflé wafer jelly beans gummi bears cake liquorice fruitcake halvah. Bear claw dessert apple pie lollipop donut gummies. Gingerbread bear claw soufflé icing candy canes biscuit caramels. Cake dragée toffee pie cake chocolate ice cream dragée tootsie roll. Apple pie cake chupa chups chocolate bar biscuit pie sugar plum. Pastry jelly tart muffin dessert sweet cheesecake. Marzipan oat cake pudding biscuit cheesecake dessert gingerbread. Muffin fruitcake tart pudding cake bear claw bonbon brownie. Jujubes candy canes sugar plum soufflé candy canes cookie dessert cake chocolate cake. Jujubes croissant candy pudding fruitcake dessert soufflé marshmallow. Liquorice sesame snaps tiramisu. Brownie fruitcake powder gummies lollipop cotton candy brownie cheesecake liquorice. Sweet roll candy toffee sugar plum cotton candy. Pastry sesame snaps chocolate muffin.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et nisl lacinia, congue libero vitae, vulputate elit. Nunc varius magna quis arcu tincidunt consequat. Praesent tristique volutpat elit, vel ultrices dui tempor sed. Donec sit amet rhoncus ex. Aliquam dignissim tortor volutpat vulputate auctor. Proin et dolor vehicula, dictum eros condimentum, venenatis enim. Sed sodales lectus sit amet sapien rutrum, non faucibus mi cursus. Praesent ut sem quis massa suscipit bibendum. Quisque euismod diam in urna consequat rutrum. Cras luctus vehicula odio, nec elementum neque ullamcorper eget. Integer vitae lacinia felis, at congue dui. Suspendisse a hendrerit quam. Nulla velit arcu, fringilla a pulvinar sollicitudin, commodo ac elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et nisl lacinia, congue libero vitae, vulputate elit. Nunc varius magna quis arcu tincidunt consequat. Praesent tristique volutpat elit, vel ultrices dui tempor sed. Donec sit amet rhoncus ex. Aliquam dignissim tortor volutpat vulputate auctor. Proin et dolor vehicula, dictum eros condimentum, venenatis enim. Sed sodales lectus sit amet sapien rutrum, non faucibus mi cursus. Praesent ut sem quis massa suscipit bibendum. Quisque euismod diam in urna consequat rutrum. Cras luctus vehicula odio, nec elementum neque ullamcorper eget. Integer vitae lacinia felis, at congue dui. Suspendisse a hendrerit quam. Nulla velit arcu, fringilla a pulvinar sollicitudin, commodo ac elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et nisl lacinia, congue libero vitae, vulputate elit. Nunc varius magna quis arcu tincidunt consequat. Praesent tristique volutpat elit, vel ultrices dui tempor sed. Donec sit amet rhoncus ex. Aliquam dignissim tortor volutpat vulputate auctor. Proin et dolor vehicula, dictum eros condimentum, venenatis enim. Sed sodales lectus sit amet sapien rutrum, non faucibus mi cursus. Praesent ut sem quis massa suscipit bibendum. Quisque euismod diam in urna consequat rutrum. Cras luctus vehicula odio, nec elementum neque ullamcorper eget. Integer vitae lacinia felis, at congue dui. Suspendisse a hendrerit quam. Nulla velit arcu, fringilla a pulvinar sollicitudin, commodo ac elit.</p>
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

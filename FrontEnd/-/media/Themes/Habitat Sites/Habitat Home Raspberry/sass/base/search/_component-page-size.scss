@@ -1,0 +1,10 @@
+.page-size {
+    @import "../reset/inputs";
+    label {
+        margin-right: 5px;
+    }
+    select {
+        max-width: 100px;
+        width: auto;
+    }
+}

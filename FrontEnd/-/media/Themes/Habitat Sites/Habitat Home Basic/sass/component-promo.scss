@@ -1,0 +1,296 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.promo {    
+    line-height: 1.6;
+    margin: 8em 0;
+    float: none;
+
+    >.component-content {
+        //display: flex;
+        //flex-wrap: wrap;
+        padding: 0;
+
+        @include proxima-font;
+
+        >div {
+            @include respond-to(tablet){
+                float: left;
+                width: 50%;
+                text-align: left;
+            }
+        }
+
+        p {
+            color: $text-light;
+            font-size: 1.25em;
+        }
+        @include respond-to(tablet) {
+            padding: 0 2em;  
+        }
+
+        @include respond-to (desktop) {
+            padding: 0 8em;
+        }
+    }
+
+    .field-promotext {
+        margin: $extrasmall-margin 0;
+        p{
+            font-size: 1;
+            margin: 0;     
+            color: $text-heading-color;
+
+            @include respond-to(tablet) {
+                font-size: 2em;
+            }
+        }
+    } 
+
+    .field-promotext2 {
+        p {
+            margin: $small-margin 0;
+            font-weight: 300;
+        }        
+    }
+
+    .field-promotext3 {
+        p {
+            color: $text-black;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+    }
+
+    .field-promoicon {
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @include respond-to (tablet) {
+            padding: 0 60px 0 0;
+        }
+
+        @include respond-to (desktop) {
+            padding: 0 120px 0 0;
+        }
+    }
+
+    .field-promolink {
+        a {
+            @include btn-secondary;
+            min-width: 240px;
+            margin-top: 0.25em;
+            display: block;
+            width: auto;
+        }
+    }
+
+    &.promo-left {
+        .field-promoicon {        
+
+            @include respond-to(tablet) {
+                padding: 0 0 0 60px;
+                float: right; 
+            }
+            @include respond-to(desktop) {
+                padding: 0 0 0 120px;
+            }
+        }
+    }
+
+    &.promo-top {
+        >.component-content{
+            width: 100%;
+            padding: 0 0 3em 0;
+            background-color: #fefefe;
+
+            .field-promoicon {
+                padding: 0;
+            }
+
+            .field-promolink {    
+                a {
+                    @include btn-secondary;
+                    min-width: 250px;
+                }
+            }
+
+            >div {
+                float: none;
+                width: 100%;
+                text-align: center;
+                
+            }
+
+            .field-promotext2 {
+                p {
+                    margin: $small-margin;
+                    font-weight: 300;
+                }        
+            }
+        }
+   
+    }
+
+    &.product-item {
+        margin: 1em;
+        >.component-content {
+            padding: 0;        
+    
+            >div {
+                width: auto;
+                float: none;
+            }
+    
+            p {
+                color: $text-light;
+                font-size: 1.1em;
+                @include proxima-font(light);
+                font-weight: 400;
+            }
+            
+            .product-item-info {
+                min-height: 9em;
+            }
+
+            .product-item-info-title {
+                color: $text-secondary-heading-color;
+                font-size: 1.25em;
+                @include proxima-font(semibold);
+                margin: 0.25em 0 1em 0;
+            }
+            
+            .product-item-foot {
+                padding-top: 1em;
+                text-align: right;
+                border-top: 1px solid $text-light;
+
+                a {
+                        @include btn-secondary;
+                        text-transform: none;
+                        font-size: 1em;
+                        font-weight: 400;
+                        min-width: unset;
+                        padding: 0.5em 1em;
+                }
+            } 
+        }
+
+        .field-image,
+        .field-promoicon {
+            display: flex;
+            padding-right: 0px;
+            height: 160px;
+            overflow: hidden;
+
+            img {
+                @include object-fit;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .field-promolink {
+            a {
+                padding: 0.5em 1em;
+                min-width: auto;
+
+                &:after {
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-size: inherit;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    content: "\f054";
+                    margin-left: .5em;
+                }
+            }
+        }
+    }
+
+    @import "variants/promo/*";
+    @import "base/richtext/richtext";
+}
+
+.full-width-promo {
+    @include full-width-container;
+    padding: 0;
+
+    > .component-content {
+
+    }
+
+    .promo {
+        margin: 0 auto;
+
+        > .component-content {
+            padding: 90px 0;
+            display: flex;
+
+            @include respond-to(tablet) {
+                padding: 180px 0;  
+            }   
+
+            p {
+                color: $fw-promo-text;
+            }
+
+            .field-promotext {
+                p {
+                    color: $fw-promo-headline;
+                    font-weight: bold;
+                }
+            }
+
+            .field-promolink {
+                a {
+                    background-color: transparent !important;
+
+                    &:hover {
+                        background-color: transparent !important;
+                    }
+                }
+            }
+
+            > div {
+                float: none;
+                width: 100%;
+                position: relative;
+                z-index: 20;
+                background: rgba(255,255,255,0.75);
+                padding: 2em;                
+                width: 100%;
+
+                @include respond-to(tablet) {
+                    width: 500px;    
+                }                
+
+                &.field-promoicon {
+                    padding: 0;
+                    position: absolute;
+                    z-index: 10;
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+
+                    img {
+                        @include object-fit;
+                    }
+                }
+            }
+        }
+
+        &.promo-right {
+            >.component-content {
+                justify-content: flex-end;
+            }
+        }
+        
+    }
+}
+@import "styles/promo/*";
