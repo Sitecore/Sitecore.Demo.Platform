@@ -17,19 +17,12 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          uid="{22CCF0C6-ACB1-424A-B51B-A345A9F0969B}"
-          p:before="*"
-          s:ds="{F2110FFB-54D1-48EF-A879-9CFC23C04FC3}"
-          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
-          s:par=""
-          s:ph="/section-content/sitecoreFormsWrapper-1" />
-        <r
           uid="{B7AA5409-2968-4533-9990-EBE49CCEE78A}"
-          p:after="*[1=2]"
-          s:ds="{0096f709-9d19-4233-a296-a24e04df53f4}"
+          p:before="*"
+          s:ds=""
           s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
-          s:par="Styles=%7b7f71d3da-ed68-434f-a979-58559adf0b05%7d&amp;DynamicPlaceholderId=1&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d"
-          s:ph="section-content">
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;Styles=%7B460B5E75-23EF-430C-94C4-F86DB2DB5EDF%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/section-content/container-2">
           <rls>
             <ruleset>
               <rule
@@ -64,6 +57,20 @@ SharedFields:
             </ruleset>
           </rls>
         </r>
+        <r
+          uid="{22CCF0C6-ACB1-424A-B51B-A345A9F0969B}"
+          p:after="r[@uid='{B7AA5409-2968-4533-9990-EBE49CCEE78A}']"
+          s:ds="/sitecore/Forms/Habitat Sites/Habitat Home/Onboarding Sign Up"
+          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+          s:par=""
+          s:ph="/section-content/container-2/sitecoreFormsWrapper-1" />
+        <r
+          uid="{B28AA270-E2AE-4D9B-8F97-D37C8A0CCC90}"
+          p:after="*[1=2]"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage=%3Cimage%20mediaid%3D%22%7B5FD5E0EE-2054-4DB8-96F7-7CD0D717D8E1%7D%22%20alt%3D%22%22%20height%3D%22%22%20width%3D%22%22%20hspace%3D%22%22%20vspace%3D%22%22%20%2F%3E&amp;Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B92D5AED9-B973-47FF-9C9B-6621CEFCE400%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="section-content" />
       </d>
     </r>
 Languages:

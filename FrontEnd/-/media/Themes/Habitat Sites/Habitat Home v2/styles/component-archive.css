@@ -1,0 +1,90 @@
+@charset "UTF-8";
+/* breakpoints */
+.sxa-archive .level-1 {
+  display: block !important;
+  padding-left: 10px;
+}
+
+.sxa-archive .level-1 > li > .group-header {
+  font-weight: bold;
+}
+
+.sxa-archive .group-header {
+  position: relative;
+}
+
+.sxa-archive .group-header:before {
+  font-size: 10px;
+  font-size: 1rem;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 10px;
+  position: absolute;
+  content: "";
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: -20px;
+  padding: 0;
+}
+
+.sxa-archive .group-header.opened:before {
+  content: "";
+}
+
+.sxa-archive ul {
+  display: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.sxa-archive ul li {
+  position: relative;
+}
+
+.sxa-archive .archive-items {
+  display: none;
+}
+
+.sxa-archive .archive-items .navigation-title {
+  margin: 0;
+}
+
+.sxa-archive .archive-items .archive-item {
+  cursor: default;
+}
+
+.sxa-archive .archive-items .archive-item a {
+  display: inline-block;
+  position: relative;
+  padding-left: 10px;
+  margin: 0.25em 0;
+  text-decoration: none;
+}
+
+.sxa-archive .archive-items .archive-item a:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 10px;
+  color: #1d8c96;
+}
+
+.sxa-archive .archive-items .archive-item a:hover {
+  text-decoration: none;
+}

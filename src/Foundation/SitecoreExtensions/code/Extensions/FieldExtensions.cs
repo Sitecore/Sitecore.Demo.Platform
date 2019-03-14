@@ -9,9 +9,15 @@
     {
         public static string ImageUrl(this ImageField imageField)
         {
-            if (imageField?.MediaItem == null)
+            if(imageField == null)
             {
                 throw new ArgumentNullException(nameof(imageField));
+            }
+
+            if (imageField.MediaItem == null)
+            {
+                //empty image field
+                return string.Empty;
             }
 
             var options = MediaUrlOptions.Empty;
@@ -45,6 +51,7 @@
             {
                 throw new ArgumentNullException(nameof(checkboxField));
             }
+
             return MainUtil.GetBool(checkboxField.Value, false);
         }
     }

@@ -1,0 +1,11 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.market-selector {
+    @import "base/reset/inputs";
+    select {
+        height: auto;
+        font-size: $font-normal;
+        color: $site-selector-color;
+        padding: 5px 15px 5px 5px;
+    }
+}

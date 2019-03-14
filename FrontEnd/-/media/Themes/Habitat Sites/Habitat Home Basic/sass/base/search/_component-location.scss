@@ -1,0 +1,33 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+.location-filter {
+    position: relative;
+    padding: 5px 10px 15px 10px;
+    margin: 0 0 20px 0;
+    @import "../reset/inputs";
+    @import "../typehead/typehead";
+    .component-content {
+        display: flex;
+        >div, >button, >label, >input, >span {
+            order: 1;
+        }
+        >label, >button {
+            flex-grow: 1;
+        }
+        >label {
+            align-self: center;
+            text-align: center;
+        }
+        >input, >span {
+            flex-grow: 10;
+            width: auto;
+            margin: 0 5px;
+        }
+    }
+    .tt-hint::-webkit-input-placeholder {
+        color: transparent;
+    }
+    .tt-hint::-moz-placeholder {
+        color: transparent;
+    }
+}
