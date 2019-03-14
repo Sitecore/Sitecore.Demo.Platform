@@ -8,14 +8,14 @@
     using Sitecore.HabitatHome.Foundation.Accounts.Providers;
     using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
-    [Service]
-    public class VisitsRepository
+    [Service(typeof(IVisitsRepository))]
+    public class VisitsRepository : IVisitsRepository
     {
         private readonly IContactFacetsProvider contactFacetsProvider;
-        private readonly EngagementPlanStateRepository engagementPlanStateRepository;
-        private readonly PageViewRepository pageViewRepository;
+        private readonly IEngagementPlanStateRepository engagementPlanStateRepository;
+        private readonly IPageViewRepository pageViewRepository;
 
-        public VisitsRepository(IContactFacetsProvider contactFacetsProvider, EngagementPlanStateRepository engagementPlanStateRepository, PageViewRepository pageViewRepository)
+        public VisitsRepository(IContactFacetsProvider contactFacetsProvider, IEngagementPlanStateRepository engagementPlanStateRepository, IPageViewRepository pageViewRepository)
         {
             this.contactFacetsProvider = contactFacetsProvider;
             this.engagementPlanStateRepository = engagementPlanStateRepository;
@@ -42,9 +42,7 @@
 
         private IEnumerable<PageView> GetAllPageViews()
         {
-            var allPageViews = Tracker.Current.Interaction.GetPages().Cast<ICurrentPageContext>()
-                .Where(x => !x.IsCancelled && !x.Url.ToString().Contains("sitecore"));
-            return allPageViews.Select(pc => pageViewRepository.Get(pc)).Reverse();
+            return Tracker.Current.Interaction.GetPages().Cast<ICurrentPageContext>().Where(x => !x.IsCancelled).Select(pc => pageViewRepository.Get(pc)).Reverse();
         }
 
         private int GetTotalVisits()

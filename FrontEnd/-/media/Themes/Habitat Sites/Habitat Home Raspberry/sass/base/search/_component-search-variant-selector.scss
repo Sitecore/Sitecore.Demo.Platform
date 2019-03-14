@@ -1,0 +1,29 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+.variant-selector {
+    &.component {
+        margin: 30px 0 0 0;
+    }
+    .component-content {
+        >div {
+            height: 30px;
+            display: inline-block;
+            width: 30px;
+            margin: 2px;
+            cursor: Pointer;
+        }
+    }
+    .standard-fields {
+        background-image: url(../images/list.png);
+        &.active-variant {
+            background-image: url(../images/list-active.png);
+        }
+    }
+    .example-fields {
+        background-image: url(../images/grid.png);
+        background-repeat: no-repeat;
+        &.active-variant {
+            background-image: url(../images/grid-active.png);
+        }
+    }
+}

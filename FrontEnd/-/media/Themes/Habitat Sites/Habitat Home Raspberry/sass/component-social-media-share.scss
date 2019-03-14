@@ -1,0 +1,19 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+.social-media-share {
+    background: $social-media-share-bg;
+    ul {
+        overflow: hidden;
+    }
+    li {
+        &:first-child {
+            margin-left: 0;
+        }
+        float: left;
+        margin: 0 10px;
+        .fb_iframe_widget {
+            display: block;
+            margin-top: -2px;
+        }
+    }
+}

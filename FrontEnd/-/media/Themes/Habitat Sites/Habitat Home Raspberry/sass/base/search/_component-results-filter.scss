@@ -1,0 +1,24 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+.facet-single-selection-list {
+    display: block;
+    .facet-search-filter {
+        .facet-value {
+            position: relative;
+            border-bottom: 1px solid #e0dede;
+            background: transparent;
+            cursor: pointer;
+            padding: 5px 0;
+            &:last-of-type {
+                border-bottom: none;
+            }
+            &.active-facet {
+                font-weight: bold;
+            }
+            .highlighted {
+                font-weight: bold;
+                color: #888888;
+            }
+        }
+    }
+}

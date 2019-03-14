@@ -1,0 +1,19 @@
+.flip.flip-fade {
+    .Side0, .Side1 {
+        transition-property: opacity;
+    }
+    .Side1 {
+        transform: rotateY(0deg);
+        opacity: 0;
+    }
+    &.active {
+        .Side0 {
+            transform: rotateY(0deg);
+            opacity: 0;
+        }
+        .Side1 {
+            transform: rotateY(0deg);
+            opacity: 1;
+        }
+    }
+}

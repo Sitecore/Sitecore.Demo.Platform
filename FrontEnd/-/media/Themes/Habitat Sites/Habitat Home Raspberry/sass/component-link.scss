@@ -1,0 +1,28 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+.link {
+    background: $link-bg;
+    //@import "base/reset/links";
+    font-size: 1em;
+    a {
+        display: inline-flex;
+        align-items: center;
+
+        &:before {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: "";
+            font-size: 10px;
+            margin-right: 0.25em;
+            color: $link-icon-color;
+        }
+        &:hover {
+            text-decoration: none;
+            
+        }
+    }
+}

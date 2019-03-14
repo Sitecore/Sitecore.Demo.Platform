@@ -91,26 +91,28 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
           uid="{810C04A1-FCBC-4BE6-ACB3-1C82F0C6270E}"
-          p:before="*"
-          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="/main/sxa-article-content/author-1-" />
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="/main/sxa-article-content/author-1-"
+          ds="" />
         <r
           uid="{B8EEB66E-8D23-4934-B31F-1F2FC0BD38CE}"
-          p:after="*[1=2]"
-          s:cnd=""
-          s:ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
-          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          s:mvt=""
-          s:par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          s:ph="/main/sxa-recommended-content/container-3" />
+          cnd=""
+          ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          mvt=""
+          par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-recommended-content/container-3" />
       </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en
@@ -145,8 +147,7 @@ Languages:
       Value: With the right equipment, every goal is within reach. The latest in wearable fitness technology can help you succeed. 
     - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
       Hint: Content
-      Value: |
-        <p><span style="font-size: 20px;">Cotton candy jelly cupcake candy canes pastry marzipan. Caramels donut fruitcake pudding chocolate cake ice cream. Apple pie bonbon icing bear claw jelly bonbon chocolate tootsie roll. Lollipop oat cake jelly-o candy canes caramels apple pie chupa chups jelly biscuit. Caramels gummi bears lemon drops muffin cheesecake gingerbread. Jelly beans sweet roll chocolate fruitcake topping. Topping wafer cheesecake fruitcake chupa chups marshmallow cake. Danish candy canes halvah chocolate cake sweet roll gummi bears donut fruitcake. Caramels gingerbread wafer jelly cotton candy brownie dragée. Jelly beans fruitcake sweet chocolate croissant danish brownie macaroon. Lemon drops candy gummies. Icing gingerbread pudding jelly beans cotton candy wafer carrot cake danish toffee. Cotton candy tart caramels pudding ice cream caramels macaroon macaroon. Cake powder candy cookie icing dessert ice cream lemon drops wafer.</span><br /></p>
+      Value: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et nisl lacinia, congue libero vitae, vulputate elit. Nunc varius magna quis arcu tincidunt consequat. Praesent tristique volutpat elit, vel ultrices dui tempor sed. Donec sit amet rhoncus ex. Aliquam dignissim tortor volutpat vulputate auctor. Proin et dolor vehicula, dictum eros condimentum, venenatis enim. Sed sodales lectus sit amet sapien rutrum, non faucibus mi cursus. Praesent ut sem quis massa suscipit bibendum. Quisque euismod diam in urna consequat rutrum. Cras luctus vehicula odio, nec elementum neque ullamcorper eget. Integer vitae lacinia felis, at congue dui. Suspendisse a hendrerit quam. Nulla velit arcu, fringilla a pulvinar sollicitudin, commodo ac elit.</p>
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -165,8 +166,7 @@ Languages:
       Value: Best In Wearable Fitness Tech
     - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
       Hint: Additional Content
-      Value: |
-        <span style="font-family: ProximaNova, sans-serif; font-size: 20px; font-style: normal; font-weight: 400;">Cotton candy jelly cupcake candy canes pastry marzipan. Caramels donut fruitcake pudding chocolate cake ice cream. Apple pie bonbon icing bear claw jelly bonbon chocolate tootsie roll. Lollipop oat cake jelly-o candy canes caramels apple pie chupa chups jelly biscuit. Caramels gummi bears lemon drops muffin cheesecake gingerbread. Jelly beans sweet roll chocolate fruitcake topping. Topping wafer cheesecake fruitcake chupa chups marshmallow cake. Danish candy canes halvah chocolate cake sweet roll gummi bears donut fruitcake. Caramels gingerbread wafer jelly cotton candy brownie dragée. Jelly beans fruitcake sweet chocolate croissant danish brownie macaroon. Lemon drops candy gummies. Icing gingerbread pudding jelly beans cotton candy wafer carrot cake danish toffee. Cotton candy tart caramels pudding ice cream caramels macaroon macaroon. Cake powder candy cookie icing dessert ice cream lemon drops wafer.</span>
+      Value: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et nisl lacinia, congue libero vitae, vulputate elit. Nunc varius magna quis arcu tincidunt consequat. Praesent tristique volutpat elit, vel ultrices dui tempor sed. Donec sit amet rhoncus ex. Aliquam dignissim tortor volutpat vulputate auctor. Proin et dolor vehicula, dictum eros condimentum, venenatis enim. Sed sodales lectus sit amet sapien rutrum, non faucibus mi cursus. Praesent ut sem quis massa suscipit bibendum. Quisque euismod diam in urna consequat rutrum. Cras luctus vehicula odio, nec elementum neque ullamcorper eget. Integer vitae lacinia felis, at congue dui. Suspendisse a hendrerit quam. Nulla velit arcu, fringilla a pulvinar sollicitudin, commodo ac elit.</p>
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image
       Value: 

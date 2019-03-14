@@ -1,0 +1,92 @@
+@charset "UTF-8";
+/* breakpoints */
+.language-selector {
+  position: relative;
+  background-color: transparent;
+  text-transform: uppercase;
+}
+
+.language-selector .language-selector-select-item {
+  cursor: pointer;
+  font-family: "ProximaNova", arial, helvetica, sans-serif;
+}
+
+.language-selector .language-selector-select-item > a {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  padding: 0 1em;
+  color: #B1B3AC;
+  font-size: 11px;
+  height: 76px;
+  margin-right: 1.5em;
+}
+
+.language-selector .language-selector-select-item > a:hover {
+  text-decoration: none;
+}
+
+.language-selector .language-selector-select-item:after {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  color: #B1B3AC;
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 0.8em;
+}
+
+.language-selector .language-selector-item-container {
+  padding: 0;
+  position: absolute;
+  min-width: 220px;
+  z-index: 10;
+  background: #5f504e;
+  display: none;
+  left: 0;
+  right: 0;
+}
+
+.language-selector .language-selector-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.language-selector .language-selector-item a {
+  text-decoration: none;
+  color: #B1B3AC;
+  font-weight: normal;
+  padding-left: 25px;
+  background-repeat: no-repeat;
+  font-size: 11px;
+}
+
+.language-selector .language-selector-item a:hover {
+  color: #e3e4e1;
+}
+
+.language-selector .language-selector-item:first-child {
+  margin-bottom: 0;
+}
+
+.language-selector .language-selector-link {
+  padding: 0px 20px 0 30px;
+}
+
+.language-selector .language-selector-select-link {
+  padding-left: 25px;
+  background-repeat: no-repeat;
+}

@@ -1,10 +1,11 @@
 namespace Sitecore.HabitatHome.Feature.Demo.Repositories
 {
+    using System;
+    using System.Globalization;
     using Sitecore.Analytics;
     using Sitecore.Analytics.Tracking;
     using Sitecore.HabitatHome.Feature.Demo.Models;
     using Sitecore.HabitatHome.Foundation.DependencyInjection;
-    using System.Globalization;
 
     [Service]
     public class LocationRepository

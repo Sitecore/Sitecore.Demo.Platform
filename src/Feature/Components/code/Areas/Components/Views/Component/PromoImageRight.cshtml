@@ -1,0 +1,23 @@
+﻿@using Sitecore.HabitatHome.Feature.Components.Models
+
+@model Component
+
+<div class="container">
+
+    <div class="row featurette">
+        <div class="col-sm-6">
+            <h2 class="featurette-heading">
+                @Html.Sitecore().Edit(Model, m => m.Title)
+            </h2>
+            <p class="lead">
+                @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(Model.Content))
+                {
+                    @Html.Sitecore().Edit(Model, m => m.Content)
+                }
+            </p>
+        </div>
+        <div class="col-sm-6">
+            @Html.Sitecore().Edit(Model, m => m.Image)
+        </div>
+    </div>
+</div>

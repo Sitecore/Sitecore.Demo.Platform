@@ -1,0 +1,12 @@
+.sort-results {
+    @import "../reset/inputs";
+    select {
+        max-width: 100%;
+        width: auto;
+        display: inline-block;
+    }
+    .facet-title {
+        display: inline-block;
+        margin-right: 5px;
+    }
+}

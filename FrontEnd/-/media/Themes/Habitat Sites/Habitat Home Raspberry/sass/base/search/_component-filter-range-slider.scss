@@ -1,0 +1,17 @@
+.facet-range-selector {
+    .slider-min-value {
+        float: left;
+        width: 4%;
+        text-align: center;
+    }
+    .slider-max-value {
+        float: right;
+        width: 4%;
+        text-align: center;
+    }
+    .slider-min-value+.ui-slider-horizontal {
+        float: left;
+        width: 88%;
+        margin: 5px 2%;
+    }
+}
