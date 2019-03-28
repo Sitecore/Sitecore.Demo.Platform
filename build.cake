@@ -92,6 +92,7 @@ Task("Default")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
+.IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-SXA-Variable")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
@@ -99,7 +100,6 @@ Task("Default")
 
 Task("Post-Deploy")
 .IsDependentOn("Sync-Unicorn")
-.IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Deploy-EXM-Campaigns")
 .IsDependentOn("Deploy-Marketing-Definitions")
 .IsDependentOn("Rebuild-Core-Index")
@@ -113,10 +113,10 @@ Task("Quick-Deploy")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
+.IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Modify-SXA-Variable")
-.IsDependentOn("Publish-xConnect-Project");
+.IsDependentOn("Modify-SXA-Variable");
 
 /*===============================================
 =========== Packaging - Main Tasks ==============
