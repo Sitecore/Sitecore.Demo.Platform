@@ -1,0 +1,44 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.event-calendar {
+    @import "base/richtext/*";
+    background: $calendar-bg;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 5px;
+    border-bottom: none !important;
+    .fc-day-grid-event {
+        &:hover {
+            color: $calendar-day-color-active;
+        }
+    }
+    .fc-content-skeleton {
+        td {
+            padding: 0 !important;
+        }
+    }
+    .fc-bg>table {
+        height: 100% !important;
+    }
+    .fc-day-header {
+        background: $calendar-header-bg
+    }
+    th, td {
+        border-width: 1px 0 0 1px !important;
+    }
+    table {
+        border: 1px solid $border-gray;
+        &, tr, th, td {
+            background: transparent;
+        }
+    }
+    .fc-event-container {
+        a {
+            color:$calendar-day-color-active;
+            text-decoration: none;
+        }
+    }
+}
+.calendar-tooltip {
+    @import "base/richtext/*";
+}

@@ -1,0 +1,347 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+@import "base/fontawesome/font-awesome-mix-var";
+
+
+.megadrop {
+    &.open{
+        &:before {
+            background-color: $bg-charcoal-dark;;
+        }
+    }
+    .navigation-title {
+        margin: 0;
+    }
+    
+    > .component-content {
+        padding: 0;
+    }
+
+    nav {
+        border-bottom: 4px solid $brand-secondary;
+        background-color: $bg-charcoal;
+        
+        ul {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 0;
+            list-style-type: none;
+            width: auto;
+
+            @include respond-to(tablet) {
+                width: 260px;
+            }
+        }
+    }
+    
+    .field-navigationtitle {
+        a {
+            font-weight: 700;
+            padding: 10px;
+            
+
+            &:hover {
+                text-decoration: inherit;
+                color: inherit;
+                background-color: inherit;
+                color: inherit;
+
+                &:after {
+                    //display: none;
+                    font-size: .7em;
+                }
+            }
+
+            &:after {
+                display: inline-block;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-stretch: normal;
+                font-size: inherit;
+                line-height: inherit;
+                font-family: FontAwesome;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                content: "";
+                font-size: .7em;
+                line-height: 1.42857;
+                margin-left: .71429em;
+                color: $brand-primary;
+            }
+
+            @include respond-to(tablet) {
+                padding: 0.7em 0 0.7em 1.25em;
+                border-bottom: none;
+
+                &:after {
+                    display: none;
+                }
+            }
+        }        
+    }
+
+    .rel-level1.active {
+        background-color: $bg-charcoal-dark;
+        .field-navigationtitle {
+            a {
+                color: white;                
+                &:after {
+                    display: inline-block;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-size: inherit;
+                    line-height: inherit;
+                    font-family: FontAwesome;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    content: "";
+                    font-size: .7em;
+                    line-height: 1.42857;
+                    margin-left: .71429em;
+                    color: $brand-primary;
+                }
+
+                &:hover {
+                    color: white;
+
+                    &:after {
+                        display: inline-block;
+                        font-style: normal;
+                        font-variant: normal;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-size: inherit;
+                        line-height: inherit;
+                        font-family: FontAwesome;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        content: "";
+                        font-size: .7em;
+                        line-height: 1.42857;
+                        margin-left: .71429em;
+                        color: $brand-primary;
+                    }
+                }
+            }
+        }
+
+        .megadrop-secondary-title-link {
+            a {
+                border-bottom: 1px solid $brand-primary;
+    
+                @include respond-to(tablet) {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    .megadrop-secondary-link {
+        .field-navigationtitle {
+            a {
+                font-weight: normal;
+                font-size: .85em;
+                padding: 0.5em 0 0.5em 0.5em;
+
+                @include respond-to(tablet) {
+                    padding: 0.5em 0 0.5em 2.5em;
+                }
+                
+            }        
+        }
+    }
+
+    .megadrop-secondary-content {
+        display: none;
+        background-color: $bg-charcoal-dark;
+        
+        
+        @include respond-to(tablet) {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border-bottom: 4px solid $brand-secondary;
+            width: -webkit-calc(100% - 260px);
+            width: calc(100% - 260px);
+            padding: 40px 30px;
+        }
+
+        .field-navigationtitle {
+            font-size: 1.5em;
+            margin: 0.5em 0 1.75em;
+            @include proxima-font(700);                    
+
+            a {
+                &:after {
+                    content: '\f138' !important;
+                }
+            }
+
+            @include respond-to(tablet) {
+                margin: 0 0 1.75em 0;
+            }
+        }
+    }
+
+    .megadrop-secondary-main {
+        padding: 0 10px;
+
+        > li {
+            @include clearfix;
+            margin-bottom: 0.5em;
+        }
+
+        @include respond-to(tablet) {
+            display: flex;
+            width: 100%;
+            padding: 0;
+            margin-bottom: 0;
+            > li {            
+                width: 31%;
+                margin-right: 3.5%;
+    
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+        
+    }
+    .megadrop-secondary-main-image {
+        width: 15%;
+        float: left;
+      
+        img {
+            @include object-fit;                
+            width: 100%;
+            height: auto;
+        }
+
+        @include respond-to(mobile) {
+            display: none;
+            
+        }
+
+        @include respond-to(tablet) {
+            width: 100%;
+            height: 189px;  
+
+            a {
+                display: flex;
+                width: 100%;
+                height: 100%;
+            }          
+        }
+    }
+
+    .megadrop-secondary-main-link {
+        width: 85%;
+        float: left;
+
+        @include respond-to(tablet) {
+            width: auto;
+            float: none;
+        }
+
+        a {
+            display: block;
+            color: white;
+            font-size: 1em;
+            text-decoration: none;
+            font-weight: bold;
+            padding-left: 20px;
+            //padding: 0.5em 0;
+            //line-height: 1.25;
+
+            @include respond-to(tablet) {
+                display: block;
+                font-size: 1.15em;
+                padding: 0.5em 0;
+                line-height: 1.25;
+            }
+        }
+    }
+  
+    li.active {
+        .megadrop-secondary-content {
+            display: block;
+            padding: 0 0 40px;
+
+            .field-navigationtitle {
+                a {
+                    padding-left: 10px;
+
+                    @include respond-to(tablet) {
+                        padding-left: 0;
+                    }
+                }
+            }
+
+            @include respond-to(tablet) {
+                padding: 40px;
+            }
+
+            @include respond-to(desktop) {
+                padding: 40px 100px;
+            }
+        }
+    }
+
+    .tags {
+        border-top: 1px solid $brand-primary;
+        margin-top: 20px;
+        padding: 8px 0;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        color: white;
+
+        span {
+            font-weight: bold;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            width: auto;
+            margin-left: 1em;
+        }
+
+        .megadrop-secondary-main-link {
+            display: inline-block;
+            a {
+                font-size: 1em;
+                font-weight: normal;
+
+                padding: 0 1em 0 0;
+                margin-right: 1em;
+                border-right: 1px solid $brand-primary;
+            }
+
+            &:last-child {
+                a {
+                    padding: 0;
+                    margin: 0;
+                    border-right: 0;
+                }                
+            }
+        }
+    }
+}
+
+.megadrop-nav {
+    width: calc(100vw - 40px);
+    padding: 0;
+
+    @include respond-to(tablet) {
+        
+    }
+
+    @include respond-to(desktop-large) {
+        width: 1250px;
+    }    
+}

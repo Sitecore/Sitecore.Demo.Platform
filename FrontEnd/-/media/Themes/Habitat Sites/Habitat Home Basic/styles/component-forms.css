@@ -1,0 +1,440 @@
+/* breakpoints */
+.form {
+  margin: 10px 0;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.form table {
+  width: 100%;
+}
+
+.form .scfSectionContent > div {
+  margin: 5px 0 0 0;
+  padding: 0;
+}
+
+.form .scfSectionContent > div ~ div {
+  margin: 0;
+}
+
+.form .scfSectionContent > div > label, .form .scfSectionContent > div > div {
+  width: 100%;
+  display: block;
+  padding: 0;
+}
+
+.form .has-feedback:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.form .scfRequired {
+  display: none !important;
+}
+
+.form fieldset {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  padding: 15px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.form fieldset legend {
+  font-weight: 700;
+  padding: 0 5px;
+  font-size: 16px;
+  position: absolute;
+  top: -33px;
+  background: #fff;
+  left: 0;
+}
+
+.form .scfSectionContent > div {
+  box-sizing: border-box;
+  margin: 15px 0;
+  border: 1px dashed gray;
+  padding: 10px;
+  position: relative;
+}
+
+.form .scfSectionContent > div:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.form .scfSectionContent > div:hover [class$="GeneralPanel"] > [class$="UsefulInfo"] {
+  opacity: 1;
+}
+
+.form .scfSectionContent > div select, .form .scfSectionContent > div input {
+  margin-left: 5px;
+}
+
+.form .scfSectionContent [class$="UsefulInfo"] {
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+  box-sizing: border-box;
+  opacity: 0;
+  font-size: 12px;
+  margin-left: 5px;
+  position: absolute;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  left: 0px;
+  top: -15px;
+  padding: 4px 8px;
+  max-width: 98%;
+  width: auto;
+  background-color: #F5F5F5;
+  color: #808080;
+}
+
+.form input, .form select, .form textarea {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  padding: 2px 4px;
+  max-width: 98%;
+}
+
+.form .scfCaptcha input[type="text"] {
+  margin: 0;
+}
+
+.form .scfCaptchaLimitGeneralPanel, .form .scfCaptchStrongTextPanel {
+  max-width: 100%;
+  width: auto;
+}
+
+.form .scfCaptchaLabel {
+  display: none;
+}
+
+.form .scfSectionContent .scfCaptchaGeneralPanel embed {
+  max-width: 180px;
+}
+
+.form input[type="image"] {
+  border: none;
+}
+
+.form input[type="submit"], .form button {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  background: #FFFFFF;
+  cursor: pointer;
+  margin-left: 0;
+}
+
+.form input[type="text"], .form input[type="password"], .form textarea, .form input[type="file"] {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #d2d2d2;
+  width: 95%;
+  padding: 2px;
+}
+
+.form input[type="text"] + span, .form input[type="password"] + span, .form textarea + span, .form input[type="file"] + span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.form input[type="file"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form input[type="radio"] {
+  position: absolute;
+}
+
+.form input[type="radio"] + label:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #FFFFFF;
+}
+
+.form input[type="radio"] + label:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  display: block;
+  width: 16px;
+  height: 15px;
+  background: image-url("radiobox.png");
+}
+
+.form input[type="radio"]:checked + label:after {
+  background-position: -16px 0;
+}
+
+.form input[type="radio"] + label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-left: 20px;
+  margin-left: 5px;
+  position: relative;
+}
+
+.form select {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  max-height: 30px;
+  position: relative;
+  text-indent: 2px;
+}
+
+.form .scfListBox {
+  background: none;
+  max-height: none;
+}
+
+.form .scfDateSelectorDay, .form .scfDateSelectorMonth, .form .scfDateSelectorYear {
+  width: 30%;
+}
+
+.form-narrow {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-submit-border {
+  border-bottom: 1px solid #D8D9D5;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.form-submit-border .btn-next,
+.form-submit-border .btn-previous {
+  position: relative;
+  display: inline-block;
+  padding: 1.25em 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #50a1ab !important;
+  border: 1px solid #50a1ab;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+  min-width: 200px;
+}
+
+.form-submit-border .btn-next:hover,
+.form-submit-border .btn-previous:hover {
+  color: white;
+  background-color: #71b4bd !important;
+  border: 1px solid #71b4bd;
+}
+
+.newsletter-form {
+  padding: 0;
+  font-size: 24px;
+  margin: 40px 0;
+}
+
+@media only screen and (min-width: 786px) {
+  .newsletter-form {
+    padding: 5em;
+    margin: 80px 0;
+  }
+}
+
+.newsletter-form .field-bgimage {
+  display: none;
+}
+
+.newsletter-form .field-bgimage img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  font-family: "object-fit: cover; object-position: center;";
+}
+
+@media only screen and (min-width: 786px) {
+  .newsletter-form .field-bgimage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+.newsletter-form.image-top .field-bgimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: top;
+  object-position: top;
+  font-family: "object-fit: cover; object-position: top;";
+}
+
+.newsletter-form.image-center .field-bgimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  font-family: "object-fit: cover; object-position: center;";
+}
+
+.newsletter-form.image-bottom .field-bgimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: bottom;
+  object-position: bottom;
+  font-family: "object-fit: cover; object-position: bottom;";
+}
+
+.newsletter-form form {
+  background: #fff;
+  padding: 2em;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+@media only screen and (min-width: 786px) {
+  .newsletter-form form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.newsletter-form label {
+  display: none !important;
+}
+
+.newsletter-form .field-group-inline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.newsletter-form .field-group-inline .field-group {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.newsletter-form .field-group-inline input[type="email"] {
+  height: 48px;
+  width: 100%;
+}
+
+.newsletter-form .field-group-inline input[type="submit"] {
+  display: inline-block;
+  padding: 1.25em 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #50a1ab !important;
+  border: 1px solid #50a1ab;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  padding: 0.5em;
+  font-size: 14px;
+  height: 48px;
+}
+
+.newsletter-form .field-group-inline input[type="submit"]:hover {
+  color: white;
+  background-color: #71b4bd !important;
+  border: 1px solid #71b4bd;
+}
+
+@media only screen and (min-width: 786px) {
+  .newsletter-form .field-group-inline input[type="submit"] {
+    padding: 0.5em 2em;
+    font-size: 16px;
+  }
+}
+
+.register-panel input[type="submit"] {
+  display: block;
+  width: 150px;
+  text-align: center;
+  padding: 1em;
+  margin: 2em auto;
+}
+
+.form.hints-below .scfSectionContent [class$="UsefulInfo"] {
+  position: static;
+  opacity: 1;
+  max-width: 100%;
+  width: 100%;
+  margin: 5px 0 0 5px;
+}
+
+.form.labels-above label {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.form.labels-above .scfEmailGeneralPanel, .form.labels-above .scfMultipleLineGeneralPanel, .form.labels-above .scfSingleLineGeneralPanel, .form.labels-above .scfPasswordGeneralPanel, .form.labels-above .scfNumberGeneralPanel, .form.labels-above .scfDatePickerGeneralPanel, .form.labels-above .scfListBoxGeneralPanel, .form.labels-above .scfDropListGeneralPanel, .form.labels-above .scfDateGeneralPanel, .form.labels-above .scfRadioButtonListGeneralPanel, .form.labels-above .scfCheckBoxListGeneralPanel, .form.labels-above .scfFileUploadGeneralPanel, .form.labels-above .scfDateSelectorGeneralPanel, .form.labels-above .scfCreditCardGeneralPanel, .form.labels-above .scfConfirmPasswordGeneralPanel, .form.labels-above .scfCaptchaGeneralPanel, .form.labels-above .scfTelephoneGeneralPanel, .form.labels-above .scfSmsTelephoneGeneralPanel {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  width: 93%;
+}
+
+.form.labels-above .scfSectionContent .scfRequired {
+  margin: 0 5px;
+}
+
+.form.labels-above .scfMultipleLineGeneralPanel {
+  width: 95%;
+}
+
+.form.labels-above .scfMultipleLineTextBox {
+  margin: 0 0 0 5px;
+}

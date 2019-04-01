@@ -1,0 +1,67 @@
+﻿li.nav-item {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 500px;
+}
+
+.carousel-caption h2 {
+    font-size: 5rem;
+}
+
+.card img {
+    object-fit: cover;
+    height: 150px;
+}
+
+.jumbotron {
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+}
+
+.featurette {
+    margin-bottom: 1em;
+}
+
+/* --- forms ---- */
+.field-validation-error {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background-color: #343a40;
+    color: #d5d7dc;
+    padding-top: 20px;
+    margin-top: 80px;
+    width: 100%;
+}
+
+    footer .container {
+        padding-bottom: 10px;
+    }
+
+.form-signin .col-sm-6 {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: -15px;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+main > .container {
+    margin-bottom: 30px;
+}

@@ -1,5 +1,5 @@
 ﻿@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
-@model Sitecore.HabitatHome.Feature.Demo.Models.SidebarModel
+@model Sitecore.HabitatHome.Feature.Demo.Models.ExperienceData
 
 <div class="panel-group" id="experiencedata">
     @if (!Model.IsActive)
@@ -16,7 +16,7 @@
     @if (!Sitecore.Context.PageMode.IsExperienceEditor)
     {
         @Html.Partial("_Visits", Model.Visits)
-        @Html.Partial("_PersonalInformation", Model.PersonalInformation)
+        @Html.Partial("_PersonalInformation", Model.PersonalInfo)
         @Html.Partial("_OnsiteBehavior", Model.OnsiteBehavior)
         @Html.Partial("_Referral", Model.Referral)
     }

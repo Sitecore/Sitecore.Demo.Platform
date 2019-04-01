@@ -7,12 +7,12 @@
     using Sitecore.Common;
     using Sitecore.Data;
     using Sitecore.HabitatHome.Feature.Demo.Models;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;        
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
     using Sitecore.Marketing.Definitions;
     using Sitecore.Marketing.Definitions.Campaigns;
     using Sitecore.Marketing.Taxonomy;
     using Sitecore.Marketing.Taxonomy.Extensions;
-    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
     [Service(typeof(ICampaignRepository))]
     public class CampaignRepository : ICampaignRepository

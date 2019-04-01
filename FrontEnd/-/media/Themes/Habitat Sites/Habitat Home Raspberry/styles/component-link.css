@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* breakpoints */
+.link {
+  background: transparent;
+  font-size: 1em;
+}
+
+.link a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.link a:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  font-size: 10px;
+  margin-right: 0.25em;
+  color: #c8244f;
+}
+
+.link a:hover {
+  text-decoration: none;
+}
