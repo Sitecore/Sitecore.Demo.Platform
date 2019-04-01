@@ -1,0 +1,30 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+@import "base/fontawesome/font-awesome-mix-var";
+.component.video {
+    .mejs-container {
+        overflow: hidden;
+    }
+    .mejs-controls {
+        .mejs-button {
+            button {
+                box-shadow: none;
+                &:hover {}
+            }
+        }
+    }
+    .sxa-video-wrapper {
+        position: relative
+    }
+    .video-init {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80px;
+        height: 80px;
+        background: url("/-/media/Base-Themes/Core-Libraries/styles/mejs-controls.svg") no-repeat;
+        background-position: 0 -39px;
+        overflow: hidden;
+        z-index: 1;
+    }
+}

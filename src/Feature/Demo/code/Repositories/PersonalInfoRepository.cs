@@ -7,15 +7,15 @@
     using Sitecore.Analytics.Model;
     using Sitecore.Analytics.Model.Entities;
     using Sitecore.Analytics.Tracking;
-    using Sitecore.HabitatHome.Feature.Demo.Models;           
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;           
+    using Sitecore.HabitatHome.Feature.Demo.Models;
+    using Sitecore.HabitatHome.Foundation.Accounts.Providers;
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
     using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
     using Sitecore.XConnect.Collection.Model;
-    using Sitecore.HabitatHome.Foundation.Accounts.Providers;
-    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
-    [Service]
-    public class PersonalInfoRepository
+    [Service(typeof(IPersonalInfoRepository))]
+    public class PersonalInfoRepository : IPersonalInfoRepository
     {
         private readonly LocationRepository locationRepository;
         private readonly DeviceRepository deviceRepository;
@@ -106,7 +106,7 @@
             yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Do Not Market", "Do not market"), this.contactFacetsProvider.CommunicationProfile.DoNotMarket ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
             yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Consent Revoked", "Consent revoked"), this.contactFacetsProvider.CommunicationProfile.ConsentRevoked ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
             yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Executed Right To Be Forgotten", "Executed right to be forgotten"), this.contactFacetsProvider.CommunicationProfile.ExecutedRightToBeForgotten ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
-            if (!string.IsNullOrEmpty(this.contactFacetsProvider.PersonalInfo?.PreferredLanguage))
+            if (!string.IsNullOrEmpty(this.contactFacetsProvider.PersonalInfo.PreferredLanguage))
             {
                 yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Preferred Language", "Preferred Language"), this.contactFacetsProvider.PersonalInfo.PreferredLanguage);
             }
@@ -122,18 +122,18 @@
             foreach (var phoneKey in this.contactFacetsProvider.PhoneNumbers.Others.Keys)
             {
                 yield return new KeyValuePair<string, string>($"{phoneTitle} ({phoneKey.Humanize()})", this.FormatPhone(this.contactFacetsProvider.PhoneNumbers.Others[phoneKey]));
-            }                                                                 
+            }
         }
 
         private string FormatPhone(PhoneNumber phoneNumber)
         {
             var formattedPhone = "";
-            if (!string.IsNullOrEmpty(phoneNumber?.CountryCode))
+            if (!string.IsNullOrEmpty(phoneNumber.CountryCode))
             {
                 formattedPhone += $"+{phoneNumber.CountryCode}";
             }
-            formattedPhone = string.Join(" ", formattedPhone, phoneNumber?.Number).Trim();
-            if (!string.IsNullOrEmpty(phoneNumber?.Extension))
+            formattedPhone = string.Join(" ", formattedPhone, phoneNumber.Number).Trim();
+            if (!string.IsNullOrEmpty(phoneNumber.Extension))
             {
                 formattedPhone = string.Join("x", formattedPhone, phoneNumber.Extension).Trim();
             }
@@ -147,7 +147,7 @@
                 yield break;
 
             var emailTitle = DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Email", "Email");
-            yield return new KeyValuePair<string, string>($"{emailTitle}", this.contactFacetsProvider.Emails.PreferredEmail?.SmtpAddress);
+            yield return new KeyValuePair<string, string>($"{emailTitle}", this.contactFacetsProvider.Emails.PreferredEmail.SmtpAddress);
             foreach (var emailKey in this.contactFacetsProvider.Emails.Others.Keys)
             {
                 yield return new KeyValuePair<string, string>($"{emailTitle} ({emailKey.Humanize()})", this.contactFacetsProvider.Emails.Others[emailKey].SmtpAddress);
@@ -164,7 +164,7 @@
             foreach (var addressKey in this.contactFacetsProvider.Addresses.Others.Keys)
             {
                 yield return new KeyValuePair<string, string>($"{addressTitle} ({addressKey.Humanize()})", this.FormatAddress(this.contactFacetsProvider.Addresses.Others[addressKey]));
-            }                                                              
+            }
         }
 
         private string FormatAddress(Address address)

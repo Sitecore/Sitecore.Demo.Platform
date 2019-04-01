@@ -7,13 +7,13 @@
     using Sitecore.Analytics;
     using Sitecore.Analytics.Model;
     using Sitecore.HabitatHome.Feature.Demo.Models;
-    using Sitecore.HabitatHome.Foundation.DependencyInjection;      
+    using Sitecore.HabitatHome.Foundation.DependencyInjection;
+    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
     using Sitecore.Marketing.Definitions;
     using Sitecore.Marketing.Definitions.Outcomes;
     using Sitecore.Marketing.Definitions.Outcomes.Model;
     using Sitecore.Marketing.Taxonomy;
     using Sitecore.Marketing.Taxonomy.Extensions;
-    using Sitecore.HabitatHome.Foundation.Dictionary.Repositories;
 
     [Service]
     public class OutcomeRepository

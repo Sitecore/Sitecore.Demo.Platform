@@ -19,21 +19,22 @@ SharedFields:
         <r
           uid="{2B2868F6-4197-400D-97B5-CA6984680210}"
           p:before="*"
+          s:ds=""
           s:id="{2E991AA4-4B08-43D2-AD2B-17C11E69A499}"
-          s:par="ListSignature=guides-list&amp;PageSize=5&amp;Offset&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BDB166ED5-7ACC-4014-9E78-3484D0EDF5C1%7D&amp;Styles&amp;SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2&amp;Personalization&amp;Tests"
+          s:par="ListSignature=guides-list&amp;PageSize=10&amp;Offset&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B34147B89-B9E1-4705-9F8D-55529C7C0F2C%7D&amp;Styles&amp;SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
           s:ph="/main/container-1" />
         <r
           uid="{D472839F-86B7-475F-ACC1-6B2DD1F70F89}"
           p:after="r[@uid='{2B2868F6-4197-400D-97B5-CA6984680210}']"
           s:ds="local:/Data/guides-pagination"
           s:id="{390954AF-B5B3-4A61-928E-0FF2E1E78F94}"
-          s:par="CollapseModeThreshold=10&amp;ListSignature=guides-list&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B10F3D39A-CA67-426B-A639-1C61C5BD4E09%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;Personalization&amp;Tests"
+          s:par="CollapseModeThreshold=10&amp;ListSignature=guides-list&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B3D999B16-D69D-4B5D-AC03-77987905060F%7D&amp;Reset Caching Options&amp;RenderingIdentifier"
           s:ph="/main/container-1" />
         <r
           uid="{EC8FFD5F-C712-4EEA-9C55-E10D24CBDE6D}"
           p:after="*[1=2]"
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=1"
           s:ph="main" />
       </d>
     </r>
@@ -69,7 +70,25 @@ Languages:
     - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
       Hint: __Final Renderings
       Type: Layout
-      Value: 
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{2B2868F6-4197-400D-97B5-CA6984680210}"
+              s:par="DynamicPlaceholderId=2&amp;ListSignature=guides-list&amp;SourceType=%7b90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7d&amp;FieldNames=%7bDB166ED5-7ACC-4014-9E78-3484D0EDF5C1%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0" />
+            <r
+              uid="{D472839F-86B7-475F-ACC1-6B2DD1F70F89}"
+              s:par="Styles=%7b3D999B16-D69D-4B5D-AC03-77987905060F%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;ListSignature=guides-list&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0" />
+            <r
+              uid="{EC8FFD5F-C712-4EEA-9C55-E10D24CBDE6D}"
+              s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=1" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190220T173025Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: 
@@ -79,6 +98,10 @@ Languages:
     - ID: "4c346442-e859-4efd-89b2-44aedf467d21"
       Hint: __Valid to
       Value: 
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
       Hint: __Content Test
       Value: 

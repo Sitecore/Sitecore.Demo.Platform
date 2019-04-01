@@ -5,8 +5,8 @@
     using Sitecore.HabitatHome.Feature.Demo.Services;
     using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
-    [Service]
-    public class OnsiteBehaviorRepository
+    [Service(typeof(IOnsiteBehaviorRepository))]
+    public class OnsiteBehaviorRepository : IOnsiteBehaviorRepository
     {
         private readonly PageEventRepository pageEventRepository;
         private readonly OutcomeRepository outcomesRepository;

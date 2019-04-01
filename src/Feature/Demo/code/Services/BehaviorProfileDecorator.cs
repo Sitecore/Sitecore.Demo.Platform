@@ -1,13 +1,13 @@
-﻿namespace Sitecore.HabitatHome.Feature.Demo.Services
-{
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Sitecore.Analytics.Data.Items;
-    using Sitecore.Analytics.Patterns;
-    using Sitecore.Analytics.Tracking;
-    using Sitecore.Data;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Sitecore.Analytics.Data.Items;
+using Sitecore.Analytics.Patterns;
+using Sitecore.Analytics.Tracking;
+using Sitecore.Data;
 
+namespace Sitecore.HabitatHome.Feature.Demo.Services
+{
     internal class BehaviorProfileDecorator : IProfileData
     {
         #pragma warning disable 0618

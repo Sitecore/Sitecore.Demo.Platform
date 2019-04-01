@@ -1,0 +1,111 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+.accordion-horizontal {
+    perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    &.accordion-image {
+        .items {
+            .item {
+                box-sizing: border-box;
+                padding: 0 0 0 50px;
+                margin: 0;
+                min-height: 300px;
+                @include border-basic(right);
+                &.active {
+                    .toggle-header {
+                        background: transparent !important;
+                    }
+                    .toggle-content {
+                        left: 0 !important;
+                    }
+                }
+                .toggle-header {
+                    width: 50px;
+                    border-right: none;
+                    &:before {
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                    }
+                }
+                .toggle-content {
+                    padding: 0;
+                }
+            }
+        }
+    }
+    .items {
+        display: inline-flex;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        .item {
+            flex-grow: 1;
+            order: 1;
+            box-sizing: border-box;
+            display: block;
+            float: left;
+            margin: 0;
+            padding: 0 0 0 40px;
+            min-height: 250px;
+            position: relative;
+            &.active {
+                .toggle-header {
+                    background: $accordion-header-bg-active;
+                }
+            }
+            .toggle-header {
+                box-sizing: border-box;
+                position: absolute;
+                z-index: 11;
+                top: 0;
+                left: 0;
+                padding: 0;
+                width: 40px;
+                min-height: 100%;
+                border-right: 1px solid $accordion-header-border;
+                border-bottom: none;
+                background: $accordion-header-bg;
+                .component {
+                    margin-top: 0px;
+                }
+                .label {
+                    transform-origin: 50% 50%;
+                    transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+                    box-sizing: border-box;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    p {
+                        width: 200px;
+                    }
+                    div.field-heading {
+                        width: 220px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        line-height: 16px;
+                        span.scWebEditInput {
+                            width: 220px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+            .toggle-content {
+                box-sizing: border-box;
+                position: absolute;
+                top: 0;
+                left: auto;
+                z-index: 10;
+                height: 100%;
+                overflow: hidden;
+                text-align: left;
+                padding: 10px;
+            }
+        }
+    }
+}

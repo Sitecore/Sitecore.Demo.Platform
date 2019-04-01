@@ -1,0 +1,230 @@
+@charset "UTF-8";
+/* breakpoints */
+.on-page-editor .accordion .toggle-content [scfieldtype="rich text"] {
+  display: block;
+}
+
+.accordion {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.accordion .active .toggle-header .field-heading:before {
+  content: "" !important;
+}
+
+.accordion .toggle-header {
+  cursor: pointer;
+  background-color: transparent;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #d2d2d2;
+}
+
+.accordion .toggle-header:hover {
+  background-color: transparent;
+}
+
+.accordion .toggle-header .component {
+  margin-top: 0;
+}
+
+.accordion .toggle-header .component.title {
+  margin-top: 0;
+}
+
+.accordion .toggle-header .component .field-heading {
+  font-size: 16px;
+  padding-left: 34px;
+  font-weight: normal;
+}
+
+.accordion .toggle-header .component .field-heading:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 20px;
+  position: absolute;
+  display: block;
+  content: "";
+  top: 50%;
+  left: 10px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.accordion .toggle-header .label {
+  padding: 7px;
+  text-align: left;
+  display: block;
+  background: transparent;
+  position: relative;
+  z-index: 3;
+}
+
+.accordion .toggle-header .label:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.accordion .toggle-content {
+  padding: 10px;
+  background-color: transparent;
+}
+
+.accordion .toggle-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.accordion .toggle-content .component {
+  margin-top: 0;
+}
+
+.accordion .items {
+  overflow: hidden;
+}
+
+.accordion .item:last-child {
+  border-bottom: none;
+}
+
+/* breakpoints */
+.accordion-horizontal {
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.accordion-horizontal.accordion-image .items .item {
+  box-sizing: border-box;
+  padding: 0 0 0 50px;
+  margin: 0;
+  min-height: 300px;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #d2d2d2;
+}
+
+.accordion-horizontal.accordion-image .items .item.active .toggle-header {
+  background: transparent !important;
+}
+
+.accordion-horizontal.accordion-image .items .item.active .toggle-content {
+  left: 0 !important;
+}
+
+.accordion-horizontal.accordion-image .items .item .toggle-header {
+  width: 50px;
+  border-right: none;
+}
+
+.accordion-horizontal.accordion-image .items .item .toggle-header:before {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.accordion-horizontal.accordion-image .items .item .toggle-content {
+  padding: 0;
+}
+
+.accordion-horizontal .items {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.accordion-horizontal .items .item {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0 0 0 40px;
+  min-height: 250px;
+  position: relative;
+}
+
+.accordion-horizontal .items .item.active .toggle-header {
+  background: transparent;
+}
+
+.accordion-horizontal .items .item .toggle-header {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  padding: 0;
+  width: 40px;
+  min-height: 100%;
+  border-right: 1px solid #d2d2d2;
+  border-bottom: none;
+  background: transparent;
+}
+
+.accordion-horizontal .items .item .toggle-header .component {
+  margin-top: 0px;
+}
+
+.accordion-horizontal .items .item .toggle-header .label {
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.accordion-horizontal .items .item .toggle-header .label p {
+  width: 200px;
+}
+
+.accordion-horizontal .items .item .toggle-header .label div.field-heading {
+  width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 16px;
+}
+
+.accordion-horizontal .items .item .toggle-header .label div.field-heading span.scWebEditInput {
+  width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accordion-horizontal .items .item .toggle-content {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: auto;
+  z-index: 10;
+  height: 100%;
+  overflow: hidden;
+  text-align: left;
+  padding: 10px;
+}

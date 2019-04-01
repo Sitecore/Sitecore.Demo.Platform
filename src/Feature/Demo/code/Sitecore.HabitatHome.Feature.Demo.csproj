@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" 
-  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -107,12 +106,6 @@
         <Reference Include="Sitecore.Mvc">
           <HintPath>..\..\..\..\lib\Sitecore.Mvc.dll</HintPath>
         </Reference>
-        <Reference Include="Sitecore.XA.Foundation.IoC">
-          <HintPath>..\..\..\..\lib\Sitecore.XA.Foundation.IoC.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.XA.Foundation.Mvc">
-          <HintPath>..\..\..\..\lib\Sitecore.XA.Foundation.Mvc.dll</HintPath>
-        </Reference>
         <Reference Include="Sitecore.XConnect.Client.Configuration">
           <HintPath>..\..\..\..\lib\Sitecore.XConnect.Client.Configuration.dll</HintPath>
         </Reference>
@@ -154,8 +147,6 @@
         <PackageReference Include="Sitecore.Marketing.Taxonomy" Version="13.0.0-*" />
         <PackageReference Include="Sitecore.Mvc.Analytics" Version="12.0.0-*" />
         <PackageReference Include="Sitecore.Mvc" Version="3.0.0-*" />
-        <PackageReference Include="Sitecore.XA.Foundation.IoC" Version="4.8.0.*" />
-        <PackageReference Include="Sitecore.XA.Foundation.Mvc" Version="4.8.0.*" />
         <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="2.0.0-*" />
         <PackageReference Include="Sitecore.XConnect.Client" Version="2.0.0-*" />
         <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="2.0.0-*" />
@@ -188,7 +179,7 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Feature\Feature.Demo.config" />
     <Content Include="App_Config\Include\Feature\Feature.Demo.Serialization.config" />
-    <Content Include="Views\Demo\Sidebar.cshtml" />
+    <Content Include="Views\Demo\ExperienceData.cshtml" />
     <Content Include="Views\Demo\EmptyLayout.cshtml" />
     <Content Include="Views\Demo\_Visits.cshtml" />
     <Content Include="Views\Demo\_ExperienceDataContent.cshtml" />
@@ -226,6 +217,12 @@
     <Compile Include="Repositories\CampaignRepository.cs" />
     <Compile Include="Repositories\DeviceRepository.cs" />
     <Compile Include="Repositories\ICampaignRepository.cs" />
+    <Compile Include="Repositories\IEngagementPlanStateRepository.cs" />
+    <Compile Include="Repositories\IOnsiteBehaviorRepository.cs" />
+    <Compile Include="Repositories\IPageViewRepository.cs" />
+    <Compile Include="Repositories\IPersonalInfoRepository.cs" />
+    <Compile Include="Repositories\IReferralRepository.cs" />
+    <Compile Include="Repositories\IVisitsRepository.cs" />
     <Compile Include="Repositories\LocationRepository.cs" />
     <Compile Include="Repositories\OnsiteBehaviorRepository.cs" />
     <Compile Include="Repositories\OutcomeRepository.cs" />
@@ -233,19 +230,19 @@
     <Compile Include="Repositories\PersonalInfoRepository.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Referral.cs" />
-    <Compile Include="Models\SidebarModel.cs" />
     <Compile Include="Models\Visits.cs" />
     <Compile Include="Pipelines\FakeTrackerData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EngagementPlanStateRepository.cs" />
-    <Compile Include="Repositories\ISidebarRepository.cs" />
     <Compile Include="Repositories\PageViewRepository.cs" />
     <Compile Include="Repositories\ProfileRepository.cs" />
     <Compile Include="Repositories\ReferralRepository.cs" />
-    <Compile Include="Repositories\SidebarRepository.cs" />
     <Compile Include="Repositories\VisitsRepository.cs" />
     <Compile Include="Services\BehaviorProfileDecorator.cs" />
     <Compile Include="Services\DemoStateService.cs" />
+    <Compile Include="Services\ExperienceDataFactory.cs" />
+    <Compile Include="Services\IDemoStateService.cs" />
+    <Compile Include="Services\IExperienceDataFactory.cs" />
     <Compile Include="Services\IProfileProvider.cs" />
     <Compile Include="Services\ProfileProvider.cs" />
     <Compile Include="Templates.cs" />
@@ -254,6 +251,10 @@
     <ProjectReference Include="..\..\..\Foundation\Accounts\code\Sitecore.HabitatHome.Foundation.Accounts.csproj">
       <Project>{ce34a3b7-b91a-41ba-8b16-c1e131e1c621}</Project>
       <Name>Sitecore.HabitatHome.Foundation.Accounts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Alerts\code\Sitecore.HabitatHome.Foundation.Alerts.csproj">
+      <Project>{33130b84-7456-4b2e-9ea6-cf27a273e918}</Project>
+      <Name>Sitecore.HabitatHome.Foundation.Alerts</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Foundation\DependencyInjection\code\Sitecore.HabitatHome.Foundation.DependencyInjection.csproj">
       <Project>{fa1eee78-e6d6-4b63-a126-5f470624efee}</Project>

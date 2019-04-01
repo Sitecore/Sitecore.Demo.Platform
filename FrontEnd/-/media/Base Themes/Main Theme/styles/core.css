@@ -1,0 +1,34 @@
+.column-splitter, .row-splitter {
+	width:100%;
+}
+.component {
+    box-sizing: border-box;
+}
+/*Bootstrap 4 fixes*/
+.row.column-splitter>div>div.row{
+    margin-left: 0;
+    margin-right: 0;    
+}
+.tabs .tabs-heading > li .scEnabledChrome > .row,
+.tabs .tabs-container > .tab>.scEnabledChrome > .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.accordion .scEnabledChrome > .toggle-header > .label > .row,
+.accordion .scEnabledChrome > .toggle-content > .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.carousel .scEnabledChrome > .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.snippet .scEnabledChrome > .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.container > .component-content > .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+/*Bootstrap 4 fixes end*/

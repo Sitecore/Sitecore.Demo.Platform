@@ -1,0 +1,47 @@
+.page-selector {
+    text-align: center;
+    padding: 10px 0 0 0;
+    .page-selector-list {
+        li {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 4px;
+        }
+    }
+    a {
+        text-decoration: none;
+        font-weight: normal;
+    }
+    .page-selector-item-link {
+        @include border-basic();
+        display: block;
+        text-decoration: none;
+        font-weight: normal;
+        height: 20px;
+        line-height: 22px;
+        color: #747474;
+        padding: 0 6px;
+        margin-left: 5px;
+        &.active {
+            font-weight: bold;
+            font-size: 14px;
+            background: #777777;
+            color: #fff;
+        }
+        &:hover {
+            background: #cccccc;
+            color: #fff;
+        }
+        &.inactive {
+            color: #dedede;
+            cursor: arrow;
+        }
+    }
+    .page-selector-list {
+        .inactive {
+            a {
+                color: #DEDEDE;
+            }
+        }
+    }
+}

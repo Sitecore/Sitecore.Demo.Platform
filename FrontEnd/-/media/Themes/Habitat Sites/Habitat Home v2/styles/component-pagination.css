@@ -1,0 +1,52 @@
+/* breakpoints */
+.list-pagination {
+  background: transparent;
+}
+
+.list-pagination nav {
+  font-size: 14px;
+}
+
+.list-pagination nav > span, .list-pagination nav > a {
+  display: inline-block;
+  margin: 2px 1px 2px 0;
+  padding: 4px 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.list-pagination nav > span:hover, .list-pagination nav > a:hover {
+  color: #fff;
+  background: #1d8c96;
+  text-decoration: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #15646b;
+}
+
+.list-pagination nav > span:focus, .list-pagination nav > a:focus {
+  text-decoration: none;
+  color: #fff;
+}
+
+.list-pagination nav > span.active {
+  background: #1d8c96;
+  color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+}
+
+.list-pagination nav > span.inactive {
+  color: #aaa;
+}
+
+.list-pagination nav > span.inactive:hover {
+  background: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+}

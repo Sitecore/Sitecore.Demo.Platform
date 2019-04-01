@@ -1,0 +1,76 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+@import "base/fontawesome/font-awesome-mix-var";
+.on-page-editor {
+    .accordion .toggle-content [scfieldtype="rich text"] {
+        display: block;
+    }
+}
+.accordion {
+    padding: 0;
+    margin-bottom: 10px;
+    .active {
+        .toggle-header {
+            .field-heading:before {
+                content: $fa-var-minus-square !important;
+            }
+        }
+    }
+    .toggle-header {
+        cursor: pointer;
+        background-color: $accordion-header-bg;
+        @include border-basic(bottom);
+        &:hover {
+            background-color: $accordion-header-bg-active;
+        }
+        .component {
+            margin-top: 0;
+            &.title {
+                margin-top: 0;
+            }
+            .field-heading {
+                font-size: $accordion-header;
+                padding-left: 34px;
+                font-weight: normal;
+                &:before {
+                    @include fa-icon();
+                    font-size: 20px;
+                    position: absolute;
+                    display: block;
+                    content: $fa-var-plus-square;
+                    top: 50%;
+                    left: 10px;
+                    transform: translateY(-50%);
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        .label {
+            @include clearfix;
+            padding: 7px;
+            text-align: left;
+            display: block;
+            background: transparent;
+            position: relative;
+            z-index: 3;
+        }
+    }
+    .toggle-content {
+        padding: 10px;
+        background-color: $accordion-toggled-bg;
+        @include clearfix();
+        .component {
+            margin-top: 0;
+        }
+    }
+    .items {
+        overflow: hidden;
+    }
+    .item {
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+@import 'styles/accordion/*';

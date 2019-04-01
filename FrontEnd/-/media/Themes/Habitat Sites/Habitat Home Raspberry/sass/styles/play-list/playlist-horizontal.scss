@@ -1,0 +1,21 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+.playlist.playlist-horizontal {
+    .playlist-items {
+        display: inline-flex;
+        .playlist-item {
+            min-width: 150px;
+            .playlist-section {
+                >div {
+                    width: 100%;
+                }
+            }
+            .playlist-section {
+                display: block;
+            }
+            .field-moviecaption {
+                text-align: center;
+            }
+        }
+    }
+}

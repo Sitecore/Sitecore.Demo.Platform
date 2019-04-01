@@ -1,55 +1,64 @@
-﻿namespace Sitecore.HabitatHome.Feature.Demo.Controllers
-{
-    using Sitecore.Analytics;
-    using Sitecore.ExperienceEditor.Utils;
-    using Sitecore.ExperienceExplorer.Core.State;
-    using Sitecore.HabitatHome.Feature.Demo.Repositories;
-    using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Attributes;
-    using Sitecore.Sites;
-    using Sitecore.XA.Foundation.Mvc.Controllers;
-    using System.Net;
-    using System.Web.Mvc;
+﻿using Sitecore.Analytics;
+using Sitecore.ExperienceEditor.Utils;
+using Sitecore.ExperienceExplorer.Core.State;
+using Sitecore.HabitatHome.Feature.Demo.Models;
+using Sitecore.HabitatHome.Feature.Demo.Services;
+using Sitecore.HabitatHome.Foundation.Alerts.Exceptions;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Attributes;
+using Sitecore.Mvc.Controllers;
+using Sitecore.Mvc.Presentation;
+using Sitecore.Sites;
+using System.Net;
+using System.Web.Mvc;
 
+namespace Sitecore.HabitatHome.Feature.Demo.Controllers
+{
     [SkipAnalyticsTracking]
-    public class DemoController : StandardController
+    public class DemoController : SitecoreController
     {
-        private readonly ISidebarRepository _sidebarRepository;
-        
-        public DemoController(ISidebarRepository sidebarRepository)
+        private IDemoStateService DemoStateService { get; }
+        private IExperienceDataFactory ExperienceDataFactory { get; }
+
+        public DemoController(IDemoStateService demoStateService, IExperienceDataFactory experienceDataFactory)
         {
-            if (!Sitecore.Context.PageMode.IsExperienceEditor)
-            {
-                this._sidebarRepository = sidebarRepository;
-            }
+            this.DemoStateService = demoStateService;
+            this.ExperienceDataFactory = experienceDataFactory;
         }
 
-        protected override object GetModel()
-        {          
-            if (Tracker.Current == null || Tracker.Current.Interaction == null) //todo: missing !this.DemoStateService.IsDemoEnabled
+        public ActionResult ExperienceData()
+        {
+            if (Tracker.Current == null || Tracker.Current.Interaction == null || !this.DemoStateService.IsDemoEnabled)
             {
                 return null;
             }
-
             var explorerContext = DependencyResolver.Current.GetService<IExplorerContext>();
             var isInExperienceExplorer = explorerContext?.IsExplorerMode() ?? false;
-            if (Sitecore.Context.Site.DisplayMode != DisplayMode.Normal || WebEditUtility.IsDebugActive(Sitecore.Context.Site) || isInExperienceExplorer)
+            if (Context.Site.DisplayMode != DisplayMode.Normal || WebEditUtility.IsDebugActive(Context.Site) || isInExperienceExplorer)
             {
-                return null;
+                return new EmptyResult();
             }
-                              
-            return _sidebarRepository.GetModel();
-        }
 
-        protected override string GetIndexViewName()
-        {
-            return "~/Views/Demo/Sidebar.cshtml";
+            var experienceData = this.ExperienceDataFactory.Get();
+            return this.View(experienceData);
         }
 
         public ActionResult ExperienceDataContent()
-        {           
-            var experienceData = GetModel();
+        {
+            var experienceData = this.ExperienceDataFactory.Get();
             return this.View("_ExperienceDataContent", experienceData);
-        }                                   
+        }
+
+        public ActionResult DemoContent()
+        {
+            var item = RenderingContext.Current?.Rendering?.Item ?? RenderingContext.Current?.ContextItem;
+            if (item == null || !item.DescendsFrom(Templates.DemoContent.ID))
+            {
+                throw new InvalidDataSourceItemException($"Item should be not null and derived from {nameof(Templates.DemoContent)} {Templates.DemoContent.ID} template");
+            }
+
+            var demoContent = new DemoContent(item);
+            return this.View("DemoContent", demoContent);
+        }
 
         public ActionResult EndVisit()
         {

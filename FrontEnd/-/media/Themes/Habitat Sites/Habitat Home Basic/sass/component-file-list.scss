@@ -1,0 +1,60 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.file-list {
+    background: $file-list-bg;
+    h1, h2, h3, h4, h5, h6 {
+        color: $file-list-title-color;
+        @include border-basic(bottom, $file-list-title-border);
+    }
+    li {
+        margin: 0 20px 5px 0;
+        * {
+            color: $file-list-item-color;
+        }
+    }
+    .list-item {
+        background: $file-list-item-bg;
+		@include border-basic(bottom,$file-list-item-borer);
+		a {
+            &:hover {
+                color: $file-list-item-color-active;
+            }
+        }
+        >.scEnabledChrome {
+            width:100%;
+            .scEmptyPlaceholder {
+                width:100%;
+                margin-left: 0;
+            }
+        }
+        >*, >.scEnabledChrome>* {
+            flex-shrink: 1;
+            flex-grow: 1;
+            margin-left: 5px;
+        }
+        .field-filetypeicon {
+            >a {
+                display: block;
+            }
+            span {
+                display: block;
+                height: 17px;
+                &:before {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .field-linktext, .field-description, .field-customimage, .field-size {
+        color: $file-list-item-color;
+        font-size: $file-list-item-size;
+    }
+    .field-linktext {
+        a {
+            text-decoration: none;
+        }
+    }
+    @import "base/richtext/richtext-files-icons";
+    @import "variants/file-list/*";
+}
+@import "styles/file-list/*";

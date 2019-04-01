@@ -1,0 +1,28 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+@import "../../base/fontawesome/font-awesome-mix-var";
+.loupe-search-btn {
+    .search-box-button-with-redirect {
+        position: relative;
+        text-indent: -99999px;
+        width: 20px;
+        background: #000000 !important;
+        border: none;
+        padding: 4px 14px;
+        &:hover {
+            background: #89C6CC !important;
+        }
+        &:before {
+            @include fa-icon();
+            transform: translate(-50%, -50%);
+            position: absolute;
+            content: $fa-var-search;
+            top: 50%;
+            left: 50%;
+            font-size: 10px;
+            text-indent: 0;
+            font-size: 14px;
+            color: #fff;
+        }
+    }
+}
