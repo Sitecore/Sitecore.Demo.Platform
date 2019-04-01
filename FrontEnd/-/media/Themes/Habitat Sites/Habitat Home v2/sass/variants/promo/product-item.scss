@@ -111,19 +111,15 @@
         }
       }
     }
+
     &-title {
-      .article-content {
-        float: left;
-        width: auto;
-        .component-content {
-          color: #1d8c96;
-          padding: 0;
-          font-size: 2em;
-          font-weight: 700;
-          line-height: 1.2;
-        }
+      margin-top: 1em;
+
+      .rich-text h2 {
+        margin:0;
       }
     }
+    
     div.product-item {
       padding: 0 15px;
   
