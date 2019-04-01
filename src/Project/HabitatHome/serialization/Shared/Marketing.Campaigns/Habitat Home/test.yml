@@ -1,13 +1,28 @@
 ﻿---
-ID: "dabc3f33-3a25-45d3-98f2-675bd4035533"
+ID: "92d1c1a5-2297-486f-b385-67a543bb0812"
 Parent: "fbefea07-da28-48d4-9527-6ab943a5414e"
 Template: "94fd1606-139e-46ee-86ff-bc5bf3c79804"
-Path: "/sitecore/system/Marketing Control Panel/Campaigns/Habitat Home/Facebook - Android to Arduino"
+Path: /sitecore/system/Marketing Control Panel/Campaigns/Habitat Home/test
 DB: master
 SharedFields:
+- ID: "43aa1c9a-d1be-498a-9841-1def2c2231ba"
+  Hint: Select Traffic Type
+  Value: "{C7E77613-B890-4A8A-A983-747635727733}"
+- ID: "43f1e538-5661-4e28-b8be-d93b0f6c1715"
+  Hint: Cost per Click
+  Value: 
+- ID: "4533aad8-b0d5-443d-9315-b2d06b56bc48"
+  Hint: Cost Base
+  Value: 
+- ID: "a29c5923-6c23-41ce-ad4c-65b616d050a1"
+  Hint: Cost per Day
+  Value: 
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+- ID: "fa9edd40-4101-478b-8238-5dd9a84dfc69"
+  Hint: Cost
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -15,19 +30,19 @@ Languages:
     Fields:
     - ID: "0f47d1b4-bcb4-4f7f-9065-6ecb46aab9a1"
       Hint: Title
-      Value: "Facebook - Android to Arduino"
+      Value: test
     - ID: "13f24114-c29b-4acb-a39b-445cce2ed60c"
       Hint: Campaign facet 2
-      Value: "{8613633E-2948-44B1-AB53-EC40B20F5F25}"
+      Value: "{973089AE-A5D1-4FE1-8517-1165049EC655}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180321T105008Z
+      Value: 20190315T165548Z
     - ID: "297ab1fa-9a3b-483d-b8f7-41e7bbe549fb"
       Hint: Campaign facet 1
-      Value: "{B737FCB3-66CD-4475-A482-A09AD63EB88B}"
+      Value: "{A6A706C8-B802-47CE-8324-EE3F7763E51E}"
     - ID: "336ba862-e974-4cd6-be4d-4bfdd78994e1"
       Hint: Campaign facet 3
-      Value: "{50299169-5B02-4EA6-BF5E-7D66B91BFF6D}"
+      Value: "{AF55580D-5BFC-49AA-AA17-9468685B4D87}"
     - ID: "3c0eec17-c74d-4921-9577-d41aea11b6db"
       Hint: Marketing asset
       Value: "{ADDF0496-B534-418E-BE5D-FAC4B688456B}"
@@ -36,25 +51,26 @@ Languages:
       Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
     - ID: "4c1bf83b-06e2-4b07-ad16-0e65d95e356e"
       Hint: Channel
-      Value: "{A9F2D058-95A5-4461-B1E5-8502D2303AF1}"
+      Value: "{67150678-B200-44BB-BBAE-1D7B901D0860}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "60b84ca2-bb8e-4c8c-95f6-495057dad4d4"
       Hint: Campaign facet 6
-      Value: 
+      Value: "{C68FDA6A-8518-4286-99DE-8C23275160A0}"
     - ID: "82abe216-2119-4803-bc9b-bb69571a973b"
       Hint: Campaign facet 4
-      Value: 
+      Value: "{9A470E43-656D-435A-81B1-B945559D1CB4}"
     - ID: "9f517eec-ee1a-4d36-8808-a76cf2fa46e7"
       Hint: Campaign facet 5
-      Value: 
+      Value: "{09687066-1AF5-4A94-802C-C9712C50F811}"
+    - ID: "bd4720d7-9ed6-4438-959b-7b1c5c32c10b"
+      Hint: StartDate
+      Value: 20190315T170800Z
     - ID: "c713f777-c1dc-45e5-a86f-f504b864e4ab"
       Hint: Campaign facet 7
-      Value: 
+      Value: "{B27DB85B-2472-4D6E-9B10-4FD74E7D8CFD}"
     - ID: "ffaea943-df50-4f11-94ed-4690418a7d96"
       Hint: Campaign group
-      Value: "{C4BC27DF-A0CC-4654-97C3-A01BF9C4F68A}"
-- Language: "ja-JP"
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: "Facebook - アンドロイドからオーディノ"
-  Versions:
+      Value: "{DACC6A43-6A2A-4C87-B755-E3D3A295FC11}"
