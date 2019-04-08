@@ -20,7 +20,7 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
         <r
-          ds="{658E89F6-3F0C-4072-88CA-50CE81757A9D}"
+          ds="{DDB0AADF-94A9-4832-AE6F-DA30E97A5C5E}"
           id="{5A21C781-8E74-4DD0-8261-8CCDA1BF0454}"
           par="Navigation=%7BF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7D&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;Styles=%7B5F1937B9-3A84-4F4B-A96E-C60419A06667%7D&amp;DynamicPlaceholderId=13&amp;PauseOnHover=1&amp;Transition=%7BD4B706CC-7EEC-4DB9-A87D-123B29803490%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
           ph="/main/sxa-content-container/container-1"
@@ -193,10 +193,9 @@ SharedFields:
                 </actions>
                 <conditions>
                   <condition
-                    uid="55ECB7D0BEE447619E090666244F016B"
-                    id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                    ProfileName="Topic Interest Category"
-                    PatternName="Smart and Connected" />
+                    id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                    uid="61EA4CA81B9343E9B5E9DFA435C9EA63"
+                    PatternList="{F79D6476-4E33-4FCB-B7E7-7A8D983B8F22}" />
                 </conditions>
               </rule>
               <rule
@@ -247,9 +246,9 @@ SharedFields:
                 name="Fitness">
                 <conditions>
                   <or
-                    uid="2835D1E18200470188F807AF01A6FFD4">
+                    uid="03902181E0DC46C3AF6AA21E1FCF2144">
                     <or
-                      uid="D719BC0621544C84A837D150B2FD3ADD">
+                      uid="43A8BCBACAD0459CABF959C003247AFB">
                       <condition
                         uid="6457F8C200F1487E94B969D90A60A454"
                         id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
@@ -262,10 +261,9 @@ SharedFields:
                         PatternName="Fitness" />
                     </or>
                     <condition
-                      uid="DED322B2175B4CA18F9FD51250F1FF4A"
-                      id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      ProfileName="Topic Interest Category"
-                      PatternName="Fitness" />
+                      id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      uid="6459F6A2E22948DE8472E0D073107611"
+                      PatternList="{753836A7-AEA0-4572-89E7-0DBC55A631FD}" />
                   </or>
                 </conditions>
                 <actions>
@@ -307,24 +305,23 @@ SharedFields:
                 name="Home Theater Consultation">
                 <conditions>
                   <or
-                    uid="25E282CB24A24E45B7AE81B1403E7789">
+                    uid="0C52BFAE348C4E3083ED7C206E4B5AF3">
                     <condition
                       uid="0B503C08733A4D7084F0CF5CA178CD71"
                       id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
                       ProfileName="Electronics Category"
                       PatternName="Home Cinema" />
                     <condition
-                      uid="658CADF56A344640855409B47F84A9C3"
-                      id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      ProfileName="Electronics Category"
-                      PatternName="Home Cinema" />
+                      id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      uid="09503C3CE7D541DF8C888FC31314C693"
+                      PatternList="{CDCADE11-E1F4-4792-8FA3-9F95C6954772}" />
                   </or>
                 </conditions>
                 <actions>
                   <action
                     uid="690D00C9AF404E599D573E1B4782D3E7"
                     id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    DataSource="{CF8553C3-FF34-4FCF-BF42-3A7E8DA42814}" />
+                    DataSource="{F908C985-29A0-4C42-9E13-5358F3FD9FF6}" />
                 </actions>
               </rule>
               <rule
@@ -338,9 +335,9 @@ SharedFields:
                 </actions>
                 <conditions>
                   <or
-                    uid="D936CA3C6C7C479DB72B049CB8DBB571">
+                    uid="6BE2340492374BE5B2B3D6E67298FC6D">
                     <or
-                      uid="E23A4BCBAF844438A9619F7BA4D57567">
+                      uid="F343A4257CEF4A79B60ECD6CB7A63398">
                       <condition
                         uid="2810FE36FBF84577BE44661A766DFC36"
                         id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
@@ -353,10 +350,9 @@ SharedFields:
                         CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
                     </or>
                     <condition
-                      uid="2E9595332B294F0D9371DE63F939F918"
-                      id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      ProfileName="Topic Interest Category"
-                      PatternName="Smart and Connected" />
+                      id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      uid="D988BBDAAFA54DF3B0EEC737E978C65F"
+                      PatternList="{F79D6476-4E33-4FCB-B7E7-7A8D983B8F22}" />
                   </or>
                 </conditions>
               </rule>
