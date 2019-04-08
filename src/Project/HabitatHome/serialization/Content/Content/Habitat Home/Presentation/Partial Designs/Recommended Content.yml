@@ -60,10 +60,98 @@ SharedFields:
           s:ds="local:/Data/Start Over Link"
           s:id="{3972C278-7E7A-4C2B-A293-66AF860F5C3A}"
           s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;FieldNames=%7BFC96A8E0-CED2-4B3D-9653-E7E3F0D9144E%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
-          s:ph="/main/container-2/container-" />
+          s:ph="/main/container-2/container-4">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{0E3D2809-5834-436F-A14C-769F3044BBD0}"
+                s:name="Content Finder Completed">
+                <conditions>
+                  <or
+                    uid="454783BEEA9D4A1EA85D32C33D894E19">
+                    <condition
+                      uid="12BBFA035EBF437D90D01B7EE314A4E8"
+                      s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
+                      s:GoalId="{596FDFA9-9E21-4B9D-9B54-EB97F724E1DA}" />
+                    <condition
+                      uid="3038ECE9A56B41049ABD8C8380396AAC"
+                      s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
+                      s:GoalId="{596FDFA9-9E21-4B9D-9B54-EB97F724E1DA}"
+                      s:NumberOfElapsedDaysOperatorId="{E362A3A4-E230-4A40-A7C4-FC42767E908F}"
+                      s:NumberOfElapsedDays="365"
+                      s:NumberOfPastInteractionsOperatorId="{E362A3A4-E230-4A40-A7C4-FC42767E908F}"
+                      s:NumberOfPastInteractions="7" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="2EB13C4F396A43FD8F18A1912DEA8C28"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="BB702F31EEBB4CA8860A24FD49BEEE4B"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{E63F8546-7B0A-454A-BFBC-10299EDA9053}"
+          p:after="r[@uid='{90E82BC6-01EB-435F-AF44-FEE83E5EC738}']"
+          s:ds="local:/Data/Take Test Link"
+          s:id="{3972C278-7E7A-4C2B-A293-66AF860F5C3A}"
+          s:par="GridParameters&amp;FieldNames=%7BFC96A8E0-CED2-4B3D-9653-E7E3F0D9144E%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="/main/container-2/container-4">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{6E7B28A5-777F-4E4E-88CD-99FF80229230}"
+                s:name="Content Finder Completed">
+                <conditions>
+                  <or
+                    uid="4145EACA834C4CF298323F0A4B5C4E46">
+                    <condition
+                      uid="1F1AE710A1C64CDFBDB24F8F8BABE9FF"
+                      s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
+                      s:GoalId="{596FDFA9-9E21-4B9D-9B54-EB97F724E1DA}" />
+                    <condition
+                      uid="D774EE10A67C449899D327F570D49556"
+                      s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
+                      s:GoalId="{596FDFA9-9E21-4B9D-9B54-EB97F724E1DA}"
+                      s:NumberOfElapsedDaysOperatorId="{E362A3A4-E230-4A40-A7C4-FC42767E908F}"
+                      s:NumberOfElapsedDays="365"
+                      s:NumberOfPastInteractionsOperatorId="{E362A3A4-E230-4A40-A7C4-FC42767E908F}"
+                      s:NumberOfPastInteractions="7" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="27A1EDF3AC994948B3E2CC22BCE9A989"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="37628B1ECF3640C3B75E7B29BB72D5D7"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
         <r
           uid="{95839D4D-AD8B-4FDD-B948-67AE4648B95E}"
-          p:after="r[@uid='{90E82BC6-01EB-435F-AF44-FEE83E5EC738}']"
+          p:after="r[@uid='{E63F8546-7B0A-454A-BFBC-10299EDA9053}']"
           s:ds="local:/Data/Default/Demo Promo 3"
           s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
           s:par="GridParameters&amp;FieldNames=%7B6954A545-951B-4D61-B964-7BEADC83656E%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
@@ -200,14 +288,81 @@ SharedFields:
           </rls>
         </r>
         <r
-          uid="{8EDA6022-0B6D-4A74-99B3-E6EC77BB5054}"
+          uid="{D2DEB7D5-E516-459E-8240-670B7CC1AACB}"
           p:after="r[@uid='{E46E5BC9-33D5-4577-A56B-B46A6D810556}']"
+          s:ds="local:/Data/Sam Smarts/Sam Smarts Text"
+          s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+          s:par="GridParameters&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="/main/container-2/container-4">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{13D294F4-7A7E-412C-9667-5EC0D5846A06}"
+                s:name="Smart and Connected">
+                <conditions>
+                  <or
+                    uid="F2A3B0EEF25F474A9FAE158AF184E65C">
+                    <condition
+                      uid="96D01B2351574AD0A6519BC1B6762C32"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
+                    <condition
+                      uid="B553230958C547FAA974CCEF7D8E0BD5"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{F79D6476-4E33-4FCB-B7E7-7A8D983B8F22}" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="9B88021DD91E40E49083DA4EA2ED6618"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="0B03530A656A4D3CB95A770251160A3B"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{8EDA6022-0B6D-4A74-99B3-E6EC77BB5054}"
+          p:after="r[@uid='{D2DEB7D5-E516-459E-8240-670B7CC1AACB}']"
           s:ds="local:/Data/Default/Title"
           s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
           s:par="GridParameters&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
-          s:ph="/main/container-2/container-">
+          s:ph="/main/container-2/container-4">
           <rls>
             <ruleset>
+              <rule
+                uid="{33E8E338-25AA-4028-9FC6-73E3501F66A8}"
+                s:name="Smart and Connected">
+                <conditions>
+                  <or
+                    uid="B7021906BE6B4864A0E8A349B5F34D15">
+                    <condition
+                      uid="AB4F562703C546FFB64C5382ED9073E8"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
+                    <condition
+                      uid="821105AAE7054ED79426645469E39611"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{F79D6476-4E33-4FCB-B7E7-7A8D983B8F22}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="BA253B28C5BB40D0895DFA7616E2E22C"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
               <rule
                 uid="{00000000-0000-0000-0000-000000000000}"
                 s:name="Default">
