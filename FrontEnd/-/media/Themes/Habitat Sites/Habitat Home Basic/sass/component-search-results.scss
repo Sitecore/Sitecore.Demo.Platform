@@ -121,7 +121,7 @@
 
 .site-search-results {
     padding-top: 100px;
-  
+   
     @include respond-to(mobile-large) {
       & > .component-content > .row > .col-sm-4 {
         float: none;
@@ -157,7 +157,7 @@
           color: $brand-primary;
           font-weight: 700;
           text-decoration: none;
-          font-size: 1.875em;
+          font-size: 1em;
           line-height: 0.9;
   
           @include respond-to(mobile-large) {
