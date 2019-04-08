@@ -68,9 +68,9 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Kernel" Version="12.0.1-*" />
-        <PackageReference Include="Sitecore.Mvc" Version="3.0.1-*" />
-        <PackageReference Include="Sitecore.Mvc.Analytics" Version="12.0.0-*" />
+        <PackageReference Include="Sitecore.Kernel" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.Mvc" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.Mvc.Analytics" Version="9.1.1-*" />
       </ItemGroup>
     </Otherwise>
   </Choose>

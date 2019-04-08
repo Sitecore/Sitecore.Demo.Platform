@@ -76,20 +76,20 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Analytics.Core" Version="12.0.1-*" />
-        <PackageReference Include="Sitecore.Analytics.Model" Version="12.0.1-*" />
-        <PackageReference Include="Sitecore.Analytics" Version="12.0.1-*" />
-        <PackageReference Include="Sitecore.Analytics.XConnect" Version="12.0.1-*" />
-        <PackageReference Include="Sitecore.Kernel" Version="12.0.1-*" />
-        <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="2.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect.Client" Version="2.0.1-*" />
-        <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="2.0.1-*" />
-        <PackageReference Include="Sitecore.XConnect" Version="2.0.1-*" />
+        <PackageReference Include="Sitecore.Analytics.Core" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.Analytics.Model" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.Analytics" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.Analytics.XConnect" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.Kernel" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.XConnect.Client" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.XConnect" Version="9.1.1-*" />
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <PackageReference Include="Kamsar.WebConsole" Version="2.0.0" />
+    <PackageReference Include="Kamsar.WebConsole" Version="2.0.1" />
     <PackageReference Include="MicroCHAP" Version="1.2.2.2" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
