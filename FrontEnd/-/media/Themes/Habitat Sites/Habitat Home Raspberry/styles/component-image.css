@@ -1,0 +1,34 @@
+.image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image a {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.image .image-caption {
+  display: block;
+  font-style: italic;
+  font-size: 11px;
+  color: #747474;
+}
+
+.image-default-size img {
+  max-width: none;
+  width: auto !important;
+}
+
+.image-full-size img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.image-left .component-content > div > img {
+  float: left;
+}
+
+.image-right .component-content > div > img {
+  float: right;
+}

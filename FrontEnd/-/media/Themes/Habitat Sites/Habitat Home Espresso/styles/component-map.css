@@ -1,0 +1,32 @@
+/* breakpoints */
+.map {
+  border-width: 1px;
+  border-style: solid;
+  border-color: none;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+}
+
+.map .map-canvas {
+  position: relative;
+}
+
+.map img {
+  max-width: none;
+}
+
+.map .MicrosoftMap .infobox-close {
+  position: static;
+  float: right;
+}
+
+.map .MicrosoftMap .Infobox .infobox-body {
+  height: 100%;
+}
+
+.map .MicrosoftMap .Infobox .infobox-info {
+  height: 100%;
+  box-sizing: border-box;
+}

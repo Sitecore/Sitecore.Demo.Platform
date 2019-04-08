@@ -1,0 +1,105 @@
+﻿---
+ID: "f53d5ded-a5b1-4952-a14a-946f2a96481d"
+Parent: "658e89f6-3f0c-4072-88ca-50ce81757a9d"
+Template: "142e5fc1-ec62-4540-bad9-cd88f337cd2e"
+Path: /sitecore/content/Habitat Sites/Habitat Home/Data/Carousels/Smart and Connected Carousel/Slide1
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{CB7B1C66-77F9-45E4-9AA3-12AC3E1EDF5A}">
+          <p:d />
+        </r>
+        <r
+          uid="{3BC14B52-E8BE-46D6-91E0-0085C07AF4C1}"
+          s:ds=""
+          s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          s:par="Styles=%7bC7A7C083-CF57-4203-84DC-DD8CF2AC6AB4%7d&amp;FieldNames=%7b7C5FEDFB-F002-4136-99B0-5ED23040938B%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d"
+          s:ph="section-content" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{35B145AB-48A1-4621-91CD-EFBAD228D5D1}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190213T185544Z
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{751A24EF-79B8-41DD-A34E-B1B22E89BE6D}" ></image>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        Home Design <br />
+        to Help You Live Well
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link text="Learn More" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{944488EB-297E-4B31-BDC0-9FB119D3366C}" />
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190213T205858Z
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{751A24EF-79B8-41DD-A34E-B1B22E89BE6D}" ></image>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        Conception Maison<br />
+        pour mieux vivre, tout simplement
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link text="En savoir plus" anchor="" linktype="internal" class="" title=""  querystring="" id="{C9D2D5F3-E258-4483-AF1C-CE18B7857BEA}" />
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: スライド 1
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190213T205640Z
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{751A24EF-79B8-41DD-A34E-B1B22E89BE6D}" ></image>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: デザイン <br />シンプルな生活を支える
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link text="Learn More" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{944488EB-297E-4B31-BDC0-9FB119D3366C}" />
