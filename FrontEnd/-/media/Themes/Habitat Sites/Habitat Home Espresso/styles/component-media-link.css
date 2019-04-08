@@ -1,0 +1,156 @@
+@charset "UTF-8";
+/* breakpoints */
+.media-link {
+  background: transparent;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #f6a800;
+  /* breakpoints */
+}
+
+.media-link a {
+  color: #747474;
+}
+
+.media-link a:hover {
+  color: #B1B3AC;
+  text-decoration: none;
+}
+
+.media-link .component-content .scEmptyPlaceholder {
+  width: 100%;
+  margin-left: 0;
+}
+
+.media-link .component-content > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.media-link.position-right .field-filetypeicon, .media-link.position-right .field-linktext {
+  float: right;
+}
+
+.media-link .field-filetypeicon, .media-link .field-linktext {
+  display: inline-block;
+}
+
+.media-link .field-filetypeicon > a {
+  height: 24px !important;
+  display: block;
+}
+
+.media-link .field-filetypeicon span {
+  display: block;
+  height: 24px !important;
+}
+
+.media-link .field-filetypeicon span:before {
+  font-size: 18px;
+}
+
+.media-link .field-linktext a {
+  font-size: 1em;
+}
+
+.media-link .field-filetypeicon > a > span, .media-link .pdf, .media-link .xls, .media-link .xlsx, .media-link .pptx, .media-link .ppt, .media-link .docx, .media-link .doc, .media-link .bmp, .media-link .png, .media-link .jpg, .media-link .jpeg, .media-link .psd, .media-link .gif, .media-link .avi, .media-link .mp4, .media-link .wmv, .media-link .mov, .media-link .mp3, .media-link .wma, .media-link .txt, .media-link .zip {
+  display: inline-block;
+  box-sizing: border-box;
+  font-weight: normal;
+  width: 15px;
+  height: 21px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.media-link .field-filetypeicon > a > span:before, .media-link .pdf:before, .media-link .xls:before, .media-link .xlsx:before, .media-link .pptx:before, .media-link .ppt:before, .media-link .docx:before, .media-link .doc:before, .media-link .bmp:before, .media-link .png:before, .media-link .jpg:before, .media-link .jpeg:before, .media-link .psd:before, .media-link .gif:before, .media-link .avi:before, .media-link .mp4:before, .media-link .wmv:before, .media-link .mov:before, .media-link .mp3:before, .media-link .wma:before, .media-link .txt:before, .media-link .zip:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px !important;
+  position: absolute;
+  display: block;
+  top: 50%;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.media-link .field-filetypeicon span:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .pdf:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .xlsx:before, .media-link .field-filetypeicon .xls:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .pptx:before, .media-link .field-filetypeicon .ppt:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .docx:before, .media-link .field-filetypeicon .doc:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .bmp:before, .media-link .field-filetypeicon .png:before, .media-link .field-filetypeicon .jpg:before, .media-link .field-filetypeicon .jpeg:before, .media-link .field-filetypeicon .psd:before, .media-link .field-filetypeicon .gif:before, .media-link .field-filetypeicon .tif:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .avi:before, .media-link .field-filetypeicon .mp4:before, .media-link .field-filetypeicon .wmv:before, .media-link .field-filetypeicon .mov:before, .media-link .field-filetypeicon .mpg:before, .media-link .field-filetypeicon .mkv:before, .media-link .field-filetypeicon .vp6:before, .media-link .field-filetypeicon .vid:before, .media-link .field-filetypeicon .rv:before, .media-link .field-filetypeicon .webm:before, .media-link .field-filetypeicon .swf:before, .media-link .field-filetypeicon .flv:before, .media-link .field-filetypeicon .m4v:before, .media-link .field-filetypeicon .h264:before, .media-link .field-filetypeicon .mk3d:before, .media-link .field-filetypeicon .gifv:before, .media-link .field-filetypeicon .oggv:before, .media-link .field-filetypeicon .movie:before, .media-link .field-filetypeicon .divx:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .mp3:before, .media-link .field-filetypeicon .wma:before, .media-link .field-filetypeicon .wav:before, .media-link .field-filetypeicon .fla:before, .media-link .field-filetypeicon .flac:before, .media-link .field-filetypeicon .ra:before, .media-link .field-filetypeicon .rma:before, .media-link .field-filetypeicon .aif:before, .media-link .field-filetypeicon .aiff:before, .media-link .field-filetypeicon .aa:before, .media-link .field-filetypeicon .aac:before, .media-link .field-filetypeicon .mid:before, .media-link .field-filetypeicon .midi:before, .media-link .field-filetypeicon .aax:before, .media-link .field-filetypeicon .ac3:before, .media-link .field-filetypeicon .au:before, .media-link .field-filetypeicon .ogg:before, .media-link .field-filetypeicon .avr:before, .media-link .field-filetypeicon .m4a:before, .media-link .field-filetypeicon .mp4a:before, .media-link .field-filetypeicon .amz:before, .media-link .field-filetypeicon .mka:before, .media-link .field-filetypeicon .asx:before, .media-link .field-filetypeicon .pcm:before, .media-link .field-filetypeicon .m3u:before, .media-link .field-filetypeicon .xwma:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .txt:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .zip:before, .media-link .field-filetypeicon .zipx:before, .media-link .field-filetypeicon .rar:before, .media-link .field-filetypeicon .tar:before, .media-link .field-filetypeicon .gz:before, .media-link .field-filetypeicon .dmg:before, .media-link .field-filetypeicon .iso:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .css:before, .media-link .field-filetypeicon .js:before, .media-link .field-filetypeicon .py:before, .media-link .field-filetypeicon .git:before, .media-link .field-filetypeicon .py:before, .media-link .field-filetypeicon .cpp:before, .media-link .field-filetypeicon .h:before, .media-link .field-filetypeicon .ini:before, .media-link .field-filetypeicon .config:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .exe:before, .media-link .field-filetypeicon .jar:before, .media-link .field-filetypeicon .dll:before, .media-link .field-filetypeicon .bat:before, .media-link .field-filetypeicon .pl:before, .media-link .field-filetypeicon .scr:before, .media-link .field-filetypeicon .msi:before, .media-link .field-filetypeicon .app:before, .media-link .field-filetypeicon .deb:before, .media-link .field-filetypeicon .apk:before, .media-link .field-filetypeicon .jar:before, .media-link .field-filetypeicon .vb:before, .media-link .field-filetypeicon .prg:before, .media-link .field-filetypeicon .sh:before {
+  content: "";
+}
+
+.media-link .field-filetypeicon .com:before, .media-link .field-filetypeicon .net:before, .media-link .field-filetypeicon .org:before, .media-link .field-filetypeicon .edu:before, .media-link .field-filetypeicon .gov:before, .media-link .field-filetypeicon .mil:before, .media-link .field-filetypeicon .html:before, .media-link .field-filetypeicon .htm:before, .media-link .field-filetypeicon .xhtml:before, .media-link .field-filetypeicon .jhtml:before, .media-link .field-filetypeicon .php:before, .media-link .field-filetypeicon .php3:before, .media-link .field-filetypeicon .php4:before, .media-link .field-filetypeicon .php5:before, .media-link .field-filetypeicon .phtmle:before, .media-link .field-filetypeicon .asp:before, .media-link .field-filetypeicon .aspx:before, .media-link .field-filetypeicon .cfm:before {
+  content: "";
+}
+
+/* breakpoints */
+.media-link-horizontal div .field-filetypeicon span {
+  height: 25px;
+  width: 100%;
+}
+
+.media-link-horizontal div .field-filetypeicon span:before {
+  font-size: 24px !important;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.media-link-horizontal .component-content > * {
+  display: block;
+  text-align: center;
+}

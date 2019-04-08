@@ -1,0 +1,71 @@
+/* breakpoints */
+.feed {
+  background: transparent;
+}
+
+.feed h1, .feed h2, .feed h3, .feed h4, .feed h5, .feed h6 {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #d2d2d2;
+}
+
+.feed .feed-item {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #d2d2d2;
+  padding: 10px 10px 10px 0px;
+  margin-left: 10px;
+  background: transparent;
+}
+
+.feed .feed-title a {
+  font-size: 14px;
+  font-size: 1.4rem;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+}
+
+.feed .feed-datetime {
+  font-size: 11px;
+  font-size: 1.1rem;
+  float: left;
+}
+
+.feed .feed-author {
+  font-size: 11px;
+  font-size: 1.1rem;
+  float: right;
+}
+
+.feed .feed-description {
+  font-size: 13px;
+  font-size: 1.3rem;
+  box-sizing: border-box;
+  margin: 5px;
+  overflow: hidden;
+  clear: both;
+}
+
+.feed .feed-description img {
+  margin: 0 4px;
+}
+
+/* breakpoints */
+.feed.feed-grid .feed-item {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  width: 32%;
+  margin: 0 1% 10px 0;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 639px) {
+  .feed.feed-grid .feed-item {
+    width: 100%;
+  }
+}

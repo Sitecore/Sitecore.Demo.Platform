@@ -1,0 +1,119 @@
+.fieldeditor table, 
+.fieldeditor td {
+    border-collapse: collapse;
+    border-style: solid;
+    border-width: 1px;
+    padding: 3px;
+    vertical-align: middle;
+}
+
+#atlwdg-trigger{
+    color:#fff !important;
+}
+
+.canvas-lines{
+    position: absolute;
+    top: 0px;
+    pointer-events: none;
+    display: none;
+}
+
+.canvas-lines-switch {
+    position : fixed;
+    top : 40%;
+    left: -160px;
+    background: #E4E4E4;
+    border: 2px solid #4A4A4A;
+    padding: 20px 40px 20px 10px;
+    box-shadow: 5px 5px 10px #ffffff;
+    width: auto;
+    font-weight: bold;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    transition: all 1s;
+}
+
+.canvas-lines-switch:after {
+    content: "";
+    position : absolute;
+    border: 10px solid transparent;
+    border-left-color: Gray;
+    width: 0px;
+    height: 0px;
+    right: 0px;
+    top: 30px;
+}
+
+.canvas-lines-switch:hover {
+    left: 0px;
+}
+
+.on-page-editor .rich-text span{
+    width:100%;
+}
+
+.on-page-editor .promo .promo-body .scWebEditInput,
+.on-page-editor .summary .summary-body .scWebEditInput,
+.on-page-editor .summary-list .summary-list-body .scWebEditInput{
+    display:block;
+}
+
+.on-page-editor .tabs ul.tabs > li > a{
+    font-size:0;
+}
+
+.on-page-editor .tabs ul.tabs > li > a div{
+    font-size:12px;
+}
+
+.on-page-editor img{
+    width: auto\9; 
+}
+
+body.on-page-editor {
+    position: static;
+}
+
+#jqueryModalDialogsFrame {
+    position: fixed !important;
+}
+
+.scPopup {
+    z-index: 9200 !important;
+    background: #fafafa;
+    border: 1px solid #868686;
+    height: auto !important;
+    box-shadow: 0px 0px 5px #dedede;
+    -webkit-box-shadow: 0px 0px 5px #dedede;
+    font-family: tahoma !important;
+    font-size: 11px !important;
+    position: fixed !important;
+}
+
+.scPopup tr:hover {
+    background: #c5c5c5;
+    cursor: Pointer;
+}
+
+
+.scPopup td{
+    padding: 0px 5px;
+    vertical-align: middle;
+}
+
+.scPopup .scMenuItemIcon,
+.scPopup tr td:first-child{
+    background: #efefef;
+    border-right: 1px solid #c5c5c5;
+    padding: 0px 2px;
+}
+
+.scPopup .divider-row {
+    line-height: 0px;
+    background: #9199a4;
+}
+
+.scPopup .divider-row td {
+    height: 1px !important;
+    font-size: 0px;
+}

@@ -1,0 +1,119 @@
+input[type="text"], input[type="password"], textarea, input[type="file"] {
+    box-sizing: border-box;
+    @include border-basic();
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    width: 100%;
+    font-size: 13px;
+    color: #747474;
+    outline: none;
+    height: auto;
+    margin: 5px 0;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+}
+input[type="submit"], button, input[type="button"] {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    @include linear-gradient(to bottom, #fff 0, #e0e0e0 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
+    background-repeat: repeat-x;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-shadow: 0 1px 0 #fff;
+    &:hover {
+        background-color: #e0e0e0;
+        background-position: 0 -15px;
+        border-color: #adadad;
+        text-decoration: none;
+        color: #333;
+    }
+}
+input[type="file"] {
+    appearance: none;
+}
+select {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    @include border-basic();
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    position: relative;
+    z-index: 5;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: $background-basic-color;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button[type="submit"] {
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    @include border-basic();
+    color: #747474;
+    font-weight: normal;
+    padding: 5px 20px;
+    margin: 0 1px 0 5px;
+    float: right;
+    clear: both;
+    &:hover {
+        background: $background-basic-color-light-gray;
+    }
+}
+.bottom-filter-button {
+    float: right;
+    .filterButton {
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: border-box;
+        @include border-basic();
+        color: #747474;
+        font-weight: normal;
+        padding: 5px 20px;
+        margin: 0 1px 0 5px;
+        &:hover {
+            background: $background-basic-color-light-gray;
+        }
+    }
+}
+.bottom-remove-filter {
+    float: left;
+    button {
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: border-box;
+        @include border-basic();
+        color: #c34e30;
+        font-weight: normal;
+        padding: 5px 20px;
+        margin: 0 1px 0 5px;
+        &:hover {
+            background: $background-basic-color-light-gray;
+        }
+    }
+}

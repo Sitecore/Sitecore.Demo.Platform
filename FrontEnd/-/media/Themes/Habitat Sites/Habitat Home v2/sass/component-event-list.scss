@@ -1,0 +1,100 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+@import "base/fontawesome/font-awesome-mix-var";
+%eventWrapper {
+    @include clearfix();
+    background: $event-list-item-bg;
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    color: $event-list-item-color;
+    flex-flow: row wrap;
+}
+
+.event-list {
+    @import "base/richtext/*";
+    background: $event-list-bg;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @include border-basic(bottom, $event-list-title-border);
+    }
+    ul {
+        margin: $small-margin 0;
+    }
+    li {
+        @include border-basic();
+        @extend %eventWrapper;
+        margin-left: 0;
+        box-sizing: border-box;
+        padding: 15px 15px 40px 15px;
+        position: relative;
+        margin: $small-margin 0;
+        >.scLooseFrameZone {
+            @extend %eventWrapper;
+            >.scEmptyPlaceholder {
+                flex-basis: 100%;
+            }
+        }
+    }
+    .event-list-time {
+        .scWebEditInput {
+            display: inline;
+        }
+        order: 1;
+        flex-grow: 1;
+        font-weight: bold;
+        min-width: 115px;
+        max-width: 20%;
+    }
+    .event-list-info {
+        order: 1;
+        flex-grow: 2;
+        margin: 0 15px;
+        max-width: 75%;
+    }
+    .event-list-name {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .event-list-place,
+    .event-list-link {
+        position: absolute;
+        bottom: 5px;
+        padding-left: 15px;
+        &:before {
+            @include fa-icon();
+            transform: translateY(-50%);
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+    }
+    .event-list-place {
+        left: 10px;
+        &:before {
+            content: $fa-var-map-marker;
+        }
+    }
+    .event-list-link {
+        right: 10px;
+        a {
+            font-size: 1em;
+            color: $link-text-color;
+            &:hover {
+                color: $link-text-color-active;
+                text-decoration: none;
+                border-bottom: 1px solid $link-border;
+            }
+        }
+        &:before {
+            content: $fa-var-calendar-o;
+        }
+    }
+    .scWebEditInput {
+        @include opensans-font-stack();
+    }
+}
