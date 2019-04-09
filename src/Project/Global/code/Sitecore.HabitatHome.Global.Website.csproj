@@ -80,32 +80,16 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.ContentSearch" Version="5.0.0-*" />
-        <PackageReference Include="Sitecore.Kernel" Version="13.0.0-*" />
-        <PackageReference Include="Sitecore.Logging" Version="13.0.0-*" />
-        <PackageReference Include="Sitecore.Marketing" Version="13.1.0-*" />
-        <PackageReference Include="Sitecore.Marketing.xMgmt" Version="14.0.0-*" />
-        <PackageReference Include="Sitecore.Update" Version="5.0.0-*" />
+        <PackageReference Include="Sitecore.ContentSearch" Version="9.2.0-*" />
+        <PackageReference Include="Sitecore.Kernel" Version="9.2.0-*" />
+        <PackageReference Include="Sitecore.Logging" Version="9.2.0-*" />
+        <PackageReference Include="Sitecore.Marketing" Version="9.2.0-*" />
+        <PackageReference Include="Sitecore.Marketing.xMgmt" Version="9.2.0-*" />
+        <PackageReference Include="Sitecore.Update" Version="9.2.0-*" />
         <PackageReference Include="Sitecore.XA.Foundation.Abstractions" Version="4.9.0.*" />
         <PackageReference Include="Sitecore.XA.Foundation.Multisite" Version="4.9.0.*" />
         <PackageReference Include="Sitecore.XA.Foundation.SitecoreExtensions" Version="4.9.0.*" />
-        <PackageReference Include="Sitecore.Zip" Version="12.1.0-*" />
-        <PackageReference Include="Sitecore.ContentSearch" Version="4.0.1-*" />
-        <PackageReference Include="Sitecore.Kernel" Version="12.0.1-*" />
-        <PackageReference Include="Sitecore.Logging" Version="12.0.0-*" />
-        <PackageReference Include="Sitecore.Marketing" Version="13.0.1-*" />
-        <PackageReference Include="Sitecore.Marketing.xMgmt" Version="13.1.1-*" />
-        <PackageReference Include="Sitecore.Update" Version="4.0.1-*" />
-        <PackageReference Include="Sitecore.ContentSearch" Version="9.1.1-*" />
-        <PackageReference Include="Sitecore.Kernel" Version="9.1.1-*" />
-        <PackageReference Include="Sitecore.Logging" Version="9.1.1-*" />
-        <PackageReference Include="Sitecore.Marketing" Version="9.1.1-*" />
-        <PackageReference Include="Sitecore.Marketing.xMgmt" Version="9.1.1-*" />
-        <PackageReference Include="Sitecore.Update" Version="9.1.1-*" />
-        <PackageReference Include="Sitecore.XA.Foundation.Abstractions" Version="4.8.1.*" />
-        <PackageReference Include="Sitecore.XA.Foundation.Multisite" Version="4.8.1.*" />
-        <PackageReference Include="Sitecore.XA.Foundation.SitecoreExtensions" Version="4.8.1.*" />
-        <PackageReference Include="Sitecore.Zip" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.Zip" Version="9.2.0-*" />
       </ItemGroup>
     </Otherwise>
   </Choose>
