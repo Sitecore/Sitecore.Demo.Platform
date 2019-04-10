@@ -9,7 +9,6 @@
     width: 100%;
     height: auto;
     margin: 0;
-    padding: 20px 0 0;
     color: $bg-basic-color;
     text-align: center;
     z-index: 1000;
@@ -55,7 +54,17 @@
 
         a {
             @include btn-primary;
-            font-size: 1em;
+            font-size: $font-small;
+            line-height: 1.28571;
+            font-weight: 700;
         }
+    }
+
+    .info {
+        margin: 0 30px;
+        font-size: $font-normal;
+        text-align: left;
+        display: inline-block;
+        vertical-align: middle;
     }
 }
