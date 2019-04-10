@@ -129,7 +129,7 @@ It is now possible to build, package and depoy to Azure (PaaS) with one command.
 #### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
 
 If you do not use habitathome.dev.local you will need to modify the Host Name in 
-`/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
+`/sitecore/content/Habitat SXA Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
 The Habitat Home site will not respond / render correctly until this value is modified. 
 
 If you do **not want to use the default settings**, you need to adjust the appropriate values in `cake-config.json` file based on the values described earlier.
@@ -156,7 +156,7 @@ From the root of the solution
 
 1. Browse to https://habitathome.dev.local (or whatever hostname you selected)
 	1. You should see the Habitat Home landing page with a full-width carousel
-	2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that your Host Name was configured correctly in `/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` and that the site has published successfully 
+	2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that your Host Name was configured correctly in `/sitecore/content/Habitat SXA Sites/Habitat Home/Settings/Site Grouping/Habitat Home` and that the site has published successfully 
 
 
 ## Additional Settings
