@@ -9,7 +9,6 @@
   width: 100%;
   height: auto;
   margin: 0;
-  padding: 20px 0 0;
   color: #FFFFFF;
   text-align: center;
   z-index: 1000;
@@ -70,11 +69,21 @@
   border: 1px solid #50a1ab;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
-  font-size: 1em;
+  font-size: 11px;
+  line-height: 1.28571;
+  font-weight: 700;
 }
 
 .privacy-warning .submit a:hover {
   color: white;
   background-color: #71b4bd !important;
   border: 1px solid #71b4bd;
+}
+
+.privacy-warning .info {
+  margin: 0 30px;
+  font-size: 14px;
+  text-align: left;
+  display: inline-block;
+  vertical-align: middle;
 }
