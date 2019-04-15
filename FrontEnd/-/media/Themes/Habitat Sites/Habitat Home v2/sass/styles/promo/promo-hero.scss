@@ -101,7 +101,8 @@
 
     &.category-hero {
         margin-top: 0;
-        margin-bottom: 0;
+        margin-bottom: 8em;
+        padding-bottom: 8em;
 
         >.component-content {
             padding: 0;
@@ -119,12 +120,15 @@
 
         .widget-background {
             height: 100%;
-            position: absolute;
+            position: relative;
         }
 
-        .widget-content {
-            position: relative;
-            z-index: 100;
+        .widget-content {            
+            z-index: 3;
+            position: absolute;
+            top: 0;
+            left: 0;    
+            padding-left: 5em;
         }
 
         .field-heroimage {
@@ -199,6 +203,7 @@
             @include respond-to(tablet) {
                 position: relative;
                 margin-left: 35%;
+                font-weight: 300;
             }
         }
         .field-herotext {
