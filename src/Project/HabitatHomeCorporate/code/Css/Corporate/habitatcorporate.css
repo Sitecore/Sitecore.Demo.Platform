@@ -21,12 +21,44 @@
     background-size: cover;
     background-position: center;
     min-height: 350px;
+    background-color: #f3f6f9;
 }
 
 .featurette {
     margin-bottom: 1em;
 }
 
+.featurette-heading {
+    font-size: 36px;
+    line-height: 42px;
+    color: #000000;
+    font-weight: 700;
+    font-style: normal;
+}
+
+p.lead {
+    font-size: 23px;
+    line-height: 35px;
+    color: #707070;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.btn-info {
+    background-color: #19a5a2;
+}
+
+.bg-light {
+    background-color: #ffffff !important;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.nav-link {
+    color: #000000 !important;
+}
 /* --- forms ---- */
 .field-validation-error {
     color: red;
@@ -37,8 +69,8 @@
 }
 
 footer {
-    background-color: #343a40;
-    color: #d5d7dc;
+    background-color: #141919;
+    color: #ffffff;
     padding-top: 20px;
     margin-top: 80px;
     width: 100%;
