@@ -1,6 +1,6 @@
 ﻿---
-ID: "72823e25-7cb6-47b3-8cbd-44ce5c2989ed"
-Parent: "9dc877ab-03ba-4b90-b155-09c46458b060"
+ID: "c7a7e725-bc84-45ae-ad50-0659f9ab7f98"
+Parent: "b1ed9a6a-b0bc-4d47-a225-d1939b45065b"
 Template: "fb3e3034-33f8-4ce8-be98-dd05010f4c22"
 Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Hero/Default
 DB: master
@@ -9,6 +9,13 @@ SharedFields:
   Hint: Compatible Renderings
   Type: TreelistEx
   Value: 
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{6C28B680-A55C-4BA5-AB8E-886B7B03F33E}" />
 - ID: "e1d5adba-8348-4127-9bb6-455936653839"
   Hint: CssClass
   Value: "promo promo-hero full-width-container"
