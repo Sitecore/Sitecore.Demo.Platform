@@ -6,12 +6,6 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
     {
         public IEnumerable<CarouselSlideModel> Slides { get; set; }
 
-        public string CarouselModelSignature
-        {
-            get
-            {
-                return string.Format("carousel-{0}", Item.Name.ToLower().Replace(" ", "-"));
-            }
-        }
+        public string CarouselModelSignature => string.Format("carousel-{0}", Item.Name.ToLower().Replace(" ", "-"));
     }
 }

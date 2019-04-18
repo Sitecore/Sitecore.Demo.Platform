@@ -1,44 +1,26 @@
-﻿using Sitecore.Data.Fields;
-using Sitecore.Data.Items;
-using Sitecore.Mvc.Helpers;
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Web;
+using Sitecore.Data.Fields;
+using Sitecore.Data.Items;
+using Sitecore.Mvc.Helpers;
 
 namespace Sitecore.HabitatHome.Feature.Components.Models
 {
     public class ItemBase
     {
+        private static readonly ConcurrentDictionary<Type, PropertyInfo[]> propertyCache =
+            new ConcurrentDictionary<Type, PropertyInfo[]>();
+
         private Item _item;
-        private static readonly ConcurrentDictionary<Type, PropertyInfo[]> propertyCache = new ConcurrentDictionary<Type, PropertyInfo[]>();
-
-        public IEnumerable<T> GetChildren<T>() where T : ItemBase, new()
-        {
-            var children = new List<T>();
-
-            if (_item != null)
-            {
-                foreach (Item child in _item.Children)
-                {
-                    var t = new T();
-                    t.Item = child;
-                    children.Add(t);
-                }
-            }
-            return children;
-        }
-
 
 
         public Item Item
         {
-            get
-            {
-                return _item;
-            }
+            get => _item;
             set
             {
                 _item = value;
@@ -46,6 +28,20 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
             }
         }
 
+        public IEnumerable<T> GetChildren<T>() where T : ItemBase, new()
+        {
+            var children = new List<T>();
+
+            if (_item != null)
+                foreach (Item child in _item.Children)
+                {
+                    var t = new T();
+                    t.Item = child;
+                    children.Add(t);
+                }
+
+            return children;
+        }
 
 
         protected void SetProperties()
@@ -54,14 +50,10 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
             var props = propertyCache.GetOrAdd(type, t => t.GetProperties());
 
             foreach (var prop in props)
-            {
                 if (prop.CanWrite && prop.Name != "Item")
                 {
                     string value = null;
-                    if (_item != null)
-                    {
-                        value = _item[prop.Name];
-                    }
+                    if (_item != null) value = _item[prop.Name];
 
                     if (prop.PropertyType == typeof(string))
                     {
@@ -70,16 +62,15 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
                     else if (prop.PropertyType == typeof(MediaItem))
                     {
                         MediaItem mi = null;
-                        if (!string.IsNullOrEmpty(value))
-                        {
-                            mi = ((ImageField)_item.Fields[prop.Name]).MediaItem;
-                        }
+                        if (!string.IsNullOrEmpty(value)) mi = ((ImageField) _item.Fields[prop.Name]).MediaItem;
                         prop.SetValue(this, mi);
                     }
-                    else if(prop.PropertyType == typeof(ImageField))
+                    else if (prop.PropertyType == typeof(ImageField))
                     {
-                        string fieldName = prop.Name.Contains("Field") ? prop.Name.Replace("Field", string.Empty) : prop.Name;
-                        prop.SetValue(this, (ImageField)_item.Fields[fieldName]);
+                        var fieldName = prop.Name.Contains("Field")
+                            ? prop.Name.Replace("Field", string.Empty)
+                            : prop.Name;
+                        prop.SetValue(this, (ImageField) _item.Fields[fieldName]);
                     }
                     else if (typeof(ItemBase).IsAssignableFrom(prop.PropertyType))
                     {
@@ -90,10 +81,10 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
                             ib = Activator.CreateInstance(prop.PropertyType) as ItemBase;
                             ib.Item = relatedItem;
                         }
+
                         prop.SetValue(this, ib);
                     }
                 }
-            }
         }
     }
 
@@ -101,11 +92,10 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
     //todo: move to Foundation.SitecoreExtensions
     public static class SitecoreHelperExtensions
     {
-
-        public static HtmlString Edit<TBase, TProp>(this SitecoreHelper sitecoreHelper, 
+        public static HtmlString Edit<TBase, TProp>(this SitecoreHelper sitecoreHelper,
             TBase itemBase, Expression<Func<TBase, TProp>> property, object parameters = null) where TBase : ItemBase
         {
-            Type type = typeof(TBase);
+            var type = typeof(TBase);
 
             var member = property.Body as MemberExpression;
             if (member == null)
@@ -115,15 +105,15 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
             if (propInfo == null)
             {
                 var func = property.Compile();
-                return new HtmlString(func(itemBase as TBase).ToString());
+                return new HtmlString(func(itemBase).ToString());
             }
 
             if (type != propInfo.ReflectedType &&
                 !type.IsSubclassOf(propInfo.ReflectedType))
-                throw new ArgumentException($"Expression '{property.ToString()}' refers to a property that is not from type {type.FullName}.");
+                throw new ArgumentException(
+                    $"Expression '{property}' refers to a property that is not from type {type.FullName}.");
 
             return sitecoreHelper.Field(propInfo.Name, itemBase.Item, parameters);
         }
-
     }
 }

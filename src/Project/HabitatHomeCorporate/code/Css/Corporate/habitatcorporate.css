@@ -38,11 +38,15 @@ li.nav-item {
     margin-top: 0;
 }
 
+.centered-heading {
+    padding-top: 5em;
+}
+
 .featurette {
     margin-bottom: 2rem;
 }
 
-.featurette-heading {
+.featurette-heading, .centered-heading h2 {
     font-size: 36px;
     line-height: 42px;
     color: #000000;
@@ -107,7 +111,7 @@ h4 {
 }
 
 p {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 30px;
     font-weight: 300;
     color: #000000;
