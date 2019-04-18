@@ -22,7 +22,7 @@
 
                             @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(component.Title))
                             {
-                                <h5 class="card-title">@Html.Sitecore().Edit(component, c => c.Title)</h5>
+                                <h3 class="card-title">@Html.Sitecore().Edit(component, c => c.Title)</h3>
                             }
                             @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(component.Subtitle))
                             {

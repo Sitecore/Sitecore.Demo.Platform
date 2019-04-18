@@ -57,6 +57,7 @@ p.lead {
 
     .btn-info:hover {
         background-color: #000000;
+        border: 2px solid #232323;
     }
 
 a.link_arrow:after, button.link_arrow:after {
@@ -71,7 +72,42 @@ a.link_arrow:after, button.link_arrow:after {
 .nav-link {
     color: #000000 !important;
     font-weight: 700;
+    text-transform: uppercase;
 }
+
+h1 {
+    font-size: 5rem !important;
+    font-weight: 700 !important;
+}
+
+h3 {
+    font-size: 28px !important;
+    line-height: 32px !important;
+    font-weight: 700 !important;
+}
+
+h4 {
+    font-weight: 700 !important;
+}
+
+p {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 300;
+    color: #000000;
+}
+
+p a{
+    color: #19a5a2;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+p a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
 /* --- forms ---- */
 .field-validation-error {
     color: red;
@@ -88,6 +124,10 @@ footer {
     margin-top: 80px;
     width: 100%;
 }
+
+    footer p {
+        color: #ffffff;
+    }
 
     footer .container {
         padding-bottom: 10px;
