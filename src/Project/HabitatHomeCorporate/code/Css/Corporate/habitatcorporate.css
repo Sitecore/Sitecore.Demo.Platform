@@ -49,19 +49,28 @@ p.lead {
 }
 
 .btn-info {
-    background-color: #19a5a2;
+    background-color: #232323;
+    border: 2px solid #232323;
+    border-radius: 0;
+    padding: .9375em 2.5em;
 }
 
-.bg-light {
-    background-color: #ffffff !important;
-}
+    .btn-info:hover {
+        background-color: #000000;
+    }
 
-.navbar-brand img {
-    height: 50px;
+a.link_arrow:after, button.link_arrow:after {
+    content: " ➔";
+    color: #fe2911;
+    margin-left: 4px;
+    display: inline-block;
+    -webkit-transition: margin .1s ease;
+    transition: margin .1s ease;
 }
 
 .nav-link {
     color: #000000 !important;
+    font-weight: 700;
 }
 /* --- forms ---- */
 .field-validation-error {
