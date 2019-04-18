@@ -1,5 +1,5 @@
 ﻿body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 li.nav-item {
@@ -14,6 +14,7 @@ li.nav-item {
 
 .carousel-caption h2 {
     font-size: 5rem;
+    color: #000000;
 }
 
 .card img {
@@ -38,6 +39,7 @@ li.nav-item {
     color: #000000;
     font-weight: 800;
     font-style: normal;
+    margin-bottom: 0.4em;
 }
 
 p.lead {
@@ -76,14 +78,18 @@ a.link_arrow:after, button.link_arrow:after {
 }
 
 h1 {
-    font-size: 5rem !important;
+    font-size: 3.6rem !important;
+    line-height: 3.8rem !important;
     font-weight: 700 !important;
+    color: #000000;
+    margin-bottom: 0.6em;
 }
 
 h3 {
     font-size: 28px !important;
     line-height: 32px !important;
     font-weight: 700 !important;
+    color: #000000;
 }
 
 h4 {
@@ -91,30 +97,25 @@ h4 {
 }
 
 p {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 30px;
     font-weight: 300;
     color: #000000;
 }
 
-p a{
-    color: #19a5a2;
-    text-decoration: underline;
-    font-weight: 700;
-}
+    p a {
+        color: #19a5a2;
+        text-decoration: underline;
+        font-weight: 700;
+    }
 
-p a:hover {
-    text-decoration: underline;
-    color: #000000;
-}
+        p a:hover {
+            text-decoration: underline;
+            color: #000000;
+        }
 
-/* --- forms ---- */
-.field-validation-error {
-    color: red;
-}
-
-.hidden {
-    display: none;
+.bg-light {
+    background-color: #ffffff !important;
 }
 
 footer {
@@ -133,6 +134,15 @@ footer {
         padding-bottom: 10px;
     }
 
+/* --- forms ---- */
+.field-validation-error {
+    color: #fe2911;
+}
+
+.hidden {
+    display: none;
+}
+
 .form-signin .col-sm-6 {
     width: 100%;
     flex: 0 0 100%;
@@ -140,11 +150,10 @@ footer {
     margin-left: -15px;
 }
 
-
 .btn-primary {
     color: #fff;
-    background-color: #17a2b8;
-    border-color: #17a2b8;
+    background-color: #19a5a2;
+    border-color: #19a5a2;
 }
 
 main > .container {
