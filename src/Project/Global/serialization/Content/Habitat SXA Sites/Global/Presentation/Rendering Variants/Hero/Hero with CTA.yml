@@ -1,13 +1,27 @@
 ﻿---
-ID: "caae59c1-e32f-4f59-b806-8f77b1406b36"
-Parent: "c7a7e725-bc84-45ae-ad50-0659f9ab7f98"
-Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
-Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Hero/Default/Hero Wrapper
+ID: "769c46b4-9f16-4cdf-9dd8-d56c4afab221"
+Parent: "b1ed9a6a-b0bc-4d47-a225-d1939b45065b"
+Template: "fb3e3034-33f8-4ce8-be98-dd05010f4c22"
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Hero/Hero with CTA
 DB: master
 SharedFields:
-- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
+- ID: "087c0553-9162-41f5-98d3-87eb0d80edbb"
+  Hint: Compatible Renderings
+  Type: TreelistEx
+  Value: 
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{376B29BD-A31A-468F-9587-C593763F9B2B}" />
+- ID: "e1d5adba-8348-4127-9bb6-455936653839"
   Hint: CssClass
-  Value: "hero-wrapper"
+  Value: "promo promo-hero"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -15,7 +29,11 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171115T185925Z
+      Value: 20171027T191711Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -39,7 +57,7 @@ Languages:
       Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171115T185925Z
+      Value: 20171027T191711Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: 
@@ -49,7 +67,7 @@ Languages:
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\admin
+        sitecore\virtualssuser
     - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
       Hint: __Content Test
       Value: 
@@ -64,14 +82,3 @@ Languages:
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-- Language: "ja-JP"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180619T170009Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous

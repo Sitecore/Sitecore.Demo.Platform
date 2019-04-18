@@ -1,13 +1,16 @@
 ﻿---
-ID: "caae59c1-e32f-4f59-b806-8f77b1406b36"
-Parent: "c7a7e725-bc84-45ae-ad50-0659f9ab7f98"
-Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
-Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Hero/Default/Hero Wrapper
+ID: "1efa1bf0-2bc3-46f3-bbd7-5e817812d429"
+Parent: "caae59c1-e32f-4f59-b806-8f77b1406b36"
+Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Hero/Default/Hero Wrapper/Image
 DB: master
 SharedFields:
-- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
+- ID: "4753764c-c05a-4623-841b-97f85135241c"
+  Hint: FieldName
+  Value: HeroImage
+- ID: "7495124d-09b5-4cb3-b4a6-fe77a95827da"
   Hint: CssClass
-  Value: "hero-wrapper"
+  Value: "field-promoicon"
 Languages:
 - Language: en
   Versions:
@@ -15,7 +18,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171115T185925Z
+      Value: 20171115T185936Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -37,9 +40,12 @@ Languages:
       Hint: __Final Renderings
       Type: Layout
       Value: 
+    - ID: "15867cb6-e128-4d78-9d4f-739e5963dfc4"
+      Hint: Suffix
+      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171115T185925Z
+      Value: 20171115T185936Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: 
@@ -64,14 +70,6 @@ Languages:
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-- Language: "ja-JP"
-  Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20180619T170009Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        extranet\Anonymous
+    - ID: "fd5230d8-e68d-4e17-9d85-ea676f27ac3a"
+      Hint: Prefix
+      Value: 
