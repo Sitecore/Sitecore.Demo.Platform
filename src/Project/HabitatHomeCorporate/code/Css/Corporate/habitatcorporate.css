@@ -15,6 +15,11 @@ li.nav-item {
 .carousel-caption h2 {
     font-size: 5rem;
     color: #000000;
+    font-weight: 700;
+}
+
+.carousel-item p.lead {
+    color: #000000;
 }
 
 .card img {
@@ -29,8 +34,12 @@ li.nav-item {
     background-color: #f3f6f9;
 }
 
+.jumbotron h1 {
+    margin-top: 0;
+}
+
 .featurette {
-    margin-bottom: 1em;
+    margin-bottom: 2rem;
 }
 
 .featurette-heading {
@@ -83,6 +92,7 @@ h1 {
     font-weight: 700 !important;
     color: #000000;
     margin-bottom: 0.6em;
+    margin-top: 0.6em;
 }
 
 h3 {
@@ -114,6 +124,7 @@ p {
             color: #000000;
         }
 
+
 .bg-light {
     background-color: #ffffff !important;
 }
@@ -132,6 +143,10 @@ footer {
 
     footer .container {
         padding-bottom: 10px;
+    }
+
+    footer small {
+        font-size: 70%;
     }
 
 /* --- forms ---- */
