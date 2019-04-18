@@ -2,7 +2,7 @@
 ID: "72cdc2fc-a784-492c-988f-196d7be7208c"
 Parent: "9798eab2-8a32-40ae-82e0-992703ced6d3"
 Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
-Path: "/sitecore/content/Habitat Sites/Habitat Home Basic/home/on-the-go-devices/Data/Promo - Stay Charged"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home Basic/home/on-the-go-devices/Data/Promo - Stay Charged"
 DB: master
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
@@ -33,7 +33,7 @@ Languages:
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link text="Shop all Accessories" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{BC2BE67B-632A-4368-BED6-5FF55D1251C2}" />
+        <link linktype="internal" text="Shop all Accessories" querystring="" target="" id="{BC2BE67B-632A-4368-BED6-5FF55D1251C2}" />
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -94,7 +94,7 @@ Languages:
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link id="{10083CA0-5093-4D67-99DB-2579ABB421D3}" querystring="" text="Shop all Accessories" anchor="" title="" class="" url="/Habitat Sites/Habitat Home/home" linktype="internal" />
+        <link linktype="internal" text="Shop all Accessories" querystring="" target="" id="{BC2BE67B-632A-4368-BED6-5FF55D1251C2}" />
     - ID: "b8f42732-9cb8-478d-ae95-07e25345fb0f"
       Hint: __Hide version
       Type: checkbox

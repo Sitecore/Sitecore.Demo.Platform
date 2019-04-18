@@ -2,7 +2,7 @@
 ID: "9fb57687-34b9-4ede-ab36-5b4eb10e2a12"
 Parent: "1a276777-ec63-41ae-a762-1b108d455479"
 Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
-Path: "/sitecore/content/Habitat Sites/Habitat Home/home/gaming/Data/Promo - Expand Your Gaming"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home/home/gaming/Data/Promo - Expand Your Gaming"
 DB: master
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
@@ -33,7 +33,7 @@ Languages:
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link id="{9307E44A-9397-4D0A-8E55-9A0152E3520C}" querystring="" text="Shop All Subscriptions" anchor="" title="" class="" url="/Habitat Sites/Habitat Home/home/gaming" linktype="internal" />
+        <link linktype="internal" text="Shop All Subscriptions" querystring="" target="" id="{9307E44A-9397-4D0A-8E55-9A0152E3520C}" />
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -94,7 +94,7 @@ Languages:
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link id="{9307E44A-9397-4D0A-8E55-9A0152E3520C}" querystring="" text="Shop All Subscriptions" anchor="" title="" class="" url="/Habitat Sites/Habitat Home/home/gaming" linktype="internal" />
+        <link linktype="internal" text="Shop All Subscriptions" querystring="" target="" id="{9307E44A-9397-4D0A-8E55-9A0152E3520C}" />
     - ID: "b8f42732-9cb8-478d-ae95-07e25345fb0f"
       Hint: __Hide version
       Type: checkbox

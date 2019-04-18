@@ -2,23 +2,27 @@
 ID: "f53d5ded-a5b1-4952-a14a-946f2a96481d"
 Parent: "658e89f6-3f0c-4072-88ca-50ce81757a9d"
 Template: "142e5fc1-ec62-4540-bad9-cd88f337cd2e"
-Path: /sitecore/content/Habitat Sites/Habitat Home/Data/Carousels/Smart and Connected Carousel/Slide1
+Path: /sitecore/content/Habitat SXA Sites/Habitat Home/Data/Carousels/Smart and Connected Carousel/Slide1
 DB: master
 SharedFields:
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{B8AB7438-FF88-41A2-B0FD-493FB644E1B2}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          ds="/sitecore/content/Habitat Sites/Habitat Home/Data/Carousels/Home Entertainment Carousel/Slide1"
-          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
-          par="FieldNames=%7B7C5FEDFB-F002-4136-99B0-5ED23040938B%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
-          ph="section-content"
-          uid="{3571AE66-F89F-4804-8290-A58E5C2C90ED}" />
+          uid="{CB7B1C66-77F9-45E4-9AA3-12AC3E1EDF5A}">
+          <p:d />
+        </r>
+        <r
+          uid="{3571AE66-F89F-4804-8290-A58E5C2C90ED}"
+          s:ds="{8803C4D9-9FCB-494D-8AA0-A91D5A29C952}"
+          s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B7C5FEDFB-F002-4136-99B0-5ED23040938B%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="section-content" />
       </d>
     </r>
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
