@@ -9,7 +9,7 @@
         {
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow">
-                    @Html.Sitecore().Edit(component, c => c.Image, new {@class = "card-img-top", mw = "500"})
+                    @Html.Sitecore().Edit(component, c => c.Image, new { @class = "card-img-top", mw = "500" })
                     <div class="card-body text-center">
                         @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(component.Title))
                         {
@@ -19,7 +19,10 @@
                         {
                             <div class="card-text text-black-50">@Html.Sitecore().Edit(component, c => c.Subtitle)</div>
                         }
-                        <a href="@component.Url" class="btn btn-info link_arrow">
+                    </div>
+                    <div class="card-body text-center">
+
+                        <a href="@component.TargetPage.Url" class="link_arrow">
                             @Html.Sitecore().Dictionary("/Buttons/Read More", "Read More")
                         </a>
                     </div>

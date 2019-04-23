@@ -84,6 +84,11 @@ a.link_arrow:after, button.link_arrow:after {
     transition: margin .1s ease;
 }
 
+a.link_arrow:not(.btn) {
+    color: #232323;
+    font-weight: 600;
+}
+
 .nav-link {
     color: #000000 !important;
     font-weight: 700;
