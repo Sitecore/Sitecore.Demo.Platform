@@ -48,6 +48,12 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
             return View(Component);
         }
 
+        public ViewResult Breadcrumb()
+        {
+
+            return View(Component);
+        }
+
         public ViewResult OurTeam()
         {
             return View(Component);

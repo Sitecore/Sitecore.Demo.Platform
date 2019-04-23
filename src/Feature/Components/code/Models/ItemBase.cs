@@ -17,7 +17,6 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
 
         private Item _item;
 
-
         public Item Item
         {
             get => _item;
@@ -42,7 +41,6 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
 
             return children;
         }
-
 
         protected void SetProperties()
         {
@@ -87,7 +85,6 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
                 }
         }
     }
-
 
     //todo: move to Foundation.SitecoreExtensions
     public static class SitecoreHelperExtensions
