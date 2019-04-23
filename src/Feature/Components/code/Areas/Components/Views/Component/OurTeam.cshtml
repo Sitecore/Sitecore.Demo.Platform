@@ -1,4 +1,5 @@
 ﻿@using Sitecore.HabitatHome.Feature.Components.Models
+@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
 @model Component
 
 
@@ -18,9 +19,9 @@
                         {
                             <div class="card-text text-black-50">@Html.Sitecore().Edit(component, c => c.Subtitle)</div>
                         }
-                        @*<a href="@component.Url" class="btn btn-info link_arrow">
+                        <a href="@component.Url" class="btn btn-info link_arrow">
                             @Html.Sitecore().Dictionary("/Buttons/Read More", "Read More")
-                        </a>*@
+                        </a>
                     </div>
                 </div>
             </div>
