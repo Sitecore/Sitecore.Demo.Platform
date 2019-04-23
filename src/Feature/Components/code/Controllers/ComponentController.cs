@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using Sitecore.Data.Items;
 using Sitecore.HabitatHome.Feature.Components.Models;
 using Sitecore.Mvc.Presentation;
@@ -50,8 +51,15 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
 
         public ViewResult Breadcrumb()
         {
+            var navigationItems = GetBreadcrumbItems();
+            return View("~/Areas/Components/Views/Component/Breadcrumb.cshtml", navigationItems);
+        }
 
-            return View(Component);
+        private List<NavigationItem> GetBreadcrumbItems()
+        {
+            var list = new List<NavigationItem>();
+
+            return new List<NavigationItem>();
         }
 
         public ViewResult OurTeam()
