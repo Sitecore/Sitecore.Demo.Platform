@@ -15,50 +15,50 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{411E4948-E7F2-4D86-BEAD-451F79D83BCF}">
         <r
-          uid="{D44182C7-844C-4572-82F2-EDFD4E72556D}"
-          s:ds="{8A33684A-7711-4445-A119-BD1EFEC890B6}"
-          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
-          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3E6E7D0C-2472-4157-B4C8-F920504A4196%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          s:ph="section-content">
+          ds="/sitecore/content/Habitat SXA Sites/Habitat Home/home/guides/ten-minute-home-workouts"
+          id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="section-content"
+          uid="{D44182C7-844C-4572-82F2-EDFD4E72556D}">
           <rls>
             <ruleset>
               <rule
                 uid="{1BF5A050-1CC4-4881-8C25-5F9950AAA180}"
-                s:name="Cooking">
+                name="Cooking">
                 <conditions>
                   <or
                     uid="5E3799AFCAFE4EC5A53734586718C368">
                     <condition
                       uid="22CEACA85B8E4CAE8F77E390C22B7585"
-                      s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
-                      s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
-                      s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
+                      id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                      CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                      ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
                     <condition
                       uid="5D7FA8E1DC834D72A1FC422B14E471F7"
-                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      s:ProfileName="Topic Interest Category"
-                      s:PatternName="Cooking" />
+                      id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      ProfileName="Topic Interest Category"
+                      PatternName="Cooking" />
                   </or>
                 </conditions>
                 <actions>
                   <action
                     uid="6489A60FFF1A4B0780B553A6C902DD20"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="{B5684B40-75E9-4FE6-912F-2D1C8D761AF2}" />
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    DataSource="{B5684B40-75E9-4FE6-912F-2D1C8D761AF2}" />
                 </actions>
               </rule>
               <rule
                 uid="{00000000-0000-0000-0000-000000000000}"
-                s:name="Default">
+                name="Default">
                 <conditions>
                   <condition
                     uid="5CCCAA9FC0B9429B9D01C0180F1D2B0F"
-                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
                 </conditions>
                 <actions />
               </rule>
