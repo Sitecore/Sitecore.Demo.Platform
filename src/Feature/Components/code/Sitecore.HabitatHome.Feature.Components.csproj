@@ -90,6 +90,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Templates.cs" />
     <Content Include="Areas\Components\Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -117,10 +118,9 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\BreadcrumbItem.cs" />
     <Compile Include="Models\CarouselModel.cs" />
     <Compile Include="Models\CarouselSlideModel.cs" />
-    <Compile Include="Models\NavigationItem.cs" />
-    <Compile Include="Models\NavigationItems.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Site.cs" />
     <Compile Include="Models\ItemBase.cs" />
