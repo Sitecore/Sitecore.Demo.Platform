@@ -125,8 +125,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\Foundation\Foundation.SitecoreExtensions.config" />
-    <Content Include="App_Config\Include\Foundation\Foundation.SitecoreExtensions.Serialization.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -141,9 +139,6 @@
     <Compile Include="Attributes\SkipAnalyticsTrackingAttribute.cs" />
     <Compile Include="Attributes\ValidateRenderingIdAttribute.cs" />
     <Compile Include="Controls\EditFrameRendering.cs" />
-    <Compile Include="Controls\ExtendedGeneralLink.cs" />
-    <Compile Include="Controls\RelativePathForm.cs" />
-    <Compile Include="Pipelines\RenderField\RenderRelativeLink.cs" />
     <Compile Include="Extensions\FieldExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
@@ -160,9 +155,6 @@
       <Project>{fa1eee78-e6d6-4b63-a126-5f470624efee}</Project>
       <Name>Sitecore.HabitatHome.Foundation.DependencyInjection</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="sitecore\shell\Applications\Dialogs\RelativePathLink\RelativePathLink.xml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
