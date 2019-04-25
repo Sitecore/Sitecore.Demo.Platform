@@ -18,19 +18,7 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
         public ImageField ImageField { get; set; }
 
 
-
-        public Site Site
-        {
-            get
-            {
-                if (site == null)
-                {
-                    site = new Site();
-                }
-                return site;
-            }
-        }
-
+        public Site Site => site ?? (site = new Site());
 
 
         //todo: use Foundation.SitecoreExtensions to resolve link field
@@ -38,16 +26,10 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
         {
             get
             {
-                string url = TargetPage?.Url;
+                var url = TargetPage?.Url;
 
-                if (string.IsNullOrEmpty(url))
-                {
-                    url = TargetUrl;
-                }
-                if (string.IsNullOrEmpty(url))
-                {
-                    url = LinkManager.GetItemUrl(Item);
-                }
+                if (string.IsNullOrEmpty(url)) url = TargetUrl;
+                if (string.IsNullOrEmpty(url)) url = LinkManager.GetItemUrl(Item);
 
                 return url;
             }
