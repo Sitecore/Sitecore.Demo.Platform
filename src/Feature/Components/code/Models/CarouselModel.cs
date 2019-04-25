@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Models;
 
 namespace Sitecore.HabitatHome.Feature.Components.Models
 {

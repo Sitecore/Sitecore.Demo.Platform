@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Reflection;
-using System.Web;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
-using Sitecore.Mvc.Helpers;
 
-namespace Sitecore.HabitatHome.Feature.Components.Models
+namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Models
 {
     public class ItemBase
     {
@@ -83,34 +80,6 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
                         prop.SetValue(this, ib);
                     }
                 }
-        }
-    }
-
-    //todo: move to Foundation.SitecoreExtensions
-    public static class SitecoreHelperExtensions
-    {
-        public static HtmlString Edit<TBase, TProp>(this SitecoreHelper sitecoreHelper,
-            TBase itemBase, Expression<Func<TBase, TProp>> property, object parameters = null) where TBase : ItemBase
-        {
-            var type = typeof(TBase);
-
-            var member = property.Body as MemberExpression;
-            if (member == null)
-                return null;
-
-            var propInfo = member.Member as PropertyInfo;
-            if (propInfo == null)
-            {
-                var func = property.Compile();
-                return new HtmlString(func(itemBase).ToString());
-            }
-
-            if (type != propInfo.ReflectedType &&
-                !type.IsSubclassOf(propInfo.ReflectedType))
-                throw new ArgumentException(
-                    $"Expression '{property}' refers to a property that is not from type {type.FullName}.");
-
-            return sitecoreHelper.Field(propInfo.Name, itemBase.Item, parameters);
         }
     }
 }
