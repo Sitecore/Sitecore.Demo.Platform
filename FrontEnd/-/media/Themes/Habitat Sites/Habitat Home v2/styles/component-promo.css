@@ -677,7 +677,8 @@
 
 .promo.category-hero {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 8em;
+  padding-bottom: 8em;
 }
 
 .promo.category-hero > .component-content {
@@ -697,12 +698,15 @@
 
 .promo.category-hero .widget-background {
   height: 100%;
-  position: absolute;
+  position: relative;
 }
 
 .promo.category-hero .widget-content {
-  position: relative;
-  z-index: 100;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 5em;
 }
 
 .promo.category-hero .field-heroimage {
@@ -794,6 +798,7 @@
   .promo.category-hero .hero-content {
     position: relative;
     margin-left: 35%;
+    font-weight: 300;
   }
 }
 

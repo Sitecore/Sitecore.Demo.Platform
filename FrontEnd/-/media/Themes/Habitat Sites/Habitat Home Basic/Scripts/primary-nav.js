@@ -5,7 +5,7 @@
             $mainSearch = $primaryNav.find('.main-search'),
             $megadrop = $primaryNav.find('.megadrop');
 
-        initPrimaryNavItem($mainSearch);
+        initMainSearch($mainSearch);
         initPrimaryNavItem($megadrop);
 
 
@@ -15,16 +15,23 @@
             }
         });
 
-        function initPrimaryNavItem($navItem) {            
-            $navItem.click(function(){            
-                openPrimaryNavItem($(this));
+        function initMainSearch($item) {
+            $item.click(function(){            
+                openItem($(this));
             });
-            $navItem.find('>.component-content').click(function(e){
+        }
+
+        function initPrimaryNavItem($item) {            
+            $item.click(function(){            
+                openItem($(this));
+            });
+
+            $item.find('>.component-content').click(function(e){
                 e.stopPropagation();
             });
         }
 
-        function openPrimaryNavItem($navItem) {
+        function openItem($navItem) {
             var isOpen = $navItem.hasClass('open');
             $primaryNav.find('.open').removeClass('open');            
             
