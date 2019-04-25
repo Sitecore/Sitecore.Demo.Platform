@@ -18,7 +18,7 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
             {
                 if (component == null)
                 {
-                    var item = DataSourceItem ?? Context.Item;
+                    var item = DataSourceItem ?? global::Sitecore.Context.Item;
                     component = new Component {Item = item};
                 }
 

@@ -39,7 +39,30 @@ Languages:
     - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
       Hint: __Final Renderings
       Type: Layout
-      Value: 
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{009CDA78-6A9C-4760-B709-D15830E3F957}"
+              p:after="r[@uid='{60E53684-297B-4233-94F8-34569EAC8E9C}']"
+              s:ds="{A047E2FB-1FCF-4773-8034-D09ACB8CA361}"
+              s:id="{8D51406F-7CF1-4D80-85F5-0295AAB7EAFA}"
+              s:par=""
+              s:ph="hh-content-main" />
+            <r
+              uid="{BA0C0627-7D47-4238-9264-D22BF118CD1A}"
+              p:after="r[@uid='{009CDA78-6A9C-4760-B709-D15830E3F957}']"
+              s:ds="{83AFE3FD-1913-4CA0-8DFD-9953988BE393}"
+              s:id="{ACF7578F-037A-419F-9FB7-EE825462081A}"
+              s:par=""
+              s:ph="hh-content-main" />
+            <r
+              uid="{34E7E66B-AB4D-4830-B5E4-D318BAAB2C52}"
+              p:after="r[@uid='{BA0C0627-7D47-4238-9264-D22BF118CD1A}']" />
+          </d>
+        </r>
     - ID: "1d80163d-001a-49dc-bb59-d457bab7decc"
       Hint: Content
       Value: |
