@@ -2,7 +2,7 @@
 ID: "bca727fe-ed01-4d6d-bb09-337f1fb0bbd9"
 Parent: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
 Template: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
-Path: /sitecore/templates/Project/Habitat Sites/Habitat Home Corporate/Pages/Page/__Standard Values
+Path: /sitecore/templates/Project/Habitat Standard Sites/Habitat Home Corporate/Pages/Page/__Standard Values
 DB: master
 SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
@@ -18,28 +18,13 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{7D197C33-3B86-4973-B6C2-AC9A2C4EE6F2}">
         <r
-          ds="{CF5BF1B9-4A1F-41F9-9F6A-737DD889D931}"
+          ds="{B54CA801-9D76-4004-840F-E7E06D0350BA}"
           id="{5362A7A8-C270-4B18-83E9-22ACFD02C616}"
           par=""
-          ph="hh-content-header"
+          ph="hh-corporate-content-header"
           uid="{34E7E66B-AB4D-4830-B5E4-D318BAAB2C52}">
           <rls>
             <ruleset>
-              <rule
-                name="Anonymous"
-                uid="{933936BD-A11D-43E5-94DF-B954C6AEF7A4}">
-                <conditions>
-                  <condition
-                    id="{EA0642FA-500B-4B2F-B264-765E771C516F}"
-                    uid="D95CF69A031B45EEBDC45D81BFA91E0E" />
-                </conditions>
-                <actions>
-                  <action
-                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    uid="4C54F798C52149FBA09884659530D1C0"
-                    DataSource="{7E2C85C4-4A2B-4F3D-A164-F4455F9098AD}" />
-                </actions>
-              </rule>
               <rule
                 uid="{00000000-0000-0000-0000-000000000000}"
                 name="Default">
@@ -83,6 +68,20 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{3F34116B-A795-4609-B22D-983EFF6F4B31}">
+              <p:d />
+            </r>
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20181226T161323Z
