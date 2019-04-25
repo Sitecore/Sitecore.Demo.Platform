@@ -17,9 +17,7 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
         public MediaItem Image { get; set; }
         public ImageField ImageField { get; set; }
 
-
         public Site Site => site ?? (site = new Site());
-
 
         //todo: use Foundation.SitecoreExtensions to resolve link field
         public string Url

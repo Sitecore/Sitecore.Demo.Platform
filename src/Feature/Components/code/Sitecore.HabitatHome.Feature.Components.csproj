@@ -90,6 +90,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Templates.cs" />
     <Content Include="Areas\Components\Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -105,6 +106,7 @@
     <Content Include="Areas\Components\Views\Component\PageTitle.cshtml" />
     <Content Include="Areas\Components\Views\Component\CenteredHeading.cshtml" />
     <Content Include="Areas\Components\Views\Component\OurTeam.cshtml" />
+    <Content Include="Areas\Components\Views\Component\Breadcrumb.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -116,6 +118,7 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\BreadcrumbItem.cs" />
     <Compile Include="Models\CarouselModel.cs" />
     <Compile Include="Models\CarouselSlideModel.cs" />
     <Compile Include="Models\Settings.cs" />
