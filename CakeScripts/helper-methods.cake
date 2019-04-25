@@ -77,8 +77,10 @@ public void PrintHeader(ConsoleColor foregroundColor)
 }
 
 public void PublishProjects(string rootFolder, string publishRoot)
-{
-    var projects = GetFiles($"{rootFolder}\\**\\code\\*.csproj");
+{ 
+	Func<IFileSystemInfo, bool> excludes = fileSystemInfo => !fileSystemInfo.Path.FullPath.Contains("CRM");
+
+    var projects = GetFiles($"{rootFolder}\\**\\code\\*.csproj", excludes);
     Information("Publishing " + rootFolder + " to " + publishRoot);
     foreach (var project in projects)
     {
