@@ -1,0 +1,14 @@
+﻿@using Sitecore.HabitatHome.Feature.Components.Models
+@model Sitecore.HabitatHome.Feature.Components.Models.Metadata
+
+@if (!string.IsNullOrEmpty(Model.MetadataDescription))
+{
+    <meta name="description" content="@Model.MetadataDescription">
+}
+@if (!string.IsNullOrEmpty(Model.MetadataKeywords))
+{
+    <meta name="keywords" content="@Model.MetadataKeywords">
+}
+
+@*Browser title gets suffixed with the title of the site*@
+<title>@Model.MetadataTitle - @(new Site().GetSettings<Settings>().Title)</title>

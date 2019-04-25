@@ -90,6 +90,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Metadata.cs" />
     <Compile Include="Templates.cs" />
     <Content Include="Areas\Components\Views\Web.config">
       <SubType>Designer</SubType>
@@ -107,6 +108,7 @@
     <Content Include="Areas\Components\Views\Component\CenteredHeading.cshtml" />
     <Content Include="Areas\Components\Views\Component\OurTeam.cshtml" />
     <Content Include="Areas\Components\Views\Component\Breadcrumb.cshtml" />
+    <Content Include="Areas\Components\Views\Component\Metadata.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
