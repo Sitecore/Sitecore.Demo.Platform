@@ -18,7 +18,7 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
             {
                 if (component == null)
                 {
-                    var item = DataSourceItem ?? global::Sitecore.Context.Item;
+                    var item = DataSourceItem ?? Context.Item;
                     component = new Component {Item = item};
                 }
 
@@ -48,6 +48,12 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
         public ViewResult CardContainer()
         {
             return View(Component);
+        }
+
+        public ViewResult Metadata()
+        {
+            var metadata = new Metadata {Item = Context.Item};
+            return View(metadata);
         }
 
         public ViewResult Breadcrumb()
