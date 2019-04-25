@@ -14,6 +14,7 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
         public string Lead { get; set; }
         public string Content { get; set; }
         public Component TargetPage { get; set; }
+        public LinkField TargetPageField { get; set; }
         public string TargetUrl { get; set; }
         public MediaItem Image { get; set; }
         public ImageField ImageField { get; set; }

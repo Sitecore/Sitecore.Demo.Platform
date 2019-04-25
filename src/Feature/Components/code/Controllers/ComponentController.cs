@@ -128,5 +128,15 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
         {
             return View(Component);
         }
+
+        public ViewResult LeftImageCTA()
+        {
+            return View(Component);
+        }
+
+        public ViewResult RightImageCTA()
+        {
+            return View(Component);
+        }
     }
 }

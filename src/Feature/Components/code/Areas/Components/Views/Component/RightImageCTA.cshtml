@@ -1,0 +1,25 @@
+﻿@using Sitecore.HabitatHome.Feature.Components.Models
+@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@model Component
+<div class="container">
+    <div class="row image-cta">
+        <div class="col-sm-6 order-sm-1 py-5">
+            <h2>
+                @Html.Sitecore().Edit(Model, m => m.Title)
+            </h2>
+            <p class="lead">
+                @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(Model.Content))
+                {
+                    @Html.Sitecore().Edit(Model, m => m.Content)
+                }
+            </p>
+            <a href="@Model.TargetUrl" class="link_arrow">
+                @Html.Sitecore().Dictionary("/Buttons/Read More", "Read More")
+            </a>
+        </div>
+        <div class="col-sm-6 order-sm-2 no-padding-right">
+            @Html.Sitecore().Edit(Model, m => m.Image, new { mw = 500 })
+        </div>
+    </div>
+</div>
