@@ -1,0 +1,18 @@
+﻿@model  Sitecore.HabitatHome.Feature.Media.Models.VideoViewModel
+<div class="container">
+    <div class="embed-responsive embed-responsive-16by9">
+        @if (!string.IsNullOrEmpty(Model.VideoEmbed))
+        {
+            @Html.Raw(Model.VideoEmbed)
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(Model.VideoFile))
+            {
+                <video controls>
+                    <source src="@Model.VideoFileSrc" type="video/mp4">
+                </video>
+            }
+        }
+    </div>
+</div>

@@ -2,12 +2,12 @@
 ID: "b6e53807-4887-4f93-8b59-ef053743fe1c"
 Parent: "7e2c85c4-4a2b-4f3d-a164-f4455f9098ad"
 Template: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
-Path: /sitecore/content/Habitat Home Corporate/Home/Personal
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Home/Personal
 DB: master
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 50
+  Value: 100
 - ID: "d55e08ce-f57d-4eff-997c-e9f09c982f74"
   Hint: Image
   Value: |
@@ -33,6 +33,13 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: Personal
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: 
     - ID: "1d80163d-001a-49dc-bb59-d457bab7decc"
       Hint: Content
       Value: |
@@ -62,3 +69,47 @@ Languages:
     - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
       Hint: Title
       Value: Personal
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: パーソナル
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: パーソナル
+    - ID: "1d80163d-001a-49dc-bb59-d457bab7decc"
+      Hint: Content
+      Value: |
+        <p>あなたが住宅所有権を持っている場所、またはあなたが住宅購入プロセスのどこにいるかに関係なく、私たちの専門家向け融資プログラムはあなたがあなたの夢の家に入るのを助けるためにここにあります。生息地は、お客様が適切な住宅ローン商品を見つける手助けを専門としています。あなたが初めての住宅購入者であろうと、引っ越しを考えている既存の住宅所有者であろうと、私たちは助けることができます。私たちはさまざまな住宅ローンのオプションと、あなたのニーズに特に合った競争力のある住宅ローンの利率を提供しています。私たちはあなたの家の購入を簡単なプロセスにするのを助けるためにここにいます。以下は、住宅ローン商品の一部です。</p>
+        <h3>住宅購入ローン</h3>
+        <ul>
+            <li>固定金利および変動金利の住宅ローン</li>
+            <li>新建ローン</li>
+            <li>FHAとVAの住宅ローン</li>
+            <li>低額支払いオプション</li>
+        </ul>
+        <h3>借り換えローン</h3>
+        <ul>
+            <li>固定金利および変動金利の住宅ローン</li>
+            <li>FHAとVAの住宅ローン</li>
+            <li>住宅手ごろな価格の借り換えプログラム (HARP)</li>
+        </ul>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190409T150044Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "943718f7-e179-4f1d-954f-3c9482c3bc3d"
+      Hint: Subtitle
+      Value: あなたの夢を現実にします。
+    - ID: "d52da1c6-36b8-4770-8dab-d092b266060b"
+      Hint: Lead
+      Value: ハビタットファイナンシャルでは、あなたの夢を手の届くところに届けるためにあなたが責任を持って信用の力を利用できるようお手伝いすることができます。
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: パーソナル

@@ -96,7 +96,7 @@ The following is a list of default values / assumptions for settings (`cake-conf
 | BuildConfiguration 	| 'Debug/Release' point to NuGet, 'Local' copies DLLs from an existing installation 	| Debug
 | DeploymentTarget  	| Local/OnPrem/Azure - see below for details 											| Local
 | DeployFolder 			| Used for WDP generation and Azure deployments 										| C:\\deploy
-| Version 				| Version of Sitecore being targeted. Must match official 3-digit version 				| 9.1.0
+| Version 				| Version of Sitecore being targeted. Must match official 3-digit version 				| 9.1.1
 | Topology 				| Target topology for WDP creation and Azure deployment. Values are single or scaled 	| single
 | CDN 					| Content Delivery Network enabled (true/false). Used only when deploying to Azure 		| false
 
@@ -129,7 +129,7 @@ It is now possible to build, package and depoy to Azure (PaaS) with one command.
 #### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping). 
 
 If you do not use habitathome.dev.local you will need to modify the Host Name in 
-`/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
+`/sitecore/content/Habitat SXA Sites/Habitat Home/Settings/Site Grouping/Habitat Home` after successfully deploying the site.
 The Habitat Home site will not respond / render correctly until this value is modified. 
 
 If you do **not want to use the default settings**, you need to adjust the appropriate values in `cake-config.json` file based on the values described earlier.
@@ -156,7 +156,7 @@ From the root of the solution
 
 1. Browse to https://habitathome.dev.local (or whatever hostname you selected)
 	1. You should see the Habitat Home landing page with a full-width carousel
-	2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that your Host Name was configured correctly in `/sitecore/content/Habitat Sites/Habitat Home/Settings/Site Grouping/Habitat Home` and that the site has published successfully 
+	2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that your Host Name was configured correctly in `/sitecore/content/Habitat SXA Sites/Habitat Home/Settings/Site Grouping/Habitat Home` and that the site has published successfully 
 
 
 ## Additional Settings
@@ -178,7 +178,7 @@ The process of creating a WDP of Habitat Home and its xConnect project is quite 
 A few settings are important in the `cake-config.json` file:
 - **DeploymentTarget**: Set to **OnPrem** for deploying locally or in Azure IaaS. Set to **Azure** for PaaS deployments
 - **DeployFolder**: Temporary location where work will be performed. Defaults to c:\deploy	
-- **Version**:	Version of Sitecore being targeted. Must match official 3-digit version	9.1.0 and of course the Habitat Home target version you're working with.
+- **Version**:	Version of Sitecore being targeted. Must match official 3-digit version	9.1.1 and of course the Habitat Home target version you're working with.
 - **Topology**: Values are **single** (XP0/XPSingle) or **scaled** (XP1/XPScaled)
 - **CDN**: Configure the WDP to support Content Delivery Network (**true/false**). Used only when deploying to Azure.
 
@@ -187,7 +187,7 @@ Once you got the settings just right, you can call the cake build script and pas
 ```.\build.ps1 -Target Build-WDP -ScriptArgs --DEV_SITECORE_USERNAME=your_e-mail, --DEV_SITECORE_PASSWORD=YourPassword```
 > if you've set DEV_SITECORE_USERNAME and DEV_SITECORE_PASSWORD as environment variables you can omit them from the command line.
 
-Once the process completes, you should have WDPs for HabitatHome as well as xConnect in `<DeployFolder>\9.1.0\XPSingle\assets\HabitatHome\WDPWorkFolder\WDP` and `<DeployFolder>\9.1.0\XPSingle\assets\xConnect\WDPWorkFolder\WDP`
+Once the process completes, you should have WDPs for HabitatHome as well as xConnect in `<DeployFolder>\9.1.1\XPSingle\assets\HabitatHome\WDPWorkFolder\WDP` and `<DeployFolder>\9.1.1\XPSingle\assets\xConnect\WDPWorkFolder\WDP`
 
 You can then install these WDPs using SIF. An [example script](https://github.com/Sitecore/Sitecore.HabitatHome.Utilities/blob/master/XP/install/install-habitathome.ps1) already exists in the [HabitatHome.Utilities](https://github.com/Sitecore/Sitecore.HabitatHome.Utilities/tree/master) repo
 </details>
