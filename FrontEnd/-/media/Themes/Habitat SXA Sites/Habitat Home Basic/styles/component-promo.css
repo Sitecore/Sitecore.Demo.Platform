@@ -501,6 +501,16 @@
 }
 
 .promo.promo-hero .hero-content-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: 0 auto;
   padding: 0 15px;
   max-width: 1300px;
@@ -535,7 +545,10 @@
 }
 
 .promo.promo-hero .field-herosupertitle {
+  font-family: "ProximaNova", arial, helvetica, sans-serif;
+  font-size: 1.25em;
   text-transform: uppercase;
+  color: #262C2B;
 }
 
 .promo.promo-hero .field-herotitle {
@@ -543,6 +556,7 @@
   line-height: 0.9;
   font-weight: bold;
   margin-bottom: 0.25em;
+  color: #fff;
 }
 
 @media only screen and (min-width: 786px) {
@@ -576,7 +590,8 @@
 
 .promo.category-hero {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 8em;
+  padding-bottom: 8em;
 }
 
 .promo.category-hero > .component-content {
@@ -596,12 +611,22 @@
 
 .promo.category-hero .widget-background {
   height: 100%;
-  position: absolute;
+  position: relative;
 }
 
 .promo.category-hero .widget-content {
-  position: relative;
-  z-index: 100;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 5em;
+}
+
+@media only screen and (max-width: 786px) {
+  .promo.category-hero .widget-content {
+    padding-left: 0px;
+    position: relative;
+  }
 }
 
 .promo.category-hero .field-heroimage {
@@ -662,7 +687,14 @@
   }
 }
 
+@media only screen and (max-width: 786px) {
+  .promo.category-hero .hero-image-2 {
+    margin-top: -50%;
+  }
+}
+
 .promo.category-hero .hero-text {
+  height: 580px;
   font-size: 1.25em;
 }
 
@@ -672,7 +704,6 @@
 
 @media only screen and (min-width: 786px) {
   .promo.category-hero .hero-text {
-    height: 500px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -681,7 +712,6 @@
     align-items: flex-end;
     position: relative;
     margin-left: 35%;
-    font-size: 1.5em;
     padding: 0.25em 0;
   }
   .promo.category-hero .hero-text h1, .promo.category-hero .hero-text h2, .promo.category-hero .hero-text h3, .promo.category-hero .hero-text h4 {
@@ -689,15 +719,48 @@
   }
 }
 
+@media only screen and (max-width: 786px) {
+  .promo.category-hero .hero-text {
+    font-size: .75em;
+    color: #262C2B;
+    height: 100%;
+  }
+}
+
 @media only screen and (min-width: 786px) {
   .promo.category-hero .hero-content {
     position: relative;
     margin-left: 35%;
+    font-weight: 300;
   }
 }
 
 .promo.category-hero .field-herotext {
   color: #262C2B;
+}
+
+.promo.image-top .field-heroimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: top;
+  object-position: top;
+  font-family: "object-fit: cover; object-position: top;";
+}
+
+.promo.image-center .field-heroimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  font-family: "object-fit: cover; object-position: center;";
+}
+
+.promo.image-bottom .field-heroimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: bottom;
+  object-position: bottom;
+  font-family: "object-fit: cover; object-position: bottom;";
 }
 
 .on-page-editor .promo-hero .field-promoicon:before {
