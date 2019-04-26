@@ -1,11 +1,14 @@
 ﻿@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
 @using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
 @model Sitecore.HabitatHome.Feature.Components.Models.Component
+@{
+    var defaultReadMoreText = Html.Sitecore().Dictionary("/Buttons/Read More", "Read More");
+}
 
 <div class="container">
     <div class="row image-cta">
         <div class="col-sm-6 order-sm-1 no-padding-left">
-            @Html.Sitecore().Edit(Model, m => m.Image, new { mw = 500})
+            @Html.Sitecore().Edit(Model, m => m.Image, new {mw = 500})
         </div>
         <div class="col-sm-6 order-sm-2 py-5">
             <h2>
@@ -17,9 +20,18 @@
                     @Html.Sitecore().Edit(Model, m => m.Content)
                 }
             </p>
-            <a href="@Model.TargetUrl" class="link_arrow">
-                @Html.Sitecore().Dictionary("/Buttons/Read More", "Read More")
-            </a>
+            @if (Model.TargetUrl != null)
+            {
+                var title = !string.IsNullOrEmpty(Model.TargetUrl.Title) ? Model.TargetUrl.Title : defaultReadMoreText;
+                <a href="@Model.TargetUrl.GetFriendlyUrl()" class="link_arrow" target="@Model.TargetUrl.Target" title="@title">@title</a>
+            }
+            else
+            {
+                if (Model.TargetPage != null)
+                {
+                    <a href="@Model.TargetPage.Url" class="link_arrow">@defaultReadMoreText</a>
+                }
+            }
         </div>
     </div>
 </div>
