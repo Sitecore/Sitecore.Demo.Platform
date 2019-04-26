@@ -20,10 +20,6 @@
     <link rel="stylesheet" href="~/Css/Corporate/component-canvas-sidebar.css">
 
     @Html.Sitecore().Placeholder("hh-head")
-
-    <!--todo: metadata and browser title should be managed by page -->
-    <title>@(new Site().GetSettings<Settings>().Title)</title>
-
     @Html.Sitecore().VisitorIdentification()
     @Html.RenderFormStyles()
     @Html.RenderFormScripts()

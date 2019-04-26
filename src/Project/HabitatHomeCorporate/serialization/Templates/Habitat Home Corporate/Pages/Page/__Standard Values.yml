@@ -5,6 +5,9 @@ Template: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
 Path: /sitecore/templates/Project/Habitat Standard Sites/Habitat Home Corporate/Pages/Page/__Standard Values
 DB: master
 SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/window.png
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
   Hint: __Masters
   Type: TreelistEx
@@ -17,6 +20,10 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{7D197C33-3B86-4973-B6C2-AC9A2C4EE6F2}">
+        <r
+          id="{10C56431-F1A5-4119-AF45-31CB9356BAA1}"
+          ph="hh-head"
+          uid="{990ED74F-6B8C-4176-8973-E81A90BE6ECD}" />
         <r
           ds="{B54CA801-9D76-4004-840F-E7E06D0350BA}"
           id="{5362A7A8-C270-4B18-83E9-22ACFD02C616}"

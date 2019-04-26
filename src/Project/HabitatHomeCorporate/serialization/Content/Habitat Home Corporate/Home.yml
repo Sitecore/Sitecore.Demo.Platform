@@ -156,14 +156,33 @@ Languages:
               uid="{D0552DC4-A984-4F44-9944-8450222C2A3C}">
               <p:d />
             </r>
+            <r
+              uid="{1E5CE039-1D10-4B65-8192-68211F747ED6}"
+              p:after="r[@uid='{817B2CAB-7D1E-4D7B-8607-2DA84D5B5AE6}']" />
+            <r
+              uid="{70E0FE32-36C4-458B-80D4-54CFAC61FEFC}"
+              p:after="r[@uid='{1E5CE039-1D10-4B65-8192-68211F747ED6}']"
+              s:ds="{7C47C563-F763-4B6D-9AFF-AE39D246E82A}"
+              s:id="{C06A32CD-E7F7-491E-99AC-85E843DE00C0}"
+              s:par=""
+              s:ph="hh-content-main" />
           </d>
         </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20181226T161509Z
+    - ID: "60a36bf8-cb0e-40f6-8b5a-834105136988"
+      Hint: MetadataTitle
+      Value: Welcome to Habitat Corporate
     - ID: "943718f7-e179-4f1d-954f-3c9482c3bc3d"
       Hint: Subtitle
       Value: for all needs corporate
+    - ID: "c2d93d35-a2c4-48c6-9f78-f5d2c070bc5c"
+      Hint: MetadataDescription
+      Value: Habitat Home Corporate Demo and the tools and processes in it is a Sitecore solution example built using Standard Sitecore MVC on the Sitecore Experience Platform™ (XP) following the Helix architecture principles.
+    - ID: "cbf151b3-1caa-420e-97cd-e4e585002637"
+      Hint: MetadataKeywords
+      Value: habitat, brands
     - ID: "d52da1c6-36b8-4770-8dab-d092b266060b"
       Hint: Lead
       Value: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.

@@ -67,6 +67,13 @@ namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Models
                             : prop.Name;
                         prop.SetValue(this, (ImageField) _item.Fields[fieldName]);
                     }
+                    else if (prop.PropertyType == typeof(LinkField))
+                    {
+                        var fieldName = prop.Name.Contains("Field")
+                            ? prop.Name.Replace("Field", string.Empty)
+                            : prop.Name;
+                        prop.SetValue(this, (LinkField)_item.Fields[fieldName]);
+                    }
                     else if (typeof(ItemBase).IsAssignableFrom(prop.PropertyType))
                     {
                         ItemBase ib = null;
