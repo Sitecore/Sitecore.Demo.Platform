@@ -1,16 +1,13 @@
 ﻿---
-ID: "f9bf241d-ee8e-4a82-9a0d-10e602271fe1"
-Parent: "93481c51-3929-4fd7-a111-8f08fdea92c6"
-Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
-Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Hero/Default/Hero Wrapper/Text Wrapper/Title
+ID: "11f2c2ed-ade0-4d45-b8d1-773320c39f62"
+Parent: "53320a14-fb61-4d28-b7ea-8e5dbf061fbb"
+Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Hero/Hero with CTA/Hero Wrapper/Text Wrapper
 DB: master
 SharedFields:
-- ID: "4753764c-c05a-4623-841b-97f85135241c"
-  Hint: FieldName
-  Value: HeroTitle
-- ID: "7495124d-09b5-4cb3-b4a6-fe77a95827da"
+- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
   Hint: CssClass
-  Value: "field-promotext2"
+  Value: "hero-content-wrapper"
 Languages:
 - Language: en
   Versions:
@@ -18,7 +15,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171115T190008Z
+      Value: 20171115T185953Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -40,12 +37,9 @@ Languages:
       Hint: __Final Renderings
       Type: Layout
       Value: 
-    - ID: "15867cb6-e128-4d78-9d4f-739e5963dfc4"
-      Hint: Suffix
-      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171115T190008Z
+      Value: 20171115T185953Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: 
@@ -70,16 +64,13 @@ Languages:
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-    - ID: "fd5230d8-e68d-4e17-9d85-ea676f27ac3a"
-      Hint: Prefix
-      Value: 
 - Language: "ja-JP"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190426T200929Z
+      Value: 20180619T170010Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

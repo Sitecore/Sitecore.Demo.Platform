@@ -1,16 +1,27 @@
 ﻿---
-ID: "f9bf241d-ee8e-4a82-9a0d-10e602271fe1"
-Parent: "93481c51-3929-4fd7-a111-8f08fdea92c6"
-Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
-Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Hero/Default/Hero Wrapper/Text Wrapper/Title
+ID: "c7a7e725-bc84-45ae-ad50-0659f9ab7f98"
+Parent: "b1ed9a6a-b0bc-4d47-a225-d1939b45065b"
+Template: "fb3e3034-33f8-4ce8-be98-dd05010f4c22"
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Hero/Default
 DB: master
 SharedFields:
-- ID: "4753764c-c05a-4623-841b-97f85135241c"
-  Hint: FieldName
-  Value: HeroTitle
-- ID: "7495124d-09b5-4cb3-b4a6-fe77a95827da"
+- ID: "087c0553-9162-41f5-98d3-87eb0d80edbb"
+  Hint: Compatible Renderings
+  Type: TreelistEx
+  Value: 
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{6C28B680-A55C-4BA5-AB8E-886B7B03F33E}" />
+- ID: "e1d5adba-8348-4127-9bb6-455936653839"
   Hint: CssClass
-  Value: "field-promotext2"
+  Value: "promo promo-hero full-width-container"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{5DF9B10F-F5B5-4E6A-AD58-08125A701147}"
 Languages:
 - Language: en
   Versions:
@@ -18,7 +29,11 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171115T190008Z
+      Value: 20171027T191711Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -40,12 +55,9 @@ Languages:
       Hint: __Final Renderings
       Type: Layout
       Value: 
-    - ID: "15867cb6-e128-4d78-9d4f-739e5963dfc4"
-      Hint: Suffix
-      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20171115T190008Z
+      Value: 20171027T191711Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: 
@@ -55,7 +67,7 @@ Languages:
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\admin
+        sitecore\virtualssuser
     - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
       Hint: __Content Test
       Value: 
@@ -70,16 +82,13 @@ Languages:
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-    - ID: "fd5230d8-e68d-4e17-9d85-ea676f27ac3a"
-      Hint: Prefix
-      Value: 
 - Language: "ja-JP"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190426T200929Z
+      Value: 20190426T200924Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
