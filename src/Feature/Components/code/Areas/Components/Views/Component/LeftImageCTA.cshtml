@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row image-cta">
         <div class="col-sm-6 order-sm-1 no-padding-left">
-            @Html.Sitecore().Edit(Model, m => m.Image, new {mw = 500})
+            @Html.Sitecore().Edit(Model, m => m.Image, new { mw = 500 })
         </div>
         <div class="col-sm-6 order-sm-2 py-5">
             <h2>
@@ -20,16 +20,17 @@
                     @Html.Sitecore().Edit(Model, m => m.Content)
                 }
             </p>
-            @if (Model.TargetUrl != null)
+            @if (Model.TargetPage != null)
             {
-                var title = !string.IsNullOrEmpty(Model.TargetUrl.Title) ? Model.TargetUrl.Title : defaultReadMoreText;
-                <a href="@Model.TargetUrl.GetFriendlyUrl()" class="link_arrow" target="@Model.TargetUrl.Target" title="@title">@title</a>
+                <a href="@Model.TargetPage.Url" class="link_arrow">@defaultReadMoreText</a>
             }
             else
             {
-                if (Model.TargetPage != null)
+                // The only way we know if the TargetUrl field hasn't been filled in is to check if the url doesn't put anything
+                if (!string.IsNullOrEmpty(Model.TargetUrl.GetFriendlyUrl()))
                 {
-                    <a href="@Model.TargetPage.Url" class="link_arrow">@defaultReadMoreText</a>
+                    var text = !string.IsNullOrEmpty(Model.TargetUrl.Text) ? Model.TargetUrl.Text : defaultReadMoreText;
+                    <a href="@Model.TargetUrl.GetFriendlyUrl()" class="link_arrow" target="@Model.TargetUrl.Target" title="@text">@text</a>
                 }
             }
         </div>
