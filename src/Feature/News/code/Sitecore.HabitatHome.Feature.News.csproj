@@ -86,10 +86,12 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Feature\Feature.News.Serialization.config" />
     <Content Include="Areas\News\Views\web.config" />
+    <Content Include="Areas\News\Views\NewsOverview.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\News\NewsAreaRegistration.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,7 +104,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
