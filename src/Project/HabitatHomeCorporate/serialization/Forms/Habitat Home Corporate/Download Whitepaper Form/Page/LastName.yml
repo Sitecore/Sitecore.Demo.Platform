@@ -1,8 +1,8 @@
 ﻿---
-ID: "78bdc230-d801-4327-86bc-8e87eecd1cbf"
-Parent: "e8f25b13-acce-4d92-9a2a-832619f0b922"
+ID: "7f4ae0f7-89ec-468e-8154-eb46dd6b56c0"
+Parent: "ae2ef9e7-52f6-4042-aa51-b554e8f0c9cd"
 Template: "0908030b-4564-42ea-a6fa-c7a5a2d921a8"
-Path: /sitecore/Forms/Habitat Standard Sites/Habitat Home Corporate/Download Whitepaper Form/Page/LastName
+Path: /sitecore/Forms/Habitat Standard Sites/Habitat Home Corporate/Download whitepaper form/Page/LastName
 DB: master
 SharedFields:
 - ID: "10e5829a-1943-4597-b9ee-406ce3d13e13"
@@ -24,10 +24,10 @@ SharedFields:
     {"fieldConditions":[]}
 - ID: "7abaa3f6-6ec0-4b65-a463-7919bfae55aa"
   Hint: Css Class
-  Value: 
+  Value: "form-control"
 - ID: "84ece662-5034-40cb-9c60-744db64bb294"
   Hint: Field Key
-  Value: 77B0B34B79034EA6BA48278126EE54C8
+  Value: 7D9118A1E4CA40649D6B13C7D5D2FF40
 - ID: "8a43af61-0812-4b37-a343-96cde3f12bb1"
   Hint: Required
   Type: Checkbox
@@ -74,6 +74,17 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180612T152417Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190426T201512Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
