@@ -26,7 +26,7 @@
         {
             <a href="@Model.TargetPage.Url" class="btn btn-info">Read More</a>
         }
-        else if (Model.TargetUrl != null)
+        else  if (Model.TargetUrl != null && !string.IsNullOrEmpty(Model.TargetUrl.GetFriendlyUrl()))
         {
             <a href="@Model.TargetUrl.GetFriendlyUrl()" class="btn btn-info">Read More</a>
         }

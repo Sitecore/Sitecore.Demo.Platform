@@ -182,7 +182,7 @@ footer {
     }
 
 /* --- forms ---- */
-.field-validation-error {
+.field-validation-error, .validation-summary-errors {
     color: #fe2911;
 }
 
@@ -195,6 +195,14 @@ footer {
     flex: 0 0 100%;
     max-width: 100%;
     margin-left: -15px;
+}
+
+form .field-group {
+    margin-bottom: 20px;
+}
+
+form label {
+    font-weight: 600;
 }
 
 .btn-primary {
