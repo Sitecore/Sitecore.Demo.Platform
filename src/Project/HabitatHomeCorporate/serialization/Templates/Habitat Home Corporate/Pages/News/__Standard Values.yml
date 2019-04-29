@@ -1,0 +1,25 @@
+﻿---
+ID: "b1379e94-1d82-422c-ba9e-30319ed230ce"
+Parent: "b9718ae9-0113-43ae-8c86-e29830b6cdb7"
+Template: "b9718ae9-0113-43ae-8c86-e29830b6cdb7"
+Path: /sitecore/templates/Project/Habitat Standard Sites/Habitat Home Corporate/Pages/News/__Standard Values
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: /~/icon/network/32x32/news.png
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0ec002c0-abf8-4595-8b24-58079a01325d"
+      Hint: NewsDate
+      Value: $now
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190429T193840Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
