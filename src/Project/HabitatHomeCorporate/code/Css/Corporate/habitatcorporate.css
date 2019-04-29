@@ -100,18 +100,27 @@ a.link_arrow:not(.btn) {
     padding-left: 0;
 }
 
-.breadcrumb a {
-    color: #000000;
-    font-weight: 600;
-}
+    .breadcrumb a {
+        color: #000000;
+        font-weight: 600;
+    }
 
-.breadcrumb a:hover {
-    color: #fe2911;
-}
+        .breadcrumb a:hover {
+            color: #fe2911;
+        }
 
 .breadcrumb-item.active {
     color: #707070;
 }
+
+.news-overview a {
+    color: #000000 !important;
+    font-weight: 700;
+}
+
+    .news-overview a:hover {
+        color: #19a5a2 !important;
+    }
 
 h1 {
     font-size: 3.6rem !important;
