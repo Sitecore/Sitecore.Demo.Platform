@@ -1,0 +1,46 @@
+﻿---
+ID: "41c66717-7218-411b-8dc9-b5463272b3fd"
+Parent: "e0384234-365d-4004-854c-bfd216d1883c"
+Template: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Home/Download our whitepaper/Thank you
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: Thank you
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{3D467E6C-0B31-411F-A379-F2A74190550C}"
+              p:before="*"
+              s:id="{29ADD910-5E4D-4DD9-864B-92C662E5F1E6}"
+              s:par=""
+              s:ph="hh-content-main" />
+            <r
+              uid="{FE5EF436-9076-4C1D-BFFD-CFD9E00F2642}"
+              p:after="r[@uid='{3D467E6C-0B31-411F-A379-F2A74190550C}']"
+              s:ds="{BE74FBBF-2C51-45FB-87C8-557ADD14BD86}"
+              s:id="{88D729CA-D9A1-44F7-B52F-2B8C50E76EB9}"
+              s:par=""
+              s:ph="hh-content-main" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190429T070454Z
+    - ID: "60a36bf8-cb0e-40f6-8b5a-834105136988"
+      Hint: MetadataTitle
+      Value: Thank you
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: Thank you
