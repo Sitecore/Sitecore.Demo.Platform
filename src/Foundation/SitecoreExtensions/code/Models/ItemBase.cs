@@ -60,6 +60,13 @@ namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Models
                         if (!string.IsNullOrEmpty(value)) mi = ((ImageField) _item.Fields[prop.Name]).MediaItem;
                         prop.SetValue(this, mi);
                     }
+                    else if (prop.PropertyType == typeof(DateField))
+                    {
+                        var fieldName = prop.Name.Contains("Field")
+                            ? prop.Name.Replace("Field", string.Empty)
+                            : prop.Name;
+                        prop.SetValue(this, (DateField) _item.Fields[fieldName]);
+                    }
                     else if (prop.PropertyType == typeof(ImageField))
                     {
                         var fieldName = prop.Name.Contains("Field")
@@ -72,7 +79,7 @@ namespace Sitecore.HabitatHome.Foundation.SitecoreExtensions.Models
                         var fieldName = prop.Name.Contains("Field")
                             ? prop.Name.Replace("Field", string.Empty)
                             : prop.Name;
-                        prop.SetValue(this, (LinkField)_item.Fields[fieldName]);
+                        prop.SetValue(this, (LinkField) _item.Fields[fieldName]);
                     }
                     else if (typeof(ItemBase).IsAssignableFrom(prop.PropertyType))
                     {
