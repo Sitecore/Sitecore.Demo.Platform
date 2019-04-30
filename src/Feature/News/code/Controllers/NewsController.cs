@@ -14,7 +14,7 @@ namespace Sitecore.HabitatHome.Feature.News.Controllers
             return View("~/Areas/News/Views/NewsDetailHeading.cshtml");
         }
 
-        public ViewResult NewsNewsDetailArticleOverview()
+        public ViewResult NewsDetailArticle()
         {
             return View("~/Areas/News/Views/NewsDetailArticle.cshtml");
         }
