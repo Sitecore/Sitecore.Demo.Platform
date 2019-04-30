@@ -30,7 +30,6 @@ li.nav-item {
 .jumbotron {
     background-size: cover;
     background-position: center;
-    min-height: 350px;
     background-color: #f3f6f9;
 }
 
@@ -121,6 +120,16 @@ a.link_arrow:not(.btn) {
     .news-overview a:hover {
         color: #19a5a2 !important;
     }
+
+.news-overview .card img {
+    height: 400px;
+}
+
+.news-overview .date {
+    display: inline-block;
+    background-color: #19a5a2;
+    color: #ffffff;
+}
 
 h1 {
     font-size: 3.6rem !important;
@@ -234,4 +243,8 @@ main > .container {
 
 .no-padding-right {
     padding-right: 0;
+}
+
+.page-link {
+    color: #000000;
 }

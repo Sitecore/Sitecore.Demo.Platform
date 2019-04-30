@@ -4,6 +4,24 @@ Parent: "7e2c85c4-4a2b-4f3d-a164-f4455f9098ad"
 Template: "76270777-602d-47be-a65d-d12119e707d8"
 Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Home/News
 DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{31757F3A-18F9-42FC-874C-282483664466}"
+          p:after="r[@uid='{3F34116B-A795-4609-B22D-983EFF6F4B31}']"
+          s:ds="{E0B0C396-9E0A-4B9A-9FCB-0F00811B983A}"
+          s:id="{29ADD910-5E4D-4DD9-864B-92C662E5F1E6}"
+          s:par=""
+          s:ph="hh-content-main" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Versions:
