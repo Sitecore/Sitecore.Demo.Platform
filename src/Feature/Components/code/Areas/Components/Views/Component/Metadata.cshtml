@@ -1,5 +1,14 @@
 ﻿@using Sitecore.HabitatHome.Feature.Components.Models
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Resources.Media
 @model Sitecore.HabitatHome.Feature.Components.Models.Metadata
+
+@{
+    var settings = new Site().GetSettings<Settings>();
+}
+
+@* Favicon *@
+<link rel="icon" type="image/png"  href="@MediaManager.GetMediaUrl(settings.Favicon)">
 
 @if (!string.IsNullOrEmpty(Model.MetadataDescription))
 {
@@ -20,4 +29,4 @@
 }
 
 @*Browser title gets suffixed with the title of the site*@
-<title>@Model.MetadataTitle - @(new Site().GetSettings<Settings>().Title)</title>
+<title>@Model.MetadataTitle - @settings.Title</title>
