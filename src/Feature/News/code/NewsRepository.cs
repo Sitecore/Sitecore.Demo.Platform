@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Sitecore.ContentSearch;
-using Sitecore.ContentSearch.SearchTypes;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
+using Sitecore.HabitatHome.Feature.News.Models;
 
 namespace Sitecore.HabitatHome.Feature.News
 {
@@ -15,21 +15,20 @@ namespace Sitecore.HabitatHome.Feature.News
             {
                 if (string.IsNullOrEmpty(urlPath)) return null;
 
-                var term = urlPath.Split(new[] {"/"}, StringSplitOptions.RemoveEmptyEntries).Last();
+                var newsSlug = urlPath.Split(new[] {"/"}, StringSplitOptions.RemoveEmptyEntries).Last();
 
-                term = term.Replace("-", " ");
-
-
-                if (string.IsNullOrEmpty(term))
+                if (string.IsNullOrEmpty(newsSlug))
                     return null;
-                var item = Context.Site.Database.GetItem(string.Format("{0}/Data/News", Context.Site.ContentStartPath));
+                var item = Context.Site.Database.GetItem($"{Context.Site.ContentStartPath}/Data/News");
+                var indexname = $"sitecore_{Context.Site.Database.Name.ToLowerInvariant()}_index";
                 if (item != null)
                 {
-                    var newsIndex = ContentSearchManager.GetIndex("sitecore_master_index");
+                    var newsIndex = ContentSearchManager.GetIndex(indexname);
                     using (var context = newsIndex.CreateSearchContext())
                     {
-                        var results = context.GetQueryable<SearchResultItem>()
-                            .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID).ToList();
+                        var results = context.GetQueryable<NewsSearchResultItem>()
+                            .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID &&
+                                        x.NewsSlug == newsSlug).ToList();
 
                         if (results.Any())
                         {
