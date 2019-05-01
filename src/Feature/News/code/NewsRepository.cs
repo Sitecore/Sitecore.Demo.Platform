@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Sitecore.ContentSearch;
 using Sitecore.Data.Items;
@@ -9,6 +10,8 @@ namespace Sitecore.HabitatHome.Feature.News
 {
     public class NewsRepository
     {
+        private static readonly string indexName = $"sitecore_{Context.Site.Database.Name.ToLowerInvariant()}_index";
+
         public static Item ResolveNewsItemByUrl(string urlPath)
         {
             try
@@ -20,10 +23,10 @@ namespace Sitecore.HabitatHome.Feature.News
                 if (string.IsNullOrEmpty(newsSlug))
                     return null;
                 var item = Context.Site.Database.GetItem($"{Context.Site.ContentStartPath}/Data/News");
-                var indexname = $"sitecore_{Context.Site.Database.Name.ToLowerInvariant()}_index";
+
                 if (item != null)
                 {
-                    var newsIndex = ContentSearchManager.GetIndex(indexname);
+                    var newsIndex = ContentSearchManager.GetIndex(indexName);
                     using (var context = newsIndex.CreateSearchContext())
                     {
                         var results = context.GetQueryable<NewsSearchResultItem>()
@@ -50,6 +53,28 @@ namespace Sitecore.HabitatHome.Feature.News
             }
 
             return null;
+        }
+
+        public static List<Models.News> GetNewsItems(string page)
+        {
+            var list = new List<Models.News>();
+            var item = Context.Site.Database.GetItem($"{Context.Site.ContentStartPath}/Data/News");
+            var newsIndex = ContentSearchManager.GetIndex(indexName);
+            using (var context = newsIndex.CreateSearchContext())
+            {
+                var results = context.GetQueryable<NewsSearchResultItem>()
+                    .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID)
+                    .OrderByDescending(x => x.NewsDate).ToList();
+
+                if (results.Any())
+                    foreach (var newsSearchResultItem in results)
+                    {
+                        var news = new Models.News {Item = newsSearchResultItem.GetItem()};
+                        list.Add(news);
+                    }
+            }
+
+            return list;
         }
     }
 }

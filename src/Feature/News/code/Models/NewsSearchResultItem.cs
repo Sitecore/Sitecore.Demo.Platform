@@ -7,5 +7,8 @@ namespace Sitecore.HabitatHome.Feature.News.Models
     {
         [IndexField("newsslug")]
         public string NewsSlug { get; set; }
+
+        [IndexField("newsdate")]
+        public string NewsDate { get; set; }
     }
 }

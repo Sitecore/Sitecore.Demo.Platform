@@ -10,7 +10,8 @@ namespace Sitecore.HabitatHome.Feature.News.Controllers
 
         public ViewResult NewsOverview()
         {
-            return View("~/Areas/News/Views/NewsOverview.cshtml");
+            var list = NewsRepository.GetNewsItems("0");
+            return View("~/Areas/News/Views/NewsOverview.cshtml", list);
         }
 
         public ViewResult NewsDetailHeading()
