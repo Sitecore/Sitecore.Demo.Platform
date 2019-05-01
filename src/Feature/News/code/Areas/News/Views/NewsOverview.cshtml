@@ -8,7 +8,7 @@
         {
             <div class="col-lg-6 mb-4">
                 <div class="card h-100">
-                    <a href="#">
+                    <a href="@news.NewsUrl">
                         @Html.Sitecore().Edit(news, m => m.NewsImage, new
                         {
                             @class = "card-img-top",
@@ -17,7 +17,7 @@
                     </a>
                     <div class="card-body">
                         <h4 class="card-title">
-                            <a href="#">@Html.Sitecore().Edit(news, m => m.NewsTitle)</a>
+                            <a href="@news.NewsUrl">@Html.Sitecore().Edit(news, m => m.NewsTitle)</a>
                         </h4>
                         <h5 class="date">@Html.Sitecore().Edit(news, m => m.NewsDate, new { format = "MMMM dd, yyyy" })</h5>
                         <p class="card-text">@Html.Sitecore().Edit(news, m => m.NewsSummary)</p>
