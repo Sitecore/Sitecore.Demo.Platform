@@ -2,7 +2,6 @@
 using System.Linq;
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.SearchTypes;
-using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 
@@ -23,28 +22,35 @@ namespace Sitecore.HabitatHome.Feature.News
 
                 if (string.IsNullOrEmpty(term))
                     return null;
-
-                var newsIndex = ContentSearchManager.GetIndex("sitecore_master_index");
-                using (var context = newsIndex.CreateSearchContext())
+                var item = Context.Site.Database.GetItem(string.Format("{0}/Data/News", Context.Site.ContentStartPath));
+                if (item != null)
                 {
-                    var results = context.GetQueryable<SearchResultItem>().Where(x =>
-                        x.Paths.Contains(new ID(Context.Site.StartPath)) && x.TemplateId == Templates.News.ID).ToList();
-
-                    if (results.Any())
+                    var newsIndex = ContentSearchManager.GetIndex("sitecore_master_index");
+                    using (var context = newsIndex.CreateSearchContext())
                     {
-                        var newsItem = results.First().GetItem();
-                        return newsItem;
+                        var results = context.GetQueryable<SearchResultItem>()
+                            .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID).ToList();
+
+                        if (results.Any())
+                        {
+                            var newsItem = results.First().GetItem();
+                            return newsItem;
+                        }
                     }
 
                     return null;
                 }
             }
+
+
             catch (Exception e)
             {
                 Log.Error("An error occured on news wildcard ResolveNewsItemByUrl", e.InnerException,
                     typeof(NewsRepository));
                 return null;
             }
+
+            return null;
         }
     }
 }

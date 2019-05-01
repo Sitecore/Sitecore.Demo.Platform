@@ -8,11 +8,6 @@ namespace Sitecore.HabitatHome.Feature.Media.Areas.Media
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            context.MapRoute(
-                "Media_default",
-                "Media/{controller}/{action}/{id}",
-                new {action = "Index", id = UrlParameter.Optional}
-            );
         }
     }
 }
