@@ -65,21 +65,28 @@ namespace Sitecore.HabitatHome.Feature.News.Repositories
             var list = new List<Models.News>();
             var item = Context.Site.Database.GetItem($"{Context.Site.ContentStartPath}/Data/News");
             var newsIndex = ContentSearchManager.GetIndex(indexName);
-            using (var context = newsIndex.CreateSearchContext())
+            try
             {
-                var results = context.GetQueryable<NewsSearchResultItem>()
-                    .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID)
-                    .OrderByDescending(x => x.NewsDate).Skip(page - 1).Take(numberOfItems);
+                using (var context = newsIndex.CreateSearchContext())
+                {
+                    var results = context.GetQueryable<NewsSearchResultItem>()
+                        .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID)
+                        .OrderByDescending(x => x.NewsDate).Skip(page - 1).Take(numberOfItems);
 
-                model.NumberOfSearchResults = results.GetResults().TotalSearchResults;
-                model.NumberOfPages = model.NumberOfSearchResults / numberOfItems;
+                    model.NumberOfSearchResults = results.GetResults().TotalSearchResults;
+                    model.NumberOfPages = model.NumberOfSearchResults / numberOfItems;
 
-                if (results.Any())
-                    foreach (var newsSearchResultItem in results)
-                    {
-                        var news = new Models.News {Item = newsSearchResultItem.GetItem()};
-                        list.Add(news);
-                    }
+                    if (results.Any())
+                        foreach (var newsSearchResultItem in results)
+                        {
+                            var news = new Models.News {Item = newsSearchResultItem.GetItem()};
+                            list.Add(news);
+                        }
+                }
+            }
+            catch (Exception exception)
+            {
+                Log.Error("An error occured in NewsRepository ReGetNewsItems", exception.InnerException, typeof(NewsRepository));
             }
 
             model.NewsItems = list;
