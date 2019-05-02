@@ -30,23 +30,16 @@
         }
     </div>
 
-    <ul class="pagination justify-content-center">
-
-        @for (var i = 1; i < Model.NumberOfPages + 1; i++)
-        {
-            var url = pageUrl + i;
-            <li class="page-item">
-                <a class="page-link" href="@url">@i</a>
-            </li>
-        }
-
-
-        @*<li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-            </a>
-        </li>*@
-    </ul>
-
+    @if (!(Model.NumberOfSearchResults <= 1))
+    {
+        <ul class="pagination justify-content-center">
+            @for (var i = 1; i < Model.NumberOfPages + 1; i++)
+            {
+                var url = pageUrl + i;
+                <li class="page-item">
+                    <a class="page-link" href="@url">@i</a>
+                </li>
+            }
+        </ul>
+    }
 </div>

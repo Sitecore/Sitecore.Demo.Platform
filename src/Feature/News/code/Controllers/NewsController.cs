@@ -9,14 +9,31 @@ namespace Sitecore.HabitatHome.Feature.News.Controllers
 
         public Models.News News => news ?? (news = new Models.News {Item = Context.Item});
 
+        public int NewsOverviewDefaultNumberOfItems
+        {
+            get
+            {
+                var defaultNumber = 10;
+                var sitePath = Context.Site.ContentStartPath;
+                var newsSettingsItem = Context.Database.GetItem($"{sitePath}/Settings/News Settings");
+                if (newsSettingsItem != null)
+                {
+                    var number = newsSettingsItem[Templates.NewsSettings.Fields.NewsOverviewDefaultNumberOfItems];
+                    if (!string.IsNullOrEmpty(number) && int.TryParse(number, out defaultNumber)) return defaultNumber;
+                }
+
+                return defaultNumber;
+            }
+        }
+
         public ViewResult NewsOverview()
         {
-            var queryStringValue = WebUtil.GetQueryString("page", "10");
+            var queryStringValue = WebUtil.GetQueryString("page", "1");
             if (int.TryParse(queryStringValue, out var page))
             {
             }
 
-            var list = NewsRepository.GetNewsItems(page, 1);
+            var list = NewsRepository.GetNewsItems(page, NewsOverviewDefaultNumberOfItems);
             return View("~/Areas/News/Views/NewsOverview.cshtml", list);
         }
 

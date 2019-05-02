@@ -16,6 +16,7 @@ namespace Sitecore.HabitatHome.Feature.News
             public struct Fields
             {
                 public static readonly ID NewsWildcardItem = new ID("{C6B8EB78-8193-4728-B1D6-5A9185463AF1}");
+                public static readonly ID NewsOverviewDefaultNumberOfItems = new ID("{1C3CD945-0297-4609-9D65-EE26B74D4A4E}");
             }
         }
     }
