@@ -10,8 +10,8 @@ namespace Sitecore.HabitatHome.Feature.News.Models
     {
         private Item newsSettingsItem;
         private string newsUrl;
-
         private string newsWildcardItemUrl;
+
         public string NewsTitle { get; set; }
 
         public string NewsSummary { get; set; }

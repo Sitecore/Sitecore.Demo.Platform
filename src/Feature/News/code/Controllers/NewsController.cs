@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Sitecore.Web;
 
 namespace Sitecore.HabitatHome.Feature.News.Controllers
 {
@@ -10,7 +11,12 @@ namespace Sitecore.HabitatHome.Feature.News.Controllers
 
         public ViewResult NewsOverview()
         {
-            var list = NewsRepository.GetNewsItems("0");
+            var queryStringValue = WebUtil.GetQueryString("page", "10");
+            if (int.TryParse(queryStringValue, out var page))
+            {
+            }
+
+            var list = NewsRepository.GetNewsItems(page, 1);
             return View("~/Areas/News/Views/NewsOverview.cshtml", list);
         }
 

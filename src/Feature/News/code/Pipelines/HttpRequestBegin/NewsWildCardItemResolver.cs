@@ -26,8 +26,7 @@ namespace Sitecore.HabitatHome.Feature.News.Pipelines.HttpRequestBegin
             if (newsItem != null)
             {
                 Context.Items[Foundation.SitecoreExtensions.Constants.WildCardItemResolvedKey] = true;
-                Context.Items[Foundation.SitecoreExtensions.Constants.WildCardItemResolvedOldContextItemKey] =
-                    Context.Item;
+                Context.Items[Foundation.SitecoreExtensions.Constants.WildCardItemResolvedOldContextItemKey] = Context.Item;
                 Context.Item = newsItem;
             }
         }

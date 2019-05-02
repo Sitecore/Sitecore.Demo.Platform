@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sitecore.ContentSearch;
+using Sitecore.ContentSearch.Linq;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.HabitatHome.Feature.News.Models;
@@ -55,8 +56,10 @@ namespace Sitecore.HabitatHome.Feature.News
             return null;
         }
 
-        public static List<Models.News> GetNewsItems(string page)
+        public static NewsOverviewViewModel GetNewsItems(int page = 1, int numberOfItems = 10)
         {
+            var model = new NewsOverviewViewModel();
+
             var list = new List<Models.News>();
             var item = Context.Site.Database.GetItem($"{Context.Site.ContentStartPath}/Data/News");
             var newsIndex = ContentSearchManager.GetIndex(indexName);
@@ -64,7 +67,10 @@ namespace Sitecore.HabitatHome.Feature.News
             {
                 var results = context.GetQueryable<NewsSearchResultItem>()
                     .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID)
-                    .OrderByDescending(x => x.NewsDate).ToList();
+                    .OrderByDescending(x => x.NewsDate).Skip(page - 1).Take(numberOfItems);
+
+               model.NumberOfSearchResults = results.GetResults().TotalSearchResults;
+               model.NumberOfPages = model.NumberOfSearchResults / numberOfItems;
 
                 if (results.Any())
                     foreach (var newsSearchResultItem in results)
@@ -74,7 +80,9 @@ namespace Sitecore.HabitatHome.Feature.News
                     }
             }
 
-            return list;
+            model.NewsItems = list;
+
+            return model;
         }
     }
 }
