@@ -7,7 +7,7 @@ namespace Sitecore.HabitatHome.Feature.News.Pipelines.MvcGetPageItem
     {
         public override void Process(GetPageItemArgs args)
         {
-            var resolved = Context.Items[Constants.NewsItemResolvedKey];
+            var resolved = Context.Items[Sitecore.HabitatHome.Foundation.SitecoreExtensions.Constants.WildCardItemResolvedKey];
             if (MainUtil.GetBool(resolved, false)) args.Result = Context.Item;
         }
     }
