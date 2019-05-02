@@ -1,11 +1,21 @@
 ﻿using System.Web.Mvc;
+using Sitecore.HabitatHome.Feature.News.Repositories;
+using Sitecore.HabitatHome.Feature.News.Services;
 using Sitecore.Web;
 
 namespace Sitecore.HabitatHome.Feature.News.Controllers
 {
     public class NewsController : Controller
     {
+        private readonly INewsSettingsService _newsSettingsService;
+        private readonly INewsRepository _newsRepository;
         private Models.News news;
+
+        public NewsController(INewsSettingsService newsSettingsService, INewsRepository newsRepository)
+        {
+            _newsSettingsService = newsSettingsService;
+            _newsRepository = newsRepository;
+        }
 
         public Models.News News => news ?? (news = new Models.News {Item = Context.Item});
 
@@ -14,13 +24,10 @@ namespace Sitecore.HabitatHome.Feature.News.Controllers
             get
             {
                 var defaultNumber = 10;
-                var sitePath = Context.Site.ContentStartPath;
-                var newsSettingsItem = Context.Database.GetItem($"{sitePath}/Settings/News Settings");
-                if (newsSettingsItem != null)
-                {
-                    var number = newsSettingsItem[Templates.NewsSettings.Fields.NewsOverviewDefaultNumberOfItems];
-                    if (!string.IsNullOrEmpty(number) && int.TryParse(number, out defaultNumber)) return defaultNumber;
-                }
+                var newsSettingsItem = _newsSettingsService.GetNewsSettingsItem();
+                if (newsSettingsItem == null) return defaultNumber;
+                var number = newsSettingsItem[Templates.NewsSettings.Fields.NewsOverviewDefaultNumberOfItems];
+                if (!string.IsNullOrEmpty(number) && int.TryParse(number, out defaultNumber)) return defaultNumber;
 
                 return defaultNumber;
             }
@@ -33,7 +40,7 @@ namespace Sitecore.HabitatHome.Feature.News.Controllers
             {
             }
 
-            var list = NewsRepository.GetNewsItems(page, NewsOverviewDefaultNumberOfItems);
+            var list = _newsRepository.GetNewsItems(page, NewsOverviewDefaultNumberOfItems);
             return View("~/Areas/News/Views/NewsOverview.cshtml", list);
         }
 

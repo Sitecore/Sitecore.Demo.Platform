@@ -6,14 +6,16 @@ using Sitecore.ContentSearch.Linq;
 using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.HabitatHome.Feature.News.Models;
+using Sitecore.HabitatHome.Foundation.DependencyInjection;
 
-namespace Sitecore.HabitatHome.Feature.News
+namespace Sitecore.HabitatHome.Feature.News.Repositories
 {
-    public class NewsRepository
+    [Service(typeof(INewsRepository))]
+    public class NewsRepository : INewsRepository
     {
-        private static readonly string indexName = $"sitecore_{Context.Site.Database.Name.ToLowerInvariant()}_index";
+        private readonly string indexName = $"sitecore_{Context.Site.Database.Name.ToLowerInvariant()}_index";
 
-        public static Item ResolveNewsItemByUrl(string urlPath)
+        public Item ResolveNewsItemByUrl(string urlPath)
         {
             try
             {
@@ -56,7 +58,7 @@ namespace Sitecore.HabitatHome.Feature.News
             return null;
         }
 
-        public static NewsOverviewViewModel GetNewsItems(int page = 1, int numberOfItems = 10)
+        public NewsOverviewViewModel GetNewsItems(int page = 1, int numberOfItems = 10)
         {
             var model = new NewsOverviewViewModel();
 
@@ -69,8 +71,8 @@ namespace Sitecore.HabitatHome.Feature.News
                     .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID)
                     .OrderByDescending(x => x.NewsDate).Skip(page - 1).Take(numberOfItems);
 
-               model.NumberOfSearchResults = results.GetResults().TotalSearchResults;
-               model.NumberOfPages = model.NumberOfSearchResults / numberOfItems;
+                model.NumberOfSearchResults = results.GetResults().TotalSearchResults;
+                model.NumberOfPages = model.NumberOfSearchResults / numberOfItems;
 
                 if (results.Any())
                     foreach (var newsSearchResultItem in results)
@@ -83,6 +85,11 @@ namespace Sitecore.HabitatHome.Feature.News
             model.NewsItems = list;
 
             return model;
+        }
+
+        public Item ResolveNewsItemByUrl()
+        {
+            throw new NotImplementedException();
         }
     }
 }

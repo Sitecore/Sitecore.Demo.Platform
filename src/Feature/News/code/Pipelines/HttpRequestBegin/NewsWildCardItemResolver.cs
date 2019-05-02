@@ -1,11 +1,19 @@
 ﻿using System;
 using Sitecore.Diagnostics;
+using Sitecore.HabitatHome.Feature.News.Repositories;
 using Sitecore.Pipelines.HttpRequest;
 
 namespace Sitecore.HabitatHome.Feature.News.Pipelines.HttpRequestBegin
 {
     public class NewsWildCardItemResolver : HttpRequestProcessor
     {
+        private readonly INewsRepository _newsRepository;
+
+        public NewsWildCardItemResolver(INewsRepository newsRepository)
+        {
+            _newsRepository = newsRepository;
+        }
+
         public override void Process(HttpRequestArgs args)
         {
             if (Context.Site.Name.Equals("shell", StringComparison.InvariantCultureIgnoreCase) ||
@@ -21,7 +29,8 @@ namespace Sitecore.HabitatHome.Feature.News.Pipelines.HttpRequestBegin
                 || !Context.Item.TemplateID.Equals(Templates.News.ID))
                 return;
 
-            var newsItem = NewsRepository.ResolveNewsItemByUrl(args.Url.FilePath);
+
+            var newsItem = _newsRepository.ResolveNewsItemByUrl(args.Url.FilePath);
 
             if (newsItem != null)
             {
