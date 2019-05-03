@@ -1,0 +1,28 @@
+﻿---
+ID: "31d8a34b-10a0-4db7-8d6c-adfc1a61df8c"
+Parent: "f127c854-0881-4b73-ac05-05989c504ab6"
+Template: "f127c854-0881-4b73-ac05-05989c504ab6"
+Path: /sitecore/templates/Feature/Habitat Home/News/News/__Standard Values
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: /~/icon/network/32x32/news.png
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0ec002c0-abf8-4595-8b24-58079a01325d"
+      Hint: NewsDate
+      Value: $now
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190429T194605Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "b8fb4f54-6a50-4ece-b6df-cb74563c8fb9"
+      Hint: NewsTitle
+      Value: $name

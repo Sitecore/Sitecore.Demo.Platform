@@ -1,0 +1,22 @@
+﻿@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
+@model Sitecore.HabitatHome.Feature.News.Models.News
+
+<article>
+    <div class="container news-detail">
+        <div class="row">
+            <div class="col-lg-12 col-md-10 mx-auto">
+                <div>
+                    @Html.Sitecore().Edit(Model, m => m.NewsImage, new
+                    {
+                        @class = "card-img-top",
+                        mw = 1100
+                    })
+                </div>
+                <div class="card-body">
+                    @Html.Sitecore().Edit(Model, m => m.NewsContent)
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

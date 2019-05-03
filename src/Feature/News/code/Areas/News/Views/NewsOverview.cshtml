@@ -1,0 +1,56 @@
+﻿@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
+@model List<Sitecore.HabitatHome.Feature.News.Models.News>
+<!-- Page Content -->
+<div class="container">
+    <div class="row news-overview">
+        @foreach (var news in Model)
+        {
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <a href="@news.NewsUrl">
+                        @Html.Sitecore().Edit(news, m => m.NewsImage, new
+                        {
+                            @class = "card-img-top",
+                            mw = 500
+                        })
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="@news.NewsUrl">@Html.Sitecore().Edit(news, m => m.NewsTitle)</a>
+                        </h4>
+                        <h5 class="date">@Html.Sitecore().Edit(news, m => m.NewsDate, new { format = "MMMM dd, yyyy" })</h5>
+                        <p class="card-text">@Html.Sitecore().Edit(news, m => m.NewsSummary)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <!-- /.row -->
+    <!-- Pagination -->
+    @*<ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>*@
+
+</div>
+<!-- /.container -->

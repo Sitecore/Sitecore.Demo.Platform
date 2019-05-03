@@ -1,0 +1,17 @@
+﻿@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
+@model Sitecore.HabitatHome.Feature.News.Models.News
+
+<header class="news-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-10 mx-auto">
+                <div class="post-heading">
+                    <h1>@Html.Sitecore().Edit(Model, m => m.NewsTitle)</h1>
+                    <p class="lead">@Html.Sitecore().Edit(Model, m => m.NewsSummary)</p>
+                    <span class="meta">@Html.Sitecore().Edit(Model, m => m.NewsDate, new { format = "MMMM dd, yyyy" })</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
