@@ -13,7 +13,7 @@ namespace Sitecore.HabitatHome.Feature.News.Repositories
     [Service(typeof(INewsRepository))]
     public class NewsRepository : INewsRepository
     {
-        private readonly string indexName = $"sitecore_{Context.Site.Database.Name.ToLowerInvariant()}_index";
+        private readonly string indexName = $"sitecore_web_index";
 
         public Item ResolveNewsItemByUrl(string urlPath)
         {
