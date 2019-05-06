@@ -105,14 +105,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\News\NewsAreaRegistration.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\NewsSearchResultItem.cs" />
-    <Compile Include="NewsRepository.cs" />
+    <Compile Include="Models\NewsOverviewViewModel.cs" />
+    <Compile Include="Repositories\NewsRepository.cs" />
     <Compile Include="Pipelines\HttpRequestBegin\NewsWildCardItemResolver.cs" />
     <Compile Include="Pipelines\MvcGetPageItem\CheckNewsItemResolved.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\INewsRepository.cs" />
+    <Compile Include="Services\INewsSettingsService.cs" />
+    <Compile Include="Services\NewsSettingsService.cs" />
     <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +129,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\DependencyInjection\code\Sitecore.HabitatHome.Foundation.DependencyInjection.csproj">
+      <Project>{FA1EEE78-E6D6-4B63-A126-5F470624EFEE}</Project>
+      <Name>Sitecore.HabitatHome.Foundation.DependencyInjection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Foundation\SitecoreExtensions\code\Sitecore.HabitatHome.Foundation.SitecoreExtensions.csproj">
       <Project>{1c7b40c7-aea6-4038-9d45-0f5440908929}</Project>
       <Name>Sitecore.HabitatHome.Foundation.SitecoreExtensions</Name>

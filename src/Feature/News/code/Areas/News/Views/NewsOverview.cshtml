@@ -1,10 +1,13 @@
 ﻿@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Links
 @using Sitecore.Mvc
-@model List<Sitecore.HabitatHome.Feature.News.Models.News>
-<!-- Page Content -->
+@model Sitecore.HabitatHome.Feature.News.Models.NewsOverviewViewModel
+@{
+    var pageUrl = string.Format("{0}?page=", LinkManager.GetItemUrl(Sitecore.Context.Item));
+}
 <div class="container">
     <div class="row news-overview">
-        @foreach (var news in Model)
+        @foreach (var news in Model.NewsItems)
         {
             <div class="col-lg-6 mb-4">
                 <div class="card h-100">
@@ -19,38 +22,24 @@
                         <h4 class="card-title">
                             <a href="@news.NewsUrl">@Html.Sitecore().Edit(news, m => m.NewsTitle)</a>
                         </h4>
-                        <h5 class="date">@Html.Sitecore().Edit(news, m => m.NewsDate, new { format = "MMMM dd, yyyy" })</h5>
+                        <h5 class="date">@Html.Sitecore().Edit(news, m => m.NewsDate, new {format = "MMMM dd, yyyy"})</h5>
                         <p class="card-text">@Html.Sitecore().Edit(news, m => m.NewsSummary)</p>
                     </div>
                 </div>
             </div>
         }
     </div>
-    <!-- /.row -->
-    <!-- Pagination -->
-    @*<ul class="pagination justify-content-center">
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-            </a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#">3</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-            </a>
-        </li>
-    </ul>*@
 
+    @if (!(Model.NumberOfSearchResults <= 1))
+    {
+        <ul class="pagination justify-content-center">
+            @for (var i = 1; i < Model.NumberOfPages + 1; i++)
+            {
+                var url = pageUrl + i;
+                <li class="page-item">
+                    <a class="page-link" href="@url">@i</a>
+                </li>
+            }
+        </ul>
+    }
 </div>
-<!-- /.container -->

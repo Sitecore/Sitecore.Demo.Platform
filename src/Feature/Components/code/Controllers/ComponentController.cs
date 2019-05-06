@@ -58,9 +58,14 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
 
         public ViewResult Breadcrumb()
         {
-            var items = new List<BreadcrumbItem>();
+            var breadcrumbItems = new List<BreadcrumbItem>();
 
-            foreach (var item in Context.Item.Axes.GetAncestors())
+            // Take the current context item ancestors, if we have a wildcard, we take the old context item ancestors
+            var items = Context.Item.Axes.GetAncestors();
+            if (MainUtil.GetBool(Context.Items[Foundation.SitecoreExtensions.Constants.WildCardItemResolvedKey], false))
+                items = ((Item) Context.Items[Foundation.SitecoreExtensions.Constants.WildCardItemResolvedOldContextItemKey]).Axes.GetAncestors();
+
+            foreach (var item in items)
             {
                 var navigationTitle = item.Fields[Templates.NavigationBase.Fields.NavigationTitle].ToString();
                 if (!string.IsNullOrEmpty(navigationTitle))
@@ -71,7 +76,7 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
                         Url = LinkManager.GetItemUrl(item)
                     };
 
-                    items.Add(breadcrumbItem);
+                    breadcrumbItems.Add(breadcrumbItem);
                 }
             }
 
@@ -81,9 +86,9 @@ namespace Sitecore.HabitatHome.Feature.Components.Controllers
                 Title = currentContextItem.Fields[Templates.NavigationBase.Fields.NavigationTitle].ToString(),
                 Active = true
             };
-            items.Add(currentBreadcrumbItem);
+            breadcrumbItems.Add(currentBreadcrumbItem);
 
-            return View("~/Areas/Components/Views/Component/Breadcrumb.cshtml", items);
+            return View("~/Areas/Components/Views/Component/Breadcrumb.cshtml", breadcrumbItems);
         }
 
         public ViewResult OurTeam()
