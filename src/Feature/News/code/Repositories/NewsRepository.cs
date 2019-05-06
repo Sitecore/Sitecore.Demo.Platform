@@ -50,8 +50,7 @@ namespace Sitecore.HabitatHome.Feature.News.Repositories
 
             catch (Exception e)
             {
-                Log.Error("An error occured on news wildcard ResolveNewsItemByUrl", e.InnerException,
-                    typeof(NewsRepository));
+                Log.Error("An error occured in NewsRepository ResolveNewsItemByUrl", e.InnerException, typeof(NewsRepository));
                 return null;
             }
 
@@ -86,7 +85,7 @@ namespace Sitecore.HabitatHome.Feature.News.Repositories
             }
             catch (Exception exception)
             {
-                Log.Error("An error occured in NewsRepository ReGetNewsItems", exception.InnerException, typeof(NewsRepository));
+                Log.Error("An error occured in NewsRepository GetNewsItems", exception.InnerException, typeof(NewsRepository));
             }
 
             model.NewsItems = list;
