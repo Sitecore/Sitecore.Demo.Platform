@@ -73,6 +73,7 @@
     <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.4" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Config\Include\Feature\Feature.Search.Serialization.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
