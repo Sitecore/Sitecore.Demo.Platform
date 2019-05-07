@@ -1,4 +1,14 @@
-﻿<form class="form-inline my-2 my-lg-0" role="search">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+﻿@using Sitecore.Shell.Framework.Commands.System
+@model Sitecore.HabitatHome.Feature.Search.Models.SearchFormModel
+@using (Html.BeginForm())
+{
+    <input type="hidden" name="fhController" value="SearchController"/>
+    <input type="hidden" name="fhAction" value="Search"/>
+
+<form class="form-inline my-2 my-lg-0" role="search">
+    @Html.TextBoxFor(m => m.SearchTerm, new { placeholder = "Search", @class = "form-control mr-sm-2", aria_label = "Search" })
+    <button class="btn my-2 my-sm-0" type="submit">
+        <i class="fa fa-search"></i>
+    </button>
 </form>
+}

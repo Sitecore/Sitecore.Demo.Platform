@@ -81,7 +81,14 @@
   <ItemGroup>
     <Compile Include="Areas\Search\SearchAreaRegistration.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Models\SearchResultsViewModel.cs" />
+    <Compile Include="Models\SearchFormModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ISearchConfigurationService.cs" />
+    <Compile Include="Services\ISearchService.cs" />
+    <Compile Include="Services\SearchConfigurationService.cs" />
+    <Compile Include="Services\SearchService.cs" />
+    <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
@@ -91,8 +98,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\..\..\Foundation\DependencyInjection\code\Sitecore.HabitatHome.Foundation.DependencyInjection.csproj">
+      <Project>{fa1eee78-e6d6-4b63-a126-5f470624efee}</Project>
+      <Name>Sitecore.HabitatHome.Foundation.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\SitecoreExtensions\code\Sitecore.HabitatHome.Foundation.SitecoreExtensions.csproj">
+      <Project>{1c7b40c7-aea6-4038-9d45-0f5440908929}</Project>
+      <Name>Sitecore.HabitatHome.Foundation.SitecoreExtensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
