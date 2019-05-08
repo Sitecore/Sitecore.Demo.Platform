@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
 using Sitecore.HabitatHome.Feature.Search.Models;
 using Sitecore.HabitatHome.Feature.Search.Services;
-using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Forms;
 using Sitecore.Links;
 using Sitecore.Mvc.Controllers;
+using Sitecore.Web;
 
 namespace Sitecore.HabitatHome.Feature.Search.Controllers
 {
@@ -41,6 +41,13 @@ namespace Sitecore.HabitatHome.Feature.Search.Controllers
             }
 
             return Redirect("/");
+        }
+
+        public ViewResult SearchResults()
+        {
+            var model = new SearchResultsViewModel();
+            model.SearchTerm = WebUtil.GetQueryString("query", string.Empty); ;
+            return View("~/Areas/Search/Views/SearchResults.cshtml", model);
         }
     }
 }

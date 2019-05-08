@@ -1,0 +1,12 @@
+﻿@model Sitecore.HabitatHome.Feature.Search.Models.SearchResultsViewModel
+
+@if (!string.IsNullOrEmpty(Model.SearchTerm))
+{
+    <div class="container centered-heading">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="text-center">We've found the following results for your search term '@Model.SearchTerm'</h2>
+            </div>
+        </div>
+    </div>
+}
