@@ -1,11 +1,13 @@
 ﻿using System.Web.Mvc;
 using Sitecore.HabitatHome.Feature.Search.Models;
 using Sitecore.HabitatHome.Feature.Search.Services;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Forms;
 using Sitecore.Links;
+using Sitecore.Mvc.Controllers;
 
 namespace Sitecore.HabitatHome.Feature.Search.Controllers
 {
-    public class SearchController : Controller
+    public class SearchController : SitecoreController
     {
         private readonly ISearchConfigurationService _searchConfigurationService;
         private ISearchService _searchService;
@@ -18,15 +20,15 @@ namespace Sitecore.HabitatHome.Feature.Search.Controllers
 
         public ViewResult Search()
         {
-            return View("~/Areas/Search/Views/Search.cshtml");
+            var model = new SearchFormModel();
+            return View("~/Areas/Search/Views/Search.cshtml", model);
         }
 
         [HttpPost]
-        public ActionResult Index(SearchFormModel model)
+        public ActionResult Search(SearchFormModel model)
         {
             if (!ModelState.IsValid) return View("~/Areas/Search/Views/Search.cshtml", model);
 
-            // do some other stuff, like storing the name in the database
             var searchConfigurationSettingsItem = _searchConfigurationService.GetSearchConfigurationSettingsItem();
             if (searchConfigurationSettingsItem != null)
             {
@@ -34,7 +36,7 @@ namespace Sitecore.HabitatHome.Feature.Search.Controllers
                 if (targetItem != null)
                 {
                     var redirectUrl = $"{LinkManager.GetItemUrl(targetItem)}?query={model.SearchTerm}";
-                    Redirect(redirectUrl);
+                    return Redirect(redirectUrl);
                 }
             }
 
