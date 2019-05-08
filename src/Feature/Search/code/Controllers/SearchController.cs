@@ -11,7 +11,7 @@ namespace Sitecore.HabitatHome.Feature.Search.Controllers
     public class SearchController : SitecoreController
     {
         private readonly ISearchConfigurationService _searchConfigurationService;
-        private ISearchService _searchService;
+        private readonly ISearchService _searchService;
 
         public SearchController(ISearchConfigurationService searchConfigurationService, ISearchService searchService)
         {
@@ -30,24 +30,29 @@ namespace Sitecore.HabitatHome.Feature.Search.Controllers
         {
             if (!ModelState.IsValid) return View("~/Areas/Search/Views/Search.cshtml", model);
 
-            var searchConfigurationSettingsItem = _searchConfigurationService.GetSearchConfigurationSettingsItem();
-            if (searchConfigurationSettingsItem != null)
+            var searchPage = _searchConfigurationService.GetSearchPage();
+            if (searchPage != null)
             {
-                var targetItem = Context.Site.Database.GetItem(searchConfigurationSettingsItem[Templates.SearchConfigurationSettings.Fields.SearchPage]);
-                if (targetItem != null)
-                {
-                    var redirectUrl = $"{LinkManager.GetItemUrl(targetItem)}?query={model.SearchTerm}";
-                    return Redirect(redirectUrl);
-                }
+                var redirectUrl = $"{LinkManager.GetItemUrl(searchPage)}?query={model.SearchTerm}";
+                return Redirect(redirectUrl);
             }
+
 
             return Redirect("/");
         }
 
         public ViewResult SearchResults()
         {
-            var model = new SearchResultsViewModel();
-            model.SearchTerm = HttpUtility.HtmlDecode(WebUtil.GetQueryString("query", string.Empty));
+            var pageNumber = WebUtil.GetQueryString("page", "1");
+            var searchTerm = HttpUtility.HtmlDecode(WebUtil.GetQueryString("query", string.Empty));
+
+            var defaultNumberOfItems = _searchConfigurationService.GetSearchPageDefaultNumberOfItems();
+            if (int.TryParse(pageNumber, out var page))
+            {
+            }
+
+            var model = _searchService.GetSearchResults(searchTerm, page, defaultNumberOfItems);
+
             return View("~/Areas/Search/Views/SearchResults.cshtml", model);
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sitecore.Data.Items;
 
 namespace Sitecore.HabitatHome.Feature.Search.Models
 {
@@ -6,7 +7,7 @@ namespace Sitecore.HabitatHome.Feature.Search.Models
     {
         public string SearchTerm { get; set; }
 
-        //public List<News> SearchResultsItems { get; set; }
+        public List<Item> SearchResultsItems { get; set; }
 
         public int NumberOfSearchResults { get; set; }
 
