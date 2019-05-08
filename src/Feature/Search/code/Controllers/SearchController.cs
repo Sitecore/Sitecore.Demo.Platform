@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web;
+using System.Web.Mvc;
 using Sitecore.HabitatHome.Feature.Search.Models;
 using Sitecore.HabitatHome.Feature.Search.Services;
 using Sitecore.Links;
@@ -46,7 +47,7 @@ namespace Sitecore.HabitatHome.Feature.Search.Controllers
         public ViewResult SearchResults()
         {
             var model = new SearchResultsViewModel();
-            model.SearchTerm = WebUtil.GetQueryString("query", string.Empty); ;
+            model.SearchTerm = HttpUtility.HtmlDecode(WebUtil.GetQueryString("query", string.Empty));
             return View("~/Areas/Search/Views/SearchResults.cshtml", model);
         }
     }

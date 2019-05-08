@@ -2,7 +2,7 @@
 @using Sitecore.Mvc.Configuration
 @model Sitecore.HabitatHome.Feature.Search.Models.SearchFormModel
 
-@using (Html.BeginRouteForm(MvcSettings.SitecoreRouteName, FormMethod.Post, new {@class = "form-inline my-2 my-lg-0", role = "search"}))
+@using (Html.BeginRouteForm(MvcSettings.SitecoreRouteName, FormMethod.Post, new {@class = "form-inline my-2 my-lg-0 justify-content-center", role = "search"}))
 {
     @Html.Sitecore().FormHandler("Search", "Search")
 

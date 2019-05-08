@@ -99,7 +99,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Foundation\DependencyInjection\code\Sitecore.HabitatHome.Foundation.DependencyInjection.csproj">
       <Project>{fa1eee78-e6d6-4b63-a126-5f470624efee}</Project>
@@ -109,6 +108,9 @@
       <Project>{1c7b40c7-aea6-4038-9d45-0f5440908929}</Project>
       <Name>Sitecore.HabitatHome.Foundation.SitecoreExtensions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
