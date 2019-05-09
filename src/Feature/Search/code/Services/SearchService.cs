@@ -4,8 +4,6 @@ using System.Linq;
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Linq;
 using Sitecore.ContentSearch.Linq.Utilities;
-using Sitecore.ContentSearch.SearchTypes;
-using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.HabitatHome.Feature.Search.Models;
 using Sitecore.HabitatHome.Feature.Search.SearchTypes;
@@ -27,7 +25,9 @@ namespace Sitecore.HabitatHome.Feature.Search.Services
         public SearchResultsViewModel GetSearchResults(string searchTerm, int page = 1, int numberOfItems = 10)
         {
             var model = new SearchResultsViewModel {SearchTerm = searchTerm};
-            var list = new List<Item>();
+
+            if (string.IsNullOrEmpty(searchTerm)) return model;
+            var searchResultItems = new List<SearchResult>();
 
             var item = Context.Site.Database.GetItem(Context.Site.ContentStartPath);
             var index = ContentSearchManager.GetIndex(indexName);
@@ -44,7 +44,6 @@ namespace Sitecore.HabitatHome.Feature.Search.Services
                     var searchTermQuery = PredicateBuilder.True<CustomSearchResultItem>();
                     searchTermQuery = searchTermQuery.Or(p => p.Title.Contains(searchTerm));
                     searchTermQuery = searchTermQuery.Or(p => p.Lead.Contains(searchTerm));
-
 
                     var templateQuery = PredicateBuilder.False<CustomSearchResultItem>();
                     foreach (var supportedTemplate in _searchConfigurationService.GetSearchPageSupportedTemplates()) templateQuery = templateQuery.Or(p => p.TemplateId == supportedTemplate.ID);
@@ -65,7 +64,8 @@ namespace Sitecore.HabitatHome.Feature.Search.Services
                         foreach (var searchResultItem in results)
                         {
                             var resultItem = searchResultItem.GetItem();
-                            list.Add(resultItem);
+                            var searchresult = new SearchResult {Item = resultItem};
+                            searchResultItems.Add(searchresult);
                         }
                 }
             }
@@ -74,7 +74,7 @@ namespace Sitecore.HabitatHome.Feature.Search.Services
                 Log.Error("An error occured in SearchService GetSearchResults", exception.InnerException, typeof(SearchService));
             }
 
-            model.SearchResultsItems = list;
+            model.SearchResultItems = searchResultItems;
 
             return model;
         }
