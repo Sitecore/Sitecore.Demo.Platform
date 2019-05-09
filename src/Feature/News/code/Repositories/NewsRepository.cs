@@ -13,7 +13,7 @@ namespace Sitecore.HabitatHome.Feature.News.Repositories
     [Service(typeof(INewsRepository))]
     public class NewsRepository : INewsRepository
     {
-        private readonly string indexName = $"sitecore_web_index";
+        private readonly string indexName = "sitecore_web_index";
 
         public Item ResolveNewsItemByUrl(string urlPath)
         {
@@ -32,7 +32,7 @@ namespace Sitecore.HabitatHome.Feature.News.Repositories
                     var newsIndex = ContentSearchManager.GetIndex(indexName);
                     using (var context = newsIndex.CreateSearchContext())
                     {
-                        var results = context.GetQueryable<NewsSearchResultItem>()
+                        var results = context.GetQueryable<NewsSearchResultItem>(new CultureExecutionContext(Context.Language.CultureInfo))
                             .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID &&
                                         x.NewsSlug == newsSlug).ToList();
 
@@ -68,7 +68,7 @@ namespace Sitecore.HabitatHome.Feature.News.Repositories
             {
                 using (var context = newsIndex.CreateSearchContext())
                 {
-                    var results = context.GetQueryable<NewsSearchResultItem>()
+                    var results = context.GetQueryable<NewsSearchResultItem>(new CultureExecutionContext(Context.Language.CultureInfo))
                         .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID)
                         .OrderByDescending(x => x.NewsDate).Skip(page - 1).Take(numberOfItems);
 
@@ -91,11 +91,6 @@ namespace Sitecore.HabitatHome.Feature.News.Repositories
             model.NewsItems = list;
 
             return model;
-        }
-
-        public Item ResolveNewsItemByUrl()
-        {
-            throw new NotImplementedException();
         }
     }
 }
