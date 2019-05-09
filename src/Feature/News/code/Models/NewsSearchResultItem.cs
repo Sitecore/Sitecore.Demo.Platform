@@ -1,4 +1,5 @@
-﻿using Sitecore.ContentSearch;
+﻿using System;
+using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.SearchTypes;
 
 namespace Sitecore.HabitatHome.Feature.News.Models
@@ -9,6 +10,6 @@ namespace Sitecore.HabitatHome.Feature.News.Models
         public string NewsSlug { get; set; }
 
         [IndexField("newsdate")]
-        public string NewsDate { get; set; }
+        public DateTime NewsDate { get; set; }
     }
 }
