@@ -1,4 +1,5 @@
-﻿using Sitecore.Data.Items;
+﻿using System.Collections.Generic;
+using Sitecore.Data.Items;
 
 namespace Sitecore.HabitatHome.Feature.Search.Services
 {
@@ -9,5 +10,7 @@ namespace Sitecore.HabitatHome.Feature.Search.Services
         Item GetSearchConfigurationSettingsItem();
 
         Item GetSearchPage();
+
+        List<Item> GetSearchPageSupportedTemplates();
     }
 }

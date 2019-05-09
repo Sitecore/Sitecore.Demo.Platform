@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.HabitatHome.Foundation.DependencyInjection;
 using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions;
@@ -16,6 +18,18 @@ namespace Sitecore.HabitatHome.Feature.Search.Services
         public Item GetSearchPage()
         {
             return GetSearchConfigurationSettingsItem() != null ? Context.Site.Database.GetItem(GetSearchConfigurationSettingsItem()[Templates.SearchConfigurationSettings.Fields.SearchPage]) : null;
+        }
+
+        public List<Item> GetSearchPageSupportedTemplates()
+        {
+            var items = new List<Item>();
+            if (GetSearchConfigurationSettingsItem() != null)
+            {
+                var values = GetSearchConfigurationSettingsItem()[Templates.SearchConfigurationSettings.Fields.SearchPageSupportedTemplates].Split(System.Convert.ToChar("|"));
+                items.AddRange(values.Select(guid => Context.Site.Database.GetItem(new ID(guid))).Where(item => item != null));
+            }
+
+            return items;
         }
 
         public int GetSearchPageDefaultNumberOfItems()
