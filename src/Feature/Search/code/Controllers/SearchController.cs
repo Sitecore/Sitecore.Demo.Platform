@@ -21,12 +21,12 @@ namespace Sitecore.HabitatHome.Feature.Search.Controllers
 
         public ViewResult Search()
         {
-            var model = new SearchFormModel();
+            var model = new SearchFormViewModel();
             return View("~/Areas/Search/Views/Search.cshtml", model);
         }
 
         [HttpPost]
-        public ActionResult Search(SearchFormModel model)
+        public ActionResult Search(SearchFormViewModel model)
         {
             if (!ModelState.IsValid) return View("~/Areas/Search/Views/Search.cshtml", model);
 

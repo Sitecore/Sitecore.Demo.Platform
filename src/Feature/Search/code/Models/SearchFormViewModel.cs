@@ -1,6 +1,6 @@
 ﻿namespace Sitecore.HabitatHome.Feature.Search.Models
 {
-    public class SearchFormModel
+    public class SearchFormViewModel
     {
         public string SearchTerm { get; set; }
     }
