@@ -44,10 +44,11 @@ namespace Sitecore.HabitatHome.Feature.Search.Services
                     predicate = predicate.And(pathQuery);
                     predicate = predicate.And(templateQuery);
 
-                    var results = context.GetQueryable<SearchResultItem>(new CultureExecutionContext(Context.Language.CultureInfo)).Where(predicate).Skip(page - 1).Take(numberOfItems);
+                    var results = context.GetQueryable<SearchResultItem>(new CultureExecutionContext(Context.Language.CultureInfo)).Where(predicate).Skip((page - 1) * numberOfItems).Take(numberOfItems);
 
                     model.NumberOfSearchResults = results.GetResults().TotalSearchResults;
-                    model.NumberOfPages = model.NumberOfSearchResults / numberOfItems;
+                    var pagesCount = (double) model.NumberOfSearchResults / numberOfItems;
+                    model.NumberOfPages = (int) Math.Ceiling(pagesCount);
 
                     if (results.Any())
                         foreach (var searchResultItem in results)

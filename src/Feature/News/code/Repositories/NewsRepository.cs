@@ -70,10 +70,11 @@ namespace Sitecore.HabitatHome.Feature.News.Repositories
                 {
                     var results = context.GetQueryable<NewsSearchResultItem>(new CultureExecutionContext(Context.Language.CultureInfo))
                         .Where(x => x.Paths.Contains(item.ID) && x.TemplateId == Templates.News.ID)
-                        .OrderByDescending(x => x.NewsDate).Skip(page - 1).Take(numberOfItems);
+                        .OrderByDescending(x => x.NewsDate).Skip((page - 1) * numberOfItems).Take(numberOfItems);
 
                     model.NumberOfSearchResults = results.GetResults().TotalSearchResults;
-                    model.NumberOfPages = model.NumberOfSearchResults / numberOfItems;
+                    var pagesCount = (double) model.NumberOfSearchResults / numberOfItems;
+                    model.NumberOfPages = (int) Math.Ceiling(pagesCount);
 
                     if (results.Any())
                         foreach (var newsSearchResultItem in results)
