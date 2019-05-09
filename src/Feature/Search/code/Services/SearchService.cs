@@ -44,6 +44,8 @@ namespace Sitecore.HabitatHome.Feature.Search.Services
                     var searchTermQuery = PredicateBuilder.True<CustomSearchResultItem>();
                     searchTermQuery = searchTermQuery.Or(p => p.Title.Contains(searchTerm));
                     searchTermQuery = searchTermQuery.Or(p => p.Lead.Contains(searchTerm));
+                    searchTermQuery = searchTermQuery.Or(p => p.Content.Contains(searchTerm));
+                    searchTermQuery = searchTermQuery.Or(p => p.NewsContent.Contains(searchTerm));
 
                     var templateQuery = PredicateBuilder.False<CustomSearchResultItem>();
                     foreach (var supportedTemplate in _searchConfigurationService.GetSearchPageSupportedTemplates()) templateQuery = templateQuery.Or(p => p.TemplateId == supportedTemplate.ID);

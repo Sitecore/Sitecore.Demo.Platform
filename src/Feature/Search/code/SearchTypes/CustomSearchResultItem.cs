@@ -11,6 +11,12 @@ namespace Sitecore.HabitatHome.Feature.Search.SearchTypes
         [IndexField("lead")]
         public string Lead { get; set; }
 
+        [IndexField("content")]
+        public string Content { get; set; }
+
+        [IndexField("newscontent")]
+        public string NewsContent { get; set; }
+
         [IndexField("excludefromsearchresults")]
         public bool ExcludeFromSearchResults { get; set; }
     }
