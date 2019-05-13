@@ -213,6 +213,7 @@ Task("Copy-Sitecore-Lib")
 
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
+.IsDependentOn("Publish-Core-Project")
 .IsDependentOn("Publish-Foundation-Projects")
 .IsDependentOn("Publish-Feature-Projects")
 .IsDependentOn("Publish-Project-Projects");
@@ -241,11 +242,31 @@ Task("Publish-Feature-Projects").Does(() => {
      PublishProjects(configuration.FeatureSrcFolder, destination);
 });
 
+Task("Publish-Core-Project").Does(() => {	
+    var destination = deploymentRootPath;
+    if (!deployLocal){
+        destination = $"{deploymentRootPath}\\Website\\HabitatHome";
+    }
+
+	Information("Destination: " + destination);
+
+	var projectFile = $"{configuration.ProjectFolder}\\Build\\Build.Website\\Build.Website.csproj";
+	
+	DotNetCoreRestore(projectFile);
+
+	 var settings = new DotNetCorePublishSettings
+        {
+            OutputDirectory = destination,
+			Configuration = configuration.BuildConfiguration
+        };
+ 
+        DotNetCorePublish(projectFile, settings);
+});
+
 Task("Publish-Project-Projects").Does(() => {
     var global = $"{configuration.ProjectSrcFolder}\\Global";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
     var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
-    var habitatHomeCorporate = $"{configuration.ProjectSrcFolder}\\HabitatHomeCorporate";
     
     var destination = deploymentRootPath;
     if (!deployLocal){
@@ -255,7 +276,6 @@ Task("Publish-Project-Projects").Does(() => {
     PublishProjects(global, destination);
     PublishProjects(habitatHome, destination);
     PublishProjects(habitatHomeBasic, destination);
-    PublishProjects(habitatHomeCorporate, destination);
 });
 
 Task("Publish-xConnect-Project").Does(() => {

@@ -96,6 +96,11 @@ public void PublishProjects(string rootFolder, string publishRoot)
     }
 }
 
+public void PublishCoreProjects(string rootFolder, string publishRoot) 
+{
+	
+}
+
 public FilePathCollection GetTransformFiles(string rootFolder)
 {
     Func<IFileSystemInfo, bool> exclude_obj_bin_folder =fileSystemInfo => !fileSystemInfo.Path.FullPath.Contains("/obj/") && !fileSystemInfo.Path.FullPath.Contains("/bin/");
