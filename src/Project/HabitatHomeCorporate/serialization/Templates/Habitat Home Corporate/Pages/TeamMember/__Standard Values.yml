@@ -1,0 +1,98 @@
+﻿---
+ID: "9c37b582-4fd1-4224-9d6f-e6146c066b9e"
+Parent: "992448e3-8087-4f10-9834-cfb6145beca6"
+Template: "992448e3-8087-4f10-9834-cfb6145beca6"
+Path: /sitecore/templates/Project/Habitat Standard Sites/Habitat Home Corporate/Pages/TeamMember/__Standard Values
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: /~/icon/business/32x32/businessmen.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: "{E427E2C2-F0E1-490F-81EC-4F968837B8C5}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{7D197C33-3B86-4973-B6C2-AC9A2C4EE6F2}">
+        <r
+          id="{10C56431-F1A5-4119-AF45-31CB9356BAA1}"
+          ph="hh-head"
+          uid="{990ED74F-6B8C-4176-8973-E81A90BE6ECD}" />
+        <r
+          ds="{B54CA801-9D76-4004-840F-E7E06D0350BA}"
+          id="{5362A7A8-C270-4B18-83E9-22ACFD02C616}"
+          par=""
+          ph="hh-corporate-content-header"
+          uid="{34E7E66B-AB4D-4830-B5E4-D318BAAB2C52}">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                name="Default">
+                <conditions>
+                  <condition
+                    id="{4888ABBB-F17D-4485-B14B-842413F88732}"
+                    uid="5991C2B1DF3D4257B6C622B3A8CADD56" />
+                </conditions>
+                <actions>
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="B45780851FA74798A946EA97167BA1E7"
+                    DataSource="{B54CA801-9D76-4004-840F-E7E06D0350BA}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          id="{640F1031-4930-4947-B381-B0CC6C8EAC8C}"
+          ph="hh-corporate-utility-navigation"
+          uid="{5A243D08-7733-43C8-9946-E8086B190220}" />
+        <r
+          ds=""
+          id="{4EEE0E0B-11C9-429D-B15F-C214BE96FD97}"
+          par=""
+          ph="hh-content-main"
+          uid="{3F34116B-A795-4609-B22D-983EFF6F4B31}" />
+        <r
+          ds=""
+          id="{6DCB5CDF-9E06-40F8-9068-DBCACEB8DA22}"
+          par=""
+          ph="hh-content-main"
+          uid="{3131F9DE-2696-4D4E-8C8B-BEF6E7648554}" />
+        <r
+          ds="{652C86FA-6F03-4596-A76C-9B996D78F682}"
+          id="{4EEE0E0B-11C9-429D-B15F-C214BE96FD97}"
+          par=""
+          ph="hh-content-footer"
+          uid="{6670AB2D-F452-4271-89F9-B94DD807E87D}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{3F34116B-A795-4609-B22D-983EFF6F4B31}">
+              <p:d />
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181226T161323Z
