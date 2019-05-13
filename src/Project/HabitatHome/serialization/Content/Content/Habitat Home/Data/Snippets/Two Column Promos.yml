@@ -36,7 +36,7 @@ SharedFields:
         <r
           uid="{6FEC2523-A1A9-40F9-B8D6-940EAF5D1F0B}"
           p:after="r[@uid='{5515073A-8A71-4E99-A4A0-D98E74063D9B}']"
-          s:ds="{1CDB0F8B-77AC-4939-9BD0-BFE0197DB7BC}"
+          s:ds=""
           s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
           s:par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=2"
           s:ph="/section-content/container-1" />
@@ -47,11 +47,22 @@ SharedFields:
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
           s:mvt=""
-          s:par="Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b9CB76B6C-2B77-4728-8508-CF7041C7B69C%7d&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=1"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B9CB76B6C-2B77-4728-8508-CF7041C7B69C%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
           s:ph="section-content" />
       </d>
     </r>
 Languages:
+- Language: 
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190510T183718Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
 - Language: en
   Versions:
   - Version: 1
