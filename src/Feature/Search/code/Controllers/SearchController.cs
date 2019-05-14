@@ -28,7 +28,7 @@ namespace Sitecore.HabitatHome.Feature.Search.Controllers
         [HttpPost]
         public ActionResult Search(SearchFormViewModel model)
         {
-            if (!ModelState.IsValid) return View("~/Areas/Search/Views/Search.cshtml", model);
+            if (!ModelState.IsValid || Context.PageMode.IsExperienceEditor) return View("~/Areas/Search/Views/Search.cshtml", model);
 
             var searchPage = _searchConfigurationService.GetSearchPage();
             if (searchPage != null)
