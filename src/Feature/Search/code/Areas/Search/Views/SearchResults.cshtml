@@ -1,0 +1,75 @@
+﻿@using Sitecore.Links
+@using Sitecore.Mvc
+@model Sitecore.HabitatHome.Feature.Search.Models.SearchResultsViewModel
+
+@{
+    var pageUrl = string.Format("{0}?query={1}&page=", LinkManager.GetItemUrl(Sitecore.Context.Item), Model.SearchTerm);
+}
+<div class="search-results">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                @if (!string.IsNullOrEmpty(Model.SearchTerm))
+                {
+                    <h2 class="text-center">We've found @Model.NumberOfSearchResults results for your search term '@Model.SearchTerm'</h2>
+                }
+                else
+                {
+                    <h2 class="text-center">Enter the text you want to find on the site</h2>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mx-auto">
+                @Html.Sitecore().Placeholder("hh-searchresults-form")
+            </div>
+        </div>
+    </div>
+    @if (Model.SearchResultItems != null && Model.SearchResultItems.Any())
+    {
+        <div class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in Model.SearchResultItems)
+                    {
+                        var url = LinkManager.GetItemUrl(item.Item);
+
+                        <div class="col-12">
+                            <div class="card mb-4 shadow-sm">
+                                <div class="card-body">
+                                    <h3>
+                                        <a href="@url">@item.Title</a>
+                                    </h3>
+                                    <p class="card-text">@item.Lead</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="@url" class="link_arrow">Read more</a>
+                                        </div>
+                                        <small class="text-muted">@item.Item.Template.DisplayName</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    @if (!(Model.NumberOfPages <= 1))
+    {
+        <div class="container mt-5">
+            <ul class="pagination justify-content-center">
+                @for (var i = 1; i < Model.NumberOfPages + 1; i++)
+                {
+                    var url = pageUrl + i;
+                    <li class="page-item">
+                        <a class="page-link" href="@url">@i</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

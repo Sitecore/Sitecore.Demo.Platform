@@ -1,0 +1,49 @@
+﻿---
+ID: "3fa55f01-b64a-4880-b75d-1ed96849ac7c"
+Parent: "7e2c85c4-4a2b-4f3d-a164-f4455f9098ad"
+Template: "a2009ffd-4e34-44cd-9d09-661ab966bfa4"
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Home/Search
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: Search
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{4B8F758F-86EC-4FB0-8BB2-B3D68EAB7D2F}"
+              p:before="*"
+              s:id="{29ADD910-5E4D-4DD9-864B-92C662E5F1E6}"
+              s:ph="hh-content-main" />
+            <r
+              uid="{3F34116B-A795-4609-B22D-983EFF6F4B31}">
+              <p:d />
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190507T083600Z
+    - ID: "60a36bf8-cb0e-40f6-8b5a-834105136988"
+      Hint: MetadataTitle
+      Value: Search
+    - ID: "943718f7-e179-4f1d-954f-3c9482c3bc3d"
+      Hint: Subtitle
+      Value: Tell us what you're looking for...
+    - ID: "d32d52e5-6955-402c-a367-5461f405c9d1"
+      Hint: ExcludeFromSearchResults
+      Type: Checkbox
+      Value: 1
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: Search

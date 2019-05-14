@@ -19,10 +19,6 @@ SharedFields:
           s:id="{29ADD910-5E4D-4DD9-864B-92C662E5F1E6}"
           s:par=""
           s:ph="hh-content-main" />
-        <r
-          uid="{3F34116B-A795-4609-B22D-983EFF6F4B31}">
-          <p:d />
-        </r>
       </d>
     </r>
 Languages:
@@ -42,6 +38,10 @@ Languages:
     - ID: "943718f7-e179-4f1d-954f-3c9482c3bc3d"
       Hint: Subtitle
       Value: Whoops, we're sorry, but the page you're looking for cannot be found
+    - ID: "d32d52e5-6955-402c-a367-5461f405c9d1"
+      Hint: ExcludeFromSearchResults
+      Type: Checkbox
+      Value: 1
     - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
       Hint: Title
       Value: 404

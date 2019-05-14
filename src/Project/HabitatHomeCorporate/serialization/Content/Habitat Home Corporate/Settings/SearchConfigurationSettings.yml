@@ -1,0 +1,31 @@
+﻿---
+ID: "076f0387-f951-4687-9349-3cd9b5ea5360"
+Parent: "ebd498ba-a204-41e3-953d-94ced6cf775f"
+Template: "2b234fe0-e78c-4023-8a1a-1025922d545f"
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Settings/SearchConfigurationSettings
+DB: master
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Search Confguration Settings
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "19332ed7-dc93-42d0-a79a-5c535d8641b4"
+      Hint: SearchPage
+      Value: "{3FA55F01-B64A-4880-B75D-1ED96849AC7C}"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190507T083513Z
+    - ID: "4b148b2f-2aef-45be-9eee-2fbd672a43ad"
+      Hint: SearchPageDefaultNumberOfItems
+      Value: 12
+    - ID: "9174b34b-9f4b-4d5c-88f3-c6a4eb4364a8"
+      Hint: SearchPageSupportedTemplates
+      Type: Treelist
+      Value: |
+        {B9718AE9-0113-43AE-8C86-E29830B6CDB7}
+        {E427E2C2-F0E1-490F-81EC-4F968837B8C5}
+        {992448E3-8087-4F10-9834-CFB6145BECA6}

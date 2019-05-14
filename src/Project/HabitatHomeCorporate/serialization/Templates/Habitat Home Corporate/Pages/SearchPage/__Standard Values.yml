@@ -1,0 +1,92 @@
+﻿---
+ID: "bf1ab10b-367c-4f27-9f2a-c030de1c7189"
+Parent: "a2009ffd-4e34-44cd-9d09-661ab966bfa4"
+Template: "a2009ffd-4e34-44cd-9d09-661ab966bfa4"
+Path: /sitecore/templates/Project/Habitat Standard Sites/Habitat Home Corporate/Pages/SearchPage/__Standard Values
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: /~/icon/core3/32x32/search.png
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{7D197C33-3B86-4973-B6C2-AC9A2C4EE6F2}">
+        <r
+          id="{10C56431-F1A5-4119-AF45-31CB9356BAA1}"
+          ph="hh-head"
+          uid="{990ED74F-6B8C-4176-8973-E81A90BE6ECD}" />
+        <r
+          ds="{B54CA801-9D76-4004-840F-E7E06D0350BA}"
+          id="{5362A7A8-C270-4B18-83E9-22ACFD02C616}"
+          par=""
+          ph="hh-corporate-content-header"
+          uid="{34E7E66B-AB4D-4830-B5E4-D318BAAB2C52}">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                name="Default">
+                <conditions>
+                  <condition
+                    id="{4888ABBB-F17D-4485-B14B-842413F88732}"
+                    uid="5991C2B1DF3D4257B6C622B3A8CADD56" />
+                </conditions>
+                <actions>
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="B45780851FA74798A946EA97167BA1E7"
+                    DataSource="{B54CA801-9D76-4004-840F-E7E06D0350BA}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          id="{640F1031-4930-4947-B381-B0CC6C8EAC8C}"
+          ph="hh-corporate-utility-navigation"
+          uid="{75851A0F-7984-4465-8751-69BC6ED0C506}" />
+        <r
+          ds=""
+          id="{4EEE0E0B-11C9-429D-B15F-C214BE96FD97}"
+          par=""
+          ph="hh-content-main"
+          uid="{3F34116B-A795-4609-B22D-983EFF6F4B31}" />
+        <r
+          id="{6B5E25C8-1321-4752-9A3E-591D0E6AAEA1}"
+          ph="hh-content-main"
+          uid="{5DA7540E-3700-4BCE-82C5-47B287379A15}" />
+        <r
+          id="{640F1031-4930-4947-B381-B0CC6C8EAC8C}"
+          ph="hh-searchresults-form"
+          uid="{2A833A1F-90AB-4A90-BE23-FAFC585DA408}" />
+        <r
+          ds=""
+          id="{6DCB5CDF-9E06-40F8-9068-DBCACEB8DA22}"
+          par=""
+          ph="hh-content-main"
+          uid="{3131F9DE-2696-4D4E-8C8B-BEF6E7648554}" />
+        <r
+          ds="{652C86FA-6F03-4596-A76C-9B996D78F682}"
+          id="{4EEE0E0B-11C9-429D-B15F-C214BE96FD97}"
+          par=""
+          ph="hh-content-footer"
+          uid="{6670AB2D-F452-4271-89F9-B94DD807E87D}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190507T082818Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

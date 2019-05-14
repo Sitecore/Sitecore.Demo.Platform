@@ -1,0 +1,13 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Configuration
+@model Sitecore.HabitatHome.Feature.Search.Models.SearchFormViewModel
+
+@using (Html.BeginRouteForm(MvcSettings.SitecoreRouteName, FormMethod.Post, new {@class = "form-inline my-2 my-lg-0 justify-content-center", role = "search"}))
+{
+    @Html.Sitecore().FormHandler("Search", "Search")
+
+    @Html.TextBoxFor(m => m.SearchTerm, new {placeholder = "Search", @class = "form-control mr-sm-2", aria_label = "Search"})
+    <button class="btn my-2 my-sm-0" type="submit">
+        <i class="fa fa-search"></i>
+    </button>
+}

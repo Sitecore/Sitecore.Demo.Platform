@@ -40,7 +40,7 @@ li.nav-item {
 
 .featurette { margin-bottom: 2rem; }
 
-.featurette-heading, .centered-heading h2, .news-detail h2 {
+.featurette-heading, .centered-heading h2, .news-detail h2, .search-results h2 {
     color: #000000;
     font-size: 36px;
     font-style: normal;
@@ -103,18 +103,18 @@ a.link_arrow:not(.btn) {
 
 .breadcrumb-item.active { color: #707070; }
 
-.news-overview a {
+.news-overview a, .search-results h3 a {
     color: #000000 !important;
     font-weight: 700;
 }
 
-.news-overview a:hover { color: #19a5a2 !important; }
+.news-overview a:hover, .search-results h3 a:hover { color: #19a5a2 !important; }
 
 .news-overview .card img { height: 400px; }
 
-.news-overview .date, .news-heading .meta {
+.news-overview .date, .news-heading .meta, .search-results .text-muted {
     background-color: #19a5a2;
-    color: #ffffff;
+    color: #ffffff !important;
     display: inline-block;
     padding: 5px;
 }

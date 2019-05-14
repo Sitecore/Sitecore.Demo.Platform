@@ -30,7 +30,7 @@
         }
     </div>
 
-    @if (!(Model.NumberOfSearchResults <= 1))
+    @if (!(Model.NumberOfPages <= 1))
     {
         <ul class="pagination justify-content-center">
             @for (var i = 1; i < Model.NumberOfPages + 1; i++)
