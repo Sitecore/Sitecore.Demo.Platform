@@ -1,0 +1,86 @@
+---
+ID: "304c678c-5b3a-4ce7-af14-931ea4695633"
+Parent: "d6ed101b-8334-4de7-8603-30f468e809d9"
+Template: "05fe45d4-b9c7-40de-b767-7c5abe7119f9"
+Path: /sitecore/Forms/Habitat SXA Sites/Habitat Home/Email Sign Up Form Template/Page/Fields Wrapper/Submit Button/SubmitActions/Trigger Goal
+DB: master
+Created: 20190426T201518Z
+SharedFields:
+- ID: "5c796924-3f06-4d1f-8510-8ad9a4244477"
+  Hint: Parameters
+  Value: |
+    {"referenceId":"{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}"}
+- ID: "abc57b6d-5542-4ab9-a889-106225a032e6"
+  Hint: Submit Action
+  Value: "{106587B9-1B9C-4DDB-AE96-BAC8416C21B5}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171206T194058Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b3e4656b-cfb1-4a7b-81c6-23503c91ada5"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190426T202509Z
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190426T201519Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "994d01b3-fc2f-4c02-8c7a-f730ae6c34e0"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190426T202509Z
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ゴールをトリガー
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181024T125753Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "eaac4de7-2588-4628-b35d-46dbebdec05f"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190426T202509Z

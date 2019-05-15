@@ -11,15 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Sitecore.Demo.Feature.Account" Version="1.0.0">
-      <IncludeAssets>contentFiles</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Sitecore.Demo.Feature.Demo" Version="1.0.0" />
-    <PackageReference Include="Sitecore.Demo.Feature.Email" Version="1.0.0" />
-    <PackageReference Include="Sitecore.Demo.Feature.Forms" Version="1.0.0" />
-    <PackageReference Include="Sitecore.Demo.Foundation.Cdn" Version="1.0.0" />
-    <PackageReference Include="Sitecore.Demo.Foundation.Serialization" Version="1.0.0" />
-    <PackageReference Include="Sitecore.Demo.Foundation.Workflow" Version="1.0.0" />
+    <PackageReference Include="Sitecore.Demo.Feature.Account" Version="9.2.0.*" />
+    <PackageReference Include="Sitecore.Demo.Feature.Demo" Version="9.2.0.*" />
+    <PackageReference Include="Sitecore.Demo.Feature.Email" Version="9.2.0.*" />
+    <PackageReference Include="Sitecore.Demo.Feature.Forms" Version="9.2.0.*" />
+    <PackageReference Include="Sitecore.Demo.Foundation.Cdn" Version="9.2.0.*" />
+    <PackageReference Include="Sitecore.Demo.Foundation.Serialization" Version="9.2.0.*" />
+    <PackageReference Include="Sitecore.Demo.Foundation.Workflow" Version="9.2.0.*" />
   </ItemGroup>
 
   <ItemGroup>
