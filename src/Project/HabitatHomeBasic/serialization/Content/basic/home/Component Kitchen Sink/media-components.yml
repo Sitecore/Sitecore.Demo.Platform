@@ -1,0 +1,171 @@
+---
+ID: "b86d45cc-ef7e-4fd2-93cf-e454be191e05"
+Parent: "8c96d8fd-cc19-4524-86b4-4480abf01ac6"
+Template: "bd74a392-dacd-4c23-853a-d520762b33a1"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home Basic/home/Component Kitchen Sink/media-components"
+DB: master
+Created: 20190425T163837Z
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 2800
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{83A45EA7-171F-485B-A952-10648B727D66}"
+          p:before="*"
+          s:cnd=""
+          s:ds="local:/Data/File List"
+          s:id="{67B0BBCC-6926-4468-84E0-55B6A32B8BB6}"
+          s:mvt=""
+          s:par="ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3B2DD3E6-CBB4-47E3-BF3B-01332F69C7C8%7D&amp;Styles&amp;TitleHeadingLevel=%7B6A44D9C6-61F0-4B69-8E1A-FDC27F96BA0F%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{3B8C3862-A5D5-4DBD-B611-9C83FB820638}"
+          p:after="r[@uid='{83A45EA7-171F-485B-A952-10648B727D66}']"
+          s:ds="local:/Data/Gallery"
+          s:id="{DC7CD1BE-7E89-4D96-B52B-72653ADF82B1}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;GalleryHeight=500&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{B4B78C6A-47B9-48AE-8F55-33348445F1F6}"
+          p:after="r[@uid='{3B8C3862-A5D5-4DBD-B611-9C83FB820638}']"
+          s:ds="local:/Data/Image"
+          s:id="{4A0D4E0B-BC20-4F2E-BD84-A4BD35834E86}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{5CEDFD2C-CB5E-4F40-B34D-A6F6D198532D}"
+          p:after="r[@uid='{B4B78C6A-47B9-48AE-8F55-33348445F1F6}']"
+          s:ds="local:/Data/Media link"
+          s:id="{B3D80586-1081-4C7C-835F-DD75B2681CC8}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{F2181EF1-27D3-490A-A3D0-4BCBB6D7BE2F}"
+          p:after="r[@uid='{5CEDFD2C-CB5E-4F40-B34D-A6F6D198532D}']"
+          s:ds="local:/Data/Playlist"
+          s:id="{F16CE601-EECF-4DFC-B278-DE5F9562551B}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;TitleHeadingLevel&amp;Autoplay&amp;AutoplaySelected&amp;PlayNext&amp;RepeatAfterAll&amp;ShowPrevNext&amp;Player&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{BA47F60E-7910-4A59-AE01-5EA4F6C8C88F}"
+          p:after="*[1=2]"
+          s:ds="local:/Data/Video"
+          s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="/main/sxa-content-container/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Media Components
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180823T162348Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Media Component Options
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bd3a0b1f-4b6b-4b53-819b-37771bc1fc57"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T184937Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Media Component Options
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Media Components
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180823T162348Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Media Component Options
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "393fa188-8a1a-48ae-a89b-fea0e9eb5939"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163837Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Media Component Options
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Media Components
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T015529Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FF509B64-B6D4-4FB7-9718-C4218B992740}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Media Component Options
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f4ca7795-096e-4357-8634-e76c90a131b0"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163837Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Media Component Options

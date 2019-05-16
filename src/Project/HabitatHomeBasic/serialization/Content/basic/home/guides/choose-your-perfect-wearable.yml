@@ -1,0 +1,347 @@
+---
+ID: "6d628be7-fe76-4cec-ac1c-6951f59278d5"
+Parent: "8a5c578f-e529-4e4c-960e-8d7a334c7798"
+Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home Basic/home/guides/choose-your-perfect-wearable"
+DB: master
+Created: 20190425T163834Z
+SharedFields:
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: 20180330T191300Z
+- ID: "7bd35dcd-61bb-42e0-8bf5-07803af6eede"
+  Hint: Author
+  Value: "{CCA66699-B6C8-43D1-BF33-68492C373174}"
+- ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
+  Hint: SxaTags
+  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="552dd90f-a527-438e-ac33-32d236244123"
+        name="Topic Interest Category"
+        presets="fitness|80||newest and coolest|10||smart and connected|5||reliability|5||">
+        <key
+          name="Children"
+          value="0" />
+        <key
+          name="Cleaning"
+          value="0" />
+        <key
+          name="Cooking"
+          value="0" />
+        <key
+          name="Entertainment"
+          value="0" />
+        <key
+          name="Fitness"
+          value="8" />
+        <key
+          name="Newest and Coolest"
+          value="1" />
+        <key
+          name="Reliability"
+          value="0.5" />
+        <key
+          name="Safety"
+          value="0" />
+        <key
+          name="Smart and Connected"
+          value="0.5" />
+      </profile>
+      <profile
+        id="54d63273-947a-4927-b21a-0022625315e1"
+        name="Electronics Category"
+        presets="fitness tech|100||">
+        <key
+          name="Appliances"
+          value="0" />
+        <key
+          name="Audio"
+          value="0" />
+        <key
+          name="Cameras"
+          value="0" />
+        <key
+          name="Computers"
+          value="0" />
+        <key
+          name="Fitness Tech"
+          value="10" />
+        <key
+          name="Games"
+          value="0" />
+        <key
+          name="Phones"
+          value="0" />
+        <key
+          name="Tablets"
+          value="0" />
+        <key
+          name="TVs"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        <r
+          ds=""
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=5&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0"
+          ph="/main/sxa-article-content/author-1-"
+          uid="{976933B5-CA2D-4690-8ED1-9E3B15E79819}" />
+        <r
+          ds=""
+          id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          par="DynamicPlaceholderId=1&amp;EnabledPlaceholders=1%2C2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D"
+          ph="/main/sxa-article-content/container-1/container-4"
+          uid="{99496185-5995-4131-9EBC-4B77C8A3B027}" />
+        <r
+          ds=""
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B9CB76B6C-2B77-4728-8508-CF7041C7B69C%7D&amp;GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;DynamicPlaceholderId=4"
+          ph="/main/sxa-article-content/container-1"
+          uid="{74D5B791-82FD-4FC7-8CD2-F7BA9A25EFB2}" />
+        <r
+          ds="{6238B3BB-E9C4-4AFB-B445-BE302466691E}"
+          id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=3&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7BF04E97A8-F249-4674-B3E8-0BCE91B0B34F%7D"
+          ph="/main/sxa-article-content/container-1/container-4/column-2-1"
+          uid="{D5C1A844-3812-484C-BB6D-DFD238B883E7}" />
+        <r
+          ds="{4D30B785-2CD0-44C1-94F5-E16E84244EA2}"
+          id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D"
+          ph="/main/sxa-article-content/container-1/container-4/column-1-1"
+          uid="{B19B6E22-6E62-4A76-B481-204DC416A907}" />
+        <r
+          cnd=""
+          ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          mvt=""
+          par="DynamicPlaceholderId=6"
+          ph="/main/sxa-recommended-content/container-3"
+          uid="{8A75DEE1-6F23-403D-9077-9D0DF9B92817}" />
+      </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Choose Your Perfect Wearable
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{580ED437-7A14-463D-A81A-0F94FCAA7A92}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180330T191152Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Choose Your Perfect Wearable
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Choose Your Perfect Wearable
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et nisl lacinia, congue libero vitae, vulputate elit. Nunc varius magna quis arcu tincidunt consequat. Praesent tristique volutpat elit, vel ultrices dui tempor sed. Donec sit amet rhoncus ex. Aliquam dignissim tortor volutpat vulputate auctor. Proin et dolor vehicula, dictum eros condimentum, venenatis enim. Sed sodales lectus sit amet sapien rutrum, non faucibus mi cursus. Praesent ut sem quis massa suscipit bibendum. Quisque euismod diam in urna consequat rutrum. Cras luctus vehicula odio, nec elementum neque ullamcorper eget. Integer vitae lacinia felis, at congue dui. Suspendisse a hendrerit quam. Nulla velit arcu, fringilla a pulvinar sollicitudin, commodo ac elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et nisl lacinia, congue libero vitae, vulputate elit. Nunc varius magna quis arcu tincidunt consequat. Praesent tristique volutpat elit, vel ultrices dui tempor sed. Donec sit amet rhoncus ex. Aliquam dignissim tortor volutpat vulputate auctor. Proin et dolor vehicula, dictum eros condimentum, venenatis enim. Sed sodales lectus sit amet sapien rutrum, non faucibus mi cursus. Praesent ut sem quis massa suscipit bibendum. Quisque euismod diam in urna consequat rutrum. Cras luctus vehicula odio, nec elementum neque ullamcorper eget. Integer vitae lacinia felis, at congue dui. Suspendisse a hendrerit quam. Nulla velit arcu, fringilla a pulvinar sollicitudin, commodo ac elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et nisl lacinia, congue libero vitae, vulputate elit. Nunc varius magna quis arcu tincidunt consequat. Praesent tristique volutpat elit, vel ultrices dui tempor sed. Donec sit amet rhoncus ex. Aliquam dignissim tortor volutpat vulputate auctor. Proin et dolor vehicula, dictum eros condimentum, venenatis enim. Sed sodales lectus sit amet sapien rutrum, non faucibus mi cursus. Praesent ut sem quis massa suscipit bibendum. Quisque euismod diam in urna consequat rutrum. Cras luctus vehicula odio, nec elementum neque ullamcorper eget. Integer vitae lacinia felis, at congue dui. Suspendisse a hendrerit quam. Nulla velit arcu, fringilla a pulvinar sollicitudin, commodo ac elit.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: wearable, fitness, cardio, training
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Choose the Best
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Choose Your Perfect Wearable
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "465d6c69-924d-49bb-9cac-5a3d47970fa7"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        extranet\Anonymous
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.&nbsp;</p>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163834Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Choose Your Perfect Wearable
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Choose Your Perfect Wearable
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{580ED437-7A14-463D-A81A-0F94FCAA7A92}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180330T191152Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Choose Your Perfect Wearable
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Choose Your Perfect Wearable
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p><span style="font-size: 20px;">Brownie cookie jelly beans toffee chocolate croissant icing. Pie fruitcake chupa chups jujubes. Danish tiramisu biscuit sweet caramels wafer chocolate bar. Chupa chups chocolate sugar plum. Tiramisu wafer jelly beans cotton candy apple pie pudding fruitcake gingerbread sugar plum. Gummi bears jelly beans chocolate cake macaroon bonbon candy canes candy chocolate cake croissant. Chocolate pie lollipop brownie tiramisu sugar plum fruitcake. Macaroon brownie halvah sweet croissant. Tootsie roll halvah ice cream jelly-o caramels jelly beans cookie halvah. Cupcake lollipop danish donut biscuit cookie topping. Jelly cheesecake pie soufflé carrot cake sugar plum gingerbread pudding jujubes. Topping ice cream chupa chups donut powder. Cupcake sweet macaroon cookie tiramisu marshmallow croissant halvah. Marzipan macaroon bonbon.</span><br /></p><p>
+        <br />
+        Muffin toffee cake sweet roll bear claw macaroon icing chupa chups. Jelly beans jelly beans chocolate. Pudding cookie wafer chupa chups chupa chups dragée halvah gummies. Sesame snaps lollipop marzipan soufflé lemon drops gummies marzipan chocolate bar cake. Sesame snaps marshmallow apple pie tiramisu jelly beans. Jelly beans candy oat cake gingerbread halvah. Caramels soufflé dragée dragée tart topping pastry sweet roll. Marzipan chupa chups lollipop donut gingerbread powder. Gummies dessert cake tart jelly beans. Pudding pie topping soufflé cake icing. Ice cream cupcake topping. Cotton candy pie marshmallow gummi bears.<br />
+        <br />
+        Soufflé wafer jelly beans gummi bears cake liquorice fruitcake halvah. Bear claw dessert apple pie lollipop donut gummies. Gingerbread bear claw soufflé icing candy canes biscuit caramels. Cake dragée toffee pie cake chocolate ice cream dragée tootsie roll. Apple pie cake chupa chups chocolate bar biscuit pie sugar plum. Pastry jelly tart muffin dessert sweet cheesecake. Marzipan oat cake pudding biscuit cheesecake dessert gingerbread. Muffin fruitcake tart pudding cake bear claw bonbon brownie. Jujubes candy canes sugar plum soufflé candy canes cookie dessert cake chocolate cake. Jujubes croissant candy pudding fruitcake dessert soufflé marshmallow. Liquorice sesame snaps tiramisu. Brownie fruitcake powder gummies lollipop cotton candy brownie cheesecake liquorice. Sweet roll candy toffee sugar plum cotton candy. Pastry sesame snaps chocolate muffin.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: wearable, fitness, cardio, training
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Choose the Best
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Choose Your Perfect Wearable
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a8c76d24-04bb-43a0-ba65-3b21f4459e55"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.&nbsp;</p>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163834Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Choose Your Perfect Wearable
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Choose Your Perfect Wearable
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{580ED437-7A14-463D-A81A-0F94FCAA7A92}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180628T022819Z
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Choose Your Perfect Wearable
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Choose Your Perfect Wearable
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p><span style="font-size: 20px;">Brownie cookie jelly beans toffee chocolate croissant icing. Pie fruitcake chupa chups jujubes. Danish tiramisu biscuit sweet caramels wafer chocolate bar. Chupa chups chocolate sugar plum. Tiramisu wafer jelly beans cotton candy apple pie pudding fruitcake gingerbread sugar plum. Gummi bears jelly beans chocolate cake macaroon bonbon candy canes candy chocolate cake croissant. Chocolate pie lollipop brownie tiramisu sugar plum fruitcake. Macaroon brownie halvah sweet croissant. Tootsie roll halvah ice cream jelly-o caramels jelly beans cookie halvah. Cupcake lollipop danish donut biscuit cookie topping. Jelly cheesecake pie soufflé carrot cake sugar plum gingerbread pudding jujubes. Topping ice cream chupa chups donut powder. Cupcake sweet macaroon cookie tiramisu marshmallow croissant halvah. Marzipan macaroon bonbon.</span><br /></p><p>
+        <br />
+        Muffin toffee cake sweet roll bear claw macaroon icing chupa chups. Jelly beans jelly beans chocolate. Pudding cookie wafer chupa chups chupa chups dragée halvah gummies. Sesame snaps lollipop marzipan soufflé lemon drops gummies marzipan chocolate bar cake. Sesame snaps marshmallow apple pie tiramisu jelly beans. Jelly beans candy oat cake gingerbread halvah. Caramels soufflé dragée dragée tart topping pastry sweet roll. Marzipan chupa chups lollipop donut gingerbread powder. Gummies dessert cake tart jelly beans. Pudding pie topping soufflé cake icing. Ice cream cupcake topping. Cotton candy pie marshmallow gummi bears.<br />
+        <br />
+        Soufflé wafer jelly beans gummi bears cake liquorice fruitcake halvah. Bear claw dessert apple pie lollipop donut gummies. Gingerbread bear claw soufflé icing candy canes biscuit caramels. Cake dragée toffee pie cake chocolate ice cream dragée tootsie roll. Apple pie cake chupa chups chocolate bar biscuit pie sugar plum. Pastry jelly tart muffin dessert sweet cheesecake. Marzipan oat cake pudding biscuit cheesecake dessert gingerbread. Muffin fruitcake tart pudding cake bear claw bonbon brownie. Jujubes candy canes sugar plum soufflé candy canes cookie dessert cake chocolate cake. Jujubes croissant candy pudding fruitcake dessert soufflé marshmallow. Liquorice sesame snaps tiramisu. Brownie fruitcake powder gummies lollipop cotton candy brownie cheesecake liquorice. Sweet roll candy toffee sugar plum cotton candy. Pastry sesame snaps chocolate muffin.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: wearable, fitness, cardio, training
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Choose the Best
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Choose Your Perfect Wearable
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "51c07dea-7ee5-4dd9-a315-000bff693c68"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        extranet\Anonymous
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>When it comes to wearable fitness technology, one size does not fit all. Find the best wearable for your lifestyle and goal.&nbsp;</p>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163834Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Choose Your Perfect Wearable

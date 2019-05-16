@@ -1,0 +1,354 @@
+---
+ID: "db60ac50-8468-4d2d-ba97-255cc83a781b"
+Parent: "8a5c578f-e529-4e4c-960e-8d7a334c7798"
+Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home Basic/home/guides/intense-cycling-workouts"
+DB: master
+Created: 20190425T163835Z
+SharedFields:
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: 20180323T174900Z
+- ID: "7bd35dcd-61bb-42e0-8bf5-07803af6eede"
+  Hint: Author
+  Value: "{CCA66699-B6C8-43D1-BF33-68492C373174}"
+- ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
+  Hint: SxaTags
+  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="54d63273-947a-4927-b21a-0022625315e1"
+        name="Electronics Category"
+        presets="fitness tech|100||">
+        <key
+          name="Appliances"
+          value="0" />
+        <key
+          name="Audio"
+          value="0" />
+        <key
+          name="Cameras"
+          value="0" />
+        <key
+          name="Computers"
+          value="0" />
+        <key
+          name="Fitness Tech"
+          value="10" />
+        <key
+          name="Games"
+          value="0" />
+        <key
+          name="Phones"
+          value="0" />
+        <key
+          name="Tablets"
+          value="0" />
+        <key
+          name="TVs"
+          value="0" />
+      </profile>
+      <profile
+        id="552dd90f-a527-438e-ac33-32d236244123"
+        name="Topic Interest Category"
+        presets="fitness|100||">
+        <key
+          name="Child Safety"
+          value="0" />
+        <key
+          name="Energy Savings"
+          value="0" />
+        <key
+          name="Fitness"
+          value="10" />
+        <key
+          name="Foodie"
+          value="0" />
+        <key
+          name="Newest and Coolest"
+          value="0" />
+        <key
+          name="Overclocking"
+          value="0" />
+        <key
+          name="Reliability"
+          value="0" />
+        <key
+          name="Smart and Connected"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        <r
+          cnd=""
+          ds=""
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          mvt=""
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=1&amp;BackgroundImage&amp;Styles=%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D"
+          ph="/main/sxa-recommended-content/container-1"
+          uid="{0E98BD35-3DB0-4A48-9A29-9BD9647C2288}" />
+        <r
+          ds=""
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=3&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0"
+          ph="/main/sxa-article-content/author-1-"
+          uid="{239E810D-09B0-4649-A413-431226108B96}" />
+        <r
+          ds="{B2A42E1E-1558-4D77-8796-05D47CF27DC2}"
+          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          par="GridParameters&amp;DynamicPlaceholderId=2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles"
+          ph="/main/sxa-recommended-content/container-1/container-1"
+          uid="{F6FBD44E-3443-40E3-8EF9-84AD33082B52}" />
+        <r
+          cnd=""
+          ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          mvt=""
+          par="DynamicPlaceholderId=4"
+          ph="/main/sxa-recommended-content/container-3"
+          uid="{71CFCCF8-9427-40F3-9B8F-EC78146BA23F}" />
+      </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Intense Cycling Workouts
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{5AF2C84C-803F-49BC-B33A-D803AD4A3E14}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180323T174726Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Intense Cycling Workouts
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Intense Cycling Workouts
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: "<p>Chocolate pudding bonbon pudding. Carrot cake carrot cake wafer sesame snaps tootsie roll. Wafer jelly marzipan sweet roll liquorice dragée jelly beans cotton candy. Jelly-o candy canes dragée fruitcake lollipop tootsie roll. Gummi bears tiramisu brownie candy biscuit chocolate cake cookie. Cupcake chocolate cake candy canes. Pastry gummies tiramisu dessert jelly. Tart fruitcake pastry danish pie fruitcake cake muffin liquorice. Jelly beans chocolate cake caramels jelly candy canes chupa chups liquorice marzipan gummi bears. Dessert sweet roll cookie pudding cheesecake liquorice brownie caramels. Sweet gingerbread cupcake. Brownie jelly-o jelly-o. Caramels powder lemon drops. Dragée cheesecake dessert halvah candy oat cake jelly candy canes.</p>"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: fitness, cardio, wearable, training
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Smart Gym
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Intense Cycling Workouts
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: "<p>Gummies lollipop bonbon. Icing tootsie roll pastry gummi bears jelly beans toffee sweet jelly. Carrot cake sesame snaps cake cake sweet sweet macaroon wafer. Macaroon marshmallow toffee sweet pastry. Cupcake cheesecake macaroon cookie gummi bears cake. Jelly beans pastry gummies soufflé donut cotton candy. Toffee cookie cotton candy caramels jelly candy canes. Powder croissant sweet roll. Chocolate bar sweet roll danish lollipop pudding marshmallow lollipop marshmallow sweet. Sesame snaps candy canes apple pie pudding sweet roll sesame snaps cookie cookie. Dragée chupa chups pastry sugar plum topping lemon drops liquorice. Ice cream sugar plum wafer macaroon lollipop danish croissant sweet roll. Jelly-o chocolate caramels muffin fruitcake sweet roll sesame snaps cookie.<br /></p><p>Cupcake ice cream cotton candy biscuit chocolate bar dessert. Marshmallow chocolate chocolate bar ice cream dessert apple pie carrot cake powder. Candy carrot cake bear claw brownie jelly oat cake tiramisu sweet roll muffin. Jelly beans oat cake jelly-o cotton candy chocolate cake halvah pie powder cheesecake. Pastry chocolate cake pudding topping. Chupa chups chocolate bar topping tiramisu. Candy canes marshmallow cheesecake icing chocolate chocolate bar icing liquorice. Gingerbread cupcake muffin cheesecake jujubes icing. Biscuit toffee cupcake muffin. Bear claw gummies ice cream sesame snaps apple pie. Marzipan dragée tiramisu jelly jelly caramels toffee. Dessert toffee lollipop cheesecake cake cake marzipan.<br /></p>"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "51c02586-6a55-4ebb-b86c-a28a0c96f66d"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{ABA71F37-F063-448D-9675-1D2530E8A9C7}" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        extranet\Anonymous
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.</p>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163835Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Intense Cycling Workouts
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Intense Cycling Workouts
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{5AF2C84C-803F-49BC-B33A-D803AD4A3E14}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180323T174726Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Intense Cycling Workouts
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Intense Cycling Workouts
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: "<p>Chocolate pudding bonbon pudding. Carrot cake carrot cake wafer sesame snaps tootsie roll. Wafer jelly marzipan sweet roll liquorice dragée jelly beans cotton candy. Jelly-o candy canes dragée fruitcake lollipop tootsie roll. Gummi bears tiramisu brownie candy biscuit chocolate cake cookie. Cupcake chocolate cake candy canes. Pastry gummies tiramisu dessert jelly. Tart fruitcake pastry danish pie fruitcake cake muffin liquorice. Jelly beans chocolate cake caramels jelly candy canes chupa chups liquorice marzipan gummi bears. Dessert sweet roll cookie pudding cheesecake liquorice brownie caramels. Sweet gingerbread cupcake. Brownie jelly-o jelly-o. Caramels powder lemon drops. Dragée cheesecake dessert halvah candy oat cake jelly candy canes.</p>"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: fitness, cardio, wearable, training
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Smart Gym
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Intense Cycling Workouts
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: "<p>Gummies lollipop bonbon. Icing tootsie roll pastry gummi bears jelly beans toffee sweet jelly. Carrot cake sesame snaps cake cake sweet sweet macaroon wafer. Macaroon marshmallow toffee sweet pastry. Cupcake cheesecake macaroon cookie gummi bears cake. Jelly beans pastry gummies soufflé donut cotton candy. Toffee cookie cotton candy caramels jelly candy canes. Powder croissant sweet roll. Chocolate bar sweet roll danish lollipop pudding marshmallow lollipop marshmallow sweet. Sesame snaps candy canes apple pie pudding sweet roll sesame snaps cookie cookie. Dragée chupa chups pastry sugar plum topping lemon drops liquorice. Ice cream sugar plum wafer macaroon lollipop danish croissant sweet roll. Jelly-o chocolate caramels muffin fruitcake sweet roll sesame snaps cookie.<br /></p><p>Cupcake ice cream cotton candy biscuit chocolate bar dessert. Marshmallow chocolate chocolate bar ice cream dessert apple pie carrot cake powder. Candy carrot cake bear claw brownie jelly oat cake tiramisu sweet roll muffin. Jelly beans oat cake jelly-o cotton candy chocolate cake halvah pie powder cheesecake. Pastry chocolate cake pudding topping. Chupa chups chocolate bar topping tiramisu. Candy canes marshmallow cheesecake icing chocolate chocolate bar icing liquorice. Gingerbread cupcake muffin cheesecake jujubes icing. Biscuit toffee cupcake muffin. Bear claw gummies ice cream sesame snaps apple pie. Marzipan dragée tiramisu jelly jelly caramels toffee. Dessert toffee lollipop cheesecake cake cake marzipan.<br /></p>"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "11aae7ce-e82d-47dd-ace3-49b39dfe02dd"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{ABA71F37-F063-448D-9675-1D2530E8A9C7}" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.</p>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163835Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Intense Cycling Workouts
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Intense Cycling Workouts
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{5AF2C84C-803F-49BC-B33A-D803AD4A3E14}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180628T022827Z
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Intense Cycling Workouts
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Intense Cycling Workouts
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: "<p>Chocolate pudding bonbon pudding. Carrot cake carrot cake wafer sesame snaps tootsie roll. Wafer jelly marzipan sweet roll liquorice dragée jelly beans cotton candy. Jelly-o candy canes dragée fruitcake lollipop tootsie roll. Gummi bears tiramisu brownie candy biscuit chocolate cake cookie. Cupcake chocolate cake candy canes. Pastry gummies tiramisu dessert jelly. Tart fruitcake pastry danish pie fruitcake cake muffin liquorice. Jelly beans chocolate cake caramels jelly candy canes chupa chups liquorice marzipan gummi bears. Dessert sweet roll cookie pudding cheesecake liquorice brownie caramels. Sweet gingerbread cupcake. Brownie jelly-o jelly-o. Caramels powder lemon drops. Dragée cheesecake dessert halvah candy oat cake jelly candy canes.</p>"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: fitness, cardio, wearable, training
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Smart Gym
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Intense Cycling Workouts
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: "<p>Gummies lollipop bonbon. Icing tootsie roll pastry gummi bears jelly beans toffee sweet jelly. Carrot cake sesame snaps cake cake sweet sweet macaroon wafer. Macaroon marshmallow toffee sweet pastry. Cupcake cheesecake macaroon cookie gummi bears cake. Jelly beans pastry gummies soufflé donut cotton candy. Toffee cookie cotton candy caramels jelly candy canes. Powder croissant sweet roll. Chocolate bar sweet roll danish lollipop pudding marshmallow lollipop marshmallow sweet. Sesame snaps candy canes apple pie pudding sweet roll sesame snaps cookie cookie. Dragée chupa chups pastry sugar plum topping lemon drops liquorice. Ice cream sugar plum wafer macaroon lollipop danish croissant sweet roll. Jelly-o chocolate caramels muffin fruitcake sweet roll sesame snaps cookie.<br /></p><p>Cupcake ice cream cotton candy biscuit chocolate bar dessert. Marshmallow chocolate chocolate bar ice cream dessert apple pie carrot cake powder. Candy carrot cake bear claw brownie jelly oat cake tiramisu sweet roll muffin. Jelly beans oat cake jelly-o cotton candy chocolate cake halvah pie powder cheesecake. Pastry chocolate cake pudding topping. Chupa chups chocolate bar topping tiramisu. Candy canes marshmallow cheesecake icing chocolate chocolate bar icing liquorice. Gingerbread cupcake muffin cheesecake jujubes icing. Biscuit toffee cupcake muffin. Bear claw gummies ice cream sesame snaps apple pie. Marzipan dragée tiramisu jelly jelly caramels toffee. Dessert toffee lollipop cheesecake cake cake marzipan.<br /></p>"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7cc0e19f-7be0-4433-81d1-3ded8dd7c332"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{ABA71F37-F063-448D-9675-1D2530E8A9C7}" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        extranet\Anonymous
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>These intense cycling workouts are quick, fun, and 5 times as effective as other forms of exercises.</p>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163835Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Intense Cycling Workouts

@@ -1,0 +1,365 @@
+---
+ID: "1aac9ff1-dc5a-457c-8063-2ccbe23ec748"
+Parent: "8a5c578f-e529-4e4c-960e-8d7a334c7798"
+Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home Basic/home/guides/automate-dinner"
+DB: master
+Created: 20190425T163835Z
+SharedFields:
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: 20180308T050000Z
+- ID: "7bd35dcd-61bb-42e0-8bf5-07803af6eede"
+  Hint: Author
+  Value: "{6991E232-7E09-4CF8-BB77-90D45AA781A9}"
+- ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
+  Hint: SxaTags
+  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="552dd90f-a527-438e-ac33-32d236244123"
+        name="Topic Interest Category"
+        presets="smart and connected|50||cooking|50||">
+        <key
+          name="Fitness"
+          value="0" />
+        <key
+          name="Newest and Coolest"
+          value="0" />
+        <key
+          name="Reliability"
+          value="0" />
+        <key
+          name="Smart and Connected"
+          value="5" />
+        <key
+          name="Children"
+          value="0" />
+        <key
+          name="Cleaning"
+          value="0" />
+        <key
+          name="Cooking"
+          value="5" />
+        <key
+          name="Entertainment"
+          value="0" />
+        <key
+          name="Safety"
+          value="0" />
+      </profile>
+      <profile
+        id="54d63273-947a-4927-b21a-0022625315e1"
+        name="Electronics Category"
+        presets="appliances|100||">
+        <key
+          name="Appliances"
+          value="10" />
+        <key
+          name="Audio"
+          value="0" />
+        <key
+          name="Cameras"
+          value="0" />
+        <key
+          name="Computers"
+          value="0" />
+        <key
+          name="Fitness Tech"
+          value="0" />
+        <key
+          name="Games"
+          value="0" />
+        <key
+          name="Phones"
+          value="0" />
+        <key
+          name="Tablets"
+          value="0" />
+        <key
+          name="TVs"
+          value="0" />
+      </profile>
+      <profile
+        id="538a727f-87c6-4249-810d-0a90ee6ae6db"
+        name="Target Room Category"
+        presets="kitchen|100||">
+        <key
+          name="Bedroom"
+          value="0" />
+        <key
+          name="Kitchen"
+          value="10" />
+        <key
+          name="Laundry"
+          value="0" />
+        <key
+          name="Living Space"
+          value="0" />
+        <key
+          name="Office"
+          value="0" />
+        <key
+          name="Theater"
+          value="0" />
+        <key
+          name="Gym"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{6B988979-B6E9-4840-B471-FFADEDB36ECA}"
+          p:before="*"
+          s:ds="{68EF1B35-AC47-48B8-A507-6EBD3D611108}"
+          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-recommended-content/container-3" />
+        <r
+          uid="{593E4EF2-CE73-41AE-BDC2-87F2AAEFEA61}"
+          p:after="r[@uid='{6B988979-B6E9-4840-B471-FFADEDB36ECA}']"
+          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/sxa-article-content/author-1-" />
+        <r
+          uid="{68992D6D-03E8-450C-B1DF-2AB41371DFB4}"
+          p:after="*[1=2]"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/sxa-article-content/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Automate Dinner
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{7367FFA5-A84E-49F7-A025-A040A9ABA72E}" alt="Automate Dinner kitchen image" height="" width="" hspace="" vspace="" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180326T152719Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Automate Dinner
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Automate your meals with connected cooking appliances to always have a quality dining experience. 
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Automate Dinner
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Automate your meals with connected cooking appliances to always have a quality dining experience. 
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: <p>Set it and forget it. Never go hungry again. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc nisl, pellentesque quis pretium at, placerat in ligula. Phasellus ac eros rhoncus, rhoncus justo sed, accumsan neque. Etiam hendrerit a justo a ullamcorper. Curabitur faucibus finibus nisi, vitae consectetur tortor rutrum a. Donec molestie dui nisi, sit amet semper risus pharetra in. Pellentesque pellentesque ut magna tempus tincidunt. Vestibulum congue metus sit amet nulla volutpat tristique.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: smart home, appliances, recipes, food
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Smart Home Cooking
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Automate your meals with connected cooking appliances to always have a quality dining experience. 
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Automate Dinner
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc nisl, pellentesque quis pretium at, placerat in ligula. Phasellus ac eros rhoncus, rhoncus justo sed, accumsan neque. Etiam hendrerit a justo a ullamcorper. Curabitur faucibus finibus nisi, vitae consectetur tortor rutrum a. Donec molestie dui nisi, sit amet semper risus pharetra in. Pellentesque pellentesque ut magna tempus tincidunt. Vestibulum congue metus sit amet nulla volutpat tristique.</p>
+        <p>Proin tristique sed neque quis fringilla. Quisque erat orci, eleifend nec odio eu, volutpat finibus arcu. Maecenas ac tellus vel sem tincidunt imperdiet quis sit amet ipsum. Aenean rutrum elementum purus, accumsan feugiat ligula accumsan nec. Vivamus ac massa efficitur diam pretium venenatis. Ut ultrices bibendum ex, vitae tempor nulla. Duis aliquam, lectus quis tincidunt fringilla, dui dolor porta risus, ac iaculis ante odio sed magna. Fusce pretium nisi et ante porta, at malesuada turpis dignissim. In id risus sit amet turpis eleifend rutrum. Suspendisse dapibus neque nibh. Etiam rhoncus nisl et nulla tincidunt tristique.</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "86353255-0749-4cfc-aeb9-9d97d0dc17b4"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        extranet\Anonymous
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: "<p>Some times we get so busy we forget to eat! Well automate your meals with connected cooking appliances to always have a quality meal, no matter how busy.</p>"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163835Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Automate Dinner
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Automate Dinner
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{7367FFA5-A84E-49F7-A025-A040A9ABA72E}" alt="Automate Dinner kitchen image" height="" width="" hspace="" vspace="" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180326T152719Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Automate Dinner
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Automate your meals with connected cooking appliances to always have a quality dining experience. 
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Automate Dinner
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Automate your meals with connected cooking appliances to always have a quality dining experience. 
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: <p>Set it and forget it. Never go hungry again. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc nisl, pellentesque quis pretium at, placerat in ligula. Phasellus ac eros rhoncus, rhoncus justo sed, accumsan neque. Etiam hendrerit a justo a ullamcorper. Curabitur faucibus finibus nisi, vitae consectetur tortor rutrum a. Donec molestie dui nisi, sit amet semper risus pharetra in. Pellentesque pellentesque ut magna tempus tincidunt. Vestibulum congue metus sit amet nulla volutpat tristique.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: smart home, appliances, recipes, food
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Smart Home Cooking
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Automate your meals with connected cooking appliances to always have a quality dining experience. 
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Automate Dinner
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc nisl, pellentesque quis pretium at, placerat in ligula. Phasellus ac eros rhoncus, rhoncus justo sed, accumsan neque. Etiam hendrerit a justo a ullamcorper. Curabitur faucibus finibus nisi, vitae consectetur tortor rutrum a. Donec molestie dui nisi, sit amet semper risus pharetra in. Pellentesque pellentesque ut magna tempus tincidunt. Vestibulum congue metus sit amet nulla volutpat tristique.</p>
+        <p>Proin tristique sed neque quis fringilla. Quisque erat orci, eleifend nec odio eu, volutpat finibus arcu. Maecenas ac tellus vel sem tincidunt imperdiet quis sit amet ipsum. Aenean rutrum elementum purus, accumsan feugiat ligula accumsan nec. Vivamus ac massa efficitur diam pretium venenatis. Ut ultrices bibendum ex, vitae tempor nulla. Duis aliquam, lectus quis tincidunt fringilla, dui dolor porta risus, ac iaculis ante odio sed magna. Fusce pretium nisi et ante porta, at malesuada turpis dignissim. In id risus sit amet turpis eleifend rutrum. Suspendisse dapibus neque nibh. Etiam rhoncus nisl et nulla tincidunt tristique.</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0b566814-92f7-49b6-bafd-7fc2cf624509"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: "<p>Some times we get so busy we forget to eat! Well automate your meals with connected cooking appliances to always have a quality meal, no matter how busy.</p>"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163835Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Automate Dinner
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Automate Dinner
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{7367FFA5-A84E-49F7-A025-A040A9ABA72E}" alt="Automate Dinner kitchen image" height="" width="" hspace="" vspace="" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180628T022845Z
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Automate Dinner
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Automate your meals with connected cooking appliances to always have a quality dining experience. 
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Automate Dinner
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Automate your meals with connected cooking appliances to always have a quality dining experience. 
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: <p>Set it and forget it. Never go hungry again. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc nisl, pellentesque quis pretium at, placerat in ligula. Phasellus ac eros rhoncus, rhoncus justo sed, accumsan neque. Etiam hendrerit a justo a ullamcorper. Curabitur faucibus finibus nisi, vitae consectetur tortor rutrum a. Donec molestie dui nisi, sit amet semper risus pharetra in. Pellentesque pellentesque ut magna tempus tincidunt. Vestibulum congue metus sit amet nulla volutpat tristique.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: smart home, appliances, recipes, food
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Smart Home Cooking
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Automate your meals with connected cooking appliances to always have a quality dining experience. 
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Automate Dinner
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc nisl, pellentesque quis pretium at, placerat in ligula. Phasellus ac eros rhoncus, rhoncus justo sed, accumsan neque. Etiam hendrerit a justo a ullamcorper. Curabitur faucibus finibus nisi, vitae consectetur tortor rutrum a. Donec molestie dui nisi, sit amet semper risus pharetra in. Pellentesque pellentesque ut magna tempus tincidunt. Vestibulum congue metus sit amet nulla volutpat tristique.</p>
+        <p>Proin tristique sed neque quis fringilla. Quisque erat orci, eleifend nec odio eu, volutpat finibus arcu. Maecenas ac tellus vel sem tincidunt imperdiet quis sit amet ipsum. Aenean rutrum elementum purus, accumsan feugiat ligula accumsan nec. Vivamus ac massa efficitur diam pretium venenatis. Ut ultrices bibendum ex, vitae tempor nulla. Duis aliquam, lectus quis tincidunt fringilla, dui dolor porta risus, ac iaculis ante odio sed magna. Fusce pretium nisi et ante porta, at malesuada turpis dignissim. In id risus sit amet turpis eleifend rutrum. Suspendisse dapibus neque nibh. Etiam rhoncus nisl et nulla tincidunt tristique.</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3a63e1fb-7436-47d8-a35c-d905042c5d7d"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        extranet\Anonymous
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: "<p>Some times we get so busy we forget to eat! Well automate your meals with connected cooking appliances to always have a quality meal, no matter how busy.</p>"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163835Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Automate Dinner

@@ -1,0 +1,423 @@
+---
+ID: "a7893cef-55a2-4133-8e6e-16ff9971a8b1"
+Parent: "8a5c578f-e529-4e4c-960e-8d7a334c7798"
+Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home Basic/home/guides/setting-up-the-perfect-home-theater"
+DB: master
+Created: 20190425T163835Z
+SharedFields:
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: 
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: 20171113T160100Z
+- ID: "7bd35dcd-61bb-42e0-8bf5-07803af6eede"
+  Hint: Author
+  Value: "{94358B5D-48E1-4324-AE29-33102095EF83}"
+- ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
+  Hint: SxaTags
+  Value: "{7411018E-699A-4E78-B919-73349ECC6D0D}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="54d63273-947a-4927-b21a-0022625315e1"
+        name="Electronics Category"
+        presets="audio|50||tvs|50||">
+        <key
+          name="Appliances"
+          value="0" />
+        <key
+          name="Audio"
+          value="5" />
+        <key
+          name="Cameras"
+          value="0" />
+        <key
+          name="Computers"
+          value="0" />
+        <key
+          name="Fitness Tech"
+          value="0" />
+        <key
+          name="Games"
+          value="0" />
+        <key
+          name="Phones"
+          value="0" />
+        <key
+          name="Tablets"
+          value="0" />
+        <key
+          name="TVs"
+          value="5" />
+      </profile>
+      <profile
+        id="538a727f-87c6-4249-810d-0a90ee6ae6db"
+        name="Target Room Category"
+        presets="theater|100||">
+        <key
+          name="Bedroom"
+          value="0" />
+        <key
+          name="Kitchen"
+          value="0" />
+        <key
+          name="Laundry"
+          value="0" />
+        <key
+          name="Living Space"
+          value="0" />
+        <key
+          name="Office"
+          value="0" />
+        <key
+          name="Theater"
+          value="10" />
+      </profile>
+      <profile
+        id="552dd90f-a527-438e-ac33-32d236244123"
+        name="Topic Interest Category"
+        presets="reliability|30||newest and coolest|30||smart and connected|20||overclocking|20||">
+        <key
+          name="Child Safety"
+          value="0" />
+        <key
+          name="Energy Savings"
+          value="0" />
+        <key
+          name="Newest and Coolest"
+          value="3" />
+        <key
+          name="Overclocking"
+          value="2" />
+        <key
+          name="Reliability"
+          value="3" />
+        <key
+          name="Smart and Connected"
+          value="2" />
+      </profile>
+    </tracking>
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        <r
+          uid="{9675001F-A884-48A0-A1AC-6EF079FC451F}"
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="/main/sxa-article-content/author-1-"
+          ds="" />
+        <r
+          uid="{3442462D-5024-4C8B-AE7B-9BA60AC3D078}"
+          cnd=""
+          ds="{68EF1B35-AC47-48B8-A507-6EBD3D611108}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          mvt=""
+          par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-recommended-content/container-3" />
+      </d>
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Setting Up the Perfect Home Theater
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{11429EC9-1E51-4694-B09C-44ECC88D3F89}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171112T204932Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Setting Up the Perfect Home Theater
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Design the home entertainment system of your dreams. 
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Setting Up the Perfect Home Theater
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Design the home entertainment system of your dreams. 
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Once considered a luxury, home theaters have soared in popularity over the past five years.</p>
+        <p>Habitat's research experts predict the home theater market will grow by eight percent annually, with sales exceeding $28 billion by 2020. The growing number of smart devices, as well as the wide range of high-quality components, makes home theaters a more viable, and popular, option.</p>
+        <p>Setting up a home theater requires extensive planning and the help of a contractor and other professionals. Here are a few things to consider to make your dream home theater a reality.</p>
+        <p><strong>Choose the right room</strong></p>
+        <p>The ideal room will have enough space for seating and few windows, closets and doors. You'll also need to make sure its sound doesn't disturb the rest of the house or your neighbors. If possible, the chosen room will be located in or over the basement (it's easier to run cables and wires this way) and will have a high ceiling for mounting a projector.</p>
+        <p style="text-align: center;"><img alt="" src="-/media/36E2F65B319C45A792CDE8DE70459CCF.ashx?h=520&amp;w=860" style="height: 520px; width: 860px;" /></p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: smart home, entertainment, television, audio
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Stay Flexible
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Design the home entertainment system of your dreams. 
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Setting Up the Perfect Home Theater
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <p><strong>Configure your surround sound system</strong></p>
+        <p>Without stunning sound quality, a home theater is just a dark room with a big TV. Choose components wisely.</p><p><br /></p>
+        <p>The heart of the audio system, an A/V receiver, routes the video source to the TV or projection screen and the audio to the speakers. Position the receiver in an easy-to-reach location so you can easily mix and change cables. The Habitat Aura 200-Watt 7.2-Channel, Network-Ready 4K UHD Receiver offers 100 watts per channel—more than enough power for your movies, music, games, and more.</p><p><br /></p>
+        <p>When choosing speakers, listen to several models to find a package that suits your taste. You can configure the speakers for 5.1 surround sound—the standard—or 7.1, which gives you even more presence. Look for certified DTS or Dolby Digital surround, multiple audio and A/V connections, and at least 100 watts of sound per channel.</p><p><br /></p>
+        <p>Habitat Aura high-performance speakers provide stunning audio for an amazing home theater experience. As a space-saving alternative, consider a sound bar, which delivers surround-sound quality in a diminutive package.</p><p><br /></p>
+        <p style="margin-bottom: 15px;">Unwind with friends and family by watching a new release in your expertly designed home theater. Let Habitat's A/V experts help you design the ultimate movie night.</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "17d2077a-65f8-4e4f-8c92-664dd28fbe87"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{02C21C81-5FE3-483E-8EE1-E49D8D8E0B2D}" height="" hspace="" width="" alt="home theater nav thumbnail" vspace="" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        extranet\Anonymous
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>Keep yourself limber and experience the benefits of stretching, which include increased flexibility and improvements to your circulation</p>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163835Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Setting Up the Perfect Home Theater
+- Language: "fr-CA"
+  Fields:
+  - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
+    Hint: __Preview
+    Value: 
+  - ID: "577f1689-7de4-4ad2-a15f-7fdc1759285f"
+    Hint: __Long description
+    Value: 
+  - ID: "9541e67d-ce8c-4225-803d-33f7f29f09ef"
+    Hint: __Short description
+    Value: 
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Setting Up the Perfect Home Theater
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: 
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{11429EC9-1E51-4694-B09C-44ECC88D3F89}" alt="home theater hero" height="" width="" hspace="" vspace="" />
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "45ce257a-6060-4c4a-9a0f-ae77bf705b25"
+      Hint: TwitterSite
+      Value: 
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: 
+    - ID: "4c346442-e859-4efd-89b2-44aedf467d21"
+      Hint: __Valid to
+      Value: 
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: 
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: "Comment créer le cinéma-maison parfait"
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: 
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Autrefois consid&eacute;r&eacute;s comme un luxe, les cin&eacute;mas maison ont connu une popularit&eacute; croissante au cours des cinq derni&egrave;res ann&eacute;es.</p>
+        <p>Les experts en recherche de Habitat Home pr&eacute;voient que le march&eacute; du cin&eacute;ma maison conna&icirc;tra une croissance annuelle de huit pour cent, avec des ventes de plus de 28 milliards de dollars d'ici 2020. Le nombre croissant d'appareils intelligents et la vaste gamme de composants de haute qualit&eacute; rendent les cin&eacute;mas maison plus viables et populaire.</p>
+        <p>La mise en place d'un cin&eacute;ma maison n&eacute;cessite une planification approfondie et l'aide d'un entrepreneur et d'autres professionnels. Voici quelques points &agrave; consid&eacute;rer pour faire de votre home cin&eacute;ma de r&ecirc;ve une r&eacute;alit&eacute;.</p>
+        <p style="color: #141919; background-color: #fefefe;"><strong style="margin-bottom: 0px;">Choisissez la salle id&eacute;ale</strong></p>
+        <p style="color: #141919; background-color: #fefefe; margin-bottom: 15px;">The ideal room will have enough space for seating and few windows, closets and doors. You'll also need to make sure its sound doesn't disturb the rest of the house or your neighbors. If possible, the chosen room will be located in or over the basement (it's easier to run cables and wires this way) and will have a high ceiling for mounting a projector.</p>
+        <p style="color: #141919; background-color: #fefefe; margin-bottom: 15px;"><img alt="" src="-/media/36E2F65B319C45A792CDE8DE70459CCF.ashx?h=520&amp;w=860" style="height: 520px; width: 860px;" /></p>
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: 
+    - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
+      Hint: __Content Test
+      Value: 
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: 
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: 
+    - ID: "82f4bd76-0837-4e55-a1f6-15231096b2b9"
+      Hint: Attributes
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "378fb956-1b47-4189-aabd-77636c2d6c21"
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: 
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{02C21C81-5FE3-483E-8EE1-E49D8D8E0B2D}" alt="home theater nav thumbnail" height="" width="" hspace="" vspace="" />
+    - ID: "b8f42732-9cb8-478d-ae95-07e25345fb0f"
+      Hint: __Hide version
+      Type: checkbox
+      Value: 0
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: |
+        <p>Autrefois consid&eacute;r&eacute;s comme un luxe, les cin&eacute;mas maison ont connu une popularit&eacute; croissante au cours des cinq derni&egrave;res ann&eacute;es.</p>
+        <p>Les experts en recherche de Habitat Home pr&eacute;voient que le march&eacute; du cin&eacute;ma maison conna&icirc;tra une croissance annuelle de huit pour cent, avec des ventes de plus de 28 milliards de dollars d'ici 2020.</p>
+    - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
+      Hint: OpenGraphImageUrl
+      Value: 
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163835Z
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: 
+    - ID: "de457091-0989-414e-addf-59db0ddb6690"
+      Hint: TwitterImage
+      Value: 
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: "Comment créer le cinéma-maison parfait"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Setting Up the Perfect Home Theater
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{11429EC9-1E51-4694-B09C-44ECC88D3F89}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T104449Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Setting Up the Perfect Home Theater
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Design the home entertainment system of your dreams. 
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Setting Up the Perfect Home Theater
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Design the home entertainment system of your dreams. 
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Once considered a luxury, home theaters have soared in popularity over the past five years.</p>
+        <p>Habitat's research experts predict the home theater market will grow by eight percent annually, with sales exceeding $28 billion by 2020. The growing number of smart devices, as well as the wide range of high-quality components, makes home theaters a more viable, and popular, option.</p>
+        <p>Setting up a home theater requires extensive planning and the help of a contractor and other professionals. Here are a few things to consider to make your dream home theater a reality.</p>
+        <p style="color: #141919; background-color: #fefefe;"><strong style="margin-bottom: 0px;">Choose the right room</strong></p>
+        <p style="color: #141919; background-color: #fefefe; margin-bottom: 15px;">The ideal room will have enough space for seating and few windows, closets and doors. You'll also need to make sure its sound doesn't disturb the rest of the house or your neighbors. If possible, the chosen room will be located in or over the basement (it's easier to run cables and wires this way) and will have a high ceiling for mounting a projector.</p>
+        <p style="color: #141919; background-color: #fefefe; margin-bottom: 15px;"><img alt="" src="-/media/36E2F65B319C45A792CDE8DE70459CCF.ashx?h=520&amp;w=860" style="height: 520px; width: 860px;" /></p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: smart home, entertainment, television, audio
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Stay Flexible
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Design the home entertainment system of your dreams. 
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Setting Up the Perfect Home Theater
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <p><strong>Configure your surround sound system</strong></p>
+        <p>Without stunning sound quality, a home theater is just a dark room with a big TV. Choose components wisely.</p><p><br /></p>
+        <p>The heart of the audio system, an A/V receiver, routes the video source to the TV or projection screen and the audio to the speakers. Position the receiver in an easy-to-reach location so you can easily mix and change cables. The Habitat Aura 200-Watt 7.2-Channel, Network-Ready 4K UHD Receiver offers 100 watts per channel—more than enough power for your movies, music, games, and more.</p><p><br /></p>
+        <p>When choosing speakers, listen to several models to find a package that suits your taste. You can configure the speakers for 5.1 surround sound—the standard—or 7.1, which gives you even more presence. Look for certified DTS or Dolby Digital surround, multiple audio and A/V connections, and at least 100 watts of sound per channel.</p><p><br /></p>
+        <p>Habitat Aura high-performance speakers provide stunning audio for an amazing home theater experience. As a space-saving alternative, consider a sound bar, which delivers surround-sound quality in a diminutive package.</p><p><br /></p>
+        <p style="margin-bottom: 15px;">Unwind with friends and family by watching a new release in your expertly designed home theater. Let Habitat's A/V experts help you design the ultimate movie night.</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ea76adb7-d6b3-4f03-8224-b5fe53b7db40"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{02C21C81-5FE3-483E-8EE1-E49D8D8E0B2D}" height="" hspace="" width="" alt="home theater nav thumbnail" vspace="" />
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        extranet\Anonymous
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>Keep yourself limber and experience the benefits of stretching, which include increased flexibility and improvements to your circulation</p>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163835Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Setting Up the Perfect Home Theater
