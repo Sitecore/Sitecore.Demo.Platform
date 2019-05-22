@@ -247,20 +247,51 @@ Task("Publish-Core-Project").Does(() => {
     if (!deployLocal){
         destination = $"{deploymentRootPath}\\Website\\HabitatHome";
     }
-
+	
 	Information("Destination: " + destination);
 
-	var projectFile = $"{configuration.ProjectFolder}\\Build\\Build.Website\\Build.Website.csproj";
+	var projectFile = $"{configuration.ProjectSrcFolder}\\Build\\Build.Website\\Build.Website.csproj";
+	var publishFolder = $"{configuration.ProjectFolder}\\publish";
 	
 	DotNetCoreRestore(projectFile);
 
-	 var settings = new DotNetCorePublishSettings
+	var settings = new DotNetCorePublishSettings
         {
-            OutputDirectory = destination,
+            OutputDirectory = publishFolder,
 			Configuration = configuration.BuildConfiguration
         };
  
-        DotNetCorePublish(projectFile, settings);
+    DotNetCorePublish(projectFile, settings);
+
+	// Copy assembly files to webroot
+    var assemblyFilesFilter = $@"{publishFolder}\*.dll";
+    var assemblyFiles = GetFiles(assemblyFilesFilter).Select(x=>x.FullPath).ToList();
+    CopyFiles(assemblyFiles, (destination + "\\bin"), preserveFolderStructure: false);
+	
+	// Copy other output files to destination webroot
+	var ignoredExtensions = new string[] { ".dll", ".exe", ".pdb", ".xdt" };
+	var ignoredFiles = new string[] { "web.config", "build.website.deps.json", "build.website.exe.config" };
+
+	var contentFiles = GetFiles($"{publishFolder}\\**\\*")
+						.Where(file => !ignoredExtensions.Contains(file.GetExtension().ToLower()))
+						.Where(file => !ignoredFiles.Contains(file.Segments.LastOrDefault().ToLower()));
+
+	CopyFiles(contentFiles, destination, preserveFolderStructure: true);
+   
+
+	// Apply transforms    	 
+    var xdtFiles = GetFiles($"{publishFolder}\\**\\*.xdt");
+
+    foreach (var file in xdtFiles)
+    {
+        Information($"Applying configuration transform:{file.FullPath}");
+        var fileToTransform = Regex.Replace(file.FullPath, ".+transforms/(.+)/*.xdt", "$1");
+        var sourceTransform = $"{configuration.WebsiteRoot}\\{fileToTransform}";
+        
+        XdtTransformConfig(sourceTransform			                // Source File
+                            , file.FullPath			                // Tranforms file (*.xdt)
+                            , sourceTransform);		                // Target File
+    }
 });
 
 Task("Publish-Project-Projects").Does(() => {
