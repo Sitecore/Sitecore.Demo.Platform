@@ -2,12 +2,18 @@
 ID: "1999b4de-74f2-4253-8abe-03710bb560f1"
 Parent: "4ae5d723-02e9-45e9-8395-ff7a00626ef5"
 Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
-Path: "/sitecore/content/Habitat Sites/Global/Presentation/Rendering Variants/Page Teaser/Page Teaser - Image Right/Text Wrapper/Summary"
+Path: "/sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Page Teaser/Page Teaser - Image Right/Text Wrapper/Summary"
 DB: master
 SharedFields:
 - ID: "4753764c-c05a-4623-841b-97f85135241c"
   Hint: FieldName
-  Value: Summary
+  Value: Introduction
+- ID: "7495124d-09b5-4cb3-b4a6-fe77a95827da"
+  Hint: CssClass
+  Value: "field-promotext2"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
 - ID: "db805bdc-8eec-4238-b174-2427b6f1f077"
   Hint: Tag
   Value: "{18C8C889-C723-452A-970C-7CE4D41EE371}"

@@ -2,7 +2,7 @@
 ID: "0f4a411e-1b6c-41fd-9ded-6c9825da1fb4"
 Parent: "6873bf89-86a2-4afd-b231-570bb70c4bd8"
 Template: "eaffc9f9-3684-4650-92f4-78560bed789b"
-Path: /sitecore/content/Habitat Sites/Habitat Home/Presentation/Partial Designs/Footer
+Path: /sitecore/content/Habitat SXA Sites/Habitat Home/Presentation/Partial Designs/Footer
 DB: master
 SharedFields:
 - ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
@@ -29,10 +29,12 @@ SharedFields:
         <r
           uid="{0EA2053A-8CDB-4B9D-BE4C-E718691D640E}"
           p:after="r[@uid='{97ECA42C-9703-482C-9EF1-FBCEDC7076DA}']"
+          s:cac="1"
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=2"
-          s:ph="footer" />
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="footer"
+          s:vbd="1" />
         <r
           uid="{879FE286-5539-46E8-A67D-AB64BFEAC015}"
           p:after="r[@uid='{0EA2053A-8CDB-4B9D-BE4C-E718691D640E}']"

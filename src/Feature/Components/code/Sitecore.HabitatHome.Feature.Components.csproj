@@ -65,8 +65,8 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Kernel" Version="12.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc" Version="3.0.0-*" />
+        <PackageReference Include="Sitecore.Kernel" Version="9.1.1-*" />
+        <PackageReference Include="Sitecore.Mvc" Version="9.1.1-*" />
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -90,6 +90,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Metadata.cs" />
+    <Compile Include="Templates.cs" />
     <Content Include="Areas\Components\Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -103,6 +105,12 @@
     <Content Include="Areas\Components\Views\Component\PromoImageLeft.cshtml" />
     <Content Include="Areas\Components\Views\Component\PromoImageRight.cshtml" />
     <Content Include="Areas\Components\Views\Component\PageTitle.cshtml" />
+    <Content Include="Areas\Components\Views\Component\CenteredHeading.cshtml" />
+    <Content Include="Areas\Components\Views\Component\OurTeam.cshtml" />
+    <Content Include="Areas\Components\Views\Component\Breadcrumb.cshtml" />
+    <Content Include="Areas\Components\Views\Component\Metadata.cshtml" />
+    <Content Include="Areas\Components\Views\Component\LeftImageCTA.cshtml" />
+    <Content Include="Areas\Components\Views\Component\RightImageCTA.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -114,11 +122,11 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\BreadcrumbItem.cs" />
     <Compile Include="Models\CarouselModel.cs" />
     <Compile Include="Models\CarouselSlideModel.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\Site.cs" />
-    <Compile Include="Models\ItemBase.cs" />
     <Compile Include="Models\Component.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

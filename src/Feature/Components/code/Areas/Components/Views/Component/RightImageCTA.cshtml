@@ -1,0 +1,38 @@
+﻿@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@model Sitecore.HabitatHome.Feature.Components.Models.Component
+
+@{
+    var defaultReadMoreText = Html.Sitecore().Dictionary("/Buttons/Read More", "Read More");
+}
+<div class="container">
+    <div class="row image-cta">
+        <div class="col-sm-6 order-sm-1 py-5 px-5">
+            <h2>
+                @Html.Sitecore().Edit(Model, m => m.Title)
+            </h2>
+            <p class="lead">
+                @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(Model.Content))
+                {
+                    @Html.Sitecore().Edit(Model, m => m.Content)
+                }
+            </p>
+            @if (Model.TargetPage != null)
+            {
+                <a href="@Model.TargetPage.Url" class="link_arrow">@defaultReadMoreText</a>
+            }
+            else
+            {
+                // The only way we know if the TargetUrl field hasn't been filled in is to check if the url doesn't put anything
+                if (!string.IsNullOrEmpty(Model.TargetUrl.GetFriendlyUrl()))
+                {
+                    var text = !string.IsNullOrEmpty(Model.TargetUrl.Text) ? Model.TargetUrl.Text : defaultReadMoreText;
+                    <a href="@Model.TargetUrl.GetFriendlyUrl()" class="link_arrow" target="@Model.TargetUrl.Target" title="@text">@text</a>
+                }
+            }
+        </div>
+        <div class="col-sm-6 order-sm-2 no-padding-right">
+            @Html.Sitecore().Edit(Model, m => m.Image, new {mw = 500, @class = "float-right"})
+        </div>
+    </div>
+</div>

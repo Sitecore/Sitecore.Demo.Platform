@@ -1,18 +1,19 @@
 ﻿using Sitecore.Data.Items;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Models;
 
 namespace Sitecore.HabitatHome.Feature.Components.Models
 {
     public class Site : ItemBase
     {
         private Component home;
-        private Item settingsItem;
         private ItemBase lastSettingsGot;
+        private Item settingsItem;
 
         public Site()
         {
             Item = Context.Database.GetItem(Context.Site.ContentStartPath);
         }
-        
+
         public Component Home
         {
             get
@@ -22,9 +23,10 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
                     home = new Component();
                     home.Item = Context.Database.GetItem(Context.Site.StartPath);
                 }
+
                 return home;
             }
-        }        
+        }
 
         public Item SettingsItem
         {
@@ -32,16 +34,16 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
             {
                 var sitePath = Context.Site.ContentStartPath;
                 if (settingsItem == null && Item != null)
-                    settingsItem = Context.Database.GetItem(sitePath + "/" + Item["Settings"]);
+                    settingsItem = Context.Database.GetItem($"{sitePath}/{Item["Settings"]}");
                 return settingsItem;
             }
         }
-        
+
         public T GetSettings<T>() where T : ItemBase, new()
         {
             if (lastSettingsGot == null ||
                 lastSettingsGot.GetType() != typeof(T))
-                lastSettingsGot = new T() { Item = SettingsItem };
+                lastSettingsGot = new T {Item = SettingsItem};
             return lastSettingsGot as T;
         }
     }

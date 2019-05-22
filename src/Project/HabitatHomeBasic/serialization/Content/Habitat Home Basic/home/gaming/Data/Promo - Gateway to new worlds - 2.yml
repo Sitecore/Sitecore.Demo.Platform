@@ -2,7 +2,7 @@
 ID: "9d4c94cf-70df-480a-a1e0-b98d38337537"
 Parent: "492c2bd7-de99-4827-ab22-dea30cc60212"
 Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
-Path: "/sitecore/content/Habitat Sites/Habitat Home Basic/home/gaming/Data/Promo - Gateway to new worlds - 2"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home Basic/home/gaming/Data/Promo - Gateway to new worlds - 2"
 DB: master
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
@@ -33,7 +33,7 @@ Languages:
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link text="Shop all Consoles" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{8A5C578F-E529-4E4C-960E-8D7A334C7798}" />
+        <link linktype="internal" text="Shop all Consoles" querystring="" target="" id="{8A5C578F-E529-4E4C-960E-8D7A334C7798}" />
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -94,7 +94,7 @@ Languages:
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link id="{9307E44A-9397-4D0A-8E55-9A0152E3520C}" querystring="" text="Shop all Consoles" anchor="" title="" class="" url="/Habitat Sites/Habitat Home/home/gaming" linktype="internal" />
+        <link linktype="internal" text="Shop all Consoles" querystring="" target="" id="{BC2BE67B-632A-4368-BED6-5FF55D1251C2}" />
     - ID: "b8f42732-9cb8-478d-ae95-07e25345fb0f"
       Hint: __Hide version
       Type: checkbox

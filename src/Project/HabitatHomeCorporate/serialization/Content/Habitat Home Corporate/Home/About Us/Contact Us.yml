@@ -2,7 +2,7 @@
 ID: "31c4b0d5-717a-492e-a3a0-a85933001e39"
 Parent: "36800123-db50-44ac-833e-5826daa306b8"
 Template: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
-Path: /sitecore/content/Habitat Home Corporate/Home/About Us/Contact Us
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Home/About Us/Contact Us
 DB: master
 SharedFields:
 - ID: "d55e08ce-f57d-4eff-997c-e9f09c982f74"
@@ -43,10 +43,6 @@ SharedFields:
           s:par=""
           s:ph="/hh-content-main/formwrapper-{CA09795B-9C1B-48B8-B3AD-76219F4B1124}-0" />
         <r
-          uid="{3F34116B-A795-4609-B22D-983EFF6F4B31}">
-          <p:d />
-        </r>
-        <r
           uid="{3131F9DE-2696-4D4E-8C8B-BEF6E7648554}"
           p:after="*[1=2]" />
       </d>
@@ -56,6 +52,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: Contact Us
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190124T151149Z
@@ -65,3 +64,27 @@ Languages:
     - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
       Hint: Title
       Value: Contact Us
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 問い合わせ
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: 問い合わせ
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190409T150044Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "d52da1c6-36b8-4770-8dab-d092b266060b"
+      Hint: Lead
+      Value: このフォームを使用してメッセージをお知らせください。私達はあなたのEメールアドレスであなたに連絡します。ご希望の場合は、FacebookまたはTwitterでご連絡ください。ありがとうございました。
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: 問い合わせ
