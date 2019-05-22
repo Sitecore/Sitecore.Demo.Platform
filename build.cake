@@ -284,8 +284,14 @@ Task("Publish-Core-Project").Does(() => {
 
     foreach (var file in xdtFiles)
     {
+        if (file.FullPath.Contains(".azure"))
+        {
+            continue;
+        }
+        
         Information($"Applying configuration transform:{file.FullPath}");
         var fileToTransform = Regex.Replace(file.FullPath, ".+transforms/(.+)/*.xdt", "$1");
+        fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
         var sourceTransform = $"{configuration.WebsiteRoot}\\{fileToTransform}";
         
         XdtTransformConfig(sourceTransform			                // Source File
