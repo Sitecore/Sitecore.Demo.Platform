@@ -1,9 +1,10 @@
-﻿---
+---
 ID: "d35261eb-9275-4de9-ab14-4b34fe35ce5a"
 Parent: "60b74f90-0727-47f4-812b-741d39d40805"
 Template: "886adec1-abf8-40e1-9926-d9189c4e8e1b"
 Path: /sitecore/Forms/Habitat SXA Sites/Habitat Home/Onboarding Sign Up/Page/Fields Wrapper/Email
 DB: master
+Created: 20190426T201458Z
 SharedFields:
 - ID: "10e5829a-1943-4597-b9ee-406ce3d13e13"
   Hint: Validations
@@ -63,12 +64,22 @@ Languages:
     - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
       Hint: Title
       Value: Email Address
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a5b4ab38-ee0d-427a-9d27-5a9c88176cb7"
     - ID: "a6972f08-cbb5-4830-a8c9-8a0ae34650d1"
       Hint: Placeholder Text
       Value: 
     - ID: "b775bca9-2605-4d60-b367-a0c354be2504"
       Hint: Default Value
       Value: 
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190419T150532Z
 - Language: "fr-CA"
   Versions:
   - Version: 1
@@ -83,6 +94,16 @@ Languages:
     - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
       Hint: Title
       Value: Adresse électronique
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e495f172-d963-409b-b355-ae2b51829612"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190419T150532Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -101,3 +122,13 @@ Languages:
     - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
       Hint: Title
       Value: メールアドレス
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2d38e697-e18b-4891-9afc-22355ba3988f"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190419T150532Z

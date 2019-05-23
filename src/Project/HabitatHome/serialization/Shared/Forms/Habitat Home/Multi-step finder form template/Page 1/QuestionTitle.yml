@@ -1,9 +1,10 @@
-﻿---
+---
 ID: "85ba8b8a-4f46-4a2a-bb4a-cebecd25e992"
 Parent: "0a430217-8b89-4a90-9061-c7d0dc22f25c"
 Template: "fc18f915-eac6-460a-8777-6e1376a9ea09"
 Path: "/sitecore/Forms/Habitat SXA Sites/Habitat Home/Multi-step finder form template/Page 1/QuestionTitle"
 DB: master
+Created: 20190426T201443Z
 SharedFields:
 - ID: "589a7ade-81d4-4a60-b9e2-7eaf6ae8a563"
   Hint: Field Type
@@ -29,9 +30,19 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "242353b7-da4d-4cd0-a6a6-83dca44213eb"
     - ID: "9666782b-21bb-40ce-b38f-8f6c53fa5070"
       Hint: Text
       Value: "What are you interested in?"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190426T202457Z
 - Language: "fr-CA"
   Versions:
   - Version: 1
@@ -43,9 +54,19 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "be5b3733-0fa4-4134-a768-bfca1ec74a5a"
     - ID: "9666782b-21bb-40ce-b38f-8f6c53fa5070"
       Hint: Text
       Value: "Qu'est-ce qui vous intéresse?"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190426T202458Z
 - Language: "ja-JP"
   Versions:
   - Version: 1
@@ -57,3 +78,13 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "81e2e09c-dbc5-4874-aa97-7bff85d080b6"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190426T202458Z

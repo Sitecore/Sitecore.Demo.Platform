@@ -1,9 +1,10 @@
-﻿---
+---
 ID: "846360ed-0ae9-4bcb-8c21-6cc2df48130a"
 Parent: "efe86409-13d0-452e-8ec3-7a89be3f7d34"
 Template: "886adec1-abf8-40e1-9926-d9189c4e8e1b"
 Path: /sitecore/Forms/Habitat SXA Sites/Habitat Home/Newsletter Signup/Page/Section/Email
 DB: master
+Created: 20190426T201452Z
 SharedFields:
 - ID: "10e5829a-1943-4597-b9ee-406ce3d13e13"
   Hint: Validations
@@ -63,12 +64,22 @@ Languages:
     - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
       Hint: Title
       Value: "Email:"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f1eccd89-0f28-4a5d-90d0-b10a50ad8a48"
     - ID: "a6972f08-cbb5-4830-a8c9-8a0ae34650d1"
       Hint: Placeholder Text
       Value: Please enter you email address.
     - ID: "b775bca9-2605-4d60-b367-a0c354be2504"
       Hint: Default Value
       Value: 
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190426T202501Z
 - Language: "fr-CA"
   Versions:
   - Version: 1
@@ -80,3 +91,13 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d6657bb0-7567-491c-95d2-e2ee39af0b30"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190426T202501Z

@@ -1,9 +1,10 @@
-﻿---
+---
 ID: "1b47f73e-4e03-4653-82b2-744a7f002edb"
 Parent: "59bab6ac-d4fd-42a0-8ad5-258fc209efd2"
 Template: "0908030b-4564-42ea-a6fa-c7a5a2d921a8"
 Path: /sitecore/Forms/Habitat SXA Sites/Habitat Home/Home Installation Request/Page/Telephone
 DB: master
+Created: 20190426T201448Z
 SharedFields:
 - ID: "10e5829a-1943-4597-b9ee-406ce3d13e13"
   Hint: Validations
@@ -63,12 +64,22 @@ Languages:
     - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
       Hint: Title
       Value: Phone Number
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a921764a-d293-440f-b946-a1425e24e0a1"
     - ID: "a6972f08-cbb5-4830-a8c9-8a0ae34650d1"
       Hint: Placeholder Text
       Value: 
     - ID: "b775bca9-2605-4d60-b367-a0c354be2504"
       Hint: Default Value
       Value: 
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190426T202457Z
 - Language: "fr-CA"
   Versions:
   - Version: 1
@@ -80,6 +91,16 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "677e0997-a7d1-4020-8f07-46b0e4ff7e87"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190426T202457Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
