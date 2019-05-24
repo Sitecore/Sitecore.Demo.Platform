@@ -43,6 +43,14 @@
     <WebDeployPackageName>Sitecore.HabitatHome.Feature.XA.Master</WebDeployPackageName>
     <WebDeployAppendDateAndTimeToPackageName>False</WebDeployAppendDateAndTimeToPackageName>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Package-CM' ">
+    <DebugSymbols>false</DebugSymbols>
+    <RecursiveDeployAction>Ignore</RecursiveDeployAction>
+    <OutputPath>bin\Package-CM\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Package-CD' ">
+    <OutputPath>bin\Package-CD\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">
       <Value>$(AssemblyFileVersion)</Value>

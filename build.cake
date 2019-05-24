@@ -250,7 +250,7 @@ Task("Publish-Core-Project").Does(() => {
 	
 	Information("Destination: " + destination);
 
-	var projectFile = $"{configuration.ProjectSrcFolder}\\Build\\Build.Website\\Build.Website.csproj";
+	var projectFile = $"{configuration.SourceFolder}\\Build\\code\\Build.Website\\Build.Website.csproj";
 	var publishFolder = $"{configuration.ProjectFolder}\\publish";
 	
 	DotNetCoreRestore(projectFile);
