@@ -1,0 +1,149 @@
+---
+ID: "25f4837a-3818-4565-86ea-4fa63a0a6886"
+Parent: "3ca794cb-0c78-4a1d-aa0e-bfcf360b72f8"
+Template: "568d0b5c-eccb-4a2f-a301-79c7761cda36"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home Basic/home/landing-pages/Facebook"
+DB: master
+Created: 20190425T163832Z
+SharedFields:
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking
+      ignore="1" />
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180316T194219Z
+    - ID: "621cfa47-d63b-4b8e-81e7-0ca5c2619909"
+      Hint: HTML Content
+      Value: |
+        <!doctype html>
+        <html class="no-js" lang="">
+            <head>
+                <meta charset="utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+                <title>Facebook - Habitat Health</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+        		<link rel="icon" type="image/png" href="/~/media/project/habitat-sites/habitat-home/images/landing-pages/fb-icon.png" />
+                <link rel="apple-touch-icon" href="fb-icon.png" />
+        		<style type="text/css">
+        			/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+        			
+        			body, html {
+        				height: 100%;
+        				width: 100%;
+        			}
+        			
+        			.bg {
+        				position: relative;
+        				width: 100%;
+        				max-width: 1999px;
+        				min-height: 1249px;
+        				min-width: 1000px;
+        				
+        				background-repeat: no-repeat; background-size: contain; background-position: top left;
+        				background-color: #e9ebee;
+        			}
+        			
+        			.link {
+        				position: absolute;
+        				top: 0;
+        				left: 21%;
+        				width: 36%;
+        				height: 100%;
+        				display: block;
+        			}
+        		</style>
+            </head>
+            <body>
+        		<div class="bg" style="background-image: url(/~/media/project/habitat-sites/habitat-home/images/landing-pages/bg.png);">
+        			<a class="link" href="/habitat-health?sc_camp=86F4B51D01D84372889A2DEAC430E01D">&nbsp;</a>
+        		</div>
+            </body>
+        </html>
+        
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "dc334c8f-2779-46ad-a6ef-dbfea05f46d3"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        extranet\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163832Z
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T015522Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "621cfa47-d63b-4b8e-81e7-0ca5c2619909"
+      Hint: HTML Content
+      Value: |
+        <!doctype html>
+        <html class="no-js" lang="">
+            <head>
+                <meta charset="utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+                <title>Facebook - Habitat Health</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+        		<link rel="icon" type="image/png" href="/~/media/project/habitat-sites/habitat-home/images/landing-pages/fb-icon.png" />
+                <link rel="apple-touch-icon" href="fb-icon.png" />
+        		<style type="text/css">
+        			/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+        			
+        			body, html {
+        				height: 100%;
+        				width: 100%;
+        			}
+        			
+        			.bg {
+        				position: relative;
+        				width: 100%;
+        				max-width: 1999px;
+        				min-height: 1249px;
+        				min-width: 1000px;
+        				
+        				background-repeat: no-repeat; background-size: contain; background-position: top left;
+        				background-color: #e9ebee;
+        			}
+        			
+        			.link {
+        				position: absolute;
+        				top: 0;
+        				left: 21%;
+        				width: 36%;
+        				height: 100%;
+        				display: block;
+        			}
+        		</style>
+            </head>
+            <body>
+        		<div class="bg" style="background-image: url(/~/media/project/habitat-sites/habitat-home/images/landing-pages/bg.png);">
+        			<a class="link" href="/habitat-health?sc_camp=86F4B51D01D84372889A2DEAC430E01D">&nbsp;</a>
+        		</div>
+            </body>
+        </html>
+        
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7a27b361-4a0f-4172-8bd6-c5451ccbb401"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163832Z

@@ -1,0 +1,97 @@
+---
+ID: "0096f709-9d19-4233-a296-a24e04df53f4"
+Parent: "bc88fb5e-c3e0-46f0-b00d-d02d1949b8d3"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Habitat SXA Sites/Habitat Home Basic/Data/Snippets/Newsletter Signup
+DB: master
+Created: 20190425T163826Z
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{B7AA5409-2968-4533-9990-EBE49CCEE78A}"
+          p:before="*"
+          s:ds=""
+          s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;Styles=%7B460B5E75-23EF-430C-94C4-F86DB2DB5EDF%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/section-content/container-2">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{8F91609B-123E-4936-9950-C843C8026855}"
+                s:name="Form Completed">
+                <conditions>
+                  <condition
+                    uid="BD039D23F02942A3A2039D7FEB3825E6"
+                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
+                    s:GoalId="{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}"
+                    s:NumberOfElapsedDays="35"
+                    s:NumberOfElapsedDaysOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfPastInteractions="1" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="460199F466C44C998F3EC51B3923450C"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="EF3DDA2E2CDD441DA81BF4AAFCE4E33B"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{22CCF0C6-ACB1-424A-B51B-A345A9F0969B}"
+          p:after="r[@uid='{B7AA5409-2968-4533-9990-EBE49CCEE78A}']"
+          s:ds="/sitecore/Forms/Habitat SXA Sites/Habitat Home/Onboarding Sign Up"
+          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+          s:par=""
+          s:ph="/section-content/container-2/sitecoreFormsWrapper-1" />
+        <r
+          uid="{B28AA270-E2AE-4D9B-8F97-D37C8A0CCC90}"
+          p:after="*[1=2]"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage=%3Cimage%20mediaid%3D%22%7B5FD5E0EE-2054-4DB8-96F7-7CD0D717D8E1%7D%22%20alt%3D%22%22%20height%3D%22%22%20width%3D%22%22%20hspace%3D%22%22%20vspace%3D%22%22%20%2F%3E&amp;Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B92D5AED9-B973-47FF-9C9B-6621CEFCE400%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="section-content" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: "20180621T195031:636652074313255577Z"
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "17b32122-1e29-4659-ba68-376a629c25a0"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163826Z
