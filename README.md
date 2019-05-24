@@ -69,12 +69,6 @@ The demo is configured for **HTTPS/SSL**. Please ensure that you create an HTTPS
 ### Clone this repository
 <details>
 
-#### Setting Git for Long Paths
-
-- Before cloning, you need to configure git to allow long paths, which is not the default.
-
-`git config --system core.longpaths true`
-
 Clone the Sitecore.HabitatHome.Platform repository locally - defaults are configured for **C:\Projects\Sitecore.HabitatHome.Platform**. 
 
 
