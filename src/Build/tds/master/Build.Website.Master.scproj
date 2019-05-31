@@ -5,6 +5,7 @@
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7e3cf87d-cde6-4b3a-9beb-8e505f23188e</ProjectGuid>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <EnableUpdateable>true</EnableUpdateable>
     <UseMerge>true</UseMerge>
     <SingleAssemblyName>Build.Website.Master</SingleAssemblyName>
@@ -70,6 +71,8 @@
     <WebDeployPackageCodeAndItemOptions>CodeAndItems</WebDeployPackageCodeAndItemOptions>
     <WebDeployPackageName>HabitatHome.Platform.CM</WebDeployPackageName>
     <WebDeployAppendDateAndTimeToPackageName>False</WebDeployAppendDateAndTimeToPackageName>
+    <EnableValidations>False</EnableValidations>
+    <ValidationSettingsFilePath>.\Build.Website.Master_Package-CM.xml</ValidationSettingsFilePath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Package-CD' ">
     <OutputPath>.\bin\Package-CD\</OutputPath>
@@ -82,6 +85,8 @@
     <WebDeployPackageCodeAndItemOptions>CodeOnly</WebDeployPackageCodeAndItemOptions>
     <WebDeployPackageName>HabitatHome.Platform.CD</WebDeployPackageName>
     <WebDeployAppendDateAndTimeToPackageName>False</WebDeployAppendDateAndTimeToPackageName>
+    <EnableValidations>False</EnableValidations>
+    <ValidationSettingsFilePath>.\Build.Website.Master_Package-CD.xml</ValidationSettingsFilePath>
   </PropertyGroup>
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">
@@ -138,5 +143,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.9\build\HedgehogDevelopment.TDS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.9\build\HedgehogDevelopment.TDS.targets'))" />
+    <Error Condition="!Exists('..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.3\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.3\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets'))" />
   </Target>
+  <Import Project="..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.3\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets" Condition="Exists('..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.3\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets')" />
 </Project>

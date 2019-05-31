@@ -21,6 +21,9 @@
     <AssemblyStatus>Exclude</AssemblyStatus>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <SourceWebVirtualPath>/Sitecore.HabitatHome.Global.Website.csproj</SourceWebVirtualPath>
+    <SourceWebProject>{73a57fbe-7088-4344-87dc-23b01b504ec9}|src\Project\Global\code\Sitecore.HabitatHome.Global.Website.csproj</SourceWebProject>
+    <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -2846,6 +2849,12 @@
     <SitecoreItem Include="sitecore\templates\Project\Habitat SXA Sites\Global\Site\__Standard Values.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Project\Habitat SXA Sites\Global\Tenant.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Project\Habitat SXA Sites\Global\Tenant\__Standard Values.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\code\Sitecore.HabitatHome.Global.Website.csproj">
+      <Project>{73a57fbe-7088-4344-87dc-23b01b504ec9}</Project>
+      <Name>Sitecore.HabitatHome.Global.Website</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
