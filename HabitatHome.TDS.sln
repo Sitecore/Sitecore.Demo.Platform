@@ -56,6 +56,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build.Website", "src\Build\
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Build.Website.Master", "src\Build\tds\master\Build.Website.Master.scproj", "{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}"
 EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Build.Website.Core", "src\Build\tds\core\Build.Website.Core.scproj", "{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -225,6 +227,21 @@ Global
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Local|Any CPU.Build.0 = Local|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Local|Any CPU.Deploy.0 = Local|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Package-CD|Any CPU.ActiveCfg = Package-CD|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Package-CD|Any CPU.Build.0 = Package-CD|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Package-CD|Any CPU.Deploy.0 = Package-CD|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Package-CM|Any CPU.ActiveCfg = Package-CM|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Package-CM|Any CPU.Build.0 = Package-CM|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Package-CM|Any CPU.Deploy.0 = Package-CM|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -248,6 +265,7 @@ Global
 		{04070F82-3500-472C-BF75-3512241F551C} = {8404CBD0-F0F1-406A-82CA-5F8468764872}
 		{60080B8C-7936-424D-9415-D800832B96E7} = {570909EC-75B1-462F-A542-1345CFD15FB9}
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E} = {570909EC-75B1-462F-A542-1345CFD15FB9}
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1} = {570909EC-75B1-462F-A542-1345CFD15FB9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
