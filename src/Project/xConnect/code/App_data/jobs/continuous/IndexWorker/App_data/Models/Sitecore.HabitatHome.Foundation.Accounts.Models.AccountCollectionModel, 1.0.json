@@ -1,5 +1,5 @@
 {
-  "Name": "Sitecore.HabitatHome.Foundation.Accounts.Models.AccountCollectionModel",
+  "Name": "Sitecore.Demo.Foundation.Accounts.Models.AccountCollectionModel",
   "Version": "1.0",
   "References": [
     {
@@ -12,20 +12,20 @@
     }
   ],
   "Types": {
-    "Sitecore.HabitatHome.Foundation.Accounts.Models.Facets.SportName": {
+    "Sitecore.Demo.Foundation.Accounts.Models.Facets.SportName": {
       "Type": "Facet",
       "BaseType": "Sitecore.XConnect.Facet",
-      "ClrType": "Sitecore.HabitatHome.Foundation.Accounts.Models.Facets.SportName, Sitecore.HabitatHome.Foundation.Accounts, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "ClrType": "Sitecore.Demo.Foundation.Accounts.Models.Facets.SportName, Sitecore.Demo.Foundation.Accounts, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Properties": {
         "Value": {
           "Type": "String"
         }
       }
     },
-    "Sitecore.HabitatHome.Foundation.Accounts.Models.Facets.SportType": {
+    "Sitecore.Demo.Foundation.Accounts.Models.Facets.SportType": {
       "Type": "Facet",
       "BaseType": "Sitecore.XConnect.Facet",
-      "ClrType": "Sitecore.HabitatHome.Foundation.Accounts.Models.Facets.SportType, Sitecore.HabitatHome.Foundation.Accounts, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "ClrType": "Sitecore.Demo.Foundation.Accounts.Models.Facets.SportType, Sitecore.Demo.Foundation.Accounts, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Properties": {
         "Value": {
           "Type": "String"
@@ -37,12 +37,12 @@
     {
       "Target": "Contact",
       "Name": "SportName",
-      "Type": "Sitecore.HabitatHome.Foundation.Accounts.Models.Facets.SportName"
+      "Type": "Sitecore.Demo.Foundation.Accounts.Models.Facets.SportName"
     },
     {
       "Target": "Contact",
       "Name": "SportType",
-      "Type": "Sitecore.HabitatHome.Foundation.Accounts.Models.Facets.SportType"
+      "Type": "Sitecore.Demo.Foundation.Accounts.Models.Facets.SportType"
     }
   ]
 }
