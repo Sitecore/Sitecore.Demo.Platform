@@ -24,7 +24,8 @@
     <PackageReference Include="Sitecore.Demo.Foundation.Dictionary" Version="9.2.0.*" />
     <PackageReference Include="Sitecore.Demo.Foundation.Serialization" Version="9.2.0.*" />
     <PackageReference Include="Sitecore.Demo.Foundation.SitecoreExtensions" Version="9.2.0.*" />
-    <PackageReference Include="Sitecore.Demo.Foundation.Workflow" Version="9.2.0.*" />      
+    <PackageReference Include="Sitecore.Demo.Foundation.Workflow" Version="9.2.0.*" />
+    <PackageReference Include="Sitecore.Demo.Project.Website" Version="9.2.0.*" />      
   </ItemGroup>
   <Choose>
     <When Condition=" '$(Configuration)'=='Local' ">
