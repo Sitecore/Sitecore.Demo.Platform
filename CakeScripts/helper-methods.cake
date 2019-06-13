@@ -84,7 +84,7 @@ public void PublishProjects(string rootFolder, string publishRoot)
     Information("Publishing " + rootFolder + " to " + publishRoot);
     foreach (var project in projects)
     {
-        MSBuild(project, cfg => InitializeMSBuildSettings(cfg)
+        MSBuild(project, cfg => InitializeMSBuildSettingsInternal(cfg)
                                    .WithTarget(configuration.BuildTargets)
                                    .WithProperty("DeployOnBuild", "true")
                                    .WithProperty("DeployDefaultTarget", "WebPublish")
@@ -145,12 +145,21 @@ public void DeployExmCampaigns()
 
 public MSBuildSettings InitializeMSBuildSettings(MSBuildSettings settings)
 {
+    InitializeMSBuildSettingsInternal(settings)
+        .WithRestore();
+
+    return settings;
+}
+
+private MSBuildSettings InitializeMSBuildSettingsInternal(MSBuildSettings settings)
+{
     settings.SetConfiguration(configuration.BuildConfiguration)
             .SetVerbosity(Verbosity.Minimal)
             .SetMSBuildPlatform(MSBuildPlatform.Automatic)
             .SetPlatformTarget(PlatformTarget.MSIL)
             .UseToolVersion(configuration.MSBuildToolVersion)
-            .WithRestore();
+            .SetMaxCpuCount(8);
+
     return settings;
 }
 
