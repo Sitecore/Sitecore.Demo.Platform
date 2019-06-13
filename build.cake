@@ -1,7 +1,7 @@
 #addin nuget:?package=Cake.Azure&version=0.3.0
-#addin nuget:?package=Cake.Http&version=0.5.0
+#addin nuget:?package=Cake.Http&version=0.6.1
 #addin nuget:?package=Cake.Json&version=3.0.1
-#addin nuget:?package=Cake.Powershell&version=0.4.7
+#addin nuget:?package=Cake.Powershell&version=0.4.8
 #addin nuget:?package=Cake.XdtTransform&version=0.16.0
 #addin nuget:?package=Newtonsoft.Json&version=11.0.1
 
