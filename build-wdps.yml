@@ -1,4 +1,10 @@
 pool:
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'c:\test'
+    Contents: '**/test
+      **/*.csproj'
+    TargetFolder: '.\test'
   name: DEVDEMO1US1
   demands:
   - msbuild
@@ -36,10 +42,9 @@ steps:
   displayName: 'Copy CM Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\src\Project\Build\tds\master\bin\'
-    Contents: |
-     ${{ **/HabitatHome-CM*.scwdp.zip }}
-     ${{ **/HabitatHome-CM*.update }}
-     ${{ **/HabitatHome-CM*.sccpl }}
+    Contents: '**/HabitatHome-CM*.scwdp.zip
+      **/HabitatHome-CM*.update
+      **/HabitatHome-CM*.sccpl'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
 
@@ -54,10 +59,9 @@ steps:
   displayName: 'Copy CD Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\src\Project\Build\tds\master\bin\'
-    Contents: |
-     ${{ **/HabitatHome-CD*.scwdp.zip }}
-     ${{ **/HabitatHome-CD*.files.update }}
-     ${{ **/HabitatHome-CD*.sccpl }}
+    Contents: '**/HabitatHome-CD*.scwdp.zip
+      **/HabitatHome-CD*.files.update
+      **/HabitatHome-CD*.sccpl'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
 
