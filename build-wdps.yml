@@ -74,6 +74,6 @@ steps:
     azureSubscription: AzureSubscription
     Destination: AzureBlob
     storage: sitecoredemopackages
-    ContainerName: sitecoredemo
+    ContainerName: habitathomeplatform
     BlobPrefix: 'HabitatHome-$(BuildVersion.Version)'
 
