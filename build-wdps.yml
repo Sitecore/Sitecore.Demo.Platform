@@ -35,7 +35,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy CM Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build\tds\master\bin\'
+    SourceFolder: '$(Build.SourcesDirectory)\src\Build\tds\master\bin\'
     Contents: '**/HabitatHome-CM*.scwdp.zip
       **/HabitatHome-CM*.update
       **/HabitatHome-CM*.sccpl'
@@ -52,7 +52,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy CD Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build\tds\master\bin\'
+    SourceFolder: '$(Build.SourcesDirectory)\src\Build\tds\master\bin\'
     Contents: '**/HabitatHome-CD*.scwdp.zip
       **/HabitatHome-CD*.files.update
       **/HabitatHome-CD*.sccpl'
