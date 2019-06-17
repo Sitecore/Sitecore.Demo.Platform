@@ -5,7 +5,7 @@
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7e3cf87d-cde6-4b3a-9beb-8e505f23188e</ProjectGuid>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <EnableUpdateable>true</EnableUpdateable>
     <UseMerge>true</UseMerge>
     <SingleAssemblyName>Build.Website.Master</SingleAssemblyName>
@@ -17,14 +17,11 @@
     <Name>Build.Website.Master</Name>
     <RootNamespace>Build.Website.Master</RootNamespace>
     <ManageRoles>False</ManageRoles>
-    <SerializationFormat>Item</SerializationFormat>
     <SitecoreDatabase>master</SitecoreDatabase>
     <AssemblyStatus>Exclude</AssemblyStatus>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <SourceWebVirtualPath>/Build.Website.csproj</SourceWebVirtualPath>
-    <SourceWebProject>{60080b8c-7936-424d-9415-d800832b96e7}|src\Build\code\Build.Website\Build.Website.csproj</SourceWebProject>
-    <SourceWebPhysicalPath>..\..\code\Build.Website</SourceWebPhysicalPath>
+    <SerializationFormat>YML</SerializationFormat>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -123,50 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundledProject Include="..\..\..\Feature\ExperienceAccelerator\tds\core\Sitecore.HabitatHome.Feature.XA.Core.scproj">
-      <ProjectId>{04070f82-3500-472c-bf75-3512241f551c}</ProjectId>
-    </BundledProject>
-    <BundledProject Include="..\..\..\Feature\ExperienceAccelerator\tds\master\Sitecore.HabitatHome.Feature.XA.Master.scproj">
-      <ProjectId>{10bd3228-8c40-4cbc-ab7f-2b5ad1494076}</ProjectId>
-    </BundledProject>
-    <BundledProject Include="..\..\..\Project\Global\tds\master\Sitecore.HabitatHome.Global.Website.Master.scproj">
-      <ProjectId>{205a095a-8995-4ae5-a401-d7f386a57e48}</ProjectId>
-    </BundledProject>
-    <BundledProject Include="..\..\..\Project\HabitatHome\tds\master\Sitecore.HabitatHome.Website.Master.scproj">
-      <ProjectId>{826306eb-db92-4004-a7f4-01fc343d9d0d}</ProjectId>
-    </BundledProject>
-    <BundledProject Include="..\..\..\Project\HabitatHomeBasic\tds\master\Sitecore.HabitatHome.Basic.Website.Master.scproj">
-      <ProjectId>{deea75f2-b542-48ad-8ce7-cc958e27619b}</ProjectId>
-    </BundledProject>
-    <BundledProject Include="..\core\Build.Website.Core.scproj">
-      <ProjectId>{585df7f8-2ad0-431c-92d5-ed4d3737cea1}</ProjectId>
-    </BundledProject>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Feature\ExperienceAccelerator\tds\core\Sitecore.HabitatHome.Feature.XA.Core.scproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Feature\ExperienceAccelerator\tds\master\Sitecore.HabitatHome.Feature.XA.Master.scproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Project\Global\tds\master\Sitecore.HabitatHome.Global.Website.Master.scproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Project\HabitatHome\tds\master\Sitecore.HabitatHome.Website.Master.scproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Project\HabitatHomeBasic\tds\master\Sitecore.HabitatHome.Basic.Website.Master.scproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\..\code\Build.Website\Build.Website.csproj">
-      <Project>{60080b8c-7936-424d-9415-d800832b96e7}</Project>
-      <Name>Build.Website</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\core\Build.Website.Core.scproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <SitecoreItem Include="sitecore\content.yml"><ItemDeployment>NeverDeploy</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><DeployAlwaysFields></DeployAlwaysFields><CodeGenData></CodeGenData><CodeGenNamespace></CodeGenNamespace><CodeGenTemplate></CodeGenTemplate></SitecoreItem>
@@ -395,13 +348,100 @@
     <SitecoreItem Include="sitecore\templates\Foundation\Habitat Home\Workflow\Submission Notification\Data\Message.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment><DeployAlwaysFields></DeployAlwaysFields><CodeGenData></CodeGenData><CodeGenNamespace></CodeGenNamespace><CodeGenTemplate></CodeGenTemplate></SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Foundation\Habitat Home\Workflow\Submission Notification\Data\Subject.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment><DeployAlwaysFields></DeployAlwaysFields><CodeGenData></CodeGenData><CodeGenNamespace></CodeGenNamespace><CodeGenTemplate></CodeGenTemplate></SitecoreItem>
   </ItemGroup>
+  <ItemGroup>
+    <BundledProject Include="..\..\..\..\Feature\ExperienceAccelerator\tds\core\Sitecore.HabitatHome.Feature.XA.Core.scproj">
+      <ProjectId>{04070f82-3500-472c-bf75-3512241f551c}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\..\..\..\Feature\ExperienceAccelerator\tds\master\Sitecore.HabitatHome.Feature.XA.Master.scproj">
+      <ProjectId>{10bd3228-8c40-4cbc-ab7f-2b5ad1494076}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\..\..\..\Project\Global\tds\master\Sitecore.HabitatHome.Global.Website.Master.scproj">
+      <ProjectId>{205a095a-8995-4ae5-a401-d7f386a57e48}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\..\..\..\Project\HabitatHome\tds\master\Sitecore.HabitatHome.Website.Master.scproj">
+      <ProjectId>{826306eb-db92-4004-a7f4-01fc343d9d0d}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\..\..\..\Project\HabitatHomeBasic\tds\master\Sitecore.HabitatHome.Basic.Website.Master.scproj">
+      <ProjectId>{deea75f2-b542-48ad-8ce7-cc958e27619b}</ProjectId>
+    </BundledProject>
+    <BundledProject Include="..\core\Build.Website.Core.scproj">
+      <ProjectId>{585df7f8-2ad0-431c-92d5-ed4d3737cea1}</ProjectId>
+    </BundledProject>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Feature\ExperienceAccelerator\code\Sitecore.HabitatHome.Feature.ExperienceAccelerator.csproj">
+      <Project>{fea9bdf2-4014-4288-99ba-d511847f6d9c}</Project>
+      <Name>Sitecore.HabitatHome.Feature.ExperienceAccelerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Feature\ExperienceAccelerator\tds\core\Sitecore.HabitatHome.Feature.XA.Core.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Feature\ExperienceAccelerator\tds\master\Sitecore.HabitatHome.Feature.XA.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Project\Global\code\Sitecore.HabitatHome.Global.Website.csproj">
+      <Project>{73a57fbe-7088-4344-87dc-23b01b504ec9}</Project>
+      <Name>Sitecore.HabitatHome.Global.Website</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Project\Global\tds\master\Sitecore.HabitatHome.Global.Website.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Project\HabitatHome\code\Sitecore.HabitatHome.Website.csproj">
+      <Project>{ba3c2c41-cfac-4a40-8be5-1e5368ef4750}</Project>
+      <Name>Sitecore.HabitatHome.Website</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Project\HabitatHome\tds\master\Sitecore.HabitatHome.Website.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Project\HabitatHomeBasic\code\Sitecore.HabitatHome.Basic.Website.csproj">
+      <Project>{48f5bd4a-c481-4fcf-8044-9a8813d3510d}</Project>
+      <Name>Sitecore.HabitatHome.Basic.Website</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Project\HabitatHomeBasic\tds\master\Sitecore.HabitatHome.Basic.Website.Master.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\code\Build.Website.csproj">
+      <Project>{c0357237-f818-4ebe-b5a4-8bddd144e814}</Project>
+      <Name>Build.Website</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\Build.Website.Core.scproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SourceWebProjects Include="{48f5bd4a-c481-4fcf-8044-9a8813d3510d}|src\Project\HabitatHomeBasic\code\Sitecore.HabitatHome.Basic.Website.csproj">
+      <SourceWebPhysicalPath>..\..\..\..\Project\HabitatHomeBasic\code</SourceWebPhysicalPath>
+      <SourceWebVirtualPath>/Sitecore.HabitatHome.Basic.Website.csproj</SourceWebVirtualPath>
+      <SourceWebProjectId>48f5bd4a-c481-4fcf-8044-9a8813d3510d</SourceWebProjectId>
+    </SourceWebProjects>
+    <SourceWebProjects Include="{73a57fbe-7088-4344-87dc-23b01b504ec9}|src\Project\Global\code\Sitecore.HabitatHome.Global.Website.csproj">
+      <SourceWebPhysicalPath>..\..\..\..\Project\Global\code</SourceWebPhysicalPath>
+      <SourceWebVirtualPath>/Sitecore.HabitatHome.Global.Website.csproj</SourceWebVirtualPath>
+      <SourceWebProjectId>73a57fbe-7088-4344-87dc-23b01b504ec9</SourceWebProjectId>
+    </SourceWebProjects>
+    <SourceWebProjects Include="{ba3c2c41-cfac-4a40-8be5-1e5368ef4750}|src\Project\HabitatHome\code\Sitecore.HabitatHome.Website.csproj">
+      <SourceWebPhysicalPath>..\..\..\..\Project\HabitatHome\code</SourceWebPhysicalPath>
+      <SourceWebVirtualPath>/Sitecore.HabitatHome.Website.csproj</SourceWebVirtualPath>
+      <SourceWebProjectId>ba3c2c41-cfac-4a40-8be5-1e5368ef4750</SourceWebProjectId>
+    </SourceWebProjects>
+    <SourceWebProjects Include="{c0357237-f818-4ebe-b5a4-8bddd144e814}|src\Build\Build.Website\code\Build.Website.csproj">
+      <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
+      <SourceWebVirtualPath>/Build.Website.csproj</SourceWebVirtualPath>
+      <SourceWebProjectId>c0357237-f818-4ebe-b5a4-8bddd144e814</SourceWebProjectId>
+    </SourceWebProjects>
+    <SourceWebProjects Include="{fea9bdf2-4014-4288-99ba-d511847f6d9c}|src\Feature\ExperienceAccelerator\code\Sitecore.HabitatHome.Feature.ExperienceAccelerator.csproj">
+      <SourceWebPhysicalPath>..\..\..\..\Feature\ExperienceAccelerator\code</SourceWebPhysicalPath>
+      <SourceWebVirtualPath>/Sitecore.HabitatHome.Feature.ExperienceAccelerator.csproj</SourceWebVirtualPath>
+      <SourceWebProjectId>fea9bdf2-4014-4288-99ba-d511847f6d9c</SourceWebProjectId>
+    </SourceWebProjects>
+  </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets'))" />
-    <Error Condition="!Exists('..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets'))" />
+    <Error Condition="!Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets'))" />
+    <Error Condition="!Exists('..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets'))" />
   </Target>
-  <Import Project="..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets')" />
-  <Import Project="..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets" Condition="Exists('..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets')" />
+  <Import Project="..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets')" />
+  <Import Project="..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets" Condition="Exists('..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets')" />
 </Project>
