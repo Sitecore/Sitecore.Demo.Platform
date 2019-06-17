@@ -36,9 +36,10 @@ steps:
   displayName: 'Copy CM Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\src\Build\tds\master\bin\'
-    Contents: '**/HabitatHome-CM*.scwdp.zip
+    Contents: |
+      **/HabitatHome-CM*.scwdp.zip
       **/HabitatHome-CM*.update
-      **/HabitatHome-CM*.sccpl'
+      **/HabitatHome-CM*.sccpl
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
 
@@ -53,9 +54,10 @@ steps:
   displayName: 'Copy CD Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\src\Build\tds\master\bin\'
-    Contents: '**/HabitatHome-CD*.scwdp.zip
+    Contents: |
+      **/HabitatHome-CD*.scwdp.zip
       **/HabitatHome-CD*.files.update
-      **/HabitatHome-CD*.sccpl'
+      **/HabitatHome-CD*.sccpl
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
 
