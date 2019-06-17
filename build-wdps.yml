@@ -21,14 +21,14 @@ steps:
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
-    restoreSolution: HabitatHome.sln
+    restoreSolution: HabitatHome.TDS.sln
     feedsToUse: config
     nugetConfigPath: 'nuget-sc-internal.config'
 
 - task: MSBuild@1
   displayName: 'HabitatHome - CM'
   inputs:
-    solution: HabitatHome.sln
+    solution: HabitatHome.TDS.sln
     configuration: 'Package-CM'
     msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CM-$(BuildVersion.Version) /p:PackageName=HabitatHome-CM-$(BuildVersion.Version)'
 
@@ -45,7 +45,7 @@ steps:
 - task: MSBuild@1
   displayName: 'HabitatHome - CD'
   inputs:
-    solution: HabitatHome.sln
+    solution: HabitatHome.TDS.sln
     configuration: 'Package-CD'
     msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CD-$(BuildVersion.Version) /p:PackageName=HabitatHome-CD-$(BuildVersion.Version)'
 
