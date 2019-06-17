@@ -1,10 +1,4 @@
 pool:
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: 'c:\test'
-    Contents: '**/test
-      **/*.csproj'
-    TargetFolder: '.\test'
   name: DEVDEMO1US1
   demands:
   - msbuild
