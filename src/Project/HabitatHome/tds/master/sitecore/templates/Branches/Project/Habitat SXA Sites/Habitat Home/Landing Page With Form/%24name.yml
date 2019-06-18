@@ -1,0 +1,82 @@
+---
+ID: "8cf49ab7-b197-4a9e-aa48-3d2424f78ec8"
+Parent: "88afe195-bca1-49dd-9aa2-67f0d9a0daa5"
+Template: "c2786e73-44c7-43be-954b-1b35aeba4bd0"
+Path: /sitecore/templates/Branches/Project/Habitat SXA Sites/Habitat Home/Landing Page With Form/$name
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{E36CB356-7271-4E46-BDCC-C34F0518E1E0}"
+          p:before="*"
+          s:ds="{13CB92AF-E4D8-4B4E-8CCE-76C5135B0237}"
+          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+          s:par=""
+          s:ph="/main/sxa-content-container/container-1/container-5/column-2-6/sitecoreFormsWrapper-7" />
+        <r
+          uid="{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}"
+          p:after="r[@uid='{E36CB356-7271-4E46-BDCC-C34F0518E1E0}']"
+          s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
+          s:par="Styles=%7b3D999B16-D69D-4B5D-AC03-77987905060F%7d%7c%7b0CC74E1D-658E-460C-8D9F-DB5C73E078FD%7d&amp;DynamicPlaceholderId=7&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0"
+          s:ph="/main/sxa-content-container/container-1/container-5/column-2-6" />
+        <r
+          uid="{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}"
+          p:after="r[@uid='{4A2DC1E2-F013-4FE3-9415-FFEA09BC96D7}']"
+          s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          s:par=""
+          s:ph="/main/sxa-content-container/container-1/container-5/column-1-6" />
+        <r
+          uid="{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}"
+          p:after="r[@uid='{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}']"
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="DynamicPlaceholderId=6&amp;EnabledPlaceholders=1%2c2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;ColumnWidth1=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d&amp;ColumnWidth2=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d"
+          s:ph="/main/sxa-content-container/container-1/container-5" />
+        <r
+          uid="{7DFCF9D1-9E8A-48D3-A97B-B14654888C89}"
+          p:after="r[@uid='{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}']"
+          s:ds="local:/Data/Page Hero"
+          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+          s:par="DynamicPlaceholderId=1&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{D2B41184-B2CD-4074-AE79-4DADF108989B}"
+          p:after="r[@uid='{7DFCF9D1-9E8A-48D3-A97B-B14654888C89}']"
+          s:id="{99A633FC-B9A9-44A0-B78A-BCBB08DD02C9}"
+          s:par="Styles=%7b3D999B16-D69D-4B5D-AC03-77987905060F%7d%7c%7b2F128FEA-2B7B-41F0-AF0E-C61CD5AF7901%7d&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{C56FF29E-B1DC-494C-9168-4DA7099D53D1}"
+          p:after="*[1=2]"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Styles=%7b7390C99D-8055-4E89-9C82-84CA91700184%7d&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-content-container/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: "20180612T142400:636644102406325197Z"
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bce45956-3e55-4710-9cc3-c8b5e5820768"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T163722Z

@@ -1,0 +1,35 @@
+---
+ID: "976567e6-c494-4b84-b51f-a2813f8031e2"
+Parent: "8b463696-7cb4-44f4-a2e5-f02a37575962"
+Template: "f0d16eee-3a05-4e43-a082-795a32b873c0"
+Path: /sitecore/system/Settings/Rules/Definitions/Elements/Sitecore Demo Account/SportTypeCondition
+DB: master
+SharedFields:
+- ID: "ab51c8b2-f0e1-4471-9aae-cc080d774923"
+  Hint: Type
+  Value: Sitecore.Demo.Foundation.Accounts.Rules.SportTypeFacetCondition,Sitecore.Demo.Foundation.Accounts
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181106T175608Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2ab6a173-4fcc-4b7f-a9fc-49da4b4d17e0"
+    - ID: "af321234-4eb9-4ef5-9197-65903351939c"
+      Hint: Text
+      Value: "where the contact's preferred fitness activity type [Comparison,Tree,root=/sitecore/system/Settings/Rules/Definitions/XConnect - String Operators&resulttype=name,compares to] [SportTypeKey,Text,,specific value]"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190430T174247Z

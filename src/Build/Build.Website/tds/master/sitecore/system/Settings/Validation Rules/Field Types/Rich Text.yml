@@ -1,0 +1,139 @@
+---
+ID: "e07b7b4f-989f-4af0-a577-b41d94ba183a"
+Parent: "7c3aeae8-8902-48ef-bbd1-e958fd2f8c4e"
+Template: "79c087e2-960b-4312-a3d2-fe4018fd1854"
+Path: /sitecore/system/Settings/Validation Rules/Field Types/Rich Text
+DB: master
+SharedFields:
+- ID: "08d10fd3-f3fe-4bc3-b351-7e41d4a70381"
+  Hint: Quick Action Bar
+  Type: tree list
+  Value: |
+    {6D500553-DDCA-44B4-839D-ED6EE733C6FC}
+    {00A05EC0-AECB-4DF3-BEA5-D5FCCC13F2D1}
+    {437DB79E-17EA-49C8-9E50-CF52C63EEE12}
+- ID: "0b446e61-8bf3-4616-af42-8a4017b3c886"
+  Hint: Validator Bar
+  Type: tree list
+  Value: |
+    {6D500553-DDCA-44B4-839D-ED6EE733C6FC}
+    {00A05EC0-AECB-4DF3-BEA5-D5FCCC13F2D1}
+    {437DB79E-17EA-49C8-9E50-CF52C63EEE12}
+- ID: "8e33fbe0-6412-42f8-a445-6a61e0d5660b"
+  Hint: Validate Button
+  Type: tree list
+  Value: |
+    {6D500553-DDCA-44B4-839D-ED6EE733C6FC}
+    {00A05EC0-AECB-4DF3-BEA5-D5FCCC13F2D1}
+    {437DB79E-17EA-49C8-9E50-CF52C63EEE12}
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 99
+- ID: "bae1f484-effa-4f4d-910e-0180fb8b53c5"
+  Hint: Workflow
+  Type: tree list
+  Value: |
+    {6D500553-DDCA-44B4-839D-ED6EE733C6FC}
+    {00A05EC0-AECB-4DF3-BEA5-D5FCCC13F2D1}
+    {437DB79E-17EA-49C8-9E50-CF52C63EEE12}
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Rich text
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171219T155426Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7f859e77-cac0-4ee1-8ba8-e41efee91716"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190530T151404Z
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Rich Text
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171219T155908Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "110b12bb-4627-469d-b524-f59982c1cb92"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190530T151404Z
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Rich Text
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20071115T175300
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "80fa793f-5a47-43a8-91b4-b8c84ddce4c0"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190530T151404Z
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: リッチテキスト
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171219T160327Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d6ada5ae-dbc4-444b-a60b-6f91b335f426"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190530T151404Z

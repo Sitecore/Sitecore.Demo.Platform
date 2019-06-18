@@ -22,7 +22,6 @@ public class Configuration
     public string Version {get;set;}
     public string Topology {get;set;}
     public bool CDN {get;set;}
-	public bool SXA {get;set;}
     public string DeploymentTarget{get;set;}
     
     public string BuildToolVersions 
@@ -94,6 +93,11 @@ public void PublishProjects(string rootFolder, string publishRoot)
                                    .WithProperty("BuildProjectReferences", "false")
                                    );
     }
+}
+
+public void PublishCoreProjects(string rootFolder, string publishRoot) 
+{
+	
 }
 
 public FilePathCollection GetTransformFiles(string rootFolder)
