@@ -1,0 +1,79 @@
+pool:
+  name: DEVDEMO1US1
+  demands:
+  - msbuild
+  - azureps
+steps:
+- task: 4tecture.BuildVersioning.BuildVersioning.BuildVersioning@0
+  displayName: 'Set Version Number'
+  inputs:
+    versionSource: variable
+    customNumberVariable: sitecore.version
+    paramOverwriteFourthDigitWithBuildCounter: true
+    buildNumberAction: replace
+
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet 4.4.1'
+  inputs:
+    versionSpec: 4.4.1
+    checkLatest: true
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: HabitatHome.TDS.sln
+    feedsToUse: config
+    nugetConfigPath: 'nuget-sc-internal.config'
+
+- task: MSBuild@1
+  displayName: 'HabitatHome - CM'
+  inputs:
+    solution: HabitatHome.TDS.sln
+    configuration: 'Package-CM'
+    msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CM-$(BuildVersion.Version) /p:PackageName=HabitatHome-CM-$(BuildVersion.Version)'
+
+- task: CopyFiles@2
+  displayName: 'Copy CM Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
+    Contents: |
+      **/HabitatHome-CM*.scwdp.zip
+      **/HabitatHome-CM*.update
+      **/HabitatHome-CM*.sccpl
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true
+
+- task: MSBuild@1
+  displayName: 'HabitatHome - CD'
+  inputs:
+    solution: HabitatHome.TDS.sln
+    configuration: 'Package-CD'
+    msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CD-$(BuildVersion.Version) /p:PackageName=HabitatHome-CD-$(BuildVersion.Version)'
+
+- task: CopyFiles@2
+  displayName: 'Copy CD Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
+    Contents: |
+      **/HabitatHome-CD*.scwdp.zip
+      **/HabitatHome-CD*.files.update
+      **/HabitatHome-CD*.sccpl
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true
+
+- task: PublishPipelineArtifact@0
+  displayName: 'Publish Pipeline Artifact'
+  inputs:
+    artifactName: WDPs
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+
+- task: AzureFileCopy@2
+  displayName: 'AzureBlob File Copy'
+  inputs:
+    SourcePath: '$(Build.ArtifactStagingDirectory)'
+    azureSubscription: AzureSubscription
+    Destination: AzureBlob
+    storage: sitecoredemopackages
+    ContainerName: habitathomeplatform
+    BlobPrefix: 'HabitatHome-$(BuildVersion.Version)'
+
