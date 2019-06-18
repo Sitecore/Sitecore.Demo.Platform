@@ -18,7 +18,7 @@
     <RootNamespace>Build.Website.Master</RootNamespace>
     <ManageRoles>False</ManageRoles>
     <SitecoreDatabase>master</SitecoreDatabase>
-    <AssemblyStatus>Exclude</AssemblyStatus>
+    <AssemblyStatus>Include</AssemblyStatus>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <SerializationFormat>YML</SerializationFormat>
@@ -435,13 +435,24 @@
       <SourceWebProjectId>fea9bdf2-4014-4288-99ba-d511847f6d9c</SourceWebProjectId>
     </SourceWebProjects>
   </ItemGroup>
+  <ItemGroup>
+    <ExcludedAssemblies Include="Configy.%2a" />
+    <ExcludedAssemblies Include="Kamsar.%2a" />
+    <ExcludedAssemblies Include="MicroCHAP.dll" />
+    <ExcludedAssemblies Include="Microsoft.Owin.Security.Facebook.dll" />
+    <ExcludedAssemblies Include="Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <ExcludedAssemblies Include="Rainbow.%2a" />
+    <ExcludedAssemblies Include="Sitecore.Demo.%2a" />
+    <ExcludedAssemblies Include="Sitecore.HabitatHome.%2a" />
+    <ExcludedAssemblies Include="Unicorn.%2a" />
+  </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets'))" />
-    <Error Condition="!Exists('..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets'))" />
+    <Error Condition="!Exists('..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.6\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.6\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets'))" />
   </Target>
   <Import Project="..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.5.8.0.12\build\HedgehogDevelopment.TDS.targets')" />
-  <Import Project="..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets" Condition="Exists('..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.4\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets')" />
+  <Import Project="..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.6\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets" Condition="Exists('..\..\..\..\..\packages\Sitecore.Demo.BuildTools.MergeXdtTransforms.9.2.0.6\build\Sitecore.Demo.BuildTools.MergeXdtTransforms.targets')" />
 </Project>
