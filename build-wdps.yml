@@ -38,6 +38,7 @@ steps:
     solution: HabitatHome.TDS.sln
     configuration: 'Package-CD'
     msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CD-$(BuildVersion.Version) /p:PackageName=HabitatHome-CD-$(BuildVersion.Version)'
+
 - task: ExtractFiles@1
   displayName: 'Extract CM WDP'
   inputs:
