@@ -32,23 +32,84 @@ steps:
     configuration: 'Package-CM'
     msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CM-$(BuildVersion.Version) /p:PackageName=HabitatHome-CM-$(BuildVersion.Version)'
 
-- task: CopyFiles@2
-  displayName: 'Copy CM Files to: $(Build.ArtifactStagingDirectory)'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
-    Contents: |
-      **/HabitatHome-CM*.scwdp.zip
-      **/HabitatHome-CM*.update
-      **/HabitatHome-CM*.sccpl
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    flattenFolders: true
-
 - task: MSBuild@1
   displayName: 'HabitatHome - CD'
   inputs:
     solution: HabitatHome.TDS.sln
     configuration: 'Package-CD'
     msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CD-$(BuildVersion.Version) /p:PackageName=HabitatHome-CD-$(BuildVersion.Version)'
+- task: ExtractFiles@1
+  displayName: 'Extract CM WDP'
+  inputs:
+    archiveFilePatterns: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\**\HabitatHome-CM*.wdp.zip'
+    destinationFolder: '$(Build.ArtifactStagingDirectory)\CM-temp'
+    cleanDestinationFolder: true
+
+- task: ExtractFiles@1
+  displayName: 'Extract CD WDP'
+  inputs:
+    archiveFilePatterns: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\**\HabitatHome-CD*.wdp.zip'
+    destinationFolder: '$(Build.ArtifactStagingDirectory)\CD-temp'
+    cleanDestinationFolder: true
+
+- task: CopyFiles@2
+  displayName: 'Copy Transforms to CM'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
+    Contents: '**\HabitatHome-CM*.sccpl'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\CM-temp\Content\Website\App_Data\Transforms'
+    flattenFolders: true
+
+- task: CopyFiles@2
+  displayName: 'Copy Transforms to CD'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
+    Contents: '**\HabitatHome-CD*.sccpl'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\CD-temp\Content\Website\App_Data\Transforms'
+    flattenFolders: true
+
+- task: ArchiveFiles@2
+  displayName: 'Create defaults scwdp for CM'
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)\CM-temp'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/HabitatHome-CM-$(BuildVersion.Version)-defaults.scwdp.zip'
+    replaceExistingArchive: true
+
+- task: ArchiveFiles@2
+  displayName: 'Create defaults scwdp for CD'
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)\CD-temp'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/HabitatHome-CD-$(BuildVersion.Version)-defaults.scwdp.zip'
+    replaceExistingArchive: true
+
+- task: DeleteFiles@1
+  displayName: 'Delete temporary CM work folder'
+  inputs:
+    SourceFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: 'CM-Temp'
+
+- task: DeleteFiles@1
+  displayName: 'Delete temporary CD work folder'
+  inputs:
+    SourceFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: 'CD-Temp'
+
+- task: CopyFiles@2
+  displayName: 'Copy CM Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
+    Contents: |
+      **/HabitatHome-CM*.scwdp.zip
+      **/HabitatHome-CM*.wdp.zip
+      **/HabitatHome-CM*.update
+      **/HabitatHome-CM*.sccpl
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true
+
 
 - task: CopyFiles@2
   displayName: 'Copy CD Files to: $(Build.ArtifactStagingDirectory)'
@@ -56,6 +117,7 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
     Contents: |
       **/HabitatHome-CD*.scwdp.zip
+      **/HabitatHome-CD*.wdp.zip
       **/HabitatHome-CD*.files.update
       **/HabitatHome-CD*.sccpl
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
