@@ -113,10 +113,11 @@ Task("Quick-Deploy")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
-.IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Modify-SXA-Variable");
+.IsDependentOn("Modify-SXA-Variable")
+.IsDependentOn("Publish-xConnect-Project");
+
 /*===============================================
 =========== Packaging - Main Tasks ==============
 ===============================================*/

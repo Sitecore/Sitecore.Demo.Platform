@@ -5,7 +5,7 @@ using Sitecore.Mvc.Presentation;
 
 namespace Sitecore.HabitatHome.Feature.Media.Controllers
 {
-    public class MediaController : Controller
+    public class VideoController : Controller
     {
         private VideoViewModel component;
         private Item dataSourceItem;
