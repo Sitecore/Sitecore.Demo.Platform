@@ -1,9 +1,7 @@
 ﻿@using Sitecore.HabitatHome.Feature.Components.Models
-
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
 @model Component
-
 <div class="container">
-
     <div class="row featurette">
         <div class="col-sm-6 order-sm-2">
             <h2 class="featurette-heading">
@@ -17,8 +15,7 @@
             </p>
         </div>
         <div class="col-sm-6 order-sm-1">
-            @Html.Sitecore().Edit(Model, m => m.Image)
+            @Html.Sitecore().Edit(Model, m => m.Image, new { mh = 400 })
         </div>
     </div>
-
 </div>

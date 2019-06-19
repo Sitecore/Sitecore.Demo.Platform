@@ -1,5 +1,6 @@
 ﻿using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
+using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Models;
 using Sitecore.Links;
 
 namespace Sitecore.HabitatHome.Feature.Components.Models
@@ -13,41 +14,21 @@ namespace Sitecore.HabitatHome.Feature.Components.Models
         public string Lead { get; set; }
         public string Content { get; set; }
         public Component TargetPage { get; set; }
-        public string TargetUrl { get; set; }
+        public LinkField TargetUrl { get; set; }
         public MediaItem Image { get; set; }
         public ImageField ImageField { get; set; }
 
-
-
-        public Site Site
-        {
-            get
-            {
-                if (site == null)
-                {
-                    site = new Site();
-                }
-                return site;
-            }
-        }
-
-
+        public Site Site => site ?? (site = new Site());
 
         //todo: use Foundation.SitecoreExtensions to resolve link field
         public string Url
         {
             get
             {
-                string url = TargetPage?.Url;
+                var url = TargetPage?.Url;
 
-                if (string.IsNullOrEmpty(url))
-                {
-                    url = TargetUrl;
-                }
-                if (string.IsNullOrEmpty(url))
-                {
-                    url = LinkManager.GetItemUrl(Item);
-                }
+                if (string.IsNullOrEmpty(url)) url = TargetUrl != null ? TargetUrl.GetFriendlyUrl() : string.Empty;
+                if (string.IsNullOrEmpty(url)) url = LinkManager.GetItemUrl(Item);
 
                 return url;
             }

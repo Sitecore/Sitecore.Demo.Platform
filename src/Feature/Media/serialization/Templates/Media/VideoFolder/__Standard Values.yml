@@ -1,0 +1,28 @@
+﻿---
+ID: "7d48f541-9390-4264-9fe5-5dd88eb0ff97"
+Parent: "bcd54e5c-9fa4-4b48-a79a-eea4cf2e9b90"
+Template: "bcd54e5c-9fa4-4b48-a79a-eea4cf2e9b90"
+Path: /sitecore/templates/Feature/Habitat Home/Media/VideoFolder/__Standard Values
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: /~/icon/multimedia/32x32/open_video.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {BCD54E5C-9FA4-4B48-A79A-EEA4CF2E9B90}
+    {2FC78D5D-AE45-46E2-BB7E-7F6D343FD181}
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190424T124607Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

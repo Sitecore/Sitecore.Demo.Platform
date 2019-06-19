@@ -1,0 +1,83 @@
+﻿---
+ID: "b22ecab4-59b3-428a-ad6f-2119fbe393c0"
+Parent: "7e2c85c4-4a2b-4f3d-a164-f4455f9098ad"
+Template: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Home/Our team
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: Our team
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{B2A7A1F2-0468-4B64-9458-19E5A3306D95}"
+              p:before="*"
+              s:id="{29ADD910-5E4D-4DD9-864B-92C662E5F1E6}"
+              s:par=""
+              s:ph="hh-content-main" />
+            <r
+              uid="{20336183-5792-4289-AB13-20DF0AEC2D72}"
+              p:after="r[@uid='{B2A7A1F2-0468-4B64-9458-19E5A3306D95}']"
+              s:ds="{C10EB3C3-19BD-4228-B2BB-7A0E18EC187A}"
+              s:id="{E8D04940-9947-443E-9090-5B0515C839D4}"
+              s:par=""
+              s:ph="hh-content-main" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190418T144716Z
+    - ID: "60a36bf8-cb0e-40f6-8b5a-834105136988"
+      Hint: MetadataTitle
+      Value: Our team
+    - ID: "943718f7-e179-4f1d-954f-3c9482c3bc3d"
+      Hint: Subtitle
+      Value: We have the best and most dedicated team
+    - ID: "d52da1c6-36b8-4770-8dab-d092b266060b"
+      Hint: Lead
+      Value: Everyone at Habitat Corporate is committed to you. Tell us your goals and we’ll help maximize your opportunities and address the issues that are getting in your way.
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: Our team
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190419T094854Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: Notre équipe
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: 私たちのチーム
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190419T094840Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: 私たちのチーム

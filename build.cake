@@ -113,10 +113,10 @@ Task("Quick-Deploy")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
-.IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Modify-SXA-Variable");
+.IsDependentOn("Modify-SXA-Variable")
+.IsDependentOn("Publish-xConnect-Project");
 
 /*===============================================
 =========== Packaging - Main Tasks ==============
@@ -349,7 +349,7 @@ Task("Sync-Unicorn").Does(() => {
     var unicornUrl = configuration.InstanceUrl + "unicorn.aspx";
     Information("Sync Unicorn items from url: " + unicornUrl);
 
-    var authenticationFile = new FilePath($"{configuration.WebsiteRoot}/App_config/Include/Unicorn.SharedSecret.config");
+    var authenticationFile = new FilePath($"{configuration.WebsiteRoot}/App_config/Include/Unicorn/Unicorn.zSharedSecret.config");
     var xPath = "/configuration/sitecore/unicorn/authenticationProvider/SharedSecret";
 
     string sharedSecret = XmlPeek(authenticationFile, xPath);

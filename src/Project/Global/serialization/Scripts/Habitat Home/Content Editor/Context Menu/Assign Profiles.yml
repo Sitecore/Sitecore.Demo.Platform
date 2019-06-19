@@ -1,0 +1,169 @@
+﻿---
+ID: "f4db6301-8ca3-4a2a-9fc2-f42b6251a1b3"
+Parent: "d35d3b62-2fed-4807-aa55-5477f7498c69"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/Habitat Home/Content Editor/Context Menu/Assign Profiles
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/video_chat2.png
+- ID: "1c76313e-3c8c-4807-a826-135d10c39299"
+  Hint: ShowRule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{8399EB95-B72D-4F8D-BC6C-C601BF8419C7}">
+        <conditions>
+          <condition
+            id="{33D5F360-CA8F-4193-AA5A-B52BEA2C84B4}"
+            uid="BDD71402DACF441A9123E48B46EE4054" />
+        </conditions>
+      </rule>
+    </ruleset>
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    $rootItem = Get-Item .
+    
+    if ($rootItem.Appearance.ReadOnly) {
+        Show-Alert "You cannot edit this item because it is protected."
+        return
+    }
+    
+    if (!$rootItem.Security.CanWrite([Sitecore.Context]::User)) {
+        Show-Alert "You do not have write access to this item in order to perform this action."
+        return
+    }
+    
+    $settings = @{
+        Title            = "Reset Profiles"
+        Description      = "Clear and assign profiles for one or more items."
+        Width            = "800"
+        Height           = "500"
+        OkButtonName     = "Proceed"
+        CancelButtonName = "Abort"
+        Parameters       =
+        @{ Name = "root"; Title = "Root Item"; Value = $rootItem.Paths.ContentPath; Editor = "info" },
+        @{ Name = "descendants"; Title = "Include all descendants of this item"; Value = $false },
+        @{ Name = "presets"; Title = "Assign new ""Profile Cards"" (Multiple Profile Cards under the same profile will be distributed equally)"; Source = "DataSource=/sitecore/system/Marketing Control Panel/Profiles&DatabaseName=master&IncludeTemplatesForSelection=Profile Card"; Editor = "treelist" }
+    }
+    
+    $result = Read-Variable @settings
+    if ($result -ne "ok") {
+        return
+    }
+    
+    if ($presets) {
+        
+        $confirmPresets = [string]::Join("<br />", $presets.Name)
+    }
+    else {
+        $confirmPresets = "<span style=""color: red"">None (existing profiles will be cleared)</span>"
+    }
+    
+    $rootItemPath = $rootItem.Paths.ContentPath
+    $descendantsWarning = if ($descendants) { " <b>and ALL descendant items</b>" } else { "" }
+    $intro = "<span style=""color: red"">Pre-existing profiles on the root item ($rootItemPath)$descendantsWarning will be removed and replaced with the Profile Cards defined below.</span>"
+    
+    $settings = @{
+        Title            = "Warning"
+        Description      = "Please ensure that the information below is correct before proceeding."
+        OkButtonName     = "Everything looks good, run it!"
+        CancelButtonName = "Abort"
+        Parameters       =
+        @{ Name = "warning"; Title = ""; Value = $intro; Editor = "info" },
+        @{ Name = "root"; Title = "Root Item"; Value = $rootItem.Paths.ContentPath; Editor = "info" },
+        @{ Name = "descendants"; Title = "Include all descendants of this item"; Value = $descendants.ToString(); Editor = "info" },
+        @{ Name = "presets"; Title = "Assign new ""Profile Cards"" (Multiple Profile Cards under the same profile will be distributed equally)"; Value = $confirmPresets; Editor = "info" }
+    }
+    
+    $confirm = Read-Variable @settings
+    if ($confirm -ne "ok") {
+        return
+    }
+    
+    $items = New-Object System.Collections.Generic.List[System.Object]
+    
+    function Get-ItemsRecursive($item) {
+        $items.Add($item)
+        if ($descendants) {
+            foreach ($child in $item.Children) {
+                Get-ItemsRecursive $child
+            }
+        }
+    }
+    
+    Get-ItemsRecursive $rootItem
+    
+    foreach ($item in $items) {
+    
+        if (!$item.Appearance.ReadOnly -and $item.Security.CanWrite([Sitecore.Context]::User) -and $item.Visualization.Layout) {
+    
+            [Sitecore.Analytics.Data.TrackingField] $trackingField = $item.Fields["__tracking"]
+    
+            foreach ($contentProfile in $trackingField.Profiles) {
+    
+                $matches = $presets | Where-Object { [Sitecore.Analytics.Data.ProfileUtil]::GetProfileItem($_).ID -eq $contentProfile.ProfileID }
+                if ($matches) {
+    
+                    # Clear out existing presets
+                    if ($contentProfile.Presets) {
+                        $contentProfile.Presets.Clear()
+                    }
+                    else {
+                        $contentProfile.Presets = New-Object "System.Collections.Generic.Dictionary``2[System.String,float]"
+                    }
+    
+                    # Assign new presets with equal weight
+                    $percentage = [math]::Round(100 / $matches.Count, 5)
+                    foreach ($match in $matches) {
+                        $contentProfile.Presets.Add($match.Key, $percentage)
+                    }
+    
+                    # Save value
+                    $contentProfile.SaveToField = $true
+                }
+                else {
+                    # Remove profile/presets/keys
+                    $contentProfile.SaveToField = $false
+                }
+            }
+    
+            # Recalculate keys
+            $updatedTrackingField = New-Object Sitecore.Analytics.Data.TrackingField -ArgumentList $trackingField.InnerField, $trackingField.GetFieldValue()
+    
+            # Update field
+            $item.Editing.BeginEdit()
+            $item.Fields["__tracking"].Value = $updatedTrackingField.GetFieldValue()
+            $item.Editing.EndEdit() | Out-Null
+    
+            Write-Host "Updated Item:" $item.Paths.ContentPath
+        }
+        else {
+            Write-Host "Skipped Item:" $item.Paths.ContentPath
+        }
+    }
+- ID: "f62c67b4-28b6-4a6f-91cb-db78cf054f4e"
+  Hint: EnableRule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{55AC274E-65BC-41D4-8166-5B5B2DC7BF5C}">
+        <conditions>
+          <condition
+            id="{33D5F360-CA8F-4193-AA5A-B52BEA2C84B4}"
+            uid="86BBB128F9DB40A193B1ECE9795718C7" />
+        </conditions>
+      </rule>
+    </ruleset>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160707T095216Z
