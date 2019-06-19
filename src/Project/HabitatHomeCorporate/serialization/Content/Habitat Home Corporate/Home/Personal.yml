@@ -2,12 +2,12 @@
 ID: "b6e53807-4887-4f93-8b59-ef053743fe1c"
 Parent: "7e2c85c4-4a2b-4f3d-a164-f4455f9098ad"
 Template: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
-Path: /sitecore/content/Habitat Home Corporate/Home/Personal
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Home/Personal
 DB: master
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 50
+  Value: 100
 - ID: "d55e08ce-f57d-4eff-997c-e9f09c982f74"
   Hint: Image
   Value: |
@@ -33,6 +33,13 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: Personal
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: 
     - ID: "1d80163d-001a-49dc-bb59-d457bab7decc"
       Hint: Content
       Value: |
@@ -53,6 +60,9 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190104T181221Z
+    - ID: "60a36bf8-cb0e-40f6-8b5a-834105136988"
+      Hint: MetadataTitle
+      Value: Personal
     - ID: "943718f7-e179-4f1d-954f-3c9482c3bc3d"
       Hint: Subtitle
       Value: Make your dreams a reality. 
@@ -70,6 +80,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: パーソナル
     - ID: "1d80163d-001a-49dc-bb59-d457bab7decc"
       Hint: Content
       Value: |
@@ -89,11 +102,11 @@ Languages:
         </ul>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190404T023953Z
+      Value: 20190409T150044Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\Admin
+        sitecore\admin
     - ID: "943718f7-e179-4f1d-954f-3c9482c3bc3d"
       Hint: Subtitle
       Value: あなたの夢を現実にします。

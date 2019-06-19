@@ -1,0 +1,43 @@
+﻿---
+ID: "c06a32cd-e7f7-491e-99ac-85e843de00c0"
+Parent: "18434e80-2e69-429c-9d58-106f81607f67"
+Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
+Path: /sitecore/layout/Renderings/Feature/Habitat Home/Components/ImageCTARight
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: /~/icon/applications/32x32/photo_scenery.png
+- ID: "a2f5d9df-8cba-4a1d-99eb-51acb94cb057"
+  Hint: Page Editor Buttons
+  Type: Treelist
+  Value: "{1A25401D-1D46-48A4-96FD-81D9F85D3B88}"
+- ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
+  Hint: Controller Action
+  Value: RightImageCTA
+- ID: "e441abe7-2ca3-4640-ae26-3789967925d7"
+  Hint: Compatible Renderings
+  Type: Treelist
+  Value: "{88D729CA-D9A1-44F7-B52F-2B8C50E76EB9}"
+- ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
+  Hint: Controller
+  Value: Component
+- ID: "fc5c3451-dfde-4778-9901-5d0b1da1e212"
+  Hint: Area
+  Value: Components
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Image CTA - Right"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190104T172430Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

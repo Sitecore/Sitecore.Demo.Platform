@@ -2,7 +2,7 @@
 ID: "d942055d-6315-4fdc-bb63-b3e2d65037a0"
 Parent: "64f922b1-d57d-4afa-ae26-9d59502f69a6"
 Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
-Path: "/sitecore/content/Habitat Sites/Habitat Home/home/guides/sound-matters"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home/home/guides/sound-matters"
 DB: master
 SharedFields:
 - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
@@ -242,26 +242,22 @@ Languages:
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
-              uid="{CEDD274F-BA46-451B-934C-386E2369E3A9}"
-              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7d&amp;DynamicPlaceholderId=5" />
-            <r
-              uid="{0F8955B1-8131-428D-A065-18168AF81A3C}"
-              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bD70D540C-DAA4-4272-BD2E-92474D473F10%7d&amp;DynamicPlaceholderId=4" />
-            <r
               uid="{449C8321-29D1-4359-8847-71DDB88A28A0}"
               s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b837DA9F8-E307-4615-9B66-7F3B97E1470B%7d&amp;DynamicPlaceholderId=3" />
             <r
               uid="{5DFD0C2B-F570-4115-A33E-3ADE6F829AE8}"
               s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b960FD30E-BD7B-4E17-920D-4D331117839C%7d&amp;DynamicPlaceholderId=2" />
             <r
-              uid="{D38E0A83-F50B-4D10-89B6-2B242FAB38C8}"
-              s:par="DynamicPlaceholderId=2" />
-            <r
-              uid="{54B706CA-8A81-4763-9FBA-8D41DFD98F51}"
-              s:par="DynamicPlaceholderId=1" />
-            <r
               uid="{F234EFD5-8C42-4B94-8021-FED126D7414E}"
               s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b837DA9F8-E307-4615-9B66-7F3B97E1470B%7d&amp;DynamicPlaceholderId=1" />
+            <r
+              uid="{CEDD274F-BA46-451B-934C-386E2369E3A9}"
+              p:after="r[@uid='{F234EFD5-8C42-4B94-8021-FED126D7414E}']"
+              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7d&amp;DynamicPlaceholderId=5" />
+            <r
+              uid="{0F8955B1-8131-428D-A065-18168AF81A3C}"
+              p:after="*[1=2]"
+              s:par="Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bD70D540C-DAA4-4272-BD2E-92474D473F10%7d&amp;DynamicPlaceholderId=4" />
           </d>
         </r>
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"

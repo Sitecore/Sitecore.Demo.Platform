@@ -50,17 +50,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-   <Choose>
+  <Choose>
     <When Condition=" '$(Configuration)'=='Local' ">
       <ItemGroup>
         <Reference Include="Sitecore.Kernel">
           <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
         </Reference>
-       </ItemGroup>
+      </ItemGroup>
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Kernel" Version="12.0.0-*" />
+        <PackageReference Include="Sitecore.Kernel" Version="9.1.1-*" />
       </ItemGroup>
     </Otherwise>
   </Choose>

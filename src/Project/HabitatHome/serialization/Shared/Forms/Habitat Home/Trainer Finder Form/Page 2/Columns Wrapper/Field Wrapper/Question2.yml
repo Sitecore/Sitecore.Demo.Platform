@@ -2,7 +2,7 @@
 ID: "0075ef06-e295-40ba-8f73-bf14b9acf1d1"
 Parent: "76373273-670d-4241-abbe-cb741e14b90e"
 Template: "5b672865-55d2-413e-b699-fdfc7e732ccf"
-Path: /sitecore/Forms/Habitat Sites/Habitat Home/Trainer Finder Form/Page 2/Columns Wrapper/Field Wrapper/Question2
+Path: /sitecore/Forms/Habitat SXA Sites/Habitat Home/Trainer Finder Form/Page 2/Columns Wrapper/Field Wrapper/Question2
 DB: master
 SharedFields:
 - ID: "10e5829a-1943-4597-b9ee-406ce3d13e13"
@@ -28,16 +28,23 @@ SharedFields:
 - ID: "5be76442-950f-4c1f-a797-bebd71101abb"
   Hint: Datasource
   Value: "{B70AF10A-787D-450D-BD5B-4C008AB33738}"
+- ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
+  Hint: Conditions
+  Value: |
+    {"fieldConditions":[]}
 - ID: "78778432-6327-4cea-a28b-e190e3541d28"
   Hint: Value Field Name
   Value: Key
 - ID: "7abaa3f6-6ec0-4b65-a463-7919bfae55aa"
   Hint: Css Class
   Value: question2
+- ID: "84ece662-5034-40cb-9c60-744db64bb294"
+  Hint: Field Key
+  Value: 3F293B594D5E42B2882B34121E368484
 - ID: "8a43af61-0812-4b37-a343-96cde3f12bb1"
   Hint: Required
   Type: Checkbox
-  Value: 0
+  Value: 1
 - ID: "90c4f94c-ec2c-4ee4-b4c8-f3e29cbe630e"
   Hint: Allow Save
   Type: Checkbox

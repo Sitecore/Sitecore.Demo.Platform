@@ -17,7 +17,7 @@ namespace Sitecore.HabitatHome.Feature.Forms.SubmitActions
 
             var property = fieldModel.GetType().GetProperty("Value");
             var postedValue = property.GetValue(fieldModel);
-            return postedValue != null ? ParseFieldValue(postedValue) : null;
+            return postedValue != null ? ParseFieldValue(postedValue) : string.Empty;
         }
 
         private static string ParseFieldValue(object postedValue)

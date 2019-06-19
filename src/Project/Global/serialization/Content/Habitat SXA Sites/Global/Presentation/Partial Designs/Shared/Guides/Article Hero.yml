@@ -1,0 +1,53 @@
+﻿---
+ID: "bcbd3d82-7def-4ad8-a66f-a52574fd24d0"
+Parent: "43bccfb6-3f98-45fb-af78-28dbcad69668"
+Template: "eaffc9f9-3684-4650-92f4-78560bed789b"
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Partial Designs/Shared/Guides/Article Hero
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "article-hero"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{1F5CB616-394F-44AB-8F9E-BA9DBA24845C}"
+          p:before="*"
+          s:cnd=""
+          s:ds=""
+          s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          s:mvt=""
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BA132D1CA-7FFA-4211-A09C-D619534B361D%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          s:ph="/main/container-1" />
+        <r
+          uid="{8D6448A1-B8C3-4C2C-BA0B-1BE928AD6DCC}"
+          p:after="*[1=2]"
+          s:cnd=""
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:mvt=""
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="main" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180621T152257Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

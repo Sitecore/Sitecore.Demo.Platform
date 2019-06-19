@@ -2,9 +2,12 @@
 ID: "3818e17c-94d8-4e2b-b6f1-b3d70267c59c"
 Parent: "7e2c85c4-4a2b-4f3d-a164-f4455f9098ad"
 Template: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
-Path: /sitecore/content/Habitat Home Corporate/Home/Business
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Home/Business
 DB: master
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
 - ID: "d55e08ce-f57d-4eff-997c-e9f09c982f74"
   Hint: Image
   Value: |
@@ -30,6 +33,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: Business
     - ID: "1d80163d-001a-49dc-bb59-d457bab7decc"
       Hint: Content
       Value: |
@@ -41,6 +47,9 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190104T181243Z
+    - ID: "60a36bf8-cb0e-40f6-8b5a-834105136988"
+      Hint: MetadataTitle
+      Value: Business
     - ID: "943718f7-e179-4f1d-954f-3c9482c3bc3d"
       Hint: Subtitle
       Value: 
@@ -58,6 +67,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: ビジネス
     - ID: "1d80163d-001a-49dc-bb59-d457bab7decc"
       Hint: Content
       Value: |
@@ -68,11 +80,11 @@ Languages:
         Habitat Home Corporateはまた、株式報酬プランを含む報酬に関する質問、および上場企業に対する継続的なSEC開示に関する専門知識をお客様に提供します。
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190404T023120Z
+      Value: 20190409T150044Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\Admin
+        sitecore\admin
     - ID: "d52da1c6-36b8-4770-8dab-d092b266060b"
       Hint: Lead
       Value: 当社のコーポレートファイナンスの顧客は、大規模な非公開企業から、上場企業、家族経営企業、そして新興企業まで、さまざまな分野にわたります。この幅広い顧客のために、私たちの弁護士は、顧客の業界のニーズと個々のビジネス状況に合わせて調整された、株式と負債の両方の、幅広い公的および私的な金融取引を行っています。

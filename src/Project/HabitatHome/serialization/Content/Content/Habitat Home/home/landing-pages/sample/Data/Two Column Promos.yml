@@ -2,7 +2,7 @@
 ID: "745bfd8f-7508-4dce-b1ed-c21d67a6bc45"
 Parent: "2f75e5d4-37fb-434b-9ef1-c25ac7ddcfde"
 Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
-Path: "/sitecore/content/Habitat Sites/Habitat Home/home/landing-pages/sample/Data/Two Column Promos"
+Path: "/sitecore/content/Habitat SXA Sites/Habitat Home/home/landing-pages/sample/Data/Two Column Promos"
 DB: master
 SharedFields:
 - ID: "c80e6f3c-5bcd-426b-b1eb-6d10672e985d"
@@ -12,38 +12,34 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{411E4948-E7F2-4D86-BEAD-451F79D83BCF}">
         <r
-          uid="{A2A86A21-00E3-4D5B-92B4-26C3FAE56A95}"
-          p:before="*"
-          s:ds="local:/Data/Right Promo"
-          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=4&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bF414A716-6088-4281-A446-87EE974AB933%7d"
-          s:ph="/section-content/container-1/column-2-2" />
+          ds="local:/Data/Right Promo"
+          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=4&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B6C6DCD16-6835-4C2B-BC30-B19AF38AAB21%7D"
+          ph="/section-content/container-1/column-2-2"
+          uid="{A2A86A21-00E3-4D5B-92B4-26C3FAE56A95}" />
         <r
-          uid="{5515073A-8A71-4E99-A4A0-D98E74063D9B}"
-          p:after="r[@uid='{A2A86A21-00E3-4D5B-92B4-26C3FAE56A95}']"
-          s:ds="local:/Data/Left Promo"
-          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=3&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bF414A716-6088-4281-A446-87EE974AB933%7d"
-          s:ph="/section-content/container-1/column-1-2" />
+          ds="local:/Data/Left Promo"
+          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=3&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B6C6DCD16-6835-4C2B-BC30-B19AF38AAB21%7D"
+          ph="/section-content/container-1/column-1-2"
+          uid="{5515073A-8A71-4E99-A4A0-D98E74063D9B}" />
         <r
-          uid="{6FEC2523-A1A9-40F9-B8D6-940EAF5D1F0B}"
-          p:after="r[@uid='{5515073A-8A71-4E99-A4A0-D98E74063D9B}']"
-          s:ds="{1CDB0F8B-77AC-4939-9BD0-BFE0197DB7BC}"
-          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
-          s:par="DynamicPlaceholderId=2&amp;EnabledPlaceholders=1%2c2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;ColumnWidth1=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d&amp;ColumnWidth2=%7bF6DC722E-15DB-4826-920B-ACCFDA772432%7d"
-          s:ph="/section-content/container-1" />
+          ds="/sitecore/content/Habitat SXA Sites/Habitat Home/Data/Snippets/Two Column Promos"
+          id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          par="DynamicPlaceholderId=2&amp;EnabledPlaceholders=1%2C2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D"
+          ph="/section-content/container-1"
+          uid="{6FEC2523-A1A9-40F9-B8D6-940EAF5D1F0B}" />
         <r
-          uid="{105BBB7A-AAC8-4320-B9CC-4533BF6E3C68}"
-          p:after="*[1=2]"
-          s:ds="/sitecore/content/Habitat Sites/Habitat Home/Data/Snippets/Two Column Promos"
-          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b9CB76B6C-2B77-4728-8508-CF7041C7B69C%7d&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=1"
-          s:ph="section-content" />
+          ds="/sitecore/content/Habitat SXA Sites/Habitat Home/Data/Snippets/Two Column Promos"
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B9CB76B6C-2B77-4728-8508-CF7041C7B69C%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="section-content"
+          uid="{105BBB7A-AAC8-4320-B9CC-4533BF6E3C68}" />
       </d>
     </r>
 Languages:
