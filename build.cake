@@ -251,7 +251,14 @@ Task("Publish-Core-Project").Does(() => {
 	var projectFile = $"{configuration.SourceFolder}\\Build\\Build.Website\\code\\Build.Website.csproj";
 	var publishFolder = $"{configuration.ProjectFolder}\\publish";
 	
-	DotNetCoreRestore(projectFile);
+	DotNetCoreMSBuildSettings buildSettings = new DotNetCoreMSBuildSettings();
+	buildSettings.SetConfiguration(configuration.BuildConfiguration);
+
+	DotNetCoreRestoreSettings restoreSettings = new DotNetCoreRestoreSettings {
+		MSBuildSettings = buildSettings
+	};
+
+	DotNetCoreRestore(projectFile, restoreSettings);
 
 	var settings = new DotNetCorePublishSettings
         {
