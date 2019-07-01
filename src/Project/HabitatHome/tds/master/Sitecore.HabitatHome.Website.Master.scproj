@@ -18,7 +18,7 @@
     <RootNamespace>Sitecore.HabitatHome.Website.Master</RootNamespace>
     <ManageRoles>True</ManageRoles>
     <SitecoreDatabase>master</SitecoreDatabase>
-    <AssemblyStatus>Exclude</AssemblyStatus>
+    <AssemblyStatus>Include</AssemblyStatus>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <SourceWebVirtualPath>/Sitecore.HabitatHome.Website.csproj</SourceWebVirtualPath>
@@ -2010,6 +2010,9 @@
       <Project>{ba3c2c41-cfac-4a40-8be5-1e5368ef4750}</Project>
       <Name>Sitecore.HabitatHome.Website</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ExcludedAssemblies Include="Sitecore.HabitatHome.%2a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -19,11 +19,11 @@
     <SitecoreDatabase>master</SitecoreDatabase>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <ManageRoles>False</ManageRoles>
+    <AssemblyStatus>Include</AssemblyStatus>
     <SourceWebVirtualPath>/Sitecore.HabitatHome.Feature.ExperienceAccelerator.csproj</SourceWebVirtualPath>
     <SourceWebProject>{fea9bdf2-4014-4288-99ba-d511847f6d9c}|src\Feature\ExperienceAccelerator\code\Sitecore.HabitatHome.Feature.ExperienceAccelerator.csproj</SourceWebProject>
     <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
-    <ManageRoles>False</ManageRoles>
-    <AssemblyStatus>Exclude</AssemblyStatus>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -218,6 +218,9 @@
       <Project>{fea9bdf2-4014-4288-99ba-d511847f6d9c}</Project>
       <Name>Sitecore.HabitatHome.Feature.ExperienceAccelerator</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ExcludedAssemblies Include="Sitecore.HabitatHome.%2a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
