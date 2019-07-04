@@ -1,9 +1,8 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
 using System.Configuration;
-using System.Globalization;
 using System.Linq;
+using Sitecore.Demo.Foundation.Test;
 
 namespace Sitecore.HabitatHome.Website.Test
 {
@@ -93,9 +92,9 @@ namespace Sitecore.HabitatHome.Website.Test
             return user;
         }
 
-        protected void Login(bool doRegisttrationIfMissing = true)
+        protected void Login(bool doRegistrationIfMissing = true)
         {
-            User user = GetUser();
+            var user = GetUser();
 
             GoTo(Host);
             ConfirmCookies();
@@ -105,57 +104,8 @@ namespace Sitecore.HabitatHome.Website.Test
             EnterText("#loginPassword", user.Password);
             Click("input[type='submit']");
 
-            if (!GetElements("Logout").Any() && doRegisttrationIfMissing)
+            if (!GetElements("Logout").Any() && doRegistrationIfMissing)
                 Register();
-        }
-
-        protected static string NumberToWords(int number)
-        {
-            if (number == 0)
-                return "zero";
-
-            if (number < 0)
-                return "minus " + NumberToWords(Math.Abs(number));
-
-            string words = "";
-
-            if ((number / 1000000) > 0)
-            {
-                words += NumberToWords(number / 1000000) + " million ";
-                number %= 1000000;
-            }
-
-            if ((number / 1000) > 0)
-            {
-                words += NumberToWords(number / 1000) + " thousand ";
-                number %= 1000;
-            }
-
-            if ((number / 100) > 0)
-            {
-                words += NumberToWords(number / 100) + " hundred ";
-                number %= 100;
-            }
-
-            if (number > 0)
-            {
-                if (words != "")
-                    words += "and ";
-
-                var unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
-                var tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-
-                if (number < 20)
-                    words += unitsMap[number];
-                else
-                {
-                    words += tensMap[number / 10];
-                    if ((number % 10) > 0)
-                        words += " " + unitsMap[number % 10];
-                }
-            }
-
-            return words;
         }
 
         protected void OpenInfoPanel(string panelText)
@@ -172,7 +122,7 @@ namespace Sitecore.HabitatHome.Website.Test
 
         protected void Register()
         {
-            User user = GetUser();
+            var user = GetUser();
 
             GoTo(Host);
             ConfirmCookies();
@@ -188,19 +138,6 @@ namespace Sitecore.HabitatHome.Website.Test
             Click("input[type='submit']");
         }
 
-        protected Exception Try(Action action)
-        {
-            try
-            {
-                action();
-                return null;
-            }
-            catch (Exception ex)
-            {
-                return ex;
-            }
-        }
-
         [Test]
         public void TestAccountDeletion()
         {
@@ -212,7 +149,7 @@ namespace Sitecore.HabitatHome.Website.Test
         [Test]
         public void TestNewUser()
         {
-            var language = "en";
+            const string language = "en";
             GoTo($"{Host}/landing-pages/bing-smart-home-design");
             TakeScreenshot("01-Bing");
 
@@ -271,7 +208,7 @@ namespace Sitecore.HabitatHome.Website.Test
         [Test]
         public void TestVisuals()
         {
-            var language = "en";
+            const string language = "en";
             GoTo(Host);
             ConfirmCookies();
             TakeScreenshot("01-TopNavigation");
@@ -291,19 +228,19 @@ namespace Sitecore.HabitatHome.Website.Test
         {
             GoTo(Host);
             ConfirmCookies();
-            var language = "ja-JP";
+            const string language = "ja-JP";
             ChangeLanguage(language);
 
-            TakeScreenshot($"01--TopNavigation", language);
+            TakeScreenshot("01--TopNavigation", language);
 
             Click("#header div.megadrop");
             HoverOn("家電製品");
-            TakeScreenshot($"02-TopNavigationOpen", language);
+            TakeScreenshot("02-TopNavigationOpen", language);
 
-            TakeScreenshot($"03-Promo-ConnectedLiving", $"div.field-promolink a[href*='/{language}/home-entertainment']", language);
-            TakeScreenshot($"04-Promo-Gaming", $"div.field-promolink a[href*='/{language}/guides/gaming']", language);
+            TakeScreenshot("03-Promo-ConnectedLiving", $"div.field-promolink a[href*='/{language}/home-entertainment']", language);
+            TakeScreenshot("04-Promo-Gaming", $"div.field-promolink a[href*='/{language}/guides/gaming']", language);
 
-            TakeScreenshot($"05-Footer", "#footer", language);
+            TakeScreenshot("05-Footer", "#footer", language);
         }
 
         [Test]
@@ -314,16 +251,16 @@ namespace Sitecore.HabitatHome.Website.Test
             var language = "fr-CA";
             ChangeLanguage(language);
 
-            TakeScreenshot($"01-TopNavigation", language);
+            TakeScreenshot("01-TopNavigation", language);
 
             Click("#header div.megadrop");
             HoverOn("Électroménagers");
-            TakeScreenshot($"02-TopNavigationOpen", language);
+            TakeScreenshot("02-TopNavigationOpen", language);
 
-            TakeScreenshot($"03-Promo-ConnectedLiving", $"div.field-promolink a[href*='/{language}/home-entertainment']", language);
-            TakeScreenshot($"04-Promo-Gaming", $"div.field-promolink a[href*='/{language}/guides/gaming']", language);
+            TakeScreenshot("03-Promo-ConnectedLiving", $"div.field-promolink a[href*='/{language}/home-entertainment']", language);
+            TakeScreenshot("04-Promo-Gaming", $"div.field-promolink a[href*='/{language}/guides/gaming']", language);
 
-            TakeScreenshot($"05-Footer", "#footer", language);
+            TakeScreenshot("05-Footer", "#footer", language);
         }
 
         private void ChangeLanguage(string language)
