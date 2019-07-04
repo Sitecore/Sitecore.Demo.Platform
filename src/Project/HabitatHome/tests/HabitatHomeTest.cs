@@ -1,51 +1,242 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using System.Configuration;
-using System.Linq;
-using Sitecore.Demo.Foundation.Test;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="HabitatHomeTest.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The habitat home test.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+#region Information
+
+// HabitatHome.TDS
+// 
+// Last Modified: 2019-07-04
+// File Created: 2019-06-19
+
+#endregion
 
 namespace Sitecore.HabitatHome.Website.Test
 {
+    #region using
+
+    using System.Configuration;
+    using System.Diagnostics.Contracts;
+    using System.Linq;
+
+    using NUnit.Framework;
+
+    using OpenQA.Selenium;
+
+    using Sitecore.Demo.Foundation.Test;
+
+    #endregion
+
+    /// <summary>
+    /// The habitat home test.
+    /// </summary>
     [TestFixture]
     public class HabitatHomeTest : SeleniumTest
     {
-        public class User
-        {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public string Email { get; set; }
-            public string Password { get; set; }
-        }
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HabitatHomeTest"/> class.
+        /// </summary>
         public HabitatHomeTest()
         {
             var settings = ConfigurationManager.AppSettings;
-            Host = settings["Host"];
-            UserEmail = settings["UserEmail"];
-            UserPassword = settings["UserPassword"];
+            this.Host = settings["Host"];
+            this.UserEmail = settings["UserEmail"];
+            this.UserPassword = settings["UserPassword"];
         }
 
+        /// <summary>
+        /// Gets or sets the host.
+        /// </summary>
         public string Host { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user email.
+        /// </summary>
         public string UserEmail { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user password.
+        /// </summary>
         public string UserPassword { get; set; }
 
-        protected static string Capitalize(string text)
+        /// <summary>
+        /// The test account deletion.
+        /// </summary>
+        [Test]
+        public void TestAccountDeletion()
         {
-            if (string.IsNullOrEmpty(text))
-                return text;
-            if (text.Length == 1)
-                return text.ToUpper();
-            return text.Substring(0, 1).ToUpper() + text.Substring(1);
+            this.Login();
+            this.DeleteAccount();
+            this.TakeScreenshot("01-DeleteAccountResult");
         }
 
+        /// <summary>
+        /// The test french canada visuals.
+        /// </summary>
+        [Test]
+        public void TestFrenchCanadaVisuals()
+        {
+            this.GoTo(this.Host);
+            this.ConfirmCookies();
+            const string Language = "fr-CA";
+            this.ChangeLanguage(Language);
+
+            this.TakeScreenshot("01-TopNavigation", Language);
+
+            this.Click("#header div.megadrop");
+            this.HoverOn("Électroménagers");
+            this.TakeScreenshot("02-TopNavigationOpen", Language);
+
+            this.TakeScreenshot(
+                "03-Promo-ConnectedLiving",
+                $"div.field-promolink a[href*='/{Language}/home-entertainment']",
+                Language);
+            this.TakeScreenshot(
+                "04-Promo-Gaming",
+                $"div.field-promolink a[href*='/{Language}/guides/gaming']",
+                Language);
+
+            this.TakeScreenshot("05-Footer", "#footer", Language);
+        }
+
+        /// <summary>
+        /// The test japanese visuals.
+        /// </summary>
+        [Test]
+        public void TestJapaneseVisuals()
+        {
+            this.GoTo(this.Host);
+            this.ConfirmCookies();
+            const string Language = "ja-JP";
+            this.ChangeLanguage(Language);
+
+            this.TakeScreenshot("01--TopNavigation", Language);
+
+            this.Click("#header div.megadrop");
+            this.HoverOn("家電製品");
+            this.TakeScreenshot("02-TopNavigationOpen", Language);
+
+            this.TakeScreenshot(
+                "03-Promo-ConnectedLiving",
+                $"div.field-promolink a[href*='/{Language}/home-entertainment']",
+                Language);
+            this.TakeScreenshot(
+                "04-Promo-Gaming",
+                $"div.field-promolink a[href*='/{Language}/guides/gaming']",
+                Language);
+
+            this.TakeScreenshot("05-Footer", "#footer", Language);
+        }
+
+        /// <summary>
+        /// The test new user.
+        /// </summary>
+        [Test]
+        public void TestNewUser()
+        {
+            const string Language = "en";
+            this.GoTo($"{this.Host}/landing-pages/bing-smart-home-design");
+            this.TakeScreenshot("01-Bing");
+
+            this.Click("How to Design Your Smart Home");
+            this.ConfirmCookies();
+            this.OpenInfoPanel("Referral");
+            this.TakeScreenshot("02-CampaignActivated");
+
+            this.Click("#header a");
+            this.TakeScreenshot("03-PersonalizedHomepage", "SMART HOME CHECKLIST", Language);
+            this.OpenInfoPanel("Onsite Behavior");
+            this.TakeScreenshot("04-CampaignTriggered");
+
+            this.Click("START HERE");
+            this.Click("label.smart-home");
+            this.TakeScreenshot("05-Guide", "input[value='Next']", Language);
+
+            this.Click("input[value='Next']");
+            this.Click("label.entire-house");
+            this.Click("input[value='Next']");
+            this.Click("label.n-a");
+            this.Click("input[value='Next']");
+            this.TakeScreenshot("06-RecommendedGuides", "a[href*='dryer-stack-up']", Language);
+
+            this.Click("a[href*='dryer-stack-up']");
+            this.OpenInfoPanel("Onsite Behavior");
+            this.TakeScreenshot("07-ContentFinderCompleted");
+            this.Click("#header a");
+            this.TakeScreenshot("08-PersonalizedHomepage2", "CONTENT FINDER", Language);
+
+            this.GoTo($"{this.Host}/en/guides/dryer-stack-up");
+            this.GetElement("input[data-sc-field-name='Email']").SendKeys("test.user@sitecore.net");
+            this.Click("input[value='Sign Me Up!']");
+            this.OpenInfoPanel("Personal Information");
+            this.TakeScreenshot("09-IdentityEstablished");
+            this.OpenInfoPanel("Onsite Behavior");
+            this.TakeScreenshot("10-ContentSignup");
+        }
+
+        /// <summary>
+        /// The test registration.
+        /// </summary>
+        [Test]
+        public void TestRegistration()
+        {
+            this.Login(false);
+            this.WaitForDocumentReady();
+            var errors = this.GetElements("div.field-validation-error");
+            if (!errors.Any(e => e.Text.Contains("Username or password is not valid")))
+            {
+                this.DeleteAccount();
+            }
+
+            this.Register();
+            this.TakeScreenshot("01-RegistrationResult");
+            this.Click("Logout");
+            this.Login();
+            this.TakeScreenshot("02-LoginResult");
+        }
+
+        /// <summary>
+        /// The test visuals.
+        /// </summary>
+        [Test]
+        public void TestVisuals()
+        {
+            const string Language = "en";
+            this.GoTo(this.Host);
+            this.ConfirmCookies();
+            this.TakeScreenshot("01-TopNavigation");
+
+            this.Click("#header div.megadrop");
+            this.HoverOn("Appliances");
+            this.TakeScreenshot("02-TopNavigationOpen");
+
+            this.TakeScreenshot(
+                "03-Promo-ConnectedLiving",
+                "div.field-promolink a[href*='home-entertainment']",
+                Language);
+            this.TakeScreenshot("04-Promo-Gaming", "div.field-promolink a[href*='guides/gaming']", Language);
+
+            this.TakeScreenshot("05-Footer", "#footer");
+        }
+
+        /// <summary>
+        /// The confirm cookies.
+        /// </summary>
         protected void ConfirmCookies()
         {
             try
             {
                 // If cookie warning of doom is present, click confirm to remove it.
-                var element = GetElement("div.privacy-warning div.submit a");
+                var element = this.GetElement("div.privacy-warning div.submit a");
                 if (element != null)
-                    Click(element);
+                {
+                    this.Click(element);
+                }
             }
             catch (NoSuchElementException)
             {
@@ -53,30 +244,33 @@ namespace Sitecore.HabitatHome.Website.Test
             }
         }
 
+        /// <summary>
+        /// The delete account.
+        /// </summary>
         protected void DeleteAccount()
         {
-            GoTo(Host);
-            Click("MY ACCOUNT");
-            Click("Delete Account");
-            Click("input[type='submit']");
-            AcceptAlert();
+            this.GoTo(this.Host);
+            this.Click("MY ACCOUNT");
+            this.Click("Delete Account");
+            this.Click("input[type='submit']");
+            this.AcceptAlert();
         }
 
+        /// <summary>
+        /// The get user.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="User"/>.
+        /// </returns>
         protected User GetUser()
         {
-            var user = new User { Email = UserEmail, Password = UserPassword };
+            Contract.Ensures(Contract.Result<User>() != null);
 
-            var name = (user.Email ?? "").Split('@')[0];
+            var user = new User { Email = this.UserEmail, Password = this.UserPassword };
 
-            char? delimiter = null;
-            foreach (char c in "._-")
-            {
-                if (name.Contains(c))
-                {
-                    delimiter = c;
-                    break;
-                }
-            }
+            var name = (user.Email ?? string.Empty).Split('@')[0];
+
+            var delimiter = GetUserNameDelimiter(name);
 
             if (delimiter == null)
             {
@@ -92,181 +286,110 @@ namespace Sitecore.HabitatHome.Website.Test
             return user;
         }
 
+        /// <summary>
+        /// The login.
+        /// </summary>
+        /// <param name="doRegistrationIfMissing">
+        /// The do registration if missing.
+        /// </param>
         protected void Login(bool doRegistrationIfMissing = true)
         {
-            var user = GetUser();
+            var user = this.GetUser();
 
-            GoTo(Host);
-            ConfirmCookies();
-            Click("LOGIN");
+            this.GoTo(this.Host);
+            this.ConfirmCookies();
+            this.Click("LOGIN");
 
-            EnterText("#loginEmail", user.Email);
-            EnterText("#loginPassword", user.Password);
-            Click("input[type='submit']");
+            this.EnterText("#loginEmail", user.Email);
+            this.EnterText("#loginPassword", user.Password);
+            this.Click("input[type='submit']");
 
-            if (!GetElements("Logout").Any() && doRegistrationIfMissing)
-                Register();
+            if (!this.GetElements("Logout").Any() && doRegistrationIfMissing)
+            {
+                this.Register();
+            }
         }
 
+        /// <summary>
+        /// The open info panel.
+        /// </summary>
+        /// <param name="panelText">
+        /// The panel text.
+        /// </param>
         protected void OpenInfoPanel(string panelText)
         {
-            Wait("button.btn-info.sidebar-closed");
-            var element = GetElement("button.btn-info.sidebar-closed");
+            this.Wait("button.btn-info.sidebar-closed");
+            var element = this.GetElement("button.btn-info.sidebar-closed");
             if (element.Displayed)
-                Click(element);
-            Click(panelText);
-            Wait(1000);
-            var elements = GetElements("#sidebar div.panel-primary");
-            ScrollTo(elements.LastOrDefault());
+            {
+                this.Click(element);
+            }
+
+            this.Click(panelText);
+            this.Wait(1000);
+            var elements = this.GetElements("#sidebar div.panel-primary");
+            this.ScrollTo(elements.LastOrDefault());
         }
 
+        /// <summary>
+        /// The register.
+        /// </summary>
         protected void Register()
         {
-            var user = GetUser();
+            var user = this.GetUser();
 
-            GoTo(Host);
-            ConfirmCookies();
+            this.GoTo(this.Host);
+            this.ConfirmCookies();
 
-            Click("LOGIN");
-            Click("CREATE ACCOUNT");
+            this.Click("LOGIN");
+            this.Click("CREATE ACCOUNT");
 
-            EnterText("#registerFirstName", user.FirstName);
-            EnterText("#registerLastName", user.LastName);
-            EnterText("#registerEmail", user.Email);
-            EnterText("#registerPassword", user.Password);
-            EnterText("#registerConfirmPassword", user.Password);
-            Click("input[type='submit']");
+            this.EnterText("#registerFirstName", user.FirstName);
+            this.EnterText("#registerLastName", user.LastName);
+            this.EnterText("#registerEmail", user.Email);
+            this.EnterText("#registerPassword", user.Password);
+            this.EnterText("#registerConfirmPassword", user.Password);
+            this.Click("input[type='submit']");
         }
 
-        [Test]
-        public void TestAccountDeletion()
-        {
-            Login();
-            DeleteAccount();
-            TakeScreenshot("01-DeleteAccountResult");
-        }
+       
 
-        [Test]
-        public void TestNewUser()
-        {
-            const string language = "en";
-            GoTo($"{Host}/landing-pages/bing-smart-home-design");
-            TakeScreenshot("01-Bing");
-
-            Click("How to Design Your Smart Home");
-            ConfirmCookies();
-            OpenInfoPanel("Referral");
-            TakeScreenshot("02-CampaignActivated");
-
-            Click("#header a");
-            TakeScreenshot("03-PersonalizedHomepage", "SMART HOME CHECKLIST", language);
-            OpenInfoPanel("Onsite Behavior");
-            TakeScreenshot("04-CampaignTriggered");
-
-            Click("START HERE");
-            Click("label.smart-home");
-            TakeScreenshot("05-Guide", "input[value='Next']", language);
-
-            Click("input[value='Next']");
-            Click("label.entire-house");
-            Click("input[value='Next']");
-            Click("label.n-a");
-            Click("input[value='Next']");
-            TakeScreenshot("06-RecommendedGuides", "a[href*='dryer-stack-up']", language);
-
-            Click("a[href*='dryer-stack-up']");
-            OpenInfoPanel("Onsite Behavior");
-            TakeScreenshot("07-ContentFinderCompleted");
-            Click("#header a");
-            TakeScreenshot("08-PersonalizedHomepage2", "CONTENT FINDER", language);
-
-            GoTo($"{Host}/en/guides/dryer-stack-up");
-            GetElement("input[data-sc-field-name='Email']").SendKeys("test.user@sitecore.net");
-            Click("input[value='Sign Me Up!']");
-            OpenInfoPanel("Personal Information");
-            TakeScreenshot("09-IdentityEstablished");
-            OpenInfoPanel("Onsite Behavior");
-            TakeScreenshot("10-ContentSignup");
-        }
-
-        [Test]
-        public void TestRegistration()
-        {
-            Login(false);
-            WaitForDocumentReady();
-            var errors = GetElements("div.field-validation-error");
-            if (!errors.Any(e => e.Text.Contains("Username or password is not valid")))
-                DeleteAccount();
-
-            Register();
-            TakeScreenshot("01-RegistrationResult");
-            Click("Logout");
-            Login();
-            TakeScreenshot("02-LoginResult");
-        }
-
-        [Test]
-        public void TestVisuals()
-        {
-            const string language = "en";
-            GoTo(Host);
-            ConfirmCookies();
-            TakeScreenshot("01-TopNavigation");
-
-            Click("#header div.megadrop");
-            HoverOn("Appliances");
-            TakeScreenshot("02-TopNavigationOpen");
-
-            TakeScreenshot("03-Promo-ConnectedLiving", "div.field-promolink a[href*='home-entertainment']", language);
-            TakeScreenshot("04-Promo-Gaming", "div.field-promolink a[href*='guides/gaming']", language);
-
-            TakeScreenshot("05-Footer", "#footer");
-        }
-
-        [Test]
-        public void TestJapaneseVisuals()
-        {
-            GoTo(Host);
-            ConfirmCookies();
-            const string language = "ja-JP";
-            ChangeLanguage(language);
-
-            TakeScreenshot("01--TopNavigation", language);
-
-            Click("#header div.megadrop");
-            HoverOn("家電製品");
-            TakeScreenshot("02-TopNavigationOpen", language);
-
-            TakeScreenshot("03-Promo-ConnectedLiving", $"div.field-promolink a[href*='/{language}/home-entertainment']", language);
-            TakeScreenshot("04-Promo-Gaming", $"div.field-promolink a[href*='/{language}/guides/gaming']", language);
-
-            TakeScreenshot("05-Footer", "#footer", language);
-        }
-
-        [Test]
-        public void TestFrenchCanadaVisuals()
-        {
-            GoTo(Host);
-            ConfirmCookies();
-            var language = "fr-CA";
-            ChangeLanguage(language);
-
-            TakeScreenshot("01-TopNavigation", language);
-
-            Click("#header div.megadrop");
-            HoverOn("Électroménagers");
-            TakeScreenshot("02-TopNavigationOpen", language);
-
-            TakeScreenshot("03-Promo-ConnectedLiving", $"div.field-promolink a[href*='/{language}/home-entertainment']", language);
-            TakeScreenshot("04-Promo-Gaming", $"div.field-promolink a[href*='/{language}/guides/gaming']", language);
-
-            TakeScreenshot("05-Footer", "#footer", language);
-        }
-
+        /// <summary>
+        /// The change language.
+        /// </summary>
+        /// <param name="language">
+        /// The language.
+        /// </param>
         private void ChangeLanguage(string language)
         {
-            Click("a.language-selector-select-link");
-            Click($"a[href*='/{language}']",1000);
+            this.Click("a.language-selector-select-link");
+            this.Click($"a[href*='/{language}']", 1000);
+        }
+
+        /// <summary>
+        /// The user.
+        /// </summary>
+        public class User
+        {
+            /// <summary>
+            /// Gets or sets the email.
+            /// </summary>
+            public string Email { get; set; }
+
+            /// <summary>
+            /// Gets or sets the first name.
+            /// </summary>
+            public string FirstName { get; set; }
+
+            /// <summary>
+            /// Gets or sets the last name.
+            /// </summary>
+            public string LastName { get; set; }
+
+            /// <summary>
+            /// Gets or sets the password.
+            /// </summary>
+            public string Password { get; set; }
         }
     }
 }
