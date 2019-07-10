@@ -107,7 +107,7 @@ steps:
       $sat = "c:\assets\sat\tools\Sitecore.Cloud.Cmdlets.dll"
       Import-Module $sat -Force
       
-      $updatePackageSource = (Get-ChildItem "$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\" -Filter HabitatHome-CM*.update).FullName
+      $updatePackageSource = (Get-ChildItem (Join-Path $(Build.SourcesDirectory) "\src\Build\Build.Website\tds\master\bin\") -Filter  HabitatHome-CM*.update -Recurse).FullName 
       Write-Host $updatePackageSource
       ConvertTo-SCModuleWebDeployPackage -Path "$updatePackageSource"  -Destination $(Build.ArtifactStagingDirectory) -Verbose -Force
 
