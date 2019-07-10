@@ -3,6 +3,7 @@ pool:
   demands:
   - msbuild
   - azureps
+  - Sitecore.Azure.Toolkit
 steps:
 - task: 4tecture.BuildVersioning.BuildVersioning.BuildVersioning@0
   displayName: 'Set Version Number'
@@ -99,6 +100,17 @@ steps:
     SourceFolder: '$(Build.ArtifactStagingDirectory)'
     Contents: 'CD-Temp'
 
+- task: PowerShell@2
+  displayName: "Convert CM .update packge to scwdp"
+  inputs:
+    targetType: 'inline'
+    script: |
+      $sat = "c:\assets\sat\tools\Sitecore.Cloud.Cmdlets.dll"
+      Import-Module $sat -Force
+      
+      $updatePackageSource = Get-ChildItem "$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\" -Filter HabitatHome-CM*.update
+      ConvertTo-SCModuleWebDeployPackage -Path $updatePackageSource  -Destination $(Build.ArtifactStagingDirectory) -Verbose -Force
+      
 - task: CopyFiles@2
   displayName: 'Copy CM Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
