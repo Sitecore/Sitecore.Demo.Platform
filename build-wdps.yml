@@ -30,14 +30,14 @@ steps:
   inputs:
     solution: HabitatHome.TDS.sln
     configuration: 'Package-CM'
-    msbuildArguments: '/m /p:PackageName=HabitatHome-CM-$(BuildVersion.Version)'
+    msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CM-$(BuildVersion.Version) /p:PackageName=HabitatHome-CM-$(BuildVersion.Version)'
 
 - task: MSBuild@1
   displayName: 'HabitatHome - CD'
   inputs:
     solution: HabitatHome.TDS.sln
     configuration: 'Package-CD'
-    msbuildArguments: '/m /p:PackageName=HabitatHome-CD-$(BuildVersion.Version)'
+    msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CD-$(BuildVersion.Version) /p:PackageName=HabitatHome-CD-$(BuildVersion.Version)'
 
 - task: PowerShell@2
   displayName: "Convert CM .update packge to scwdp"
