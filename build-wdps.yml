@@ -108,9 +108,9 @@ steps:
       $sat = "c:\assets\sat\tools\Sitecore.Cloud.Cmdlets.dll"
       Import-Module $sat -Force
       
-      $updatePackageSource = Get-ChildItem "$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\" -Filter HabitatHome-CM*.update
+      $updatePackageSource = (Get-ChildItem "$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\" -Filter HabitatHome-CM*.update).FullName
       ConvertTo-SCModuleWebDeployPackage -Path $updatePackageSource  -Destination $(Build.ArtifactStagingDirectory) -Verbose -Force
-      
+
 - task: CopyFiles@2
   displayName: 'Copy CM Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
