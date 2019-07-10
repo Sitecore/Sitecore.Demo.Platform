@@ -108,7 +108,6 @@ steps:
       Import-Module $sat -Force
       
       $updatePackageSource = (Get-ChildItem (Join-Path $(Build.SourcesDirectory) "\src\Build\Build.Website\tds\master\bin\") -Filter  HabitatHome-CM*.update -Recurse).FullName 
-      Write-Host $updatePackageSource
       ConvertTo-SCModuleWebDeployPackage -Path "$updatePackageSource"  -Destination $(Build.ArtifactStagingDirectory) -Verbose -Force
 
 - task: CopyFiles@2
