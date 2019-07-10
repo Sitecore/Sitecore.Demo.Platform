@@ -30,7 +30,7 @@ steps:
   inputs:
     solution: HabitatHome.TDS.sln
     configuration: 'Package-CM'
-    msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CM-$(BuildVersion.Version) /p:PackageName=HabitatHome-CM-$(BuildVersion.Version) /p:SitecoreAssemblyPath=C:\assets\Sitecore.Kernel.dll'
+    msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CM-$(BuildVersion.Version) /p:PackageName=HabitatHome-CM-$(BuildVersion.Version) /p:SitecoreAssemblyPath=C:\assets\SitecoreLib'
 
 - task: MSBuild@1
   displayName: 'HabitatHome - CD'
