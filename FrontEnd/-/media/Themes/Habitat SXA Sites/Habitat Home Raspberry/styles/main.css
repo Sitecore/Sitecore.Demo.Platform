@@ -3499,6 +3499,29 @@ input:active, input:focus, select:active, select:focus, textarea:active, textare
   border-color: #c8244f;
 }
 
+input[type="submit"],
+button {
+  display: inline-block;
+  padding: 1.25em 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #c8244f !important;
+  border: 1px solid #c8244f;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  color: white;
+  background-color: #dd426b !important;
+  border: 1px solid #dd426b;
+}
+
 .account-management-page .field-title {
   color: #c8244f;
   font-weight: bold;
