@@ -30,7 +30,7 @@ steps:
   inputs:
     solution: HabitatHome.TDS.sln
     configuration: 'Package-CM'
-    msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CM-$(BuildVersion.Version) /p:PackageName=HabitatHome-CM-$(BuildVersion.Version)'
+    msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CM-$(BuildVersion.Version) /p:PackageName=HabitatHome-CM-$(BuildVersion.Version) /p:SitecoreAssemblyPath=C:\assets\SitecoreLib'
 
 - task: MSBuild@1
   displayName: 'HabitatHome - CD'
@@ -39,33 +39,75 @@ steps:
     configuration: 'Package-CD'
     msbuildArguments: '/m /p:WebDeployPackageName=HabitatHome-CD-$(BuildVersion.Version) /p:PackageName=HabitatHome-CD-$(BuildVersion.Version)'
 
+- task: PowerShell@2
+  displayName: "Convert CM .update packge to scwdp"
+  inputs:
+    targetType: 'inline'
+    script: |
+      $sat = "c:\assets\sat\tools\Sitecore.Cloud.Cmdlets.dll"
+      Import-Module $sat -Force
+      
+      $updatePackageSource = (Get-ChildItem (Join-Path $(Build.SourcesDirectory) "\src\Build\Build.Website\tds\master\bin\") -Filter  HabitatHome-CM*.update -Recurse).FullName 
+      ConvertTo-SCModuleWebDeployPackage -Path "$updatePackageSource"  -Destination $(Build.ArtifactStagingDirectory)\temp -Verbose -Force
+
+- task: PowerShell@2
+  displayName: "Convert CD .update (files) package to scwdp"
+  inputs:
+    targetType: 'inline'
+    script: |
+      $sat = "c:\assets\sat\tools\Sitecore.Cloud.Cmdlets.dll"
+      Import-Module $sat -Force
+      
+      $updatePackageSource = (Get-ChildItem (Join-Path $(Build.SourcesDirectory) "\src\Build\Build.Website\tds\master\bin\") -Filter  HabitatHome-CD*.files.update -Recurse).FullName 
+      ConvertTo-SCModuleWebDeployPackage -Path "$updatePackageSource"  -Destination $(Build.ArtifactStagingDirectory)\temp -Verbose -Force
+
 - task: ExtractFiles@1
   displayName: 'Extract CM WDP'
   inputs:
-    archiveFilePatterns: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\**\HabitatHome-CM*.wdp.zip'
+    archiveFilePatterns: '$(Build.ArtifactStagingDirectory)\temp\HabitatHome-CM*.scwdp.zip'
     destinationFolder: '$(Build.ArtifactStagingDirectory)\CM-temp'
     cleanDestinationFolder: true
 
 - task: ExtractFiles@1
   displayName: 'Extract CD WDP'
   inputs:
-    archiveFilePatterns: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\**\HabitatHome-CD*.wdp.zip'
+    archiveFilePatterns: '$(Build.ArtifactStagingDirectory)\temp\HabitatHome-CD*.scwdp.zip'
     destinationFolder: '$(Build.ArtifactStagingDirectory)\CD-temp'
     cleanDestinationFolder: true
 
 - task: CopyFiles@2
-  displayName: 'Copy Transforms to CM'
+  displayName: 'Copy CM Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
-    Contents: '**\HabitatHome-CM*.sccpl'
+    Contents: |
+      **/HabitatHome-CM*.update
+      **/HabitatHome-CM*.sccpl
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true
+
+- task: CopyFiles@2
+  displayName: 'Copy CD Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
+    Contents: |
+      **/HabitatHome-CD*.files.update
+      **/HabitatHome-CD*.sccpl
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true
+
+- task: CopyFiles@2
+  displayName: 'Copy Transforms to CM'
+  inputs:
+    SourceFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: 'HabitatHome-CM*.sccpl'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\CM-temp\Content\Website\App_Data\Transforms'
     flattenFolders: true
 
 - task: CopyFiles@2
   displayName: 'Copy Transforms to CD'
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
-    Contents: '**\HabitatHome-CD*.sccpl'
+    SourceFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: 'HabitatHome-CD*.sccpl'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\CD-temp\Content\Website\App_Data\Transforms'
     flattenFolders: true
 
@@ -75,7 +117,7 @@ steps:
     rootFolderOrFile: '$(Build.ArtifactStagingDirectory)\CM-temp'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/HabitatHome-CM-$(BuildVersion.Version)-defaults.scwdp.zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/HabitatHome-CM-$(BuildVersion.Version).scwdp.zip'
     replaceExistingArchive: true
 
 - task: ArchiveFiles@2
@@ -84,45 +126,14 @@ steps:
     rootFolderOrFile: '$(Build.ArtifactStagingDirectory)\CD-temp'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/HabitatHome-CD-$(BuildVersion.Version)-defaults.scwdp.zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/HabitatHome-CD-$(BuildVersion.Version).scwdp.zip'
     replaceExistingArchive: true
 
 - task: DeleteFiles@1
-  displayName: 'Delete temporary CM work folder'
+  displayName: 'Delete all temporary folders'
   inputs:
     SourceFolder: '$(Build.ArtifactStagingDirectory)'
-    Contents: 'CM-Temp'
-
-- task: DeleteFiles@1
-  displayName: 'Delete temporary CD work folder'
-  inputs:
-    SourceFolder: '$(Build.ArtifactStagingDirectory)'
-    Contents: 'CD-Temp'
-
-- task: CopyFiles@2
-  displayName: 'Copy CM Files to: $(Build.ArtifactStagingDirectory)'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
-    Contents: |
-      **/HabitatHome-CM*.scwdp.zip
-      **/HabitatHome-CM*.wdp.zip
-      **/HabitatHome-CM*.update
-      **/HabitatHome-CM*.sccpl
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    flattenFolders: true
-
-
-- task: CopyFiles@2
-  displayName: 'Copy CD Files to: $(Build.ArtifactStagingDirectory)'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\Build\Build.Website\tds\master\bin\'
-    Contents: |
-      **/HabitatHome-CD*.scwdp.zip
-      **/HabitatHome-CD*.wdp.zip
-      **/HabitatHome-CD*.files.update
-      **/HabitatHome-CD*.sccpl
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    flattenFolders: true
+    Contents: '*temp*'
 
 - task: PublishPipelineArtifact@0
   displayName: 'Publish Pipeline Artifact'
