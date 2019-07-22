@@ -14,7 +14,7 @@ steps:
   inputs:
     restoreSolution: HabitatHome.sln
     feedsToUse: config
-    nugetConfigPath: 'nuget-sc-internal.config'
+    nugetConfigPath: '$(nuget.config)'
 
 - task: MSBuild@1
   displayName: 'HabitatHome.Platform - Build Solution'
@@ -28,7 +28,7 @@ steps:
   inputs:
     restoreSolution: HabitatHome.TDS.sln
     feedsToUse: config
-    nugetConfigPath: 'nuget-sc-internal.config'
+    nugetConfigPath: '$(nuget.config)'
 
 - task: MSBuild@1
   displayName: 'HabitatHome.Platform - Build TDS Solution'
