@@ -1,0 +1,104 @@
+---
+ID: "c494d21f-0150-49bd-bd21-6cab87f633fa"
+Parent: "5b89e5df-2569-4a72-af25-ce62720e8147"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/Target Room Category/Pattern Cards/Living Room
+DB: master
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="538a727f-87c6-4249-810d-0a90ee6ae6db" name="Target Room Category">
+        <key name="Bedroom" value="0" />
+        <key name="Gym" value="0" />
+        <key name="Kitchen" value="0" />
+        <key name="Laundry" value="0" />
+        <key name="Living Space" value="10" />
+        <key name="Office" value="0" />
+        <key name="Theater" value="0" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{650BC6C8-C083-404C-9617-C095B968F50B}" />
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Living Room
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180104T201845Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b4b62804-abcf-4310-9d05-946ab2cffd24"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T120200Z
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180709T161216Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "06192f3d-7429-4db5-8cd6-7e428e84449e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T120200Z
+- Language: "ja-JP"
+  Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{650BC6C8-C083-404C-9617-C095B968F50B}" />
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "????"
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: "????"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T104652Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4f620cd3-6c1a-41b9-89f6-1c7600b272fe"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T120200Z

@@ -1,0 +1,102 @@
+---
+ID: "753836a7-aea0-4572-89e7-0dbc55a631fd"
+Parent: "d71b4922-c5fd-4fa2-866b-00af2f8cea4a"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/Topic Interest Category/Pattern Cards/Fitness
+DB: master
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="552dd90f-a527-438e-ac33-32d236244123" name="Topic Interest Category">
+        <key name="Children" value="0" />
+        <key name="Cleaning" value="0" />
+        <key name="Cooking" value="0" />
+        <key name="Entertainment" value="0" />
+        <key name="Fitness" value="10" />
+        <key name="Newest and Coolest" value="0" />
+        <key name="Reliability" value="0" />
+        <key name="Safety" value="0" />
+        <key name="Smart and Connected" value="0" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{34510C0D-20F1-4BA1-B14E-D475292196A8}" />
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Fitness
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180316T182407Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d2336b07-4b82-4370-bb6e-ca42d5cbf6d0"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T120159Z
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180713T183457Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0037bd24-3ca7-48b5-b341-a63c85ffc673"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T120159Z
+- Language: "ja-JP"
+  Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{34510C0D-20F1-4BA1-B14E-D475292196A8}" />
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "??????"
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: "??????"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180709T161001Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7d5e7e46-10b7-4560-94b3-859f1797740e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T120159Z

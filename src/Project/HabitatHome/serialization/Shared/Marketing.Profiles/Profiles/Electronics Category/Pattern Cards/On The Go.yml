@@ -1,0 +1,106 @@
+---
+ID: "c81a5b22-ed05-4d1c-b86b-b04a88141d62"
+Parent: "6757297d-bd05-420b-8b92-a69344d55654"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/Electronics Category/Pattern Cards/On The Go
+DB: master
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="54d63273-947a-4927-b21a-0022625315e1" name="Electronics Category">
+        <key name="Appliances" value="0" />
+        <key name="Audio" value="0" />
+        <key name="Cameras" value="0" />
+        <key name="Computers" value="2" />
+        <key name="Fitness Tech" value="0" />
+        <key name="Games" value="0" />
+        <key name="Phones" value="3" />
+        <key name="Tablets" value="5" />
+        <key name="TVs" value="0" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{1A9D27AB-04E9-4376-9706-4B4B7CBB2051}" />
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: On The Go
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180104T201841Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "05871259-33a0-4a7e-b15b-0906de1a5f6a"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T120203Z
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180709T161211Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "502610e9-b66d-4045-b4f4-ef001e9db8e8"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T120203Z
+- Language: "ja-JP"
+  Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{1A9D27AB-04E9-4376-9706-4B4B7CBB2051}" />
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "????"
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: "????"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T104649Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5b7d4c6c-5d2e-4db8-bc0e-ed7c4f32afa8"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T120203Z

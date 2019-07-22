@@ -1,0 +1,96 @@
+---
+ID: "50df726f-d5c0-4544-93fe-ef210dd91213"
+Parent: "95797856-109b-4d60-bd22-8fca5c6122f3"
+Template: "3f12d78c-b7b7-4157-98fc-da3322ee1a5b"
+Path: /sitecore/content/Email/Messages/2018/04/02T155050/Foodie Feast Free Shipping email/Message Root
+DB: master
+SharedFields:
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: Checkbox
+  Value: 0
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{48D55F1B-C559-411D-AC73-A51DF6C02247}">
+        <r
+          ds="{A4EA9E20-B071-4496-937B-D2DA07F74A3A}"
+          id="{69EB7A6D-ACEF-4D06-A923-804918AA245E}"
+          par=""
+          ph="ec-title"
+          uid="{C472E7DB-2977-4A4A-9F58-CF271AAE45F3}" />
+        <r
+          ds="{92415E3B-C176-4C56-8D78-55381FAC1CC4}"
+          id="{87A142FF-6DA2-40E1-93B2-93BAB4560EE6}"
+          par=""
+          ph="ec-header"
+          uid="{15E98787-AEC1-4007-81CC-069D310D7209}" />
+        <r
+          ds="{62840D4F-82F6-4A29-BDB0-6EAB734F0A14}"
+          id="{26A4BFDF-B274-46A0-BB76-D4E025B40C47}"
+          par=""
+          ph="ec-main"
+          uid="{A5ECCE8C-CBD2-4669-BA39-5CAD038864FA}" />
+        <r
+          ds="{D2D88E41-31B7-454E-8D09-014004C3F836}"
+          id="{6BDA85A1-1CB2-4F84-A777-67025160523F}"
+          par=""
+          ph="ec-main"
+          uid="{F71D3F57-B8AB-48AC-8D72-EEF37982A3B8}" />
+        <r
+          ds="{583131E3-B78A-42CE-9695-2D72990540A9}"
+          id="{D7040DF2-C910-4353-80E8-53EFAB32495C}"
+          par=""
+          ph="ec-footer"
+          uid="{D6FCB945-D468-40E3-BCFF-3C888A8F33B2}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D369FEE5-9F71-4A85-BE2D-263D50D4B259}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180406T160319Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1d939a6f-b81c-44a5-b66e-91dc9f6c2885"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "c0bfd467-0b74-4efe-b7c9-1ecf7f0e5370"
+      Hint: Subject
+      Value: "Redeem your FREE shipping today!"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T152234Z
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180820T142412Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1a15d95d-b196-41de-b7aa-65a1951ed7c3"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190704T152234Z

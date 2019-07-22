@@ -1,0 +1,41 @@
+---
+ID: "d376ff0f-d0cf-4c67-9116-35272e91fee2"
+Parent: "112112d4-388a-429f-bde7-235292b1dd6c"
+Template: "e24de305-c60f-47d1-97c0-de121d6831d0"
+Path: /sitecore/content/Habitat SXA Sites/Habitat Home/Presentation/Cache Settings/Navigation
+DB: master
+SharedFields:
+- ID: "3d08db46-2267-41b0-bc52-be69fd618633"
+  Hint: Cacheable
+  Type: Checkbox
+  Value: 1
+- ID: "8b6d532b-6128-4486-a044-ca06d90948ba"
+  Hint: VaryByData
+  Type: Checkbox
+  Value: 1
+- ID: "e4451eaf-dbfd-4d31-a525-6b42f236289d"
+  Hint: Rendering
+  Type: TreelistEx
+  Value: "{9D3BA81A-EECE-4B5A-9862-0239A9D53EEC}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190412T183322Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "60f61cb6-aa6a-453a-b59d-9f9a611c7595"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190425T165131Z

@@ -1,0 +1,57 @@
+---
+ID: "32566f0e-7686-45f1-a12f-d7260bd78bc3"
+Parent: "eb2e4ffd-2761-4653-b052-26a64d385227"
+Template: "239f9cf4-e5a0-44e0-b342-0f32cd4c6d8b"
+Path: /sitecore/layout/Renderings
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Software/16x16/elements1.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {F1F1D639-4F54-40C2-8BE0-81266B392CEB}
+    {1DDE3F02-0BD7-4779-867A-DC578ADF91EA}
+    {39587D7D-F06D-4CB4-A25E-AA7D847EDDD0}
+    {83E993C5-C0FC-4472-86A9-2F6CFED694E4}
+    {7EE0975B-0698-493E-B3A2-0B2EF33D0522}
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: Checkbox
+  Value: 1
+- ID: "a0cb3965-8884-4c7a-8815-b6b2e5ced162"
+  Hint: __Editors
+  Type: TreelistEx
+  Value: "{A0C460F4-DBAE-4A5A-8F3A-C4ADFCDACEEA}"
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\Designer|pd|+item:delete|+item:create|+item:rename|+item:read|+item:write|pe|+item:create|
+Languages:
+- Language: en
+  Fields:
+  - ID: "9541e67d-ce8c-4225-803d-33f7f29f09ef"
+    Hint: __Short description
+    Value: Renderings.
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: "20080417T173328:633440504087678657"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "898b46a9-e8f1-400b-8fcb-576bbaa52c34"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: "20081106T181252:633615919722500000"

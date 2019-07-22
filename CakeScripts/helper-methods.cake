@@ -76,12 +76,14 @@ public void PrintHeader(ConsoleColor foregroundColor)
 }
 
 public void PublishProjects(string rootFolder, string publishRoot)
-{
-    var projects = GetFiles($"{rootFolder}\\**\\code\\*.csproj");
+{ 
+	Func<IFileSystemInfo, bool> excludes = fileSystemInfo => !fileSystemInfo.Path.FullPath.Contains("CRM");
+
+    var projects = GetFiles($"{rootFolder}\\**\\code\\*.csproj", excludes);
     Information("Publishing " + rootFolder + " to " + publishRoot);
     foreach (var project in projects)
     {
-        MSBuild(project, cfg => InitializeMSBuildSettings(cfg)
+        MSBuild(project, cfg => InitializeMSBuildSettingsInternal(cfg)
                                    .WithTarget(configuration.BuildTargets)
                                    .WithProperty("DeployOnBuild", "true")
                                    .WithProperty("DeployDefaultTarget", "WebPublish")
@@ -91,6 +93,11 @@ public void PublishProjects(string rootFolder, string publishRoot)
                                    .WithProperty("BuildProjectReferences", "false")
                                    );
     }
+}
+
+public void PublishCoreProjects(string rootFolder, string publishRoot) 
+{
+	
 }
 
 public FilePathCollection GetTransformFiles(string rootFolder)
@@ -142,12 +149,21 @@ public void DeployExmCampaigns()
 
 public MSBuildSettings InitializeMSBuildSettings(MSBuildSettings settings)
 {
+    InitializeMSBuildSettingsInternal(settings)
+        .WithRestore();
+
+    return settings;
+}
+
+private MSBuildSettings InitializeMSBuildSettingsInternal(MSBuildSettings settings)
+{
     settings.SetConfiguration(configuration.BuildConfiguration)
             .SetVerbosity(Verbosity.Minimal)
             .SetMSBuildPlatform(MSBuildPlatform.Automatic)
             .SetPlatformTarget(PlatformTarget.MSIL)
             .UseToolVersion(configuration.MSBuildToolVersion)
-            .WithRestore();
+            .SetMaxCpuCount(8);
+
     return settings;
 }
 

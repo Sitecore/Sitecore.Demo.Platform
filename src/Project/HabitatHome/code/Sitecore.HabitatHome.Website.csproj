@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" 
-  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -72,12 +71,12 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Kernel" Version="12.0.0-*" />
-        <PackageReference Include="Sitecore.Logging" Version="12.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc.Analytics" Version="12.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc" Version="3.0.0-*" />
-        <PackageReference Include="Sitecore.Update" Version="4.0.0-*" />
-        <PackageReference Include="Sitecore.Zip" Version="12.0.0-*" />
+        <PackageReference Include="Sitecore.Kernel" Version="9.2.0-*" />
+        <PackageReference Include="Sitecore.Logging" Version="9.2.0-*" />
+        <PackageReference Include="Sitecore.Mvc.Analytics" Version="9.2.0-*" />
+        <PackageReference Include="Sitecore.Mvc" Version="9.2.0-*" />
+        <PackageReference Include="Sitecore.Update" Version="9.2.0-*" />
+        <PackageReference Include="Sitecore.Zip" Version="9.2.0-*" />
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -107,6 +106,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="sitecore.habitathome.version.txt" />
+    <Content Include="App_Config\Include\Project\HabitatHome.Website.Serialization.Shared.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -136,6 +138,19 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Package-CM|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Package-CD|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

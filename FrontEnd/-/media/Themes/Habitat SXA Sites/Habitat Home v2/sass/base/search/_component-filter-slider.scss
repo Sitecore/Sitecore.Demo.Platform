@@ -1,0 +1,110 @@
+.ui-slider {
+    position: relative;
+    width: 80%;
+    margin: 10px auto;
+    text-align: left;
+    .ui-widget-header {
+        border: 1px solid $search-filter-slider-border-active;
+        background: $search-filter-slider-bg-active;
+        font-weight: bold;
+    }
+    .ui-widget-header a {
+        color: #ffffff;
+    }
+}
+.slider-value {
+    text-align: center;
+}
+
+/* Interaction states
+----------------------------------*/
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid $search-filter-slider-btn-border;
+    background: $search-filter-slider-btn-bg;
+    font-weight: normal;
+    color: $search-item-color;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+    color: $search-item-color;
+    text-decoration: none;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    border: 1px solid $search-filter-slider-btn-border;
+    background: $search-filter-slider-btn-bg-active;
+    font-weight: normal;
+    color: $search-item-color-active;
+}
+.ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited, .ui-state-focus a, .ui-state-focus a:hover, .ui-state-focus a:link, .ui-state-focus a:visited {
+    color: $search-item-color-active;
+    text-decoration: none;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 1px solid $search-filter-slider-btn-border;
+    background: $search-filter-slider-btn-bg-active;
+    font-weight: normal;
+    color: $search-item-color-active;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: $search-item-color-active;
+    text-decoration: none;
+}
+.ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 1.2em;
+    height: 1.2em;
+    cursor: default;
+    -ms-touch-action: none;
+    touch-action: none;
+}
+.ui-slider .ui-slider-range {
+    position: absolute;
+    z-index: 1;
+    font-size: .7em;
+    display: block;
+    border: 0;
+    background-position: 0 0;
+}
+
+/* For IE8 - See #6727 */
+
+.ui-slider.ui-state-disabled .ui-slider-handle, .ui-slider.ui-state-disabled .ui-slider-range {
+    filter: inherit;
+}
+.ui-slider-horizontal {
+    height: .8em;
+}
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.3em;
+    margin-left: -.6em;
+}
+.ui-slider-horizontal .ui-slider-range {
+    top: 0;
+    height: 100%;
+}
+.ui-slider-horizontal .ui-slider-range-min {
+    left: 0;
+}
+.ui-slider-horizontal .ui-slider-range-max {
+    right: 0;
+}
+.ui-slider-vertical {
+    width: .8em;
+    height: 100px;
+}
+.ui-slider-vertical .ui-slider-handle {
+    left: -.3em;
+    margin-left: 0;
+    margin-bottom: -.6em;
+}
+.ui-slider-vertical .ui-slider-range {
+    left: 0;
+    width: 100%;
+}
+.ui-slider-vertical .ui-slider-range-min {
+    bottom: 0;
+}
+.ui-slider-vertical .ui-slider-range-max {
+    top: 0;
+}

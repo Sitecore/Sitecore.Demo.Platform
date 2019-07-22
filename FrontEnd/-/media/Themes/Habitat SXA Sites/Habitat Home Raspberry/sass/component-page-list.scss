@@ -1,0 +1,27 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+@import "base/fontawesome/font-awesome-mix-var";
+.page-list {
+    margin: 2em 0;
+    .item {
+        .field-title {
+            color: $page-list-item-title-text;
+
+            a {
+                &:before {
+                    @include fa-icon();
+                    content: $fa-var-chevron-right;
+                    color: $link-list-icon-color;
+                    font-size: 0.9em;
+                    margin-right: 0.25em;
+                }
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }        
+    }
+    .field-title {
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,14 @@
+@import "../../abstracts/vars";
+@import "../../abstracts/mixins";
+@import "../../base/fontawesome/font-awesome-mix-var";
+.breadcrumb.triangle-separator {
+    .separator {
+        @include fa-icon();
+        font-size: 0;
+        &:before {
+            content: $fa-var-caret-right;
+            display: block;
+            font-size: $font-medium;
+        }
+    }
+}

@@ -1,0 +1,83 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+//@import "base/sprites/sprite-flag";
+@import "base/fontawesome/font-awesome-mix-var";
+.language-selector {
+    position: relative;
+    //this sprites was compiled by gulp
+    //@include sprites($spritesheet-sprites);    
+    background-color: $lang-selector-bg;
+    text-transform: uppercase;
+
+    .language-selector-select-item {
+        cursor: pointer;
+        @include proxima-font;        
+
+        >a {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 1em;
+            color: $lang-selector-text;
+            font-size: $navigation-font-basic;
+            height: $primary-nav-height - 4px;
+            margin-right: 1.5em;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        &:after {
+            @include fa-icon();
+            content: $fa-var-caret-down;
+            color: $lang-selector-text;
+            position: absolute;
+            right: 1em;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+        }
+    }
+    .language-selector-item-container {        
+        padding: 0;
+        position: absolute;
+        min-width: 220px;
+        z-index: 10;
+        background: $lang-selector-menu-bg;
+        display: none;
+        left: 0;
+        right: 0;
+    }
+    .language-selector-item {
+        padding: 10px;        
+        cursor: pointer;
+        a {
+            text-decoration: none;            
+            color: $lang-selector-text;
+            font-weight: normal;
+            padding-left: 25px;
+            background-repeat: no-repeat;
+            font-size: $navigation-font-basic;
+
+            &:hover {
+                color:lighten( $lang-selector-text,20);
+            }
+        }
+        &:hover {
+            
+            //background-color: $lang-selector-item-bg-active;
+            //border-bottom: 1px solid $lang-selector-item-border-active;
+        }
+        &:first-child {
+            margin-bottom: 0;
+        }
+    }
+    .language-selector-link {
+        padding: 0px 20px 0 30px;
+    }
+    .language-selector-select-link {
+        padding-left: 25px;
+        background-repeat: no-repeat;
+    }
+}
