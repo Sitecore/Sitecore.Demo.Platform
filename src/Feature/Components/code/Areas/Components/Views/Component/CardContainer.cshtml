@@ -1,0 +1,43 @@
+﻿@using Sitecore.HabitatHome.Feature.Components.Models
+@using Sitecore.HabitatHome.Foundation.Dictionary.Extensions
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@model Component
+@{
+    var count = 0;
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-deck">
+                <div class="w-100 py-2"></div>
+                @foreach (var component in Model.GetChildren<Component>())
+                {
+                    if (count > 0 && count % 4 == 0)
+                    {
+                        <div class="w-100 py-2"></div>
+                    }
+                    <div class="card">
+                        @Html.Sitecore().Edit(component, c => c.Image, new {@class = "card-img-top img-adjusted", mw = "500"})
+
+                        <div class="card-body">
+
+                            @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(component.Title))
+                            {
+                                <h3 class="card-title">@Html.Sitecore().Edit(component, c => c.Title)</h3>
+                            }
+                            @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(component.Subtitle))
+                            {
+                                <p class="card-text">@Html.Sitecore().Edit(component, c => c.Subtitle)</p>
+                            }
+                            <a href="@component.Url" class="btn btn-info link_arrow">
+                                @Html.Sitecore().Dictionary("/Buttons/Read More", "Read More")
+                            </a>
+                        </div>
+                    </div>
+                    count++;
+                }
+                <div class="w-100 py-2"></div>
+            </div>
+        </div>
+    </div>
+</div>

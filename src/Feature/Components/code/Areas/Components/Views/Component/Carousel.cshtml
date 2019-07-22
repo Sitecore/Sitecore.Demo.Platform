@@ -1,0 +1,37 @@
+﻿@using Sitecore.HabitatHome.Feature.Components.Models
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+
+@model CarouselModel
+
+<div id="@Model.CarouselModelSignature" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        @for (int i = 0; i < Model.Slides.Count(); i++)
+        {
+        <li data-target="#@Model.CarouselModelSignature" data-slide-to="@i" class="@(i == 0 ? "active" : string.Empty)"></li>
+        }                 
+    </ol>
+    <div class="carousel-inner">
+        @{
+                int index = 0;
+                foreach (var slide in Model.Slides)
+                {
+        <div class="carousel-item @(index ==0 ? "active" : string.Empty)">
+            @Html.Sitecore().Edit(slide, s => s.Image)
+            <div class="carousel-caption d-block">
+                <h2>@Html.Sitecore().Edit(slide, s => s.Title)</h2>
+                <p class="lead">@Html.Sitecore().Edit(slide, s => s.Subtitle)</p>
+            </div>
+        </div>
+                index++;
+            }
+            }
+    </div>
+    <a class="carousel-control-prev" href="#@Model.CarouselModelSignature" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#@Model.CarouselModelSignature" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>

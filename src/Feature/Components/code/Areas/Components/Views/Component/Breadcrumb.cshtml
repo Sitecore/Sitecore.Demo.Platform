@@ -1,0 +1,18 @@
+﻿@model  List<Sitecore.HabitatHome.Feature.Components.Models.BreadcrumbItem>
+<div class="container">
+    <ol class="breadcrumb">
+        @foreach (var item in Model)
+        {
+            <li class="breadcrumb-item @item.ActiveClass">
+                @if (item.Active || string.IsNullOrEmpty(item.Url))
+                {
+                    @item.Title
+                }
+                else
+                {
+                    <a href="@item.Url">@item.Title</a>
+                }
+            </li>
+        }
+    </ol>
+</div>

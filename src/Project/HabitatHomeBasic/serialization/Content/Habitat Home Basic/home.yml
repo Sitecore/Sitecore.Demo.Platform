@@ -21,8 +21,7 @@ SharedFields:
     <r xmlns:p="p" xmlns:s="s"
       p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
           uid="{01AE25CD-BFE2-47B9-AD21-20606EC64CD1}"
           p:before="*"
@@ -66,7 +65,7 @@ SharedFields:
               </rule>
               <rule
                 uid="{00000000-0000-0000-0000-000000000000}"
-                name="Default">
+                s:name="Default">
                 <conditions>
                   <condition
                     uid="026A63C1283B470AA370E02FDC475AAE"
@@ -95,7 +94,7 @@ SharedFields:
             <ruleset>
               <rule
                 uid="{807C38A7-ED29-40B8-AD6E-90E8F0105531}"
-                name="Fitness">
+                s:name="Fitness">
                 <conditions>
                   <or
                     uid="2835D1E18200470188F807AF01A6FFD4">
@@ -103,36 +102,36 @@ SharedFields:
                       uid="D719BC0621544C84A837D150B2FD3ADD">
                       <condition
                         uid="6457F8C200F1487E94B969D90A60A454"
-                        id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
-                        ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
-                        CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
                       <condition
                         uid="409C619DB8844A7BA26D1FFBC7FA7903"
-                        id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                        ProfileName="Topic Interest Category"
-                        PatternName="Fitness" />
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Topic Interest Category"
+                        s:PatternName="Fitness" />
                     </or>
                     <condition
                       uid="DED322B2175B4CA18F9FD51250F1FF4A"
-                      id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      ProfileName="Topic Interest Category"
-                      PatternName="Fitness" />
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Fitness" />
                   </or>
                 </conditions>
                 <actions>
                   <action
                     uid="2B6B7F1D4F314439949626223CF95A5E"
-                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    DataSource="local:/Data/Trainer Finder Promo" />
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Trainer Finder Promo" />
                 </actions>
               </rule>
               <rule
                 uid="{00000000-0000-0000-0000-000000000000}"
-                name="Default">
+                s:name="Default">
                 <conditions>
                   <condition
                     uid="6F1B3266994941FA88A9E6B720181EF1"
-                    id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
                 </conditions>
                 <actions />
               </rule>
@@ -157,37 +156,37 @@ SharedFields:
             <ruleset>
               <rule
                 uid="{6F0818B1-AD63-413E-8926-B308503D5DF7}"
-                name="Home Theater Consultation">
+                s:name="Home Theater Consultation">
                 <conditions>
                   <or
                     uid="25E282CB24A24E45B7AE81B1403E7789">
                     <condition
                       uid="0B503C08733A4D7084F0CF5CA178CD71"
-                      id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                      ProfileName="Electronics Category"
-                      PatternName="Home Cinema" />
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Electronics Category"
+                      s:PatternName="Home Cinema" />
                     <condition
                       uid="658CADF56A344640855409B47F84A9C3"
-                      id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      ProfileName="Electronics Category"
-                      PatternName="Home Cinema" />
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Electronics Category"
+                      s:PatternName="Home Cinema" />
                   </or>
                 </conditions>
                 <actions>
                   <action
                     uid="690D00C9AF404E599D573E1B4782D3E7"
-                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    DataSource="{08b31f67-d0a6-43a7-87f1-51bee78e2e53}" />
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{08b31f67-d0a6-43a7-87f1-51bee78e2e53}" />
                 </actions>
               </rule>
               <rule
                 uid="{0A13F1A6-2A45-4D6B-A843-3AB210194F4D}"
-                name="Show Smart Home">
+                s:name="Show Smart Home">
                 <actions>
                   <action
                     uid="FB75AEDB0F3544489588CBDDF0DA5F24"
-                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    DataSource="local:/Data/Promo - Smart Home" />
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo - Smart Home" />
                 </actions>
                 <conditions>
                   <or
@@ -196,30 +195,30 @@ SharedFields:
                       uid="E23A4BCBAF844438A9619F7BA4D57567">
                       <condition
                         uid="2810FE36FBF84577BE44661A766DFC36"
-                        id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
-                        ProfileName="Topic Interest Category"
-                        PatternName="Smart and Connected" />
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Topic Interest Category"
+                        s:PatternName="Smart and Connected" />
                       <condition
                         uid="8356092E6EAC423C913D1C5408700BDC"
-                        id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
-                        ExpectedAncestorTaxonId="{50299169-5B02-4EA6-BF5E-7D66B91BFF6D}"
-                        CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{50299169-5B02-4EA6-BF5E-7D66B91BFF6D}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
                     </or>
                     <condition
                       uid="2E9595332B294F0D9371DE63F939F918"
-                      id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
-                      ProfileName="Topic Interest Category"
-                      PatternName="Smart and Connected" />
+                      s:id="{6426B5B4-83E9-4E24-BA97-43293A10B47D}"
+                      s:ProfileName="Topic Interest Category"
+                      s:PatternName="Smart and Connected" />
                   </or>
                 </conditions>
               </rule>
               <rule
                 uid="{00000000-0000-0000-0000-000000000000}"
-                name="Default">
+                s:name="Default">
                 <conditions>
                   <condition
                     uid="89F847B70B2A454DABC57E642E692061"
-                    id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
                 </conditions>
                 <actions />
               </rule>
@@ -257,9 +256,6 @@ SharedFields:
           s:par="DynamicPlaceholderId=7&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d"
           s:ph="/main/sxa-content-container/container-1/container-6" />
       </d>
-      <d
-        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
-        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator

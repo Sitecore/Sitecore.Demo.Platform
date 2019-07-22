@@ -1,0 +1,54 @@
+﻿---
+ID: "652c86fa-6f03-4596-a76c-9b996d78f682"
+Parent: "f60cf53b-fd58-42f9-ba2b-26a8b9a1f9ec"
+Template: "9bcd885b-8b18-4ea5-aea1-bc5f918d5b90"
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Data/Footer
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1d80163d-001a-49dc-bb59-d457bab7decc"
+      Hint: Content
+      Value: |
+        <div style="text-align: center;">
+        <p><small>Please read our <a rel="noopener noreferrer" href="https://www.sitecore.com/trust" target="_blank" title="Read the Legal Notice on sitecore.com"><strong>Legal Notice</strong></a> and our <strong><a rel="noopener noreferrer" href="https://www.sitecore.com/trust/privacy-policy" target="_blank" title="Read the Privacy Policy on sitecore.com">Privacy Policy</a></strong>.</small></p>
+        <p><small>Copyright © 2019 Sitecore</small><br />
+        <small>“Habitat Home Corporate” as used here is for demonstration purposes only and to represent the software and services provided by Sitecore further described at www.sitecore.com.</small></p>
+        </div>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190131T192310Z
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: Footer
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: フッター
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1d80163d-001a-49dc-bb59-d457bab7decc"
+      Hint: Content
+      Value: |
+        <div style="text-align: center;">
+        <p>Copyright © 2019 Sitecore<br />
+        <small>“Habitat Home コーポレート” as used here is for demonstration purposes only and to represent the software and services provided by Sitecore further described at www.sitecore.net.</small></p>
+        </div>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190409T150043Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: フッター

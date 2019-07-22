@@ -1,0 +1,234 @@
+﻿---
+ID: "7e2c85c4-4a2b-4f3d-a164-f4455f9098ad"
+Parent: "8dcecf0c-80bf-4a34-af29-45f5f1463399"
+Template: "e427e2c2-f0e1-490f-81ec-4f968837b8c5"
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate/Home
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: office/32x32/home.png
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "d55e08ce-f57d-4eff-997c-e9f09c982f74"
+  Hint: Image
+  Value: 
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{949BECD8-0D21-4630-9CED-FCE050CEF162}"
+          p:before="*"
+          s:ds=""
+          s:id="{13791FD0-112C-4DE3-A09B-C774FBFDE1E1}"
+          s:par=""
+          s:ph="/hh-content-main/hh-section-{D0552DC4-A984-4F44-9944-8450222C2A3C}-0/hh-section-left-{E6243D8E-A915-41A8-9DC8-9813B5762E06}-0" />
+        <r
+          uid="{D18E8683-EFE2-468A-A040-5A3495E672BC}"
+          p:after="r[@uid='{949BECD8-0D21-4630-9CED-FCE050CEF162}']"
+          s:ds=""
+          s:id="{4EEE0E0B-11C9-429D-B15F-C214BE96FD97}"
+          s:par=""
+          s:ph="/hh-content-main/hh-section-{D0552DC4-A984-4F44-9944-8450222C2A3C}-0/hh-section-left-{E6243D8E-A915-41A8-9DC8-9813B5762E06}-0" />
+        <r
+          uid="{EB0FC09D-BA59-4B00-8AFD-4408CBB5E3A4}"
+          p:after="r[@uid='{D18E8683-EFE2-468A-A040-5A3495E672BC}']"
+          s:id="{809FDBFF-892F-40F5-BD5D-97A021C711C1}"
+          s:par=""
+          s:ph="/hh-content-main/hh-section-{D0552DC4-A984-4F44-9944-8450222C2A3C}-0/hh-section-right-{E6243D8E-A915-41A8-9DC8-9813B5762E06}-0" />
+        <r
+          uid="{E6243D8E-A915-41A8-9DC8-9813B5762E06}"
+          p:after="r[@uid='{EB0FC09D-BA59-4B00-8AFD-4408CBB5E3A4}']"
+          s:id="{078CDF5B-0682-4F26-B78C-962D867893ED}"
+          s:par=""
+          s:ph="/hh-content-main/hh-section-{D0552DC4-A984-4F44-9944-8450222C2A3C}-0" />
+        <r
+          uid="{E23397E6-0CE8-4598-A774-7CA35182BF4F}"
+          p:after="r[@uid='{34E7E66B-AB4D-4830-B5E4-D318BAAB2C52}']"
+          s:ds="{31F5FC81-B58F-4D77-9C2E-F5E38AC1ECF0}"
+          s:id="{A7EAFCCF-EA7A-481C-A3D8-14F299A6CE28}"
+          s:par=""
+          s:ph="hh-content-main" />
+        <r
+          uid="{133EB603-3E47-4647-BF85-3F6A15734A44}"
+          p:after="r[@uid='{E23397E6-0CE8-4598-A774-7CA35182BF4F}']"
+          s:ds="{BC7B4A3C-5E85-4465-BB3E-F261738C3CAE}"
+          s:id="{8D51406F-7CF1-4D80-85F5-0295AAB7EAFA}"
+          s:par=""
+          s:ph="hh-content-main" />
+        <r
+          uid="{A73BE927-8227-498F-BAAB-F0DB576E211A}"
+          p:after="r[@uid='{133EB603-3E47-4647-BF85-3F6A15734A44}']"
+          s:ds="{6E52DC72-5201-46D9-9D2D-E484DBE3C12C}"
+          s:id="{544D82F7-28D2-46A8-83A5-F0AFF0430547}"
+          s:par=""
+          s:ph="hh-content-main" />
+        <r
+          uid="{B87716E1-1313-4545-9767-3E2ACB067326}"
+          p:after="r[@uid='{A73BE927-8227-498F-BAAB-F0DB576E211A}']"
+          s:id="{974FE1E2-875F-42C2-ACFC-4FBDB3584604}"
+          s:par=""
+          s:ph="hh-content-main" />
+        <r
+          uid="{1E5CE039-1D10-4B65-8192-68211F747ED6}"
+          p:after="r[@uid='{B87716E1-1313-4545-9767-3E2ACB067326}']"
+          s:ds="{A13C6580-25FC-41CD-B281-C9D74A8E2A3F}"
+          s:id="{7656FD7D-597E-4B63-89B1-81DE535EA89D}"
+          s:par=""
+          s:ph="hh-content-main" />
+        <r
+          uid="{D0552DC4-A984-4F44-9944-8450222C2A3C}"
+          p:after="r[@uid='{1E5CE039-1D10-4B65-8192-68211F747ED6}']"
+          s:id="{974FE1E2-875F-42C2-ACFC-4FBDB3584604}"
+          s:par=""
+          s:ph="hh-content-main">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{ED6BC3DF-EC68-49B2-8FFE-9BA8200DE309}"
+                s:name="Anonymous">
+                <conditions>
+                  <condition
+                    uid="4FA99143ED824ABE8018BF1621DC148F"
+                    s:id="{EA0642FA-500B-4B2F-B264-765E771C516F}" />
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="981EE2DFAA3142F797006D9F15C6263A"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="E867F8CC83A44B4DA343BE2E630D970E"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{817B2CAB-7D1E-4D7B-8607-2DA84D5B5AE6}"
+          p:after="r[@uid='{D0552DC4-A984-4F44-9944-8450222C2A3C}']"
+          s:ds="{6FD3B8EC-3C92-4CF0-9968-F71F4DE87CD5}"
+          s:id="{0F4EFF24-F522-4292-8BDB-039B1AF59BA7}"
+          s:par=""
+          s:ph="hh-content-main" />
+        <r
+          uid="{E24E63E3-603D-4FB7-9459-2A4FFEEDD7D1}"
+          p:after="r[@uid='{817B2CAB-7D1E-4D7B-8607-2DA84D5B5AE6}']"
+          s:ds=""
+          s:id="{29ADD910-5E4D-4DD9-864B-92C662E5F1E6}"
+          s:par=""
+          s:ph="hh-content-main" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: Home
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{B87716E1-1313-4545-9767-3E2ACB067326}">
+              <p:d />
+            </r>
+            <r
+              uid="{D0552DC4-A984-4F44-9944-8450222C2A3C}">
+              <p:d />
+            </r>
+            <r
+              uid="{1E5CE039-1D10-4B65-8192-68211F747ED6}"
+              p:after="r[@uid='{817B2CAB-7D1E-4D7B-8607-2DA84D5B5AE6}']" />
+            <r
+              uid="{70E0FE32-36C4-458B-80D4-54CFAC61FEFC}"
+              p:after="r[@uid='{1E5CE039-1D10-4B65-8192-68211F747ED6}']"
+              s:ds="{7C47C563-F763-4B6D-9AFF-AE39D246E82A}"
+              s:id="{C06A32CD-E7F7-491E-99AC-85E843DE00C0}"
+              s:par=""
+              s:ph="hh-content-main" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181226T161509Z
+    - ID: "60a36bf8-cb0e-40f6-8b5a-834105136988"
+      Hint: MetadataTitle
+      Value: Welcome to Habitat Corporate
+    - ID: "943718f7-e179-4f1d-954f-3c9482c3bc3d"
+      Hint: Subtitle
+      Value: for all needs corporate
+    - ID: "c2d93d35-a2c4-48c6-9f78-f5d2c070bc5c"
+      Hint: MetadataDescription
+      Value: Habitat Home Corporate Demo and the tools and processes in it is a Sitecore solution example built using Standard Sitecore MVC on the Sitecore Experience Platform™ (XP) following the Helix architecture principles.
+    - ID: "cbf151b3-1caa-420e-97cd-e4e585002637"
+      Hint: MetadataKeywords
+      Value: habitat, brands
+    - ID: "d52da1c6-36b8-4770-8dab-d092b266060b"
+      Hint: Lead
+      Value: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: Habitat Home Corporate
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "03f0061a-309d-4732-a722-2f2a1488ac60"
+      Hint: NavigationTitle
+      Value: Home
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190423T110648Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: Habitat Corporate
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ホーム
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190409T150043Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "943718f7-e179-4f1d-954f-3c9482c3bc3d"
+      Hint: Subtitle
+      Value: あらゆるニーズにお応えします
+    - ID: "d52da1c6-36b8-4770-8dab-d092b266060b"
+      Hint: Lead
+      Value: |
+        
+        アジャイルフレームワークを活用して、概要の概要を示す堅牢な概要を提供します。企業戦略への反復的アプローチは、全体的な価値提案を促進するために協調的思考を促進します。職場の多様性とエンパワーメントによって、破壊的なイノベーションに対する全体的な世界観を有機的に高めます。
+    - ID: "f4629649-b213-4e81-8f4d-59b8de35e6f2"
+      Hint: Title
+      Value: Habitat Home コーポレーション

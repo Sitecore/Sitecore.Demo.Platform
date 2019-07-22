@@ -1,0 +1,9 @@
+﻿@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@model Sitecore.HabitatHome.Feature.Components.Models.Component
+
+<div class="container">
+    @if (Sitecore.Context.PageMode.IsExperienceEditor || !string.IsNullOrWhiteSpace(Model.Content))
+    {
+        @Html.Sitecore().Edit(Model, m => m.Content)
+    }
+</div>

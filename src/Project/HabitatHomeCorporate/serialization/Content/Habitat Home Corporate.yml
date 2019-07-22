@@ -1,0 +1,43 @@
+﻿---
+ID: "8dcecf0c-80bf-4a34-af29-45f5f1463399"
+Parent: "f1c33969-6418-4e9b-ba04-e61a530d84fa"
+Template: "9c449861-7b3d-4842-82be-4191f3781124"
+Path: /sitecore/content/Habitat Standard Sites/Habitat Home Corporate
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: office/32x32/flag_generic.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: 
+- ID: "11f62bee-f273-45e2-a0ae-b4a59334333f"
+  Hint: Settings
+  Value: Settings
+- ID: "d0c6e504-1cda-4c8f-956d-f2dcad4810db"
+  Hint: Data Folder
+  Value: Data
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: "20181108T162219:636772909398132552Z"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Habitat Home コーポレート
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190409T150039Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

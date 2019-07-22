@@ -1,0 +1,12 @@
+﻿@using Sitecore.HabitatHome.Feature.Components.Models
+@using Sitecore.HabitatHome.Foundation.SitecoreExtensions.Extensions
+@model Component
+
+<div class="container centered-heading">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center">@Html.Sitecore().Edit(Model, m => m.Title)</h2>
+            <p class="text-center">@Html.Sitecore().Edit(Model, m => m.Content)</p>
+        </div>
+    </div>
+</div>
