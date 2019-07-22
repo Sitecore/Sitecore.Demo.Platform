@@ -20,7 +20,7 @@ You can use GitHub to submit [bug reports](https://github.com/Sitecore/Sitecore.
 
 ### License
 Please read the LICENSE carefully prior to using the code in this repository. 
- 
+
 ### Support
 
 The code, samples and/or solutions provided in this repository are ***unsupported by Sitecore PSS***. Support is provided on a best-effort basis via GitHub issues or Slack #habitathome (see end of README for additional information).
@@ -41,7 +41,7 @@ The latest Habitat Home demo is built to support **[Sitecore Experience Platform
 ***In order to follow the build instructions in the README, you need to have [MSBuild Tools for Visual Studio 2017](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2017) installed.***
 ### Optional Modules
 <details>
-	
+
 In addition to base XP 9.2 with SXA, the following optional modules are required to enable additional demo functionality:
 
 - ***Optional Modules***
@@ -56,7 +56,7 @@ The following optional modules enable synchronization with Dynamics CRM or Sales
 		- [Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.1.0](https://dev.sitecore.net/~/media/5F22998E037C4F0E9A951D811F67A424.ashx)
 		- [Sitecore Connect for Microsoft Dynamics 365 for Sales 2.1.0](https://dev.sitecore.net/~/media/E1A8A968BEE347BA81255ADB132FD480.ashx)
 	  - Salesforce-specific modules
-		  - Sitecore Connect for Salesforce CRM 2.0.1 on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_201.aspx)
+		  - Sitecore Connect for Salesforce CRM 2.1.0 on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_210.aspx)
 			  - [Salesforce CRM Provider for Data Exchange Framework 2.1.0](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_210.aspx#)
 			  - [Sitecore Connect for Salesforce CRM 2.1.0](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_210.aspx#)
 
@@ -71,8 +71,8 @@ Clone the Sitecore.HabitatHome.Platform repository locally - defaults are config
 
 
 - Clone 
--- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Platform.git` 
--- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Platform.git`
+	-- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Platform.git` 
+	-- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Platform.git`
 </details>
 
 #### Parameters - explained
@@ -291,3 +291,4 @@ Only alter these attributes as instructed, the build/deploy process relies on se
 
 # Contribute or Issues
 Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Platform/issues). Contributions are always welcome!
+
