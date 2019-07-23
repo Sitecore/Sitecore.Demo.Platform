@@ -94,7 +94,6 @@ Task("Default")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Apply-Xml-Transform")
-.IsDependentOn("Modify-SXA-Variable")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
 .IsDependentOn("Post-Deploy");
 
@@ -115,7 +114,6 @@ Task("Quick-Deploy")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Modify-SXA-Variable")
 .IsDependentOn("Publish-xConnect-Project");
 
 /*===============================================
@@ -311,7 +309,6 @@ Task("Publish-Project-Projects").Does(() => {
     var global = $"{configuration.ProjectSrcFolder}\\Global";
     var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
     var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
-    var habitatHomeCorporate = $"{configuration.ProjectSrcFolder}\\HabitatHomeCorporate";
     
     var destination = deploymentRootPath;
     if (!deployLocal){
@@ -321,7 +318,6 @@ Task("Publish-Project-Projects").Does(() => {
     PublishProjects(global, destination);
     PublishProjects(habitatHome, destination);
     PublishProjects(habitatHomeBasic, destination);
-    PublishProjects(habitatHomeCorporate, destination);
 });
 
 Task("Publish-xConnect-Project").Does(() => {
@@ -383,13 +379,6 @@ Task("Modify-Unicorn-Source-Folder").Does(() => {
         }
     };
     XmlPoke(zzzDevSettingsFile, sourceFolderXPath, directoryPath, xmlSetting);
-});
-
-Task("Modify-SXA-Variable").Does(() => {
-	var webConfigFile = File($"{configuration.WebsiteRoot}/Web.config");
-	var appSetting = "configuration/appSettings/add[@key='sxa:define']/@value";
-	var appSettingValue = configuration.SXA ? "On" : "Off";	
-    XmlPoke(webConfigFile, appSetting, appSettingValue);
 });
 
 Task("Modify-PublishSettings").Does(() => {
