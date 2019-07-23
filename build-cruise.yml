@@ -1,0 +1,38 @@
+pool:
+  name: DEVDEMO1US1
+  demands:
+  - msbuild
+steps:
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet 4.4.1'
+  inputs:
+    versionSpec: 4.4.1
+    checkLatest: true
+
+- task: NuGetCommand@2
+  displayName: 'NuGet Restore Solution'
+  inputs:
+    restoreSolution: HabitatHome.sln
+    feedsToUse: config
+    nugetConfigPath: '$(nuget.config)'
+
+- task: MSBuild@1
+  displayName: 'HabitatHome.Platform - Build Solution'
+  inputs:
+    solution: HabitatHome.sln
+    configuration: 'Debug'
+    msbuildArguments: '/m'
+    
+- task: NuGetCommand@2
+  displayName: 'NuGet Restore TDS Solution'
+  inputs:
+    restoreSolution: HabitatHome.TDS.sln
+    feedsToUse: config
+    nugetConfigPath: '$(nuget.config)'
+
+- task: MSBuild@1
+  displayName: 'HabitatHome.Platform - Build TDS Solution'
+  inputs:
+    solution: HabitatHome.TDS.sln
+    configuration: 'Release'
+    msbuildArguments: '/m'

@@ -69,12 +69,6 @@ The demo is configured for **HTTPS/SSL**. Please ensure that you create an HTTPS
 ### Clone this repository
 <details>
 
-#### Setting Git for Long Paths
-
-- Before cloning, you need to configure git to allow long paths, which is not the default.
-
-`git config --system core.longpaths true`
-
 Clone the Sitecore.HabitatHome.Platform repository locally - defaults are configured for **C:\Projects\Sitecore.HabitatHome.Platform**. 
 
 
@@ -96,7 +90,7 @@ The following is a list of default values / assumptions for settings (`cake-conf
 | BuildConfiguration 	| 'Debug/Release' point to NuGet, 'Local' copies DLLs from an existing installation 	| Debug
 | DeploymentTarget  	| Local/OnPrem/Azure - see below for details 											| Local
 | DeployFolder 			| Used for WDP generation and Azure deployments 										| C:\\deploy
-| Version 				| Version of Sitecore being targeted. Must match official 3-digit version 				| 9.1.1
+| Version 				| Version of Sitecore being targeted. Must match official 3-digit version 				| 9.2.0
 | Topology 				| Target topology for WDP creation and Azure deployment. Values are single or scaled 	| single
 | CDN 					| Content Delivery Network enabled (true/false). Used only when deploying to Azure 		| false
 
@@ -178,7 +172,7 @@ The process of creating a WDP of Habitat Home and its xConnect project is quite 
 A few settings are important in the `cake-config.json` file:
 - **DeploymentTarget**: Set to **OnPrem** for deploying locally or in Azure IaaS. Set to **Azure** for PaaS deployments
 - **DeployFolder**: Temporary location where work will be performed. Defaults to c:\deploy	
-- **Version**:	Version of Sitecore being targeted. Must match official 3-digit version	9.1.1 and of course the Habitat Home target version you're working with.
+- **Version**:	Version of Sitecore being targeted. Must match official 3-digit version	9.2.0 and of course the Habitat Home target version you're working with.
 - **Topology**: Values are **single** (XP0/XPSingle) or **scaled** (XP1/XPScaled)
 - **CDN**: Configure the WDP to support Content Delivery Network (**true/false**). Used only when deploying to Azure.
 
@@ -187,7 +181,7 @@ Once you got the settings just right, you can call the cake build script and pas
 ```.\build.ps1 -Target Build-WDP -ScriptArgs --DEV_SITECORE_USERNAME=your_e-mail, --DEV_SITECORE_PASSWORD=YourPassword```
 > if you've set DEV_SITECORE_USERNAME and DEV_SITECORE_PASSWORD as environment variables you can omit them from the command line.
 
-Once the process completes, you should have WDPs for HabitatHome as well as xConnect in `<DeployFolder>\9.1.1\XPSingle\assets\HabitatHome\WDPWorkFolder\WDP` and `<DeployFolder>\9.1.1\XPSingle\assets\xConnect\WDPWorkFolder\WDP`
+Once the process completes, you should have WDPs for HabitatHome as well as xConnect in `<DeployFolder>\9.2.0\XPSingle\assets\HabitatHome\WDPWorkFolder\WDP` and `<DeployFolder>\9.2.0\XPSingle\assets\xConnect\WDPWorkFolder\WDP`
 
 You can then install these WDPs using SIF. An [example script](https://github.com/Sitecore/Sitecore.HabitatHome.Utilities/blob/master/XP/install/install-habitathome.ps1) already exists in the [HabitatHome.Utilities](https://github.com/Sitecore/Sitecore.HabitatHome.Utilities/tree/master) repo
 </details>

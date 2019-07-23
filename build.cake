@@ -1,7 +1,7 @@
 #addin nuget:?package=Cake.Azure&version=0.3.0
-#addin nuget:?package=Cake.Http&version=0.5.0
+#addin nuget:?package=Cake.Http&version=0.6.1
 #addin nuget:?package=Cake.Json&version=3.0.1
-#addin nuget:?package=Cake.Powershell&version=0.4.7
+#addin nuget:?package=Cake.Powershell&version=0.4.8
 #addin nuget:?package=Cake.XdtTransform&version=0.16.0
 #addin nuget:?package=Newtonsoft.Json&version=11.0.1
 
@@ -213,6 +213,7 @@ Task("Copy-Sitecore-Lib")
 
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
+.IsDependentOn("Publish-Core-Project")
 .IsDependentOn("Publish-Foundation-Projects")
 .IsDependentOn("Publish-Feature-Projects")
 .IsDependentOn("Publish-Project-Projects");
@@ -239,6 +240,71 @@ Task("Publish-Feature-Projects").Does(() => {
         destination = $"{deploymentRootPath}\\Website\\HabitatHome";
     }
      PublishProjects(configuration.FeatureSrcFolder, destination);
+});
+
+Task("Publish-Core-Project").Does(() => {	
+    var destination = deploymentRootPath;
+    if (!deployLocal){
+        destination = $"{deploymentRootPath}\\Website\\HabitatHome";
+    }
+	
+	Information("Destination: " + destination);
+
+	var projectFile = $"{configuration.SourceFolder}\\Build\\Build.Website\\code\\Build.Website.csproj";
+	var publishFolder = $"{configuration.ProjectFolder}\\publish";
+	
+	DotNetCoreMSBuildSettings buildSettings = new DotNetCoreMSBuildSettings();
+	buildSettings.SetConfiguration(configuration.BuildConfiguration);
+
+	DotNetCoreRestoreSettings restoreSettings = new DotNetCoreRestoreSettings {
+		MSBuildSettings = buildSettings
+	};
+
+	DotNetCoreRestore(projectFile, restoreSettings);
+
+	var settings = new DotNetCorePublishSettings
+        {
+            OutputDirectory = publishFolder,
+			Configuration = configuration.BuildConfiguration
+        };
+ 
+    DotNetCorePublish(projectFile, settings);
+
+	// Copy assembly files to webroot
+    var assemblyFilesFilter = $@"{publishFolder}\*.dll";
+    var assemblyFiles = GetFiles(assemblyFilesFilter).Select(x=>x.FullPath).ToList();
+    CopyFiles(assemblyFiles, (destination + "\\bin"), preserveFolderStructure: false);
+	
+	// Copy other output files to destination webroot
+	var ignoredExtensions = new string[] { ".dll", ".exe", ".pdb", ".xdt" };
+	var ignoredFiles = new string[] { "web.config", "build.website.deps.json", "build.website.exe.config" };
+
+	var contentFiles = GetFiles($"{publishFolder}\\**\\*")
+						.Where(file => !ignoredExtensions.Contains(file.GetExtension().ToLower()))
+						.Where(file => !ignoredFiles.Contains(file.Segments.LastOrDefault().ToLower()));
+
+	CopyFiles(contentFiles, destination, preserveFolderStructure: true);
+   
+
+	// Apply transforms    	 
+    var xdtFiles = GetFiles($"{publishFolder}\\**\\*.xdt");
+
+    foreach (var file in xdtFiles)
+    {
+        if (file.FullPath.Contains(".azure"))
+        {
+            continue;
+        }
+        
+        Information($"Applying configuration transform:{file.FullPath}");
+        var fileToTransform = Regex.Replace(file.FullPath, ".+transforms/(.*.config).?(.*).xdt", "$1");
+        fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
+        var sourceTransform = $"{configuration.WebsiteRoot}\\{fileToTransform}";
+        
+        XdtTransformConfig(sourceTransform			                // Source File
+                            , file.FullPath			                // Tranforms file (*.xdt)
+                            , sourceTransform);		                // Target File
+    }
 });
 
 Task("Publish-Project-Projects").Does(() => {

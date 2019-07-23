@@ -1,0 +1,41 @@
+---
+ID: "3c1715fe-6a13-4fcf-845f-de308ba9741d"
+Parent: "11111111-1111-1111-1111-111111111111"
+Template: "e3e2d58c-df95-4230-adc9-279924cece84"
+Path: /sitecore/templates
+DB: core
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Software/16x16/component_yellow.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: tree list
+  Value: "{30235F43-6242-4107-87AB-5267E34EDF0C}"
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: checkbox
+  Value: 0
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\Sitecore Client Users|pd|+item:read|pe|+item:read|ar|sitecore\Sitecore Client Maintaining|pd|+item:delete|+item:create|+item:rename|+item:read|+item:write|pe|+item:delete|+item:create|+item:rename|+item:read|+item:write|
+Languages:
+- Language: en
+  Fields:
+  - ID: "9541e67d-ce8c-4225-803d-33f7f29f09ef"
+    Hint: __Short description
+    Value: Templates.
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "edbe712e-7ac5-4a0c-a866-ed111d4fc0fa"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20080221T151003
