@@ -20,7 +20,7 @@ You can use GitHub to submit [bug reports](https://github.com/Sitecore/Sitecore.
 
 ### License
 Please read the LICENSE carefully prior to using the code in this repository. 
- 
+
 ### Support
 
 The code, samples and/or solutions provided in this repository are ***unsupported by Sitecore PSS***. Support is provided on a best-effort basis via GitHub issues or Slack #habitathome (see end of README for additional information).
@@ -36,31 +36,29 @@ The code, samples and/or solutions provided in this repository are for example p
 
 ### Prerequisites
 
-The latest Habitat Home demo is built to support **[Sitecore Experience Platform 9.1](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/91/Sitecore_Experience_Platform_91_Initial_Release.aspx)** using **[Sitecore Experience Accelerator (SXA) 1.8](https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/18/Sitecore_Experience_Accelerator_180.aspx)**.
+The latest Habitat Home demo is built to support **[Sitecore Experience Platform 9.2](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/92/Sitecore_Experience_Platform_92_Initial_Release.aspx)** using **[Sitecore Experience Accelerator (SXA) 1.9](https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/19/Sitecore_Experience_Accelerator_190.aspx)**.
 
 ***In order to follow the build instructions in the README, you need to have [MSBuild Tools for Visual Studio 2017](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2017) installed.***
 ### Optional Modules
 <details>
-	
-In addition to base XP 9.1 with SXA, the following optional modules are required to enable additional demo functionality:
 
-> **We will be upgrading Data Exchange Framework to 2.1 and have not yet tested the 9.1 version of Habitat Home with DEF 2.0.1**
+In addition to base XP 9.2 with SXA, the following optional modules are required to enable additional demo functionality:
 
 - ***Optional Modules***
 The following optional modules enable synchronization with Dynamics CRM or Salesforce CRM (relevant account required)
   -  Base Data Exchange Framework modules
-	  -  [Data Exchange Framework v2.0.1](https://dev.sitecore.net/~/media/C50B044E45FE4C4DA9E675CBEED3AA09.ashx) on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Data_Exchange_Framework/2x/Data_Exchange_Framework_201.aspx) as well as relevant Providers on same page
-		- [Sitecore Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/D57A1FBB98ED4125B78D740E5B5F1772.ashx)
-		- [SQL Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/F243222B9A95497BAB6B591D39560E95.ashx)
-		- [xConnect Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/C61F1265BB494CAFA4229FC9FC704AB0.ashx) 
-	  - Dynamics-specific modules
-		  - Data Exchange Framework 2.0.1 Dynamics Connectors on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Dynamics_CRM_Connect/2x/Sitecore_Connect_for_Microsoft_Dynamics_365_for_Sales_201.aspx)
-		- [Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/~/media/819FB4C75CC74A8C984C343BEF7B53F1.ashx)
-		- [Sitecore Connect for Microsoft Dynamics 365 for Sales 2.0.1](https://dev.sitecore.net/~/media/ADBAF4CC6736499EBA0EBA6A9767D825.ashx)
-	  - Salesforce-specific modules
-		  - Sitecore Connect for Salesforce CRM 2.0.1 on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_201.aspx)
-			  - [Salesforce CRM Provider for Data Exchange Framework 2.0.1](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_201.aspx#)
-			  - [Sitecore Connect for Salesforce CRM 2.0.1](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_201.aspx#)
+    -  [Data Exchange Framework v2.1.0](https://dev.sitecore.net/~/media/C10E96CD1EAC46C49C957D5C3445BFB2.ashx) on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Data_Exchange_Framework/2x/Data_Exchange_Framework_210.aspx) as well as relevant Providers on same page
+      - [Sitecore Provider for Data Exchange Framework 2.1.0](https://dev.sitecore.net/~/media/D80B9AE68C71473E895608806A764332.ashx)
+      - [SQL Provider for Data Exchange Framework 2.1.0](https://dev.sitecore.net/~/media/52203CC3ADCD4668AF0D7568EF65A7BD.ashx)
+      - [xConnect Provider for Data Exchange Framework 2.1.0](https://dev.sitecore.net/~/media/678E59D0B92C4F20B0025730958A15A0.ashx) 
+    - Dynamics-specific modules
+      - Data Exchange Framework 2.1.0 Dynamics Connectors on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Dynamics_CRM_Connect/2x/Sitecore_Connect_for_Microsoft_Dynamics_365_for_Sales_210.aspx)
+      - [Microsoft Dynamics 365 for Sales Provider for Data Exchange Framework 2.1.0](https://dev.sitecore.net/~/media/5F22998E037C4F0E9A951D811F67A424.ashx)
+      - [Sitecore Connect for Microsoft Dynamics 365 for Sales 2.1.0](https://dev.sitecore.net/~/media/E1A8A968BEE347BA81255ADB132FD480.ashx)
+    - Salesforce-specific modules
+      - Sitecore Connect for Salesforce CRM 2.1.0 on [dev.sitecore.com](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_210.aspx)
+        - [Salesforce CRM Provider for Data Exchange Framework 2.1.0](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_210.aspx#)
+        - [Sitecore Connect for Salesforce CRM 2.1.0](https://dev.sitecore.net/Downloads/Salesforce_Connect/2x/Sitecore_Connect_for_Salesforce_CRM_210.aspx#)
 
 </details>
 
@@ -73,8 +71,8 @@ Clone the Sitecore.HabitatHome.Platform repository locally - defaults are config
 
 
 - Clone 
--- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Platform.git` 
--- **ssh**:		`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Platform.git`
+  -- **https**:	`git clone https://github.com/Sitecore/Sitecore.HabitatHome.Platform.git` 
+  -- **ssh**:	`git clone git@github.com:Sitecore/Sitecore.HabitatHome.Platform.git`
 </details>
 
 #### Parameters - explained
@@ -102,7 +100,7 @@ The following is a list of default values / assumptions for settings (`cake-conf
 </details>
 
 #### Deploying HabitatHome Locally
-Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.1** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/91/Sitecore_Experience_Platform_91_Initial_Release.aspx).
+Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.2** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/92/Sitecore_Experience_Platform_92_Initial_Release.aspx).
 
 [Jump to local deployment instructions](#localInstallation) 
 #### Generating WebDeploy Package (WDP)
@@ -142,15 +140,15 @@ All installation instructions assume using **PowerShell 5.1** in _**administrati
 From the root of the solution
 
 - Run **`.\build.ps1`**
-	- Notes:
-		- If the deployment fails at `Sync-Unicorn` or `Deploy-EXM-Campaigns` step, evaluate and fix the error (if any) and then run `.\build.ps1 -Target "Post-Deploy"`.
+  - Notes:
+    - If the deployment fails at `Sync-Unicorn` or `Deploy-EXM-Campaigns` step, evaluate and fix the error (if any) and then run `.\build.ps1 -Target "Post-Deploy"`.
 
 
 ### 2. Validating deployment
 
 1. Browse to https://habitathome.dev.local (or whatever hostname you selected)
-	1. You should see the Habitat Home landing page with a full-width carousel
-	2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that your Host Name was configured correctly in `/sitecore/content/Habitat SXA Sites/Habitat Home/Settings/Site Grouping/Habitat Home` and that the site has published successfully 
+  1. You should see the Habitat Home landing page with a full-width carousel
+  2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that your Host Name was configured correctly in `/sitecore/content/Habitat SXA Sites/Habitat Home/Settings/Site Grouping/Habitat Home` and that the site has published successfully 
 
 
 ## Additional Settings
@@ -293,3 +291,4 @@ Only alter these attributes as instructed, the build/deploy process relies on se
 
 # Contribute or Issues
 Please post any issues on Slack Community [#habitathome](https://sitecorechat.slack.com/messages/habitathome/) channel or create an issue on [GitHub](https://github.com/Sitecore/Sitecore.HabitatHome.Platform/issues). Contributions are always welcome!
+
