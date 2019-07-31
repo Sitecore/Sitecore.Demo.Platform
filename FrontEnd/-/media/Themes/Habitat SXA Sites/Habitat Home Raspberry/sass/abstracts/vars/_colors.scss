@@ -70,11 +70,11 @@ $btn-blue: $brand-primary;
 
 //Brand Buttons
 $btn-primary: white;
-$btn-primary-bg: #c8244f;
-$btn-primary-border: #c8244f;
+$btn-primary-bg: $btn-blue;
+$btn-primary-border: $btn-blue;
 $btn-primary-active: white;
-$btn-primary-active-bg: lighten(#c8244f, 10);
-$btn-primary-active-border: lighten(#c8244f, 10);
+$btn-primary-active-bg: lighten($btn-blue, 10);
+$btn-primary-active-border: lighten($btn-blue, 10);
 
 $btn-secondary: $text-dark;
 $btn-secondary-bg: transparent;
