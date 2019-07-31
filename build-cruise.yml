@@ -1,5 +1,8 @@
 trigger:
   branches:
+    include:
+    - feature/*
+    - bug/*
     exclude:
     - master
     - releases/*
@@ -28,7 +31,7 @@ steps:
     solution: HabitatHome.sln
     configuration: 'Debug'
     msbuildArguments: '/m'
-    
+
 - task: NuGetCommand@2
   displayName: 'NuGet Restore TDS Solution'
   inputs:
