@@ -7,10 +7,12 @@ trigger:
     - master
     - releases/*
     - integration/*
+
 pool:
   name: DEVDEMO1US1
   demands:
   - msbuild
+
 steps:
 - task: NuGetToolInstaller@1
   displayName: 'Use NuGet 4.4.1'
