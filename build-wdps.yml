@@ -1,3 +1,8 @@
+trigger:
+  branches:
+    include:
+    - master
+    - releases/*
 pool:
   name: DEVDEMO1US1
   demands:
@@ -46,7 +51,6 @@ steps:
     script: |
       $sat = "c:\assets\sat\tools\Sitecore.Cloud.Cmdlets.dll"
       Import-Module $sat -Force
-      
       $updatePackageSource = (Get-ChildItem (Join-Path $(Build.SourcesDirectory) "\src\Build\Build.Website\tds\master\bin\") -Filter  HabitatHome-CM*.update -Recurse).FullName 
       ConvertTo-SCModuleWebDeployPackage -Path "$updatePackageSource"  -Destination $(Build.ArtifactStagingDirectory)\temp -Verbose -Force
 

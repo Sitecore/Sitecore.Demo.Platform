@@ -1,3 +1,9 @@
+trigger:
+  branches:
+    exclude:
+    - master
+    - releases/*
+    - integration/*
 pool:
   name: DEVDEMO1US1
   demands:
