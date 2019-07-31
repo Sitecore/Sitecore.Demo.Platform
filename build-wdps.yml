@@ -2,7 +2,7 @@ trigger:
   branches:
     include:
     - master
-    - releases/*
+    - release/*
 pool:
   name: DEVDEMO1US1
   demands:
