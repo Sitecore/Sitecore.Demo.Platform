@@ -1,7 +1,7 @@
 Param(
-  [string]$SitecoreAzureToolkitPath,
-  [string]$updatePackagePath,
-  [string]$destinationPath
+	[string]$SitecoreAzureToolkitPath,
+	[string]$updatePackagePath,
+	[string]$destinationPath
 )
 $wdpName = (Split-Path $updatePackagePath -Leaf).replace("update","scwdp.zip")
 
@@ -17,8 +17,8 @@ Add-Type -Assembly System.IO.Compression.FileSystem
 $wdpPath = (Join-Path $destinationPath $wdpName)
 $zip = [IO.Compression.ZipFile]::OpenRead($wdpPath)
 $zip.Entries | Where-Object {$_.Name -like $filter} | ForEach-Object {
-  [System.IO.Compression.ZipFileExtensions]::ExtractToFile($_, $destinationPath + "\" + $_, $true)}
+	[System.IO.Compression.ZipFileExtensions]::ExtractToFile($_, $destinationPath + "\" + $_, $true)}
 $zip.Dispose()
 
 # Cleanup
- Get-ChildItem $destinationPath -Include *.scwdp.zip -Recurse | Remove-Item
+Get-ChildItem $destinationPath -Include *.scwdp.zip -Recurse | Remove-Item
