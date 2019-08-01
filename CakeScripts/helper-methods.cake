@@ -1,4 +1,4 @@
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 /*===============================================
 ================= HELPER METHODS ================
@@ -30,8 +30,7 @@ public class Configuration
 	{
 		set
 		{
-			if(!Enum.TryParse(value, out this._msBuildToolVersion))
-			{
+			if(!Enum.TryParse(value, out this._msBuildToolVersion)) {
 				this._msBuildToolVersion = MSBuildToolVersion.Default;
 			}
 		}
@@ -49,8 +48,7 @@ public class Configuration
 	public string BuildTargets => this.RunCleanBuilds ? "Clean;Build" : "Build";
 }
 
-public void PrintHeader(ConsoleColor foregroundColor)
-{
+public void PrintHeader(ConsoleColor foregroundColor) {
 	cakeConsole.ForegroundColor = foregroundColor;
 	cakeConsole.WriteLine("     ");
 	cakeConsole.WriteLine("     ");
@@ -85,8 +83,7 @@ public void PublishProjects(string rootFolder, string publishRoot)
 
 	var projects = GetFiles($"{rootFolder}\\**\\code\\*.csproj", excludes);
 	Information("Publishing " + rootFolder + " to " + publishRoot);
-	foreach (var project in projects)
-	{
+	foreach (var project in projects) {
 		MSBuild(project, cfg => InitializeMSBuildSettingsInternal(cfg)
 			.WithTarget(configuration.BuildTargets)
 			.WithProperty("DeployOnBuild", "true")
@@ -113,13 +110,12 @@ public FilePathCollection GetTransformFiles(string rootFolder)
 	return xdtFiles;
 }
 
-public void Transform(string rootFolder, string filter) {
+public void Transform(string rootFolder, string filter)
+{
 	var xdtFiles = GetTransformFiles(rootFolder);
 
-	foreach (var file in xdtFiles)
-	{
-		if (file.FullPath.Contains(".azure"))
-		{
+	foreach (var file in xdtFiles) {
+		if (file.FullPath.Contains(".azure")) {
 			continue;
 		}
 
@@ -128,9 +124,9 @@ public void Transform(string rootFolder, string filter) {
 		fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
 		var sourceTransform = $"{configuration.WebsiteRoot}\\{fileToTransform}";
 
-		XdtTransformConfig(sourceTransform			                // Source File
-												, file.FullPath			                // Tranforms file (*.xdt)
-												, sourceTransform);		                // Target File
+		XdtTransformConfig(sourceTransform		// Source File
+							, file.FullPath		// Tranforms file (*.xdt)
+							, sourceTransform);	// Target File
 	}
 }
 
@@ -143,11 +139,9 @@ public void RebuildIndex(string indexName)
 public void DeployExmCampaigns()
 {
 	var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
-	var responseBody = HttpGet(url, settings =>
-	{
+	var responseBody = HttpGet(url, settings => {
 		settings.AppendHeader("Connection", "keep-alive");
 	});
-
 	Information(responseBody);
 }
 
@@ -155,7 +149,6 @@ public MSBuildSettings InitializeMSBuildSettings(MSBuildSettings settings)
 {
 	InitializeMSBuildSettingsInternal(settings)
 		.WithRestore();
-
 	return settings;
 }
 
@@ -167,14 +160,12 @@ private MSBuildSettings InitializeMSBuildSettingsInternal(MSBuildSettings settin
 		.SetPlatformTarget(PlatformTarget.MSIL)
 		.UseToolVersion(configuration.MSBuildToolVersion)
 		.SetMaxCpuCount(8);
-
 	return settings;
 }
 
 public void CreateFolder(string folderPath)
 {
-	if (!DirectoryExists(folderPath))
-	{
+	if (!DirectoryExists(folderPath)) {
 		CreateDirectory(folderPath);
 	}
 }
@@ -183,26 +174,27 @@ public void Spam(Action action, int? timeoutMinutes = null)
 {
 	Exception lastException = null;
 	var startTime = DateTime.Now;
-	while (timeoutMinutes == null || (DateTime.Now - startTime).TotalMinutes < timeoutMinutes)
-	{
+	while (timeoutMinutes == null || (DateTime.Now - startTime).TotalMinutes < timeoutMinutes) {
 		try {
 			action();
 
 			Information($"Completed in {(DateTime.Now - startTime).Minutes} min {(DateTime.Now - startTime).Seconds} sec.");
 			return;
-		} catch (AggregateException aex) {
+		}
+		catch (AggregateException aex) {
 			foreach (var x in aex.InnerExceptions)
 			{
 				Information($"{x.GetType().FullName}: {x.Message}");
 			}
 			lastException = aex;
-		} catch (Exception ex) {
-				Information($"{ex.GetType().FullName}: {ex.Message}");
+		}
+		catch (Exception ex) {
+			Information($"{ex.GetType().FullName}: {ex.Message}");
 			lastException = ex;
 		}
 	}
 
-		throw new TimeoutException($"Unable to complete within {timeoutMinutes} minutes.", lastException);
+	throw new TimeoutException($"Unable to complete within {timeoutMinutes} minutes.", lastException);
 }
 
 public void WriteError(string errorMessage)
@@ -234,8 +226,7 @@ public void MergeTransforms(string source, string destination)
 
 		var targetTansformPath = ((DirectoryPath)destination).CombineWithFilePath((FilePath)sourceTransform);
 
-		if (!FileExists(targetTansformPath))
-		{
+		if (!FileExists(targetTansformPath)) {
 			CreateFolder(targetTansformPath.GetDirectory().FullPath);
 			CopyFile(xdtFilePath.FullPath, targetTansformPath);
 		}
