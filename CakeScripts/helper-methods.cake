@@ -22,8 +22,8 @@ public class Configuration
     public string Version {get;set;}
     public string Topology {get;set;}
     public bool CDN {get;set;}
-    public string DeploymentTarget{get;set;}
-    public string SitecoreAzureToolkitPath{get;set;}
+    public string DeploymentTarget {get;set;}
+    public string SitecoreAzureToolkitPath {get;set;}
     public string PublishTempFolder {get;set;}
 
     public string BuildToolVersions
@@ -210,40 +210,36 @@ public void WriteError(string errorMessage)
     cakeConsole.ResetColor();
 }
 
-public void MergeTransforms(string source, string destination){
-    var xdtFiles = GetTransformFiles(source);
+public void MergeTransforms(string source, string destination)
+{
+  var xdtFiles = GetTransformFiles(source);
 
-    foreach (var file in xdtFiles)
-        {
-            if (file.FullPath.Contains(".azure"))
-            {
-                continue;
-            }
+  foreach (var file in xdtFiles)
+  {
+    if (file.FullPath.Contains(".azure"))
+    {
+        continue;
+    }
 
-            FilePath xdtFilePath =(FilePath)file;
-            Information($"Processing {xdtFilePath}");
-            FilePath fileToTransform = Regex.Replace(file.FullPath, "(.*.config).?(.*)", "$1.xdt");
-            //Information($"Processing {fileToTransform}");
+    FilePath xdtFilePath =(FilePath)file;
+    Information($"Processing {xdtFilePath}");
+    FilePath fileToTransform = Regex.Replace(file.FullPath, "(.*.config).?(.*)", "$1.xdt");
 
-            fileToTransform = (FilePath)Regex.Replace(fileToTransform.FullPath, ".sc-internal", "");
-            fileToTransform = (FilePath)Regex.Replace(fileToTransform.FullPath, ".azure","");
-            fileToTransform = ((FilePath)$"{source}").GetRelativePath((FilePath)fileToTransform);
-            // Information($"Relative Path: {fileToTransform}");
-            FilePath sourceTransform = $"{(FilePath)fileToTransform}";
+    fileToTransform = (FilePath)Regex.Replace(fileToTransform.FullPath, ".sc-internal", "");
+    fileToTransform = (FilePath)Regex.Replace(fileToTransform.FullPath, ".azure","");
+    fileToTransform = ((FilePath)$"{source}").GetRelativePath((FilePath)fileToTransform);
+    FilePath sourceTransform = $"{(FilePath)fileToTransform}";
 
-            var targetTansformPath = ((DirectoryPath)destination).CombineWithFilePath((FilePath)sourceTransform);
-            // Information($"Target Transform Path {targetTansformPath}");
+    var targetTansformPath = ((DirectoryPath)destination).CombineWithFilePath((FilePath)sourceTransform);
 
-            if (!FileExists(targetTansformPath)){
-                CreateFolder(targetTansformPath.GetDirectory().FullPath);
-                CopyFile(xdtFilePath.FullPath, targetTansformPath);
-            }
-            else {
-                // Information($"Transforming {xdtFilePath.FullPath} to {sourceTransform.FullPath}");
-
-                MergeFile(targetTansformPath.FullPath	    // Source File
-                        , xdtFilePath.FullPath			// Tranforms file (*.xdt)
-                        , targetTansformPath.FullPath);		// Target File
-            }
-        }
+    if (!FileExists(targetTansformPath)){
+        CreateFolder(targetTansformPath.GetDirectory().FullPath);
+        CopyFile(xdtFilePath.FullPath, targetTansformPath);
+    }
+    else {
+        MergeFile(targetTansformPath.FullPath	    // Source File
+                , xdtFilePath.FullPath			// Tranforms file (*.xdt)
+                , targetTansformPath.FullPath);		// Target File
+    }
+  }
 }
