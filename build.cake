@@ -680,9 +680,9 @@ Task("Prepare-Transform-Files").Does(()=>{
 				CopyFile(xdtFilePath.FullPath,sourceTransform);
 			}
 			else {
-				MergeFile(sourceTransform.FullPath	    // Source File
-					, xdtFilePath.FullPath								// Tranforms file (*.xdt)
-					, sourceTransform.FullPath);					// Target File
+				MergeFile(sourceTransform.FullPath		// Source File
+					, xdtFilePath.FullPath				// Tranforms file (*.xdt)
+					, sourceTransform.FullPath);		// Target File
 			}
 		}
 	}
