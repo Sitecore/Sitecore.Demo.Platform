@@ -15,7 +15,6 @@ var configJsonFile = "cake-config.json";
 var unicornSyncScript = $"./scripts/Unicorn/Sync.ps1";
 var packagingScript = $"./scripts/Packaging/generate-update-package.ps1";
 var dacpacScript = $"./scripts/Packaging/generate-dacpac.ps1";
-
 var deploymentRootPath ="";
 var deploymentTarget = "";
 bool deployLocal = false;
@@ -393,7 +392,7 @@ Task("Publish-xConnect-Project").Does(() => {
 	var destination = configuration.XConnectRoot;
 
 	if (configuration.DeploymentTarget == "Docker") {
-	destination = configuration.PublishxConnectFolder;
+		destination = configuration.PublishxConnectFolder;
 	}
 	else if (!deployLocal) {
 		destination = $"{deploymentRootPath}\\Website\\habitatHome_xConnect";
