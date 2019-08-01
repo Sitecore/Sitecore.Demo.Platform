@@ -502,11 +502,11 @@ Task("Sync-Unicorn").Does(() => {
 	string sharedSecret = XmlPeek(authenticationFile, xPath);
 
 	StartPowershellFile(unicornSyncScript, new PowershellSettings()
-		.SetFormatOutput()
-		.SetLogOutput()
-		.WithArguments(args => {
-			args.Append("secret", sharedSecret)
-					.Append("url", unicornUrl);
+						.SetFormatOutput()
+						.SetLogOutput()
+						.WithArguments(args => {
+							args.Append("secret", sharedSecret)
+								.Append("url", unicornUrl);
 	}));
 });
 
