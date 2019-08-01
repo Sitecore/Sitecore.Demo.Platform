@@ -148,15 +148,15 @@ public void DeployExmCampaigns()
 		settings.AppendHeader("Connection", "keep-alive");
 	});
 
-		Information(responseBody);
+	Information(responseBody);
 }
 
 public MSBuildSettings InitializeMSBuildSettings(MSBuildSettings settings)
 {
-		InitializeMSBuildSettingsInternal(settings)
-			.WithRestore();
+	InitializeMSBuildSettingsInternal(settings)
+		.WithRestore();
 
-		return settings;
+	return settings;
 }
 
 private MSBuildSettings InitializeMSBuildSettingsInternal(MSBuildSettings settings)
@@ -194,8 +194,8 @@ public void Spam(Action action, int? timeoutMinutes = null)
 			foreach (var x in aex.InnerExceptions)
 			{
 				Information($"{x.GetType().FullName}: {x.Message}");
-				lastException = aex;
 			}
+			lastException = aex;
 		} catch (Exception ex) {
 				Information($"{ex.GetType().FullName}: {ex.Message}");
 			lastException = ex;
@@ -234,7 +234,8 @@ public void MergeTransforms(string source, string destination)
 
 		var targetTansformPath = ((DirectoryPath)destination).CombineWithFilePath((FilePath)sourceTransform);
 
-		if (!FileExists(targetTansformPath)){
+		if (!FileExists(targetTansformPath))
+		{
 			CreateFolder(targetTansformPath.GetDirectory().FullPath);
 			CopyFile(xdtFilePath.FullPath, targetTansformPath);
 		}
