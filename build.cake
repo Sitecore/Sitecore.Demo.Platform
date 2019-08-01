@@ -1,4 +1,4 @@
-#addin nuget:?package=Cake.Azure&version=0.3.0
+﻿#addin nuget:?package=Cake.Azure&version=0.3.0
 #addin nuget:?package=Cake.Http&version=0.6.1
 #addin nuget:?package=Cake.Json&version=3.0.1
 #addin nuget:?package=Cake.Powershell&version=0.4.8
@@ -35,26 +35,23 @@ Setup(context =>
 
 	var configFile = new FilePath(configJsonFile);
 	configuration = DeserializeJsonFromFile<Configuration>(configFile);
-	if(configuration.Topology == "single")
-	{
+	if(configuration.Topology == "single") {
 		topology = "XPSingle";
 	}
-	else if(configuration.Topology == "scaled")
-	{
+	else if(configuration.Topology == "scaled") {
 		topology = "XP";
 	}
 
 	deploymentTarget = Argument<string>("deploymentTarget",configuration.DeploymentTarget);
 
-	if (target.Contains("Azure")){
-	// DeploymentTarget is set to either Local or OnPrem but the user has selected Deploy to Azure.
-			// Automatically switch the deploymentTarget based on the build target
-			deploymentTarget = "Azure";
+	if (target.Contains("Azure")) {
+		// DeploymentTarget is set to either Local or OnPrem but the user has selected Deploy to Azure.
+		// Automatically switch the deploymentTarget based on the build target
+		deploymentTarget = "Azure";
 	}
 	deployLocal = deploymentTarget == "Local";
 
-	switch (deploymentTarget)
-	{
+	switch (deploymentTarget) {
 		case "OnPrem":
 			deploymentRootPath = $"{configuration.DeployFolder}\\{configuration.Version}\\OnPrem\\{topology}";
 			break;
@@ -188,34 +185,32 @@ Task("CleanBuildFolders").Does(() => {
 });
 
 Task("CleanDeployFolder").Does(() => {
-var deploymentTarget ="";
-if (configuration.DeploymentTarget == "OnPrem" || configuration.DeploymentTarget == "Local"){
+	var deploymentTarget ="";
+	if (configuration.DeploymentTarget == "OnPrem" || configuration.DeploymentTarget == "Local") {
 		deploymentTarget = "OnPrem";
-}
-else{
+	}
+	else {
 		deploymentTarget = "Cloud";
-}
-var folderBase = $"{configuration.Version}\\{deploymentTarget}\\{topology}";
-		// Clean deployment folders
-		 string[] folders = { $"\\{folderBase}\\assets\\HabitatHome", $"\\{folderBase}\\assets\\HabitatHomeCD", $"\\{folderBase}\\Website", $"\\{folderBase}\\assets\\habitatHome_xConnect", $"\\{folderBase}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{folderBase}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
+	}
+	var folderBase = $"{configuration.Version}\\{deploymentTarget}\\{topology}";
+	// Clean deployment folders
+	string[] folders = { $"\\{folderBase}\\assets\\HabitatHome", $"\\{folderBase}\\assets\\HabitatHomeCD", $"\\{folderBase}\\Website", $"\\{folderBase}\\assets\\habitatHome_xConnect", $"\\{folderBase}\\assets\\Data Exchange Framework\\WDPWorkFolder", $"\\{folderBase}\\assets\\Data Exchange Framework CD\\WDPWorkFolder" };
 
-		foreach (string folder in folders)
-		{
-				Information($"Cleaning: {folder}");
-				if (DirectoryExists($"{configuration.DeployFolder}{folder}"))
-				{
-						try
-						{
-								CleanDirectories($"{configuration.DeployFolder}{folder}");
-						} catch
-						{
-								Console.BackgroundColor = ConsoleColor.Red;
-								Console.WriteLine($"The folder under path \'{configuration.DeployFolder}{folder}\' is still in use by a process. Exiting...");
-								Console.ResetColor();
-								Environment.Exit(0);
-						}
-				}
+	foreach (string folder in folders)
+	{
+		Information($"Cleaning: {folder}");
+		if (DirectoryExists($"{configuration.DeployFolder}{folder}")) {
+			try {
+				CleanDirectories($"{configuration.DeployFolder}{folder}");
+			}
+			catch {
+				Console.BackgroundColor = ConsoleColor.Red;
+				Console.WriteLine($"The folder under path \'{configuration.DeployFolder}{folder}\' is still in use by a process. Exiting...");
+				Console.ResetColor();
+				Environment.Exit(0);
+			}
 		}
+	}
 });
 
 /*===============================================
@@ -223,12 +218,12 @@ var folderBase = $"{configuration.Version}\\{deploymentTarget}\\{topology}";
 ===============================================*/
 
 Task("Copy-Sitecore-Lib")
-		.WithCriteria(()=>(configuration.BuildConfiguration == "Local"))
-		.Does(()=> {
-				var files = GetFiles($"{configuration.WebsiteRoot}/bin/Sitecore*.dll");
-				var destination = "./lib";
-				EnsureDirectoryExists(destination);
-				CopyFiles(files, destination);
+	.WithCriteria(()=>(configuration.BuildConfiguration == "Local"))
+	.Does(()=> {
+		var files = GetFiles($"{configuration.WebsiteRoot}/bin/Sitecore*.dll");
+		var destination = "./lib";
+		EnsureDirectoryExists(destination);
+		CopyFiles(files, destination);
 });
 
 Task("Publish-All-Projects")
@@ -243,13 +238,13 @@ Task("Publish-All-Projects")
 Task("Build-Solution")
 .IsDependentOn("Copy-Sitecore-Lib")
 .Does(() => {
-		MSBuild(configuration.SolutionFile, cfg => InitializeMSBuildSettings(cfg));
+	MSBuild(configuration.SolutionFile, cfg => InitializeMSBuildSettings(cfg));
 });
 
 Task("Publish-Foundation-Projects").Does(() => {
 	var destination = deploymentRootPath;
 
-	if (configuration.DeploymentTarget == "Docker"){
+	if (configuration.DeploymentTarget == "Docker") {
 		destination = configuration.PublishWebFolder;
 	}
 	else if (!deployLocal){
@@ -261,10 +256,10 @@ Task("Publish-Foundation-Projects").Does(() => {
 Task("Publish-Feature-Projects").Does(() => {
 	var destination = deploymentRootPath;
 
-	if (configuration.DeploymentTarget == "Docker"){
+	if (configuration.DeploymentTarget == "Docker") {
 		destination = configuration.PublishWebFolder;
 	}
-	else if (!deployLocal){
+	else if (!deployLocal) {
 		destination = $"{deploymentRootPath}\\Website\\HabitatHome";
 	}
 	PublishProjects(configuration.FeatureSrcFolder, destination);
@@ -273,10 +268,10 @@ Task("Publish-Feature-Projects").Does(() => {
 Task("Publish-Core-Project").Does(() => {
 	var destination = deploymentRootPath;
 
-	if (configuration.DeploymentTarget == "Docker"){
+	if (configuration.DeploymentTarget == "Docker") {
 		destination = configuration.PublishWebFolder;
 	}
-	else if (!deployLocal){
+	else if (!deployLocal) {
 		destination = $"{deploymentRootPath}\\Website\\HabitatHome";
 	}
 
@@ -294,8 +289,7 @@ Task("Publish-Core-Project").Does(() => {
 
 	DotNetCoreRestore(projectFile, restoreSettings);
 
-	var settings = new DotNetCorePublishSettings
-	{
+	var settings = new DotNetCorePublishSettings {
 		OutputDirectory = publishFolder,
 		Configuration = configuration.BuildConfiguration
 	};
@@ -313,15 +307,14 @@ Task("Publish-Core-Project").Does(() => {
 	var ignoredFiles = new string[] { "web.config", "build.website.deps.json", "build.website.exe.config" };
 
 	var contentFiles = GetFiles($"{publishFolder}\\**\\*")
-		.Where(file => !ignoredExtensions.Contains(file.GetExtension().ToLower()))
-		.Where(file => !ignoredFiles.Contains(file.Segments.LastOrDefault().ToLower()));
+	.Where(file => !ignoredExtensions.Contains(file.GetExtension().ToLower()))
+	.Where(file => !ignoredFiles.Contains(file.Segments.LastOrDefault().ToLower()));
 
 	CopyFiles(contentFiles, destination, preserveFolderStructure: true);
 
 });
 
-Task("Apply-DotnetCore-Transforms").Does(() =>
-{
+Task("Apply-DotnetCore-Transforms").Does(() => {
 	var publishFolder = $"{configuration.PublishTempFolder}";
 	Transform(publishFolder, "transforms");
 });
@@ -354,28 +347,28 @@ Task("Publish-YML").Does(() => {
 
 Task("Create-UpdatePackage")
 	.IsDependentOn("Publish-YML")
-	.Does(()=>{
+	.Does(()=> {
 		StartPowershellFile(packagingScript, new PowershellSettings()
-				.SetFormatOutput()
-				.SetLogOutput()
-				.WithArguments(args => {
-						args.Append("target", $"{configuration.PublishTempFolder}\\yml")
-								.Append("output", $"{configuration.PublishTempFolder}\\update\\package.update");
+			.SetFormatOutput()
+			.SetLogOutput()
+			.WithArguments(args => {
+				args.Append("target", $"{configuration.PublishTempFolder}\\yml")
+					.Append("output", $"{configuration.PublishTempFolder}\\update\\package.update");
 		}));
 });
 
 Task("Generate-Dacpacs")
-	.IsDependentOn("Create-UpdatePackage")
-	.Does(() =>{
-		StartPowershellFile(dacpacScript, new PowershellSettings()
-			.SetFormatOutput()
-			.SetLogOutput()
-			.WithArguments(args => {
-					args.Append("SitecoreAzureToolkitPath", $"{configuration.SitecoreAzureToolkitPath}")
-							.Append("updatePackagePath", $"{configuration.PublishTempFolder}\\update\\package.update")
-							.Append("destinationPath", $"{configuration.PublishDataFolder}");
-			}));
-	});
+.IsDependentOn("Create-UpdatePackage")
+.Does(() => {
+	StartPowershellFile(dacpacScript, new PowershellSettings()
+		.SetFormatOutput()
+		.SetLogOutput()
+		.WithArguments(args => {
+			args.Append("SitecoreAzureToolkitPath", $"{configuration.SitecoreAzureToolkitPath}")
+				.Append("updatePackagePath", $"{configuration.PublishTempFolder}\\update\\package.update")
+				.Append("destinationPath", $"{configuration.PublishDataFolder}");
+	}));
+});
 
 Task("Publish-Project-Projects").Does(() => {
 	var global = $"{configuration.ProjectSrcFolder}\\Global";
@@ -383,41 +376,41 @@ Task("Publish-Project-Projects").Does(() => {
 	var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
 
 	var destination = deploymentRootPath;
-	if (configuration.DeploymentTarget == "Docker"){
+	if (configuration.DeploymentTarget == "Docker") {
 		destination = configuration.PublishWebFolder;
 	}
-	else if (!deployLocal){
+	else if (!deployLocal) {
 		destination = $"{deploymentRootPath}\\Website\\HabitatHome";
 	}
 
-		PublishProjects(global, destination);
-		PublishProjects(habitatHome, destination);
-		PublishProjects(habitatHomeBasic, destination);
+	PublishProjects(global, destination);
+	PublishProjects(habitatHome, destination);
+	PublishProjects(habitatHomeBasic, destination);
 });
 
 Task("Publish-xConnect-Project").Does(() => {
 	var xConnectProject = $"{configuration.ProjectSrcFolder}\\xConnect";
 	var destination = configuration.XConnectRoot;
 
-	if (configuration.DeploymentTarget == "Docker"){
+	if (configuration.DeploymentTarget == "Docker") {
 	destination = configuration.PublishxConnectFolder;
 	}
-	else if (!deployLocal){
+	else if (!deployLocal) {
 		destination = $"{deploymentRootPath}\\Website\\habitatHome_xConnect";
 	}
 	PublishProjects(xConnectProject, destination);
 });
 
 Task("Apply-Xml-Transform").Does(() => {
-		var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
+	var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
 
-		foreach(var layer in layers)
-		{
-				Transform(layer,"code");
-		}
+	foreach(var layer in layers)
+	{
+		Transform(layer,"code");
+	}
 });
 
-Task("Merge-and-Copy-Xml-Transform").Does(()=>{
+Task("Merge-and-Copy-Xml-Transform").Does(() => {
 
 	// Method will process all transforms from the temporary locations, merge them together and copy them to the temporary Publish\Web directory
 
@@ -430,10 +423,11 @@ Task("Merge-and-Copy-Xml-Transform").Does(()=>{
 	MergeTransforms($"{PublishTempFolder}\\transforms", $"{publishFolder}");
 
 	// Processing project transformations
-	var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
+	var layers = new string[] {
+		configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder
+	};
 
-	foreach(var layer in layers)
-	{
+	foreach(var layer in layers) {
 		Information($"Merging {layer} to {publishFolder}");
 		MergeTransforms(layer,publishFolder);
 	}
@@ -442,82 +436,78 @@ Task("Merge-and-Copy-Xml-Transform").Does(()=>{
 
 Task("Publish-Transforms").Does(() => {
 
-		var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
-		var destination =  $@"{deploymentRootPath}\temp\transforms";
+	var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
+	var destination =  $@"{deploymentRootPath}\temp\transforms";
 
-		if (!deployLocal){
-				destination = $@"{deploymentRootPath}\Website\HabitatHome\temp\transforms";
-		}
-		CreateFolder(destination);
+	if (!deployLocal) {
+		destination= $@"{deploymentRootPath}\Website\HabitatHome\temp\transforms";
+	}
+	CreateFolder(destination);
 
-		try
-		{
-				var files = new List<string>();
-				foreach(var layer in layers)
-				{
-						var xdtFiles = GetTransformFiles(layer).Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
-						files.AddRange(xdtFiles);
-				}
+	try
+	{
+		var files = new List<string>();
+		foreach(var layer in layers) {
+				var xdtFiles = GetTransformFiles(layer).Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
+				files.AddRange(xdtFiles);
+		}
 
-				CopyFiles(files, destination, preserveFolderStructure: true);
-		}
-		catch (System.Exception ex)
-		{
-				WriteError(ex.Message);
-		}
+		CopyFiles(files, destination, preserveFolderStructure: true);
+	}
+	catch (System.Exception ex)
+	{
+		WriteError(ex.Message);
+	}
 });
 
 Task("Modify-Unicorn-Source-Folder").Does(() => {
-		var zzzDevSettingsFile = File($"{configuration.WebsiteRoot}/App_config/Include/Project/z.DevSettings.config");
+	var zzzDevSettingsFile = File($"{configuration.WebsiteRoot}/App_config/Include/Project/z.DevSettings.config");
 
 	var rootXPath = "configuration/sitecore/sc.variable[@name='{0}']/@value";
-		var sourceFolderXPath = string.Format(rootXPath, "sourceFolder");
-		var directoryPath = MakeAbsolute(new DirectoryPath(configuration.SourceFolder)).FullPath;
+	var sourceFolderXPath = string.Format(rootXPath, "sourceFolder");
+	var directoryPath = MakeAbsolute(new DirectoryPath(configuration.SourceFolder)).FullPath;
 
-		var xmlSetting = new XmlPokeSettings {
-				Namespaces = new Dictionary<string, string> {
-						{"patch", @"http://www.sitecore.net/xmlconfig/"}
-				}
-		};
-		XmlPoke(zzzDevSettingsFile, sourceFolderXPath, directoryPath, xmlSetting);
+	var xmlSetting = new XmlPokeSettings {
+		Namespaces = new Dictionary<string, string> {
+			{"patch", @"http://www.sitecore.net/xmlconfig/"}
+		}
+	};
+	XmlPoke(zzzDevSettingsFile, sourceFolderXPath, directoryPath, xmlSetting);
 });
 
 Task("Modify-PublishSettings").Does(() => {
-		var publishSettingsOriginal = File($"{configuration.ProjectFolder}/publishsettings.targets");
-		var destination = $"{configuration.ProjectFolder}/publishsettings.targets.user";
+	var publishSettingsOriginal = File($"{configuration.ProjectFolder}/publishsettings.targets");
+	var destination = $"{configuration.ProjectFolder}/publishsettings.targets.user";
 
-		CopyFile(publishSettingsOriginal,destination);
+	CopyFile(publishSettingsOriginal,destination);
 
 	var importXPath = "/ns:Project/ns:Import";
+	var publishUrlPath = "/ns:Project/ns:PropertyGroup/ns:publishUrl";
 
-		var publishUrlPath = "/ns:Project/ns:PropertyGroup/ns:publishUrl";
-
-		var xmlSetting = new XmlPokeSettings {
-				Namespaces = new Dictionary<string, string> {
-						{"ns", @"http://schemas.microsoft.com/developer/msbuild/2003"}
-				}
-		};
-		XmlPoke(destination,importXPath,null,xmlSetting);
-		XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
+	var xmlSetting = new XmlPokeSettings {
+		Namespaces = new Dictionary<string, string> {
+			{"ns", @"http://schemas.microsoft.com/developer/msbuild/2003"}
+		}
+	};
+	XmlPoke(destination,importXPath,null,xmlSetting);
+	XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
 });
 
 Task("Sync-Unicorn").Does(() => {
-		var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
-		Information("Sync Unicorn items from url: " + unicornUrl);
+	var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
+	Information("Sync Unicorn items from url: " + unicornUrl);
 
-		var authenticationFile = new FilePath($"{configuration.WebsiteRoot}/App_config/Include/Unicorn/Unicorn.zSharedSecret.config");
-		var xPath = "/configuration/sitecore/unicorn/authenticationProvider/SharedSecret";
+	var authenticationFile = new FilePath($"{configuration.WebsiteRoot}/App_config/Include/Unicorn/Unicorn.zSharedSecret.config");
+	var xPath = "/configuration/sitecore/unicorn/authenticationProvider/SharedSecret";
+	string sharedSecret = XmlPeek(authenticationFile, xPath);
 
-		string sharedSecret = XmlPeek(authenticationFile, xPath);
-
-
-		StartPowershellFile(unicornSyncScript, new PowershellSettings()
-																												.SetFormatOutput()
-																												.SetLogOutput()
-																												.WithArguments(args => {
-																														args.Append("secret", sharedSecret)
-																																.Append("url", unicornUrl);
-																												}));
+	StartPowershellFile(unicornSyncScript, new PowershellSettings()
+		.SetFormatOutput()
+		.SetLogOutput()
+		.WithArguments(args => {
+			args.Append("secret", sharedSecret)
+					.Append("url", unicornUrl);
+	}));
 });
 
 Task("Deploy-EXM-Campaigns").Does(() => {
@@ -525,56 +515,50 @@ Task("Deploy-EXM-Campaigns").Does(() => {
 });
 
 Task("Deploy-Marketing-Definitions").Does(() => {
-		var url = $"{configuration.InstanceUrl}/utilities/deploymarketingdefinitions.aspx?apiKey={configuration.MarketingDefinitionsApiKey}";
-		var responseBody = HttpGet(url, settings =>
-	{
+	var url = $"{configuration.InstanceUrl}/utilities/deploymarketingdefinitions.aspx?apiKey={configuration.MarketingDefinitionsApiKey}";
+	var responseBody = HttpGet(url, settings => {
 		settings.AppendHeader("Connection", "keep-alive");
 	});
 
-		Information(responseBody);
+	Information(responseBody);
 });
 
 Task("Rebuild-Core-Index").Does(() => {
-		RebuildIndex("sitecore_core_index");
+	RebuildIndex("sitecore_core_index");
 });
 
 Task("Rebuild-Master-Index").Does(() => {
-		RebuildIndex("sitecore_master_index");
+	RebuildIndex("sitecore_master_index");
 });
 
 Task("Rebuild-Web-Index").Does(() => {
-		RebuildIndex("sitecore_web_index");
+	RebuildIndex("sitecore_web_index");
 });
 
 Task("Rebuild-Test-Index").Does(() => {
-		RebuildIndex("sitecore_testing_index");
+	RebuildIndex("sitecore_testing_index");
 });
-
 
 /*===============================================
 ============ Packaging Tasks ====================
 ===============================================*/
+
 Task("Create-WDP")
 .IsDependentOn("Prepare-BuildEnvironment")
 .IsDependentOn("Generate-HabitatHomeUpdatePackages")
 .IsDependentOn("Generate-HabitatHomeWDP");
 
-
-
-
 Task("Generate-HabitatHomeUpdatePackages").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatHomeUpdatePackages.ps1", args =>
-				{
-						args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-				});
-		});
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatHomeUpdatePackages.ps1", args => {
+		args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+	});
+});
 
 Task("Generate-HabitatHomeWDP").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatHomeWDP.ps1", args =>
-				{
-						args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-				});
-		});
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatHomeWDP.ps1", args => {
+		args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+	});
+});
 
 
 /*===============================================
@@ -588,141 +572,120 @@ Task("Run-Prerequisites")
 
 Task("Capture-UserData").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\AzureUser-Config-Capture.ps1", args => {
-				args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-						});
-				});
+		args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+	});
+});
 
 Task("Prepare-Environments").Does(() => {
 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Prepare-Environment.ps1", args => {
-				args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-				args.AppendSecret(devSitecoreUserName);
-				args.AppendSecret(devSitecorePassword);
-				});
-		});
+		args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+		args.AppendSecret(devSitecoreUserName);
+		args.AppendSecret(devSitecorePassword);
+	});
+});
+
 Task("Prepare-BuildEnvironment").Does(() => {
-		StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Prepare-BuildEnvironment.ps1", args => {
-				args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-				args.AppendSecret(devSitecoreUserName);
-				args.AppendSecret(devSitecorePassword);
-				});
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Prepare-BuildEnvironment.ps1", args => {
+		args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+		args.AppendSecret(devSitecoreUserName);
+		args.AppendSecret(devSitecorePassword);
 		});
-
-
+});
 
 Task("Prepare-Azure-Deploy-CDN").Does(() => {
-	 	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Prepare-Azure-Deploy-CDN.ps1", args =>
-				{
-						args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-				});
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Prepare-Azure-Deploy-CDN.ps1", args =>
+	{
+		args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+	});
 
 });
 
-
-
 Task("Publish-Post-Steps").Does(() => {
-
 	var serializationFilesFilter = $@"{configuration.ProjectFolder}\**\*.poststep";
-		var destination = $@"{deploymentRootPath}\Website\HabitatHome\App_Data\poststeps";
+	var destination = $@"{deploymentRootPath}\Website\HabitatHome\App_Data\poststeps";
 
-		if (!DirectoryExists(destination))
-		{
-				CreateFolder(destination);
-		}
+	if (!DirectoryExists(destination)) {
+		CreateFolder(destination);
+	}
 
-		try
-		{
-				var files = GetFiles(serializationFilesFilter).Select(x=>x.FullPath).ToList();
-
-				CopyFiles(files, destination, preserveFolderStructure: false);
-		}
-		catch (System.Exception ex)
-		{
-				WriteError(ex.Message);
-		}
-
-
+	try {
+		var files = GetFiles(serializationFilesFilter).Select(x=>x.FullPath).ToList();
+		CopyFiles(files, destination, preserveFolderStructure: false);
+	}
+	catch (System.Exception ex) {
+		WriteError(ex.Message);
+	}
 });
 
 
 Task("Azure-Upload-Packages").Does(() => {
-
-if(HasArgument("SkipScUpload"))
-{
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Upload-Packages.ps1", args =>
-				{
-						args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json")
-								.Append("-SkipScUpload");
-				});
-}
-else
-{
-		StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Upload-Packages.ps1", args =>
-				{
-						args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-				});
-}
+	if(HasArgument("SkipScUpload")) {
+		StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Upload-Packages.ps1", args => {
+			args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json")
+				.Append("-SkipScUpload");
+		});
+	}
+	else {
+		StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Upload-Packages.ps1", args => {
+			args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+		});
+	}
 });
 
 Task("Azure-Site-Deploy")
 .IsDependentOn("Deploy-To-Azure");
 
 Task("Deploy-To-Azure").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Azure-Deploy.ps1", args =>
-				{
-						args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-				});
-		});
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Azure-Deploy.ps1", args => {
+		args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+	});
+});
 
 Task("Scale-Down").Does(() => {
-	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Azure-Scaledown.ps1", args =>
-				{
-						args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-				});
-		});
+	StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Azure-Scaledown.ps1", args => {
+		args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
+	});
+});
 
 /*===============================================
 =============== Utility Tasks ===================
 ===============================================*/
 
 Task("Prepare-Transform-Files").Does(()=>{
+	var destination = $@"{deploymentRootPath}\Website\HabitatHome\";
+	var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
 
-		var destination = $@"{deploymentRootPath}\Website\HabitatHome\";
-		var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
+	foreach(var layer in layers) {
+		var xdtFiles = GetTransformFiles(layer);
+		List<string> files;
 
-		foreach(var layer in layers)
-		{
-				var xdtFiles = GetTransformFiles(layer);
-
-				List<string> files;
-
-				if (configuration.DeploymentTarget == "Azure"){
-						files = xdtFiles.Select(x => x.FullPath).Where(x=>x.Contains(".azure")).ToList();
-				}
-				else{
-						files = xdtFiles.Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
-				}
-
-				foreach (var file in files)
-				{
-						FilePath xdtFilePath = (FilePath)file;
-
-						var fileToTransform = Regex.Replace(xdtFilePath.FullPath, ".+code/(.+/*.xdt)", "$1");
-						fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
-						fileToTransform = Regex.Replace(fileToTransform, ".azure","");
-
-						FilePath sourceTransform = $"{destination}\\{fileToTransform}";
-
-						if (!FileExists(sourceTransform)){
-								CreateFolder(sourceTransform.GetDirectory().FullPath);
-								CopyFile(xdtFilePath.FullPath,sourceTransform);
-						}
-						else {
-								MergeFile(sourceTransform.FullPath	    // Source File
-												, xdtFilePath.FullPath			// Tranforms file (*.xdt)
-												, sourceTransform.FullPath);		// Target File
-						}
-				}
+		if (configuration.DeploymentTarget == "Azure") {
+			files = xdtFiles.Select(x => x.FullPath).Where(x=>x.Contains(".azure")).ToList();
 		}
+		else {
+			files = xdtFiles.Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
+		}
+
+		foreach (var file in files) {
+			FilePath xdtFilePath = (FilePath)file;
+
+			var fileToTransform = Regex.Replace(xdtFilePath.FullPath, ".+code/(.+/*.xdt)", "$1");
+			fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
+			fileToTransform = Regex.Replace(fileToTransform, ".azure","");
+
+			FilePath sourceTransform = $"{destination}\\{fileToTransform}";
+
+			if (!FileExists(sourceTransform)) {
+				CreateFolder(sourceTransform.GetDirectory().FullPath);
+				CopyFile(xdtFilePath.FullPath,sourceTransform);
+			}
+			else {
+				MergeFile(sourceTransform.FullPath	    // Source File
+					, xdtFilePath.FullPath								// Tranforms file (*.xdt)
+					, sourceTransform.FullPath);					// Target File
+			}
+		}
+	}
 });
 
 RunTarget(target);
