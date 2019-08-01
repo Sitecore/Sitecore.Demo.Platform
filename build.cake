@@ -520,7 +520,7 @@ Task("Modify-PublishSettings").Does(() => {
 });
 
 Task("Sync-Unicorn").Does(() => {
-    var unicornUrl = configuration.InstanceUrl + "unicorn.aspx";
+    var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
     Information("Sync Unicorn items from url: " + unicornUrl);
 
     var authenticationFile = new FilePath($"{configuration.WebsiteRoot}/App_config/Include/Unicorn/Unicorn.zSharedSecret.config");
