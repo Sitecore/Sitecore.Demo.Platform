@@ -1,7 +1,18 @@
+trigger:
+  branches:
+    include:
+    - feature/*
+    - bug/*
+    exclude:
+    - master
+    - release/*
+    - integration/*
+
 pool:
   name: DEVDEMO1US1
   demands:
   - msbuild
+
 steps:
 - task: NuGetToolInstaller@1
   displayName: 'Use NuGet 4.4.1'
@@ -22,7 +33,7 @@ steps:
     solution: HabitatHome.sln
     configuration: 'Debug'
     msbuildArguments: '/m'
-    
+
 - task: NuGetCommand@2
   displayName: 'NuGet Restore TDS Solution'
   inputs:

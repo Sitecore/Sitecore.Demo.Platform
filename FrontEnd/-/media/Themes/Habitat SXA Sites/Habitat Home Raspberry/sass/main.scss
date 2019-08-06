@@ -55,6 +55,11 @@ input, select, textarea {
     }
 }
 
+input[type="submit"],
+button { 
+    @include btn-primary;
+}
+
 .account-management-page {
     .field-title {
         color: $brand-primary;
