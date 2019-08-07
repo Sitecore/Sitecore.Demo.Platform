@@ -132,13 +132,13 @@ public void Transform(string rootFolder, string filter)
 
 public void RebuildIndex(string indexName)
 {
-	var url = $"{configuration.InstanceUrl}utilities/indexrebuild.aspx?index={indexName}";
+	var url = $"{configuration.InstanceUrl}/utilities/indexrebuild.aspx?index={indexName}";
 	string responseBody = HttpGet(url);
 }
 
 public void DeployExmCampaigns()
 {
-	var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
+	var url = $"{configuration.InstanceUrl}/utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
 	var responseBody = HttpGet(url, settings => {
 		settings.AppendHeader("Connection", "keep-alive");
 	});
