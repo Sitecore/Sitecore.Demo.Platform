@@ -120,7 +120,7 @@ public void Transform(string rootFolder, string filter)
 		}
 
 		Information($"Applying configuration transform:{file.FullPath}");
-		var fileToTransform = Regex.Replace(file.FullPath, $".+{filter}/(.+)/*.xdt", "$1");
+		var fileToTransform = Regex.Replace(file.FullPath, $".+{filter}/(.*.config).?(.*).xdt", "$1");
 		fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
 		var sourceTransform = $"{configuration.WebsiteRoot}\\{fileToTransform}";
 
@@ -132,13 +132,13 @@ public void Transform(string rootFolder, string filter)
 
 public void RebuildIndex(string indexName)
 {
-	var url = $"{configuration.InstanceUrl}utilities/indexrebuild.aspx?index={indexName}";
+	var url = $"{configuration.InstanceUrl}/utilities/indexrebuild.aspx?index={indexName}";
 	string responseBody = HttpGet(url);
 }
 
 public void DeployExmCampaigns()
 {
-	var url = $"{configuration.InstanceUrl}utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
+	var url = $"{configuration.InstanceUrl}/utilities/deployemailcampaigns.aspx?apiKey={configuration.MessageStatisticsApiKey}";
 	var responseBody = HttpGet(url, settings => {
 		settings.AppendHeader("Connection", "keep-alive");
 	});
