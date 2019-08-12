@@ -103,7 +103,7 @@
     }
     input[type="submit"], button {
         @include border-basic();
-        background: $bg-basic-color;
+        background: $btn-blue;
         cursor: pointer;
         margin-left: 0;
     }
