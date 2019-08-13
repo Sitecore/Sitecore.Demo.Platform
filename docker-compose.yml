@@ -69,4 +69,4 @@ services:
       - sql
       - solr
       - xconnect
-    entrypoint: cmd /c "powershell C:/Sitecore/Scripts/Watch-Directory.ps1 C:/src C:\inetpub\sc -ExcludeFiles @('Web.config','ConnectionStrings.config')"
+    entrypoint: cmd /c "powershell C:/Sitecore/Scripts/Watch-Directory.ps1 C:/src C:\inetpub\sc -ExcludeFiles @('Web.config','ConnectionStrings.config', 'System.Buffers.dll')"
