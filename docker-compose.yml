@@ -1,9 +1,22 @@
 version: '2.4'
 
+# use docker-compose build
+
 services:
 
+  # sql:
+  #   image: ${ACR}sitecore-xp-sqldev:9.2.0-windowsservercore-${WINDOWSSERVERCORE_CHANNEL}
+  #   volumes:
+  #     - .\data\sql:C:\Data
+  #   mem_limit: 2GB
+  #   ports:
+  #     - "44010:1433"
+
   sql:
-    image: ${ACR}sitecore-xp-sqldev:9.2.0-windowsservercore-${WINDOWSSERVERCORE_CHANNEL}
+    image: habitathome-xp.sqldev.local
+    build:
+      context: .\Componentized\Docker\windows\9.2.0 rev. 002893\habitathome-xp.sqldev.local
+      dockerfile: dockerfile
     volumes:
       - .\data\sql:C:\Data
     mem_limit: 2GB
@@ -63,6 +76,7 @@ services:
     volumes:
       - .\data\cm:C:\inetpub\sc\App_Data\logs
       - .\Publish\Web:C:\src
+      - C:\Deploy\Habitat.Platform\yml:c:\unicorn\ # to-do yml from src folder, and set unicorn sourceFolder to c:\unicorn 
     ports:
       - "44001:80"
     links:
