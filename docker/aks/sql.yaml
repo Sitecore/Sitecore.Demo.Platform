@@ -37,6 +37,7 @@ spec:
         - sh
         - -c
         - chmod -R 777 /data
+        - rm -d -f /data/lost+found/
         securityContext:
           privileged: true
         volumeMounts:
