@@ -17,7 +17,7 @@ spec:
         backend:
           serviceName: cm
           servicePort: 80
-  - host: global.habitathome.com
+  - host: global-cd.habitathome.com
     http:
       paths:
       - path: /
