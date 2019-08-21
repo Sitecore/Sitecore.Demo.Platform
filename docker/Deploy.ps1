@@ -2,7 +2,7 @@
 param(
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrEmpty()]
-    [string]$Build = 1
+    [string]$Build = 3
     ,
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrEmpty()]
