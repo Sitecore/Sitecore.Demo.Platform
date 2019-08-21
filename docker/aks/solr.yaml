@@ -42,7 +42,7 @@ spec:
             name: data
       containers:
       - name: solr
-        image: sitecoreakshack.azurecr.io/sitecore-xp-sxa-solr:9.2.0-linux
+        image: sitecoreakshack.azurecr.io/sitecore-xp-sxa-1.9.0-solr:9.2.0-linux
         imagePullPolicy: Always
         ports:
           - containerPort: 8983
