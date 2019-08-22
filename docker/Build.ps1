@@ -87,6 +87,7 @@ $tags | ForEach-Object {
     $options.Add("--tag '$tag'")
     $options.AddRange($_.options)
     
+    Remove-Item -Path (Join-Path $context "\*.zip")
     Copy-Item -Path $wdp -Destination $context
     
     $command = "docker image build {0} '{1}'" -f ($options -join " "), $context
