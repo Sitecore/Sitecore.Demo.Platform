@@ -1,9 +1,9 @@
 ﻿#addin nuget:?package=Cake.Azure&version=0.3.0
-#addin nuget:?package=Cake.Http&version=0.6.1
-#addin nuget:?package=Cake.Json&version=3.0.1
+#addin nuget:?package=Cake.Http&version=0.7.0
+#addin nuget:?package=Cake.Json&version=4.0.0
 #addin nuget:?package=Cake.Powershell&version=0.4.8
 #addin nuget:?package=Cake.XdtTransform&version=0.16.0
-#addin nuget:?package=Newtonsoft.Json&version=11.0.1
+#addin nuget:?package=Newtonsoft.Json&version=11.0.2
 
 #load "local:?path=CakeScripts/helper-methods.cake"
 #load "local:?path=CakeScripts/xml-helpers.cake"
@@ -83,10 +83,10 @@ Setup(context =>
 	}
 });
 
-
 /*===============================================
 ============ Local Build - Main Tasks ===========
 ===============================================*/
+
 Task("Default")
 .WithCriteria(configuration != null)
 .IsDependentOn("CleanBuildFolders")
@@ -134,6 +134,7 @@ Task("Docker-Deploy")
 /*===============================================
 =========== Packaging - Main Tasks ==============
 ===============================================*/
+
 Task("Build-WDP")
 .WithCriteria(configuration != null)
 .IsDependentOn("Copy-Sitecore-Lib")
@@ -148,6 +149,7 @@ Task("Build-WDP")
 /*===============================================
 ======== Azure Deployment - Main Tasks ==========
 ===============================================*/
+
 Task("Default-Azure")
 .WithCriteria(configuration != null)
 .IsDependentOn("Build-WDP")
@@ -232,7 +234,6 @@ Task("Publish-All-Projects")
 .IsDependentOn("Publish-Foundation-Projects")
 .IsDependentOn("Publish-Feature-Projects")
 .IsDependentOn("Publish-Project-Projects");
-
 
 Task("Build-Solution")
 .IsDependentOn("Copy-Sitecore-Lib")
@@ -319,7 +320,6 @@ Task("Apply-DotnetCore-Transforms").Does(() => {
 });
 
 Task("Publish-YML").Does(() => {
-
 	var serializationFilesFilter = $@"{configuration.ProjectFolder}\src\**\*.yml";
 	var destination = $@"{configuration.PublishTempFolder}\yml";
 	Information($"Filter: {serializationFilesFilter} - Destination: {destination}");
@@ -334,7 +334,6 @@ Task("Publish-YML").Does(() => {
 	{
 		var files = GetFiles(serializationFilesFilter,new GlobberSettings{Predicate = exclude_build_folder})
 			.Select(x=>x.FullPath).ToList();
-
 		CopyFiles(files , destination, preserveFolderStructure: true);
 	}
 	catch (System.Exception ex)
@@ -430,11 +429,9 @@ Task("Merge-and-Copy-Xml-Transform").Does(() => {
 		Information($"Merging {layer} to {publishFolder}");
 		MergeTransforms(layer,publishFolder);
 	}
-
 });
 
 Task("Publish-Transforms").Does(() => {
-
 	var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
 	var destination =  $@"{deploymentRootPath}\temp\transforms";
 
@@ -474,6 +471,18 @@ Task("Modify-Unicorn-Source-Folder").Does(() => {
 	XmlPoke(zzzDevSettingsFile, sourceFolderXPath, directoryPath, xmlSetting);
 });
 
+Task("Turn-On-Unicorn").Does(() => {
+	var webConfigFile = File($"{configuration.WebsiteRoot}/web.config");
+	var xmlSetting = new XmlPokeSettings {
+		Namespaces = new Dictionary<string, string> {
+			{"patch", @"http://www.sitecore.net/xmlconfig/"}
+		}
+	};
+
+	var unicornAppSettingXPath = "configuration/appSettings/add[@key='unicorn:define']/@value";
+	XmlPoke(webConfigFile, unicornAppSettingXPath, "On", xmlSetting);
+});
+
 Task("Modify-PublishSettings").Does(() => {
 	var publishSettingsOriginal = File($"{configuration.ProjectFolder}/publishsettings.targets");
 	var destination = $"{configuration.ProjectFolder}/publishsettings.targets.user";
@@ -492,7 +501,9 @@ Task("Modify-PublishSettings").Does(() => {
 	XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
 });
 
-Task("Sync-Unicorn").Does(() => {
+Task("Sync-Unicorn")
+.IsDependentOn("Turn-On-Unicorn")
+.Does(() => {
 	var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
 	Information("Sync Unicorn items from url: " + unicornUrl);
 

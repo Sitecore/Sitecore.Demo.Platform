@@ -16,10 +16,10 @@ SharedFields:
   Value: "{C1B8669B-C41A-4ED3-BF0D-E859CF880D42}"
 - ID: "6ec7a9e6-9fd5-4892-bbf6-11e76e0e5db8"
   Hint: Start Time
-  Value: 20180115T211952Z
+  Value: 20190829T182737Z
 - ID: "78f0b1f8-fdf4-4c1c-bec6-1ac68a210a52"
   Hint: Campaign
-  Value: "{69AB3C32-42B1-4592-9287-4A664B688F82}"
+  Value: "{6D6F11F9-0B49-4974-8869-35CA51559E2D}"
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only
   Type: Checkbox
@@ -27,6 +27,10 @@ SharedFields:
 - ID: "af0fe26a-a78b-491d-885c-03d95bc17342"
   Hint: State
   Value: Active
+- ID: "e2d1d8a4-24aa-4536-a420-7eadd8719cf6"
+  Hint: Service Message
+  Type: Checkbox
+  Value: 1
 - ID: "fade34d8-c101-420d-9620-e4deb659c36b"
   Hint: Campaign Group
   Value: "{C4BC27DF-A0CC-4654-97C3-A01BF9C4F68A}"
@@ -287,14 +291,14 @@ Languages:
         </table>
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d8eeb78e-211c-4561-8046-ced6168f100f"
+      Value: "19692cba-fc07-4d01-964a-db5d0789b485"
     - ID: "8e6b1f0c-1267-4651-bfaa-affd48a799ee"
       Hint: Subject
       Value: We received your home installation request.
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\unicorn
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20190704T152233Z
+      Value: 20190829T182737Z
