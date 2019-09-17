@@ -110,6 +110,15 @@
     <PackageExcludeCode>False</PackageExcludeCode>
     <AddDateTimeToPackageName>False</AddDateTimeToPackageName>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'NoDeploy' ">
+    <DebugSymbols>true</DebugSymbols>
+    <RecursiveDeployAction>Ignore</RecursiveDeployAction>
+    <InstallSitecoreConnector>False</InstallSitecoreConnector>
+    <DisableFileDeployment>False</DisableFileDeployment>
+    <LightningDeployMode>False</LightningDeployMode>
+    <ConnectorTimeoutSeconds>120</ConnectorTimeoutSeconds>
+    <OutputPath>bin\NoDeploy\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">
       <Value>$(AssemblyFileVersion)</Value>

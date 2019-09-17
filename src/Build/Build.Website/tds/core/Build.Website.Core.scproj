@@ -56,6 +56,11 @@
     <LightningDeployMode>False</LightningDeployMode>
     <ConnectorTimeoutSeconds>120</ConnectorTimeoutSeconds>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'NoDeploy' ">
+    <DebugSymbols>true</DebugSymbols>
+    <RecursiveDeployAction>Ignore</RecursiveDeployAction>
+    <OutputPath>bin\NoDeploy\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">
       <Value>$(AssemblyFileVersion)</Value>
