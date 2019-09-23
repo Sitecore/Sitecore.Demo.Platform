@@ -99,7 +99,7 @@ Task("Default")
 .IsDependentOn("Post-Deploy");
 
 Task("Post-Deploy")
-.IsDependentOn("Sync-Unicorn")
+//.IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Deploy-EXM-Campaigns")
 .IsDependentOn("Deploy-Marketing-Definitions")
 .IsDependentOn("Rebuild-Core-Index")

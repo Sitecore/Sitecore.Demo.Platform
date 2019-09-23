@@ -59,6 +59,10 @@ Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Build.Website.Core", "src\B
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Build.Website.Master", "src\Build\Build.Website\tds\master\Build.Website.Master.scproj", "{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SitecoreDemo", "SitecoreDemo", "{1C92413D-805C-434D-84F9-F366B97D024C}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.HabitatHome.SitecoreDemo", "src\Project\SitecoreDemo\tds\Sitecore.HabitatHome.SitecoreDemo\Sitecore.HabitatHome.SitecoreDemo.scproj", "{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -243,6 +247,21 @@ Global
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Local|Any CPU.Build.0 = Local|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Local|Any CPU.Deploy.0 = Local|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Package-CD|Any CPU.ActiveCfg = Local|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Package-CD|Any CPU.Build.0 = Local|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Package-CD|Any CPU.Deploy.0 = Local|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Package-CM|Any CPU.ActiveCfg = Local|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Package-CM|Any CPU.Build.0 = Local|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Package-CM|Any CPU.Deploy.0 = Local|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -267,9 +286,11 @@ Global
 		{C0357237-F818-4EBE-B5A4-8BDDD144E814} = {570909EC-75B1-462F-A542-1345CFD15FB9}
 		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1} = {570909EC-75B1-462F-A542-1345CFD15FB9}
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E} = {570909EC-75B1-462F-A542-1345CFD15FB9}
+		{1C92413D-805C-434D-84F9-F366B97D024C} = {9846C4BE-2108-479E-AA17-4A96052CCCE0}
+		{14FF2C32-EF8C-47A6-A3FB-8ECB68552CBB} = {1C92413D-805C-434D-84F9-F366B97D024C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal
