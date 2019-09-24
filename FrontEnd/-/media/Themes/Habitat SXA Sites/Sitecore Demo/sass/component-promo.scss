@@ -1,0 +1,73 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.centered-heading { padding-top: 2em; }
+
+.featurette { margin-bottom: 2rem; }
+
+.featurette-heading, .centered-heading h2 {
+    color: #000000;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 42px;
+    margin-bottom: 0.4em;
+}
+
+.card img {
+    height: 150px;
+    object-fit: cover;
+}
+
+.jumbotron {
+    background-color: #f3f6f9;
+    background-position: center;
+    background-size: cover;
+    h1 { 
+        margin-top: 0; 
+    }
+}
+
+.image-cta { 
+    background-color: #f3f3f3; 
+}
+
+.promo {
+    background: $promo-bg;
+    padding: 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+    >.component-content {
+        position: relative;
+        @include clearfix();
+        @include border-basic(all, $promo-border);
+        >div {
+            padding: 5px;
+        }
+    }
+    .zg-height-fix {
+        .field-promoicon {
+            margin-top: 100px;
+        }
+    }
+    .field-promoicon {
+        overflow: hidden;
+        width: 100%;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .field-promolink {
+        margin-top: 5px;
+        padding-bottom: 10px;
+    }
+    &.image-full-size {
+        img {
+            margin-bottom: 10px;
+        }
+    }
+    @import "variants/promo/*";
+    @import "base/richtext/richtext";
+}
+@import "styles/promo/*";

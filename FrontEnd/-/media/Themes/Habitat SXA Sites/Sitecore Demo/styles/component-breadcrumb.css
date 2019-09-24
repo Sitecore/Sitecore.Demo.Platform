@@ -1,0 +1,190 @@
+@charset "UTF-8";
+/* breakpoints */
+.breadcrumb {
+  background-color: #ffffff;
+  padding-left: 0;
+}
+
+.breadcrumb a {
+  color: #000000;
+  font-weight: 600;
+}
+
+.breadcrumb a :hover {
+  color: #fe2911;
+}
+
+.breadcrumb-item.active {
+  color: #707070;
+}
+
+.breadcrumb.component {
+  background: transparent;
+}
+
+.breadcrumb.component:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.breadcrumb.component.breadcrumb-navigation {
+  overflow: visible;
+}
+
+.breadcrumb.component a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: #747474;
+}
+
+.breadcrumb.component ol {
+  list-style: none;
+}
+
+.breadcrumb.component .field-title {
+  display: inline-block;
+}
+
+.breadcrumb.component .separator {
+  margin: 0 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.breadcrumb.component li {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.breadcrumb.component li > .navigation-title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.breadcrumb.component li > .navigation-title > a:hover {
+  color: #15909c;
+}
+
+.breadcrumb.component li.last .separator {
+  display: none;
+}
+
+.breadcrumb.component li.item-hide:hover > ol {
+  display: none;
+}
+
+.breadcrumb.component li:hover > ol {
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: auto;
+  z-index: 100;
+}
+
+.breadcrumb.component li > ol {
+  box-sizing: border-box;
+  display: none;
+  margin: 0;
+  background: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+}
+
+.breadcrumb.component li > ol li {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #d2d2d2;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  float: none;
+  margin: 0;
+  padding: 2px 20px;
+  width: 100%;
+  min-width: 140px;
+  cursor: pointer;
+}
+
+.breadcrumb.component li > ol li .fa {
+  float: left;
+}
+
+.breadcrumb.component li > ol li:hover {
+  background: #89C6CC;
+  color: #fff;
+}
+
+.breadcrumb.component li > ol li:hover a {
+  color: #fff !important;
+}
+
+.breadcrumb.component li > ol li:before {
+  font-size: 14px;
+  font-size: 1.4rem;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 2px;
+}
+
+.breadcrumb.component li > ol li > a {
+  display: block;
+  padding: 2px 0 2px 10px;
+}
+
+.breadcrumb.component li > ol li:last-child {
+  border-bottom-width: 0;
+}
+
+/* breakpoints */
+.breadcrumb.breadcrumb-hide li {
+  white-space: nowrap;
+}
+
+.breadcrumb.breadcrumb-hide li.item-hide + li.item-hide {
+  display: none;
+}
+
+.breadcrumb.breadcrumb-hide li.item-hide a {
+  display: none;
+}
+
+.breadcrumb.breadcrumb-hide li.item-hide:before {
+  content: "...";
+  display: inline;
+}
+
+.breadcrumb.breadcrumb-hide li.hide-full {
+  display: none;
+}
+
+/* breakpoints */
+.breadcrumb.triangle-separator .separator {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 0;
+}
+
+.breadcrumb.triangle-separator .separator:before {
+  content: "";
+  display: block;
+  font-size: 16px;
+}

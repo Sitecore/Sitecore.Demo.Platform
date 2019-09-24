@@ -1,0 +1,133 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+@import "abstracts/functions";
+@import "base/fonts/fonts";
+@import "base/fontawesome/font-awesome";
+html {
+    font-size: 62.5%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    margin-bottom: 0px; 
+} 
+ 
+body { 
+    @include opensans-font-stack(); 
+    font-family: 'Roboto', sans-serif; 
+    position: relative; 
+    overflow: auto; 
+    color: $text-basic;
+    font-size: 14px; 
+    line-height: 1.5;
+    background: $page-bg; 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &.on-page-editor { 
+        background: $page-bg-editor !important;
+    }
+}
+
+a {
+    color: $text-basic;
+    cursor: pointer;
+    font-size: 0.85em;
+    &:hover {
+        color: $text-basic-active;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2em;
+    color: #000000;
+    font-size: 3.6rem !important;
+    font-weight: 700 !important;
+    line-height: 3.8rem !important;
+    margin-bottom: 0.6em;
+    margin-top: 0.6em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+    color: #000000;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    line-height: 32px !important;
+}
+
+h4 {
+    font-size: 1em;
+    font-weight: 700 !important;
+}
+
+h5 {
+    font-size: 0.83em;
+}
+
+h6 {
+    font-size: 0.67em;
+}
+
+p {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 30px;
+    a {
+        color: #19a5a2;
+        font-weight: 700;
+        text-decoration: underline;
+        :hover {
+            color: #000000;
+    text-decoration: underline;
+        }
+    }
+    .lead {
+        color: #707070;
+        font-size: 23px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 35px;
+    }
+}
+
+.xa-variable {
+    border: 0px;
+    padding: 1px;
+    margin: 0px;
+    background-color: #ebebe4;
+    color: #545454;
+    user-select: none;
+    pointer-events: none;
+}
+
+.no-padding-left { 
+    padding-left: 0; 
+}
+
+.no-padding-right { 
+    padding-right: 0; 
+}
+
+.bg-light { 
+    background-color: #ffffff !important; 
+}
+
+//Navigation Bar fix 
+#breadcrumbMenuSubcontrol_context_menu * {
+    box-sizing: initial;
+}
+
+//End navigation bar fix
+
+

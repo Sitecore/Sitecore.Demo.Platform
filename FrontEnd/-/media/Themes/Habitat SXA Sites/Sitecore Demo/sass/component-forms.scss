@@ -1,0 +1,197 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.field-validation-error, .validation-summary-errors { 
+    color: #fe2911; 
+}
+
+.hidden { 
+    display: none; 
+}
+
+.form-signin {
+    .col-sm-6 {
+        flex: 0 0 100%;
+        margin-left: -15px;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.form {
+    margin: 10px 0;
+    font-size: 14px;
+    overflow: hidden;
+    table {
+        width: 100%;
+    }
+    .scfSectionContent>div {
+        // Remove spacings between form elements
+        margin: 5px 0 0 0;
+        padding: 0;
+        &~div {
+            margin: 0;
+        }
+        &>label, &>div {
+            width: 100%;
+            display: block;
+            padding: 0;
+        }
+    }
+    .has-feedback {
+        @include clearfix();
+    }
+    .scfRequired {
+        display: none !important;
+    }
+    .field-group { 
+        margin-bottom: 20px; 
+    }
+    fieldset {
+        @include border-basic();
+        padding: 15px;
+        margin: 10px 0;
+        position: relative;
+        legend {
+            font-weight: 700;
+            padding: 0 5px;
+            font-size: 16px;
+            position: absolute;
+            top: -33px;
+            background: #fff;
+            left: 0;
+        }
+    }
+    .scfSectionContent {
+        >div {
+            box-sizing: border-box;
+            margin: 15px 0;
+            border: 1px dashed gray;
+            padding: 10px;
+            position: relative;
+            &:after {
+                clear: both;
+                content: "";
+                display: block;
+            }
+            &:hover [class$="GeneralPanel"]>[class$="UsefulInfo"] {
+                opacity: 1;
+            }
+            select, input {
+                margin-left: 5px;
+            }
+        }
+        [class$="UsefulInfo"] {
+            transition: opacity 0.75s;
+            box-sizing: border-box;
+            opacity: 0;
+            font-size: 12px;
+            margin-left: 5px;
+            position: absolute;
+            @include border-basic();
+            left: 0px;
+            top: -15px;
+            padding: 4px 8px;
+            max-width: 98%;
+            width: auto;
+            background-color: #F5F5F5;
+            color: #808080;
+        }
+    }
+    input, select, textarea {
+        @include border-basic();
+        padding: 2px 4px;
+        max-width: 98%;
+    }
+    .scfCaptcha {
+        input[type="text"] {
+            margin: 0;
+        }
+    }
+    .scfCaptchaLimitGeneralPanel, .scfCaptchStrongTextPanel {
+        max-width: 100%;
+        width: auto;
+    }
+    .scfCaptchaLabel {
+        display: none;
+    }
+    .scfSectionContent .scfCaptchaGeneralPanel embed {
+        max-width: 180px;
+    }
+    input[type="image"] {
+        border: none;
+    }
+    input[type="submit"], button {
+        @include border-basic();
+        background: $bg-basic-color;
+        cursor: pointer;
+        margin-left: 0;
+    }
+    input[type="text"], input[type="password"], textarea, input[type="file"] {
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: border-box;
+        @include border-basic(bottom);
+        width: 95%;
+        padding: 2px;
+        &+span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    input[type="file"] {
+        appearance: none;
+    }
+    input[type="radio"] {
+        position: absolute;
+        &+label:before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            display: block;
+            width: 16px;
+            height: 16px;
+            background-color: $bg-basic-color;
+        }
+        &+label:after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            display: block;
+            width: 16px;
+            height: 15px;
+            background: image-url("radiobox.png");
+        }
+        &:checked+label:after {
+            background-position: -16px 0;
+        }
+        &+label {
+            user-select: none;
+            padding-left: 20px;
+            margin-left: 5px;
+            position: relative;
+        }
+    }
+    select {
+        @include border-basic();
+        max-height: 30px;
+        position: relative;
+        text-indent: 2px;
+    }
+    .scfListBox {
+        background: none;
+        max-height: none;
+    }
+    .scfDateSelectorDay, .scfDateSelectorMonth, .scfDateSelectorYear {
+        width: 30%;
+    }
+    label { 
+        font-weight: 600; 
+    }
+}
+
+#SearchTerm {
+    width: auto;
+}
+
+@import "styles/forms/*";

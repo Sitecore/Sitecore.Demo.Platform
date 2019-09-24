@@ -1,0 +1,16 @@
+.flip.flip-vertical {
+    .Side1 {
+        transform: rotateY(0deg);
+        transform: rotateX(180deg);
+    }
+    &.active {
+        .Side0 {
+            transform: rotateY(0deg);
+            transform: rotateX(180deg);
+        }
+        .Side1 {
+            transform: rotateY(0deg);
+            transform: rotateX(360deg);
+        }
+    }
+}
