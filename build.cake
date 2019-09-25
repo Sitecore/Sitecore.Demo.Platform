@@ -372,6 +372,7 @@ Task("Publish-Project-Projects").Does(() => {
 	var global = $"{configuration.ProjectSrcFolder}\\Global";
 	var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
 	var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
+	var sitecoreDemo = $"{configuration.ProjectSrcFolder}\\SitecoreDemo";
 
 	var destination = deploymentRootPath;
 	if (configuration.DeploymentTarget == "Docker") {
@@ -384,6 +385,7 @@ Task("Publish-Project-Projects").Does(() => {
 	PublishProjects(global, destination);
 	PublishProjects(habitatHome, destination);
 	PublishProjects(habitatHomeBasic, destination);
+	PublishProjects(sitecoreDemo, destination);
 });
 
 Task("Publish-xConnect-Project").Does(() => {

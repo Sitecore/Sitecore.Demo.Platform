@@ -4,18 +4,22 @@ Parent: "6defe249-ae32-4595-bf09-725d546f66d0"
 Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
 Path: "/sitecore/content/Habitat SXA Sites/Global/Data/Promos/About-Habitat"
 DB: master
+Created: 20190921T091328Z
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
     - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
       Hint: PromoText
       Value: <p>About Habitat</p>
     - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
       Hint: PromoIcon
       Value: |
-        <image mediaid="{349729EB-FBF2-4883-8E69-B0B1C30A214E}" />
+        <image mediaid="{349729EB-FBF2-4883-8E69-B0B1C30A214E}" ></image>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171031T144521Z
@@ -25,7 +29,7 @@ Languages:
         sitecore\admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fc417936-98ea-4aff-b887-dce9636475c1"
+      Value: "5b68d329-b408-455f-b8b0-cac81a2a0a47"
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
       Value: |
@@ -40,10 +44,10 @@ Languages:
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\unicorn
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20190425T163519Z
+      Value: 20190925T123926Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"

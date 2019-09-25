@@ -1,22 +1,25 @@
 ---
-ID: "e99ae91f-df30-4e3f-8241-8dfd3d096d22"
-Parent: "99e1efd3-c581-4377-9afa-dd2e8f9191cb"
-Template: "8b649372-cc12-4f31-802a-8c3b3d09bb3f"
-Path: /sitecore/content/Habitat SXA Sites/Sitecore Demo/Settings/Scopes/News
+ID: "9115c58c-6422-4068-bf9e-c5041906d6db"
+Parent: "6defe249-ae32-4595-bf09-725d546f66d0"
+Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
+Path: /sitecore/content/Habitat SXA Sites/Global/Data/Promos/Home
 DB: master
-Created: 20190921T121248Z
-SharedFields:
-- ID: "b04fe662-2b23-44dd-b971-2b864a1ec55f"
-  Hint: ScopeQuery
-  Value: "+template:{CA3168E9-2E1C-443D-A7C8-9C17F7517562}"
+Created: 20190925T123946Z
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{A2DF1899-BCD6-4422-83C3-653B0E684CCB}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190921T121248Z
+      Value: 20190925T123946Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -27,11 +30,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "97372368-a92d-45df-858e-c75421456714"
+      Value: "34abc2e6-9896-443b-86c1-1de31f12f226"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20190923T171303Z
+      Value: 20190925T124048Z
