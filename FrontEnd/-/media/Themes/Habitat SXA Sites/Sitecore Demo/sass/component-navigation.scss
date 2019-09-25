@@ -1,10 +1,21 @@
 @import "abstracts/mixins";
 @import "abstracts/vars";
 @import "base/fontawesome/font-awesome-mix-var";
-.nav-link {
-    color: #000000 !important;
-    font-weight: 700;
-    text-transform: uppercase;
+.primary-nav-container {
+    .field-link {
+        color: #000000 !important;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 2em;
+    }
+    .search-box {
+        padding-top: 1.75em;
+        margin-left: 4em;
+    }
+}
+
+#sc-logo {
+    padding: 1.5em;
 }
 
 .navigation {
