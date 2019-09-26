@@ -5,12 +5,6 @@
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>14ff2c32-ef8c-47a6-a3fb-8ecb68552cbb</ProjectGuid>
-    <SourceWebPhysicalPath>
-    </SourceWebPhysicalPath>
-    <SourceWebProject>
-    </SourceWebProject>
-    <SourceWebVirtualPath>
-    </SourceWebVirtualPath>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <CompactSitecoreItemsInProjectFile>True</CompactSitecoreItemsInProjectFile>
     <AssemblyName>Sitecore.HabitatHome.SitecoreDemo</AssemblyName>
@@ -18,6 +12,12 @@
     <RootNamespace>Sitecore.HabitatHome.SitecoreDemo</RootNamespace>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <ManageRoles>False</ManageRoles>
+    <SitecoreDatabase>master</SitecoreDatabase>
+    <AssemblyStatus>Include</AssemblyStatus>
+    <SourceWebVirtualPath>/Sitecore.HabitatHome.SitecoreDemo.csproj</SourceWebVirtualPath>
+    <SourceWebProject>{00b903a7-8d66-46ff-b59b-5b3aa665d7e2}|src\Project\SitecoreDemo\code\Sitecore.HabitatHome.SitecoreDemo.csproj</SourceWebProject>
+    <SourceWebPhysicalPath>..\..\code</SourceWebPhysicalPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,7 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <SitecoreItem Include="sitecore\content.yml"><ItemDeployment>NeverDeploy</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization></SitecoreItem>
-    <SitecoreItem Include="sitecore\content\Habitat SXA Sites.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Habitat SXA Sites.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><CodeGenData>../../serialization/Content/</CodeGenData></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Data.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Data\Accordions.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
@@ -82,6 +82,7 @@
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Home\news-events.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Home\news-events\News.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Home\news-events\News\Example News Article 2.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Home\news-events\News\Example News Article 3.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Home\news-events\News\Example News Article.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Home\Our Team.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Home\Our Team\Dale Kent.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
@@ -112,7 +113,8 @@
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Layout Service\Default.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Layout Service\Default\Title.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Page Designs.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
-    <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Page Designs\Default.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Page Designs\Demo Default With News.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Page Designs\Demo Default.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Page Designs\News Page.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Partial Designs.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Partial Designs\Empty.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
@@ -133,6 +135,11 @@
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Partial Designs\Header\Data\Logo.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Partial Designs\Header\Data\Text 1.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Partial Designs\Metadata.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Partial Designs\News.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Partial Designs\News\Latest News.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Partial Designs\News\Latest News\Data.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Partial Designs\News\Latest News\Data\Text 1.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Partial Designs\News\Latest News\Data\Text 2.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\Placeholder Settings.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\POI Types.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Habitat SXA Sites\Sitecore Demo\Presentation\POI Types\My Location POI.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment></SitecoreItem>
@@ -914,6 +921,15 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\code\Sitecore.HabitatHome.SitecoreDemo.csproj">
+      <Project>{00b903a7-8d66-46ff-b59b-5b3aa665d7e2}</Project>
+      <Name>Sitecore.HabitatHome.SitecoreDemo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ExcludedAssemblies Include="Sitecore.HabitatHome.%2a" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" Condition="Exists('$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets')" />
   <Import Project="..\..\..\..\..\packages\HedgehogDevelopment.TDS.6.0.0.1\build\HedgehogDevelopment.TDS.targets" Condition="Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.6.0.0.1\build\HedgehogDevelopment.TDS.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -921,5 +937,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\..\..\..\packages\HedgehogDevelopment.TDS.6.0.0.1\build\HedgehogDevelopment.TDS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\packages\HedgehogDevelopment.TDS.6.0.0.1\build\HedgehogDevelopment.TDS.targets'))" />
+    <Error Condition="!Exists('..\..\..\..\..\packages\Sitecore.Demo.BuildTools.CopyYmlFiles.9.2.0.30\build\Sitecore.Demo.BuildTools.CopyYmlFiles.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\packages\Sitecore.Demo.BuildTools.CopyYmlFiles.9.2.0.30\build\Sitecore.Demo.BuildTools.CopyYmlFiles.targets'))" />
   </Target>
+  <Import Project="..\..\..\..\..\packages\Sitecore.Demo.BuildTools.CopyYmlFiles.9.2.0.30\build\Sitecore.Demo.BuildTools.CopyYmlFiles.targets" Condition="Exists('..\..\..\..\..\packages\Sitecore.Demo.BuildTools.CopyYmlFiles.9.2.0.30\build\Sitecore.Demo.BuildTools.CopyYmlFiles.targets')" />
 </Project>

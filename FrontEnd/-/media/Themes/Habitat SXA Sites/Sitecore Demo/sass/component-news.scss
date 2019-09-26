@@ -1,16 +1,8 @@
-#news-search { 
-    li {
-        max-width: 50%;
-        width: 100%;
-        display: inline-block;
-        position: relative;
-        flex: 0 0 50%;
-        padding: 0 1.25em;
-    }
+#news-search, #latest-news { 
     .card {
         padding: 2em;
         margin: 1.25em;
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
         img { 
             height: 350px;
             max-width: 100%; 
@@ -37,6 +29,34 @@
         line-height: 42px;
         margin-bottom: 0.4em;
         }
+}
+
+#news-search {
+    li {
+        max-width: 50%;
+        width: 100%;
+        display: inline-block;
+        position: relative;
+        flex: 0 0 50%;
+        padding: 0 1.25em;
+    }
+}
+
+#latest-news {
+    .card {
+        box-shadow: none;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #d2d2d2;
+    }
+    li {
+        max-width: 33.33333%;
+        width: 100%;
+        display: inline-block;
+        position: relative;
+        flex: 0 0 33.33333%;
+        padding: 0 1.25em;
+    }
 }
 
 .news-heading {
@@ -74,4 +94,8 @@
 
 .news-img {
     margin: 20px 0;
+}
+
+.news-btn {
+    float: right;
 }
