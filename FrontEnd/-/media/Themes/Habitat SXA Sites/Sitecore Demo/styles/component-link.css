@@ -9,6 +9,10 @@ a.link_arrow:after, button.link_arrow:after {
   transition: margin .1s ease;
 }
 
+a.link_arrow:after {
+  color: #f70000;
+}
+
 a.link_arrow:not(.btn) {
   color: #232323;
   font-weight: 600;
