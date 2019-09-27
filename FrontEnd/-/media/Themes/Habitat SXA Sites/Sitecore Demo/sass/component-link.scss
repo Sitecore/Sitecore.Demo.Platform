@@ -30,6 +30,13 @@ a.link_arrow:not(.btn) {
 
 .btn {
     cursor: pointer;
+    a {
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+            color: #fff;
+        }
+    }
 }
 
 .btn-info {
@@ -41,6 +48,7 @@ a.link_arrow:not(.btn) {
     &:hover {
         background-color: #000000;
         border: 2px solid #232323;
+        color: #fff;
     }  
 }
 
@@ -52,5 +60,6 @@ a.link_arrow:not(.btn) {
     &:hover {
         background-color: #0d5755;
         border: 2px solid #19a5a2;
+        color: #fff;
     }
 }

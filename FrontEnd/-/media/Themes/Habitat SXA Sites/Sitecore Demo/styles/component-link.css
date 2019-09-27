@@ -44,6 +44,15 @@ a.link_arrow:not(.btn) {
   cursor: pointer;
 }
 
+.btn a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn a:hover {
+  color: #fff;
+}
+
 .btn-info {
   background-color: #232323;
   border: 2px solid #232323;
@@ -55,6 +64,7 @@ a.link_arrow:not(.btn) {
 .btn-info:hover {
   background-color: #000000;
   border: 2px solid #232323;
+  color: #fff;
 }
 
 .btn-primary {
@@ -67,4 +77,5 @@ a.link_arrow:not(.btn) {
 .btn-primary:hover {
   background-color: #0d5755;
   border: 2px solid #19a5a2;
+  color: #fff;
 }

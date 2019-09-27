@@ -1,0 +1,69 @@
+---
+ID: "68e1b63c-93fd-4b96-a6f3-942a533e4770"
+Parent: "fdbfd648-fcee-4098-9fd1-4fbb7713f816"
+Template: "e3b950bb-1b55-4cdd-819f-031b3be1a66c"
+Path: "/sitecore/content/Habitat SXA Sites/Sitecore Demo/Home/news-events/Events"
+DB: master
+Created: 20190926T202343Z
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: "{9B87D09A-3A73-4E0A-8EE8-C192719D256F}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{55CC23E7-DC23-4899-9964-94DC351CB2F1}"
+              s:ds="{C83C9A5B-1F3C-4A4D-934B-B32843E38E68}"
+              s:id="{C71B8E71-7FF8-46B0-800E-C5621EFE1D4B}"
+              s:par="GridParameters={908E2BC6-C110-4ED7-AF39-7EEACBB31A34}&amp;Styles&amp;TitleHeadingLevel={8ACACA22-0D21-4A68-9137-6C484AA81DA6}&amp;CalendarType={57873DCE-290B-4FCE-B1CE-2636A1E5BB18}|{ED57FE3E-85F3-433B-93D5-A6D75277BEC1}|{9DCCDFCF-B112-4749-BE88-734E7E2C1D60}|{00F11EEC-4A09-4160-B764-D2F5AF29722C}|{6F08F8D6-A86C-4E2A-B793-113F18A1A790}&amp;ShowPreviousNext=1&amp;ShowMonthCaptions=1&amp;CompactView&amp;Reset Caching Options&amp;RenderingIdentifier"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190926T202343Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FF509B64-B6D4-4FB7-9718-C4218B992740}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Events
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "394f5092-6716-442f-91b5-97de976eefd9"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190927T161942Z
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Events
