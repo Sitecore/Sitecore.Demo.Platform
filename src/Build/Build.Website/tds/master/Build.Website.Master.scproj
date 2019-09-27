@@ -119,6 +119,15 @@
     <ConnectorTimeoutSeconds>120</ConnectorTimeoutSeconds>
     <OutputPath>bin\NoDeploy\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DockerDeploy' ">
+    <DebugSymbols>true</DebugSymbols>
+    <RecursiveDeployAction>Ignore</RecursiveDeployAction>
+    <InstallSitecoreConnector>False</InstallSitecoreConnector>
+    <DisableFileDeployment>False</DisableFileDeployment>
+    <LightningDeployMode>False</LightningDeployMode>
+    <ConnectorTimeoutSeconds>120</ConnectorTimeoutSeconds>
+    <OutputPath>bin\DockerDeploy\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">
       <Value>$(AssemblyFileVersion)</Value>
@@ -337,12 +346,12 @@
     <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><DeployAlwaysFields></DeployAlwaysFields><CodeGenData></CodeGenData><CodeGenNamespace></CodeGenNamespace><CodeGenTemplate></CodeGenTemplate></SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email.yml"><CodeGenData>../../serialization/Branches</CodeGenData><CodeGenNamespace></CodeGenNamespace><CodeGenTemplate></CodeGenTemplate><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><DeployAlwaysFields></DeployAlwaysFields></SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>DeployOnce</ItemDeployment><DeployAlwaysFields></DeployAlwaysFields><CodeGenData></CodeGenData><CodeGenNamespace></CodeGenNamespace><CodeGenTemplate></CodeGenTemplate></SitecoreItem>
-    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization></SitecoreItem>
-    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name\Message Root.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization></SitecoreItem>
-    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name\Message Root\Body.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization></SitecoreItem>
-    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name\Message Root\Footer.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization></SitecoreItem>
-    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name\Message Root\Header.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization></SitecoreItem>
-    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name\Message Root\Promo.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization></SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>AlwaysUpdate</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name\Message Root.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>AlwaysUpdate</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name\Message Root\Body.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>AlwaysUpdate</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name\Message Root\Footer.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>AlwaysUpdate</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name\Message Root\Header.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>AlwaysUpdate</ItemDeployment></SitecoreItem>
+    <SitecoreItem Include="sitecore\templates\Branches\Feature\Habitat Home\Email\Branded Email\%24name\Message Root\Promo.yml"><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><ItemDeployment>AlwaysUpdate</ItemDeployment></SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><DeployAlwaysFields></DeployAlwaysFields><CodeGenData></CodeGenData><CodeGenNamespace></CodeGenNamespace><CodeGenTemplate></CodeGenTemplate></SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature\Habitat Home.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><DeployAlwaysFields></DeployAlwaysFields><CodeGenData></CodeGenData><CodeGenNamespace></CodeGenNamespace><CodeGenTemplate></CodeGenTemplate></SitecoreItem>
     <SitecoreItem Include="sitecore\templates\Feature\Habitat Home\Accounts.yml"><CodeGenData>../../serialization/Templates</CodeGenData><CodeGenNamespace></CodeGenNamespace><CodeGenTemplate></CodeGenTemplate><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization><DeployAlwaysFields></DeployAlwaysFields></SitecoreItem>

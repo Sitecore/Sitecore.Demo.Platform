@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".configuration", ".configur
 		.gitignore = .gitignore
 		build.cake = build.cake
 		cake-config.json = cake-config.json
+		docker-compose.yml = docker-compose.yml
 		nuget.config = nuget.config
 		README.md = README.md
 		TdsGlobal.config = TdsGlobal.config
@@ -62,6 +63,7 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DockerDeploy|Any CPU = DockerDeploy|Any CPU
 		Local|Any CPU = Local|Any CPU
 		NoDeploy|Any CPU = NoDeploy|Any CPU
 		Package-CD|Any CPU = Package-CD|Any CPU
@@ -71,6 +73,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
 		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}.Local|Any CPU.Build.0 = Local|Any CPU
 		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}.NoDeploy|Any CPU.ActiveCfg = NoDeploy|Any CPU
@@ -83,6 +87,8 @@ Global
 		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
 		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.Local|Any CPU.Build.0 = Local|Any CPU
 		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.NoDeploy|Any CPU.ActiveCfg = NoDeploy|Any CPU
@@ -95,6 +101,8 @@ Global
 		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{48F5BD4A-C481-4FCF-8044-9A8813D3510D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{48F5BD4A-C481-4FCF-8044-9A8813D3510D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48F5BD4A-C481-4FCF-8044-9A8813D3510D}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{48F5BD4A-C481-4FCF-8044-9A8813D3510D}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
 		{48F5BD4A-C481-4FCF-8044-9A8813D3510D}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{48F5BD4A-C481-4FCF-8044-9A8813D3510D}.Local|Any CPU.Build.0 = Local|Any CPU
 		{48F5BD4A-C481-4FCF-8044-9A8813D3510D}.NoDeploy|Any CPU.ActiveCfg = NoDeploy|Any CPU
@@ -107,6 +115,8 @@ Global
 		{48F5BD4A-C481-4FCF-8044-9A8813D3510D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
 		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Local|Any CPU.Build.0 = Local|Any CPU
 		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.NoDeploy|Any CPU.ActiveCfg = NoDeploy|Any CPU
@@ -119,6 +129,8 @@ Global
 		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Release|Any CPU.Build.0 = Release|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A57FBE-7088-4344-87DC-23B01B504EC9}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{73A57FBE-7088-4344-87DC-23B01B504EC9}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Local|Any CPU.Build.0 = Local|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.NoDeploy|Any CPU.ActiveCfg = NoDeploy|Any CPU
@@ -131,6 +143,8 @@ Global
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FEA9BDF2-4014-4288-99BA-D511847F6D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FEA9BDF2-4014-4288-99BA-D511847F6D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEA9BDF2-4014-4288-99BA-D511847F6D9C}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{FEA9BDF2-4014-4288-99BA-D511847F6D9C}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
 		{FEA9BDF2-4014-4288-99BA-D511847F6D9C}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{FEA9BDF2-4014-4288-99BA-D511847F6D9C}.Local|Any CPU.Build.0 = Local|Any CPU
 		{FEA9BDF2-4014-4288-99BA-D511847F6D9C}.NoDeploy|Any CPU.ActiveCfg = NoDeploy|Any CPU
@@ -144,6 +158,9 @@ Global
 		{205A095A-8995-4AE5-A401-D7F386A57E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{205A095A-8995-4AE5-A401-D7F386A57E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{205A095A-8995-4AE5-A401-D7F386A57E48}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{205A095A-8995-4AE5-A401-D7F386A57E48}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{205A095A-8995-4AE5-A401-D7F386A57E48}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
+		{205A095A-8995-4AE5-A401-D7F386A57E48}.DockerDeploy|Any CPU.Deploy.0 = DockerDeploy|Any CPU
 		{205A095A-8995-4AE5-A401-D7F386A57E48}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{205A095A-8995-4AE5-A401-D7F386A57E48}.Local|Any CPU.Build.0 = Local|Any CPU
 		{205A095A-8995-4AE5-A401-D7F386A57E48}.Local|Any CPU.Deploy.0 = Local|Any CPU
@@ -161,6 +178,9 @@ Global
 		{826306EB-DB92-4004-A7F4-01FC343D9D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{826306EB-DB92-4004-A7F4-01FC343D9D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{826306EB-DB92-4004-A7F4-01FC343D9D0D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{826306EB-DB92-4004-A7F4-01FC343D9D0D}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{826306EB-DB92-4004-A7F4-01FC343D9D0D}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
+		{826306EB-DB92-4004-A7F4-01FC343D9D0D}.DockerDeploy|Any CPU.Deploy.0 = DockerDeploy|Any CPU
 		{826306EB-DB92-4004-A7F4-01FC343D9D0D}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{826306EB-DB92-4004-A7F4-01FC343D9D0D}.Local|Any CPU.Build.0 = Local|Any CPU
 		{826306EB-DB92-4004-A7F4-01FC343D9D0D}.Local|Any CPU.Deploy.0 = Local|Any CPU
@@ -178,6 +198,9 @@ Global
 		{DEEA75F2-B542-48AD-8CE7-CC958E27619B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DEEA75F2-B542-48AD-8CE7-CC958E27619B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEEA75F2-B542-48AD-8CE7-CC958E27619B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DEEA75F2-B542-48AD-8CE7-CC958E27619B}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{DEEA75F2-B542-48AD-8CE7-CC958E27619B}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
+		{DEEA75F2-B542-48AD-8CE7-CC958E27619B}.DockerDeploy|Any CPU.Deploy.0 = DockerDeploy|Any CPU
 		{DEEA75F2-B542-48AD-8CE7-CC958E27619B}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{DEEA75F2-B542-48AD-8CE7-CC958E27619B}.Local|Any CPU.Build.0 = Local|Any CPU
 		{DEEA75F2-B542-48AD-8CE7-CC958E27619B}.Local|Any CPU.Deploy.0 = Local|Any CPU
@@ -195,6 +218,9 @@ Global
 		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
+		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076}.DockerDeploy|Any CPU.Deploy.0 = DockerDeploy|Any CPU
 		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076}.Local|Any CPU.Build.0 = Local|Any CPU
 		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076}.Local|Any CPU.Deploy.0 = Local|Any CPU
@@ -212,6 +238,9 @@ Global
 		{04070F82-3500-472C-BF75-3512241F551C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04070F82-3500-472C-BF75-3512241F551C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04070F82-3500-472C-BF75-3512241F551C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{04070F82-3500-472C-BF75-3512241F551C}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{04070F82-3500-472C-BF75-3512241F551C}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
+		{04070F82-3500-472C-BF75-3512241F551C}.DockerDeploy|Any CPU.Deploy.0 = DockerDeploy|Any CPU
 		{04070F82-3500-472C-BF75-3512241F551C}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{04070F82-3500-472C-BF75-3512241F551C}.Local|Any CPU.Build.0 = Local|Any CPU
 		{04070F82-3500-472C-BF75-3512241F551C}.Local|Any CPU.Deploy.0 = Local|Any CPU
@@ -228,6 +257,8 @@ Global
 		{04070F82-3500-472C-BF75-3512241F551C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{C0357237-F818-4EBE-B5A4-8BDDD144E814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C0357237-F818-4EBE-B5A4-8BDDD144E814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0357237-F818-4EBE-B5A4-8BDDD144E814}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{C0357237-F818-4EBE-B5A4-8BDDD144E814}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
 		{C0357237-F818-4EBE-B5A4-8BDDD144E814}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{C0357237-F818-4EBE-B5A4-8BDDD144E814}.Local|Any CPU.Build.0 = Local|Any CPU
 		{C0357237-F818-4EBE-B5A4-8BDDD144E814}.NoDeploy|Any CPU.ActiveCfg = NoDeploy|Any CPU
@@ -241,6 +272,9 @@ Global
 		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.DockerDeploy|Any CPU.Deploy.0 = DockerDeploy|Any CPU
 		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Local|Any CPU.Build.0 = Local|Any CPU
 		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}.Local|Any CPU.Deploy.0 = Local|Any CPU
@@ -258,6 +292,9 @@ Global
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
+		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.DockerDeploy|Any CPU.Deploy.0 = DockerDeploy|Any CPU
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Local|Any CPU.ActiveCfg = Local|Any CPU
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Local|Any CPU.Build.0 = Local|Any CPU
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}.Local|Any CPU.Deploy.0 = Local|Any CPU
@@ -298,7 +335,7 @@ Global
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E} = {570909EC-75B1-462F-A542-1345CFD15FB9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
+		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
 	EndGlobalSection
 EndGlobal

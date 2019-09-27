@@ -61,6 +61,11 @@
     <RecursiveDeployAction>Ignore</RecursiveDeployAction>
     <OutputPath>bin\NoDeploy\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DockerDeploy' ">
+    <DebugSymbols>true</DebugSymbols>
+    <RecursiveDeployAction>Ignore</RecursiveDeployAction>
+    <OutputPath>bin\DockerDeploy\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">
       <Value>$(AssemblyFileVersion)</Value>

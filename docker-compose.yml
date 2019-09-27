@@ -84,7 +84,7 @@ services:
       - .\data\creativeexchange:C:\inetpub\sc\App_Data\packages\CreativeExchange\FileStorage
       - ${REMOTEDEBUGGER_PATH}:C:\remote_debugger:ro
     ports:
-      - "44001:80"
+      - "80:80"
     links:
       - sql
       - solr
