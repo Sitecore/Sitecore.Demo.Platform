@@ -1,0 +1,38 @@
+---
+ID: "48c3ca43-d20a-42e8-b618-4e95641673f5"
+Parent: "a280f775-dc74-45bf-80ef-31c5d3cf8fbe"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/Habitat SXA Sites/Habitat Home/Landing Pages/Events Landing Page
+DB: master
+Created: 20190927T202723Z
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/table_selection_range.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: |
+    {BD74A392-DACD-4C23-853A-D520762B33A1}
+    {AAC13977-F643-4D4C-BF30-91FEDB7249CB}
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{A6785368-25BC-467E-9337-E7FC90686059}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190927T201503Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "94e8e610-2141-43a2-9717-72d0ad028c1a"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190927T205125Z
