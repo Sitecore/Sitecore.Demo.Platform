@@ -16,7 +16,7 @@ services:
       - "44010:1433"
 
   solr:
-    image: ${ACR}sitecore-xp-solr:9.2.0-nanoserver-${NANOSERVER_CHANNEL}
+    image: ${ACR}sitecore-xp-sxa-1.9.0-solr:9.2.0-nanoserver-${NANOSERVER_CHANNEL}
     networks:
       demo:
     volumes:
@@ -83,7 +83,7 @@ services:
       - .\publish\web:C:\src
       - .\data\cm:C:\inetpub\sc\App_Data\logs
       - .\data\creativeexchange:C:\inetpub\sc\App_Data\packages\CreativeExchange\FileStorage
-      - ${REMOTEDEBUGGER_PATH}:C:\remote_debugger
+      - ${REMOTEDEBUGGER_PATH}:C:\remote_debugger:ro
     ports:
       - "80:80"
     links:
