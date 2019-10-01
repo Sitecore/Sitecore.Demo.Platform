@@ -15,6 +15,7 @@ var configJsonFile = "cake-config.json";
 var unicornSyncScript = $"./scripts/Unicorn/Sync.ps1";
 var packagingScript = $"./scripts/Packaging/generate-update-package.ps1";
 var dacpacScript = $"./scripts/Packaging/generate-dacpac.ps1";
+var doNotDeployUnicorn = target == "Docker-Container";
 
 var publishLocal = false;
 
@@ -31,7 +32,7 @@ Setup(context =>
   var configFile = new FilePath(configJsonFile);
   configuration = DeserializeJsonFromFile<Configuration>(configFile);
   configuration.SolutionFile =  $"{configuration.ProjectFolder}\\{configuration.SolutionName}";
-  publishLocal = target == "Publish-Local";
+  publishLocal = target == "Publish-Local" || target == "Docker-Container";
 
   if (publishLocal) {
     configuration.BuildConfiguration = "NoDeploy";
@@ -62,6 +63,18 @@ Task("Post-Deploy")
 .IsDependentOn("Rebuild-Master-Index")
 .IsDependentOn("Rebuild-Web-Index")
 .IsDependentOn("Rebuild-Test-Index");
+
+Task("Docker-Container")
+.WithCriteria(configuration != null)
+.IsDependentOn("Copy-Sitecore-Lib")
+.IsDependentOn("Modify-PublishSettings")
+.IsDependentOn("Publish-All-Projects")
+.IsDependentOn("Publish-xConnect-Project")
+.IsDependentOn("Apply-Xml-Transform")
+.IsDependentOn("Copy-to-Destination")
+.IsDependentOn("Merge-and-Copy-Xml-Transform")
+.IsDependentOn("Generate-Dacpacs")
+.IsDependentOn("Post-Deploy");
 
 Task("Quick-Deploy")
 .WithCriteria(configuration != null)
@@ -195,7 +208,7 @@ Task("Copy-to-Destination").Does(()=>{
   CopyFiles(assemblyFiles, (destination + "\\bin"), preserveFolderStructure: false);
 
   // Copy other output files to publish destination
-  var ignoredExtensions = new string[] { ".dll", ".exe", ".pdb", ".xdt" };
+  var ignoredExtensions = new string[] { ".dll", ".exe", ".pdb", ".xdt", ".yml"};
   var ignoredFiles = new string[] { "web.config", "build.website.deps.json", "build.website.exe.config" };
 
   var contentFiles = GetFiles($"{publishTempFolder}\\**\\*")
@@ -365,7 +378,7 @@ Task("Modify-PublishSettings").Does(() => {
   XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
 });
 
-Task("Sync-Unicorn").Does(() => {
+Task("Sync-Unicorn").WithCriteria(!doNotDeployUnicorn).Does(() => {
   var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
   Information("Sync Unicorn items from url: " + unicornUrl);
 
