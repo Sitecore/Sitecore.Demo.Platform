@@ -16,7 +16,7 @@ services:
       - "44010:1433"
 
   solr:
-    image: ${ACR}sitecore-xp-sxa-1.9.0-solr:9.2.0-nanoserver-${NANOSERVER_CHANNEL}
+    image: ${ACR}sitecore-xp-solr:9.2.0-nanoserver-${NANOSERVER_CHANNEL}
     networks:
       demo:
     volumes:
@@ -77,12 +77,13 @@ services:
       demo:
         aliases:
           - local-cms.demo.com
-    entrypoint: cmd /c "start /B powershell C:/Sitecore/Scripts/Watch-Directory.ps1 C:\src C:\inetpub\sc -ExcludeFiles @('Web.config','ConnectionStrings.config') & C:\\remote_debugger\\x64\\msvsmon.exe /noauth /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn /timeout:2147483646"
+    entrypoint: cmd /c "start /B powershell C:/Sitecore/Scripts/Watch-Directory.ps1 C:\src C:\inetpub\sc -ExcludeFiles @('ConnectionStrings.config') & cmd /c & start /B powershell C:/scripts/CopyConfigs.ps1 & C:\\remote_debugger\\x64\\msvsmon.exe /noauth /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn /timeout:2147483646"
     volumes:
+      - .\scripts\Docker:C:\scripts
       - .\publish\web:C:\src
       - .\data\cm:C:\inetpub\sc\App_Data\logs
       - .\data\creativeexchange:C:\inetpub\sc\App_Data\packages\CreativeExchange\FileStorage
-      - ${REMOTEDEBUGGER_PATH}:C:\remote_debugger:ro
+      - ${REMOTEDEBUGGER_PATH}:C:\remote_debugger
     ports:
       - "80:80"
     links:
