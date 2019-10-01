@@ -15,8 +15,7 @@ var configJsonFile = "cake-config.json";
 var unicornSyncScript = $"./scripts/Unicorn/Sync.ps1";
 var packagingScript = $"./scripts/Packaging/generate-update-package.ps1";
 var dacpacScript = $"./scripts/Packaging/generate-dacpac.ps1";
-
-var publishLocal = false;
+var publishLocal = (target == "Publish-Local") || (target == "Docker-Container");
 
 
 /*===============================================
@@ -31,7 +30,6 @@ Setup(context =>
   var configFile = new FilePath(configJsonFile);
   configuration = DeserializeJsonFromFile<Configuration>(configFile);
   configuration.SolutionFile =  $"{configuration.ProjectFolder}\\{configuration.SolutionName}";
-  publishLocal = target == "Publish-Local" || target == "Docker-Container";
 
   if (publishLocal) {
     configuration.BuildConfiguration = "NoDeploy";
@@ -43,14 +41,17 @@ Setup(context =>
 ============ Local Build - Main Tasks ===========
 ===============================================*/
 
-Task("Default")
+Task("Base-Build")
 .WithCriteria(configuration != null)
 .IsDependentOn("CleanBuildFolders")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
-.IsDependentOn("Publish-xConnect-Project")
 .IsDependentOn("Apply-Xml-Transform")
+.IsDependentOn("Publish-xConnect-Project");
+
+Task("Default")
+.IsDependentOn("Base-Build")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
 .IsDependentOn("Post-Deploy");
 
@@ -64,39 +65,20 @@ Task("Post-Deploy")
 .IsDependentOn("Rebuild-Test-Index");
 
 Task("Docker-Container")
-.WithCriteria(configuration != null)
-.IsDependentOn("Copy-Sitecore-Lib")
-.IsDependentOn("Modify-PublishSettings")
-.IsDependentOn("Publish-All-Projects")
-.IsDependentOn("Publish-xConnect-Project")
-.IsDependentOn("Apply-Xml-Transform")
+.IsDependentOn("Base-Build")
 .IsDependentOn("Copy-to-Destination")
 .IsDependentOn("Merge-and-Copy-Xml-Transform")
 .IsDependentOn("Generate-Dacpacs")
 .IsDependentOn("Post-Deploy");
 
 Task("Quick-Deploy")
-.WithCriteria(configuration != null)
-.IsDependentOn("CleanBuildFolders")
-.IsDependentOn("Copy-Sitecore-Lib")
-.IsDependentOn("Modify-PublishSettings")
-.IsDependentOn("Publish-All-Projects")
-.IsDependentOn("Apply-Xml-Transform")
-.IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Publish-xConnect-Project");
+.IsDependentOn("Base-Build")
+.IsDependentOn("Modify-Unicorn-Source-Folder");
 
 Task("Publish-Local")
 .WithCriteria(configuration != null)
-.IsDependentOn("CleanBuildFolders")
 .IsDependentOn("CleanPublishFolders")
-.IsDependentOn("Copy-Sitecore-Lib")
-.IsDependentOn("Modify-PublishSettings")
-.IsDependentOn("Build-Solution")
-.IsDependentOn("Publish-Core-Project")
-.IsDependentOn("Publish-Foundation-Projects")
-.IsDependentOn("Publish-Feature-Projects")
-.IsDependentOn("Publish-Project-Projects")
-.IsDependentOn("Publish-xConnect-Project")
+.IsDependentOn("Base-Build")
 .IsDependentOn("Copy-to-Destination")
 .IsDependentOn("Merge-and-Copy-Xml-Transform")
 .IsDependentOn("Generate-Dacpacs");
@@ -113,10 +95,6 @@ Task("CleanBuildFolders").Does(() => {
   // Clean project build folders
   CleanDirectories($"{configuration.SourceFolder}/**/obj");
   CleanDirectories($"{configuration.SourceFolder}/**/bin");
-  CleanDirectories(configuration.PublishWebFolder);
-  CleanDirectories(configuration.PublishxConnectFolder);
-  CleanDirectories(configuration.PublishDataFolder);
-  CleanDirectories(configuration.PublishTempFolder);
 });
 
 Task("CleanPublishFolders").Does(()=> {
