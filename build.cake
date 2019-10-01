@@ -15,7 +15,6 @@ var configJsonFile = "cake-config.json";
 var unicornSyncScript = $"./scripts/Unicorn/Sync.ps1";
 var packagingScript = $"./scripts/Packaging/generate-update-package.ps1";
 var dacpacScript = $"./scripts/Packaging/generate-dacpac.ps1";
-var doNotDeployUnicorn = target == "Docker-Container";
 
 var publishLocal = false;
 
@@ -378,7 +377,7 @@ Task("Modify-PublishSettings").Does(() => {
   XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
 });
 
-Task("Sync-Unicorn").WithCriteria(!doNotDeployUnicorn).Does(() => {
+Task("Sync-Unicorn").WithCriteria(!publishLocal).Does(() => {
   var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
   Information("Sync Unicorn items from url: " + unicornUrl);
 
