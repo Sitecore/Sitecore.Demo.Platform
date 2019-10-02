@@ -110,7 +110,7 @@ public FilePathCollection GetTransformFiles(string rootFolder)
   return xdtFiles;
 }
 
-public void Transform(string rootFolder, string filter)
+public void Transform(string rootFolder, string filter, string publishDestination)
 {
   var xdtFiles = GetTransformFiles(rootFolder);
 
@@ -122,7 +122,7 @@ public void Transform(string rootFolder, string filter)
     Information($"Applying configuration transform:{file.FullPath}");
     var fileToTransform = Regex.Replace(file.FullPath, $".+{filter}/(.*.config).?(.*).xdt", "$1");
     fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
-    var sourceTransform = $"{configuration.WebsiteRoot}\\{fileToTransform}";
+    var sourceTransform = $"{publishDestination}\\{fileToTransform}";
 
     XdtTransformConfig(sourceTransform		// Source File
               , file.FullPath		// Tranforms file (*.xdt)
@@ -219,8 +219,6 @@ public void MergeTransforms(string source, string destination)
     Information($"Processing {xdtFilePath}");
     FilePath fileToTransform = Regex.Replace(file.FullPath, "(.*.config).?(.*)", "$1.xdt");
 
-    fileToTransform = (FilePath)Regex.Replace(fileToTransform.FullPath, ".sc-internal", "");
-    fileToTransform = (FilePath)Regex.Replace(fileToTransform.FullPath, ".azure","");
     fileToTransform = ((FilePath)$"{source}").GetRelativePath((FilePath)fileToTransform);
     FilePath sourceTransform = $"{(FilePath)fileToTransform}";
 

@@ -15,7 +15,7 @@ var configJsonFile = "cake-config.json";
 var unicornSyncScript = $"./scripts/Unicorn/Sync.ps1";
 var packagingScript = $"./scripts/Packaging/generate-update-package.ps1";
 var dacpacScript = $"./scripts/Packaging/generate-dacpac.ps1";
-var publishLocal = (target == "Publish-Local") || (target == "Docker-Container");
+bool publishLocal = false;
 
 
 /*===============================================
@@ -30,7 +30,7 @@ Setup(context =>
   var configFile = new FilePath(configJsonFile);
   configuration = DeserializeJsonFromFile<Configuration>(configFile);
   configuration.SolutionFile =  $"{configuration.ProjectFolder}\\{configuration.SolutionName}";
-
+  publishLocal = (target == "Publish-Local") || (target == "Docker-Container");
   if (publishLocal) {
     configuration.BuildConfiguration = "NoDeploy";
     configuration.SolutionFile = configuration.SolutionFile.Replace(".sln",".TDS.sln");
@@ -47,15 +47,16 @@ Task("Base-Build")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings")
 .IsDependentOn("Publish-All-Projects")
-.IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Publish-xConnect-Project");
 
 Task("Default")
 .IsDependentOn("Base-Build")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Post-Deploy");
+.IsDependentOn("Post-Deploy")
+.IsDependentOn("Apply-DotnetCore-Transforms");
 
 Task("Post-Deploy")
+.IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Sync-Unicorn")
 .IsDependentOn("Deploy-EXM-Campaigns")
 .IsDependentOn("Deploy-Marketing-Definitions")
@@ -68,8 +69,8 @@ Task("Docker-Container")
 .IsDependentOn("Base-Build")
 .IsDependentOn("Copy-to-Destination")
 .IsDependentOn("Merge-and-Copy-Xml-Transform")
-.IsDependentOn("Generate-Dacpacs")
-.IsDependentOn("Post-Deploy");
+.IsDependentOn("Apply-Xml-Transform")
+.IsDependentOn("Apply-DotnetCore-Transforms");
 
 Task("Quick-Deploy")
 .IsDependentOn("Base-Build")
@@ -119,7 +120,6 @@ Task("Copy-Sitecore-Lib")
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
 .IsDependentOn("Publish-Core-Project")
-.IsDependentOn("Apply-DotnetCore-Transforms")
 .IsDependentOn("Publish-Foundation-Projects")
 .IsDependentOn("Publish-Feature-Projects")
 .IsDependentOn("Publish-Project-Projects");
@@ -198,7 +198,11 @@ Task("Copy-to-Destination").Does(()=>{
 });
 Task("Apply-DotnetCore-Transforms").Does(() => {
   var publishFolder = $"{configuration.PublishTempFolder}";
-  Transform(publishFolder, "transforms");
+  var destination = configuration.WebsiteRoot;
+  if (publishLocal) {
+    destination = configuration.PublishWebFolder;
+  }
+  Transform(publishFolder, "transforms", destination);
 });
 
 Task("Publish-YML").Does(() => {
@@ -279,10 +283,13 @@ Task("Publish-xConnect-Project").Does(() => {
 
 Task("Apply-Xml-Transform").Does(() => {
   var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
-
+  var publishDestination = configuration.WebsiteRoot;
+   if (publishLocal) {
+    publishDestination = configuration.PublishWebFolder;
+  }
   foreach(var layer in layers)
   {
-    Transform(layer,"code");
+    Transform(layer,"code", publishDestination);
   }
 });
 
@@ -326,15 +333,15 @@ Task("Modify-Unicorn-Source-Folder").Does(() => {
 });
 
 Task("Turn-On-Unicorn").Does(() => {
-	var webConfigFile = File($"{configuration.WebsiteRoot}/web.config");
-	var xmlSetting = new XmlPokeSettings {
-		Namespaces = new Dictionary<string, string> {
-			{"patch", @"http://www.sitecore.net/xmlconfig/"}
-		}
-	};
+  var webConfigFile = File($"{configuration.WebsiteRoot}/web.config");
+  var xmlSetting = new XmlPokeSettings {
+    Namespaces = new Dictionary<string, string> {
+      {"patch", @"http://www.sitecore.net/xmlconfig/"}
+    }
+  };
 
-	var unicornAppSettingXPath = "configuration/appSettings/add[@key='unicorn:define']/@value";
-	XmlPoke(webConfigFile, unicornAppSettingXPath, "On", xmlSetting);
+  var unicornAppSettingXPath = "configuration/appSettings/add[@key='unicorn:define']/@value";
+  XmlPoke(webConfigFile, unicornAppSettingXPath, "On", xmlSetting);
 });
 
 Task("Modify-PublishSettings").Does(() => {
@@ -355,7 +362,10 @@ Task("Modify-PublishSettings").Does(() => {
   XmlPoke(destination,publishUrlPath,$"{configuration.InstanceUrl}",xmlSetting);
 });
 
-Task("Sync-Unicorn").WithCriteria(!publishLocal).Does(() => {
+Task("Sync-Unicorn")
+  .WithCriteria(publishLocal != true)
+  .Does(() => {
+
   var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
   Information("Sync Unicorn items from url: " + unicornUrl);
 
