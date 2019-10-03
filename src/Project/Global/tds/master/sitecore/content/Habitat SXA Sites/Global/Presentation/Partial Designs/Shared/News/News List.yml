@@ -41,31 +41,11 @@ Languages:
               s:ph="main" />
             <r
               uid="{D66A5134-43B8-441F-BBEF-A6A1CAC747FE}"
-              p:after="r[@uid='{09934284-75E3-4262-A691-330AEDD65663}']"
+              p:after="*[1=2]"
               s:ds="{2E2D3471-609E-4E54-A8C6-745708066822}"
               s:id="{C4060A7D-74EF-4998-9B8A-737EDB4E41B5}"
               s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;SearchSignature=news-search&amp;Styles&amp;Reset Caching Options&amp;CollapsedModeTreshold&amp;RenderingIdentifier"
               s:ph="main" />
-            <r
-              uid="{B9807FE9-1AFF-46B1-A766-A6A6877F80C7}"
-              p:after="r[@uid='{D66A5134-43B8-441F-BBEF-A6A1CAC747FE}']"
-              s:id="{99A633FC-B9A9-44A0-B78A-BCBB08DD02C9}"
-              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-              s:ph="/main/sxa-content-container/container-1" />
-            <r
-              uid="{F8E729BA-2BBE-4BC3-B9EB-4E4C486C8704}"
-              p:after="r[@uid='{B9807FE9-1AFF-46B1-A766-A6A6877F80C7}']"
-              s:ds="{CC4586DA-EA64-4E44-8A0D-E3AB8CDB524B}"
-              s:id="{FAE0D244-55C1-4F1B-8ED5-590C9F131CEE}"
-              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;SearchSignature=news-search&amp;FieldNames=%7B672A79AC-9DB3-4E2B-947B-3FB53B9FA342%7D&amp;Styles&amp;Reset Caching Options&amp;Scope=%7BE99AE91F-DF30-4E3F-8241-8DFD3D096D22%7D&amp;PageSize=6&amp;DefaultLanguageFilter&amp;DefaultSortOrder=%7B3BFF90D3-7B02-4E4C-90D7-01B570857B85%7D&amp;AutoFireSearchWhenNoCriteriaSet=1&amp;RenderingIdentifier=news-search&amp;DynamicPlaceholderId=1"
-              s:ph="/main/sxa-content-container/container-1" />
-            <r
-              uid="{1449A7DB-CABD-4887-B991-B057F579CF0A}"
-              p:after="*[1=2]"
-              s:ds="{2E2D3471-609E-4E54-A8C6-745708066822}"
-              s:id="{C4060A7D-74EF-4998-9B8A-737EDB4E41B5}"
-              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;SearchSignature=news-search&amp;Styles&amp;Reset Caching Options&amp;CollapsedModeTreshold&amp;RenderingIdentifier"
-              s:ph="/main/sxa-content-container/container-1" />
           </d>
         </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
@@ -77,11 +57,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ff6b9a85-3698-4a27-bbd6-3a9479fe476e"
+      Value: "ae2680d2-0b9d-41c6-b055-6491ff8d290a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20190930T174212Z
+      Value: 20191003T182013Z

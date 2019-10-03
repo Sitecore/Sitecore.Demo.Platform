@@ -1,17 +1,14 @@
 ---
-ID: "74436970-ebc6-42ae-b87f-4ac0aae758b3"
-Parent: "07d99138-ccce-4949-9f56-89f1e73f45e8"
+ID: "aae330c7-5ecd-4e7a-84f4-8821b4111273"
+Parent: "9224ff54-b18e-47a1-8359-227bb71d91d5"
 Template: "c645dd63-2462-470c-a48d-8b55757a2db3"
-Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Search Results/image right article card/Card/row/Card Body/Publish Date
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Author Teaser/Blog Author/Author Wrapper/Info Wrapper/Author Name/Author Name
 DB: master
-Created: 20191003T180932Z
+Created: 20191003T183146Z
 SharedFields:
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 0
 - ID: "eb8432b6-dabf-48ea-b7fd-a70cf40bd300"
   Hint: Tag
-  Value: "{70EE2402-471E-4649-A22B-2C3EBCF1E138}"
+  Value: "{10CDAEA8-DD82-4A45-A4C6-85D03E5FC725}"
 Languages:
 - Language: en
   Versions:
@@ -19,7 +16,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20191003T180932Z
+      Value: 20190925T152445Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -30,7 +27,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c43576b6-28ac-46ae-a9bc-8e71e644f625"
+      Value: "59659c08-51d4-439b-b24c-afc6fa5557b0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -38,7 +35,7 @@ Languages:
     - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
       Hint: Template
       Value: |
-        $dateTool.Format($item.PublishDate, "MMMM d, yyyy")
+        <a href="/blog#blog-search_author=$item.AuthorName">$item.AuthorName</a>
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191003T181052Z
+      Value: 20191003T183223Z

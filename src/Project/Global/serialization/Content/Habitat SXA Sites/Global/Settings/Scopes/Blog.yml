@@ -1,14 +1,14 @@
 ---
-ID: "79901702-e4a9-41e3-a615-0916c23f2e30"
-Parent: "04e30fac-1056-4f1b-a14d-464e9ae6c909"
-Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
-Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Search Results/image right article card/Card/row
+ID: "b9514a4d-266a-4612-b24f-bc3390be28e1"
+Parent: "1976f02a-ddd8-4853-b63f-d4e99d787ebb"
+Template: "8b649372-cc12-4f31-802a-8c3b3d09bb3f"
+Path: /sitecore/content/Habitat SXA Sites/Global/Settings/Scopes/Blog
 DB: master
-Created: 20191003T180820Z
+Created: 20191003T173431Z
 SharedFields:
-- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
-  Hint: CssClass
-  Value: row
+- ID: "b04fe662-2b23-44dd-b971-2b864a1ec55f"
+  Hint: ScopeQuery
+  Value: "+template:{9E655297-B109-4673-ACB8-D661C9007736};sxa:UnderCurrentPage"
 Languages:
 - Language: en
   Versions:
@@ -16,7 +16,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20191003T180820Z
+      Value: 20190921T121248Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -27,11 +27,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c15610ab-3c5a-472d-b8c1-825cbd515e84"
+      Value: "a68bf525-2512-4f58-a583-688a0c78ff8f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191003T180824Z
+      Value: 20191003T173443Z
