@@ -32,7 +32,14 @@ Setup(context =>
   configuration.SolutionFile =  $"{configuration.ProjectFolder}\\{configuration.SolutionName}";
   publishLocal = (target == "Publish-Local") || (target == "Docker-Container");
   if (publishLocal) {
-    configuration.BuildConfiguration = "NoDeploy";
+    if (target == "Docker-Container"){
+      configuration.BuildConfiguration = "DockerDeploy";
+    }
+    else
+    {
+      configuration.BuildConfiguration = "NoDeploy";
+    }
+
     configuration.SolutionFile = configuration.SolutionFile.Replace(".sln",".TDS.sln");
   }
 });
