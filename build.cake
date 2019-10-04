@@ -30,18 +30,17 @@ Setup(context =>
   var configFile = new FilePath(configJsonFile);
   configuration = DeserializeJsonFromFile<Configuration>(configFile);
   configuration.SolutionFile =  $"{configuration.ProjectFolder}\\{configuration.SolutionName}";
-  publishLocal = (target == "Publish-Local") || (target == "Docker-Container");
+  publishLocal = (target == "Publish-Local") ;
   if (publishLocal) {
-    if (target == "Docker-Container"){
-      configuration.BuildConfiguration = "DockerDeploy";
-    }
-    else
-    {
-      configuration.BuildConfiguration = "NoDeploy";
-    }
+    configuration.BuildConfiguration = "NoDeploy";
   }
 
-  if (publishLocal || target == "Build-TDS") {
+  if (target.Contains("Docker")) {
+      configuration.BuildConfiguration = "DockerDeploy";
+      configuration.InstanceUrl = configuration.InstanceUrl.Replace("https","http");
+    }
+
+  if (publishLocal || target == "Build-TDS" || target.Contains("Docker")) {
     configuration.SolutionFile = configuration.SolutionFile.Replace(".sln",".TDS.sln");
   }
 });
@@ -88,12 +87,7 @@ Task("Post-Deploy")
 .IsDependentOn("Rebuild-Test-Index");
 
 Task("Docker-Container")
-.IsDependentOn("Base-PreBuild")
-.IsDependentOn("Base-Publish")
-.IsDependentOn("Copy-to-Destination")
-.IsDependentOn("Merge-and-Copy-Xml-Transform")
-.IsDependentOn("Apply-Xml-Transform")
-.IsDependentOn("Apply-DotnetCore-Transforms");
+.IsDependentOn("Build-TDS");
 
 Task("Quick-Deploy")
 .IsDependentOn("Base-PreBuild")
@@ -259,7 +253,8 @@ Task("Apply-DotnetCore-Transforms").Does(() => {
   if (publishLocal) {
     destination = configuration.PublishWebFolder;
   }
-  Transform(publishFolder, "transforms", destination);
+  string[] excludePattern = {"ssl","azure"};
+  Transform(publishFolder, "transforms", destination, excludePattern);
 });
 
 Task("Publish-YML").Does(() => {
@@ -346,7 +341,7 @@ Task("Apply-Xml-Transform").Does(() => {
   }
   foreach(var layer in layers)
   {
-    Transform(layer,"code", publishDestination);
+    Transform(layer,"code", publishDestination,null);
   }
 });
 

@@ -103,22 +103,24 @@ public void PublishCoreProjects(string rootFolder, string publishRoot)
 
 public FilePathCollection GetTransformFiles(string rootFolder)
 {
-  Func<IFileSystemInfo, bool> exclude_obj_bin_folder =fileSystemInfo => !fileSystemInfo.Path.FullPath.Contains("/obj/") && !fileSystemInfo.Path.FullPath.Contains("/bin/");
+  Func<IFileSystemInfo, bool> exclude_obj_bin_folder = fileSystemInfo => !fileSystemInfo.Path.FullPath.Contains("/obj/") && !fileSystemInfo.Path.FullPath.Contains("/bin/");
 
   var xdtFiles = GetFiles($"{rootFolder}\\**\\*.xdt", exclude_obj_bin_folder);
 
   return xdtFiles;
 }
 
-public void Transform(string rootFolder, string filter, string publishDestination)
+public void Transform(string rootFolder, string filter, string publishDestination, string[] excludePatterns)
 {
   var xdtFiles = GetTransformFiles(rootFolder);
+  
 
   foreach (var file in xdtFiles) {
-    if (file.FullPath.Contains(".azure")) {
+
+    if (excludePatterns.Any(s => file.FullPath.ToLower().Contains(s.ToLower()))) {
+      Information ($"Skipping {file}");
       continue;
     }
-
     Information($"Applying configuration transform:{file.FullPath}");
     var fileToTransform = Regex.Replace(file.FullPath, $".+{filter}/(.*.config).?(.*).xdt", "$1");
     fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
