@@ -43,7 +43,7 @@ public class Configuration
   public string PublishWebFolder => $"{ProjectFolder}\\Publish\\Web";
   public string PublishxConnectFolder => $"{ProjectFolder}\\Publish\\xConnect";
   public string PublishDataFolder => $"{ProjectFolder}\\Publish\\Data";
-  
+
   public MSBuildToolVersion MSBuildToolVersion => this._msBuildToolVersion;
   public string BuildTargets => this.RunCleanBuilds ? "Clean;Build" : "Build";
 }
@@ -159,7 +159,7 @@ private MSBuildSettings InitializeMSBuildSettingsInternal(MSBuildSettings settin
     .SetMSBuildPlatform(MSBuildPlatform.Automatic)
     .SetPlatformTarget(PlatformTarget.MSIL)
     .UseToolVersion(configuration.MSBuildToolVersion)
-    .SetMaxCpuCount(8);
+    .SetMaxCpuCount(1);
   return settings;
 }
 

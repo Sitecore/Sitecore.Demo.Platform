@@ -52,7 +52,7 @@ Setup(context =>
 
 Task("Base-PreBuild")
 .WithCriteria(configuration != null)
-.IsDependentOn("CleanAll")
+.IsDependentOn("CleanBuildFolders")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings");
 
@@ -125,6 +125,7 @@ Task("CleanBuildFolders").Does(() => {
   // Clean project build folders
   CleanDirectories($"{configuration.SourceFolder}/**/obj");
   CleanDirectories($"{configuration.SourceFolder}/**/bin");
+  CleanDirectories(configuration.PublishTempFolder);
 });
 
 Task("CleanPublishFolders").Does(()=> {
