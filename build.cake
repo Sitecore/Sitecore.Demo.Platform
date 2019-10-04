@@ -39,7 +39,9 @@ Setup(context =>
     {
       configuration.BuildConfiguration = "NoDeploy";
     }
+  }
 
+  if (publishLocal || target == "Build-TDS") {
     configuration.SolutionFile = configuration.SolutionFile.Replace(".sln",".TDS.sln");
   }
 });
@@ -48,19 +50,32 @@ Setup(context =>
 ============ Local Build - Main Tasks ===========
 ===============================================*/
 
-Task("Base-Build")
+Task("Base-PreBuild")
 .WithCriteria(configuration != null)
-.IsDependentOn("CleanBuildFolders")
+.IsDependentOn("CleanAll")
 .IsDependentOn("Copy-Sitecore-Lib")
-.IsDependentOn("Modify-PublishSettings")
+.IsDependentOn("Modify-PublishSettings");
+
+Task("Base-Publish")
+.WithCriteria(configuration != null)
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Publish-xConnect-Project");
 
 Task("Default")
-.IsDependentOn("Base-Build")
+.IsDependentOn("Base-PreBuild")
+.IsDependentOn("Base-Publish")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
 .IsDependentOn("Post-Deploy")
 .IsDependentOn("Apply-DotnetCore-Transforms");
+
+Task("Build-TDS")
+.IsDependentOn("Base-PreBuild")
+.IsDependentOn("Restore-TDS-NuGetPackages")
+.IsDependentOn("Publish-Core-Project")
+.IsDependentOn("Apply-DotnetCore-Transforms")
+.IsDependentOn("Build-Solution")
+.IsDependentOn("Publish-xConnect-Project")
+.IsDependentOn("Post-Deploy");
 
 Task("Post-Deploy")
 .IsDependentOn("Apply-Xml-Transform")
@@ -73,20 +88,23 @@ Task("Post-Deploy")
 .IsDependentOn("Rebuild-Test-Index");
 
 Task("Docker-Container")
-.IsDependentOn("Base-Build")
+.IsDependentOn("Base-PreBuild")
+.IsDependentOn("Base-Publish")
 .IsDependentOn("Copy-to-Destination")
 .IsDependentOn("Merge-and-Copy-Xml-Transform")
 .IsDependentOn("Apply-Xml-Transform")
 .IsDependentOn("Apply-DotnetCore-Transforms");
 
 Task("Quick-Deploy")
-.IsDependentOn("Base-Build")
+.IsDependentOn("Base-PreBuild")
+.IsDependentOn("Base-Publish")
 .IsDependentOn("Modify-Unicorn-Source-Folder");
 
 Task("Publish-Local")
 .WithCriteria(configuration != null)
 .IsDependentOn("CleanPublishFolders")
-.IsDependentOn("Base-Build")
+.IsDependentOn("Base-PreBuild")
+.IsDependentOn("Base-Publish")
 .IsDependentOn("Copy-to-Destination")
 .IsDependentOn("Merge-and-Copy-Xml-Transform")
 .IsDependentOn("Generate-Dacpacs");
@@ -94,6 +112,10 @@ Task("Publish-Local")
 /*===============================================
 ================= SUB TASKS =====================
 ===============================================*/
+
+Task("Restore-TDS-NuGetPackages").Does(()=>{
+  NuGetRestore(configuration.SolutionFile);
+});
 
 Task("CleanAll")
 .IsDependentOn("CleanBuildFolders")
@@ -156,6 +178,13 @@ Task("Publish-Feature-Projects").Does(() => {
 });
 
 Task("Publish-Core-Project").Does(() => {
+  var destination = configuration.WebsiteRoot;
+
+  if (publishLocal) {
+    destination = configuration.PublishTempFolder;
+  }
+  Information("Destination: " + destination);
+
   var projectFile = $"{configuration.SourceFolder}\\Build\\Build.Website\\code\\Build.Website.csproj";
   var publishFolder = $"{configuration.PublishTempFolder}";
 
@@ -175,6 +204,26 @@ Task("Publish-Core-Project").Does(() => {
 
   DotNetCorePublish(projectFile, settings);
 
+  // Copy assembly files to webroot
+  var assemblyFilesFilter = $@"{publishFolder}\*.dll";
+  var assemblyFiles = GetFiles(assemblyFilesFilter).Select(x=>x.FullPath).ToList();
+  EnsureDirectoryExists(destination+"\\bin");
+  CopyFiles(assemblyFiles, (destination + "\\bin"), preserveFolderStructure: false);
+
+  // Copy other output files to destination webroot
+  var ignoredExtensions = new string[] { ".dll", ".exe", ".pdb", ".xdt" };
+  var ignoredFilesPublishFolderPath = publishFolder.ToLower().Replace("\\", "/");
+  var ignoredFiles = new string[] {
+    $"{ignoredFilesPublishFolderPath}/web.config",
+    $"{ignoredFilesPublishFolderPath}/build.website.deps.json",
+    $"{ignoredFilesPublishFolderPath}/build.website.exe.config"
+  };
+
+  var contentFiles = GetFiles($"{publishFolder}\\**\\*")
+                      .Where(file => !ignoredExtensions.Contains(file.GetExtension().ToLower()))
+                      .Where(file => !ignoredFiles.Contains(file.FullPath.ToLower()));
+
+  CopyFiles(contentFiles, destination, preserveFolderStructure: true);
 });
 
 Task("Copy-to-Destination").Does(()=>{
@@ -370,9 +419,10 @@ Task("Modify-PublishSettings").Does(() => {
 });
 
 Task("Sync-Unicorn")
-  .WithCriteria(publishLocal != true)
-  .Does(() => {
-
+.WithCriteria(publishLocal != true)
+.WithCriteria(target != "Build-TDS")
+.IsDependentOn("Turn-On-Unicorn")
+.Does(() => {
   var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
   Information("Sync Unicorn items from url: " + unicornUrl);
 

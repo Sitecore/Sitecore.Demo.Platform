@@ -25,38 +25,80 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HabitatHome", "HabitatHome", "{563C5D6A-0964-4778-9DF1-DA0A1BB6C044}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.Website", "src\Project\HabitatHome\code\Sitecore.HabitatHome.Website.csproj", "{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0357237-F818-4EBE-B5A4-8BDDD144E814} = {C0357237-F818-4EBE-B5A4-8BDDD144E814}
+		{FEA9BDF2-4014-4288-99BA-D511847F6D9C} = {FEA9BDF2-4014-4288-99BA-D511847F6D9C}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xConnect", "xConnect", "{BE63361D-A629-48C2-9D0E-9DE1B9733C2B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.XConnect", "src\Project\xConnect\code\Sitecore.HabitatHome.XConnect.csproj", "{0C513600-DB12-4ADC-999C-14277FFDF0C8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0357237-F818-4EBE-B5A4-8BDDD144E814} = {C0357237-F818-4EBE-B5A4-8BDDD144E814}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HabitatHomeBasic", "HabitatHomeBasic", "{1C3AD5D6-3B65-4958-9BC2-E6D6FC89CB2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.Basic.Website", "src\Project\HabitatHomeBasic\code\Sitecore.HabitatHome.Basic.Website.csproj", "{48F5BD4A-C481-4FCF-8044-9A8813D3510D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0357237-F818-4EBE-B5A4-8BDDD144E814} = {C0357237-F818-4EBE-B5A4-8BDDD144E814}
+		{FEA9BDF2-4014-4288-99BA-D511847F6D9C} = {FEA9BDF2-4014-4288-99BA-D511847F6D9C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.Website.Test", "src\Project\HabitatHome\tests\Sitecore.HabitatHome.Website.Test.csproj", "{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750} = {BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.Global.Website", "src\Project\Global\code\Sitecore.HabitatHome.Global.Website.csproj", "{73A57FBE-7088-4344-87DC-23B01B504EC9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0357237-F818-4EBE-B5A4-8BDDD144E814} = {C0357237-F818-4EBE-B5A4-8BDDD144E814}
+		{FEA9BDF2-4014-4288-99BA-D511847F6D9C} = {FEA9BDF2-4014-4288-99BA-D511847F6D9C}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Experience Accelerator", "Experience Accelerator", "{8404CBD0-F0F1-406A-82CA-5F8468764872}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.Feature.ExperienceAccelerator", "src\Feature\ExperienceAccelerator\code\Sitecore.HabitatHome.Feature.ExperienceAccelerator.csproj", "{FEA9BDF2-4014-4288-99BA-D511847F6D9C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0357237-F818-4EBE-B5A4-8BDDD144E814} = {C0357237-F818-4EBE-B5A4-8BDDD144E814}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{570909EC-75B1-462F-A542-1345CFD15FB9}"
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.HabitatHome.Global.Website.Master", "src\Project\Global\tds\master\Sitecore.HabitatHome.Global.Website.Master.scproj", "{205A095A-8995-4AE5-A401-D7F386A57E48}"
+	ProjectSection(ProjectDependencies) = postProject
+		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076} = {10BD3228-8C40-4CBC-AB7F-2B5AD1494076}
+		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E} = {7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}
+	EndProjectSection
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.HabitatHome.Website.Master", "src\Project\HabitatHome\tds\master\Sitecore.HabitatHome.Website.Master.scproj", "{826306EB-DB92-4004-A7F4-01FC343D9D0D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076} = {10BD3228-8C40-4CBC-AB7F-2B5AD1494076}
+		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E} = {7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}
+	EndProjectSection
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.HabitatHome.Basic.Website.Master", "src\Project\HabitatHomeBasic\tds\master\Sitecore.HabitatHome.Basic.Website.Master.scproj", "{DEEA75F2-B542-48AD-8CE7-CC958E27619B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{10BD3228-8C40-4CBC-AB7F-2B5AD1494076} = {10BD3228-8C40-4CBC-AB7F-2B5AD1494076}
+		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E} = {7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}
+	EndProjectSection
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.HabitatHome.Feature.XA.Master", "src\Feature\ExperienceAccelerator\tds\master\Sitecore.HabitatHome.Feature.XA.Master.scproj", "{10BD3228-8C40-4CBC-AB7F-2B5AD1494076}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E} = {7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}
+	EndProjectSection
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Sitecore.HabitatHome.Feature.XA.Core", "src\Feature\ExperienceAccelerator\tds\core\Sitecore.HabitatHome.Feature.XA.Core.scproj", "{04070F82-3500-472C-BF75-3512241F551C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1} = {585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build.Website", "src\Build\Build.Website\code\Build.Website.csproj", "{C0357237-F818-4EBE-B5A4-8BDDD144E814}"
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Build.Website.Core", "src\Build\Build.Website\tds\core\Build.Website.Core.scproj", "{585DF7F8-2AD0-431C-92D5-ED4D3737CEA1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0357237-F818-4EBE-B5A4-8BDDD144E814} = {C0357237-F818-4EBE-B5A4-8BDDD144E814}
+	EndProjectSection
 EndProject
 Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "Build.Website.Master", "src\Build\Build.Website\tds\master\Build.Website.Master.scproj", "{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E}"
 EndProject
@@ -335,7 +377,7 @@ Global
 		{7E3CF87D-CDE6-4B3A-9BEB-8E505F23188E} = {570909EC-75B1-462F-A542-1345CFD15FB9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal
