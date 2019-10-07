@@ -37,6 +37,8 @@ Setup(context =>
 
   if (target.Contains("Docker")) {
       configuration.BuildConfiguration = "DockerDeploy";
+      configuration.WebsiteRoot =  $"{configuration.ProjectFolder}\\Publish\\Web\\";
+      configuration.XConnectRoot =  $"{configuration.ProjectFolder}\\Publish\\xConnect\\";
       configuration.InstanceUrl = configuration.InstanceUrl.Replace("https","http");
     }
 
