@@ -41,10 +41,24 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Package-CM' ">
     <DebugSymbols>false</DebugSymbols>
     <RecursiveDeployAction>Ignore</RecursiveDeployAction>
-    <OutputPath>bin\Package-CM\</OutputPath>
+    <OutputPath>.\bin\Package-CM\</OutputPath>
+    <InstallSitecoreConnector>False</InstallSitecoreConnector>
+    <DisableFileDeployment>False</DisableFileDeployment>
+    <LightningDeployMode>False</LightningDeployMode>
+    <ConnectorTimeoutSeconds>120</ConnectorTimeoutSeconds>
+    <BuildWebDeploy>True</BuildWebDeploy>
+    <WebDeployPackageCodeAndItemOptions>CodeAndItems</WebDeployPackageCodeAndItemOptions>
+    <WebDeployPackageName>HabitatHome-CM</WebDeployPackageName>
+    <WebDeployAppendDateAndTimeToPackageName>False</WebDeployAppendDateAndTimeToPackageName>
+    <ContinueOnItemDeployError>False</ContinueOnItemDeployError>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Package-CD' ">
-    <OutputPath>bin\Package-CD\</OutputPath>
+    <OutputPath>.\bin\Package-CD\</OutputPath>
+    <InstallSitecoreConnector>False</InstallSitecoreConnector>
+    <RecursiveDeployAction>Ignore</RecursiveDeployAction>
+    <DisableFileDeployment>False</DisableFileDeployment>
+    <LightningDeployMode>False</LightningDeployMode>
+    <ConnectorTimeoutSeconds>120</ConnectorTimeoutSeconds>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'NoDeploy' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,7 +68,10 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'DockerDeploy' ">
     <DebugSymbols>true</DebugSymbols>
     <RecursiveDeployAction>Ignore</RecursiveDeployAction>
-    <OutputPath>bin\DockerDeploy\</OutputPath>
+    <OutputPath>.\bin\DockerDeploy\</OutputPath>
+    <DisableFileDeployment>False</DisableFileDeployment>
+    <LightningDeployMode>False</LightningDeployMode>
+    <ConnectorTimeoutSeconds>120</ConnectorTimeoutSeconds>
   </PropertyGroup>
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">

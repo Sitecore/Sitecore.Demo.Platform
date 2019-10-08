@@ -16,7 +16,7 @@ var unicornSyncScript = $"./scripts/Unicorn/Sync.ps1";
 var packagingScript = $"./scripts/Packaging/generate-update-package.ps1";
 var dacpacScript = $"./scripts/Packaging/generate-dacpac.ps1";
 bool publishLocal = false;
-
+bool syncUnicorn = true;
 
 /*===============================================
 ================ MAIN TASKS =====================
@@ -31,6 +31,7 @@ Setup(context =>
   configuration = DeserializeJsonFromFile<Configuration>(configFile);
   configuration.SolutionFile =  $"{configuration.ProjectFolder}\\{configuration.SolutionName}";
   publishLocal = (target == "Publish-Local") ;
+
   if (publishLocal) {
     configuration.BuildConfiguration = "NoDeploy";
   }
@@ -44,6 +45,7 @@ Setup(context =>
 
   if (publishLocal || target == "Build-TDS" || target.Contains("Docker")) {
     configuration.SolutionFile = configuration.SolutionFile.Replace(".sln",".TDS.sln");
+    syncUnicorn = false;
   }
 });
 
@@ -52,13 +54,11 @@ Setup(context =>
 ===============================================*/
 
 Task("Base-PreBuild")
-.WithCriteria(configuration != null)
 .IsDependentOn("CleanBuildFolders")
 .IsDependentOn("Copy-Sitecore-Lib")
 .IsDependentOn("Modify-PublishSettings");
 
 Task("Base-Publish")
-.WithCriteria(configuration != null)
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Publish-xConnect-Project");
 
@@ -97,7 +97,6 @@ Task("Quick-Deploy")
 .IsDependentOn("Modify-Unicorn-Source-Folder");
 
 Task("Publish-Local")
-.WithCriteria(configuration != null)
 .IsDependentOn("CleanPublishFolders")
 .IsDependentOn("Base-PreBuild")
 .IsDependentOn("Base-Publish")
@@ -182,7 +181,7 @@ Task("Publish-Core-Project").Does(() => {
   }
   Information("Destination: " + destination);
 
-  var projectFile = $"{configuration.SourceFolder}\\Build\\Build.Website\\code\\Build.Website.csproj";
+  var projectFile = $"{configuration.SourceFolder}\\Build\\Build.Shared\\code\\Build.Shared.csproj";
   var publishFolder = $"{configuration.PublishTempFolder}";
 
   DotNetCoreMSBuildSettings buildSettings = new DotNetCoreMSBuildSettings();
@@ -386,7 +385,9 @@ Task("Modify-Unicorn-Source-Folder").Does(() => {
   XmlPoke(zzzDevSettingsFile, sourceFolderXPath, directoryPath, xmlSetting);
 });
 
-Task("Turn-On-Unicorn").Does(() => {
+Task("Turn-On-Unicorn")
+.WithCriteria(() => syncUnicorn == true)
+.Does(() => {
   var webConfigFile = File($"{configuration.WebsiteRoot}/web.config");
   var xmlSetting = new XmlPokeSettings {
     Namespaces = new Dictionary<string, string> {
@@ -417,9 +418,8 @@ Task("Modify-PublishSettings").Does(() => {
 });
 
 Task("Sync-Unicorn")
-.WithCriteria(publishLocal != true)
-.WithCriteria(target != "Build-TDS")
 .IsDependentOn("Turn-On-Unicorn")
+.WithCriteria(() => syncUnicorn == true)
 .Does(() => {
   var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
   Information("Sync Unicorn items from url: " + unicornUrl);
