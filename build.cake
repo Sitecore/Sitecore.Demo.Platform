@@ -65,9 +65,10 @@ Task("Base-Publish")
 Task("Default")
 .IsDependentOn("Base-PreBuild")
 .IsDependentOn("Base-Publish")
+.IsDependentOn("Apply-DotnetCore-Transforms")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.IsDependentOn("Post-Deploy")
-.IsDependentOn("Apply-DotnetCore-Transforms");
+.IsDependentOn("Post-Deploy");
+
 
 Task("Build-TDS")
 .IsDependentOn("Base-PreBuild")
