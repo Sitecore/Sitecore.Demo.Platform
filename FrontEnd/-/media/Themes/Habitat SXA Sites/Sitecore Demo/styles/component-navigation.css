@@ -31,6 +31,9 @@
 
 .navigation .level1 > .navigation-title > a:hover, .navigation .level0 > .navigation-title > a:hover {
   text-decoration: none;
+  border-width: 2px;
+  padding: 2px;
+  background-color: #89C6CC;
 }
 
 .navigation a {
@@ -43,6 +46,12 @@
 
 .navigation a:focus, .navigation a:hover {
   color: #747474;
+}
+
+.navigation li {
+  display: inline;
+  float: left;
+  padding: 8px;
 }
 
 .navigation li .nav-item {
