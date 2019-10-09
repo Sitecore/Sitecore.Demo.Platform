@@ -11,11 +11,15 @@
 
 .form-signin {
     .col-sm-6 {
-        flex: 0 0 100%;
+        flex: 0 0 100%; 
         margin-left: -15px;
         max-width: 100%;
         width: 100%;
     }
+}
+
+.form-group {
+    padding: 10px;
 }
 
 .form {
@@ -192,6 +196,14 @@
 
 #SearchTerm {
     width: auto;
+}
+
+.myAccount-page {
+    padding: 10px;
+}
+
+.logout {
+    padding: 30px;
 }
 
 @import "styles/forms/*";
