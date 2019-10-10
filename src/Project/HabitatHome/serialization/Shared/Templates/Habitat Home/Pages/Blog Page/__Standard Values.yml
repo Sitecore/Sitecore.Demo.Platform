@@ -1,10 +1,10 @@
 ---
-ID: "83576438-04ad-467f-8b52-0e85692949cf"
-Parent: "ca3168e9-2e1c-443d-a7c8-9c17f7517562"
-Template: "ca3168e9-2e1c-443d-a7c8-9c17f7517562"
-Path: /sitecore/templates/Project/Habitat SXA Sites/Habitat Home/Pages/News Page/__Standard Values
+ID: "9dcb91df-aefb-4d97-9581-6c25cfcd859d"
+Parent: "9e655297-b109-4673-acb8-d661c9007736"
+Template: "9e655297-b109-4673-acb8-d661c9007736"
+Path: /sitecore/templates/Project/Habitat SXA Sites/Habitat Home/Pages/Blog Page/__Standard Values
 DB: master
-Created: 20190809T174644Z
+Created: 20191003T173037Z
 SharedFields:
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
@@ -18,13 +18,13 @@ SharedFields:
           ds=""
           id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
           par="GridParameters&amp;FieldNames&amp;Styles&amp;BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          ph="/main/sxa-article-content/author-1-/container-3"
+          ph="/main/sxa-news-content/author-1-/container-3"
           uid="{450FE23A-66BE-44C8-839F-92BB354A0464}" />
         <r
           ds=""
           id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
           par="GridParameters&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
-          ph="/main/sxa-article-content/author-1-/container-4"
+          ph="/main/sxa-news-content/author-1-/container-4"
           uid="{8FF56C69-FFDB-4AEE-8DE0-4FF4F223FBDF}" />
       </d>
       <d
@@ -51,14 +51,22 @@ Languages:
         </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190809T174644Z
+      Value: 20191003T173037Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d7a262ee-48ad-4570-86e0-dddb7658c1ff"
+      Value: "eb961c38-8961-42b5-83db-d4abdbf024a3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191010T145240Z
+      Value: 20191010T145717Z
