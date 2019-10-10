@@ -37,11 +37,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.XConne
 		{C0357237-F818-4EBE-B5A4-8BDDD144E814} = {C0357237-F818-4EBE-B5A4-8BDDD144E814}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.Website.Test", "src\Project\HabitatHome\tests\Sitecore.HabitatHome.Website.Test.csproj", "{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}"
-	ProjectSection(ProjectDependencies) = postProject
-		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750} = {BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.Global.Website", "src\Project\Global\code\Sitecore.HabitatHome.Global.Website.csproj", "{73A57FBE-7088-4344-87DC-23B01B504EC9}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C0357237-F818-4EBE-B5A4-8BDDD144E814} = {C0357237-F818-4EBE-B5A4-8BDDD144E814}
@@ -130,20 +125,6 @@ Global
 		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.Package-CM|Any CPU.Build.0 = Package-CM|Any CPU
 		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C513600-DB12-4ADC-999C-14277FFDF0C8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Local|Any CPU.ActiveCfg = Local|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Local|Any CPU.Build.0 = Local|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.NoDeploy|Any CPU.ActiveCfg = NoDeploy|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.NoDeploy|Any CPU.Build.0 = NoDeploy|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Package-CD|Any CPU.ActiveCfg = Package-CD|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Package-CD|Any CPU.Build.0 = Package-CD|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Package-CM|Any CPU.ActiveCfg = Package-CM|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Package-CM|Any CPU.Build.0 = Package-CM|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25}.Release|Any CPU.Build.0 = Release|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73A57FBE-7088-4344-87DC-23B01B504EC9}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
@@ -336,7 +317,6 @@ Global
 		{BA3C2C41-CFAC-4A40-8BE5-1E5368EF4750} = {563C5D6A-0964-4778-9DF1-DA0A1BB6C044}
 		{BE63361D-A629-48C2-9D0E-9DE1B9733C2B} = {9846C4BE-2108-479E-AA17-4A96052CCCE0}
 		{0C513600-DB12-4ADC-999C-14277FFDF0C8} = {BE63361D-A629-48C2-9D0E-9DE1B9733C2B}
-		{7CBAD942-9C88-46AE-AF30-86A2C70B7A25} = {563C5D6A-0964-4778-9DF1-DA0A1BB6C044}
 		{73A57FBE-7088-4344-87DC-23B01B504EC9} = {85186717-7A62-48A7-869B-C47DF85B6273}
 		{8404CBD0-F0F1-406A-82CA-5F8468764872} = {37394D96-A276-41B7-BFC0-E0897AFE4690}
 		{FEA9BDF2-4014-4288-99BA-D511847F6D9C} = {8404CBD0-F0F1-406A-82CA-5F8468764872}
@@ -350,7 +330,7 @@ Global
 		{E43D437B-0283-4907-BF15-66DCB43645A0} = {570909EC-75B1-462F-A542-1345CFD15FB9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal
