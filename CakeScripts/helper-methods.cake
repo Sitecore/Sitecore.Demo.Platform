@@ -26,6 +26,7 @@ public class Configuration
   public string SitecoreAzureToolkitPath {get;set;}
   public string PublishTempFolder {get;set;}
   public string SolutionFile {get;set;}
+  public string UnicornSerializationFolder {get;set;}
   public string BuildToolVersions
   {
     set

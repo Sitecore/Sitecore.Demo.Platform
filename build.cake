@@ -376,7 +376,7 @@ Task("Modify-Unicorn-Source-Folder").Does(() => {
 
   var rootXPath = "configuration/sitecore/sc.variable[@name='{0}']/@value";
   var sourceFolderXPath = string.Format(rootXPath, "sourceFolder");
-  var directoryPath = MakeAbsolute(new DirectoryPath(configuration.SourceFolder)).FullPath;
+  var directoryPath = MakeAbsolute(new DirectoryPath(configuration.UnicornSerializationFolder)).FullPath;
 
   var xmlSetting = new XmlPokeSettings {
     Namespaces = new Dictionary<string, string> {
