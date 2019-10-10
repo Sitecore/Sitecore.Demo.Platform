@@ -4,6 +4,8 @@ The Account module allows users to register for an account, log in, edit and vie
 
 When creating a new Site, under Modules, be sure to select the following:
 
+- Habitat Home XA Extensions
+
 - Sitecore Demo Account
 
 Paths to relevant Landing Pages:
