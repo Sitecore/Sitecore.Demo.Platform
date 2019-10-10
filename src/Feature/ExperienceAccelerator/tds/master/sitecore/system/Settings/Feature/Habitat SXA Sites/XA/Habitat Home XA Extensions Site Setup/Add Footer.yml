@@ -1,19 +1,22 @@
 ---
-ID: "ff6ba676-8cb9-4257-aa25-d81f8fd00bb6"
-Parent: "1c691b6b-eff1-48f6-b58b-a423a288fb68"
+ID: "b7f26517-9e1b-4b0b-a4a0-da44e719d0f5"
+Parent: "c6928ec4-a028-4e0b-b2c8-8bbb6e55879b"
 Template: "ea8a3f26-9ccd-443a-95f5-71b868a94bd0"
-Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/Header and Footer/Sitecore Demo Header and Footer Site Setup/Add Header
+Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/XA/Habitat Home XA Extensions Site Setup/Add Footer
 DB: master
-Created: 20191002T171137Z
+Created: 20191002T171253Z
 SharedFields:
 - ID: "4795a7c6-08a9-4248-86c3-d460062c3a22"
   Hint: Location
   Type: Treelist
   Value: "{35213342-7955-4BB2-A07D-FFF8BD9B168B}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
 - ID: "e62c28f0-9d3b-46e2-8bec-a5e120542499"
   Hint: Template
   Type: Treelist
-  Value: "{37AAC378-CB2E-4027-87F1-2D7BA70E55B8}"
+  Value: "{34D4CF89-10B2-42A4-AA07-5BE885667BC1}"
 Languages:
 - Language: en
   Versions:
@@ -21,7 +24,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20191002T171137Z
+      Value: 20191002T171253Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,11 +35,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "12dc76fa-ee16-403e-93e2-0caf0c81d26e"
+      Value: "ba25a80a-3c78-49e2-b701-2f8fca0510f0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191002T171204Z
+      Value: 20191010T163321Z
