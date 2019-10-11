@@ -20,7 +20,6 @@ public class Configuration
   public int DeployExmTimeout {get;set;}
   public string DeployFolder {get;set;}
   public string Version {get;set;}
-  public string DeploymentTarget {get;set;}
   public string SitecoreAzureToolkitPath {get;set;}
   public string PublishTempFolder {get;set;}
   public string SolutionFile {get;set;}

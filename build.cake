@@ -66,7 +66,6 @@ Task("Default")
 .IsDependentOn("Base-PreBuild")
 .IsDependentOn("Base-Publish")
 .IsDependentOn("Apply-DotnetCore-Transforms")
-.IsDependentOn("Modify-Unicorn-Source-Folder")
 .IsDependentOn("Post-Deploy");
 
 
@@ -94,8 +93,7 @@ Task("Docker-Container")
 
 Task("Quick-Deploy")
 .IsDependentOn("Base-PreBuild")
-.IsDependentOn("Base-Publish")
-.IsDependentOn("Modify-Unicorn-Source-Folder");
+.IsDependentOn("Base-Publish");
 
 Task("Publish-Local")
 .IsDependentOn("CleanPublishFolders")
@@ -371,7 +369,9 @@ Task("Merge-and-Copy-Xml-Transform").Does(() => {
 
 });
 
-Task("Modify-Unicorn-Source-Folder").Does(() => {
+Task("Modify-Unicorn-Source-Folder")
+.WithCriteria(() => syncUnicorn == true)
+.Does(() => {
   var zzzDevSettingsFile = File($"{configuration.WebsiteRoot}/App_config/Include/Project/z.DevSettings.config");
 
   var rootXPath = "configuration/sitecore/sc.variable[@name='{0}']/@value";
@@ -420,6 +420,7 @@ Task("Modify-PublishSettings").Does(() => {
 
 Task("Sync-Unicorn")
 .IsDependentOn("Turn-On-Unicorn")
+.IsDependentOn("Modify-Unicorn-Source-Folder")
 .WithCriteria(() => syncUnicorn == true)
 .Does(() => {
   var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
@@ -483,46 +484,4 @@ Task("Generate-HabitatHomeWDP").Does(() => {
   });
 });
 
-
-
-/*===============================================
-=============== Utility Tasks ===================
-===============================================*/
-
-Task("Prepare-Transform-Files").Does(()=>{
-  var destination = $@"{configuration.WebsiteRoot}\Website\HabitatHome\";
-  var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
-
-  foreach(var layer in layers) {
-    var xdtFiles = GetTransformFiles(layer);
-    List<string> files;
-
-    if (configuration.DeploymentTarget == "Azure") {
-      files = xdtFiles.Select(x => x.FullPath).Where(x=>x.Contains(".azure")).ToList();
-    }
-    else {
-      files = xdtFiles.Select(x => x.FullPath).Where(x=>!x.Contains(".azure")).ToList();
-    }
-
-    foreach (var file in files) {
-      FilePath xdtFilePath = (FilePath)file;
-
-      var fileToTransform = Regex.Replace(xdtFilePath.FullPath, ".+code/(.+/*.xdt)", "$1");
-      fileToTransform = Regex.Replace(fileToTransform, ".sc-internal", "");
-      fileToTransform = Regex.Replace(fileToTransform, ".azure","");
-
-      FilePath sourceTransform = $"{destination}\\{fileToTransform}";
-
-      if (!FileExists(sourceTransform)) {
-        CreateFolder(sourceTransform.GetDirectory().FullPath);
-        CopyFile(xdtFilePath.FullPath,sourceTransform);
-      }
-      else {
-        MergeFile(sourceTransform.FullPath		// Source File
-          , xdtFilePath.FullPath				// Tranforms file (*.xdt)
-          , sourceTransform.FullPath);		// Target File
-      }
-    }
-  }
-});
 RunTarget(target);
