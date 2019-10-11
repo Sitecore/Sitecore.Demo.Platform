@@ -213,19 +213,11 @@
   border-bottom-color: #89C6CC;
 }
 
-.event-list ul {
-  margin: 10px 0;
-}
-
 .event-list li {
-  border-width: 1px;
-  border-style: solid;
-  border-color: #d2d2d2;
   margin-left: 0;
   box-sizing: border-box;
   padding: 15px 15px 40px 15px;
   position: relative;
-  margin: 10px 0;
 }
 
 .event-list li > .scLooseFrameZone > .scEmptyPlaceholder {
@@ -317,4 +309,18 @@
 
 .event-list .scWebEditInput {
   font-family: "Open Sans", Helvetica, Verdana, Tahoma, sans-serif;
+}
+
+#upcoming-events {
+  padding-top: 5px;
+}
+
+#upcoming-events li {
+  max-width: 45%;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 45%;
+  flex: 0 0 45%;
 }

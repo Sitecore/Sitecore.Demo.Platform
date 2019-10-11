@@ -23,16 +23,16 @@
         @include border-basic(bottom, $event-list-title-border);
     }
     ul {
-        margin: $small-margin 0;
+        //margin: $small-margin 0;
     }
     li {
-        @include border-basic();
+        //@include border-basic();
         @extend %eventWrapper;
         margin-left: 0;
         box-sizing: border-box;
         padding: 15px 15px 40px 15px;
         position: relative;
-        margin: $small-margin 0;
+        //margin: $small-margin 0;
         >.scLooseFrameZone {
             @extend %eventWrapper;
             >.scEmptyPlaceholder {
@@ -96,5 +96,16 @@
     }
     .scWebEditInput {
         @include opensans-font-stack();
+    }
+}
+
+#upcoming-events {   
+    padding-top: 5px;
+    li {
+    max-width: 45%;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    flex: 0 0 45%;
     }
 }
