@@ -4,10 +4,11 @@ Parent: "46f2b70a-237b-4825-b31c-e9d8a3182c75"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
 Path: /sitecore/templates/Feature/Habitat Home/XA/Articles/Article/Content/Author
 DB: master
+Created: 20190921T091207Z
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: "query:$site/Data/Authors"
+  Value: /sitecore/content/Habitat SXA Sites/Global/Data/Authors
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: Droptree
@@ -28,14 +29,14 @@ Languages:
       Value: 20180308T183919Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "05d2f487-9907-453a-bd3a-d19b817cbf40"
+      Value: "be8dfb93-320d-49d1-9541-be447244a0a2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\unicorn
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20190425T163452Z
+      Value: 20191014T160906Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"

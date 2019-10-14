@@ -5,11 +5,37 @@ Template: "6ec40be2-7f7e-486a-9774-233907150786"
 Path: /sitecore/templates/Project/Habitat SXA Sites/Habitat Home/Pages/Career Page/__Standard Values
 DB: master
 Created: 20191004T204938Z
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}" />
+    </r>
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{C7DBC385-0573-4B48-AB93-54A3A4E3EB2D}"
+              s:ds=""
+              s:id="{FDB6D91C-D907-4262-A22A-A9A5F330CF1E}"
+              s:par="GridParameters&amp;FieldNames=%7BC7887A73-FFFC-42C9-86DA-ED1E9D1E8486%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-career-content/container-4/column-2-3" />
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20191004T204938Z
@@ -23,11 +49,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "81bc0d82-6941-4e06-919e-ecf60f3953cb"
+      Value: "92ff1a88-fef8-4f59-b73e-13ca24c1fba3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191004T204938Z
+      Value: 20191014T155724Z
