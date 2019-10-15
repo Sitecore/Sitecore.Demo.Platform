@@ -8,18 +8,21 @@
   - see [Docker-Images Repo](https://github.com/sitecore/docker-images) for more details
 - Windows version 1809 or later
 - Docker (Engine) for Windows version 19.03 or later
+- "az" PowerShell module
+  - [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest)
 - Requires **Team Development for Sitecore**
 
 ### Starting up your Sitecore instance
 
-- Modify .env file with your registry url
-  - trailing slash (/) is important
+- Ensure your Sitecore license is in `c:\license`
+- Modify .env file:
+  - `REGISTRY`: set your registry url (trailing slash (/) is important).
+  - `REMOTEDEBUGGER_PATH`: Ensure the path is valid. You might have to change `Enterprise` to `Professional` or `Community`.
 - Set the SA password to the one configured in your base image
 - login to your docker registry
   - for Azure ACR:
     - `az login`
     - `az acr login --name <registryname>`
-
 - run `docker-compose up -d`
   - this will pull all of the necessary base images and spin up your Sitecore environment. It will take **quite some time** if this is the first time you execute it.
 
@@ -33,7 +36,7 @@
 
 **DEPLOY!**
 
-`.\build.ps1 -Target Docker-Container`
+`.\build.ps1 -Target Docker-TDS`
 
 ## Deploying to local IIS Site using TDS
 
