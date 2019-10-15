@@ -36,14 +36,19 @@ Setup(context =>
     configuration.BuildConfiguration = "NoDeploy";
   }
 
+
   if (target.Contains("Docker")) {
-      configuration.BuildConfiguration = "DockerDeploy";
       configuration.WebsiteRoot =  $"{configuration.ProjectFolder}\\Publish\\Web\\";
       configuration.XConnectRoot =  $"{configuration.ProjectFolder}\\Publish\\xConnect\\";
-      configuration.InstanceUrl = configuration.InstanceUrl.Replace("https","http");
-    }
+      configuration.InstanceUrl = "http://127.0.0.1:44001";    // This is based on the CM container's settings (see docker-compose.yml)
+      configuration.UnicornSerializationFolder = "c:\\unicorn"; // This maps to the container's volume setting (see docker-compose.yml)
 
-  if (publishLocal || target == "Build-TDS" || target.Contains("Docker")) {
+    if (target == "Docker-TDS"){
+      configuration.BuildConfiguration = "DockerDeploy";
+    }
+  }
+
+  if (publishLocal || target.Contains("TDS")) {
     configuration.SolutionFile = configuration.SolutionFile.Replace(".sln",".TDS.sln");
     syncUnicorn = false;
   }
@@ -88,8 +93,11 @@ Task("Post-Deploy")
 .IsDependentOn("Rebuild-Web-Index")
 .IsDependentOn("Rebuild-Test-Index");
 
-Task("Docker-Container")
+Task("Docker-TDS")
 .IsDependentOn("Build-TDS");
+
+Task("Docker-Unicorn")
+.IsDependentOn("Default");
 
 Task("Quick-Deploy")
 .IsDependentOn("Base-PreBuild")
