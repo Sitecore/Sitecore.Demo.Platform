@@ -33,4 +33,8 @@ On the Home tab click on "Insert Page". In the content tree, navigate to the Car
 
 #### How to Change the Job Type or Location on a Career Page in the Experience Editor
 
-Open the Resources Page in the Experience Editor. Under the Experience Accelerator tab, click on "Other" in the Page Metadata section. From here, a different Job Type and/or Job Location can be selected. The page will need to be saved for the changes to take effect.
+Open the Resources Page in the Experience Editor. Click on rendering displaying the job type and location. Click on the blue person with pencil icon to select a different Job Type. Click on the world with a link icon to select a different Job Location.
+
+#### How to Create a Job Type or Location on a Career Page in the Experience Editor
+
+Open the Resources Page in the Experience Editor. Click on rendering displaying the job type and location. Click on the scientist icon to create a Job Type. Click on the world with a pin icon to create a Job Location. After you create these, you can then assign them to the Career Page (see directions above).

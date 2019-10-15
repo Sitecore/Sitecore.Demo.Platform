@@ -33,3 +33,7 @@ On the Home tab click on "Insert Page". In the content tree, navigate to the Blo
 #### How to Change the Author on a Blog Page in the Experience Editor
 
 On the Blog Page, click on the area that lists the author information. This is right below the breadcrumb navigation. An icon that looks like a person will appear on the left. Click this to change the author associated with this particular Blog Page.
+
+#### How to Add an Author in the Experience Editor
+
+On the Blog Page, click on the area that lists the author information. This is right below the breadcrumb navigation. A blue icon that looks like a person with a plus sign will appear on the left. Click this to create a new author. After you create the author, the page will refresh. You can then change the associated author (see directions above) and edit the author's information.
