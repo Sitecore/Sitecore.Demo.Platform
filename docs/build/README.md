@@ -30,8 +30,6 @@
 
 - Confirm that you can access the Sitecore instance deployed using docker-compose in the previous step by browsing to [http://127.0.0.1:44001/sitecore](http://127.0.0.1:44001/sitecore) which is the default endpoint for the CM role specified in the docker-compose.yml file. Ensure you replace it with your own value if you changed it!
 
-- Change the instanceUrl in the `cake-config.json` file to match the url (including port) in the docker-compose file. ie:  [http://127.0.0.1:44001](http://127.0.0.1:44001)
-
 - Review the `TDSGlobal.config` file if you've made any changes to the endpoints otherwise the defaults are fine.
 
 **DEPLOY!**
