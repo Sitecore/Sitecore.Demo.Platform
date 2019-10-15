@@ -13,7 +13,13 @@ SharedFields:
     <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}" />
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        <r
+          id="{FDB6D91C-D907-4262-A22A-A9A5F330CF1E}"
+          par="GridParameters&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-career-content/container-4/column-2-3"
+          uid="{6B539A22-0053-423E-B15C-8834FE053813}" />
+      </d>
     </r>
 Languages:
 - Language: en
@@ -28,6 +34,10 @@ Languages:
           p:p="1">
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{6B539A22-0053-423E-B15C-8834FE053813}">
+              <p:d />
+            </r>
             <r
               uid="{C7DBC385-0573-4B48-AB93-54A3A4E3EB2D}"
               s:ds=""
@@ -49,11 +59,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "92ff1a88-fef8-4f59-b73e-13ca24c1fba3"
+      Value: "91555c83-e754-4de4-81c5-999cdc75d4a3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191014T155724Z
+      Value: 20191014T203309Z

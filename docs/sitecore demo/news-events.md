@@ -41,25 +41,33 @@ On the Home tab click on "Insert Page". In the content tree, navigate to the New
 
 On the News Page, click on the area that lists the author information. This is right below the breadcrumb navigation. An icon that looks like a person will appear on the left. Click this to change the author associated with this particular News Page.
 
+#### How to Add an Author in the Experience Editor
+
+On the News Page, click on the area that lists the author information. This is right below the breadcrumb navigation. A blue icon that looks like a person with a plus sign will appear on the left. Click this to create a new author. After you create the author, the page will refresh. You can then change the associated author (see directions above) and edit the author's information.
+
 ## Events
 
-Events are featured on the News and Events landing page, as well as the Events landing page. Events are contained in the Events data folder and can exist on your local site or in the Global site. Event Pages are under your local site's Home node and are connected to the Event data items through a field on both items - "Event" on the Event Page and "Link to Event's Page" on the Event data item. It is important to have both of these fields correctly set. 
+Events are featured on the News and Events landing page, as well as the Events landing page. Events are contained in the Events data folder on the Global site. Event Pages are under your local site's Home node and are connected to the Event data items through "Link to Event's Page" on the Event data item. It is important to have this field correctly set. 
 
-The Upcoming Events component, featured on the News and Events landing page, will list Event Pages that are in your local site. However, the event calendar can only list events in a particular folder- that on your local site or the global site. By default, the event calendar's datasource is pointed to the global data folder. 
+The Upcoming Events and Event Calendar component list events according to the Events List they are pointed to. By default, this is the Demo Events list on the Global site. The associated list can be changed, as detailed further below.
 
 #### How To Add an Event and Event Page in the Content Editor
 
-1) To add an Event data item, right click /sitecore/content/Habitat SXA Sites/{Your Site Name}/Data/Events. If an Event List does not exist, create one.
+1) To add an Event Page, right click /sitecore/content/Habitat SXA Sites/{Your Site Name}/Home/news-events/Events and add a new Event Page.
 
-2) Right click on the Event List and create an Event. Fill out the relevant information under Event.
+2) To add an Event data item, right click an Event List under /sitecore/content/Habitat SXA Sites/Global/Data/Events.
 
-3) To add an Event Page, right click /sitecore/content/Habitat SXA Sites/{Your Site Name}/Home/news-events/Events and add a new Event Page.
+3) Insert a Calendar Event. Fill out the relevant information under Event.
 
-4) Point the "Event" field to the Event data item you created.
+4) Set "Link to Event's Page" to the Event Page you created.
 
-5) Return to the Event data item and set "Link to Event's Page" to the Event Page you created.
+5) Navigate back to the Event Page. Click on "Details" under the "Presentation" tab.
 
-#### How to Add an Events Page in the Experience Editor
+6) Click on "Event Posting".
+
+7) Set the Data Source to the event you created.
+
+#### How to Add an Event Page in the Experience Editor
 
 Note: this is easiest to do from /sitecore/content/Habitat SXA Sites/{Your Site Name}/Home/news-events/Events, but can technically be done from any page.
 
@@ -67,5 +75,34 @@ On the Home tab click on "Insert Page". In the content tree, navigate to the Eve
 
 #### How to Change the Event on an Event Page in the Experience Editor
 
-On the Event Page, navigate to the "Experience Accelerator" tab. Click on "Other" in the Page Metadata section. Under Event, you can change the event associated with that particular Event Page.
+1) On the Event Page, click on the Event Posting rendering. Click on the checkmark icon in the middle.
 
+2) Select "Change associated content".
+
+3) Choose the desired event and click "Ok".
+
+4) Be sure to change the event to point to the current event page. To do this, click on the left calendar icon on the Event Posting rendering.
+
+#### How to Create an Event in the Experience Editor
+
+1) On the Event Page, click on the Event Posting rendering. Click on the checkmark icon in the middle.
+
+2) Select "Change associated content".
+
+3) Select an Events List. Click on "Create".
+
+4) Now you can edit the new event in the Experience Editor. Be sure to point the event to the event page by clicking on the calendar icon.
+
+#### How to Change the Event List Associated with the Event Components
+
+1) Navigate to /sitecore/content/Habitat SXA Sites/{Your Site Name}/Presentation/Partial Designs/Event Calendar
+
+2) Open the Experience Editor. Select the event rendering.
+
+3) Click on the middle checkmark icon. Select "Change associated content".
+
+4) Select the Event List you wish to use. Save your changes.
+
+5) Navigate to /sitecore/content/Habitat SXA Sites/{Your Site Name}/Presentation/Partial Designs/Upcoming Events
+
+6) Repeat steps 2-4.

@@ -1,23 +1,23 @@
 ---
-ID: "8afd6858-0aca-404b-9823-cf2cd8ab32cf"
+ID: "64547102-0646-4a73-baa1-9908096701ae"
 Parent: "db662edf-5965-4848-ad14-ba6bf0d55d1e"
 Template: "1ab4f9ad-b004-413c-8924-3e07143a614b"
-Path: /sitecore/content/Applications/WebEdit/Custom Experience Buttons/Associate Event
+Path: /sitecore/content/Applications/WebEdit/Custom Experience Buttons/Associate Job Location
 DB: core
-Created: 20191014T162929Z
+Created: 20191014T202423Z
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: office/32x32/clear_reminder.png
+  Value: Office/32x32/earth_link.png
 - ID: "4431914a-c40b-437c-8add-d2ed12cc8cc3"
   Hint: Icon
-  Value: Office/32x32/clear_reminder.png
+  Value: office/32x32/earth_link.png
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 1000
 - ID: "cf738220-908d-4c3f-9482-32e625daf13c"
   Hint: Fields
-  Value: Event
+  Value: JobLocation
 Languages:
 - Language: da
   Fields:
@@ -85,10 +85,10 @@ Languages:
   Fields:
   - ID: "108d3a63-baaa-4560-86d8-3a112ed84717"
     Hint: Header
-    Value: Associate / Change Event
+    Value: Associate / Change Job Location
   - ID: "5f0812af-d370-4292-afee-f26a39b7406d"
     Hint: Tooltip
-    Value: Select Event
+    Value: Select Job Location
   Versions:
   - Version: 1
     Fields:
@@ -101,14 +101,14 @@ Languages:
         sitecore\admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1a855b94-63e1-4db3-a712-7640658fc91d"
+      Value: "1cf7764f-778c-4af7-a33e-93afc558e64d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191014T163050Z
+      Value: 20191014T203917Z
 - Language: "ja-JP"
   Fields:
   - ID: "108d3a63-baaa-4560-86d8-3a112ed84717"
