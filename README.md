@@ -4,15 +4,15 @@ HabitatHome  Demo and the tools and processes in it is a Sitecore&reg; solution 
 
 ## Important Notice
 
-## Is Habitat Home a starter kit or template solution
+### Is Habitat Home a starter kit or template solution
 
 No. You should not clone this repository for the purposes of starting a new Sitecore project. There are other community solutions which can be used as a starter for Helix-based Sitecore implementations. Habitat Home is intended as a **demo site demonstrating the full Sitecore platform capabilities and development best practices**.
 
-## Is Habitat Home supported by Sitecore
+### Is Habitat Home supported by Sitecore
 
 Sitecore maintains the Habitat Home example, but Habitat Home code is not supported by Sitecore Product Support Services. Please do not submit support tickets regarding Habitat.
 
-## How can I get help with Habitat Home
+### How can I get help with Habitat Home
 
 For usage questions regarding Habitat Home, installation or code, please use [Sitecore Stackexchange](https://sitecore.stackexchange.com/) or [#habitathome](https://sitecorechat.slack.com/messages/CASEB5M38) on [Sitecore Community Slack](https://www.akshaysura.com/2015/10/27/how-to-join-sitecore-slack-community-chat/).
 
@@ -42,10 +42,6 @@ The latest Habitat Home demo is built to support **[Sitecore Experience Platform
 
 ### Optional Modules
 
-In addition to base XP 9.2 with SXA, the following optional modules are required to enable additional demo functionality:
-
-* ***Optional Modules***
-
 The following optional modules enable synchronization with Dynamics CRM or Salesforce CRM (relevant account required)
 
 * Base Data Exchange Framework modules
@@ -68,14 +64,12 @@ The demo is configured for **HTTPS/SSL**. Please ensure that you create an HTTPS
 
 ### Clone this repository
 
-Clone the Sitecore. HabitatHome. Platform repository locally - defaults are configured for **C:\Projects\Sitecore. HabitatHome. Platform**.
+Clone the Sitecore.HabitatHome.Platform repository locally - defaults are configured for **C:\Projects\Sitecore.HabitatHome.Platform**.
 
-* Clone
+* **https**: `git clone https://github.com/Sitecore/Sitecore.HabitatHome.Platform.git`
+* **ssh**: `git clone git@github.com:Sitecore/Sitecore.HabitatHome.Platform.git`
 
-  -- **https**:	 `git clone https://github.com/Sitecore/Sitecore.HabitatHome.Platform.git`
-  -- **ssh**:	 `git clone git@github.com:Sitecore/Sitecore.HabitatHome.Platform.git`
-
-#### Parameters - explained
+### Parameters - explained
 
 The following is a list of default values / assumptions for settings ( `cake-config.json` )
 
@@ -89,11 +83,9 @@ The following is a list of default values / assumptions for settings ( `cake-con
 | DeployFolder | Used for WDP generation and Azure deployments | C:\\deploy
 | Version | Version of Sitecore being targeted. Must match official 3-digit version | 9.2.0
 
-#### Deploying HabitatHome Locally
+### Deploying HabitatHome Locally
 
 Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.2** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/92/Sitecore_Experience_Platform_92_Initial_Release.aspx).
-
-[Jump to local deployment instructions](#localInstallation)
 
 ## Local Build / Deployment
 
@@ -107,30 +99,27 @@ If you do **not want to use the default settings**, you need to adjust the appro
 
 The cake script will automatically create a publishSettings.targets.user file with the value of the InstanceUrl specified in the cake-config.json file.
 
-## Installation
+### Installation
 
 All installation instructions assume using **PowerShell 5.1** in _**administrative**_ mode.
 
-### 1. Deploy Sitecore. HabitatHome. Platform
+#### 1. Deploy Sitecore. HabitatHome. Platform
 
-#### *IMPORTANT: Publish Sitecore Instance after installing all required and optional modules BEFORE trying to deploy Habitat Home*
+**IMPORTANT**: Publish Sitecore Instance after installing all required and optional modules BEFORE trying to deploy Habitat Home*
 
-From the root of the solution
+From the root of the solution, run `.\build.ps1`
 
-* Run **`.\build.ps1`**
-  * Notes:
-    * If the deployment fails at `Sync-Unicorn` or `Deploy-EXM-Campaigns` step, evaluate and fix the error (if any) and then run `.\build.ps1 -Target "Post-Deploy"` .
+Note: If the deployment fails at `Sync-Unicorn` or `Deploy-EXM-Campaigns` step, evaluate and fix the error (if any) and then run `.\build.ps1 -Target "Post-Deploy"` .
 
-### 2. Validating deployment
+#### 2. Validating deployment
 
-* Browse to https://habitathome.dev.local (or whatever hostname you selected)
-
+* Browse to [https://habitathome.dev.local](https://habitathome.dev.local) (or whatever hostname you selected)
     1. You should see the Habitat Home landing page with a full-width carousel
     1. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that your Host Name was configured correctly in `/sitecore/content/Habitat SXA Sites/Habitat Home/Settings/Site Grouping/Habitat Home` and that the site has published successfully
 
-## Additional Settings
+### Additional Settings
 
-### Disable Unicorn Serialization
+#### Disable Unicorn Serialization
 
 When Unicorn is active, the Content Editor will display warnings that certain items are controlled by Unicorn. If you wish to disable Unicorn serialization, open the Web.config file in your webroot and update the following appSetting
 
