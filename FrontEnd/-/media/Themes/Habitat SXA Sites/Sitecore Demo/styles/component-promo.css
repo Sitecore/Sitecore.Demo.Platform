@@ -37,50 +37,132 @@
 }
 
 .promo {
-  background: #FFFFFF;
-  padding: 15px;
-  overflow: hidden;
-  box-sizing: border-box;
+  line-height: 1.6;
+  margin: 8em auto;
+  float: none;
 }
 
 .promo > .component-content {
-  position: relative;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #d2d2d2;
+  padding: 0;
+  background-color: white;
+  font-family: "ProximaNova-Semibold", arial, helvetica, sans-serif;
 }
 
-.promo > .component-content:after {
-  content: "";
-  display: table;
-  clear: both;
+@media only screen and (min-width: 381px) and (max-width: 959px) {
+  .promo > .component-content > div {
+    float: left;
+    width: 50%;
+    text-align: left;
+  }
 }
 
-.promo > .component-content > div {
-  padding: 5px;
+.promo > .component-content p {
+  color: gray;
+  font-size: 1.25em;
 }
 
-.promo .zg-height-fix .field-promoicon {
-  margin-top: 100px;
+@media only screen and (min-width: 381px) and (max-width: 959px) {
+  .promo > .component-content {
+    padding: 0 2em;
+  }
 }
 
-.promo .field-promoicon {
-  overflow: hidden;
-  width: 100%;
+@media only screen and (min-width: 960px) {
+  .promo > .component-content {
+    padding: 0 8em;
+  }
+}
+
+.promo .field-promotext {
+  margin: 5px 0;
+}
+
+.promo .field-promotext p {
+  font-size: 1;
+  margin: 0;
+  color: #222;
+}
+
+@media only screen and (min-width: 381px) and (max-width: 959px) {
+  .promo .field-promotext p {
+    font-size: 2em;
+  }
+}
+
+.promo .field-promotext2 p {
+  margin: 10px 0;
+  font-weight: 300;
+}
+
+.promo .field-promotext3 p {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  font-weight: bold;
+  margin-top: 0;
 }
 
 .promo .field-promoicon img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
-.promo .field-promolink {
-  margin-top: 5px;
-  padding-bottom: 10px;
+@media only screen and (min-width: 381px) and (max-width: 959px) {
+  .promo .field-promoicon {
+    padding: 0 60px 0 0;
+  }
 }
 
-.promo.image-full-size img {
-  margin-bottom: 10px;
+@media only screen and (min-width: 960px) {
+  .promo .field-promoicon {
+    padding: 0 120px 0 0;
+  }
+}
+
+.promo .field-promolink a {
+  min-width: 240px;
+  margin-top: 0.25em;
+  display: block;
+  width: auto;
+}
+
+.promo.promo-right .field-promoicon {
+  float: right;
+  max-width: 50%;
+}
+
+.promo.promo-left .field-promoicon {
+  float: left;
+  max-width: 50%;
+  padding-right: 20px;
+}
+
+@media only screen and (min-width: 381px) and (max-width: 959px) {
+  .promo.promo-left .field-promoicon {
+    padding: 0 0 0 60px;
+    float: right;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .promo.promo-left .field-promoicon {
+    padding: 0 10px 0 120px;
+  }
+}
+
+.promo.promo-top > .component-content {
+  width: 100%;
+}
+
+.promo.promo-top > .component-content .field-promoicon {
+  padding: 0;
+}
+
+.promo.promo-top > .component-content > div {
+  float: none;
+  width: 100%;
+  text-align: center;
 }
 
 .promo h1, .promo h2, .promo h3, .promo h4, .promo h5, .promo h6 {
@@ -180,6 +262,222 @@
 
 .promo table td:first-child {
   border-left: 0;
+}
+
+.full-width-promo {
+  padding: 0;
+  max-width: none !important;
+  width: 100vw !important;
+  position: relative;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding: 0;
+}
+
+.full-width-promo .promo {
+  margin: 0 auto;
+}
+
+.full-width-promo .promo > .component-content {
+  padding: 90px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media only screen and (min-width: 381px) and (max-width: 959px) {
+  .full-width-promo .promo > .component-content {
+    padding: 180px 0;
+  }
+}
+
+.full-width-promo .promo > .component-content .field-promolink a {
+  background-color: transparent !important;
+}
+
+.full-width-promo .promo > .component-content .field-promolink a:hover {
+  background-color: transparent !important;
+}
+
+.full-width-promo .promo > .component-content > div {
+  float: none;
+  width: 100%;
+  position: relative;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 2em;
+  width: 100%;
+}
+
+@media only screen and (min-width: 381px) and (max-width: 959px) {
+  .full-width-promo .promo > .component-content > div {
+    width: 500px;
+  }
+}
+
+.full-width-promo .promo > .component-content > div.field-promoicon {
+  padding: 0;
+  position: absolute;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.full-width-promo .promo > .component-content > div.field-promoicon img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  font-family: 'object-fit: cover; object-position: center;';
+}
+
+.full-width-promo .promo.promo-right > .component-content {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.promo.promo-hero {
+  float: none;
+  position: relative;
+  height: 500px;
+  overflow-y: hidden;
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+.promo.promo-hero > .component-content {
+  padding: 0;
+  height: 100%;
+}
+
+.promo.promo-hero > .component-content > div {
+  float: none;
+  width: 100%;
+}
+
+.promo.promo-hero .field-promoicon {
+  padding: 0;
+  position: absolute;
+}
+
+.promo.promo-hero .field-promoicon img {
+  display: block;
+}
+
+.promo.promo-hero .field-promoicon:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.promo.promo-hero .hero-wrapper {
+  height: 100%;
+}
+
+.promo.promo-hero .hero-content-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.promo.promo-hero .field-heroimage {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.promo.promo-hero .field-heroimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  font-family: 'object-fit: cover; object-position: center;';
+}
+
+.promo.promo-hero .hero-content {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: left;
+}
+
+.promo.promo-hero .field-herosupertitle {
+  font-family: "ProximaNova-Semibold", arial, helvetica, sans-serif;
+  font-size: 1.25em;
+  text-transform: uppercase;
+}
+
+.promo.promo-hero .field-herotitle {
+  font-size: 3em;
+  line-height: 0.9;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+@media only screen and (min-width: 381px) and (max-width: 959px) {
+  .promo.promo-hero .field-herotitle {
+    font-size: 5em;
+  }
+}
+
+.promo.promo-hero .field-herolink a {
+  font-size: 1em;
+  min-width: 300px;
+}
+
+.promo.image-top .field-heroimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: top;
+  object-position: top;
+  font-family: 'object-fit: cover; object-position: top;';
+}
+
+.promo.image-center .field-heroimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  font-family: 'object-fit: cover; object-position: center;';
+}
+
+.promo.image-bottom .field-heroimage img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: bottom;
+  object-position: bottom;
+  font-family: 'object-fit: cover; object-position: bottom;';
+}
+
+.on-page-editor .promo-hero .field-promoicon:before {
+  content: none;
 }
 
 .promo.absolute-bottom-link {
