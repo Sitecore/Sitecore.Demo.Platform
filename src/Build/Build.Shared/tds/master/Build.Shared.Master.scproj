@@ -8,14 +8,14 @@
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <EnableUpdateable>true</EnableUpdateable>
     <UseMerge>true</UseMerge>
-    <SingleAssemblyName>Build.Website.Master</SingleAssemblyName>
+    <SingleAssemblyName>Build.Shared.Master</SingleAssemblyName>
     <UseWebConfigReplacement>false</UseWebConfigReplacement>
     <DeleteAppCodeCompiledFiles>true</DeleteAppCodeCompiledFiles>
     <LegacyFileReplacement>false</LegacyFileReplacement>
     <CompactSitecoreItemsInProjectFile>True</CompactSitecoreItemsInProjectFile>
-    <AssemblyName>Build.Website.Master</AssemblyName>
+    <AssemblyName>Build.Shared.Master</AssemblyName>
     <Name>Build.Shared.Master</Name>
-    <RootNamespace>Build.Website.Master</RootNamespace>
+    <RootNamespace>Build.Shared.Master</RootNamespace>
     <ManageRoles>False</ManageRoles>
     <SitecoreDatabase>master</SitecoreDatabase>
     <AssemblyStatus>Include</AssemblyStatus>
@@ -74,7 +74,7 @@
     <WebDeployPackageName>HabitatHome.Platform.CM</WebDeployPackageName>
     <WebDeployAppendDateAndTimeToPackageName>False</WebDeployAppendDateAndTimeToPackageName>
     <EnableValidations>False</EnableValidations>
-    <ValidationSettingsFilePath>.\Build.Website.Master_Package-CM.xml</ValidationSettingsFilePath>
+    <ValidationSettingsFilePath>.\Build.Shared.Master_Package-CM.xml</ValidationSettingsFilePath>
     <PackageName>HabitatHome.Platform.CM</PackageName>
     <PackageAuthor>Sitecore Demo Team</PackageAuthor>
     <PackagePublisher />
@@ -99,7 +99,7 @@
     <WebDeployPackageName>HabitatHome.Platform.CD</WebDeployPackageName>
     <WebDeployAppendDateAndTimeToPackageName>False</WebDeployAppendDateAndTimeToPackageName>
     <EnableValidations>False</EnableValidations>
-    <ValidationSettingsFilePath>.\Build.Website.Master_Package-CD.xml</ValidationSettingsFilePath>
+    <ValidationSettingsFilePath>.\Build.Shared.Master_Package-CD.xml</ValidationSettingsFilePath>
     <PackageName>HabitatHome.Platform.CD</PackageName>
     <PackageAuthor>Sitecore Demo Team</PackageAuthor>
     <PackagePublisher />

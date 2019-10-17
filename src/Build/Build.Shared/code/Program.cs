@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Build.Website
+namespace Build.Shared
 {
     public class Program
     {
