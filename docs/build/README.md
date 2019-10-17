@@ -2,6 +2,11 @@
 
 ## Deploying locally with Docker
 
+### Docker Deployment Known Issues
+
+- xConnect is currently not working (throwing xConnect model errors)
+- Need to manually run "Populate Solr Managed Schemas" in the Control Panel before Solr indexing works
+
 ### Docker Deployment Prerequisites
 
 - Sitecore base images built (either locally or in a registry)
@@ -41,6 +46,12 @@
 - Review the `TDSGlobal.config` file if you've made any changes to the endpoints otherwise the defaults are fine.
 
 `.\build.ps1 -Target Docker-TDS`
+
+### Cleaning and Re-deploying with Docker
+
+- run `docker-compose down`
+- run `.\CleanDockerData.ps1`
+- At this point you can start again with `docker-compose up -d` to have a fresh installation of Sitecore with no files/items deployed!
 
 ## Deploying to local IIS Site using TDS
 
