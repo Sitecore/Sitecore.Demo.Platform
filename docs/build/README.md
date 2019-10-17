@@ -10,7 +10,6 @@
 - Docker (Engine) for Windows version 19.03 or later
 - "az" PowerShell module
   - [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest)
-- Requires **Team Development for Sitecore**
 
 ### Starting up your Sitecore instance
 
@@ -30,9 +29,16 @@
 
 - Confirm that you can access the Sitecore instance deployed using docker-compose in the previous step by browsing to [http://127.0.0.1:44001/sitecore](http://127.0.0.1:44001/sitecore) which is the default endpoint for the CM role specified in the docker-compose.yml file. Ensure you replace it with your own value if you changed it!
 
-- Review the `TDSGlobal.config` file if you've made any changes to the endpoints otherwise the defaults are fine.
+**DEPLOY with Unicorn**
 
-**DEPLOY!**
+- Review the `cake-config.json` file if you've made any changes to the endpoints or if you need to change the default settings.
+
+`.\build.ps1 -Target Docker-Unicorn`
+
+**DEPLOY with TDS**
+
+- Requires **Team Development for Sitecore**
+- Review the `TDSGlobal.config` file if you've made any changes to the endpoints otherwise the defaults are fine.
 
 `.\build.ps1 -Target Docker-TDS`
 
