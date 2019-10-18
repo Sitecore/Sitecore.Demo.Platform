@@ -1,0 +1,70 @@
+---
+ID: "327d5cff-2c3c-49ea-855b-77c11bd46322"
+Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/Habitat Home/Functions/Initial Page Design Mapping
+DB: master
+Created: 20191017T141356Z
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    Import-Function Get-SiteItem
+    
+    $SiteItem = Get-SiteItem $Site
+    
+    $value = ""
+    
+    $accountPageID = "{CB5E16DF-B01C-44A0-A4D6-C99235ACF860}"
+    $loginPageID = "{67A3063B-3801-4C53-8762-ACFA1CD75113}"
+    $pagePageID = "{BD74A392-DACD-4C23-853A-D520762B33A1}"
+    $homePageID = "{2C6679F9-65B4-4437-8A4C-BE4C790B16E0}"
+    $L1PageID = "{69DD5F28-429F-46B6-B55C-9DA3500A7369}"
+    $L2PageID = "{E3B950BB-1B55-4CDD-819F-031B3BE1A66C}"
+    
+    $demoPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Demo Page"
+    $demoPageDesignID = [System.Web.HttpUtility]::UrlEncode($demoPageDesign.ID)
+    
+    $value = "$value$accountPageID=$demoPageDesignID"
+    $value = "$value&$loginPageID=$demoPageDesignID"
+    $value = "$value&$pagePageID=$demoPageDesignID"
+    $value = "$value&$homePageID=$demoPageDesignID"
+    $value = "$value&$L1PageID=$demoPageDesignID"
+    $value = "$value&$L2PageID=$demoPageDesignID"
+    
+    #get Page Designs Item
+    $pageDesigns = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs"
+    
+    #set templates to design mapping
+    $pageDesigns.Locking.Unlock()
+    $pageDesigns.Editing.BeginEdit()
+    
+    $pageDesigns.Fields['TemplatesMapping'].Value = [System.Web.HttpUtility]::UrlEncode($value)
+    
+    $pageDesigns.Editing.EndEdit()
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191017T141356Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "be7944e2-c9c7-4699-8310-dd473c1a4cd9"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20191018T201321Z

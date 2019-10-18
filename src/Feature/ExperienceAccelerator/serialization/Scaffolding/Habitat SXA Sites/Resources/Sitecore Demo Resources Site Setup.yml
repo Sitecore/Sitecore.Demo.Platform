@@ -5,6 +5,15 @@ Template: "292ccfcd-7790-4692-856b-76014b8038e7"
 Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/Resources/Sitecore Demo Resources Site Setup
 DB: master
 Created: 20191004T165249Z
+SharedFields:
+- ID: "40deee2f-7595-40bd-b2c9-51f9e2346100"
+  Hint: Dependencies
+  Type: Treelist
+  Value: |
+    {B7F26517-9E1B-4B0B-A4A0-DA44E719D0F5}
+    {FF6BA676-8CB9-4257-AA25-D81F8FD00BB6}
+    {A6C50097-E48C-49F9-B18F-837A18AF7744}
+    {A7ADE476-AA2A-4F07-9FF0-AAC5CA5644DF}
 Languages:
 - Language: en
   Versions:
@@ -23,7 +32,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e62fad40-ce3c-4838-b90b-5e5e28c84f23"
+      Value: "e6dbffcc-cbdc-4499-a486-f4d94828de61"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -33,4 +42,4 @@ Languages:
       Value: Sitecore Demo Resources
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191004T165249Z
+      Value: 20191018T200511Z

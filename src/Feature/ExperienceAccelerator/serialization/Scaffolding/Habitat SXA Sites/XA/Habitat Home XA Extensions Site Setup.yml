@@ -4,7 +4,12 @@ Parent: "7c9acbff-4330-422a-98a0-042e7b285577"
 Template: "292ccfcd-7790-4692-856b-76014b8038e7"
 Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/XA/Habitat Home XA Extensions Site Setup
 DB: master
+Created: 20190921T091206Z
 SharedFields:
+- ID: "40deee2f-7595-40bd-b2c9-51f9e2346100"
+  Hint: Dependencies
+  Type: Treelist
+  Value: 
 - ID: "6fd695e7-7f6d-4ca5-8b49-a829e5950ae9"
   Hint: __Subitems Sorting
   Value: "{44D1A0D2-E17B-4DAA-ADDF-53F2E8F58525}"
@@ -22,14 +27,14 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e031a674-a763-430d-a72c-bc8a6664af20"
+      Value: "b2fff2b1-606c-4bba-a06a-4c482c7ae1be"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        extranet\Anonymous
+        sitecore\Admin
     - ID: "c202067e-7fab-4606-afb4-e76df2185ddc"
       Hint: Name
       Value: Habitat Home XA Extensions
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20190425T163458Z
+      Value: 20191017T140856Z
