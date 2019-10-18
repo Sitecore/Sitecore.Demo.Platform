@@ -8,7 +8,7 @@ $wdpName = (Split-Path $updatePackagePath -Leaf).replace("update","scwdp.zip")
 Import-Module (Join-Path $sitecoreAzureToolkitPath "tools\Sitecore.Cloud.Cmdlets.dll") -Force
 
 # Generate a Sitecore scwdp
-ConvertTo-SCModuleWebDeployPackage  $updatePackagePath  $destinationPath -Force
+ConvertTo-SCModuleWebDeployPackage  $updatePackagePath  $destinationPath -DisableDacpacOptions '*' -Force
 
 # We only really want to ge the .dacpacs out of this whole process, let's do that now by extracting them from the zip
 $filter = "*.dacpac"
