@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cm
+  labels:
+    app: cm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cm
+  template:
+    metadata:
+      labels:
+        app: cm
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": windows
+      containers:
+      - name: cm
+        image: sitecoreakshack.azurecr.io/habitathome-xp-standalone:9.2.0-windowsservercore-ltsc2019
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 80
+        resources:
+          limits:
+            cpu: 2
+            memory: 4Gi
+          requests:
+            cpu: 1
+            memory: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cm
+  labels:
+    app: cm
+spec:
+  selector:
+    app: cm
+  type: ClusterIP
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
