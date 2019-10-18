@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -66,8 +66,8 @@
     <SitecoreItem Include="sitecore\content\Applications.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Applications\WebEdit.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><CodeGenData></CodeGenData></SitecoreItem>
     <SitecoreItem Include="sitecore\content\Applications\WebEdit\Custom Experience Buttons.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><CodeGenData></CodeGenData></SitecoreItem>
-    <SitecoreItem Include="sitecore\content\Applications\WebEdit\Custom Experience Buttons\Associate Author.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><CodeGenData>$(SolutionDir)/items/feature/ExperienceAccelerator/WebEdit.Author.AssociateAuthor</CodeGenData></SitecoreItem>
-    <SitecoreItem Include="sitecore\content\Applications\WebEdit\Custom Experience Buttons\Edit Hero Background.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><CodeGenData>$(SolutionDir)/items/feature/ExperienceAccelerator/WebEdit.Hero.EditHeroBackground</CodeGenData></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Applications\WebEdit\Custom Experience Buttons\Associate Author.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><CodeGenData>$(ProjectDir)../../../../../items/feature/ExperienceAccelerator/WebEdit.Author.AssociateAuthor</CodeGenData></SitecoreItem>
+    <SitecoreItem Include="sitecore\content\Applications\WebEdit\Custom Experience Buttons\Edit Hero Background.yml"><ItemDeployment>DeployOnce</ItemDeployment><ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization><CodeGenData>$(ProjectDir)../../../../../items/feature/ExperienceAccelerator/WebEdit.Hero.EditHeroBackground</CodeGenData></SitecoreItem>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
