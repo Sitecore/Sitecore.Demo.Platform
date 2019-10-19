@@ -26,8 +26,6 @@ Once a new site is created or duplicated, the following post-steps should be per
 
 2) Bind a new site to IIS (see below) and set this item to the hostname.
 
-3) Navigate to "/sitecore/content/Habitat SXA Sites/{Your Site Name}/Presentation/Page Designs". Click on the "Content" tab. Under "Designing", set up the page design mapping. Page, Home, Login, and Account can be set to Demo Page, whereas other Pages should be set to their respective Page Type, which will usually be of the same name.
-
 #### Bind a New Site to IIS
 
 1) Open up a Powershell window. Navigate to the xp/install folder inside the Sitecore.HabitatHome.Utilities project.
