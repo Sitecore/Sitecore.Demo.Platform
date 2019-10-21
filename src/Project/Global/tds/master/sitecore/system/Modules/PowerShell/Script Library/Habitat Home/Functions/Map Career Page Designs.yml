@@ -1,0 +1,66 @@
+---
+ID: "9b05027f-e726-4631-8761-1b6532f19923"
+Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/Habitat Home/Functions/Map Career Page Designs
+DB: master
+Created: 20191018T194517Z
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    Import-Function Get-SiteItem
+    
+    $SiteItem = Get-SiteItem $Site
+    
+    $value = ""
+    
+    $careerPageID = "{6EC40BE2-7F7E-486A-9774-233907150786}"
+    $careerLandingPageID = "{013C82E4-A7EE-4E14-84E4-5970F5A69CC1}"
+    
+    
+    $careerPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Career Page"
+    $careerPageDesignID = [System.Web.HttpUtility]::UrlEncode($careerPageDesign.ID)
+    
+    $careerLandingPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Careers Landing Page"
+    $careerLandingPageDesignID = [System.Web.HttpUtility]::UrlEncode($careerLandingPageDesign.ID)
+    
+    $value = "$value&$careerPageID=$careerPageDesignID"
+    $value = "$value&$careerLandingPageID=$careerLandingPageDesignID"
+    
+    #get Page Designs Item
+    $pageDesigns = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs"
+    
+    #set templates to design mapping
+    $pageDesigns.Locking.Unlock()
+    $pageDesigns.Editing.BeginEdit()
+    
+    $pageDesigns.Fields['TemplatesMapping'].Value = $pageDesigns.Fields['TemplatesMapping'].Value + [System.Web.HttpUtility]::UrlEncode($value)
+    
+    $pageDesigns.Editing.EndEdit()
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191018T194517Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1a5e910a-8dd2-4f5d-a6d1-7c5d67ff9195"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20191018T204008Z
