@@ -1,12 +1,26 @@
 @import "abstracts/vars";
 @import "abstracts/mixins";
 
+.news-heading {
+    margin-bottom: 5px;
+    padding: 20px;
+    background-color: $jumbotron-primary-bg;
+    background-position: center;
+    background-size: cover;
+    .meta {
+        background-color: $jumbotron-secondary-bg;
+        color: $jumbotron-secondary-text-color !important;
+        display: inline-block;
+        padding: 5px;
+    }
+} 
+
 .centered-heading { padding-top: 2em; }
 
 .featurette { margin-bottom: 2rem; }
 
 .featurette-heading, .centered-heading h2 {
-    color: #000000;
+    color: $jumbotron-primary-text-color;
     font-size: 36px;
     font-style: normal;
     font-weight: 800;
@@ -20,7 +34,7 @@
 }
 
 .jumbotron {
-    background-color: #f3f6f9;
+    background-color: $jumbotron-primary-bg;
     background-position: center;
     background-size: cover;
     h1 { 
@@ -29,7 +43,7 @@
 }
 
 .image-cta { 
-    background-color: #f3f3f3; 
+    background-color: $jumbotron-primary-bg; 
 }
 
 .promo {    
@@ -39,7 +53,7 @@
 
     >.component-content {
         padding: 0;
-        background-color: white;
+        background-color: $promo-bg;
 
         @include proxima-font;
 
@@ -52,7 +66,7 @@
         }
 
         p {
-            color: gray;
+            color: $text-basic;
             font-size: 1.25em;
         }
         @include respond-to(tablet) {
@@ -261,6 +275,10 @@
             >div {
                 float: none;
                 width: 100%;
+            }
+
+            .field-promotext {
+                position: relative;
             }
         }
     

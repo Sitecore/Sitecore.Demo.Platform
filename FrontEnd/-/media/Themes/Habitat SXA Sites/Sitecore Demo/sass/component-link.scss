@@ -31,35 +31,35 @@ a.link_arrow:not(.btn) {
 .btn {
     cursor: pointer;
     a {
-        color: #fff;
+        color: $btn-text;
         text-decoration: none;
         &:hover {
-            color: #fff;
+            color: $btn-text;
         }
     }
 }
 
 .btn-info {
-    background-color: #232323;
-    border: 2px solid #232323;
+    background-color: $btn-info;
+    border: 2px solid $btn-info;
     border-radius: 0;
     padding: .9375em 2.5em;
-    color: #fff;
+    color: $btn-info-color;
     &:hover {
-        background-color: #000000;
-        border: 2px solid #232323;
-        color: #fff;
+        background-color: $btn-info-active;
+        border: 2px solid $btn-info;
+        color: $btn-text;
     }  
 }
 
 .btn-primary {
-    background-color: #19a5a2;
-    border-color: #19a5a2;
+    background-color: $btn-primary;
+    border-color: $btn-primary;
     padding: .9375em 2.5em;
-    color: #fff;
+    color: $btn-text;
     &:hover {
-        background-color: #0d5755;
-        border: 2px solid #19a5a2;
-        color: #fff;
+        background-color: $btn-primary-active;
+        border: 2px solid $btn-primary;
+        color: $btn-text;
     }
 }

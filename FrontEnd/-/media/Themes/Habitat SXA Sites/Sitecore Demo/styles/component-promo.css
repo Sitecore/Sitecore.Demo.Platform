@@ -1,4 +1,19 @@
 /* breakpoints */
+.news-heading {
+  margin-bottom: 5px;
+  padding: 20px;
+  background-color: #f3f6f9;
+  background-position: center;
+  background-size: cover;
+}
+
+.news-heading .meta {
+  background-color: #15909c;
+  color: #fff !important;
+  display: inline-block;
+  padding: 5px;
+}
+
 .centered-heading {
   padding-top: 2em;
 }
@@ -8,7 +23,7 @@
 }
 
 .featurette-heading, .centered-heading h2 {
-  color: #000000;
+  color: #000;
   font-size: 36px;
   font-style: normal;
   font-weight: 800;
@@ -33,7 +48,7 @@
 }
 
 .image-cta {
-  background-color: #f3f3f3;
+  background-color: #f3f6f9;
 }
 
 .promo {
@@ -44,7 +59,7 @@
 
 .promo > .component-content {
   padding: 0;
-  background-color: white;
+  background-color: #FFFFFF;
   font-family: "ProximaNova-Semibold", arial, helvetica, sans-serif;
 }
 
@@ -57,7 +72,7 @@
 }
 
 .promo > .component-content p {
-  color: gray;
+  color: #747474;
   font-size: 1.25em;
 }
 
@@ -361,6 +376,10 @@
 .promo.promo-hero > .component-content > div {
   float: none;
   width: 100%;
+}
+
+.promo.promo-hero > .component-content .field-promotext {
+  position: relative;
 }
 
 .promo.promo-hero .field-promoicon {

@@ -1,9 +1,13 @@
+
+
 //Backgrounds colors
 $bg-transparent:transparent !default;
+////Component background color
 $bg-basic-color:#FFFFFF !default;
 $bg-basic-color-active: #cccccc !default;
 $bg-light-gray: #f7f7f7 !default;
 $bg-light-gray-active: #dadada !default;
+$bg-light-blue: #f3f6f9;
 $bg-blue:#89C6CC;
 $bg-blue-active: #15909c !default;
 $bg-submenu:#edebeb !default;
@@ -12,7 +16,9 @@ $bg-black:#000;
 $bg-black-active:#3d3d3d;
 //Text colors
 $text-white:#fff !default;
+////Secondary text color
 $text-heading-color: #222 !default;
+////Main text color
 $text-basic:#747474 !default;
 $text-basic-active:#878787 !default;
 $text-blue:#89C6CC !default;
@@ -27,7 +33,12 @@ $border-white: #ffffff !default;
 $border-basic-color: #89C6CC !default;
 $border-basic-active:#15909c !default;
 $border-nav-submenu:#e1e1e1;
+
 //Styles for each component separately
+//Main
+////Site background color
+$page-bg: $bg-basic-color;
+$page-bg-editor:none;
 //Accordion
 $accordion-header-bg: transparent;
 $accordion-header-bg-active: transparent;
@@ -41,10 +52,16 @@ $breadcrumb-bg:transparent;
 $breadcrumb-color:$text-basic;
 $breadcrumb-color-active:$text-blue-active;
 //Buttons colors
+$btn-text: $text-white;
 $btn-green-light: #a0ce4e;
 $btn-green: #92be43;
 $btn-red-active: #c34e30;
 $btn-red: #bc4526;
+$btn-info: #232323;
+$btn-info-active: $bg-black;
+$btn-primary: $bg-blue-active;
+$btn-primary-active: #0d5755;
+
 //Carousel
 $carousel-bg:$bg-basic-color;
 $carousel-nav:$text-black;
@@ -125,6 +142,12 @@ $logout-link-border:$border-basic-color;
 //Map
 $map-bg:transparent;
 $map-border:none;
+//News
+$news-item-bg: $bg-blue-active;
+$news-color-active: $text-blue-active;
+$news-color-secondary: $text-white;
+$news-heading: $text-heading-color;
+$news-border: $border-gray;
 //Page List
 $page-list-bg:$bg-transparent;
 $page-list-item-bg:$bg-transparent;
@@ -153,6 +176,10 @@ $promo-bg-hero:rgba(0, 0, 0, 0.5);
 $promo-border:$border-gray;
 $promo-hero-text-color:$text-white;
 $promo-shadow-border:$border-basic-color;
+$jumbotron-primary-bg: $bg-light-blue;
+$jumbotron-secondary-bg: $bg-blue-active;
+$jumbotron-primary-text-color: $text-black;
+$jumbotron-secondary-text-color: $text-white;
 //Rich Text Content
 $rich-content-bg:transparent;
 $rich-content-color:$text-basic;
@@ -264,6 +291,3 @@ $video-time-handle-bg:$bg-black;
 $form-bg: transparent;
 $form-border: transparent;
 $form-color: $text-basic;
-//Main
-$page-bg: $bg-basic-color;
-$page-bg-editor:none;

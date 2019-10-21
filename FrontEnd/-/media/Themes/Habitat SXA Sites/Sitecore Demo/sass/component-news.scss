@@ -1,3 +1,5 @@
+@import "abstracts/vars";
+
 #news-search, #latest-news { 
     .card {
         padding: 2em;
@@ -13,16 +15,16 @@
         }
     }
     a {
-        color: #000000 !important;
+        color: $news-heading !important;
         font-weight: 700;
         text-decoration: none;
         &:hover {
-            color: #19a5a2 !important; 
+            color: $news-color-active !important; 
             text-decoration: underline;
         }       
     }
     h3 {
-        color: #000000;
+        color: $news-heading;
         font-size: 36px;
         font-style: normal;
         font-weight: 800;
@@ -47,7 +49,7 @@
         box-shadow: none;
         border-width: 1px;
         border-style: solid;
-        border-color: #d2d2d2;
+        border-color: $news-border;
     }
     li {
         max-width: 33.33333%;
@@ -59,23 +61,9 @@
     }
 }
 
-.news-heading {
-    margin-bottom: 5px;
-    padding: 20px;
-    background-color: #f3f6f9;
-    background-position: center;
-    background-size: cover;
-    .meta {
-        background-color: #19a5a2;
-        color: #ffffff !important;
-        display: inline-block;
-        padding: 5px;
-    }
-}
-
 .field-publish-date {
-    background-color: #19a5a2;
-    color: #ffffff !important;
+    background-color: $news-item-bg;
+    color: $news-color-secondary !important;
     display: inline-block;
     padding: 5px;
     margin-bottom: 10px;
