@@ -116,6 +116,11 @@ $gallery-info-text:$text-basic;
 $gallery-nav-active:$text-white;
 $gallery-nav:$text-basic;
 $gallery-counter-color:$text-white;
+//Jumbotron 
+$jumbotron-primary-bg: $bg-light-blue;
+$jumbotron-secondary-bg: $bg-blue-active;
+$jumbotron-primary-text-color: $text-black;
+$jumbotron-secondary-text-color: $text-white;
 //Language selector
 $lang-selector-bg:$bg-basic-color;
 $lang-selector-border:$border-basic-color;
@@ -146,7 +151,7 @@ $map-border:none;
 $news-item-bg: $bg-blue-active;
 $news-color-active: $text-blue-active;
 $news-color-secondary: $text-white;
-$news-heading: $text-heading-color;
+$news-heading-color: $text-heading-color;
 $news-border: $border-gray;
 //Page List
 $page-list-bg:$bg-transparent;
@@ -176,10 +181,6 @@ $promo-bg-hero:rgba(0, 0, 0, 0.5);
 $promo-border:$border-gray;
 $promo-hero-text-color:$text-white;
 $promo-shadow-border:$border-basic-color;
-$jumbotron-primary-bg: $bg-light-blue;
-$jumbotron-secondary-bg: $bg-blue-active;
-$jumbotron-primary-text-color: $text-black;
-$jumbotron-secondary-text-color: $text-white;
 //Rich Text Content
 $rich-content-bg:transparent;
 $rich-content-color:$text-basic;

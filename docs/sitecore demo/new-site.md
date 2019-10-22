@@ -26,7 +26,7 @@ Once a new site is created or duplicated, the following post-steps should be per
 
 2) Bind a new site to IIS (see below) and set this item to the hostname.
 
-3) Navigate to "/sitecore/content/Habitat SXA Sites/{Your Site Name}/Presentation/Page Designs". Click on the "Content" tab. Under "Designing", set up the page design mapping. Page, Home, Login, and Account can be set to Demo Page, whereas other Pages should be set to their respective Page Type, which will usually be of the same name.
+3) Do a full Site Publish.
 
 #### Bind a New Site to IIS
 
@@ -36,4 +36,4 @@ Once a new site is created or duplicated, the following post-steps should be per
 
 2) Run `Add-SSLSiteBindingWithCertificate.ps1` with your desired hostname.
 
-`.\Add-SSLSiteBindingWithCertificate.ps1 -$SiteName habitathome.dev.local -$HostName yourhostname.dev.local -$CertificatName yourhostname.dev.local `
+`.\Add-SSLSiteBindingWithCertificate.ps1 -SiteName habitathome.dev.local -HostName yourhostname.dev.local -CertificateName yourhostname.dev.local `

@@ -15,7 +15,7 @@
         }
     }
     a {
-        color: $news-heading !important;
+        color: $news-heading-color !important;
         font-weight: 700;
         text-decoration: none;
         &:hover {
@@ -24,8 +24,8 @@
         }       
     }
     h3 {
-        color: $news-heading;
-        font-size: 36px;
+        color: $news-heading-color;
+        font-size: $news-header;
         font-style: normal;
         font-weight: 800;
         line-height: 42px;
