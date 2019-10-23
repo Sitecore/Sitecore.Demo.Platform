@@ -26,7 +26,7 @@ Once a new site is created or duplicated, the following post-steps should be per
 
 2) Bind a new site to IIS (see below) and set this item to the host name.
 
-3) To immediately view the site, change the database to "master", or follow the steps below to view the live site.
+3) To immediately view the site, change the database to "master", or follow the steps below to view the live site. For search items to show up, you will need to re-index the site's tree.
 
 4) In order to view the live site, you will need to:
 
