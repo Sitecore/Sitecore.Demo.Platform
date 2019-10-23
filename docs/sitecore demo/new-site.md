@@ -2,7 +2,7 @@
 
 #### Clone An Existing Site
 
-Right click the site you wish to clone. Click "Duplicate" and enter the name of your new site.
+Right click the site you wish to clone. Click "Duplicate" and enter the name of your new site. Perform the Post-Steps listed below.
 
 #### Create a New Site
 
@@ -24,9 +24,15 @@ Once a new site is created or duplicated, the following post-steps should be per
 
 /sitecore/content/Habitat SXA Sites/{Your Site Name}/Settings/Site Grouping and insert a new Site or click on the existing child site. 
 
-2) Bind a new site to IIS (see below) and set this item to the hostname.
+2) Bind a new site to IIS (see below) and set this item to the host name.
 
-3) Do a full Site Publish.
+3) To immediately view the site, change the database to "master", or follow the steps below to view the live site.
+
+4) In order to view the live site, you will need to:
+
+​	a) Approve all pages in the workflow. This can be done on the individual 	    items or from the Workbox.
+
+​	b) Do a full site publish.
 
 #### Bind a New Site to IIS
 
