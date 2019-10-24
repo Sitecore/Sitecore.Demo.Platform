@@ -1,19 +1,22 @@
 ---
-ID: "848b5fd7-4d38-4ffa-b348-10cf32ad04ea"
+ID: "328fe86e-b841-49e5-871b-d17e0a1469ab"
 Parent: "60deab8b-72e9-453e-a97b-93a870e25dd7"
 Template: "ea8a3f26-9ccd-443a-95f5-71b868a94bd0"
-Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/News and Events/Sitecore Demo News and Events Site Setup/Add Partial Designs
+Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/News and Events/Sitecore Demo News and Events Site Setup/Add Upcoming Events Partial
 DB: master
-Created: 20191011T173402Z
+Created: 20191024T175520Z
 SharedFields:
 - ID: "4795a7c6-08a9-4248-86c3-d460062c3a22"
   Hint: Location
   Type: Treelist
   Value: "{35213342-7955-4BB2-A07D-FFF8BD9B168B}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
 - ID: "e62c28f0-9d3b-46e2-8bec-a5e120542499"
   Hint: Template
   Type: Treelist
-  Value: "{5C295CD3-2801-4FC4-8DC8-2EA8F5C4343A}"
+  Value: "{3AE70504-5B82-4FB1-AD12-08EBD5F3802F}"
 Languages:
 - Language: en
   Versions:
@@ -21,7 +24,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20191011T173402Z
+      Value: 20191024T175520Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,11 +35,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "11d3532d-e260-4b44-a0d7-a4f2be2ccd50"
+      Value: "409bb23b-7d3e-4f10-8527-23ec8a4cae29"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191011T173421Z
+      Value: 20191024T175833Z
