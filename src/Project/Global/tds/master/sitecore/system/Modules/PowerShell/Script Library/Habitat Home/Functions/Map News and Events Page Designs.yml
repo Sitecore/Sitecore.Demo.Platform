@@ -24,7 +24,7 @@ SharedFields:
     
     #get page designs by path
      #Events Page
-     $eventPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Event Page"
+     $eventPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Demo Page"
      #Events Landing Page
      $eventLandingPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Events Landing Page"
      #News Page
@@ -78,11 +78,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6a2e5036-bb49-4cff-b464-bc8e4a15d458"
+      Value: "224d7758-7b46-40e7-9d4e-59d6ae1d0e7c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191018T204015Z
+      Value: 20191023T230328Z

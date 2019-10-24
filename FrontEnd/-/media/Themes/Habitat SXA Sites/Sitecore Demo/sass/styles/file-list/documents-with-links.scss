@@ -1,4 +1,4 @@
-&.file-list-files {
+.file-list-files {
     .component-content {
         >ul {
             >li,
@@ -39,7 +39,7 @@
         order: 1;
         width: 45%;
         text-align: right;
-        color: $file-list-item-update-color;
+        color: $file-list-item-color;
     }
     .field-linktext {
         order: 1;

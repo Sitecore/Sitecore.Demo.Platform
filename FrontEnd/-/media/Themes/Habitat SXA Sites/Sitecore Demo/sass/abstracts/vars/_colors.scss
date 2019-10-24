@@ -1,13 +1,277 @@
+////Site Theme Colors////
+$primary-color: #ffffff;
+$secondary-color: #000000;
+$tertiary-color: #15909c;
+$tertiary-second-color: #747474;
+$tertiary-third-color: #de232f;
+
+////Styles for each component separately////
+//Main
+////Site background color
+$page-bg: $primary-color;
+$page-bg-editor:none;
+//Accordion
+$accordion-header-bg: transparent;
+$accordion-header-bg-active: transparent;
+$accordion-toggled-bg: transparent;
+$accordion-header-border: lighten($tertiary-third-color,30%);
+//Breadcrumb
+$breadcrumb-dropdown-bg: $primary-color;
+$breadcrumb-dropdown-bg-active:lighten($tertiary-color,30%);
+$breadcrumb-dropdown-text-active:$primary-color;
+$breadcrumb-bg:transparent;
+$breadcrumb-color:$tertiary-second-color;
+$breadcrumb-color-active:$tertiary-color;
+//Buttons colors
+$btn-text: $primary-color;
+$btn-green-light: #a0ce4e;
+$btn-green: #92be43;
+$btn-red-active: #c34e30;
+$btn-red: #bc4526;
+$btn-info: lighten($secondary-color,30%);
+$btn-info-active: $secondary-color;
+$btn-primary: $tertiary-color;
+$btn-primary-active: darken($tertiary-color,30%);
+
+//Carousel
+$carousel-bg:$primary-color;
+$carousel-nav:$secondary-color; 
+$carousel-nav-active:$tertiary-second-color;
+$carousel-nav-border:lighten($tertiary-color,30%)r;
+//Container component
+$container-title-row-bg: lighten($tertiary-second-color,50%);
+//Event List
+$event-list-bg:transparent;
+$event-list-item-bg:$primary-color;
+$event-list-item-color:$tertiary-second-color;
+$event-list-title-border:lighten($tertiary-color,30%);
+//Calendar
+$calendar-bg:$primary-color;
+$calendar-header-bg:lighten($tertiary-second-color,50%);
+$calendar-day-color-active:$primary-color;
+$calendar-title-color:$primary-color;
+//Feed
+$feed-bg:transparent;
+$feed-item-bg:transparent;
+//Field Editor
+$field-editor-bg:transparent;
+$field-editor-table-border:lighten($tertiary-second-color,50%);
+$field-editor-text-header:$secondary-color;
+$field-editor-text-header-active:$tertiary-third-color;
+$field-editor-text:$tertiary-second-color;
+//File List
+$file-list-bg:transparent;
+$file-list-item-bg:transparent;
+$file-list-title-color:$tertiary-second-color;
+$file-list-title-border:transparent;
+$file-list-item-color:$tertiary-second-color;
+$file-list-item-color-active:darken($tertiary-second-color,30%);
+$file-list-item-size:$tertiary-second-color;
+$file-list-item-borer:lighten($tertiary-color,30%);
+$file-list-link-btn-color-active:$primary-color;
+$file-list-link-btn-color:$tertiary-second-color;
+$file-list-link-btn-bg:$tertiary-color;
+$file-list-link-btn-bg-active:lighten($tertiary-color,30%);
+//Flip
+$flip-bg:transparent; 
+$flip-slides-bg:$primary-color;
+$flip-slides0-bg:#f6f6f6;
+$flip-slides1-bg:$tertiary-color;
+$flip-slides1-color:$primary-color;
+$flip-border:lighten($tertiary-second-color,30%);
+//Gallery
+$galleria-container-bg:transparent;
+$gallery-info-bg:$primary-color;
+$gallery-info-border:lighten($tertiary-second-color,30%);
+$gallery-info-text:$tertiary-second-color;
+$gallery-nav-active:$primary-color;
+$gallery-nav:$tertiary-second-color;
+$gallery-counter-color:$primary-color;
+//Jumbotron 
+$jumbotron-primary-bg: lighten($tertiary-second-color,50%);
+$jumbotron-secondary-bg: $tertiary-color;
+$jumbotron-primary-text-color: $secondary-color;
+$jumbotron-secondary-text-color: $primary-color;
+//Language selector
+$lang-selector-bg:$primary-color;
+$lang-selector-border:lighten($tertiary-color,30%);
+$lang-selector-item-bg-active:$primary-color;
+$lang-selector-item-border:$primary-color;
+$lang-selector-item-border-active:$tertiary-color;
+//Site selector
+$site-selector-color:$tertiary-second-color;
+//Link List
+$link-list-bg:transparent;
+$link-list-header-border:lighten($tertiary-color,30%);
+$link-list-items-bg:transparent;
+$link-list-item-bg:transparent;
+$link-list-item-color:$tertiary-second-color;
+$link-list-item-color-active:darken($tertiary-second-color,30%);
+$link-list-item-border-active:lighten($tertiary-color,30%);
+//Login
+$login-bg:transparent;
+//Logout
+$logout-bg:transparent;
+$logout-link-text-color:$tertiary-second-color;
+$logout-link-text-color-active:darken($tertiary-second-color,30%);
+$logout-link-border:lighten($tertiary-color,30%);
+//Map
+$map-bg:transparent;
+$map-border:none;
+//News
+$news-item-bg: $tertiary-color;
+$news-color-active: $tertiary-color;
+$news-color-secondary: $primary-color;
+$news-heading-color: lighten($tertiary-second-color,10%);
+$news-border: lighten($tertiary-second-color,30%);
+//Page List
+$page-list-bg:transparent;
+$page-list-item-bg:transparent;
+$page-list-item-title-text:$secondary-color;
+$page-list-item-border:lighten($tertiary-color,30%);
+//Pagination
+$list-pagination-bg:transparent;
+$list-pagination-active-bg:lighten($tertiary-color,30%);
+$list-pagination-active-color:$primary-color;
+$list-pagination-active-color:lighten($tertiary-color,30%);
+$list-pagination-active-bg:lighten($tertiary-second-color,70%);
+$list-pagination-active-border:$tertiary-color;
+//Play list 
+$play-list-bg:transparent;
+$play-list-item-bg:transparent;
+$play-list-item-color:$tertiary-second-color;
+$play-list-item-color-active:$primary-color;
+$play-list-nav-active:lighten($tertiary-color,30%);
+$play-list-item-bg:lighten($tertiary-second-color,50%);
+$play-list-item-active-bg:lighten($tertiary-color,30%);
+$play-list-border:lighten($tertiary-color,30%);
+$play-list-title-border:lighten($tertiary-color,30%);
+//Promo
+$promo-bg:$primary-color;
+$promo-bg-hero:rgba(0, 0, 0, 0.5);
+$promo-border:lighten($tertiary-second-color,30%);
+$promo-hero-text-color:$primary-color;
+$promo-shadow-border:lighten($tertiary-color,30%);
+//Rich Text Content
+$rich-content-bg:transparent;
+$rich-content-color:$tertiary-second-color;
+$rich-content-border:transparent;
+$rich-content-link-color:$tertiary-third-color;
+$rich-content-link-color-active:$tertiary-second-color;
+//Search
+$search-filter:$tertiary-second-color;
+$search-filter-border:lighten($tertiary-color,30%);
+//Menu colors
+$menu-hover-color:$tertiary-color;
+$menu-active-color:darken($tertiary-color,20%);
+//Navigation
+$nav-bg:transparent;
+$nav-color-root:$tertiary-second-color;
+$nav-color-root-active:$tertiary-second-color;
+$nav-border-root:lighten($tertiary-color,30%);
+$nav-border-root-active:lighten($tertiary-color,30%);
+$nav-color-submenu:lighten($secondary-color,30%);
+$nav-color-submenu-active:lighten($secondary-color,30%);
+$nav-bg-root:lighten($tertiary-second-color,70%);
+$nav-bg-submenu:lighten($tertiary-second-color,70%);
+$nav-bg-submenu-active:lighten($tertiary-second-color,70%);
+$nav-border-submenu:lighten($tertiary-color,30%);
+$nav-submenu-item-border:lighten($tertiary-second-color,30%);
+$nav-submenu-border-active:lighten($tertiary-color,30%);
+//Social Media Share
+$social-media-share-bg:transparent;
+//Tabs
+$tab-heading-bg:lighten($tertiary-second-color,50%);
+$tab-heading-active-bg:$primary-color;
+$tab-heading-color:lighten($secondary-color,30%);
+$tab-heading-active-color:$secondary-color;
+$tab-container-bg:transparent;
+$tab-container-border:lighten($tertiary-color,30%);
+//Title
+$title-bg:transparent;
+$title-color:$tertiary-second-color;
+$title-color-active:$tertiary-second-color;
+//Toggle
+$toggle-header-bg:$primary-color;
+$toggle-content-bg:$primary-color;
+$toggle-show-color:$tertiary-second-color;
+//Search Components
+$search-btn-bg:transparent;
+$search-btn-active-bg:#e0e0e0;
+$search-btn-active-border:#adadad;
+//Image component
+$image-caption-color:$tertiary-second-color;
+//Media Link Component
+$media-link-bg:transparent;
+$media-link-border:lighten($tertiary-color,30%);
+$media-link-color:$tertiary-second-color;
+$media-link-color-active:$tertiary-second-color;
+//Tag Component
+$tag-color:$tertiary-second-color;
+$tag-color-active:$tertiary-second-color;
+$tag-border-active:$tertiary-color;
+$tag-link-bg :lighten($tertiary-color,30%);
+$tag-link-bg-active :$tertiary-color;
+$tag-link-color :$primary-color;
+//Link Component
+$link-bg:transparent;
+$link-text-color:$tertiary-second-color;
+$link-text-color-active:$tertiary-second-color;
+$link-border:lighten($tertiary-color,30%);
+//Overlay
+$overlay-bg:lighten($tertiary-second-color,50%);
+//Search Components
+$search-title-border:lighten($tertiary-color,30%);
+$search-title-color:$tertiary-second-color;
+$search-item-color:$tertiary-second-color;
+$search-item-color-active:$tertiary-second-color;
+$search-item-border:lighten($tertiary-color,30%);
+$search-item-border-active:$tertiary-color;
+//
+$search-filter-radius-active:lighten($tertiary-color,30%);
+$search-filter-radius-border:lighten($tertiary-second-color,30%);
+$search-filter-radius-bg:lighten($tertiary-second-color,30%);
+//
+$search-filter-slider-border-active:lighten($tertiary-color,30%);
+$search-filter-slider-bg-active:lighten($tertiary-color,30%);
+$search-filter-slider-btn-border:lighten($tertiary-second-color,30%);
+$search-filter-slider-btn-bg:lighten($tertiary-second-color,50%);
+$search-filter-slider-btn-bg-active:lighten($tertiary-second-color,50%)-active;
+//Serach Pagination
+$search-pagination-bg:transparent;
+$search-pagination-active-bg:lighten($tertiary-color,30%);
+$search-pagination-active-color:$primary-color;
+$search-pagination-hover-color:lighten($tertiary-color,30%);
+$search-pagination-hover-bg:lighten($tertiary-second-color,70%);
+$search-pagination-hover-border:$tertiary-color;
+//Search selector
+$serach-selector-variant-color-active: $tertiary-color;
+//Typehead
+$tt-color:$tertiary-second-color;
+$tt-color-active:lighten($tertiary-color,30%);
+$tt-price-color:lighten($tertiary-color,30%);
+$tt-dropdown-bg:lighten($tertiary-second-color,50%);
+$tt-suggestion-bg-active:lighten($tertiary-second-color,50%)-active;
+$tt-dropdown-border:lighten($tertiary-second-color,30%);
+//Video
+$video-control-bg:$primary-color;
+$video-time-color:$tertiary-second-color;
+$video-time-total-bg:$secondary-color;
+$video-time-handle-border:lighten($tertiary-second-color,30%);
+$video-time-handle-bg:$secondary-color;
+//Form component
+$form-bg: transparent;
+$form-border: transparent;
+$form-color: $tertiary-second-color;
 
 
+////Colors////
 //Backgrounds colors
 $bg-transparent:transparent !default;
-////Component background color
 $bg-basic-color:#FFFFFF !default;
 $bg-basic-color-active: #cccccc !default;
 $bg-light-gray: #f7f7f7 !default;
 $bg-light-gray-active: #dadada !default;
-$bg-light-blue: #f3f6f9;
 $bg-blue:#89C6CC;
 $bg-blue-active: #15909c !default;
 $bg-submenu:#edebeb !default;
@@ -16,9 +280,7 @@ $bg-black:#000;
 $bg-black-active:#3d3d3d;
 //Text colors
 $text-white:#fff !default;
-////Secondary text color
 $text-heading-color: #222 !default;
-////Main text color
 $text-basic:#747474 !default;
 $text-basic-active:#878787 !default;
 $text-blue:#89C6CC !default;
@@ -33,262 +295,3 @@ $border-white: #ffffff !default;
 $border-basic-color: #89C6CC !default;
 $border-basic-active:#15909c !default;
 $border-nav-submenu:#e1e1e1;
-
-//Styles for each component separately
-//Main
-////Site background color
-$page-bg: $bg-basic-color;
-$page-bg-editor:none;
-//Accordion
-$accordion-header-bg: transparent;
-$accordion-header-bg-active: transparent;
-$accordion-toggled-bg: transparent;
-$accordion-header-border: $border-gray;
-//Breadcrumb
-$breadcrumb-dropdown-bg:$bg-basic-color;
-$breadcrumb-dropdown-bg-active:$bg-blue;
-$breadcrumb-dropdown-text-active:$text-white;
-$breadcrumb-bg:transparent;
-$breadcrumb-color:$text-basic;
-$breadcrumb-color-active:$text-blue-active;
-//Buttons colors
-$btn-text: $text-white;
-$btn-green-light: #a0ce4e;
-$btn-green: #92be43;
-$btn-red-active: #c34e30;
-$btn-red: #bc4526;
-$btn-info: #232323;
-$btn-info-active: $bg-black;
-$btn-primary: $bg-blue-active;
-$btn-primary-active: #0d5755;
-
-//Carousel
-$carousel-bg:$bg-basic-color;
-$carousel-nav:$text-black;
-$carousel-nav-active:$text-basic-active;
-$carousel-nav-border:$border-basic-color;
-//Container component
-$container-title-row-bg: $bg-light-gray;
-//Event List
-$event-list-bg:transparent;
-$event-list-item-bg:$bg-basic-color;
-$event-list-item-color:$text-basic;
-$event-list-title-border:$border-basic-color;
-//Calendar
-$calendar-bg:$bg-basic-color;
-$calendar-header-bg:$bg-basic-color-active;
-$calendar-day-color-active:$text-white;
-$calendar-title-color:$text-white;
-//Feed
-$feed-bg:transparent;
-$feed-item-bg:transparent;
-//Field Editor
-$field-editor-bg:transparent;
-$field-editor-table-border:$bg-light-gray;
-$field-editor-text-header:$text-black;
-$field-editor-text-header-active:$text-red;
-$field-editor-text:$text-basic;
-//File List
-$file-list-bg:transparent;
-$file-list-item-bg:transparent;
-$file-list-title-color:$text-basic;
-$file-list-title-border:transparent;
-$file-list-item-color:$text-basic;
-$file-list-item-color-active:$text-basic-active;
-$file-list-item-size:$text-basic;
-$file-list-item-borer:$border-basic-color;
-$file-list-link-btn-color-active:$text-white;
-$file-list-link-btn-color:$text-basic;
-$file-list-link-btn-bg:$bg-blue-active;
-$file-list-link-btn-bg-active:$bg-blue;
-//Flip
-$flip-bg:transparent;
-$flip-slides-bg:$bg-basic-color;
-$flip-slides0-bg:#f6f6f6;
-$flip-slides1-bg:$bg-blue-active;
-$flip-slides1-color:$text-white;
-$flip-border:$border-gray;
-//Gallery
-$galleria-container-bg:transparent;
-$gallery-info-bg:$bg-basic-color;
-$gallery-info-border:$border-gray;
-$gallery-info-text:$text-basic;
-$gallery-nav-active:$text-white;
-$gallery-nav:$text-basic;
-$gallery-counter-color:$text-white;
-//Jumbotron 
-$jumbotron-primary-bg: $bg-light-blue;
-$jumbotron-secondary-bg: $bg-blue-active;
-$jumbotron-primary-text-color: $text-black;
-$jumbotron-secondary-text-color: $text-white;
-//Language selector
-$lang-selector-bg:$bg-basic-color;
-$lang-selector-border:$border-basic-color;
-$lang-selector-item-bg-active:$bg-basic-color;
-$lang-selector-item-border:$border-white;
-$lang-selector-item-border-active:$border-basic-active;
-//Site selector
-$site-selector-color:$text-basic;
-//Link List
-$link-list-bg:transparent;
-$link-list-header-border:$border-basic-color;
-$link-list-items-bg:transparent;
-$link-list-item-bg:transparent;
-$link-list-item-color:$text-basic;
-$link-list-item-color-active:$text-basic-active;
-$link-list-item-border-active:$border-basic-color;
-//Login
-$login-bg:transparent;
-//Logout
-$logout-bg:transparent;
-$logout-link-text-color:$text-basic;
-$logout-link-text-color-active:$text-basic-active;
-$logout-link-border:$border-basic-color;
-//Map
-$map-bg:transparent;
-$map-border:none;
-//News
-$news-item-bg: $bg-blue-active;
-$news-color-active: $text-blue-active;
-$news-color-secondary: $text-white;
-$news-heading-color: $text-heading-color;
-$news-border: $border-gray;
-//Page List
-$page-list-bg:$bg-transparent;
-$page-list-item-bg:$bg-transparent;
-$page-list-item-title-text:$text-black;
-$page-list-item-border:$border-basic-color;
-//Pagination
-$list-pagination-bg:transparent;
-$list-pagination-active-bg:$bg-blue;
-$list-pagination-active-color:$text-white;
-$list-pagination-active-color:$text-blue;
-$list-pagination-active-bg:$bg-submenu-active;
-$list-pagination-active-border:$border-basic-active;
-//Play list 
-$play-list-bg:transparent;
-$play-list-item-bg:transparent;
-$play-list-item-color:$text-basic;
-$play-list-item-color-active:$text-white;
-$play-list-nav-active:$text-blue;
-$play-list-item-bg:$bg-light-gray;
-$play-list-item-active-bg:$bg-blue;
-$play-list-border:$border-basic-color;
-$play-list-title-border:$border-basic-color;
-//Promo
-$promo-bg:$bg-basic-color;
-$promo-bg-hero:rgba(0, 0, 0, 0.5);
-$promo-border:$border-gray;
-$promo-hero-text-color:$text-white;
-$promo-shadow-border:$border-basic-color;
-//Rich Text Content
-$rich-content-bg:transparent;
-$rich-content-color:$text-basic;
-$rich-content-border:transparent;
-$rich-content-link-color:$text-red;
-$rich-content-link-color-active:$text-basic-active;
-//Search
-$search-filter:$text-basic;
-$search-filter-border:$border-basic-color;
-//Menu colors
-$menu-hover-color:#1b809e;
-$menu-active-color:#176f89;
-//Navigation
-$nav-bg:transparent;
-$nav-color-root:$text-basic;
-$nav-color-root-active:$text-basic;
-$nav-border-root:$border-basic-color;
-$nav-border-root-active:$border-basic-color;
-$nav-color-submenu:$text-submenu-active;
-$nav-color-submenu-active:$text-submenu-active;
-$nav-bg-root:$bg-submenu-active;
-$nav-bg-submenu:$bg-submenu-active;
-$nav-bg-submenu-active:$bg-submenu-active;
-$nav-border-submenu:$border-basic-color;
-$nav-submenu-item-border:$border-gray;
-$nav-submenu-border-active:$border-basic-color;
-//Social Media Share
-$social-media-share-bg:transparent;
-//Tabs
-$tab-heading-bg:$bg-light-gray;
-$tab-heading-active-bg:$bg-basic-color;
-$tab-heading-color:$text-heading-color;
-$tab-heading-active-color:$text-black;
-$tab-container-bg:transparent;
-$tab-container-border:$border-basic-color;
-//Title
-$title-bg:transparent;
-$title-color:$text-basic;
-$title-color-active:$text-basic-active;
-//Toggle
-$toggle-header-bg:$bg-basic-color;
-$toggle-content-bg:$bg-basic-color;
-$toggle-show-color:$text-basic-active;
-//Search Components
-$search-btn-bg:transparent;
-$search-btn-active-bg:#e0e0e0;
-$search-btn-active-border:#adadad;
-//Image component
-$image-caption-color:$text-basic;
-//Media Link Component
-$media-link-bg:transparent;
-$media-link-border:$border-basic-color;
-$media-link-color:$text-basic;
-$media-link-color-active:$text-basic-active;
-//Tag Component
-$tag-color:$text-basic;
-$tag-color-active:$text-basic-active;
-$tag-border-active:$border-basic-active;
-$tag-link-bg :$bg-blue;
-$tag-link-bg-active :$bg-blue-active;
-$tag-link-color :$text-white;
-//Link Component
-$link-bg:transparent;
-$link-text-color:$text-basic;
-$link-text-color-active:$text-basic-active;
-$link-border:$border-basic-color;
-//Overlay
-$overlay-bg:$bg-light-gray;
-//Search Components
-$search-title-border:$border-basic-color;
-$search-title-color:$text-basic;
-$search-item-color:$text-basic;
-$search-item-color-active:$text-basic;
-$search-item-border:$border-basic-color;
-$search-item-border-active:$border-basic-active;
-//
-$search-filter-radius-active:$text-blue;
-$search-filter-radius-border:$border-gray;
-$search-filter-radius-bg:$border-gray;
-//
-$search-filter-slider-border-active:$border-basic-color;
-$search-filter-slider-bg-active:$bg-blue;
-$search-filter-slider-btn-border:$border-gray;
-$search-filter-slider-btn-bg:$bg-light-gray;
-$search-filter-slider-btn-bg-active:$bg-light-gray-active;
-//Serach Pagination
-$search-pagination-bg:transparent;
-$search-pagination-active-bg:$bg-blue;
-$search-pagination-active-color:$text-white;
-$search-pagination-hover-color:$text-blue;
-$search-pagination-hover-bg:$bg-submenu-active;
-$search-pagination-hover-border:$border-basic-active;
-//Search selector
-$serach-selector-variant-color-active: $text-blue-active;
-//Typehead
-$tt-color:$text-basic;
-$tt-color-active:$text-blue;
-$tt-price-color:$text-blue;
-$tt-dropdown-bg:$bg-light-gray;
-$tt-suggestion-bg-active:$bg-light-gray-active;
-$tt-dropdown-border:$border-gray;
-//Video
-$video-control-bg:$bg-basic-color;
-$video-time-color:$text-basic;
-$video-time-total-bg:$bg-black;
-$video-time-handle-border:$border-gray;
-$video-time-handle-bg:$bg-black;
-//Form component
-$form-bg: transparent;
-$form-border: transparent;
-$form-color: $text-basic;

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* breakpoints */
 .event-list li, .event-list li > .scLooseFrameZone {
-  background: #FFFFFF;
+  background: #ffffff;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -156,7 +156,7 @@
 }
 
 .event-list a:hover {
-  color: #878787;
+  color: #747474;
 }
 
 .event-list table {
@@ -210,7 +210,7 @@
 .event-list h1, .event-list h2, .event-list h3, .event-list h4, .event-list h5, .event-list h6 {
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #89C6CC;
+  border-bottom-color: #60ddea;
 }
 
 .event-list li {
@@ -298,9 +298,9 @@
 }
 
 .event-list .event-list-link a:hover {
-  color: #878787;
+  color: #747474;
   text-decoration: none;
-  border-bottom: 1px solid #89C6CC;
+  border-bottom: 1px solid #60ddea;
 }
 
 .event-list .event-list-link:before {

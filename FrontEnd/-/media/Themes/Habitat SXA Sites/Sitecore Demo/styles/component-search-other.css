@@ -80,7 +80,7 @@
 .facet-component .facet-heading {
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #89C6CC;
+  border-bottom-color: #60ddea;
   padding: 0 0 5px 0;
   margin: 0 0 5px 0;
   position: relative;
@@ -301,7 +301,7 @@
 }
 
 .radius-filter .radius-button.selected {
-  color: #89C6CC;
+  color: #60ddea;
   background: #FFFFFF;
 }
 
@@ -313,7 +313,7 @@
   display: block;
   border-width: 1px 1px 1px 0;
   border-style: solid;
-  border-color: #d2d2d2;
+  border-color: #c1c1c1;
   float: left;
   padding: 5px 5px;
   cursor: pointer;
@@ -335,8 +335,8 @@
 }
 
 .ui-slider .ui-widget-header {
-  border: 1px solid #89C6CC;
-  background: #89C6CC;
+  border: 1px solid #60ddea;
+  background: #60ddea;
   font-weight: bold;
 }
 
@@ -351,8 +351,8 @@
 /* Interaction states
 ----------------------------------*/
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-  border: 1px solid #d2d2d2;
-  background: #f7f7f7;
+  border: 1px solid #c1c1c1;
+  background: #f4f4f4;
   font-weight: normal;
   color: #747474;
 }
@@ -363,8 +363,8 @@
 }
 
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
-  border: 1px solid #d2d2d2;
-  background: #dadada;
+  border: 1px solid #c1c1c1;
+  background: #f4f4f4 -active;
   font-weight: normal;
   color: #747474;
 }
@@ -375,8 +375,8 @@
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-  border: 1px solid #d2d2d2;
-  background: #dadada;
+  border: 1px solid #c1c1c1;
+  background: #f4f4f4 -active;
   font-weight: normal;
   color: #747474;
 }
@@ -612,8 +612,8 @@
 .location-filter .tt-dropdown-menu {
   width: 250px;
   margin-top: 5px;
-  background-color: #f7f7f7;
-  border: 1px solid #d2d2d2;
+  background-color: #f4f4f4;
+  border: 1px solid #c1c1c1;
   max-height: 300px;
   overflow-y: auto;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
@@ -655,13 +655,13 @@
 .location-filter .tt-suggestion .field-priceformatted {
   float: right;
   font-size: 15px;
-  color: #89C6CC;
+  color: #60ddea;
   margin-top: -20px;
 }
 
 .location-filter .tt-suggestion.tt-cursor {
-  color: #89C6CC;
-  background-color: #dadada;
+  color: #60ddea;
+  background-color: #f4f4f4 -active;
   cursor: pointer;
 }
 
@@ -694,7 +694,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #f7f7f7;
+  background-color: #f4f4f4;
   opacity: 0.8;
   z-index: 10;
 }
@@ -777,15 +777,15 @@
 
 .page-selector .page-selector-item-link.active {
   font-weight: bold;
-  color: #89C6CC;
+  color: #60ddea;
   border: 1px solid #15909c;
-  background: #f6f6f6;
+  background: white;
 }
 
 .page-selector .page-selector-item-link:hover {
-  color: #89C6CC;
+  color: #60ddea;
   border: 1px solid #15909c;
-  background: #f6f6f6;
+  background: white;
 }
 
 .page-selector .page-selector-item-link.inactive {
@@ -1049,8 +1049,8 @@
 .search-box .tt-dropdown-menu {
   width: 250px;
   margin-top: 5px;
-  background-color: #f7f7f7;
-  border: 1px solid #d2d2d2;
+  background-color: #f4f4f4;
+  border: 1px solid #c1c1c1;
   max-height: 300px;
   overflow-y: auto;
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
@@ -1092,13 +1092,13 @@
 .search-box .tt-suggestion .field-priceformatted {
   float: right;
   font-size: 15px;
-  color: #89C6CC;
+  color: #60ddea;
   margin-top: -20px;
 }
 
 .search-box .tt-suggestion.tt-cursor {
-  color: #89C6CC;
-  background-color: #dadada;
+  color: #60ddea;
+  background-color: #f4f4f4 -active;
   cursor: pointer;
 }
 
@@ -1131,7 +1131,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #f7f7f7;
+  background-color: #f4f4f4;
   opacity: 0.8;
   z-index: 10;
 }

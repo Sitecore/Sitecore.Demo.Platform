@@ -1,4 +1,4 @@
-&.file-list-files {
+.file-list-files {
     > .component-content {
         display: flex;
         flex-wrap: wrap;
@@ -12,7 +12,7 @@
             display: inline-block;
             vertical-align: middle;
             font-weight: 600;
-            font-size: $font-size-x-small;
+            font-size: 9px;
         }
         .field-filetypeicon {
             height: 24px;
@@ -42,11 +42,11 @@
         width: 15%;
         padding: 10px 13px;
         text-align: center;
-        color: $calendar-btn-color;
+        color: $calendar-header-bg;
         justify-content: center;
         border-radius: 3px;
         a {
-            color: $calendar-btn-color;
+            color: $calendar-header-bg;
             line-height: 22px;
         }
     }
