@@ -73,9 +73,7 @@
     <LightningDeployMode>False</LightningDeployMode>
     <ConnectorTimeoutSeconds>120</ConnectorTimeoutSeconds>
   </PropertyGroup>
-  <PropertyGroup Label="ShortenedPath">
-    <SRCPATH>$(ProjectDir)../../../../../items</SRCPATH>
-  </PropertyGroup>
+
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">
       <Value>$(AssemblyFileVersion)</Value>

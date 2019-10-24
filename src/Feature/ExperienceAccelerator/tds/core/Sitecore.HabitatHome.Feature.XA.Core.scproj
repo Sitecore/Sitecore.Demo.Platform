@@ -53,9 +53,7 @@
     <RecursiveDeployAction>Ignore</RecursiveDeployAction>
     <OutputPath>bin\DockerDeploy\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Label="ShortenedPath">
-    <SRCPATH>$(ProjectDir)../../../../../items</SRCPATH>
-  </PropertyGroup>
+
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">
       <Value>$(AssemblyFileVersion)</Value>
