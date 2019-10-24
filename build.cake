@@ -9,6 +9,8 @@
 #load "local:?path=CakeScripts/xml-helpers.cake"
 
 var target = Argument<string>("Target", "Default");
+var deploymentTarget = Argument<string>("DeploymentTarget", "IIS"); // Possible values are 'IIS', 'Folder' and 'Docker'
+var serializationTool = Argument<string>("SerializationTool","Unicorn"); // Possible values are 'Unicorn' (Default) and 'TDS'
 var configuration = new Configuration();
 var cakeConsole = new CakeConsole();
 var configJsonFile = "cake-config.json";
@@ -30,27 +32,34 @@ Setup(context =>
   var configFile = new FilePath(configJsonFile);
   configuration = DeserializeJsonFromFile<Configuration>(configFile);
   configuration.SolutionFile =  $"{configuration.ProjectFolder}\\{configuration.SolutionName}";
-  publishLocal = (target == "Publish-Local");
 
-  if (publishLocal) {
-    configuration.BuildConfiguration = "NoDeploy";
-  }
-
-  if (target.Contains("Docker")) {
-    configuration.WebsiteRoot = $"{configuration.ProjectFolder}\\Publish\\Web\\";
-    configuration.XConnectRoot = $"{configuration.ProjectFolder}\\Publish\\xConnect\\";
-    configuration.InstanceUrl = "http://127.0.0.1:44001";     // This is based on the CM container's settings (see docker-compose.yml)
-    configuration.UnicornSerializationFolder = "c:\\unicorn"; // This maps to the container's volume setting (see docker-compose.yml)
-
-    if (target == "Docker-TDS") {
-      configuration.BuildConfiguration = "DockerDeploy";
-    }
-  }
-
-  if (publishLocal || target.Contains("TDS")) {
+  if (serializationTool == "TDS") {
     configuration.SolutionFile = configuration.SolutionFile.Replace(".sln",".TDS.sln");
     syncUnicorn = false;
   }
+
+  if (deploymentTarget == "Docker") {
+
+    configuration.WebsiteRoot = $"{configuration.ProjectFolder}\\Publish\\Web\\";
+    configuration.XConnectRoot = $"{configuration.ProjectFolder}\\Publish\\xConnect\\";
+    configuration.InstanceUrl = "http://127.0.0.1:44001";     // This is based on the CM container's settings (see docker-compose.yml)
+
+    if (serializationTool == "Unicorn") {
+      configuration.UnicornSerializationFolder = "c:\\unicorn"; // This maps to the container's volume setting (see docker-compose.yml)
+    }
+    else if (serializationTool == "TDS") {
+      configuration.BuildConfiguration = "DockerDeploy";
+    }
+  }
+  else if (deploymentTarget == "IIS") {
+  }
+  else if (deploymentTarget == "Local") {
+    publishLocal = true;
+    if (serializationTool != "TDS") {
+      throw new Exception("Serialization must be TDS when DeploymentTarget is set to Local");
+    }
+      configuration.BuildConfiguration = "NoDeploy";
+    }
 });
 
 /*===============================================
@@ -63,22 +72,18 @@ Task("Base-PreBuild")
 .IsDependentOn("Modify-PublishSettings");
 
 Task("Base-Publish")
+.IsDependentOn("Publish-Core-Project")
+.IsDependentOn("Copy-to-Destination")
+.IsDependentOn("Apply-DotnetCore-Transforms")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Publish-xConnect-Project");
 
 Task("Default")
 .IsDependentOn("Base-PreBuild")
-.IsDependentOn("Base-Publish")
-.IsDependentOn("Apply-DotnetCore-Transforms")
-.IsDependentOn("Post-Deploy");
-
-Task("Build-TDS")
-.IsDependentOn("Base-PreBuild")
 .IsDependentOn("Restore-TDS-NuGetPackages")
-.IsDependentOn("Publish-Core-Project")
-.IsDependentOn("Apply-DotnetCore-Transforms")
-.IsDependentOn("Build-Solution")
-.IsDependentOn("Publish-xConnect-Project")
+.IsDependentOn("Base-Publish")
+.IsDependentOn("Merge-and-Copy-Xml-Transform")
+.IsDependentOn("Generate-Dacpacs")
 .IsDependentOn("Post-Deploy");
 
 Task("Post-Deploy")
@@ -91,29 +96,18 @@ Task("Post-Deploy")
 .IsDependentOn("Rebuild-Web-Index")
 .IsDependentOn("Rebuild-Test-Index");
 
-Task("Docker-TDS")
-.IsDependentOn("Build-TDS");
-
-Task("Docker-Unicorn")
-.IsDependentOn("Default");
 
 Task("Quick-Deploy")
 .IsDependentOn("Base-PreBuild")
 .IsDependentOn("Base-Publish");
 
-Task("Publish-Local")
-.IsDependentOn("CleanPublishFolders")
-.IsDependentOn("Base-PreBuild")
-.IsDependentOn("Base-Publish")
-.IsDependentOn("Copy-to-Destination")
-.IsDependentOn("Merge-and-Copy-Xml-Transform")
-.IsDependentOn("Generate-Dacpacs");
-
 /*===============================================
 ================= SUB TASKS =====================
 ===============================================*/
 
-Task("Restore-TDS-NuGetPackages").Does(() => {
+Task("Restore-TDS-NuGetPackages")
+.WithCriteria(() => serializationTool == "TDS")
+.Does(() => {
   NuGetRestore(configuration.SolutionFile);
 });
 
@@ -150,7 +144,6 @@ Task("Copy-Sitecore-Lib")
 
 Task("Publish-All-Projects")
 .IsDependentOn("Build-Solution")
-.IsDependentOn("Publish-Core-Project")
 .IsDependentOn("Publish-Foundation-Projects")
 .IsDependentOn("Publish-Feature-Projects")
 .IsDependentOn("Publish-Project-Projects");
@@ -183,7 +176,7 @@ Task("Publish-Core-Project").Does(() => {
   var destination = configuration.WebsiteRoot;
 
   if (publishLocal) {
-    destination = configuration.PublishTempFolder;
+    destination = configuration.PublishWebFolder;
   }
   Information("Destination: " + destination);
 
@@ -197,35 +190,13 @@ Task("Publish-Core-Project").Does(() => {
     MSBuildSettings = buildSettings
   };
 
-  DotNetCoreRestore(projectFile, restoreSettings);
-
   var settings = new DotNetCorePublishSettings {
     OutputDirectory = publishFolder,
-    Configuration = configuration.BuildConfiguration
+    Configuration = configuration.BuildConfiguration,
+    MSBuildSettings = buildSettings
   };
 
   DotNetCorePublish(projectFile, settings);
-
-  // Copy assembly files to webroot
-  var assemblyFilesFilter = $@"{publishFolder}\*.dll";
-  var assemblyFiles = GetFiles(assemblyFilesFilter).Select(x=>x.FullPath).ToList();
-  EnsureDirectoryExists(destination+"\\bin");
-  CopyFiles(assemblyFiles, (destination + "\\bin"), preserveFolderStructure: false);
-
-  // Copy other output files to destination webroot
-  var ignoredExtensions = new string[] { ".dll", ".exe", ".pdb", ".xdt" };
-  var ignoredFilesPublishFolderPath = publishFolder.ToLower().Replace("\\", "/");
-  var ignoredFiles = new string[] {
-    $"{ignoredFilesPublishFolderPath}/web.config",
-    $"{ignoredFilesPublishFolderPath}/build.website.deps.json",
-    $"{ignoredFilesPublishFolderPath}/build.website.exe.config"
-  };
-
-  var contentFiles = GetFiles($"{publishFolder}\\**\\*")
-                      .Where(file => !ignoredExtensions.Contains(file.GetExtension().ToLower()))
-                      .Where(file => !ignoredFiles.Contains(file.FullPath.ToLower()));
-
-  CopyFiles(contentFiles, destination, preserveFolderStructure: true);
 });
 
 Task("Copy-to-Destination").Does(() => {
@@ -243,17 +214,25 @@ Task("Copy-to-Destination").Does(() => {
   CopyFiles(assemblyFiles, (destination + "\\bin"), preserveFolderStructure: false);
 
   // Copy other output files to publish destination
-  var ignoredExtensions = new string[] { ".dll", ".exe", ".pdb", ".xdt", ".yml"};
-  var ignoredFiles = new string[] { "web.config", "build.website.deps.json", "build.website.exe.config" };
+  var ignoredExtensions = new List<string>() { ".dll", ".exe", ".pdb", ".yml", ".xdt"};
 
+  var ignoredFilesPublishFolderPath = publishTempFolder.ToLower().Replace("\\", "/");
+
+  var ignoredFiles = new string[] {
+    $"{ignoredFilesPublishFolderPath}/web.config",
+    $"{ignoredFilesPublishFolderPath}/build.shared.deps.json",
+    $"{ignoredFilesPublishFolderPath}/build.shared.exe.config"
+  };
   var contentFiles = GetFiles($"{publishTempFolder}\\**\\*")
   .Where(file => !ignoredExtensions.Contains(file.GetExtension().ToLower()))
-  .Where(file => !ignoredFiles.Contains(file.Segments.LastOrDefault().ToLower()));
+  .Where(file => !ignoredFiles.Contains(file.FullPath.ToLower()));
 
   CopyFiles(contentFiles, destination, preserveFolderStructure: true);
 });
 
-Task("Apply-DotnetCore-Transforms").Does(() => {
+Task("Apply-DotnetCore-Transforms")
+.WithCriteria(() => publishLocal == false)
+.Does(() => {
   var publishFolder = $"{configuration.PublishTempFolder}";
   var destination = configuration.WebsiteRoot;
   if (publishLocal) {
@@ -263,8 +242,10 @@ Task("Apply-DotnetCore-Transforms").Does(() => {
   Transform(publishFolder, "transforms", destination, excludePattern);
 });
 
-Task("Publish-YML").Does(() => {
-  var serializationFilesFilter = $@"{configuration.ProjectFolder}\src\**\*.yml";
+Task("Publish-YML")
+.WithCriteria(() => publishLocal)
+.Does(() => {
+  var serializationFilesFilter = $@"{configuration.ProjectFolder}\items\**\*.yml";
   var destination = $@"{configuration.PublishTempFolder}\yml";
   Information($"Filter: {serializationFilesFilter} - Destination: {destination}");
 
@@ -288,6 +269,7 @@ Task("Publish-YML").Does(() => {
 });
 
 Task("Create-UpdatePackage")
+.WithCriteria(() => publishLocal)
 .IsDependentOn("Publish-YML")
 .Does(() => {
   StartPowershellFile(packagingScript, new PowershellSettings()
@@ -301,6 +283,7 @@ Task("Create-UpdatePackage")
 });
 
 Task("Generate-Dacpacs")
+.WithCriteria(() => publishLocal)
 .IsDependentOn("Create-UpdatePackage")
 .Does(() => {
   StartPowershellFile(dacpacScript, new PowershellSettings()
@@ -339,7 +322,9 @@ Task("Publish-xConnect-Project").Does(() => {
   PublishProjects(xConnectProject, destination);
 });
 
-Task("Apply-Xml-Transform").Does(() => {
+Task("Apply-Xml-Transform")
+.WithCriteria(() => !publishLocal)
+.Does(() => {
   var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
   var publishDestination = configuration.WebsiteRoot;
   if (publishLocal) {
@@ -350,7 +335,9 @@ Task("Apply-Xml-Transform").Does(() => {
   }
 });
 
-Task("Merge-and-Copy-Xml-Transform").Does(() => {
+Task("Merge-and-Copy-Xml-Transform")
+.WithCriteria(() => publishLocal)
+.Does(() => {
   // Method will process all transforms from the temporary locations, merge them together and copy them to the temporary Publish\Web directory
 
   var PublishTempFolder = $"{configuration.PublishTempFolder}";
@@ -442,11 +429,15 @@ Task("Sync-Unicorn")
   }));
 });
 
-Task("Deploy-EXM-Campaigns").Does(() => {
+Task("Deploy-EXM-Campaigns")
+.WithCriteria(() => !publishLocal)
+.Does(() => {
   Spam(() => DeployExmCampaigns(), configuration.DeployExmTimeout);
 });
 
-Task("Deploy-Marketing-Definitions").Does(() => {
+Task("Deploy-Marketing-Definitions")
+.WithCriteria(() => !publishLocal)
+.Does(() => {
   var url = $"{configuration.InstanceUrl}/utilities/deploymarketingdefinitions.aspx?apiKey={configuration.MarketingDefinitionsApiKey}";
   var responseBody = HttpGet(url, settings => {
     settings.AppendHeader("Connection", "keep-alive");
@@ -455,19 +446,25 @@ Task("Deploy-Marketing-Definitions").Does(() => {
   Information(responseBody);
 });
 
-Task("Rebuild-Core-Index").Does(() => {
+Task("Rebuild-Core-Index")
+.WithCriteria(() => !publishLocal)
+.Does(() => {
   RebuildIndex("sitecore_core_index");
 });
 
-Task("Rebuild-Master-Index").Does(() => {
+Task("Rebuild-Master-Index")
+.WithCriteria(() => !publishLocal)
+.Does(() => {
   RebuildIndex("sitecore_master_index");
 });
 
-Task("Rebuild-Web-Index").Does(() => {
+Task("Rebuild-Web-Index")
+.WithCriteria(() => !publishLocal).Does(() => {
   RebuildIndex("sitecore_web_index");
 });
 
-Task("Rebuild-Test-Index").Does(() => {
+Task("Rebuild-Test-Index")
+.WithCriteria(() => !publishLocal).Does(() => {
   RebuildIndex("sitecore_testing_index");
 });
 

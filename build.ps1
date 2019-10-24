@@ -47,7 +47,11 @@ Param(
     [switch]$DryRun,
     [switch]$SkipToolPackageRestore,
     [Parameter(Position=0,Mandatory=$false,ValueFromRemainingArguments=$true)]
-    [string[]]$ScriptArgs
+    [string[]]$ScriptArgs,
+    [ValidateSet("Local", "IIS", "Docker")]
+    [string]$DeploymentTarget,
+    [ValidateSet("TDS","Unicorn")]
+    [string]$SerializationTool
 )
 
 # Check if PowerShell is running in Admministrative mode and exit if not:
@@ -237,6 +241,8 @@ if (!(Test-Path $CAKE_EXE)) {
 # Build Cake arguments
 $cakeArguments = @("$Script");
 if ($Target) { $cakeArguments += "-target=$Target" }
+if ($DeploymentTarget) {$cakeArguments += "-deploymentTarget=$DeploymentTarget" }
+if ($SerializationTool) {$cakeArguments += "-serializationTool=$SerializationTool" }
 if ($Configuration) { $cakeArguments += "-configuration=$Configuration" }
 if ($Verbosity) { $cakeArguments += "-verbosity=$Verbosity" }
 if ($ShowDescription) { $cakeArguments += "-showdescription" }
