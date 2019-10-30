@@ -281,7 +281,7 @@
                 position: relative;
             }
         }
-    
+
         .field-promoicon {
             padding: 0;
             position: absolute;
@@ -299,6 +299,10 @@
                 background-color: rgba(0,0,0,0.25);
             }
         }
+
+        .article-hero .field-promoicon {
+            position: relative;
+        }
     
         .hero-wrapper {
             height: 100%;
@@ -315,7 +319,7 @@
             position: relative;
         }
     
-        .field-heroimage {
+        .field-heroimage { 
             height: 100%;
             //width: inherit;
             display: flex;
@@ -327,7 +331,7 @@
             }
         }
     
-        .hero-content {
+        .hero-content { 
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
