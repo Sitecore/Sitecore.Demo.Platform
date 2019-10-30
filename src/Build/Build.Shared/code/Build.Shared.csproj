@@ -27,6 +27,14 @@
     <PackageReference Include="Sitecore.Demo.Foundation.Workflow" Version="9.2.0.61" />
     <PackageReference Include="Sitecore.Demo.Project.Website" Version="9.2.0.61" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Configuration.ConfigurationBuilders.Base">
+      <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Configuration.ConfigurationBuilders.Environment">
+      <Version>1.0.2</Version>
+    </PackageReference>
+  </ItemGroup>
   <Choose>
     <When Condition=" '$(Configuration)'=='Local' ">
       <ItemGroup>

@@ -6,7 +6,7 @@ networks:
 services:
 
   sql:
-    image: ${REGISTRY}sitecore-xp-sxa-sqldev:9.2.0-windowsservercore-${WINDOWSSERVERCORE_CHANNEL}
+    image: ${REGISTRY}habitathome-xp-sqldev:9.2.0-windowsservercore-${WINDOWSSERVERCORE_CHANNEL}
     mem_limit: 4G
     cpus: 0
     networks:
@@ -28,7 +28,7 @@ services:
       - "44011:8983"
 
   xconnect:
-    image: ${REGISTRY}sitecore-xp-xconnect:9.2.0-windowsservercore-${WINDOWSSERVERCORE_CHANNEL}
+    image: ${REGISTRY}habitathome-xp-xconnect:9.2.0-windowsservercore-${WINDOWSSERVERCORE_CHANNEL}
     mem_limit: 1G
     networks:
       demo:
@@ -54,7 +54,7 @@ services:
       - xconnect
 
   xconnect-indexworker:
-    image: ${REGISTRY}sitecore-xp-xconnect-indexworker:9.2.0-windowsservercore-${WINDOWSSERVERCORE_CHANNEL}
+    image: ${REGISTRY}habitathome-xp-xconnect-indexworker:9.2.0-windowsservercore-${WINDOWSSERVERCORE_CHANNEL}
     mem_limit: 1G
     networks:
       demo:
@@ -81,7 +81,7 @@ services:
 #      - xconnect
 
   cm:
-    image: ${REGISTRY}sitecore-xp-sxa-standalone:9.2.0-windowsservercore-${WINDOWSSERVERCORE_CHANNEL}
+    image: ${REGISTRY}habitathome-xp-standalone:9.2.0-windowsservercore-${WINDOWSSERVERCORE_CHANNEL}
     mem_limit: 4G
     cpus: 0
     networks:

@@ -51,15 +51,13 @@ Setup(context =>
       configuration.BuildConfiguration = "DockerDeploy";
     }
   }
-  else if (deploymentTarget == "IIS") {
-  }
   else if (deploymentTarget == "Local") {
     publishLocal = true;
-    if (serializationTool != "TDS") {
-      throw new Exception("Serialization must be TDS when DeploymentTarget is set to Local");
-    }
+    syncUnicorn = false;
+    if (serializationTool == "TDS") {
       configuration.BuildConfiguration = "NoDeploy";
     }
+  }
 });
 
 /*===============================================
@@ -73,9 +71,9 @@ Task("Base-PreBuild")
 
 Task("Base-Publish")
 .IsDependentOn("Publish-Core-Project")
-.IsDependentOn("Copy-to-Destination")
 .IsDependentOn("Apply-DotnetCore-Transforms")
 .IsDependentOn("Publish-All-Projects")
+.IsDependentOn("Copy-to-Destination")
 .IsDependentOn("Publish-xConnect-Project");
 
 Task("Default")
@@ -100,6 +98,10 @@ Task("Post-Deploy")
 Task("Quick-Deploy")
 .IsDependentOn("Base-PreBuild")
 .IsDependentOn("Base-Publish");
+
+Task("Redeploy")
+.IsDependentOn("Apply-DotnetCore-Transforms")
+.IsDependentOn("Sync-Unicorn");
 
 /*===============================================
 ================= SUB TASKS =====================
@@ -360,7 +362,7 @@ Task("Merge-and-Copy-Xml-Transform")
 });
 
 Task("Modify-Unicorn-Source-Folder")
-.WithCriteria(() => syncUnicorn == true)
+.WithCriteria(() => syncUnicorn)
 .Does(() => {
   var zzzDevSettingsFile = File($"{configuration.WebsiteRoot}/App_config/Include/Project/z.DevSettings.config");
 
@@ -377,7 +379,7 @@ Task("Modify-Unicorn-Source-Folder")
 });
 
 Task("Turn-On-Unicorn")
-.WithCriteria(() => syncUnicorn == true)
+.WithCriteria(() => syncUnicorn)
 .Does(() => {
   var webConfigFile = File($"{configuration.WebsiteRoot}/web.config");
   var xmlSetting = new XmlPokeSettings {
@@ -411,7 +413,7 @@ Task("Modify-PublishSettings").Does(() => {
 Task("Sync-Unicorn")
 .IsDependentOn("Turn-On-Unicorn")
 .IsDependentOn("Modify-Unicorn-Source-Folder")
-.WithCriteria(() => syncUnicorn == true)
+.WithCriteria(() => syncUnicorn)
 .Does(() => {
   var unicornUrl = configuration.InstanceUrl + "/unicorn.aspx";
   Information("Sync Unicorn items from url: " + unicornUrl);
