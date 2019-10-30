@@ -41,14 +41,6 @@ Confirm that you can access the Sitecore instance deployed using docker-compose 
 1. Run `.\build.ps1 -Target Docker-Unicorn`
 1. Run Docker post-deployment steps below.
 
-#### Deploying to Docker With TDS
-
-**Note:** Requires **Team Development for Sitecore**
-
-1. Review the `TDSGlobal.config` file if you've made any changes to the endpoints otherwise the defaults are fine.
-1. Run `.\build.ps1 -Target Docker-TDS`
-1. Run Docker post-deployment steps below.
-
 ### Docker Post-Deployment Steps
 
 1. Open the Content Editor
@@ -72,12 +64,6 @@ In case you want to start over.
 1. Requires a local working instance of Sitecore Experience Platform
 1. Confirm that you can access the Sitecore instance by browsing to [https://habitathome.dev.local/sitecore](https://habitathome.dev.local/sitecore) which is the default hostname when installing using the [Habitat Home Utilies](https://github.com/sitecore/sitecore.habitathome.utilities) repository. Ensure you replace it with your own value if you changed it!
 
-### Deploying to Local IIS Site Using TDS
-
-**Note:** Requires **Team Development for Sitecore**
-
-1. Run `.\build.ps1 -Target Build-TDS`
-
-### Deploying to Local IIS Site Using Unicorn
+### Deploying to Local IIS Site
 
 1. Run `.\build.ps1`

@@ -10,7 +10,6 @@
 
 var target = Argument<string>("Target", "Default");
 var deploymentTarget = Argument<string>("DeploymentTarget", "IIS"); // Possible values are 'IIS', 'Folder' and 'Docker'
-var serializationTool = Argument<string>("SerializationTool","Unicorn"); // Possible values are 'Unicorn' (Default) and 'TDS'
 var configuration = new Configuration();
 var cakeConsole = new CakeConsole();
 var configJsonFile = "cake-config.json";
@@ -33,30 +32,16 @@ Setup(context =>
   configuration = DeserializeJsonFromFile<Configuration>(configFile);
   configuration.SolutionFile =  $"{configuration.ProjectFolder}\\{configuration.SolutionName}";
 
-  if (serializationTool == "TDS") {
-    configuration.SolutionFile = configuration.SolutionFile.Replace(".sln",".TDS.sln");
-    syncUnicorn = false;
-  }
-
   if (deploymentTarget == "Docker") {
 
     configuration.WebsiteRoot = $"{configuration.ProjectFolder}\\Publish\\Web\\";
     configuration.XConnectRoot = $"{configuration.ProjectFolder}\\Publish\\xConnect\\";
     configuration.InstanceUrl = "http://127.0.0.1:44001";     // This is based on the CM container's settings (see docker-compose.yml)
-
-    if (serializationTool == "Unicorn") {
-      configuration.UnicornSerializationFolder = "c:\\unicorn"; // This maps to the container's volume setting (see docker-compose.yml)
-    }
-    else if (serializationTool == "TDS") {
-      configuration.BuildConfiguration = "DockerDeploy";
-    }
+    configuration.UnicornSerializationFolder = "c:\\unicorn"; // This maps to the container's volume setting (see docker-compose.yml)
   }
   else if (deploymentTarget == "Local") {
     publishLocal = true;
     syncUnicorn = false;
-    if (serializationTool == "TDS") {
-      configuration.BuildConfiguration = "NoDeploy";
-    }
   }
 });
 
@@ -78,7 +63,6 @@ Task("Base-Publish")
 
 Task("Default")
 .IsDependentOn("Base-PreBuild")
-.IsDependentOn("Restore-TDS-NuGetPackages")
 .IsDependentOn("Base-Publish")
 .IsDependentOn("Merge-and-Copy-Xml-Transform")
 .IsDependentOn("Generate-Dacpacs")
@@ -106,13 +90,6 @@ Task("Redeploy")
 /*===============================================
 ================= SUB TASKS =====================
 ===============================================*/
-
-Task("Restore-TDS-NuGetPackages")
-.WithCriteria(() => serializationTool == "TDS")
-.Does(() => {
-  NuGetRestore(configuration.SolutionFile);
-});
-
 Task("CleanAll")
 .IsDependentOn("CleanBuildFolders")
 .IsDependentOn("CleanPublishFolders");
