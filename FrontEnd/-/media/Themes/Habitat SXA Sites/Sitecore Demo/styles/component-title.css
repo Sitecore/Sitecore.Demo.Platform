@@ -1,0 +1,22 @@
+/* breakpoints */
+.title {
+  background: transparent;
+}
+
+.title h1, .title .field-title a {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #89C6CC;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #747474;
+  line-height: normal;
+  padding-bottom: 10px;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.title h1:hover, .title .field-title a:hover {
+  color: #878787;
+}

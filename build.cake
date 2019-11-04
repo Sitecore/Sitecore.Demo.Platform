@@ -95,7 +95,7 @@ Task("CleanAll")
 .IsDependentOn("CleanPublishFolders");
 
 Task("CleanBuildFolders").Does(() => {
-  // Clean project build folders
+  // Clean Project build folders
   CleanDirectories($"{configuration.SourceFolder}/**/obj");
   CleanDirectories($"{configuration.SourceFolder}/**/bin");
   CleanDirectories(configuration.PublishTempFolder);
@@ -279,7 +279,7 @@ Task("Generate-Dacpacs")
 Task("Publish-Project-Projects").Does(() => {
   var global = $"{configuration.ProjectSrcFolder}\\Global";
   var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
-  var habitatHomeBasic = $"{configuration.ProjectSrcFolder}\\HabitatHomeBasic";
+  var sitecoreDemo = $"{configuration.ProjectSrcFolder}\\SitecoreDemo";
 
   var destination = configuration.WebsiteRoot;
   if (publishLocal) {
@@ -288,7 +288,7 @@ Task("Publish-Project-Projects").Does(() => {
 
   PublishProjects(global, destination);
   PublishProjects(habitatHome, destination);
-  PublishProjects(habitatHomeBasic, destination);
+  PublishProjects(sitecoreDemo, destination);
 });
 
 Task("Publish-xConnect-Project").Does(() => {

@@ -1,0 +1,46 @@
+/* breakpoints */
+.field-editor {
+  background: transparent;
+  overflow: hidden;
+}
+
+.field-editor .field-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.field-editor .field-table table {
+  word-wrap: break-word;
+  table-layout: fixed;
+}
+
+.field-editor .field-table tbody {
+  border: none;
+  background: none;
+}
+
+.field-editor .field-table tbody tr {
+  background: none;
+}
+
+.field-editor .field-table th {
+  color: #000;
+  padding: 5px 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.field-editor .field-table td {
+  color: #747474;
+  padding: 5px 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.field-editor.position-right .field-table td {
+  text-align: right;
+}
+
+.field-editor.position-center .field-table td {
+  text-align: center;
+}

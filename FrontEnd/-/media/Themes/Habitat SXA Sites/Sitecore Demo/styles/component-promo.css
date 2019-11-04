@@ -1,0 +1,298 @@
+/* breakpoints */
+.centered-heading {
+  padding-top: 2em;
+}
+
+.featurette {
+  margin-bottom: 2rem;
+}
+
+.featurette-heading, .centered-heading h2 {
+  color: #000000;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 42px;
+  margin-bottom: 0.4em;
+}
+
+.card img {
+  height: 150px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.jumbotron {
+  background-color: #f3f6f9;
+  background-position: center;
+  background-size: cover;
+}
+
+.jumbotron h1 {
+  margin-top: 0;
+}
+
+.image-cta {
+  background-color: #f3f3f3;
+}
+
+.promo {
+  background: #FFFFFF;
+  padding: 15px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.promo > .component-content {
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+}
+
+.promo > .component-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.promo > .component-content > div {
+  padding: 5px;
+}
+
+.promo .zg-height-fix .field-promoicon {
+  margin-top: 100px;
+}
+
+.promo .field-promoicon {
+  overflow: hidden;
+  width: 100%;
+}
+
+.promo .field-promoicon img {
+  width: 100%;
+  height: auto;
+}
+
+.promo .field-promolink {
+  margin-top: 5px;
+  padding-bottom: 10px;
+}
+
+.promo.image-full-size img {
+  margin-bottom: 10px;
+}
+
+.promo h1, .promo h2, .promo h3, .promo h4, .promo h5, .promo h6 {
+  color: #222;
+}
+
+.promo h1, .promo h2 {
+  margin: 10px 0;
+}
+
+.promo h3, .promo h4, .promo p {
+  margin: 5px 0;
+}
+
+.promo h5, .promo h6 {
+  margin: 5px 0 0;
+}
+
+.promo strong {
+  font-weight: 700;
+}
+
+.promo ul, .promo ol {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-left: 10px;
+}
+
+.promo li {
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+.promo ul li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.promo ol li {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+.promo a {
+  color: #de232f;
+  text-decoration: underline;
+  font-size: 1em;
+}
+
+.promo a:hover {
+  color: #878787;
+}
+
+.promo table {
+  height: auto !important;
+  border: 2px solid #d2d2d2;
+}
+
+.promo table, .promo table tr, .promo table th, .promo table td {
+  border: solid 2px #d2d2d2;
+  background: #FFFFFF;
+  border-collapse: collapse;
+  vertical-align: middle;
+}
+
+.promo table tr, .promo table th, .promo table td {
+  padding: 5px;
+}
+
+.promo table caption {
+  background-color: #f7f7f7;
+  overflow: hidden;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+.promo table tr {
+  border: none;
+}
+
+.promo table th, .promo table td {
+  border-width: 2px 0 0 2px;
+}
+
+.promo table th {
+  background-color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 7px;
+}
+
+.promo table th:first-child {
+  border-left: 0;
+}
+
+.promo table td:first-child {
+  border-left: 0;
+}
+
+.promo.absolute-bottom-link {
+  position: relative;
+}
+
+.promo.absolute-bottom-link .field-promolink {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* breakpoints */
+.promo.promo-hero {
+  position: relative;
+  text-align: center;
+}
+
+.promo.promo-hero.promo-hero-half {
+  float: left;
+  width: 50%;
+}
+
+@media only screen and (max-width: 959px) {
+  .promo.promo-hero.promo-hero-half {
+    float: none;
+    width: 100%;
+  }
+}
+
+.promo.promo-hero .field-promotext {
+  display: inline-block;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.promo.promo-hero .field-promotext > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 959px) {
+  .promo.promo-hero .field-promotext {
+    width: 100%;
+    margin: 0;
+  }
+  .promo.promo-hero .field-promotext h1 {
+    font-size: 24px;
+    font-size: 2.4rem;
+  }
+  .promo.promo-hero .field-promotext h2, .promo.promo-hero .field-promotext h3, .promo.promo-hero .field-promotext h4 {
+    font-size: 20px;
+    font-size: 2rem;
+  }
+}
+
+/* breakpoints */
+.promo-shadow {
+  max-width: 960px;
+  padding: 0;
+  border-top-width: 3px;
+  border-top-color: #89C6CC;
+  border-style: solid;
+  overflow: visible;
+  position: relative;
+}
+
+.promo-shadow.promo {
+  float: left;
+}
+
+.promo-shadow > .component-content {
+  padding: 15px;
+  margin: 0 0 30px 0;
+}
+
+@media only screen and (max-width: 959px) {
+  .promo-shadow > .component-content {
+    margin: 0 10px 30px 10px;
+  }
+}
+
+.promo-shadow > .component-content:before, .promo-shadow > .component-content:after {
+  opacity: 0.7;
+  box-shadow: 0 17px 10px rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: -1;
+  height: 20%;
+  max-height: 100px;
+  max-width: 460px;
+  width: 47%;
+  content: "";
+  bottom: 10px;
+}
+
+.promo-shadow > .component-content:before {
+  left: 2%;
+  -webkit-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+
+.promo-shadow > .component-content:after {
+  right: 2%;
+  -webkit-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+}

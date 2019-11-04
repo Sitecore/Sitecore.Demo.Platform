@@ -1,0 +1,40 @@
+---
+ID: "1c6a5d1d-e500-4341-bf02-eabb551ff1e0"
+Parent: "60deab8b-72e9-453e-a97b-93a870e25dd7"
+Template: "6545c81f-c30f-4b58-97d9-ef85b890f70a"
+Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/Modules/News and Events/Sitecore Demo News and Events Site Setup/Map Page Designs
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "c0a5bd91-e658-46ce-b631-77ce337d8e6e"
+  Hint: Script
+  Type: Treelist
+  Value: "{C2D5B866-4B56-4843-A643-FFAE76B1CF1B}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191017T141724Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "15278f33-ad4d-485a-89be-a8ecce2ae2f9"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20191017T141738Z

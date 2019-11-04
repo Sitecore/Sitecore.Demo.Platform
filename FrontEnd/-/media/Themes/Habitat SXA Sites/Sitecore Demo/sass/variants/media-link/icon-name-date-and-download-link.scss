@@ -1,0 +1,72 @@
+&.file-list-files {
+    > .component-content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .file-description {
+        display: inline-flex;
+        align-items: center;
+        width: 84%;
+        margin-left: 0;
+        .field-title {
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: 600;
+            font-size: $font-normal;
+        }
+        .field-filetypeicon {
+            height: 24px;
+            order: 1;
+            padding-right: 10px;
+            width: 6%;
+            text-align: center;
+            span {
+                &:before {
+                    font-size: 24px !important;
+                }
+            }
+            vertical-align: middle;
+        }
+        .info-wrapper {
+            order: 1;
+            width: 93%;
+            .field-size,
+            .field-updated {
+                display: inline-block;
+                font-size: 12px;
+            }
+        }
+    }
+    .field-linktext {
+        display: inline-flex;
+        width: 15%;
+        padding: 10px 13px;
+        text-align: center;
+        justify-content: center;
+        border-radius: 3px;
+        a {
+            line-height: 22px;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        .file-description {
+            width: 100%;
+            flex-wrap: wrap;
+            .field-filetypeicon {
+                width: 100%;
+                span {
+                    margin: 0 auto;
+                }
+            }
+            .info-wrapper {
+                width: 100%;
+                text-align: center;
+                padding: $default-padding 0;
+            }
+        }
+        .field-linktext {
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+}

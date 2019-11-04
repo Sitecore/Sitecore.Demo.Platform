@@ -1,0 +1,65 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+
+a.link_arrow:after, button.link_arrow:after {
+    -webkit-transition: margin .1s ease;
+    color: #fff;
+    content: " ➔";
+    display: inline-block;
+    margin-left: 4px;
+    transition: margin .1s ease;
+}
+
+a.link_arrow:after{
+    color: rgb(247, 0, 0);
+}
+
+a.link_arrow:not(.btn) {
+    color: #232323;
+    font-weight: 600;
+}
+
+.link {
+    background: $link-bg;
+    @import "base/reset/links";
+}
+
+.page-link { 
+    color: #000000; 
+}
+
+.btn {
+    cursor: pointer;
+    a {
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.btn-info {
+    background-color: #232323;
+    border: 2px solid #232323;
+    border-radius: 0;
+    padding: .9375em 2.5em;
+    color: #fff;
+    &:hover {
+        background-color: #000000;
+        border: 2px solid #232323;
+        color: #fff;
+    }  
+}
+
+.btn-primary {
+    background-color: #19a5a2;
+    border-color: #19a5a2;
+    padding: .9375em 2.5em;
+    color: #fff;
+    &:hover {
+        background-color: #0d5755;
+        border: 2px solid #19a5a2;
+        color: #fff;
+    }
+}

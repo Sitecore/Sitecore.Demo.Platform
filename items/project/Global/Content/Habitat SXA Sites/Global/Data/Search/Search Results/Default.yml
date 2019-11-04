@@ -5,6 +5,9 @@ Template: "a06f7130-041d-46bb-8c29-95a2dc00c26a"
 Path: /sitecore/content/Habitat SXA Sites/Global/Data/Search/Search Results/Default
 DB: master
 SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{14247349-EE64-4CA8-B702-677C7E54709D}"
@@ -13,26 +16,32 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171027T152437Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{4FDD1979-B09E-41FB-AD96-4434F050A74B}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\virtualssuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c48bae89-5bd2-44e0-ac18-55a43c5c10cc"
+      Value: "d7d4533c-5934-4714-9f91-17ea84d869af"
     - ID: "904cb4ca-42d1-4690-8a99-9ecf22855e88"
       Hint: ResultsNotFoundText
       Value: No results
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\unicorn
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20190425T163526Z
+      Value: 20190925T163356Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"

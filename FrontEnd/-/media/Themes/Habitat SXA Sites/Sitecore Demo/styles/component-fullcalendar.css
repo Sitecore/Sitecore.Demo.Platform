@@ -1,0 +1,407 @@
+@charset "UTF-8";
+/* breakpoints */
+.event-calendar {
+  /* breakpoints */
+  background: #FFFFFF;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 5px;
+  border-bottom: none !important;
+}
+
+.event-calendar .field-filetypeicon > a > span, .event-calendar .pdf, .event-calendar .xls, .event-calendar .xlsx, .event-calendar .pptx, .event-calendar .ppt, .event-calendar .docx, .event-calendar .doc, .event-calendar .bmp, .event-calendar .png, .event-calendar .jpg, .event-calendar .jpeg, .event-calendar .psd, .event-calendar .gif, .event-calendar .avi, .event-calendar .mp4, .event-calendar .wmv, .event-calendar .mov, .event-calendar .mp3, .event-calendar .wma, .event-calendar .txt, .event-calendar .zip {
+  display: inline-block;
+  box-sizing: border-box;
+  font-weight: normal;
+  width: 15px;
+  height: 21px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.event-calendar .field-filetypeicon > a > span:before, .event-calendar .pdf:before, .event-calendar .xls:before, .event-calendar .xlsx:before, .event-calendar .pptx:before, .event-calendar .ppt:before, .event-calendar .docx:before, .event-calendar .doc:before, .event-calendar .bmp:before, .event-calendar .png:before, .event-calendar .jpg:before, .event-calendar .jpeg:before, .event-calendar .psd:before, .event-calendar .gif:before, .event-calendar .avi:before, .event-calendar .mp4:before, .event-calendar .wmv:before, .event-calendar .mov:before, .event-calendar .mp3:before, .event-calendar .wma:before, .event-calendar .txt:before, .event-calendar .zip:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px !important;
+  position: absolute;
+  display: block;
+  top: 50%;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.event-calendar .field-filetypeicon span:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .pdf:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .xlsx:before, .event-calendar .field-filetypeicon .xls:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .pptx:before, .event-calendar .field-filetypeicon .ppt:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .docx:before, .event-calendar .field-filetypeicon .doc:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .bmp:before, .event-calendar .field-filetypeicon .png:before, .event-calendar .field-filetypeicon .jpg:before, .event-calendar .field-filetypeicon .jpeg:before, .event-calendar .field-filetypeicon .psd:before, .event-calendar .field-filetypeicon .gif:before, .event-calendar .field-filetypeicon .tif:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .avi:before, .event-calendar .field-filetypeicon .mp4:before, .event-calendar .field-filetypeicon .wmv:before, .event-calendar .field-filetypeicon .mov:before, .event-calendar .field-filetypeicon .mpg:before, .event-calendar .field-filetypeicon .mkv:before, .event-calendar .field-filetypeicon .vp6:before, .event-calendar .field-filetypeicon .vid:before, .event-calendar .field-filetypeicon .rv:before, .event-calendar .field-filetypeicon .webm:before, .event-calendar .field-filetypeicon .swf:before, .event-calendar .field-filetypeicon .flv:before, .event-calendar .field-filetypeicon .m4v:before, .event-calendar .field-filetypeicon .h264:before, .event-calendar .field-filetypeicon .mk3d:before, .event-calendar .field-filetypeicon .gifv:before, .event-calendar .field-filetypeicon .oggv:before, .event-calendar .field-filetypeicon .movie:before, .event-calendar .field-filetypeicon .divx:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .mp3:before, .event-calendar .field-filetypeicon .wma:before, .event-calendar .field-filetypeicon .wav:before, .event-calendar .field-filetypeicon .fla:before, .event-calendar .field-filetypeicon .flac:before, .event-calendar .field-filetypeicon .ra:before, .event-calendar .field-filetypeicon .rma:before, .event-calendar .field-filetypeicon .aif:before, .event-calendar .field-filetypeicon .aiff:before, .event-calendar .field-filetypeicon .aa:before, .event-calendar .field-filetypeicon .aac:before, .event-calendar .field-filetypeicon .mid:before, .event-calendar .field-filetypeicon .midi:before, .event-calendar .field-filetypeicon .aax:before, .event-calendar .field-filetypeicon .ac3:before, .event-calendar .field-filetypeicon .au:before, .event-calendar .field-filetypeicon .ogg:before, .event-calendar .field-filetypeicon .avr:before, .event-calendar .field-filetypeicon .m4a:before, .event-calendar .field-filetypeicon .mp4a:before, .event-calendar .field-filetypeicon .amz:before, .event-calendar .field-filetypeicon .mka:before, .event-calendar .field-filetypeicon .asx:before, .event-calendar .field-filetypeicon .pcm:before, .event-calendar .field-filetypeicon .m3u:before, .event-calendar .field-filetypeicon .xwma:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .txt:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .zip:before, .event-calendar .field-filetypeicon .zipx:before, .event-calendar .field-filetypeicon .rar:before, .event-calendar .field-filetypeicon .tar:before, .event-calendar .field-filetypeicon .gz:before, .event-calendar .field-filetypeicon .dmg:before, .event-calendar .field-filetypeicon .iso:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .css:before, .event-calendar .field-filetypeicon .js:before, .event-calendar .field-filetypeicon .py:before, .event-calendar .field-filetypeicon .git:before, .event-calendar .field-filetypeicon .py:before, .event-calendar .field-filetypeicon .cpp:before, .event-calendar .field-filetypeicon .h:before, .event-calendar .field-filetypeicon .ini:before, .event-calendar .field-filetypeicon .config:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .exe:before, .event-calendar .field-filetypeicon .jar:before, .event-calendar .field-filetypeicon .dll:before, .event-calendar .field-filetypeicon .bat:before, .event-calendar .field-filetypeicon .pl:before, .event-calendar .field-filetypeicon .scr:before, .event-calendar .field-filetypeicon .msi:before, .event-calendar .field-filetypeicon .app:before, .event-calendar .field-filetypeicon .deb:before, .event-calendar .field-filetypeicon .apk:before, .event-calendar .field-filetypeicon .jar:before, .event-calendar .field-filetypeicon .vb:before, .event-calendar .field-filetypeicon .prg:before, .event-calendar .field-filetypeicon .sh:before {
+  content: "";
+}
+
+.event-calendar .field-filetypeicon .com:before, .event-calendar .field-filetypeicon .net:before, .event-calendar .field-filetypeicon .org:before, .event-calendar .field-filetypeicon .edu:before, .event-calendar .field-filetypeicon .gov:before, .event-calendar .field-filetypeicon .mil:before, .event-calendar .field-filetypeicon .html:before, .event-calendar .field-filetypeicon .htm:before, .event-calendar .field-filetypeicon .xhtml:before, .event-calendar .field-filetypeicon .jhtml:before, .event-calendar .field-filetypeicon .php:before, .event-calendar .field-filetypeicon .php3:before, .event-calendar .field-filetypeicon .php4:before, .event-calendar .field-filetypeicon .php5:before, .event-calendar .field-filetypeicon .phtmle:before, .event-calendar .field-filetypeicon .asp:before, .event-calendar .field-filetypeicon .aspx:before, .event-calendar .field-filetypeicon .cfm:before {
+  content: "";
+}
+
+.event-calendar h1, .event-calendar h2, .event-calendar h3, .event-calendar h4, .event-calendar h5, .event-calendar h6 {
+  color: #222;
+}
+
+.event-calendar h1, .event-calendar h2 {
+  margin: 10px 0;
+}
+
+.event-calendar h3, .event-calendar h4, .event-calendar p {
+  margin: 5px 0;
+}
+
+.event-calendar h5, .event-calendar h6 {
+  margin: 5px 0 0;
+}
+
+.event-calendar strong {
+  font-weight: 700;
+}
+
+.event-calendar ul, .event-calendar ol {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-left: 10px;
+}
+
+.event-calendar li {
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+.event-calendar ul li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.event-calendar ol li {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+.event-calendar a {
+  color: #de232f;
+  text-decoration: underline;
+  font-size: 1em;
+}
+
+.event-calendar a:hover {
+  color: #878787;
+}
+
+.event-calendar table {
+  height: auto !important;
+  border: 2px solid #d2d2d2;
+}
+
+.event-calendar table, .event-calendar table tr, .event-calendar table th, .event-calendar table td {
+  border: solid 2px #d2d2d2;
+  background: #FFFFFF;
+  border-collapse: collapse;
+  vertical-align: middle;
+}
+
+.event-calendar table tr, .event-calendar table th, .event-calendar table td {
+  padding: 5px;
+}
+
+.event-calendar table caption {
+  background-color: #f7f7f7;
+  overflow: hidden;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+.event-calendar table tr {
+  border: none;
+}
+
+.event-calendar table th, .event-calendar table td {
+  border-width: 2px 0 0 2px;
+}
+
+.event-calendar table th {
+  background-color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 7px;
+}
+
+.event-calendar table th:first-child {
+  border-left: 0;
+}
+
+.event-calendar table td:first-child {
+  border-left: 0;
+}
+
+.event-calendar .fc-day-grid-event:hover {
+  color: #fff;
+}
+
+.event-calendar .fc-content-skeleton td {
+  padding: 0 !important;
+}
+
+.event-calendar .fc-bg > table {
+  height: 100% !important;
+}
+
+.event-calendar .fc-day-header {
+  background: #cccccc;
+}
+
+.event-calendar th, .event-calendar td {
+  border-width: 1px 0 0 1px !important;
+}
+
+.event-calendar table {
+  border: 1px solid #d2d2d2;
+}
+
+.event-calendar table, .event-calendar table tr, .event-calendar table th, .event-calendar table td {
+  background: transparent;
+}
+
+.event-calendar .fc-event-container a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.calendar-tooltip {
+  /* breakpoints */
+}
+
+.calendar-tooltip .field-filetypeicon > a > span, .calendar-tooltip .pdf, .calendar-tooltip .xls, .calendar-tooltip .xlsx, .calendar-tooltip .pptx, .calendar-tooltip .ppt, .calendar-tooltip .docx, .calendar-tooltip .doc, .calendar-tooltip .bmp, .calendar-tooltip .png, .calendar-tooltip .jpg, .calendar-tooltip .jpeg, .calendar-tooltip .psd, .calendar-tooltip .gif, .calendar-tooltip .avi, .calendar-tooltip .mp4, .calendar-tooltip .wmv, .calendar-tooltip .mov, .calendar-tooltip .mp3, .calendar-tooltip .wma, .calendar-tooltip .txt, .calendar-tooltip .zip {
+  display: inline-block;
+  box-sizing: border-box;
+  font-weight: normal;
+  width: 15px;
+  height: 21px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.calendar-tooltip .field-filetypeicon > a > span:before, .calendar-tooltip .pdf:before, .calendar-tooltip .xls:before, .calendar-tooltip .xlsx:before, .calendar-tooltip .pptx:before, .calendar-tooltip .ppt:before, .calendar-tooltip .docx:before, .calendar-tooltip .doc:before, .calendar-tooltip .bmp:before, .calendar-tooltip .png:before, .calendar-tooltip .jpg:before, .calendar-tooltip .jpeg:before, .calendar-tooltip .psd:before, .calendar-tooltip .gif:before, .calendar-tooltip .avi:before, .calendar-tooltip .mp4:before, .calendar-tooltip .wmv:before, .calendar-tooltip .mov:before, .calendar-tooltip .mp3:before, .calendar-tooltip .wma:before, .calendar-tooltip .txt:before, .calendar-tooltip .zip:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px !important;
+  position: absolute;
+  display: block;
+  top: 50%;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.calendar-tooltip .field-filetypeicon span:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .pdf:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .xlsx:before, .calendar-tooltip .field-filetypeicon .xls:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .pptx:before, .calendar-tooltip .field-filetypeicon .ppt:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .docx:before, .calendar-tooltip .field-filetypeicon .doc:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .bmp:before, .calendar-tooltip .field-filetypeicon .png:before, .calendar-tooltip .field-filetypeicon .jpg:before, .calendar-tooltip .field-filetypeicon .jpeg:before, .calendar-tooltip .field-filetypeicon .psd:before, .calendar-tooltip .field-filetypeicon .gif:before, .calendar-tooltip .field-filetypeicon .tif:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .avi:before, .calendar-tooltip .field-filetypeicon .mp4:before, .calendar-tooltip .field-filetypeicon .wmv:before, .calendar-tooltip .field-filetypeicon .mov:before, .calendar-tooltip .field-filetypeicon .mpg:before, .calendar-tooltip .field-filetypeicon .mkv:before, .calendar-tooltip .field-filetypeicon .vp6:before, .calendar-tooltip .field-filetypeicon .vid:before, .calendar-tooltip .field-filetypeicon .rv:before, .calendar-tooltip .field-filetypeicon .webm:before, .calendar-tooltip .field-filetypeicon .swf:before, .calendar-tooltip .field-filetypeicon .flv:before, .calendar-tooltip .field-filetypeicon .m4v:before, .calendar-tooltip .field-filetypeicon .h264:before, .calendar-tooltip .field-filetypeicon .mk3d:before, .calendar-tooltip .field-filetypeicon .gifv:before, .calendar-tooltip .field-filetypeicon .oggv:before, .calendar-tooltip .field-filetypeicon .movie:before, .calendar-tooltip .field-filetypeicon .divx:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .mp3:before, .calendar-tooltip .field-filetypeicon .wma:before, .calendar-tooltip .field-filetypeicon .wav:before, .calendar-tooltip .field-filetypeicon .fla:before, .calendar-tooltip .field-filetypeicon .flac:before, .calendar-tooltip .field-filetypeicon .ra:before, .calendar-tooltip .field-filetypeicon .rma:before, .calendar-tooltip .field-filetypeicon .aif:before, .calendar-tooltip .field-filetypeicon .aiff:before, .calendar-tooltip .field-filetypeicon .aa:before, .calendar-tooltip .field-filetypeicon .aac:before, .calendar-tooltip .field-filetypeicon .mid:before, .calendar-tooltip .field-filetypeicon .midi:before, .calendar-tooltip .field-filetypeicon .aax:before, .calendar-tooltip .field-filetypeicon .ac3:before, .calendar-tooltip .field-filetypeicon .au:before, .calendar-tooltip .field-filetypeicon .ogg:before, .calendar-tooltip .field-filetypeicon .avr:before, .calendar-tooltip .field-filetypeicon .m4a:before, .calendar-tooltip .field-filetypeicon .mp4a:before, .calendar-tooltip .field-filetypeicon .amz:before, .calendar-tooltip .field-filetypeicon .mka:before, .calendar-tooltip .field-filetypeicon .asx:before, .calendar-tooltip .field-filetypeicon .pcm:before, .calendar-tooltip .field-filetypeicon .m3u:before, .calendar-tooltip .field-filetypeicon .xwma:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .txt:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .zip:before, .calendar-tooltip .field-filetypeicon .zipx:before, .calendar-tooltip .field-filetypeicon .rar:before, .calendar-tooltip .field-filetypeicon .tar:before, .calendar-tooltip .field-filetypeicon .gz:before, .calendar-tooltip .field-filetypeicon .dmg:before, .calendar-tooltip .field-filetypeicon .iso:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .css:before, .calendar-tooltip .field-filetypeicon .js:before, .calendar-tooltip .field-filetypeicon .py:before, .calendar-tooltip .field-filetypeicon .git:before, .calendar-tooltip .field-filetypeicon .py:before, .calendar-tooltip .field-filetypeicon .cpp:before, .calendar-tooltip .field-filetypeicon .h:before, .calendar-tooltip .field-filetypeicon .ini:before, .calendar-tooltip .field-filetypeicon .config:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .exe:before, .calendar-tooltip .field-filetypeicon .jar:before, .calendar-tooltip .field-filetypeicon .dll:before, .calendar-tooltip .field-filetypeicon .bat:before, .calendar-tooltip .field-filetypeicon .pl:before, .calendar-tooltip .field-filetypeicon .scr:before, .calendar-tooltip .field-filetypeicon .msi:before, .calendar-tooltip .field-filetypeicon .app:before, .calendar-tooltip .field-filetypeicon .deb:before, .calendar-tooltip .field-filetypeicon .apk:before, .calendar-tooltip .field-filetypeicon .jar:before, .calendar-tooltip .field-filetypeicon .vb:before, .calendar-tooltip .field-filetypeicon .prg:before, .calendar-tooltip .field-filetypeicon .sh:before {
+  content: "";
+}
+
+.calendar-tooltip .field-filetypeicon .com:before, .calendar-tooltip .field-filetypeicon .net:before, .calendar-tooltip .field-filetypeicon .org:before, .calendar-tooltip .field-filetypeicon .edu:before, .calendar-tooltip .field-filetypeicon .gov:before, .calendar-tooltip .field-filetypeicon .mil:before, .calendar-tooltip .field-filetypeicon .html:before, .calendar-tooltip .field-filetypeicon .htm:before, .calendar-tooltip .field-filetypeicon .xhtml:before, .calendar-tooltip .field-filetypeicon .jhtml:before, .calendar-tooltip .field-filetypeicon .php:before, .calendar-tooltip .field-filetypeicon .php3:before, .calendar-tooltip .field-filetypeicon .php4:before, .calendar-tooltip .field-filetypeicon .php5:before, .calendar-tooltip .field-filetypeicon .phtmle:before, .calendar-tooltip .field-filetypeicon .asp:before, .calendar-tooltip .field-filetypeicon .aspx:before, .calendar-tooltip .field-filetypeicon .cfm:before {
+  content: "";
+}
+
+.calendar-tooltip h1, .calendar-tooltip h2, .calendar-tooltip h3, .calendar-tooltip h4, .calendar-tooltip h5, .calendar-tooltip h6 {
+  color: #222;
+}
+
+.calendar-tooltip h1, .calendar-tooltip h2 {
+  margin: 10px 0;
+}
+
+.calendar-tooltip h3, .calendar-tooltip h4, .calendar-tooltip p {
+  margin: 5px 0;
+}
+
+.calendar-tooltip h5, .calendar-tooltip h6 {
+  margin: 5px 0 0;
+}
+
+.calendar-tooltip strong {
+  font-weight: 700;
+}
+
+.calendar-tooltip ul, .calendar-tooltip ol {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-left: 10px;
+}
+
+.calendar-tooltip li {
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+.calendar-tooltip ul li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.calendar-tooltip ol li {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+.calendar-tooltip a {
+  color: #de232f;
+  text-decoration: underline;
+  font-size: 1em;
+}
+
+.calendar-tooltip a:hover {
+  color: #878787;
+}
+
+.calendar-tooltip table {
+  height: auto !important;
+  border: 2px solid #d2d2d2;
+}
+
+.calendar-tooltip table, .calendar-tooltip table tr, .calendar-tooltip table th, .calendar-tooltip table td {
+  border: solid 2px #d2d2d2;
+  background: #FFFFFF;
+  border-collapse: collapse;
+  vertical-align: middle;
+}
+
+.calendar-tooltip table tr, .calendar-tooltip table th, .calendar-tooltip table td {
+  padding: 5px;
+}
+
+.calendar-tooltip table caption {
+  background-color: #f7f7f7;
+  overflow: hidden;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+.calendar-tooltip table tr {
+  border: none;
+}
+
+.calendar-tooltip table th, .calendar-tooltip table td {
+  border-width: 2px 0 0 2px;
+}
+
+.calendar-tooltip table th {
+  background-color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 7px;
+}
+
+.calendar-tooltip table th:first-child {
+  border-left: 0;
+}
+
+.calendar-tooltip table td:first-child {
+  border-left: 0;
+}

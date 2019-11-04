@@ -1,0 +1,15 @@
+/* breakpoints */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #bf1722;
+  color: #fff !important;
+  padding: 8px;
+  z-index: 100;
+  border-bottom-right-radius: 8px;
+}
+
+.skip-link:focus {
+  top: 0;
+}

@@ -1,0 +1,65 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+@import "base/fontawesome/font-awesome-mix-var";
+.toggle {
+    details[open] summary:before {
+        content: $fa-var-minus-square;
+    }
+    summary.toggle-header {
+        &::-webkit-details-marker {
+            display: none
+        }
+        &:before {
+            @include fa-icon();
+            content: $fa-var-plus-square;
+            position: absolute;
+            font-size: 17px;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: border-box;
+        padding: 0 10px;
+        background: $toggle-header-bg;
+        cursor: pointer;
+        min-height: 25px;
+        &.show {
+            display: inline-block !important;
+        }
+        .toggle-label {
+            display: block;
+            float: right;
+            margin: 0 0 0 10px;
+            p {
+                margin-bottom: 0
+            }
+        }
+    }
+    .show {
+        color: $toggle-show-color;
+    }
+    .toggle-content {
+        margin-top: -1px;
+    }
+    details summary~.component {
+        >.component-content {
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            animation-delay: 0;
+            animation-timing-function: linear;
+            animation-direction: normal;
+            display: none;
+        }
+    }
+    details[open] summary~.component {
+        overflow: hidden;
+        >.component-content {
+            transform: translateY(-100%);
+            display: block;
+        }
+    }
+    @import "base/animation/toggle";
+}

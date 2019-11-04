@@ -1,0 +1,22 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+.page-list {
+    background-color: $page-list-bg;
+    .item {
+        @include border-basic(bottom, $page-list-item-border);
+        background: $page-list-item-bg;
+        padding: 15px;
+        overflow: hidden;
+        &:last-child {
+            border-width: 0;
+        }
+        .field-title {
+            color: $page-list-item-title-text;
+        }
+    }
+    .field-title {
+        font-weight: bold;
+    }
+    @import "variants/page-list/*";
+    @import "base/reset/links";
+}

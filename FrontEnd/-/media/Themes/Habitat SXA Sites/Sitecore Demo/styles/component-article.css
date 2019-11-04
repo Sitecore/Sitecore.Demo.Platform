@@ -1,0 +1,49 @@
+.card-footer .media h4 {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#upcoming-events {
+  padding-top: 5px;
+}
+
+#upcoming-events li {
+  max-width: 50%;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+
+#author-filter {
+  display: none;
+}
+
+.card-img-right {
+  min-height: 200px;
+  width: 100%;
+}
+
+.card {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 0%;
+  flex: 1 0 0%;
+}
+
+.media {
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d2d2;
+  padding: 25px 10px;
+  margin: 20px 0;
+}
+
+.field-eventplace {
+  margin-right: 1rem;
+}
