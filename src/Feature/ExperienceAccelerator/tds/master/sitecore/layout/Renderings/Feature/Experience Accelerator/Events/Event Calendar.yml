@@ -1,0 +1,66 @@
+---
+ID: "c71b8e71-7ff8-46b0-800e-c5621efe1d4b"
+Parent: "e391a616-af8c-42ae-a00b-ab55e4d31a4b"
+Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
+Path: /sitecore/layout/Renderings/Feature/Experience Accelerator/Events/Event Calendar
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/calendar_31.png
+- ID: "13f89250-ad6b-4548-882e-118a12c18094"
+  Hint: Parameters Template
+  Value: "{43E4F676-DA99-4859-9F7F-FA82F9D52277}"
+- ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
+  Hint: Datasource Template
+  Value: /sitecore/templates/Feature/Experience Accelerator/Events/Datasource/Event List
+- ID: "308e88f5-cd6e-4f8f-bafe-95a47dedefdc"
+  Hint: Editable
+  Type: Checkbox
+  Value: 1
+- ID: "34e81e40-1d4d-45b0-bcf1-a0ffe5521685"
+  Hint: RenderingCssClass
+  Value: "event-calendar"
+- ID: "94069f66-609c-48b0-8281-521c30fb269d"
+  Hint: Open Properties after Add
+  Value: 0
+- ID: "a2f5d9df-8cba-4a1d-99eb-51acb94cb057"
+  Hint: Page Editor Buttons
+  Type: Treelist
+  Value: |
+    {0D42AC70-791C-4366-9615-1DCC95F4266D}
+    {AB157A5F-F5CD-44BF-A3E3-2DDA3CC0894F}
+- ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
+  Hint: Datasource Location
+  Value: "query:$site/*[@@name='Data']/*[@@templatename='Events Folder']|query:$sharedSites/*[@@name='Data']/*[@@templatename='Events Folder']"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+- ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
+  Hint: Controller Action
+  Value: Index
+- ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
+  Hint: Controller
+  Value: Sitecore.XA.Feature.Events.Controllers.EventCalendarController,Sitecore.XA.Feature.Events
+- ID: "f172b787-7b88-4bd5-ae4d-6308e102ef11"
+  Hint: Enable Datasource Query
+  Type: Checkbox
+  Value: 0
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20150321T170939Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "829b3449-e246-4241-9ab1-13d1fb86a2c5"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20191012T142014Z
