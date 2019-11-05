@@ -1,0 +1,83 @@
+---
+ID: "06312db7-6d89-4988-81b4-062504dbbec3"
+Parent: "5fcd35a7-29a0-4152-b038-159bf8be6a85"
+Template: "d4d43c33-3661-4630-af63-0754cab7b110"
+Path: "/sitecore/system/Marketing Control Panel/Automation Plans/2018/01/10/20/28/06312db7-6d89-4988-81b4-062504dbbec3"
+DB: master
+SharedFields:
+- ID: "1766652d-080b-409c-abbf-3a90e0f801f5"
+  Hint: Start Date
+  Value: 20180110T202800Z
+- ID: "2c41a32f-86a9-4f43-8550-bf0af266e3f2"
+  Hint: End Date
+  Value: 99991231T235959
+- ID: "394d49b2-b579-43aa-ab32-b4010b18fd07"
+  Hint: Marketing Theme
+  Value: "00000000-0000-0000-0000-000000000000"
+- ID: "3fb918c8-08ec-4879-8062-088bbf71ee72"
+  Hint: Plan Data
+  Value: |
+    {"ReentryMode":0,"ContextKeyFactoryType":null,"EntryActivityId":"8c94c2b3-13f1-3869-488b-1ae591fb48f0","NewEnrollmentRegulatorType":null,"NewEnrollmentRegulatorParameters":null,"Alias":"06312db7-6d89-4988-81b4-062504dbbec3","IgnoreIsActiveProperty":true,"Activities":{"8c94c2b3-13f1-3869-488b-1ae591fb48f0":{"Paths":{"default":"acd84b2f-0028-8b61-67ff-07a40a525a9e"},"Id":"8c94c2b3-13f1-3869-488b-1ae591fb48f0","ActivityTypeId":"8c92d3c1-2c38-4e8a-92d1-9590e17cce89","Parameters":{"EventIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"GoalIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["ecc7fa00-8b66-47e4-aad2-5477e6c9d8b7"]},"OutcomeIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"TestOperation":0,"UseCondition":false}},"acd84b2f-0028-8b61-67ff-07a40a525a9e":{"Paths":{"default":"003ea032-3960-0ef4-073d-2702c766e171"},"Id":"acd84b2f-0028-8b61-67ff-07a40a525a9e","ActivityTypeId":"c2a5ef3a-dde9-4309-8921-5a6fd011d0ba","Parameters":{"Lists":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["08139e58-425b-4868-b1a4-7e0e5abe0ea6"]}}},"003ea032-3960-0ef4-073d-2702c766e171":{"Paths":{"default":"c2b35293-652c-9598-33f9-aa6a42aebf35"},"Id":"003ea032-3960-0ef4-073d-2702c766e171","ActivityTypeId":"9046a4aa-07d9-4377-8a6e-1db27765b2ba","Parameters":{"Name":"Delay","ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"00:01:00","WaitUntil":null}}},"c2b35293-652c-9598-33f9-aa6a42aebf35":{"Paths":{"default":"c2d15fb4-44d4-73ae-e56b-9564c2ebb47f"},"Id":"c2b35293-652c-9598-33f9-aa6a42aebf35","ActivityTypeId":"51774db5-b90b-4189-9613-104039723a0b","Parameters":{"MessageId":"c5c9710a-ef1a-4320-920d-3fa92ae3a3ea"}},"c2d15fb4-44d4-73ae-e56b-9564c2ebb47f":{"Paths":{"default":"42439d6b-15ca-5741-bd94-c51869dabea5"},"Id":"c2d15fb4-44d4-73ae-e56b-9564c2ebb47f","ActivityTypeId":"9046a4aa-07d9-4377-8a6e-1db27765b2ba","Parameters":{"Name":"Delay","ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"6.00:00:00","WaitUntil":null}}},"42439d6b-15ca-5741-bd94-c51869dabea5":{"Paths":{"default":"9a4ea64c-5d3f-7773-32f1-719ca4ebf6e7"},"Id":"42439d6b-15ca-5741-bd94-c51869dabea5","ActivityTypeId":"51774db5-b90b-4189-9613-104039723a0b","Parameters":{"MessageId":"c5c9710a-ef1a-4320-920d-3fa92ae3a3ea"}},"9a4ea64c-5d3f-7773-32f1-719ca4ebf6e7":{"Paths":{"false":"1860f511-beb4-b581-d6d9-53f865732424","true":"37983b42-7599-1c66-6b81-96d74ecfa979"},"Id":"9a4ea64c-5d3f-7773-32f1-719ca4ebf6e7","ActivityTypeId":"37d0918f-255a-417a-9205-100bbd1bdf0d","Parameters":{"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"00:05:00","WaitUntil":null},"Name":"Visit listener"}},"1860f511-beb4-b581-d6d9-53f865732424":{"Paths":{"default":"b9e10fef-0f6f-966f-4b2e-d21381b73aeb"},"Id":"1860f511-beb4-b581-d6d9-53f865732424","ActivityTypeId":"6bb73242-a22c-45fd-8743-8cd9e53c3f87","Parameters":{"Lists":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["08139e58-425b-4868-b1a4-7e0e5abe0ea6"]}}},"37983b42-7599-1c66-6b81-96d74ecfa979":{"Paths":{"default":"b9e10fef-0f6f-966f-4b2e-d21381b73aeb"},"Id":"37983b42-7599-1c66-6b81-96d74ecfa979","ActivityTypeId":"743489a2-8bd0-49ed-b284-5534ac59685a","Parameters":{"EngagementValue":15}},"b9e10fef-0f6f-966f-4b2e-d21381b73aeb":{"Paths":{},"Id":"b9e10fef-0f6f-966f-4b2e-d21381b73aeb","ActivityTypeId":"a47371c2-8921-421f-8902-f3eccd229d56","Parameters":{}}},"UniversalActivities":{}}
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180110T202837Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: Smart Home Onboarding Drip Campaign
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "33ba0870-2911-4f36-a44d-c8a3446ba2bd"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190711T201054Z
+    - ID: "e259e500-b38e-41fe-82db-8b604bcf9e75"
+      Hint: Description
+      Value: An email a week.
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181024T125733Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: "??????? ??????"
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1b70b73b-2054-446e-89b2-04353e0ba4d5"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\unicorn
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190711T201054Z
+    - ID: "e259e500-b38e-41fe-82db-8b604bcf9e75"
+      Hint: Description
+      Value: "??????"

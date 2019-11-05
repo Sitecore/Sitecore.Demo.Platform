@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<connectionStrings xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform" xdt:Transform="SetAttributes(configBuilders)" configBuilders="CS_Environment">
+  <add name="core" connectionString="Data Source=sql;Initial Catalog=Sitecore.Core;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="security" connectionString="Data Source=sql;Initial Catalog=Sitecore.Core;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="master" connectionString="Data Source=sql;Initial Catalog=Sitecore.Master;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="web" connectionString="Data Source=sql;Initial Catalog=Sitecore.Web;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="messaging" connectionString="Data Source=sql;Initial Catalog=Sitecore.Messaging;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="xdb.marketingautomation" connectionString="Data Source=sql;Initial Catalog=Sitecore.MarketingAutomation;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="xdb.processing.pools" connectionString="Data Source=sql;Initial Catalog=Sitecore.Processing.Pools;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="xdb.referencedata" connectionString="Data Source=sql;Initial Catalog=Sitecore.ReferenceData;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="xdb.processing.tasks" connectionString="Data Source=sql;Initial Catalog=Sitecore.Processing.Tasks;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="experienceforms" connectionString="Data Source=sql;Initial Catalog=Sitecore.ExperienceForms;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="exm.master" connectionString="Data Source=sql;Initial Catalog=Sitecore.EXM.Master;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="reporting" connectionString="Data Source=sql;Initial Catalog=Sitecore.Reporting;User ID=${SITECORE_SQL_USERNAME};Password=${SITECORE_SQL_PASSWORD}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
+  <add name="appinsights.instrumentationkey" connectionString="${APPLICATION_INSIGHTS_KEY}" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+</connectionStrings>
