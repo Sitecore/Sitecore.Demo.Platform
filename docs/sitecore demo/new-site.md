@@ -1,45 +1,35 @@
 # How to Add a New Site
 
-#### Clone An Existing Site
+## Clone An Existing Site
 
 Right click the site you wish to clone. Click "Duplicate" and enter the name of your new site. Perform the Post-Steps listed below.
 
-#### Create a New Site
+## Create a New Site
 
-1) Right click on /sitecore/content/Habitat SXA Sites
+1. Right click on /sitecore/content/Habitat SXA Sites
 
-2) Insert a new Site
+1. Insert a new Site
 
-3) Under the "Modules" tab, select the modules you wish the new site to contain. See other documentation in this folder for details on various modules.
+1. Under the "Modules" tab, select the modules you wish the new site to contain. See other documentation in this folder for details on various modules.
 
-4) Under the "Theme" tab, select a theme for the new site.
+1. Under the "Theme" tab, select a theme for the new site.
 
-5) Click "Ok".
+1. Click "Ok".
 
-#### Post-Steps
+## Post-Steps
 
 Once a new site is created or duplicated, the following post-steps should be performed:
 
-1) Navigate to 
+1. Navigate to `/sitecore/content/Habitat SXA Sites/{Your Site Name}/Settings/Site Grouping` and insert a new Site or click on the existing child site.
 
-/sitecore/content/Habitat SXA Sites/{Your Site Name}/Settings/Site Grouping and insert a new Site or click on the existing child site. 
+1. Bind a new site to IIS (see below) and set this item to the hostname.
 
-2) Bind a new site to IIS (see below) and set this item to the host name.
+## Bind a New Site to IIS
 
-3) To immediately view the site, change the database to "master", or follow the steps below to view the live site. For search items to show up, you will need to re-index the site's tree.
+1. Open up a Powershell window. Navigate to the xp/install folder inside the Sitecore.HabitatHome.Utilities project.
 
-4) In order to view the live site, you will need to:
+    `cd C:\Projects\Sitecore.HabitatHome.Utilities\XP\install`
 
-​	a) Approve all pages in the workflow. This can be done on the individual 	    items or from the Workbox.
+1. Run `Add-SSLSiteBindingWithCertificate.ps1` with your desired hostname.
 
-​	b) Do a full site publish.
-
-#### Bind a New Site to IIS
-
-1) Open up a Powershell window. Navigate to the xp/install folder inside the Sitecore.HabitatHome.Utilities project.
-
-`cd C:\Projects\Sitecore.HabitatHome.Utilities\XP\install`
-
-2) Run `Add-SSLSiteBindingWithCertificate.ps1` with your desired hostname.
-
-`.\Add-SSLSiteBindingWithCertificate.ps1 -SiteName habitathome.dev.local -HostName yourhostname.dev.local -CertificateName yourhostname.dev.local `
+    `.\Add-SSLSiteBindingWithCertificate.ps1 -$SiteName habitathome.dev.local -$HostName yourhostname.dev.local -$CertificatName yourhostname.dev.local`

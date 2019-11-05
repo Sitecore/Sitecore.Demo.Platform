@@ -1,0 +1,44 @@
+---
+ID: "f7fac578-63b7-488b-9133-1f412cdac011"
+Parent: "96a25c42-058b-4b35-b1ea-e0839e2952a4"
+Template: "c645dd63-2462-470c-a48d-8b55757a2db3"
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Search Results/Upcoming Events/Event/card/card body/media/event info/ul/Event Date
+DB: master
+SharedFields:
+- ID: "eb8432b6-dabf-48ea-b7fd-a70cf40bd300"
+  Hint: Tag
+  Value: "{36795C64-E060-4AEF-B209-A1F20A64FC3F}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190916T185811Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "35818045-358c-420d-99c3-21a59a468f5b"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
+      Hint: Template
+      Value: |
+        #if ($dateTool.Format($item.EventStart, "MMMM d, yyyy") == $dateTool.Format($item.EventEnd, "MMMM d, yyyy"))
+          <span>$dateTool.Format($item.EventStart, "MMM d")</span>
+        #else
+           <span>$dateTool.Format($item.EventStart, "MMM d") - $dateTool.Format($item.EventEnd, "MMM d")</span>
+        #end
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190916T190650Z

@@ -1,0 +1,60 @@
+﻿---
+ID: "f4dc603d-af0f-4c29-85ab-e1ec7e9d59c6"
+Parent: "5c295cd3-2801-4fc4-8dc8-2ea8f5c4343a"
+Template: "eaffc9f9-3684-4650-92f4-78560bed789b"
+Path: /sitecore/templates/Branches/Project/Habitat SXA Sites/Habitat Home/XA Modules/News and Events/Sitecore Demo News and Events Setup/Events Partial Designs/Upcoming Events
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "upcoming-events"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{51E0ADF9-030B-4240-8029-8A5BE476B855}"
+              p:before="*"
+              s:ds="local:/Data/Text 1"
+              s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/container-2" />
+            <r
+              uid="{200979F1-3EE3-4158-B191-4B3555623A17}"
+              p:after="r[@uid='{51E0ADF9-030B-4240-8029-8A5BE476B855}']"
+              s:ds="{88C3EED6-8014-42E5-9FB0-D087A81B8AB6}"
+              s:id="{52E40C93-F091-47C1-84DD-491DBCDC54B5}"
+              s:par="ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B2505127D-4E33-4FC1-8B1B-58A8A4ACAC99%7D&amp;Styles&amp;TitleHeadingLevel=%7B6A44D9C6-61F0-4B69-8E1A-FDC27F96BA0F%7D&amp;Reset Caching Options&amp;RenderingIdentifier=upcoming-events&amp;DynamicPlaceholderId=5"
+              s:ph="/main/container-2" />
+            <r
+              uid="{ECF64AF6-9EB0-4D77-B410-76F1E9BEB4FB}"
+              p:after="r[@uid='{200979F1-3EE3-4158-B191-4B3555623A17}']"
+              s:ds="local:/Data/Text 2"
+              s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/container-2" />
+            <r
+              uid="{D6C19E7C-661C-4FA2-9733-2ABD55C9E405}"
+              p:after="*[1=2]"
+              s:ds=""
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;BackgroundImage&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="main" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190927T164409Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
