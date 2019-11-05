@@ -1,0 +1,57 @@
+---
+ID: "d5ec616f-9fd6-44c0-b77a-7f47b28491bb"
+Parent: "c93be11c-ae1b-4e95-b33f-8b8ea05103d4"
+Template: "643a85f5-c9f1-4836-b17b-35ade22d03d3"
+Path: /sitecore/content/Habitat SXA Sites/Sitecore Demo/Data/Heros/Example Hero
+DB: master
+Created: 20191016T141845Z
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "0d089052-245b-4b23-8042-b63d06c8fe64"
+      Hint: HeroOverlayImage
+      Value: |
+        <image mediaid="{6566B831-5D2E-400D-B670-AA4FFACAF7F8}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191016T141845Z
+    - ID: "440b5413-5322-4166-9fbe-580f70973751"
+      Hint: HeroTitle
+      Value: An Example Hero
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cd844a89-443d-4940-9d22-7953415a2fb6"
+    - ID: "9c385368-a554-4a92-9a8d-37f3ef3a09f4"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{07482444-9628-40CB-B9A9-CB6D1E112F3D}" ></image>
+    - ID: "a3d8e124-b602-455c-ab3b-c59db150256e"
+      Hint: HeroLink
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{F3F10ADE-001C-464E-8A97-7FE8A85CD66A}" />
+    - ID: "af73cf76-4e8a-46b0-9403-bcea092724ef"
+      Hint: HeroSupertitle
+      Value: Cool super title
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20191016T142211Z
+    - ID: "e50b8dc2-0ec1-47af-b1da-0a6622368986"
+      Hint: HeroText
+      Value: This is an example of an awesome hero component

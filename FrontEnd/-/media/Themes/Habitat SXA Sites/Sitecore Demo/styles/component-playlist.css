@@ -13,7 +13,7 @@
   margin: 0 0 10px 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #89C6CC;
+  border-bottom-color: #60ddea;
 }
 
 .playlist .playlist-item {
@@ -78,11 +78,11 @@
 }
 
 .playlist .playlist-item.active {
-  background-color: #89C6CC;
+  background-color: #60ddea;
 }
 
 .playlist .playlist-item.active .field-moviecaption a {
-  color: #fff;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -126,7 +126,7 @@
 }
 
 .playlist .playlist-nav .playlist-next a:hover, .playlist .playlist-nav .playlist-prev a:hover {
-  color: #89C6CC;
+  color: #60ddea;
 }
 
 .playlist .playlist-nav .playlist-prev a:before {

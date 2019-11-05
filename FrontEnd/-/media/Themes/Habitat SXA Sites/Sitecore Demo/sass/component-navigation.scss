@@ -2,6 +2,9 @@
 @import "abstracts/vars";
 @import "base/fontawesome/font-awesome-mix-var";
 .primary-nav-container {
+    .navigation {
+        padding: 1em;
+    }
     .field-link {
         color: #000000 !important;
         font-weight: 700;

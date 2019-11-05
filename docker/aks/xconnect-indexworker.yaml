@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indexworker
+  labels:
+    app: indexworker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: indexworker
+  template:
+    metadata:
+      labels:
+        app: indexworker
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": windows
+      containers:
+      - name: indexworker
+        image: sitecoreakshack.azurecr.io/habitathome-xp-xconnect-indexworker:9.2.0-windowsservercore-ltsc2019
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 2
+            memory: 1500Mi
+          requests:
+            cpu: 1
+            memory: 500Mi

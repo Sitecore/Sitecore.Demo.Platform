@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: habitat-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "180s"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "180s"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "180s"
+spec:
+  rules:
+  - host: global-cm.habitathome.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: cm
+          servicePort: 80
+  - host: global-cd.habitathome.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: cd
+          servicePort: 80
+  - host: solr.habitathome.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: solr
+          servicePort: 8983
+ 

@@ -10,7 +10,7 @@
 
 .tag-list span.field-title.tag-text:hover {
   cursor: pointer;
-  color: #878787;
+  color: #747474;
   border-bottom: 1px solid #15909c;
   text-decoration: none;
 }
@@ -33,7 +33,7 @@
 
 .tag-list span.field-title > a {
   color: #747474;
-  background: #89C6CC;
+  background: #60ddea;
   border-radius: 3px 0 0 3px;
   display: inline-block;
   height: 26px;
@@ -43,7 +43,7 @@
   margin: 0 20px 10px 0;
   text-decoration: none;
   -webkit-transition: color .2s;
-  color: #fff;
+  color: #ffffff;
 }
 
 .tag-list span.field-title > a:hover {
@@ -69,7 +69,7 @@
 .tag-list span.field-title > a:after {
   background: transparent;
   border-bottom: 13px solid transparent;
-  border-left: 10px solid #89C6CC;
+  border-left: 10px solid #60ddea;
   border-top: 13px solid transparent;
   content: '';
   position: absolute;
