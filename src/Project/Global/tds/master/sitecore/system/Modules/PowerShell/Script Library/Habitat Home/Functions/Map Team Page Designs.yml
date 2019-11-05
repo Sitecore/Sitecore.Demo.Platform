@@ -24,8 +24,8 @@ SharedFields:
     $teamLandingPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Our Team Page"
     $teamLandingPageDesignID = [System.Web.HttpUtility]::UrlEncode($teamLandingPageDesign.ID)
     
-    $value = "$value&$resourcePageID=$resourcePageDesignID"
-    $value = "$value&$resourceLandingPageID=$resourceLandingPageDesignID"
+    $value = "$value&$teamPageID=$teamPageDesignID"
+    $value = "$value&$teamLandingPageID=$teamLandingPageDesignID"
     
     #get Page Designs Item
     $pageDesigns = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs"
@@ -55,11 +55,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d6607d08-bffa-4b8b-8afc-8dcc17bba26f"
+      Value: "97b996b4-f3d1-41dc-b955-cadb8584dbe1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20191018T204028Z
+      Value: 20191023T171746Z

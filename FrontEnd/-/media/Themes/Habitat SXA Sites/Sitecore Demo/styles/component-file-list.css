@@ -24,11 +24,11 @@
   background: transparent;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #89C6CC;
+  border-bottom-color: #60ddea;
 }
 
 .file-list .list-item a:hover {
-  color: #878787;
+  color: #282828;
 }
 
 .file-list .list-item > .scEnabledChrome {
@@ -212,6 +212,72 @@
 }
 
 .file-list.file-list-files .field-linktext {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  text-align: center;
+  font-weight: 600;
+}
+
+.file-list-files .component-content > ul > li,
+.file-list-files .component-content > ul li > .scLooseFrameZone {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.file-list-files li {
+  margin: 0;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.file-list-files li:last-child {
+  padding-bottom: 0;
+}
+
+.file-list-files .field-filetypeicon {
+  width: 3%;
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  min-width: 23px;
+}
+
+.file-list-files .field-filetypeicon span {
+  width: 20px;
+  height: 20px;
+}
+
+.file-list-files .field-filetypeicon span:before {
+  font-size: 20px !important;
+}
+
+.file-list-files .field-title {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  padding: 0 5px;
+  width: 50%;
+}
+
+.file-list-files .field-updated {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  width: 45%;
+  text-align: right;
+  color: #747474;
+}
+
+.file-list-files .field-linktext {
   -webkit-box-ordinal-group: 2;
   -ms-flex-order: 1;
   order: 1;

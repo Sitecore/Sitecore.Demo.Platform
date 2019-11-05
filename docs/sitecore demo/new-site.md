@@ -2,7 +2,7 @@
 
 ## Clone An Existing Site
 
-Right click the site you wish to clone. Click "Duplicate" and enter the name of your new site.
+Right click the site you wish to clone. Click "Duplicate" and enter the name of your new site. Perform the Post-Steps listed below.
 
 ## Create a New Site
 

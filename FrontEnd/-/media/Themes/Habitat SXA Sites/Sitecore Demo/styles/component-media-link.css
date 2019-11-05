@@ -4,7 +4,7 @@
   background: transparent;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #89C6CC;
+  border-bottom-color: #60ddea;
   /* breakpoints */
 }
 
@@ -13,7 +13,7 @@
 }
 
 .media-link a:hover {
-  color: #878787;
+  color: #747474;
   text-decoration: none;
 }
 
@@ -227,6 +227,102 @@
 
 .media-link .field-filetypeicon .com:before, .media-link .field-filetypeicon .net:before, .media-link .field-filetypeicon .org:before, .media-link .field-filetypeicon .edu:before, .media-link .field-filetypeicon .gov:before, .media-link .field-filetypeicon .mil:before, .media-link .field-filetypeicon .html:before, .media-link .field-filetypeicon .htm:before, .media-link .field-filetypeicon .xhtml:before, .media-link .field-filetypeicon .jhtml:before, .media-link .field-filetypeicon .php:before, .media-link .field-filetypeicon .php3:before, .media-link .field-filetypeicon .php4:before, .media-link .field-filetypeicon .php5:before, .media-link .field-filetypeicon .phtmle:before, .media-link .field-filetypeicon .asp:before, .media-link .field-filetypeicon .aspx:before, .media-link .field-filetypeicon .cfm:before {
   content: "";
+}
+
+.file-list-files > .component-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.file-list-files .file-description {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 84%;
+  margin-left: 0;
+}
+
+.file-list-files .file-description .field-title {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 600;
+  font-size: 9px;
+}
+
+.file-list-files .file-description .field-filetypeicon {
+  height: 24px;
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  padding-right: 10px;
+  width: 6%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.file-list-files .file-description .field-filetypeicon span:before {
+  font-size: 24px !important;
+}
+
+.file-list-files .file-description .info-wrapper {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  width: 93%;
+}
+
+.file-list-files .file-description .info-wrapper .field-size,
+.file-list-files .file-description .info-wrapper .field-updated {
+  display: inline-block;
+  font-size: 12px;
+}
+
+.file-list-files .field-linktext {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 15%;
+  padding: 10px 13px;
+  text-align: center;
+  color: #f4f4f4;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.file-list-files .field-linktext a {
+  color: #f4f4f4;
+  line-height: 22px;
+}
+
+@media only screen and (max-width: 768px) {
+  .file-list-files .file-description {
+    width: 100%;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .file-list-files .file-description .field-filetypeicon {
+    width: 100%;
+  }
+  .file-list-files .file-description .field-filetypeicon span {
+    margin: 0 auto;
+  }
+  .file-list-files .file-description .info-wrapper {
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+  }
+  .file-list-files .field-linktext {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 /* breakpoints */
