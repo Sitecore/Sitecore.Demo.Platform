@@ -2,7 +2,7 @@ Param(
   [string]$target,
   [string]$output
 )
-Install-Module -Name Sitecore.Courier
+Install-Module -Name Sitecore.Courier -Confirm:$False -Force
 Import-Module Sitecore.Courier
 $destination = Split-Path $output
 

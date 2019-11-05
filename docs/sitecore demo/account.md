@@ -20,9 +20,8 @@ Paths to relevant Landing Pages:
 
 /sitecore/content/Habitat SXA Sites/{Your Site Name}/Home/forgot-password
 
-#### Editing the Security Settings
+## Editing the Security Settings
 
 1) Navigate to /sitecore/content/Habitat SXA Sites/{Your Site Name}/Settings/Security Settings
 
 2) Here, you can change which pages are used by default for different account functionality. You can also change the forgot password email template and marketing outcome following user registration.
-

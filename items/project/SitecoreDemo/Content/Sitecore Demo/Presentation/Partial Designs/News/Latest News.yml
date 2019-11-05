@@ -1,0 +1,72 @@
+---
+ID: "4a9d6181-d6a9-461d-9071-d247eac7cfb1"
+Parent: "9314ef61-c38f-4ed5-ad89-024edfd3c6b9"
+Template: "eaffc9f9-3684-4650-92f4-78560bed789b"
+Path: /sitecore/content/Habitat SXA Sites/Sitecore Demo/Presentation/Partial Designs/News/Latest News
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "latest-news"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{643507DB-AEC6-4B46-957B-A29CCB65DB2A}"
+              p:before="*"
+              s:ds="local:/Data/Text 1"
+              s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/container-1" />
+            <r
+              uid="{88694616-B912-44AD-A577-939D2EEF3077}"
+              p:after="r[@uid='{643507DB-AEC6-4B46-957B-A29CCB65DB2A}']"
+              s:ds="{CC4586DA-EA64-4E44-8A0D-E3AB8CDB524B}"
+              s:id="{FAE0D244-55C1-4F1B-8ED5-590C9F131CEE}"
+              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;SearchSignature=latest-news&amp;FieldNames=%7B672A79AC-9DB3-4E2B-947B-3FB53B9FA342%7D&amp;Styles&amp;Reset Caching Options&amp;Scope=%7BE99AE91F-DF30-4E3F-8241-8DFD3D096D22%7D&amp;PageSize=3&amp;DefaultLanguageFilter&amp;DefaultSortOrder=%7B3BFF90D3-7B02-4E4C-90D7-01B570857B85%7D&amp;AutoFireSearchWhenNoCriteriaSet=1&amp;RenderingIdentifier=latest-news&amp;DynamicPlaceholderId=2"
+              s:ph="/main/container-1" />
+            <r
+              uid="{A6B19E11-4695-4296-86E0-5AFCAAEC7CDD}"
+              p:after="r[@uid='{88694616-B912-44AD-A577-939D2EEF3077}']"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;BackgroundImage&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="main" />
+            <r
+              uid="{0FB37D24-FCE8-484D-AA91-AAB611A4D529}"
+              p:after="*[1=2]"
+              s:ds="local:/Data/Text 2"
+              s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="main" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190926T123006Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f75f0ae7-5477-41a4-a7f9-cb9f9c7d853b"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190926T125324Z

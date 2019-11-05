@@ -1,0 +1,48 @@
+---
+ID: "8abb816b-e4f4-46f9-bc38-ae28cafabfcd"
+Parent: "2b18fdd6-4383-40d6-b5ec-7bc4228bfdb0"
+Template: "3de7aa7e-961a-4b90-98f2-01ac2be92ec5"
+Path: /sitecore/content/Habitat SXA Sites/Sitecore Demo/Settings/Social Media Groups/Default/LinkedIn
+DB: master
+BranchID: "4ddbdd69-8a15-4520-bed8-f7553139586b"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 75
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{8485E62D-7BF0-4EB6-85F1-F1665FB68B62}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190921T114910Z
+    - ID: "31b5c056-cfd5-4331-950d-25453a808d7c"
+      Hint: ButtonCode
+      Value: |
+        <script type="IN/Share" data-counter="right"></script>
+    - ID: "3a453560-042a-4df9-945f-5750ea7c4a46"
+      Hint: OnlyOnceCode
+      Value: |
+        <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6e3123eb-07bd-453a-b236-c0f956cd84c9"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20190921T114910Z

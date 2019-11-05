@@ -1,39 +1,35 @@
 # How to Add a New Site
 
-#### Clone An Existing Site
+## Clone An Existing Site
 
 Right click the site you wish to clone. Click "Duplicate" and enter the name of your new site.
 
-#### Create a New Site
+## Create a New Site
 
-1) Right click on /sitecore/content/Habitat SXA Sites
+1. Right click on /sitecore/content/Habitat SXA Sites
 
-2) Insert a new Site
+1. Insert a new Site
 
-3) Under the "Modules" tab, select the modules you wish the new site to contain. See other documentation in this folder for details on various modules.
+1. Under the "Modules" tab, select the modules you wish the new site to contain. See other documentation in this folder for details on various modules.
 
-4) Under the "Theme" tab, select a theme for the new site.
+1. Under the "Theme" tab, select a theme for the new site.
 
-5) Click "Ok".
+1. Click "Ok".
 
-#### Post-Steps
+## Post-Steps
 
 Once a new site is created or duplicated, the following post-steps should be performed:
 
-1) Navigate to 
+1. Navigate to `/sitecore/content/Habitat SXA Sites/{Your Site Name}/Settings/Site Grouping` and insert a new Site or click on the existing child site.
 
-/sitecore/content/Habitat SXA Sites/{Your Site Name}/Settings/Site Grouping and insert a new Site or click on the existing child site. 
+1. Bind a new site to IIS (see below) and set this item to the hostname.
 
-2) Bind a new site to IIS (see below) and set this item to the hostname.
+## Bind a New Site to IIS
 
-3) Navigate to "/sitecore/content/Habitat SXA Sites/{Your Site Name}/Presentation/Page Designs". Click on the "Content" tab. Under "Designing", set up the page design mapping. Page, Home, Login, and Account can be set to Demo Page, whereas other Pages should be set to their respective Page Type, which will usually be of the same name.
+1. Open up a Powershell window. Navigate to the xp/install folder inside the Sitecore.HabitatHome.Utilities project.
 
-#### Bind a New Site to IIS
+    `cd C:\Projects\Sitecore.HabitatHome.Utilities\XP\install`
 
-1) Open up a Powershell window. Navigate to the xp/install folder inside the Sitecore.HabitatHome.Utilities project.
+1. Run `Add-SSLSiteBindingWithCertificate.ps1` with your desired hostname.
 
-`cd C:\Projects\Sitecore.HabitatHome.Utilities\XP\install`
-
-2) Run `Add-SSLSiteBindingWithCertificate.ps1` with your desired hostname.
-
-`.\Add-SSLSiteBindingWithCertificate.ps1 -$SiteName habitathome.dev.local -$HostName yourhostname.dev.local -$CertificatName yourhostname.dev.local `
+    `.\Add-SSLSiteBindingWithCertificate.ps1 -$SiteName habitathome.dev.local -$HostName yourhostname.dev.local -$CertificatName yourhostname.dev.local`
