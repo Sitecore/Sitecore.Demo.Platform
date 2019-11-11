@@ -1,4 +1,4 @@
----
+﻿---
 ID: "238e142b-2afa-481b-a091-c0bb52c1565f"
 Parent: "dc4447ee-8855-4465-b691-dccc312e46d4"
 Template: "be2a1204-f7ba-4be3-933d-190c97496700"
@@ -18,16 +18,21 @@ SharedFields:
     {70461699-48E4-45FA-B74B-0CCE849FCA6A}
     {B14BAB5B-8965-466B-886B-1F93175BCAB3}
     {041C1F9F-99A4-4EE6-8308-985499F91032}
+- ID: "332a4c4e-222d-4a94-abcc-79f92f3b7b4b"
+  Hint: DatasourceBehaviour
+  Value: PromptForNameStoreUnderPage
 - ID: "ad84cc6b-32ef-49d8-9326-916976cb2520"
   Hint: Grid Mapping
   Value: "%7bFE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3%7d%3d%257BFDFEE3CD-14DA-4485-B311-79F21BDE952D%257D"
 - ID: "af332c24-fe17-41e7-8caf-8e64c588fe72"
   Hint: EditingTheme
-  Value: "{56D9E7F2-C2EB-43F5-92FE-254EDBDCFCA8}"
+  Value: "{02D5A629-7196-483B-8FF0-00E61375F00F}"
 - ID: "beeede03-ab13-4558-96f9-c3e8957b46f8"
   Hint: Themes
   Type: Treelist
-  Value: "{FE579EA5-4FF1-47D4-A514-6EA5EEE9AB01}"
+  Value: |
+    {FE579EA5-4FF1-47D4-A514-6EA5EEE9AB01}
+    {D0EEF8FC-F341-4BA7-94EE-8536330F04A2}
 - ID: "e81e1f9e-8b87-495b-9cb7-84a2a23133be"
   Hint: MediaLibrary
   Value: "{49271AE9-4DE1-405E-8C7A-4AA6C7E6843C}"
@@ -49,13 +54,3 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "6071b8ef-6d01-4f50-bdc7-1f68af615bb7"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\Admin
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190921T114914Z

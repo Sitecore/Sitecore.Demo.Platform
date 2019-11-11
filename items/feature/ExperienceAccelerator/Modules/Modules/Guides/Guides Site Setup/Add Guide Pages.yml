@@ -1,0 +1,30 @@
+﻿---
+ID: "97a629de-1685-44cb-8306-bdbada1413b1"
+Parent: "48e7e8b3-54e9-4f9b-883f-a0c20943419f"
+Template: "ea8a3f26-9ccd-443a-95f5-71b868a94bd0"
+Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/Modules/Guides/Guides Site Setup/Add Guide Pages
+DB: master
+SharedFields:
+- ID: "4795a7c6-08a9-4248-86c3-d460062c3a22"
+  Hint: Location
+  Type: Treelist
+  Value: "{BCA1EE0D-E0BA-4D39-859E-A8A6774076CC}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: "-400"
+- ID: "e62c28f0-9d3b-46e2-8bec-a5e120542499"
+  Hint: Template
+  Type: Treelist
+  Value: "{2AE286EC-3F4F-406D-B79E-5FAB972BD6AA}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191031T191625Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
