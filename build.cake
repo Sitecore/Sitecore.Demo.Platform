@@ -270,7 +270,8 @@ Task("Generate-Dacpacs")
     .SetLogOutput()
     .WithArguments(args => {
       args.Append("SitecoreAzureToolkitPath", $"{configuration.SitecoreAzureToolkitPath}")
-        .Append("updatePackagePath", $"{configuration.PublishTempFolder}\\update\\package.update")
+        .Append("updatePackagePath", $"{configuration.PublishTempFolder}\\update\\package.update")		
+        .Append("securityPackagePath", $"{configuration.PublishTempFolder}\\update\\security.dacpac")
         .Append("destinationPath", $"{configuration.PublishDataFolder}");
     })
   );

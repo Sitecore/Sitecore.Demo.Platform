@@ -34,10 +34,16 @@ Get-ChildItem -Path $InstallPath -Filter "*.mdf" | ForEach-Object {
 
 # do modules
 $TextInfo = (Get-Culture).TextInfo
-Get-ChildItem -Path $InstallPath -Include "core.dacpac", "master.dacpac" -Recurse | ForEach-Object {
+Get-ChildItem -Path $InstallPath -Include "core.dacpac", "master.dacpac", "security.dacpac" -Recurse | ForEach-Object {
 
     $dacpacPath = $_.FullName
     $databaseName = "$DatabasePrefix`." + $TextInfo.ToTitleCase($_.BaseName)
+
+    # HACK: Apply Roles & Users to the Core database
+    if ($_.BaseName -eq "security")
+    {
+        $databaseName = "$DatabasePrefix`." + "core"
+    }
 
     # Install
     & $sqlPackageExePath /a:Publish /sf:$dacpacPath /tdn:$databaseName /tsn:$env:COMPUTERNAME /q
