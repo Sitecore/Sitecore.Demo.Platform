@@ -1,0 +1,16 @@
+#related-guides li {
+  max-width: 32%;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 32%;
+  flex: 0 0 32%;
+  padding: 0 1.25em;
+  border-bottom: none;
+}
+
+#related-guides li .product-item-image img {
+  max-width: 150px;
+  max-height: 150px;
+}
