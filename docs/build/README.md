@@ -51,6 +51,18 @@ In case you want to start over.
 2. Run `.\CleanDockerData.ps1`
 3. At this point you can start again with `docker-compose up -d` to have a fresh installation of Sitecore with no files/items deployed!
 
+### Troubleshooting Docker Deployment
+ 
+#### unauthorized: authentication required
+ 
+When running `docker-compose up -d`, you get the following error:
+ 
+```text
+ERROR: Get https://<registryname>.azurecr.io/v2/<someimage>/manifests/<someimage>: unauthorized: authentication required
+```
+ 
+This indicates you are not logged in your registry. Run `az acr login --name <registryname>` and retry.
+
 ## Deploying to Local IIS Site
 
 ### IIS Site Local Deployment Prerequisites
