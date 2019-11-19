@@ -52,29 +52,28 @@ In case you want to start over.
 3. At this point you can start again with `docker-compose up -d` to have a fresh installation of Sitecore with no files/items deployed!
 
 ### Troubleshooting Docker Deployment
- 
+
 #### unauthorized: authentication required
- 
+
 When running `docker-compose up -d`, you get the following error:
- 
+
 ```text
 ERROR: Get https://<registryname>.azurecr.io/v2/<someimage>/manifests/<someimage>: unauthorized: authentication required
 ```
- 
+
 This indicates you are not logged in your registry. Run `az acr login --name <registryname>` and retry.
 
 ## Deploying to Local IIS Site
 
-### IIS Site Local Deployment Prerequisites
+Requires a local working instance of Sitecore Experience Platform which matches the version of the demo you're trying to deploy along with the relevant version of Sitecore Experience Accelerator (SXA).
 
-1. Requires a local working instance of Sitecore Experience Platform which matches the version of the demo you're trying to deploy along with the relevant version of Sitecore Experience Accelerator (SXA).
 1. Confirm that you can access the Sitecore instance by browsing to [https://habitathome.dev.local/sitecore](https://habitathome.dev.local/sitecore) which is the default hostname when installing using the [Habitat Home Utilies](https://github.com/sitecore/sitecore.habitathome.utilities) repository. Ensure you replace it with your own value if you changed it!
 
 1. Run `.\build.ps1`
 
 ## Packaging Site Assets
 
-This functionality will allow you to publish Web, xConnect and items (in the form of DACPACs) to the local Publish folders.
+This functionality allows you to publish Web, xConnect and items (in the form of DACPACs) to the local Publish folders.
 
 The process involves compiling and publishing code assets, gathering yml item files and converting them to DACPACs using Sitecore.Courier and Sitecore Azure Toolkit.
 
