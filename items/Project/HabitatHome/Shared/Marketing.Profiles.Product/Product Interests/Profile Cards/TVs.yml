@@ -1,0 +1,51 @@
+﻿---
+ID: "6a067599-a9e3-41e6-bbde-7de61d663204"
+Parent: "92a0ce23-a0d5-429a-97b1-08c736b03701"
+Template: "0fc09ea4-8d87-4b0e-a5c9-8076ae863d9c"
+Path: /sitecore/system/Marketing Control Panel/Profiles/Product Interests/Profile Cards/TVs
+DB: master
+SharedFields:
+- ID: "85970ab7-22ea-4206-be86-c0167178860b"
+  Hint: Profile Card Value
+  Value: |
+    <tracking>
+      <profile id="cefe5987-9ead-4b25-946d-7f0f52caf7fb" name="Product Interests">
+        <key name="Appliances" value="0" />
+        <key name="Audio" value="0" />
+        <key name="Cameras" value="0" />
+        <key name="Computers" value="0" />
+        <key name="Fitness Tech" value="0" />
+        <key name="Games" value="0" />
+        <key name="Phones" value="0" />
+        <key name="Tablets" value="0" />
+        <key name="TVs" value="10" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "a26fc256-1db0-44aa-ba3d-1c830bf882a2"
+    Hint: Name
+    Value: TVs
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180104T201843Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+- Language: "fr-CA"
+  Fields:
+  - ID: "a26fc256-1db0-44aa-ba3d-1c830bf882a2"
+    Hint: Name
+    Value: TVs
+  Versions:
+- Language: "ja-JP"
+  Fields:
+  - ID: "a26fc256-1db0-44aa-ba3d-1c830bf882a2"
+    Hint: Name
+    Value: TVs
+  Versions:
