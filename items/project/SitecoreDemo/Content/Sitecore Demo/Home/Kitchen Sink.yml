@@ -294,10 +294,24 @@ Languages:
               s:ph="/main/sxa-content-container/container-1" />
             <r
               uid="{0D455260-759A-486F-A351-28D734D51EF5}"
-              p:after="*[1=2]"
+              p:after="r[@uid='{0386844D-3797-47F8-86DA-B4D3E7F4D97E}']"
               s:ds="{D5EC616F-9FD6-44C0-B77A-7F47B28491BB}"
               s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
               s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B66E5B6DB-E51D-45C3-820A-FD55B85BD0F1%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=19"
+              s:ph="/main/sxa-content-container/container-1" />
+            <r
+              uid="{5F99A6D3-D5F2-4CD9-A667-7650A86A92AC}"
+              p:after="r[@uid='{0D455260-759A-486F-A351-28D734D51EF5}']"
+              s:ds="local:/Data/Map"
+              s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B6C1B518C-AD1F-40C4-82FF-641727255DFC%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=39"
+              s:ph="/main/sxa-content-container/container-1" />
+            <r
+              uid="{C451FB46-C19B-43DE-AFCC-ED03031A0A11}"
+              p:after="*[1=2]"
+              s:ds="{D9EF7280-5666-44E3-9C25-B15FA41172BB}"
+              s:id="{4DD74227-4504-4102-A802-76241F372B9E}"
+              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;Signature&amp;CenterOnFoundPOI&amp;AnimateFoundPOI&amp;DisableMapScrolling&amp;DisableMapZoomOnScroll&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
               s:ph="/main/sxa-content-container/container-1" />
           </d>
         </r>
