@@ -1,4 +1,4 @@
----
+﻿---
 ID: "464b1004-7d1f-42c4-aaeb-0dc267c092ff"
 Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
 Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
@@ -8,35 +8,49 @@ SharedFields:
 - ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
   Hint: Script
   Value: |
-    Import-Function Get-SiteItem
+    function Invoke-Step {
+        [CmdletBinding()]
+        param(
+            [Parameter(Mandatory = $true, Position = 0 )]
+            [Sitecore.XA.Foundation.Scaffolding.Models.CreateNewSiteModel]$Model
+        )
+        begin {
+            Write-Verbose "Cmdlet Map Team Page Designs - Begin"
+        }
+        process {
+                Write-Verbose "Cmdlet Map Team Page Designs - Process"
+                Import-Function Get-SiteItem
     
-    $SiteItem = Get-SiteItem $Site
+                $SiteItem = Get-SiteItem $Site
+                $value = ""
     
-    $value = ""
+                $teamPageID = "{CCBFD3A0-0FC9-4F4B-8D71-6DBFBD70F48A}"
+                $teamLandingPageID = "{34717C08-EC2C-45E1-928B-52A50E1BC007}"
     
-    $teamPageID = "{CCBFD3A0-0FC9-4F4B-8D71-6DBFBD70F48A}"
-    $teamLandingPageID = "{34717C08-EC2C-45E1-928B-52A50E1BC007}"
+                $teamPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Team Member Page"
+                $teamPageDesignID = [System.Web.HttpUtility]::UrlEncode($teamPageDesign.ID)
     
+                $teamLandingPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Our Team Page"
+                $teamLandingPageDesignID = [System.Web.HttpUtility]::UrlEncode($teamLandingPageDesign.ID)
     
-    $teamPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Team Member Page"
-    $teamPageDesignID = [System.Web.HttpUtility]::UrlEncode($teamPageDesign.ID)
+                $value = "$value&$teamPageID=$teamPageDesignID"
+                $value = "$value&$teamLandingPageID=$teamLandingPageDesignID"
     
-    $teamLandingPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Our Team Page"
-    $teamLandingPageDesignID = [System.Web.HttpUtility]::UrlEncode($teamLandingPageDesign.ID)
+                #get Page Designs Item
+                $pageDesigns = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs"
     
-    $value = "$value&$teamPageID=$teamPageDesignID"
-    $value = "$value&$teamLandingPageID=$teamLandingPageDesignID"
+                #set templates to design mapping
+                $pageDesigns.Locking.Unlock()
+                $pageDesigns.Editing.BeginEdit()
     
-    #get Page Designs Item
-    $pageDesigns = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs"
+                $pageDesigns.Fields['TemplatesMapping'].Value = $pageDesigns.Fields['TemplatesMapping'].Value + [System.Web.HttpUtility]::UrlEncode($value)
     
-    #set templates to design mapping
-    $pageDesigns.Locking.Unlock()
-    $pageDesigns.Editing.BeginEdit()
-    
-    $pageDesigns.Fields['TemplatesMapping'].Value = $pageDesigns.Fields['TemplatesMapping'].Value + [System.Web.HttpUtility]::UrlEncode($value)
-    
-    $pageDesigns.Editing.EndEdit()
+                $pageDesigns.Editing.EndEdit()
+        }
+        end {
+            Write-Verbose "Cmdlet Map Team Page Designs - End"
+        }
+    }
 Languages:
 - Language: en
   Versions:
@@ -45,21 +59,7 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20191018T195633Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\Admin
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "97b996b4-f3d1-41dc-b955-cadb8584dbe1"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\Admin
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20191023T171746Z
