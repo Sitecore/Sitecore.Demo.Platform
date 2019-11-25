@@ -8,24 +8,33 @@ SharedFields:
 - ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
   Hint: Script
   Value: |
-    Import-Function Get-SiteItem
+    function Invoke-ModuleScriptBody {
+        [CmdletBinding()]
+        param(
+        [Parameter(Mandatory=$true, Position=0 )]
+        [Item]$Root,
+        [Parameter(Mandatory=$true, Position=1 )]        
+        [Item[]]$TenantTemplates
+        )
+        begin {
+            Write-Verbose "Cmdlet Set Search Page on Footer - Begin"
+        }
+        process {
+            Write-Verbose "Cmdlet Set Search Page on Footer - Process"
     
-    $SiteItem = Get-SiteItem $Site
+            $footer = Get-Item -Path "master://$($Root.Paths.Path)/Presentation/Partial Designs/Footer"
+            $searchPage = Get-Item -Path "master://$($Root.Paths.Path)/Home/Search"
+            $searchPageID = [System.Web.HttpUtility]::UrlEncode($searchPage.ID)
     
-    #Get footer
-    $footer = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Partial Designs/Footer"
-    #Get search page
-    $searchPage = Get-Item -Path "master://$($SiteItem.Paths.Path)/Home/Search"
-    #url encode search page ID
-    $searchPageID = [System.Web.HttpUtility]::UrlEncode($searchPage.ID)
-    
-    #text replace footer Renderings
-    $footer.Locking.Unlock()
-    $footer.Editing.BeginEdit()
-    
-    $footer.Fields['__Renderings'].Value = $footer.Fields['__Renderings'].Value.replace("SearchResultPage=%7b74A89460-3E7A-4A64-887A-2D766706ACAE%7d&amp;", "SearchResultPage=$searchPageID&amp;")
-    
-    $footer.Editing.EndEdit()
+            $footer.Locking.Unlock()
+            $footer.Editing.BeginEdit()
+            $footer.Fields['__Renderings'].Value = $footer.Fields['__Renderings'].Value.replace("SearchResultPage=%7b74A89460-3E7A-4A64-887A-2D766706ACAE%7d&amp;", "SearchResultPage=$searchPageID&amp;")
+            $footer.Editing.EndEdit()
+        }
+        end {
+            Write-Verbose "Cmdlet Set Search Page on Footer - End"
+        }
+    }
 Languages:
 - Language: en
   Versions:

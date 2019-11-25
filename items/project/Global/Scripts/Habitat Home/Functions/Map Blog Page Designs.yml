@@ -1,4 +1,4 @@
----
+﻿---
 ID: "fa788350-5d7e-4833-bcf6-93aa40d28d3e"
 Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
 Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
@@ -8,35 +8,47 @@ SharedFields:
 - ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
   Hint: Script
   Value: |
-    Import-Function Get-SiteItem
+    function Invoke-Step {
+        [CmdletBinding()]
+        param(
+            [Parameter(Mandatory = $true, Position = 0 )]
+            [Sitecore.XA.Foundation.Scaffolding.Models.CreateNewSiteModel]$Model
+        )
+        begin {
+            Write-Verbose "Cmdlet Initial Page Design Mapping - Begin"
+        }
+        process {
+                Write-Verbose "Cmdlet Initial Page Design Mapping - Process"
+                Import-Function Get-SiteItem
     
-    $SiteItem = Get-SiteItem $Site
+                $SiteItem = Get-SiteItem $Site
+                $value = ""
     
-    $value = ""
+                $blogPageID = "{9E655297-B109-4673-ACB8-D661C9007736}"
+                $blogLandingPageID = "{066C976E-5E05-46DB-BC09-AC8008B5C776}"
     
-    $blogPageID = "{9E655297-B109-4673-ACB8-D661C9007736}"
-    $blogLandingPageID = "{066C976E-5E05-46DB-BC09-AC8008B5C776}"
+                $blogPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Blog Page"
+                $blogPageDesignID = [System.Web.HttpUtility]::UrlEncode($blogPageDesign.ID)
     
+                $blogLandingPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Blog Landing Page"
+                $blogLandingPageDesignID = [System.Web.HttpUtility]::UrlEncode($blogLandingPageDesign.ID)
     
-    $blogPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Blog Page"
-    $blogPageDesignID = [System.Web.HttpUtility]::UrlEncode($blogPageDesign.ID)
+                $value = "$value&$blogPageID=$blogPageDesignID"
+                $value = "$value&$blogLandingPageID=$blogLandingPageDesignID"
     
-    $blogLandingPageDesign = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs/Blog Landing Page"
-    $blogLandingPageDesignID = [System.Web.HttpUtility]::UrlEncode($blogLandingPageDesign.ID)
+                #get Page Designs Item
+                $pageDesigns = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs"
     
-    $value = "$value&$blogPageID=$blogPageDesignID"
-    $value = "$value&$blogLandingPageID=$blogLandingPageDesignID"
-    
-    #get Page Designs Item
-    $pageDesigns = Get-Item -Path "master://$($SiteItem.Paths.Path)/Presentation/Page Designs"
-    
-    #set templates to design mapping
-    $pageDesigns.Locking.Unlock()
-    $pageDesigns.Editing.BeginEdit()
-    
-    $pageDesigns.Fields['TemplatesMapping'].Value = $pageDesigns.Fields['TemplatesMapping'].Value + [System.Web.HttpUtility]::UrlEncode($value)
-    
-    $pageDesigns.Editing.EndEdit()
+                #set templates to design mapping
+                $pageDesigns.Locking.Unlock()
+                $pageDesigns.Editing.BeginEdit()
+                $pageDesigns.Fields['TemplatesMapping'].Value = $pageDesigns.Fields['TemplatesMapping'].Value + [System.Web.HttpUtility]::UrlEncode($value)
+                $pageDesigns.Editing.EndEdit()
+        }
+        end {
+            Write-Verbose "Cmdlet Initial Page Design Mapping - End"
+        }
+    }
 Languages:
 - Language: en
   Versions:
@@ -45,21 +57,7 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20191018T194152Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\Admin
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "97998a39-ecbe-4fc9-953f-3ac24dc5f9d8"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\Admin
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20191023T230314Z

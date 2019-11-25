@@ -1,18 +1,21 @@
 ﻿---
-ID: "0fff4185-0620-4452-b1e9-87cdfa310cea"
-Parent: "60deab8b-72e9-453e-a97b-93a870e25dd7"
+ID: "7421b9e0-b421-4861-9e5a-a8aa9ac99d68"
+Parent: "c6928ec4-a028-4e0b-b2c8-8bbb6e55879b"
 Template: "ea8a3f26-9ccd-443a-95f5-71b868a94bd0"
-Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/Modules/News and Events/Sitecore Demo News and Events Site Setup/Add Events Folder
+Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/Modules/XA/Habitat Home XA Extensions Site Setup/Add Site Search
 DB: master
 SharedFields:
 - ID: "4795a7c6-08a9-4248-86c3-d460062c3a22"
   Hint: Location
   Type: Treelist
-  Value: "{15497C63-5946-49F4-B0A2-FE50A600CFAC}"
+  Value: "{BCA1EE0D-E0BA-4D39-859E-A8A6774076CC}"
+- ID: "7868e6bc-525c-4fce-ab8a-77da3e09b171"
+  Hint: Name
+  Value: Search
 - ID: "e62c28f0-9d3b-46e2-8bec-a5e120542499"
   Hint: Template
   Type: Treelist
-  Value: "{A37A4BC6-D964-41DD-9C66-33FDDC51BC23}"
+  Value: "{BD74A392-DACD-4C23-853A-D520762B33A1}"
 Languages:
 - Language: en
   Versions:
@@ -20,7 +23,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20191002T144623Z
+      Value: 20191024T193917Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
