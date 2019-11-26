@@ -1,4 +1,4 @@
----
+﻿---
 ID: "dc4447ee-8855-4465-b691-dccc312e46d4"
 Parent: "653aaae9-9118-4acf-af29-d57c6e7f745b"
 Template: "4f7b68d5-f792-4868-bfd1-c143466aa537"
@@ -44,6 +44,9 @@ SharedFields:
 - ID: "33d9005e-1f71-415f-b107-53b965c3b037"
   Hint: SiteMediaLibrary
   Value: "{49271AE9-4DE1-405E-8C7A-4AA6C7E6843C}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
 - ID: "d7264a2b-e343-4613-a71a-1727f50dbc15"
   Hint: ThemesFolder
   Value: "{9EA3D0C5-645B-48C4-91FD-5500AA3B61F9}"
@@ -58,21 +61,7 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190921T114726Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\Admin
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "17b168d3-ffa7-49cc-80cd-a055347866ff"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\Admin
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190921T114915Z
