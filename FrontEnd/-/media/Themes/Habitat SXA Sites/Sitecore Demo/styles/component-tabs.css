@@ -1,0 +1,322 @@
+/* breakpoints */
+.tabs {
+  overflow: hidden;
+  position: relative;
+  background: none;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-slider {
+  position: absolute;
+  background: #f4f4f4;
+  cursor: pointer;
+  border: 2px solid #89C6CC;
+  vertical-align: center;
+  width: 15px;
+  text-indent: -9999px;
+  z-index: 10;
+}
+
+.tabs-heading {
+  overflow: hidden;
+}
+
+.tabs-heading li {
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #f4f4f4;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #f4f4f4;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #f4f4f4;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #60ddea;
+  float: left;
+  display: block;
+  margin-left: 1px;
+  background: #f4f4f4;
+  width: auto;
+  cursor: pointer;
+}
+
+.tabs-heading li > div {
+  padding: 3px 10px;
+  display: block;
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+.tabs-heading li > div:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.tabs-heading li > div .field-heading {
+  font-size: 16px;
+}
+
+.tabs-heading li > div > .row {
+  display: block;
+}
+
+.tabs-heading li .component.content {
+  margin: 5px 0;
+}
+
+.tabs-heading li.active {
+  background: #ffffff;
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #60ddea;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #60ddea;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #d2d2d2;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #d2d2d2;
+}
+
+.tabs-heading li.active a {
+  color: #000000;
+}
+
+.tabs-heading li:hover {
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #60ddea;
+  background: #ffffff;
+}
+
+.tabs-heading li:first-child {
+  margin-left: 0;
+}
+
+.tabs-container {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #60ddea;
+  background: transparent;
+  margin-top: -1px;
+}
+
+.tab {
+  display: none;
+  padding: 10px;
+}
+
+.tab:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.tab.active {
+  display: block;
+}
+
+/* breakpoints */
+.tabs.tabs-bottom .tabs-container {
+  margin: 0;
+}
+
+.tabs.tabs-bottom .tabs-heading {
+  position: relative;
+  margin-top: -1px;
+}
+
+.tabs.tabs-bottom .tabs-heading li {
+  margin-bottom: 0;
+  border-top: 0px solid #ffffff;
+}
+
+.tabs.tabs-bottom .tabs-heading li a {
+  border: none;
+}
+
+.tabs.tabs-bottom .tabs-heading li.active {
+  border-top: none;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #60ddea;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #d2d2d2;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #d2d2d2;
+}
+
+.tabs.tabs-bottom .tabs-heading li.active a {
+  border: none;
+  position: relative;
+}
+
+.tabs.tabs-bottom .tabs-heading li:hover {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #60ddea;
+  background: #ffffff;
+}
+
+.tabs.tabs-bottom .tabs-container {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #60ddea;
+  border-top: none;
+  background: transparent;
+  margin-bottom: 1px;
+}
+
+/* breakpoints */
+.tabs.tabs-scrollable .tabs-heading {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 0;
+}
+
+.tabs.tabs-scrollable .tabs-container {
+  margin: 0;
+}
+
+.tabs.tabs-scrollable .prev {
+  left: 0;
+  background: #e4e4e4 url("../Images/arrow-left.png") center center no-repeat;
+}
+
+.tabs.tabs-scrollable .next {
+  right: 0;
+  background: #e4e4e4 url("../Images/arrow-right.png") center center no-repeat;
+}
+
+.tabs.tabs-scrollable.tabs-bottom .wrapper {
+  margin-top: 2px;
+  padding-bottom: 6px;
+}
+
+.tabs.tabs-scrollable.tabs-bottom .next {
+  top: 1px;
+}
+
+.tabs.tabs-scrollable.tabs-bottom .prev {
+  top: 1px;
+}
+
+.tabs.tabs-scrollable.tabs-bottom .tabs-heading {
+  margin-top: -4px;
+}
+
+/* breakpoints */
+.tabs.tabs-vertical.tabs-vertical-right .tabs-heading {
+  float: right;
+  margin-left: -1px;
+}
+
+.tabs.tabs-vertical.tabs-vertical-right .tabs-heading li {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #f4f4f4;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #f4f4f4;
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-right-color: #60ddea;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #f4f4f4;
+}
+
+.tabs.tabs-vertical.tabs-vertical-right .tabs-heading li.active {
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-right-color: #60ddea;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #60ddea;
+}
+
+.tabs.tabs-vertical.tabs-vertical-right .tabs-heading li.active a {
+  border: none;
+}
+
+.tabs.tabs-vertical.tabs-vertical-right .tabs-heading li:hover {
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #60ddea;
+}
+
+.tabs.tabs-vertical.tabs-vertical-right .tabs-container {
+  float: right;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #60ddea;
+  border-top: none;
+  margin-left: -1px;
+  border-left: none;
+}
+
+/* breakpoints */
+.tabs.tabs-vertical .tabs-heading {
+  width: 30%;
+  float: left;
+}
+
+.tabs.tabs-vertical .tabs-heading li {
+  margin: 0 0 2px 0;
+  display: block;
+  width: 100%;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #f4f4f4;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #f4f4f4;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #60ddea;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #f4f4f4;
+}
+
+.tabs.tabs-vertical .tabs-heading li.active {
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #60ddea;
+}
+
+.tabs.tabs-vertical .tabs-heading li.active a {
+  border: none;
+}
+
+.tabs.tabs-vertical .tabs-heading li:first-child {
+  margin-top: 0;
+}
+
+.tabs.tabs-vertical .tabs-heading li:hover {
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #60ddea;
+}
+
+.tabs.tabs-vertical .tabs-container {
+  margin: 0;
+  float: left;
+  width: 70%;
+  margin-left: -1px;
+  border-top: none;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #60ddea;
+}

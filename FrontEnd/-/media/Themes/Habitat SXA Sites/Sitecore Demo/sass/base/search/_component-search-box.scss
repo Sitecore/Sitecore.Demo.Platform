@@ -1,0 +1,50 @@
+.column-header-search {
+    .search-box {
+        margin: 0;
+        padding: 2px 10px 0 10px;
+    }
+}
+.search-box {
+    @import "../reset/inputs";
+    @import "../typehead/typehead";
+    position: relative;
+    padding-right: 10px;
+    box-sizing: border-box;
+    &.hide-button {
+        .search-box-button {
+            display: none;
+        }
+    }
+    .component-content {
+        display: flex;
+        >label, >input, >button {
+            display: inline-block;
+        }
+        >label, >button {
+            flex-grow: 1;
+        }
+        >input {
+            width: auto;
+            flex-grow: 10;
+            margin: 0 5px;
+        }
+        >label {
+            align-self: center;
+            text-align: center;
+        }
+        >.twitter-typeahead {
+            flex-grow: 10;
+            margin: 0 5px;
+            .search-box-input.tt-input {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .search-box-input {
+        position: relative;
+        align-self: center;
+        &.tt-hint {
+            margin-top: 0;
+        }
+    }
+}

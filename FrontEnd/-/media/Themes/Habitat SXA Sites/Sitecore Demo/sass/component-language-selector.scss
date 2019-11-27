@@ -1,0 +1,70 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+@import "base/sprites/sprite-flag";
+@import "base/fontawesome/font-awesome-mix-var";
+.language-selector {
+    position: relative;
+    //this sprites was compiled by gulp
+    @include border-basic(top, $lang-selector-border);
+    @include sprites($spritesheet-sprites);
+    padding: 10px;
+    background-color: $lang-selector-bg;
+    .language-selector-select-item {
+        cursor: pointer;
+        >a {
+            width: 100%;
+            display: block;
+            position: relative;
+            padding-right: 15px;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        &:after {
+            @include fa-icon();
+            content: $fa-var-caret-down;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .language-selector-item-container {
+        box-shadow: 0 2px 9px 0px #b3b3b3;
+        padding: 0;
+        position: absolute;
+        top: 110%;
+        min-width: 220px;
+        z-index: 10;
+        background: $bg-basic-color;
+        display: none;
+        left: 0;
+        right: 0;
+    }
+    .language-selector-item {
+        margin: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid $lang-selector-item-border;
+        &:hover {
+            background-color: $lang-selector-item-bg-active;
+            border-bottom: 1px solid $lang-selector-item-border-active;
+        }
+        &:first-child {
+            margin-bottom: 0;
+        }
+        a {
+            text-decoration: none;
+            color: $text-basic;
+            font-weight: normal;
+            padding-left: 25px;
+            background-repeat: no-repeat;
+        }
+    }
+    .language-selector-link {
+        padding: 0px 20px 0 30px;
+    }
+    .language-selector-select-link {
+        padding-left: 25px;
+        background-repeat: no-repeat;
+    }
+}

@@ -1,0 +1,59 @@
+.carousel.slide-hero {
+    >.component-content {
+        .carousel-inner {
+            .wrapper {
+                padding-bottom: 0;
+                .background {}
+                .slides {
+                    li.slide {
+                        .component.content {
+                            padding-left: 0;
+                            padding-right: 0;
+                            .component-content {
+                                .field-slideimage {
+                                    min-height: 200px;
+                                    img {}
+                                }
+                                .slide-info {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50px;
+                                    transform: translate(0, -50%);
+                                    z-index: 999;
+                                    background-color: transparent;
+                                }
+                                .filed-slidelink {
+                                    a {}
+                                }
+                            }
+                        }
+                    }
+                }
+                .nav {
+                    height: 0;
+                    margin-top: 0;
+                    .prev-text,
+                    .next-text {
+                        top: 50%;
+                        bottom: auto;
+                        transform: translateY(-50%);
+                    }
+                    .prev-text {}
+                    .nav-items {
+                        position: absolute;
+                        bottom: 15px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        .sxa-numbers {
+                            &.cative {}
+                        }
+                        .sxa-bullets {
+                            &.active {}
+                        }
+                    }
+                    .next-text {}
+                }
+            }
+        }
+    }
+}

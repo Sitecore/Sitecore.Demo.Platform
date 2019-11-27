@@ -1,0 +1,46 @@
+&.file-list-files {
+    .component-content {
+        >ul {
+            >li,
+            li>.scLooseFrameZone {
+                display: inline-flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+        }
+    }
+    li {
+        margin: 0;
+        padding-bottom: $default-padding;
+        padding-top: $default-padding;
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+    .field-filetypeicon {
+        width: 3%;
+        order: 1;
+        min-width: 23px;
+        span {
+            &:before {
+                font-size: 20px;
+            }
+        }
+    }
+    .field-title {
+        order: 1;
+        padding: 0;
+        width: 50%;
+    }
+    .field-updated {
+        order: 1;
+        width: 45%;
+        text-align: right;
+    }
+    .field-linktext {
+        order: 1;
+        text-align: center;
+        font-weight: 600;
+    }
+}

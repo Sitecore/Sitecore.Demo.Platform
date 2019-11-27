@@ -1,0 +1,25 @@
+.form.labels-above {
+    label {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    .scfEmailGeneralPanel, .scfMultipleLineGeneralPanel, .scfSingleLineGeneralPanel, .scfPasswordGeneralPanel, .scfNumberGeneralPanel, .scfDatePickerGeneralPanel, .scfListBoxGeneralPanel, .scfDropListGeneralPanel, .scfDateGeneralPanel, .scfRadioButtonListGeneralPanel, .scfCheckBoxListGeneralPanel, .scfFileUploadGeneralPanel, .scfDateSelectorGeneralPanel, .scfCreditCardGeneralPanel, .scfConfirmPasswordGeneralPanel, .scfCaptchaGeneralPanel, .scfTelephoneGeneralPanel, .scfSmsTelephoneGeneralPanel {
+        box-sizing: border-box;
+        display: inline-block;
+        vertical-align: middle;
+        width: 93%;
+    }
+    .scfSectionContent {
+        .scfRequired {
+            margin: 0 5px;
+        }
+    }
+    .scfMultipleLineGeneralPanel {
+        width: 95%;
+    }
+    .scfMultipleLineTextBox {
+        margin: 0 0 0 5px;
+    }
+}

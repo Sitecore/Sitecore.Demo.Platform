@@ -1,0 +1,41 @@
+@import "abstracts/vars";
+
+.card-footer {
+    .media {
+        h4 {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+}
+
+#author-filter {
+    display: none;
+}
+
+.card-img-right {
+    min-height: 200px;
+    width: 100%;
+}
+
+.card {
+    flex: 1 0 0%;
+}
+
+.media {
+    align-items: center !important;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    border-width: 1px;
+    border-style: solid;
+    border-color: $border-gray;
+    padding: 25px 10px;
+    margin: 20px 0;
+}
+
+.field-eventplace {
+    margin-right: 1rem; 
+}
+
+.field-introduction {
+    margin: 10px 0;
+}

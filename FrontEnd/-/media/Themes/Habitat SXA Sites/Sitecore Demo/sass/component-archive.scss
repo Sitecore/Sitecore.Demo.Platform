@@ -1,0 +1,47 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+@import "base/fontawesome/font-awesome-mix-var";
+.sxa-archive {
+    .level-1 {
+        display: block !important;
+        padding-left: 10px;
+        &>li>.group-header {
+            font-weight: bold;
+        }
+    }
+    .group-header {
+        position: relative;
+        &:before {
+            @include font-size(1.0);
+            @include fa-icon();
+            line-height: 10px;
+            position: absolute;
+            content: $fa-var-plus-square;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -15px;
+            padding: 0;
+        }
+        &.opened {
+            &:before {
+                content: $fa-var-minus-square;
+            }
+        }
+    }
+    ul {
+        display: none;
+        margin-left: 10px;
+        cursor: pointer;
+        li {
+            position: relative;
+        }
+    }
+    .archive-items {
+        display: none;
+        .archive-item {
+            @import "base/reset/links";
+            cursor: default;
+        }
+    }
+    @import "variants/archive/*";
+}

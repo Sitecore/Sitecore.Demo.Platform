@@ -1,0 +1,41 @@
+﻿---
+ID: "c3ab6ad0-c819-4db4-8a86-4dd6eca0e895"
+Parent: "779ce383-c35b-483d-93b7-a318f254573a"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/Budget Interests/Pattern Cards/Low
+DB: master
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="6a453529-0dc7-494c-8eb2-85b039471e1a" name="Budget Interests">
+        <key name="Low" value="10" />
+        <key name="Medium" value="0" />
+        <key name="High" value="0" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Low
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190726T032014Z
+- Language: "fr-CA"
+  Fields:
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Low
+  Versions:
+- Language: "ja-JP"
+  Fields:
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Low
+  Versions:
