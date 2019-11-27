@@ -120,52 +120,55 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
           uid="{E4F06BC7-16DE-48A0-86AD-3054A28D9512}"
-          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
-          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
-          ph="/main/sxa-article-content/author-1-"
-          ds="" />
+          p:before="*"
+          s:ds=""
+          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/main/sxa-article-content/author-1-" />
         <r
           uid="{381DAE97-9A2B-4912-8EEE-03B598686ED9}"
-          ds="local:/Data/Video - Workout 1"
-          id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
-          par=""
-          ph="/main/sxa-article-content/container-1/container-3" />
+          p:after="r[@uid='{E4F06BC7-16DE-48A0-86AD-3054A28D9512}']"
+          s:ds="local:/Data/Video - Workout 1"
+          s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+          s:par=""
+          s:ph="/main/sxa-article-content/container-1/container-3" />
         <r
           uid="{BB49A88A-D143-4B17-A1F9-F70CE2B37DD1}"
-          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
-          ph="/main/sxa-article-content/container-1"
-          ds="" />
+          p:after="r[@uid='{381DAE97-9A2B-4912-8EEE-03B598686ED9}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-article-content/container-1" />
         <r
           uid="{B203D6F8-CA08-41E3-8CF6-BBACBC67D59B}"
-          ds="local:/Data/Video - Workout 2"
-          id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
-          par=""
-          ph="/main/sxa-recommended-content/container-1/container-2" />
+          p:after="r[@uid='{BB49A88A-D143-4B17-A1F9-F70CE2B37DD1}']"
+          s:ds="local:/Data/Video - Workout 2"
+          s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+          s:par=""
+          s:ph="/main/sxa-recommended-content/container-1/container-2" />
         <r
           uid="{D7A735E5-691B-4974-B204-B69F46658C47}"
-          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          ph="/main/sxa-recommended-content/container-1"
-          ds="" />
+          p:after="r[@uid='{B203D6F8-CA08-41E3-8CF6-BBACBC67D59B}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/sxa-recommended-content/container-1" />
         <r
           uid="{66F90AF4-7309-4ED4-98B9-D9D4E6BFA29A}"
-          cnd=""
-          ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
-          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          mvt=""
-          par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
-          ph="/main/sxa-recommended-content/container-3" />
+          p:after="*[1=2]"
+          s:cnd=""
+          s:ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
+          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          s:mvt=""
+          s:par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-recommended-content/container-3" />
       </d>
-      <d
-        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
-        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en
