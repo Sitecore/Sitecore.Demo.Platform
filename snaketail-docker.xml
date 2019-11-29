@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TailConfig>
+  <TailFiles>
+    <TailFileConfig>
+      <FilePath>C:\projects\Sitecore.HabitatHome.Platform\data\cm\log*.txt</FilePath>
+      <FileEncoding>System.Text.SBCSCodePageEncoding</FileEncoding>
+      <FileCacheSize>1000</FileCacheSize>
+      <FileCheckInterval>10</FileCheckInterval>
+      <FileChangeCheckInterval>100</FileChangeCheckInterval>
+      <FileCheckPattern>true</FileCheckPattern>
+      <TitleMatchFilename>false</TitleMatchFilename>
+      <TextColor>windowtext</TextColor>
+      <BackColor>window</BackColor>
+      <FontInvariant>Courier New, 9pt</FontInvariant>
+      <BookmarkTextColor>Yellow</BookmarkTextColor>
+      <BookmarkBackColor>DarkGreen</BookmarkBackColor>
+      <Modeless>false</Modeless>
+      <Title>cm-log</Title>
+      <WindowState>Maximized</WindowState>
+      <WindowSize>
+        <Width>1932</Width>
+        <Height>1103</Height>
+      </WindowSize>
+      <WindowPosition>
+        <X>-8</X>
+        <Y>-31</Y>
+      </WindowPosition>
+      <ServiceName />
+      <IconFile />
+      <DisplayTabIcon>false</DisplayTabIcon>
+      <ColumnFilterActive>false</ColumnFilterActive>
+      <KeywordHighlight>
+        <Keyword>
+          <Keyword>ERROR</Keyword>
+          <MatchCaseSensitive>true</MatchCaseSensitive>
+          <MatchRegularExpression>false</MatchRegularExpression>
+          <LogHitCounter>false</LogHitCounter>
+          <TextColoring>true</TextColoring>
+          <AlertHighlight>true</AlertHighlight>
+          <TextColor>Red</TextColor>
+          <BackColor>White</BackColor>
+        </Keyword>
+        <Keyword>
+          <Keyword>WARN</Keyword>
+          <MatchCaseSensitive>true</MatchCaseSensitive>
+          <MatchRegularExpression>false</MatchRegularExpression>
+          <LogHitCounter>false</LogHitCounter>
+          <TextColoring>true</TextColoring>
+          <AlertHighlight>true</AlertHighlight>
+          <TextColor>#FF8000</TextColor>
+          <BackColor>White</BackColor>
+        </Keyword>
+      </KeywordHighlight>
+      <ExternalTools />
+    </TailFileConfig>
+    <TailFileConfig>
+      <FilePath>C:\projects\Sitecore.HabitatHome.Platform\data\xconnect\xconnect-log*.txt</FilePath>
+      <FileEncoding>System.Text.SBCSCodePageEncoding</FileEncoding>
+      <FileCacheSize>1000</FileCacheSize>
+      <FileCheckInterval>10</FileCheckInterval>
+      <FileChangeCheckInterval>100</FileChangeCheckInterval>
+      <FileCheckPattern>true</FileCheckPattern>
+      <TitleMatchFilename>false</TitleMatchFilename>
+      <TextColor>windowtext</TextColor>
+      <BackColor>window</BackColor>
+      <FontInvariant>Courier New, 9pt</FontInvariant>
+      <BookmarkTextColor>Yellow</BookmarkTextColor>
+      <BookmarkBackColor>DarkGreen</BookmarkBackColor>
+      <Modeless>false</Modeless>
+      <Title>xconnect-log</Title>
+      <WindowState>Minimized</WindowState>
+      <WindowSize>
+        <Width>348</Width>
+        <Height>318</Height>
+      </WindowSize>
+      <WindowPosition>
+        <X>52</X>
+        <Y>52</Y>
+      </WindowPosition>
+      <ServiceName />
+      <IconFile />
+      <DisplayTabIcon>false</DisplayTabIcon>
+      <ColumnFilterActive>false</ColumnFilterActive>
+      <KeywordHighlight />
+      <ExternalTools />
+    </TailFileConfig>
+  </TailFiles>
+  <SelectedTab>0</SelectedTab>
+  <WindowSize>
+    <Width>1936</Width>
+    <Height>1176</Height>
+  </WindowSize>
+  <WindowPosition>
+    <X>-8</X>
+    <Y>-8</Y>
+  </WindowPosition>
+  <MinimizedToTray>false</MinimizedToTray>
+  <AlwaysOnTop>false</AlwaysOnTop>
+</TailConfig>

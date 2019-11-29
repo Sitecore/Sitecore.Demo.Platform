@@ -1,4 +1,4 @@
----
+﻿---
 ID: "8a30c3c8-3842-41c8-9fb3-f1a416ce873c"
 Parent: "653aaae9-9118-4acf-af29-d57c6e7f745b"
 Template: "4f7b68d5-f792-4868-bfd1-c143466aa537"
@@ -49,6 +49,9 @@ SharedFields:
 - ID: "33d9005e-1f71-415f-b107-53b965c3b037"
   Hint: SiteMediaLibrary
   Value: "{DAF7E55A-25DA-4833-8E7C-E151E1353860}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
 - ID: "d7264a2b-e343-4613-a71a-1727f50dbc15"
   Hint: ThemesFolder
   Value: "{FF1520D0-A82F-4BBE-B79B-367B4FAC9097}"
@@ -72,16 +75,6 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\virtualssuser
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "d15be462-b079-4603-a5cc-bb30cf04e6d7"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        extranet\Anonymous
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T163514Z
 - Language: "fr-CA"
   Fields:
   - ID: "2a84eca4-68bb-4451-b4ac-98ea71a5a3dc"
@@ -123,9 +116,6 @@ Languages:
     - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
       Hint: __Content Test
       Value: 
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "d056b33e-7720-4e0e-b0ea-b07fe64a0264"
     - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
       Hint: __Semantics
       Type: Multilist with Search
@@ -134,16 +124,9 @@ Languages:
       Hint: __Hide version
       Type: checkbox
       Value: 0
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T163514Z
 - Language: "ja-JP"
   Fields:
   - ID: "2a84eca4-68bb-4451-b4ac-98ea71a5a3dc"
@@ -160,13 +143,3 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "aefd18d3-4c71-4e27-8e18-92a5b77fddfd"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T163514Z

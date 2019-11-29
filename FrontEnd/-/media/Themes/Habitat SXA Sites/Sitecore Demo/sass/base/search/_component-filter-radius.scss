@@ -1,0 +1,28 @@
+@import "../../abstracts/vars";
+.radius-filter {
+    @import "../reset/inputs";
+    .radius-button {
+        &.selected {
+            color: $search-filter-radius-active;
+            background: $bg-basic-color;
+        }
+    }
+    ul {
+        li {
+            display: block;
+            border-width: 1px 1px 1px 0;
+            border-style: solid;
+            border-color: $search-filter-radius-border;
+            float: left;
+            padding: 5px 5px;
+            cursor: pointer;
+            &:first-child {
+                border-width: 1px;
+            }
+        }
+        height: 30px;
+    }
+    .bottom-remove-filter {
+        margin-bottom: 5px;
+    }
+}

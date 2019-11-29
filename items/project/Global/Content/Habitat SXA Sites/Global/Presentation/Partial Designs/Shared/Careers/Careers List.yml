@@ -1,0 +1,65 @@
+﻿---
+ID: "c0f8016e-e688-48ab-baac-2b86da4d0ba2"
+Parent: "9b9266a5-6d1a-4059-a750-0d1dd57a61d6"
+Template: "eaffc9f9-3684-4650-92f4-78560bed789b"
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Partial Designs/Shared/Careers/Careers List
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "careers-list"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{65519E79-9BD8-4DF2-AFB7-D0375EB8C3C9}"
+              p:before="*"
+              s:ds="{8E2F4102-FD2D-4C8A-8EA9-FB9BB9AE1120}"
+              s:id="{2B2EC80B-13E2-445D-BA1A-8B8F037DED66}"
+              s:par="SortOrder=SortByNames&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;SearchSignature=careers-search&amp;Styles&amp;Reset Caching Options&amp;HighlightThreshold=2&amp;HighlightBehaviour&amp;CollapseOnSelection&amp;MultiSelection&amp;RenderingIdentifier"
+              s:ph="/main/column-1-1/container-3" />
+            <r
+              uid="{D8E268CD-A21C-4024-A3F9-A858FF836B2B}"
+              p:after="r[@uid='{65519E79-9BD8-4DF2-AFB7-D0375EB8C3C9}']"
+              s:ds="{8CC0D911-8B3D-44AE-AF77-5639FED30E4A}"
+              s:id="{2B2EC80B-13E2-445D-BA1A-8B8F037DED66}"
+              s:par="SortOrder=SortByNames&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;SearchSignature=careers-search&amp;Styles&amp;Reset Caching Options&amp;HighlightThreshold=2&amp;HighlightBehaviour&amp;CollapseOnSelection&amp;MultiSelection&amp;RenderingIdentifier"
+              s:ph="/main/column-1-1" />
+            <r
+              uid="{C2088F2E-5DC1-4AC5-9009-C943EFF9A832}"
+              p:after="r[@uid='{D8E268CD-A21C-4024-A3F9-A858FF836B2B}']"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/column-1-1" />
+            <r
+              uid="{6B4D7EA5-CD8C-4946-8ADF-2AA5633A9F60}"
+              p:after="r[@uid='{C2088F2E-5DC1-4AC5-9009-C943EFF9A832}']"
+              s:ds="{CC4586DA-EA64-4E44-8A0D-E3AB8CDB524B}"
+              s:id="{FAE0D244-55C1-4F1B-8ED5-590C9F131CEE}"
+              s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;SearchSignature=careers-search&amp;FieldNames=%7BAAE6C2E4-03C3-471E-8C9F-B9738B010858%7D&amp;Styles&amp;Reset Caching Options&amp;Scope=%7B84657835-0FD5-4BB3-AC3B-F5C389805DD1%7D&amp;PageSize=20&amp;DefaultLanguageFilter&amp;DefaultSortOrder&amp;AutoFireSearchWhenNoCriteriaSet=1&amp;RenderingIdentifier=careers-search&amp;DynamicPlaceholderId=2"
+              s:ph="/main/column-2-1" />
+            <r
+              uid="{86DBA902-D2FB-420B-AE1B-A469B5865528}"
+              p:after="*[1=2]"
+              s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+              s:par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth2=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=1"
+              s:ph="main" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191004T212338Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

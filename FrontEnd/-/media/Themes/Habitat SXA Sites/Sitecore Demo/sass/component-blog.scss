@@ -1,0 +1,23 @@
+#blog-search {
+    .card-img-right {
+        min-height: 200px;
+    }
+    .card {
+        flex: 1 0 0%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+    }
+    li {
+        max-width: 50%;
+        width: 100%;
+        display: inline-block;
+        position: relative;
+        flex: 0 0 50%;
+        align-items: stretch !important;
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
