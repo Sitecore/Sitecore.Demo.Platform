@@ -18,7 +18,7 @@ var packagingScript = $"./scripts/Packaging/generate-update-package.ps1";
 var dacpacScript = $"./scripts/Packaging/generate-dacpac.ps1";
 bool publishLocal = false;
 bool syncUnicorn = true;
-
+bool applyTransforms = true;
 /*===============================================
 ================ MAIN TASKS =====================
 ===============================================*/
@@ -38,10 +38,12 @@ Setup(context =>
     configuration.XConnectRoot = $"{configuration.ProjectFolder}\\Publish\\xConnect\\";
     configuration.InstanceUrl = "http://127.0.0.1:44001";     // This is based on the CM container's settings (see docker-compose.yml)
     configuration.UnicornSerializationFolder = "c:\\unicorn"; // This maps to the container's volume setting (see docker-compose.yml)
+	applyTransforms = false;
   }
   else if (deploymentTarget == "Local") {
     publishLocal = true;
     syncUnicorn = false;
+	applyTransforms = false;
   }
 });
 
@@ -210,7 +212,7 @@ Task("Copy-to-Destination").Does(() => {
 });
 
 Task("Apply-DotnetCore-Transforms")
-.WithCriteria(() => publishLocal == false)
+.WithCriteria(() => (!publishLocal && applyTransforms))
 .Does(() => {
   var publishFolder = $"{configuration.PublishTempFolder}";
   var destination = configuration.WebsiteRoot;
@@ -303,7 +305,7 @@ Task("Publish-xConnect-Project").Does(() => {
 });
 
 Task("Apply-Xml-Transform")
-.WithCriteria(() => !publishLocal)
+.WithCriteria(() => (!publishLocal && applyTransforms))
 .Does(() => {
   var layers = new string[] { configuration.FoundationSrcFolder, configuration.FeatureSrcFolder, configuration.ProjectSrcFolder};
   var publishDestination = configuration.WebsiteRoot;
@@ -316,9 +318,10 @@ Task("Apply-Xml-Transform")
 });
 
 Task("Merge-and-Copy-Xml-Transform")
-.WithCriteria(() => publishLocal)
+.WithCriteria(() => (publishLocal || !applyTransforms))
 .Does(() => {
   // Method will process all transforms from the temporary locations, merge them together and copy them to the temporary Publish\Web directory
+  string[] excludePattern = {"ssl","azure"};
 
   var PublishTempFolder = $"{configuration.PublishTempFolder}";
   var publishFolder = $"{configuration.PublishWebFolder}";
@@ -326,7 +329,7 @@ Task("Merge-and-Copy-Xml-Transform")
   Information($"Merging {PublishTempFolder}\\transforms to {publishFolder}");
 
   // Processing dotnet core transforms from NuGet references
-  MergeTransforms($"{PublishTempFolder}\\transforms", $"{publishFolder}");
+  MergeTransforms($"{PublishTempFolder}\\transforms", $"{publishFolder}", excludePattern);
 
   // Processing project transformations
   var layers = new string[] {
@@ -335,7 +338,7 @@ Task("Merge-and-Copy-Xml-Transform")
 
   foreach(var layer in layers) {
     Information($"Merging {layer} to {publishFolder}");
-    MergeTransforms(layer,publishFolder);
+    MergeTransforms(layer,publishFolder, excludePattern);
   }
 });
 
@@ -357,7 +360,7 @@ Task("Modify-Unicorn-Source-Folder")
 });
 
 Task("Turn-On-Unicorn")
-.WithCriteria(() => syncUnicorn)
+.WithCriteria(() => (syncUnicorn && deploymentTarget != "Docker"))
 .Does(() => {
   var webConfigFile = File($"{configuration.WebsiteRoot}/web.config");
   var xmlSetting = new XmlPokeSettings {

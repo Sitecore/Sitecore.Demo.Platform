@@ -36,8 +36,8 @@
                         <LifeTime>Singleton</LifeTime>
                     </IIndexerInitializer>
                     <IIndexRebuildFlow>
-                        <Type>Sitecore.Xdb.Collection.Indexing.IndexRebuildFlow, Sitecore.Xdb.Collection</Type>
-                        <As>Sitecore.Xdb.Collection.Indexing.IIndexRebuildFlow, Sitecore.Xdb.Collection</As>
+                        <Type>Sitecore.Xdb.Collection.Indexing.Rebuild.IndexRebuildFlow, Sitecore.Xdb.Collection</Type>
+                        <As>Sitecore.Xdb.Collection.Indexing.Rebuild.IIndexRebuildFlow, Sitecore.Xdb.Collection</As>
                         <LifeTime>Singleton</LifeTime>
                         <Options>
                             <IncomingDataLagOnCompletion>0.00:00:05</IncomingDataLagOnCompletion>
