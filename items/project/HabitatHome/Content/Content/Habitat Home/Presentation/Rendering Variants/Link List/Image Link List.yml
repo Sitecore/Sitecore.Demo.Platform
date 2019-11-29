@@ -1,10 +1,13 @@
----
+﻿---
 ID: "bb418de9-224e-4b3c-842b-310a3473a274"
 Parent: "841ee842-717c-42f0-8f4a-7f1e8ebef725"
 Template: "fb3e3034-33f8-4ce8-be98-dd05010f4c22"
 Path: /sitecore/content/Habitat SXA Sites/Habitat Home/Presentation/Rendering Variants/Link List/Image Link List
 DB: master
 SharedFields:
+- ID: "90294353-706a-431c-b855-cd245824d9fa"
+  Hint: LinkField
+  Value: Link
 - ID: "e1d5adba-8348-4127-9bb6-455936653839"
   Hint: CssClass
   Value: "image-link-list"
@@ -16,13 +19,3 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180215T111750Z
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "3a334b77-e650-4916-9c7b-eeccdd3b9095"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        extranet\Anonymous
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165217Z

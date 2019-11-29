@@ -1,0 +1,30 @@
+﻿---
+ID: "ff6ba676-8cb9-4257-aa25-d81f8fd00bb6"
+Parent: "c6928ec4-a028-4e0b-b2c8-8bbb6e55879b"
+Template: "ea8a3f26-9ccd-443a-95f5-71b868a94bd0"
+Path: /sitecore/system/Settings/Feature/Habitat SXA Sites/Modules/XA/Habitat Home XA Extensions Site Setup/Add Header
+DB: master
+SharedFields:
+- ID: "4795a7c6-08a9-4248-86c3-d460062c3a22"
+  Hint: Location
+  Type: Treelist
+  Value: "{35213342-7955-4BB2-A07D-FFF8BD9B168B}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+- ID: "e62c28f0-9d3b-46e2-8bec-a5e120542499"
+  Hint: Template
+  Type: Treelist
+  Value: "{37AAC378-CB2E-4027-87F1-2D7BA70E55B8}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191002T171137Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

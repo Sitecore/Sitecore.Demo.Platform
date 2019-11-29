@@ -1,13 +1,13 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $true)]
-    [ValidateScript( { Test-Path $_ -PathType 'Container' })] 
+    [ValidateScript( { Test-Path $_ -PathType 'Container' })]
     [string]$InstallPath,
     [Parameter(Mandatory = $true)]
-    [ValidateScript( { Test-Path $_ -PathType 'Container' })] 
+    [ValidateScript( { Test-Path $_ -PathType 'Container' })]
     [string]$DataPath,
     [Parameter(Mandatory = $true)]
-    [ValidateNotNullOrEmpty()] 
+    [ValidateNotNullOrEmpty()]
     [string]$DatabasePrefix
 )
 
@@ -34,10 +34,16 @@ Get-ChildItem -Path $InstallPath -Filter "*.mdf" | ForEach-Object {
 
 # do modules
 $TextInfo = (Get-Culture).TextInfo
-Get-ChildItem -Path $InstallPath -Include "core.dacpac", "master.dacpac" -Recurse | ForEach-Object { 
+Get-ChildItem -Path $InstallPath -Include "core.dacpac", "master.dacpac", "security.dacpac" -Recurse | ForEach-Object {
 
     $dacpacPath = $_.FullName
-    $databaseName = "$DatabasePrefix`_" + $TextInfo.ToTitleCase($_.BaseName)
+    $databaseName = "$DatabasePrefix`." + $TextInfo.ToTitleCase($_.BaseName)
+
+    # HACK: Apply Roles & Users to the Core database
+    if ($_.BaseName -eq "security")
+    {
+        $databaseName = "$DatabasePrefix`." + "core"
+    }
 
     # Install
     & $sqlPackageExePath /a:Publish /sf:$dacpacPath /tdn:$databaseName /tsn:$env:COMPUTERNAME /q
@@ -50,7 +56,7 @@ Get-ChildItem -Path $InstallPath -Include "core.dacpac", "master.dacpac" -Recurs
     $sqlcmd += " UPDATE [$databaseName].[dbo].[VersionedFields] SET [Value] = REPLACE( [Value], ('}' + CHAR(13) + CHAR(10) +'{'), '}|{') WHERE [Value] LIKE ('%}' + CHAR(13) + CHAR(10) +'{%')"
 
     Invoke-Sqlcmd -Query $sqlcmd
-} 
+}
 
 # detach DB
 Get-ChildItem -Path $InstallPath -Filter "*.mdf" | ForEach-Object {

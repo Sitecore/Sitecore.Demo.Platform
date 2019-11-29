@@ -97,22 +97,26 @@ Function Invoke-StreamingWebRequest($Uri, $MAC, $Nonce) {
 	$responseStreamReader = new-object System.IO.StreamReader $responseStream
 	
 	while(-not $responseStreamReader.EndOfStream) {
-		$line = $responseStreamReader.ReadLine()
+		$line = $responseStreamReader.ReadLine().Trim()
+        if([string]::IsNullOrEmpty($line))
+        {
+            continue
+        }
 
 		if($line.StartsWith('Error:')) {
-			Write-Host $line.Substring(7) -ForegroundColor Red
+			Write-Host $line -ForegroundColor Red
 		}
 		elseif($line.StartsWith('Warning:')) {
-			Write-Host $line.Substring(9) -ForegroundColor Yellow
-		}
-		elseif($line.StartsWith('Debug:')) {
-			Write-Host $line.Substring(7) -ForegroundColor Gray
+			Write-Host $line -ForegroundColor Yellow
 		}
 		elseif($line.StartsWith('Info:')) {
-			Write-Host $line.Substring(6) -ForegroundColor White
+			Write-Verbose $line -Verbose
+		}
+		elseif($line.StartsWith('Debug:')) {
+			Write-Verbose $line -Verbose
 		}
 		else {
-			Write-Host $line -ForegroundColor White
+			Write-Host $line
 		}
 
 		[void]$responseText.AppendLine($line)

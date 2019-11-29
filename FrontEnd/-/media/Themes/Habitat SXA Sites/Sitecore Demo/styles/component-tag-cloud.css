@@ -1,0 +1,93 @@
+@charset "UTF-8";
+/* breakpoints */
+.tag-cloud .component-content {
+  text-align: justify;
+}
+
+.tag-cloud .tag-cloud-item a {
+  color: #747474;
+}
+
+.tag-cloud .tag-cloud-item a:hover {
+  color: #747474;
+}
+
+.tag-cloud .tag-cloud-item.xs {
+  font-size: 0.9em;
+}
+
+.tag-cloud .tag-cloud-item.s {
+  font-size: 1.1em;
+}
+
+.tag-cloud .tag-cloud-item.m {
+  font-size: 1.3em;
+}
+
+.tag-cloud .tag-cloud-item.l {
+  font-size: 1.5em;
+}
+
+.tag-cloud .tag-cloud-item.xl {
+  font-size: 1.8em;
+}
+
+.tag-cloud .tag-cloud-item.xxl {
+  font-size: 2.0em;
+}
+
+.tag-cloud span.field-title.tag-links {
+  border-radius: 5px;
+  padding: 5px 5px;
+  display: block;
+}
+
+.tag-cloud span.field-title.tag-links:last-child {
+  margin-right: 0;
+}
+
+.tag-cloud span.field-title.tag-links .tag-usages {
+  font-size: inherit;
+  font-weight: bold;
+}
+
+.tag-cloud span.field-title.tag-links .tag-usages:before {
+  content: "(";
+}
+
+.tag-cloud span.field-title.tag-links .tag-usages:after {
+  content: ")";
+}
+
+.tag-cloud span.field-title.tag-links a {
+  font-size: 13px;
+}
+
+.tag-cloud span.field-title.tag-text {
+  position: relative;
+  padding-left: 20px;
+  border-bottom: 1px solid transparent;
+  display: block;
+  float: left;
+}
+
+.tag-cloud span.field-title.tag-text:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.tag-cloud span.field-title.tag-text:before {
+  content: "";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+}

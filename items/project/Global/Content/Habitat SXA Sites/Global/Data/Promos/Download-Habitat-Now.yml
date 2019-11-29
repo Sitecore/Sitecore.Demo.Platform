@@ -1,4 +1,4 @@
----
+﻿---
 ID: "791eac4c-7c47-4b90-b53a-bf85ee2b9d1c"
 Parent: "6defe249-ae32-4595-bf09-725d546f66d0"
 Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
@@ -19,9 +19,6 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "24518cb0-19da-4bcc-83c3-af5bccfc4e77"
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
       Value: Habitat is available as a Sitecore Package and the sourcecode is available on Github.
@@ -29,13 +26,6 @@ Languages:
       Hint: PromoLink
       Value: |
         <link linktype="external" text="Visit Habitat on Github" url="https://github.com/sitecore/habitat" anchor="" target="_blank" />
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T163519Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -85,9 +75,6 @@ Languages:
     - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
       Hint: PromoText3
       Value: 
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "08b65b95-6755-4aa2-9101-69eff00c1449"
     - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
       Hint: __Semantics
       Type: Multilist with Search
@@ -103,16 +90,9 @@ Languages:
       Hint: __Hide version
       Type: checkbox
       Value: 0
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T163519Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -131,9 +111,6 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "8b5af2a4-ca39-4f6c-b8be-19da276e8e60"
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
       Value: Habitat is available as a Sitecore Package and the sourcecode is available on Github.
@@ -141,10 +118,3 @@ Languages:
       Hint: PromoLink
       Value: |
         <link linktype="external" text="Visit Habitat on Github" url="https://github.com/sitecore/habitat" anchor="" target="_blank" />
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T163519Z

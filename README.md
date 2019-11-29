@@ -38,7 +38,7 @@ The code, samples and/or solutions provided in this repository are for example p
 
 The latest Habitat Home demo is built to support **[Sitecore Experience Platform 9.2](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/92/Sitecore_Experience_Platform_92_Initial_Release.aspx)** using **[Sitecore Experience Accelerator (SXA) 1.9](https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/19/Sitecore_Experience_Accelerator_190.aspx)**.
 
-***In order to follow the build instructions in the README, you need to have [MSBuild Tools for Visual Studio 2017](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2017) installed.***
+***In order to follow the build instructions in the README, you need to have [MSBuild Tools for Visual Studio 2019](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) installed.***
 
 ### Optional Modules
 

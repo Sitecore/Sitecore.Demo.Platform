@@ -1,0 +1,26 @@
+﻿---
+ID: "2460dc67-7104-4147-b54a-34501539a6c1"
+Parent: "ee7ea2e4-5661-494d-bd9a-5870d8ec1ae9"
+Template: "c645dd63-2462-470c-a48d-8b55757a2db3"
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Page Content/Resource Content/SxaTags/Tag Name
+DB: master
+SharedFields:
+- ID: "eb8432b6-dabf-48ea-b7fd-a70cf40bd300"
+  Hint: Tag
+  Value: "{36795C64-E060-4AEF-B209-A1F20A64FC3F}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191004T003224Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
+      Hint: Template
+      Value: |
+        <a href="/Resources#resources-list_sxatags=$item.name">$item.name</a>

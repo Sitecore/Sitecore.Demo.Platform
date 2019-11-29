@@ -18,7 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".configuration", ".configur
 		cake-config.json = cake-config.json
 		nuget.config = nuget.config
 		README.md = README.md
-		TdsGlobal.config = TdsGlobal.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HabitatHome", "HabitatHome", "{563C5D6A-0964-4778-9DF1-DA0A1BB6C044}"
@@ -38,6 +37,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{570909EC-75B1-462F-A542-1345CFD15FB9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build.Shared", "src\Build\Build.Shared\code\Build.Shared.csproj", "{4014608D-A0FE-4802-B5C5-08280C2ECF98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SitecoreDemo", "SitecoreDemo", "{A6501CFB-F5D7-4560-8C3D-B8F093A05ABF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.HabitatHome.SitecoreDemo", "src\Project\SitecoreDemo\code\Sitecore.HabitatHome.SitecoreDemo.csproj", "{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +101,16 @@ Global
 		{4014608D-A0FE-4802-B5C5-08280C2ECF98}.Package-CM|Any CPU.Build.0 = Package-CM|Any CPU
 		{4014608D-A0FE-4802-B5C5-08280C2ECF98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4014608D-A0FE-4802-B5C5-08280C2ECF98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}.Local|Any CPU.ActiveCfg = Release|Any CPU
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}.Local|Any CPU.Build.0 = Release|Any CPU
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}.Package-CD|Any CPU.ActiveCfg = Release|Any CPU
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}.Package-CD|Any CPU.Build.0 = Release|Any CPU
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}.Package-CM|Any CPU.ActiveCfg = Release|Any CPU
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}.Package-CM|Any CPU.Build.0 = Release|Any CPU
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,6 +125,8 @@ Global
 		{8404CBD0-F0F1-406A-82CA-5F8468764872} = {37394D96-A276-41B7-BFC0-E0897AFE4690}
 		{FEA9BDF2-4014-4288-99BA-D511847F6D9C} = {8404CBD0-F0F1-406A-82CA-5F8468764872}
 		{4014608D-A0FE-4802-B5C5-08280C2ECF98} = {570909EC-75B1-462F-A542-1345CFD15FB9}
+		{A6501CFB-F5D7-4560-8C3D-B8F093A05ABF} = {9846C4BE-2108-479E-AA17-4A96052CCCE0}
+		{00B903A7-8D66-46FF-B59B-5B3AA665D7E2} = {A6501CFB-F5D7-4560-8C3D-B8F093A05ABF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}

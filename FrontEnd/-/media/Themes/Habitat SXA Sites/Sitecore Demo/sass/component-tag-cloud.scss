@@ -1,0 +1,35 @@
+@import "abstracts/vars";
+@import "abstracts/mixins";
+@import "base/fontawesome/font-awesome-mix-var";
+.tag-cloud {
+    .component-content {
+        text-align: justify;
+    }
+    .tag-cloud-item {
+        a {
+            color: $tag-color;
+            &:hover {
+                color: $tag-color-active;
+            }
+        }
+        &.xs {
+            font-size: 0.9em;
+        }
+        &.s {
+            font-size: 1.1em;
+        }
+        &.m {
+            font-size: 1.3em;
+        }
+        &.l {
+            font-size: 1.5em;
+        }
+        &.xl {
+            font-size: 1.8em;
+        }
+        &.xxl {
+            font-size: 2.0em;
+        }
+    }
+    @import "variants/tag-cloud/*";
+}

@@ -1,0 +1,47 @@
+﻿---
+ID: "9875a5e4-5a84-4a32-8928-74bd9492d14b"
+Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/Habitat Home/Functions/Add Guide Partials to Page Designs
+DB: master
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    function Invoke-ModuleScriptBody {
+        [CmdletBinding()]
+        param(
+        [Parameter(Mandatory=$true, Position=0 )]
+        [Item]$Root,
+        [Parameter(Mandatory=$true, Position=1 )]        
+        [Item[]]$TenantTemplates
+        )
+        begin {
+            Write-Verbose "Cmdlet Add Guide Partials to Page Designs - Begin"
+        }
+        process {
+            Write-Verbose "Cmdlet Add Guide Partials to Page Designs - Process"
+            $recommendedContent = Get-Item -Path "master://$($Root.Paths.Path)/Presentation/Partial Designs/Recommended Content"
+            $guidePage = Get-Item -Path "master://$($Root.Paths.Path)/Presentation/Page Designs/Guide Page"
+    
+            $guidePage.Locking.Unlock()
+            $guidePage.Editing.BeginEdit()
+            $guidePage.Fields['PartialDesigns'].Value =  "$($guidePage.Fields['PartialDesigns'].Value)|$($recommendedContent.ID)"
+            $guidePage.Editing.EndEdit()
+        }
+        end {
+            Write-Verbose "Cmdlet Add Guide Partials to Page Designs - End"
+        }
+    }
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191031T193752Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

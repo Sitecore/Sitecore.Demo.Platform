@@ -1,0 +1,38 @@
+﻿---
+ID: "dace0769-7cc7-4ab7-8deb-6de9697ec945"
+Parent: "2cbee380-2b48-4912-928c-7683e38f6422"
+Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
+Path: "/sitecore/content/Habitat SXA Sites/Sitecore Demo/Presentation/Rendering Variants/Media Link/Icon-Name-Date and Download link/LinkText"
+DB: master
+SharedFields:
+- ID: "4753764c-c05a-4623-841b-97f85135241c"
+  Hint: FieldName
+  Value: LinkText
+- ID: "7495124d-09b5-4cb3-b4a6-fe77a95827da"
+  Hint: CssClass
+  Value: "success btn btn-secondary"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+- ID: "d2bee344-6827-411a-8195-1e6d02312bcd"
+  Hint: IsDownloadLink
+  Type: Checkbox
+  Value: 1
+- ID: "dcb05e5e-7151-4226-a3b0-108c5e2f05b5"
+  Hint: IsLink
+  Value: 1
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{CC723DE6-9150-4C6F-8E0D-992FDF080640}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190921T114851Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
