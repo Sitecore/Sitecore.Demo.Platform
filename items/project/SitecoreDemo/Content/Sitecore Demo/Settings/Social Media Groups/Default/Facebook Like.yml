@@ -1,10 +1,9 @@
----
+﻿---
 ID: "a7c4c667-97b0-4b1f-84b8-6d0a8df1732f"
 Parent: "2b18fdd6-4383-40d6-b5ec-7bc4228bfdb0"
 Template: "3de7aa7e-961a-4b90-98f2-01ac2be92ec5"
 Path: /sitecore/content/Habitat SXA Sites/Sitecore Demo/Settings/Social Media Groups/Default/Facebook Like
 DB: master
-BranchID: "4ddbdd69-8a15-4520-bed8-f7553139586b"
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
@@ -35,21 +34,7 @@ Languages:
           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\Admin
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "6daa105c-1ffb-4551-b31e-523f18613ebc"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\Admin
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190921T114910Z

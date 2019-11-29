@@ -1,0 +1,34 @@
+﻿---
+ID: "672d7243-5f07-42fd-8b3c-f53d05872122"
+Parent: "9e0b4dec-6cd4-49b2-9a9e-a67b962ddfb4"
+Template: "c645dd63-2462-470c-a48d-8b55757a2db3"
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Page Content/Event Content/Event/Time
+DB: master
+SharedFields:
+- ID: "a0300a99-8d01-476c-a4ca-3ff253e6a48f"
+  Hint: CssClass
+  Value: "event-time"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190911T201925Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
+      Hint: Template
+      Value: |
+        <p>Scheduled for</p>
+        #if ($dateTool.Format($item.EventStart, "MMMM d, yyyy") == $dateTool.Format($item.EventEnd, "MMMM d, yyyy"))
+          <h3>$dateTool.Format($item.EventStart, "MMMM d, yyyy")</h3>
+         <p>$dateTool.Format($item.EventStart, "h:mm tt") - $dateTool.Format($item.EventEnd, "h:mm tt")</p>
+        #else
+          <h3>$dateTool.Format($item.EventStart, "MMMM d, yyyy h:mm tt")</h3>
+          <p>to</p>
+          <h3>$dateTool.Format($item.EventEnd, "MMMM d, yyyy h:mm tt")</h3>
+        #end

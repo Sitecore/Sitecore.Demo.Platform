@@ -1,0 +1,25 @@
+﻿---
+ID: "10f3d353-78c9-4cdb-b0d2-f9226f130478"
+Parent: "872a22d8-312a-4115-a5c6-b6a46764bf46"
+Template: "d8ad4b81-9269-4868-949f-37d1c28687e5"
+Path: /sitecore/content/Email/Messages
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\EXM Users|pd|^*|+item:admin|+item:create|+item:rename|+item:read|+item:write|pe|^*|+item:admin|+item:create|+item:rename|+item:read|+item:write|
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{61EFDD42-1A26-4E51-B7B5-0FFE35BF0291}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180103T182137Z
