@@ -204,14 +204,14 @@ public void WriteError(string errorMessage)
   cakeConsole.ResetColor();
 }
 
-public void MergeTransforms(string source, string destination)
+public void MergeTransforms(string source, string destination, string[] excludePatterns)
 {
   var xdtFiles = GetTransformFiles(source);
 
   foreach (var file in xdtFiles)
   {
-    if (file.FullPath.Contains(".azure"))
-    {
+    if (excludePatterns.Any(s => file.FullPath.ToLower().Contains(s.ToLower()))) {
+      Information ($"Skipping {file}");
       continue;
     }
 
