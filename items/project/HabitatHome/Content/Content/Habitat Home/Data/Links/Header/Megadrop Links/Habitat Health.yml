@@ -1,9 +1,14 @@
----
+﻿---
 ID: "b35b2ce5-31b2-4cbe-b803-100243f43234"
 Parent: "aec79d1a-0712-4f81-9cd9-ae2dd57bcaac"
 Template: "ad8537df-06bb-4dd3-b044-0cd5c181a219"
 Path: /sitecore/content/Habitat SXA Sites/Habitat Home/Data/Links/Header/Megadrop Links/Habitat Health
 DB: master
+SharedFields:
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Type: Checkbox
+  Value: 1
 Languages:
 - Language: en
   Versions:
@@ -12,16 +17,6 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20180322T141339Z
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "bc5386e2-0ee1-4d64-8b95-66bca9486fb6"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        extranet\Anonymous
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165311Z
 - Language: "fr-CA"
   Versions:
   - Version: 1
@@ -33,16 +28,6 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "caae7e5d-d2d2-42f6-92a2-6690b837caac"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165311Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -58,13 +43,3 @@ Languages:
       Hint: __Created by
       Value: |
         extranet\Anonymous
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "239a9c84-6507-46de-a52c-616f7a1b643f"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165311Z

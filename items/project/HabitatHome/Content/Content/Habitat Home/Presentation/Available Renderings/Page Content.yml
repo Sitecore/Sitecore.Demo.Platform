@@ -1,4 +1,4 @@
----
+﻿---
 ID: "e96bc273-f94f-4694-9ebd-0efec82fcddf"
 Parent: "25368f73-e153-4bd9-9cdc-943e882045d8"
 Template: "76da0a8d-fc7e-42b2-af1e-205b49e43f98"
@@ -27,6 +27,8 @@ SharedFields:
     {342D25AE-FBBE-4A8C-9F47-2221CD83F962}
     {E0F95A43-194F-4634-B52A-0CECCEE8B5B1}
     {162AB463-0CE1-4295-8F7E-2E2E969984ED}
+    {36C5441C-3AE0-40E8-993A-183A8BF14576}
+    {9DC3DEF7-62CC-458A-96F3-CCF49E1283FB}
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{CA286DD9-63AC-4509-AC4D-DA339B936AFA}"
@@ -42,16 +44,6 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\virtualssuser
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "132b7d7f-6404-4387-af6a-5a3cde016653"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165130Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -89,9 +81,6 @@ Languages:
     - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
       Hint: __Content Test
       Value: 
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "040cf312-cc4a-4b4a-beed-4cacf823fba6"
     - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
       Hint: __Semantics
       Type: Multilist with Search
@@ -100,13 +89,6 @@ Languages:
       Hint: __Hide version
       Type: checkbox
       Value: 0
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165130Z
