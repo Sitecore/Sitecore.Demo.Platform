@@ -1,4 +1,4 @@
----
+﻿---
 ID: "c23b6536-d5c2-4630-a254-b831b97d0bc0"
 Parent: "3f833a1f-b27e-431a-aeed-2ab8b4527a1f"
 Template: "c645dd63-2462-470c-a48d-8b55757a2db3"
@@ -20,22 +20,12 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\virtualssuser
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "4bfe99c5-c99f-45ec-bb33-8b179db60e1f"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        extranet\Anonymous
     - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
       Hint: Template
       Value: |
         #if($geospatial.Distance)
         Distance: $numberTool.Format($geospatial.Distance, "0") $geospatial.Unit
         #end
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165255Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -73,9 +63,6 @@ Languages:
     - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
       Hint: __Content Test
       Value: 
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "d276f1b0-d956-4b4c-bb9e-1daf5a9e8c09"
     - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
       Hint: __Semantics
       Type: Multilist with Search
@@ -84,10 +71,6 @@ Languages:
       Hint: __Hide version
       Type: checkbox
       Value: 0
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
@@ -97,9 +80,6 @@ Languages:
         #if($geospatial.Distance)
         Distance: $numberTool.Format($geospatial.Distance, "0") $geospatial.Unit
         #end
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165255Z
 - Language: "ja-JP"
   Versions:
   - Version: 1
@@ -111,19 +91,9 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "42087eb6-ed34-4621-a1a6-4223b53bd55e"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
     - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
       Hint: Template
       Value: |
         #if($geospatial.Distance)
         Distance: $numberTool.Format($geospatial.Distance, "0") $geospatial.Unit
         #end
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165255Z

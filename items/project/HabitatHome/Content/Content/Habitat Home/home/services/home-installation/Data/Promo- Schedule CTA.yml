@@ -1,4 +1,4 @@
----
+﻿---
 ID: "ee62c2a0-70eb-4871-8ed5-7fc29266a34c"
 Parent: "33dd75f3-e19f-4f4d-af6e-01d58871c038"
 Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
@@ -27,9 +27,6 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "252ab4da-2dcc-4956-a781-34043f07c498"
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
       Value: "<p>Are you ready to make your home more efficient and productive? Schedule an installation appointment with our smart home experts and rest assured your new technology is set up properly.</p>"
@@ -37,13 +34,6 @@ Languages:
       Hint: PromoLink
       Value: |
         <link linktype="internal" text="Schedule Now" querystring="" target="" id="{10293B8D-EE06-41A8-B8F6-0A7B22E9488E}" />
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165322Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -94,9 +84,6 @@ Languages:
     - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
       Hint: PromoText3
       Value: 
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "5bb4b5b9-5774-456c-bcef-170ca3d0abf8"
     - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
       Hint: __Semantics
       Type: Multilist with Search
@@ -114,16 +101,9 @@ Languages:
       Hint: __Hide version
       Type: checkbox
       Value: 0
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165322Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -146,9 +126,6 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "e51d36d6-47be-4a8d-8661-530399dbe50f"
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
       Value: <p>あなたの家をより効率的かつ生産的にする準備はできていますか？ 私たちのスマートな家庭の専門家と一緒に予定を予約し、あなたの新しい技術が適切に設定されていることを安心してください。</p>
@@ -156,10 +133,3 @@ Languages:
       Hint: PromoLink
       Value: |
         <link id="{10293B8D-EE06-41A8-B8F6-0A7B22E9488E}" querystring="" text="Schedule Now" url="/Habitat SXA Sites/Habitat Home/home/services/home-installation/home-installation-schedule-request-form" linktype="internal" target="" />
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165322Z

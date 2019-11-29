@@ -1,4 +1,4 @@
----
+﻿---
 ID: "9061a78c-4c54-44ad-80e3-75a25abda001"
 Parent: "75a8b4f1-8aa0-4cfa-904e-cbf1f39b4065"
 Template: "abed54dc-4f78-40dd-ac56-2289c9c849d8"
@@ -25,23 +25,13 @@ Languages:
       Value: |
         <p>Registered Customers</p>
         <p>If you have an account, please login below.</p>
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "954c0c11-167a-4651-8038-d7767915ece0"
     - ID: "b80f0331-68e7-4515-8485-903b5c8b2390"
       Hint: PasswordLabel
       Value: Password
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        extranet\Anonymous
     - ID: "d7be3834-097a-4151-827d-d852b54ff530"
       Hint: DestinationUrl
       Value: |
         <link text="" anchor="" linktype="internal" class="" title=""  querystring="" id="{10083CA0-5093-4D67-99DB-2579ABB421D3}" />
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165154Z
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -90,9 +80,6 @@ Languages:
     - ID: "700f4aad-ad3b-4058-8673-a0cee765a1f7"
       Hint: __Content Test
       Value: 
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "515e16dd-7e5f-44ef-bf51-47849ddcc2b7"
     - ID: "99c9fdd7-4503-489b-8a21-115b963aa341"
       Hint: LoginButtonCaption
       Value: Ouvrir une session
@@ -107,10 +94,6 @@ Languages:
       Hint: __Hide version
       Type: checkbox
       Value: 0
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
     - ID: "bc5cd635-130e-4a03-a5d0-e1afb9ae6055"
       Hint: FailureText
       Value: Essayez encore. Échec d'ouverture de session 
@@ -121,9 +104,6 @@ Languages:
       Hint: DestinationUrl
       Value: |
         <link text="" anchor="" linktype="internal" class="" title=""  querystring="" id="{10083CA0-5093-4D67-99DB-2579ABB421D3}" />
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165154Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -150,16 +130,9 @@ Languages:
       Value: |
         <p>登録済ユーザー</p>
         <p>すでにアカウントを持っている場合は、ログインをしてください</p>
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "b13f3363-ac0e-4ec7-b55f-54f6c7c951a0"
     - ID: "b80f0331-68e7-4515-8485-903b5c8b2390"
       Hint: PasswordLabel
       Value: パスワード
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
     - ID: "bc5cd635-130e-4a03-a5d0-e1afb9ae6055"
       Hint: FailureText
       Value: あなたのログインは成功しませんでした。 もう一度お試しください。
@@ -167,6 +140,3 @@ Languages:
       Hint: DestinationUrl
       Value: |
         <link text="" anchor="" linktype="internal" class="" title=""  querystring="" id="{10083CA0-5093-4D67-99DB-2579ABB421D3}" />
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165154Z

@@ -1,0 +1,41 @@
+﻿---
+ID: "32015d76-1d42-41ce-b5f6-55634cd7cd59"
+Parent: "01c70f2b-1d49-49ff-a47a-3e7f84451bb9"
+Template: "7c02e9f5-54b5-4ef4-bd10-f4c5d448a48c"
+Path: "/sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Page Teaser/Page Teaser - Image Top/Text Wrapper/Read Now"
+DB: master
+SharedFields:
+- ID: "8414031e-7b85-426c-8516-84d6223a1208"
+  Hint: CssClass
+  Value: "field-promolink"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "f9926e84-399e-4070-b2ed-a31f6f542bdd"
+  Hint: IsLink
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "07211f80-7ffc-4df4-a4de-c8956f391850"
+      Hint: Text
+      Value: Read Now
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180307T043416Z
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "07211f80-7ffc-4df4-a4de-c8956f391850"
+      Hint: Text
+      Value: Read Now
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180321T104424Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

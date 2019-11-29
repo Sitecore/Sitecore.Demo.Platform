@@ -1,0 +1,30 @@
+﻿---
+ID: "c87c6688-9ba5-4df0-b31b-20e3893409dc"
+Parent: "28e80c83-570e-49d8-b010-73b8dfdb58c4"
+Template: "c645dd63-2462-470c-a48d-8b55757a2db3"
+Path: /sitecore/content/Habitat SXA Sites/Global/Presentation/Rendering Variants/Event List/Upcoming Events/card/card body/media/event info/ul/Event Date
+DB: master
+SharedFields:
+- ID: "eb8432b6-dabf-48ea-b7fd-a70cf40bd300"
+  Hint: Tag
+  Value: "{36795C64-E060-4AEF-B209-A1F20A64FC3F}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190916T185811Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
+      Hint: Template
+      Value: |
+        #if ($dateTool.Format($item.EventStart, "MMMM d, yyyy") == $dateTool.Format($item.EventEnd, "MMMM d, yyyy"))
+          <span>$dateTool.Format($item.EventStart, "MMM d")</span>
+        #else
+           <span>$dateTool.Format($item.EventStart, "MMM d") - $dateTool.Format($item.EventEnd, "MMM d")</span>
+        #end
