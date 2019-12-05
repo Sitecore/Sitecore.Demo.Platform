@@ -88,42 +88,34 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          ds=""
-          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
-          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=3&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0"
-          ph="/main/sxa-article-content/author-1-"
-          uid="{239E810D-09B0-4649-A413-431226108B96}" />
+          uid="{239E810D-09B0-4649-A413-431226108B96}"
+          p:before="*"
+          s:ds=""
+          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=3&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0"
+          s:ph="/main/sxa-article-content/author-1-" />
         <r
-          ds="{B2A42E1E-1558-4D77-8796-05D47CF27DC2}"
-          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
-          par="GridParameters&amp;DynamicPlaceholderId=2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7BB8DCE263-F093-4EF3-9B53-B4A4B919A337%7D&amp;Styles"
-          ph="/main/sxa-recommended-content/container-1/container-1"
-          uid="{F6FBD44E-3443-40E3-8EF9-84AD33082B52}" />
+          uid="{F6FBD44E-3443-40E3-8EF9-84AD33082B52}"
+          p:after="r[@uid='{239E810D-09B0-4649-A413-431226108B96}']"
+          s:ds="{B2A42E1E-1558-4D77-8796-05D47CF27DC2}"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters&amp;DynamicPlaceholderId=2&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7BB8DCE263-F093-4EF3-9B53-B4A4B919A337%7D&amp;Styles"
+          s:ph="/main/sxa-recommended-content/container-1/container-1" />
         <r
-          cnd=""
-          ds=""
-          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          mvt=""
-          par="Styles=%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D&amp;GridParameters&amp;DynamicPlaceholderId=1&amp;BackgroundImage"
-          ph="/main/sxa-recommended-content/container-1"
-          uid="{0E98BD35-3DB0-4A48-9A29-9BD9647C2288}" />
-        <r
-          cnd=""
-          ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
-          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          mvt=""
-          par="DynamicPlaceholderId=4"
-          ph="/main/sxa-recommended-content/container-3"
-          uid="{71CFCCF8-9427-40F3-9B8F-EC78146BA23F}" />
+          uid="{0E98BD35-3DB0-4A48-9A29-9BD9647C2288}"
+          p:after="*[1=2]"
+          s:cnd=""
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:mvt=""
+          s:par="Styles=%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D&amp;GridParameters&amp;DynamicPlaceholderId=1&amp;BackgroundImage"
+          s:ph="/main/sxa-recommended-content/container-1" />
       </d>
-      <d
-        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
-        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en

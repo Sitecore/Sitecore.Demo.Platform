@@ -286,7 +286,6 @@ Task("Generate-Dacpacs")
 Task("Publish-Project-Projects").Does(() => {
   var global = $"{configuration.ProjectSrcFolder}\\Global";
   var habitatHome = $"{configuration.ProjectSrcFolder}\\HabitatHome";
-  var sitecoreDemo = $"{configuration.ProjectSrcFolder}\\SitecoreDemo";
 
   var destination = configuration.WebsiteRoot;
   if (publishLocal) {
@@ -295,7 +294,6 @@ Task("Publish-Project-Projects").Does(() => {
 
   PublishProjects(global, destination);
   PublishProjects(habitatHome, destination);
-  PublishProjects(sitecoreDemo, destination);
 });
 
 Task("Publish-xConnect-Project").Does(() => {

@@ -77,13 +77,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\Feature\Feature.ExperienceAcceleratorExtensions.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Indexing\EventDateComputedField.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Feature\Feature.ExperienceAcceleratorExtensions.Serialization.config" />
@@ -95,9 +92,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-        <PackageReference Include="Sitecore.ContentSearch" Version="9.3.0-*">
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
+    <PackageReference Include="Sitecore.ContentSearch" Version="9.3.0-*">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
