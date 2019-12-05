@@ -168,13 +168,17 @@ Task("Publish-Core-Project").Does(() => {
   buildSettings.SetConfiguration(configuration.BuildConfiguration);
 
   DotNetCoreRestoreSettings restoreSettings = new DotNetCoreRestoreSettings {
-    MSBuildSettings = buildSettings
+    MSBuildSettings = buildSettings,
+    Interactive = true
   };
+
+  DotNetCoreRestore(projectFile, restoreSettings);
 
   var settings = new DotNetCorePublishSettings {
     OutputDirectory = publishFolder,
     Configuration = configuration.BuildConfiguration,
-    MSBuildSettings = buildSettings
+    MSBuildSettings = buildSettings,
+    NoRestore = true
   };
 
   DotNetCorePublish(projectFile, settings);
