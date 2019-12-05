@@ -3,7 +3,7 @@ version: '2.4'
 services:
 
   sql:
-    image: ${REGISTRY}sitecore-xp-sxa-sqldev:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    image: ${REGISTRY}sitecore-xp-sxa-ps-sqldev:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     volumes:
       - .\data\sql:C:\Data
     mem_limit: 2GB
@@ -12,6 +12,8 @@ services:
     environment:
       SA_PASSWORD: ${SQL_SA_PASSWORD}
       ACCEPT_EULA: "Y"
+    networks: 
+      - demo
 
   solr:
     image: ${REGISTRY}sitecore-xp-sxa-solr:${SITECORE_VERSION}-nanoserver-${NANOSERVER_VERSION}
@@ -20,16 +22,33 @@ services:
     mem_limit: 1GB
     ports:
       - "44011:8983"
+    networks: 
+      - demo
+
+  ps:
+    image: ${REGISTRY}sitecore-ps:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    environment:
+      CONN_STRING_CORE: Data Source=sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
+      CONN_STRING_MASTER: Data Source=sql;Initial Catalog=Sitecore.Master;User ID=sa;Password=${SQL_SA_PASSWORD}
+      CONN_STRING_WEB: Data Source=sql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
+      SITECORE_LICENSE_LOCATION: ${SITECORE_LICENSE}
+    depends_on:
+      sql:
+        condition: service_healthy
+    ports: 
+      - "44015:80"
+    networks: 
+      - demo
 
   xconnect:
     image: ${REGISTRY}sitecore-xp-xconnect:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     volumes:
-      - ${LICENSE_PATH}:C:\license
+
       - .\data\xconnect:C:\inetpub\wwwroot\App_Data\logs
       - .\publish\xconnect:C:\src
     mem_limit: 1GB
     environment:
-      SITECORE_LICENSE_LOCATION: C:\license
+      SITECORE_LICENSE: ${SITECORE_LICENSE}
       SITECORE_SITECORE:XCONNECT:COLLECTIONSEARCH:SERVICES:SOLR.SOLRREADERSETTINGS:OPTIONS:REQUIREHTTPS: 'false'
       SITECORE_SITECORE:XCONNECT:SEARCHINDEXER:SERVICES:SOLR.SOLRWRITERSETTINGS:OPTIONS:REQUIREHTTPS: 'false'
       SITECORE_CONNECTIONSTRINGS_MESSAGING: Data Source=sql;Database=Sitecore.Messaging;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -43,15 +62,16 @@ services:
     depends_on:
       - sql
       - solr
+    networks: 
+      - demo
 
   xconnect-automationengine:
     image: ${REGISTRY}sitecore-xp-xconnect-automationengine:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     volumes:
-      - ${LICENSE_PATH}:C:\license
       - .\data\xconnect-automationengine:C:\AutomationEngine\App_Data\logs
     mem_limit: 500MB
     environment:
-      SITECORE_LICENSE_LOCATION: C:\license
+      SITECORE_LICENSE: ${SITECORE_LICENSE}
       SITECORE_CONNECTIONSTRINGS_XCONNECT.COLLECTION: http://xconnect
       SITECORE_CONNECTIONSTRINGS_XDB.MARKETINGAUTOMATION: Data Source=sql;Database=Sitecore.MarketingAutomation;User ID=sa;Password=${SQL_SA_PASSWORD}
       SITECORE_CONNECTIONSTRINGS_XDB.REFERENCEDATA: Data Source=sql;Database=Sitecore.ReferenceData;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -59,16 +79,17 @@ services:
     depends_on:
       - sql
       - xconnect
+    networks: 
+      - demo
 
   xconnect-indexworker:
     image: ${REGISTRY}sitecore-xp-xconnect-indexworker:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     volumes:
-      - ${LICENSE_PATH}:C:\license
       - .\data\xconnect-indexworker:C:\IndexWorker\App_Data\logs
       - .\Publish\xConnect\App_data\jobs\continuous\IndexWorker:c:\src
     mem_limit: 500MB
     environment:
-      SITECORE_LICENSE_LOCATION: C:\license
+      SITECORE_LICENSE: ${SITECORE_LICENSE}
       SITECORE_CONNECTIONSTRINGS_COLLECTION: Data Source=sql;Initial Catalog=Sitecore.Xdb.Collection.ShardMapManager;User ID=sa;Password=${SQL_SA_PASSWORD}
       SITECORE_CONNECTIONSTRINGS_SOLRCORE: http://solr:8983/solr/sitecore_xdb
       SITECORE_SITECORE:XCONNECT:SEARCHINDEXER:SERVICES:SOLR.SOLRREADERSETTINGS:OPTIONS:REQUIREHTTPS: 'false'
@@ -76,16 +97,17 @@ services:
     depends_on:
       - sql
       - solr
+    networks: 
+      - demo
 
   xconnect-processingengine:
     image: ${REGISTRY}sitecore-xp-xconnect-processingengine:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     volumes:
-      - ${LICENSE_PATH}:C:\license
-      #- .\data\xconnect-processingengine:C:\ProcessingEngine\App_Data\logs
+      - .\data\xconnect-processingengine:C:\ProcessingEngine\App_Data\logs
     mem_limit: 500MB
     restart: unless-stopped
     environment:
-      SITECORE_LICENSE_LOCATION: C:\license
+      SITECORE_LICENSE: ${SITECORE_LICENSE}
       SITECORE_CONNECTIONSTRINGS_PROCESSING.ENGINE.STORAGE: Data Source=sql;Database=Sitecore.Processing.Engine.Storage;User ID=sa;Password=${SQL_SA_PASSWORD}
       SITECORE_CONNECTIONSTRINGS_PROCESSING.ENGINE.TASKS: Data Source=sql;Database=Sitecore.Processing.Engine.Tasks;User ID=sa;Password=${SQL_SA_PASSWORD}
       SITECORE_CONNECTIONSTRINGS_PROCESSING.WEBAPI.BLOB: http://xconnect
@@ -99,17 +121,18 @@ services:
     depends_on:
       - sql
       - xconnect
+    networks: 
+      - demo
 
   cd:
-    image: ${REGISTRY}sitecore-xp-sxa-cd:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    image: ${REGISTRY}sitecore-xp-sxa-ps-cd:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
-    volumes:
-      - ${LICENSE_PATH}:C:\license
     ports:
       - "44002:80"
     environment:
-      SITECORE_LICENSE_LOCATION: C:\license\license.xml
+      SITECORE_LICENSE: ${SITECORE_LICENSE}
       SITECORE_APPSETTINGS_ROLE:DEFINE: ContentDelivery
+      SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
       SITECORE_CONNECTIONSTRINGS_SECURITY: Data Source=sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       SITECORE_CONNECTIONSTRINGS_WEB: Data Source=sql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
       SITECORE_CONNECTIONSTRINGS_EXPERIENCEFORMS: Data Source=sql;Initial Catalog=Sitecore.ExperienceForms;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -122,24 +145,26 @@ services:
       SITECORE_CONNECTIONSTRINGS_XDB.REFERENCEDATA.CLIENT: http://xconnect
     depends_on:
       - sql
+      - ps
       - solr
       - xconnect
 
   cm:
-    image: ${REGISTRY}sitecore-xp-sxa-standalone:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    image: ${REGISTRY}sitecore-xp-sxa-ps-standalone:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1 -useWatchDirectory
     mem_limit: 4G
     volumes:
-      - ${LICENSE_PATH}:C:\license
       - .\publish\web:C:\src
       - .\items:c:\unicorn
     ports:
       - "44001:80"
     environment:
-      SITECORE_LICENSE_LOCATION: C:\license\license.xml
+      SITECORE_LICENSE: ${SITECORE_LICENSE}
       SITECORE_APPSETTINGS_ROLE:DEFINE: Standalone
+      SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
       SITECORE_APPSETTINGS_ENV:DEFINE: Local
       SITECORE_APPSETTINGS_UNICORN:DEFINE: 'On'
+      SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: 'On'
       SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: None
       SITECORE_CONNECTIONSTRINGS_CORE: Data Source=sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       SITECORE_CONNECTIONSTRINGS_SECURITY: Data Source=sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -164,5 +189,11 @@ services:
       SITECORE_APPSETTINGS_TELERIK.WEB.UI.DIALOGPARAMETERSENCRYPTIONKEY: ${TELERIK_ENCRYPTION_KEY}
     depends_on:
       - sql
+      - ps
       - solr
       - xconnect
+    networks: 
+      - demo
+
+networks:
+  demo:
