@@ -1,4 +1,4 @@
----
+﻿---
 ID: "eaf925d2-529e-4a5b-90de-87184d3ba735"
 Parent: "a9e7129a-e6f4-414c-8452-d873eb68bfc2"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
@@ -14,7 +14,7 @@ SharedFields:
   Value: 1
 - ID: "13f89250-ad6b-4548-882e-118a12c18094"
   Hint: Parameters Template
-  Value: "{FF75632A-03ED-4D31-B42A-1EEE45E5147F}"
+  Value: "{3185298E-5364-47D3-9630-E8945ED7B32F}"
 - ID: "3d08db46-2267-41b0-bc52-be69fd618633"
   Hint: Cacheable
   Type: Checkbox
@@ -41,13 +41,18 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "d31890df-54ab-4715-ae64-284cdd84a154"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 言語セレクター
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190315T064218Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
       Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165504Z
+        sitecore\Admin

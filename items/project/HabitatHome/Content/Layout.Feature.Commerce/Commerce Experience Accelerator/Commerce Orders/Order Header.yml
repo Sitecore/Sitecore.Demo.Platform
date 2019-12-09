@@ -1,4 +1,4 @@
----
+﻿---
 ID: "136ea27e-7ed0-4eb8-8c5e-a85e7272d61d"
 Parent: "cf6f6728-83f7-4893-b36f-4897d4aa403e"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
@@ -10,7 +10,7 @@ SharedFields:
   Value: Office/16x16/document_header.png
 - ID: "13f89250-ad6b-4548-882e-118a12c18094"
   Hint: Parameters Template
-  Value: "{FF75632A-03ED-4D31-B42A-1EEE45E5147F}"
+  Value: "{C1D8B397-6006-46C8-8137-EF009DFC67E5}"
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Feature/Commerce Experience Accelerator/Account/Datasource/Order Header
@@ -42,13 +42,18 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "df2ddeca-4a71-44f8-9829-f698e68a38c9"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 注文ヘッダー
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190315T064139Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
       Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165503Z
+        sitecore\Admin

@@ -1,4 +1,4 @@
----
+﻿---
 ID: "c4222625-2637-43fe-82d7-341009a277ca"
 Parent: "7e57ce9b-7895-442e-b0c8-521e7d5bd987"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
@@ -10,7 +10,7 @@ SharedFields:
   Value: Office/16x16/document_orientation_portrait.png
 - ID: "13f89250-ad6b-4548-882e-118a12c18094"
   Hint: Parameters Template
-  Value: "{FF75632A-03ED-4D31-B42A-1EEE45E5147F}"
+  Value: "{1EBE9F0C-125E-4CB6-84A3-991E04FBEF4A}"
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Feature/Commerce Experience Accelerator/Catalog/Datasource/Product Information
@@ -50,13 +50,18 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "5c526b7a-3c04-4d6c-b379-07ba5b6ceb6d"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 製品情報
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190315T064211Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
       Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165501Z
+        sitecore\Admin

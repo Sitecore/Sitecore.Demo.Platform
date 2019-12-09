@@ -1,4 +1,4 @@
----
+﻿---
 ID: "3e8f1bdd-037d-4ad7-953c-d39e9191c5fd"
 Parent: "66dd1e03-3207-41d1-a84e-c71e8e679fd9"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
@@ -10,7 +10,7 @@ SharedFields:
   Value: Office/16x16/scroll.png
 - ID: "13f89250-ad6b-4548-882e-118a12c18094"
   Hint: Parameters Template
-  Value: "{FF75632A-03ED-4D31-B42A-1EEE45E5147F}"
+  Value: "{A8319D9F-A76A-426F-B0D3-AA8DC38A7E4D}"
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Feature/Commerce Experience Accelerator/Cart/Datasource/Shopping Cart Lines
@@ -42,13 +42,18 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "7601cb05-f583-4490-ac3c-666d8f99e9e8"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ショッピング カート品目
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190315T064146Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
       Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165505Z
+        sitecore\Admin

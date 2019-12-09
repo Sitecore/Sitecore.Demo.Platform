@@ -1,4 +1,4 @@
----
+﻿---
 ID: "18f9ee55-d1cb-41e2-9238-78db8bdb1ae2"
 Parent: "a9e7129a-e6f4-414c-8452-d873eb68bfc2"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
@@ -42,13 +42,18 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "2c1daf89-7aa3-4e71-8604-e93e4a59e474"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: トップ バー リンク
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190315T064140Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
       Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165504Z
+        sitecore\Admin
