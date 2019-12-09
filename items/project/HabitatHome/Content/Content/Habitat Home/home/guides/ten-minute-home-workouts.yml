@@ -1,4 +1,4 @@
----
+﻿---
 ID: "8a33684a-7711-4445-a119-bd1efec890b6"
 Parent: "64f922b1-d57d-4afa-ae26-9d59502f69a6"
 Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
@@ -120,52 +120,55 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
           uid="{E4F06BC7-16DE-48A0-86AD-3054A28D9512}"
-          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
-          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
-          ph="/main/sxa-article-content/author-1-"
-          ds="" />
+          p:before="*"
+          s:ds=""
+          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/main/sxa-article-content/author-1-" />
         <r
           uid="{381DAE97-9A2B-4912-8EEE-03B598686ED9}"
-          ds="local:/Data/Video - Workout 1"
-          id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
-          par=""
-          ph="/main/sxa-article-content/container-1/container-3" />
+          p:after="r[@uid='{E4F06BC7-16DE-48A0-86AD-3054A28D9512}']"
+          s:ds="local:/Data/Video - Workout 1"
+          s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+          s:par=""
+          s:ph="/main/sxa-article-content/container-1/container-3" />
         <r
           uid="{BB49A88A-D143-4B17-A1F9-F70CE2B37DD1}"
-          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
-          ph="/main/sxa-article-content/container-1"
-          ds="" />
+          p:after="r[@uid='{381DAE97-9A2B-4912-8EEE-03B598686ED9}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-article-content/container-1" />
         <r
           uid="{B203D6F8-CA08-41E3-8CF6-BBACBC67D59B}"
-          ds="local:/Data/Video - Workout 2"
-          id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
-          par=""
-          ph="/main/sxa-recommended-content/container-1/container-2" />
+          p:after="r[@uid='{BB49A88A-D143-4B17-A1F9-F70CE2B37DD1}']"
+          s:ds="local:/Data/Video - Workout 2"
+          s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+          s:par=""
+          s:ph="/main/sxa-recommended-content/container-1/container-2" />
         <r
           uid="{D7A735E5-691B-4974-B204-B69F46658C47}"
-          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
-          ph="/main/sxa-recommended-content/container-1"
-          ds="" />
+          p:after="r[@uid='{B203D6F8-CA08-41E3-8CF6-BBACBC67D59B}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="GridParameters=%7BF2FCE948-4F77-44AF-A188-B2030061F793%7D&amp;BackgroundImage&amp;Styles=%7BDF262DBA-9499-4F97-A9C9-B7885C140ED8%7D&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/sxa-recommended-content/container-1" />
         <r
           uid="{66F90AF4-7309-4ED4-98B9-D9D4E6BFA29A}"
-          cnd=""
-          ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
-          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
-          mvt=""
-          par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
-          ph="/main/sxa-recommended-content/container-3" />
+          p:after="*[1=2]"
+          s:cnd=""
+          s:ds="{A3C14371-ABDA-4198-87D7-CF6F0A19E2EC}"
+          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          s:mvt=""
+          s:par="GridParameters&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-recommended-content/container-3" />
       </d>
-      <d
-        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
-        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
     </r>
 Languages:
 - Language: en
@@ -224,23 +227,13 @@ Languages:
     - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
       Hint: Additional Content
       Value: <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id sapien volutpat felis ornare imperdiet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus interdum mi in mauris venenatis, et ultrices felis rutrum. Nulla sit amet fermentum tellus, at egestas risus. Sed tincidunt diam sed sapien semper rutrum. In tincidunt turpis dolor, eu sollicitudin metus sodales nec. In vitae sollicitudin libero. Nulla facilisi. Curabitur ornare feugiat lorem in laoreet. Quisque pretium augue ut venenatis dictum.</div><div><br /></div><div>Nulla feugiat tincidunt varius. Sed ultricies accumsan ultricies. Donec bibendum scelerisque nulla vel tristique. Praesent hendrerit dolor eget risus feugiat tristique. Proin rhoncus odio dolor, et bibendum velit hendrerit quis. Suspendisse laoreet ut dolor sed iaculis. Suspendisse tempus in ante a tincidunt. Cras condimentum metus sed neque varius rutrum. Phasellus volutpat ut velit at lobortis. Curabitur blandit a erat at port</div>
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "c032e815-abda-42c2-a999-6e9002c6b0f8"
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image
       Value: |
         <image mediaid="{D590210C-4B80-4014-B82E-3DD16DB7331C}" />
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\Admin
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
       Hint: Introduction
       Value: <p>Raise your heart rate even when time is short with these high intensity workouts from trainer Sydney Cummings.</p>
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190613T181437Z
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: Ten Minute Home Workouts
@@ -250,6 +243,64 @@ Languages:
     Hint: __Display name
     Value: Ten Minute Home Workouts
   Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{381DAE97-9A2B-4912-8EEE-03B598686ED9}"
+              s:par="" />
+            <r
+              uid="{B203D6F8-CA08-41E3-8CF6-BBACBC67D59B}"
+              s:par="" />
+          </d>
+        </r>
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{60A12889-6FFB-4F4C-84AC-194789D2D17B}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180322T190045Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Ten Minute Home Workouts
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: "<p>Cake icing brownie pudding macaroon dragée. Candy canes chocolate lollipop soufflé fruitcake dessert candy pastry. Chocolate bar chupa chups cupcake tiramisu apple pie jujubes cake toffee. Liquorice chocolate cake cotton candy candy chocolate bar. Icing tiramisu sugar plum sweet roll croissant. Tiramisu biscuit cake cotton candy sugar plum sweet macaroon. Cupcake chocolate cake biscuit oat cake jujubes sweet roll tiramisu bear claw jelly beans. Macaroon brownie tootsie roll pie gummies lollipop jelly tootsie roll pie. Dessert jujubes donut. Pastry halvah liquorice oat cake topping wafer biscuit. Liquorice carrot cake pudding carrot cake halvah liquorice topping. Danish dragée chocolate bar jelly-o danish.</p>"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Smart Gym
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id sapien volutpat felis ornare imperdiet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus interdum mi in mauris venenatis, et ultrices felis rutrum. Nulla sit amet fermentum tellus, at egestas risus. Sed tincidunt diam sed sapien semper rutrum. In tincidunt turpis dolor, eu sollicitudin metus sodales nec. In vitae sollicitudin libero. Nulla facilisi. Curabitur ornare feugiat lorem in laoreet. Quisque pretium augue ut venenatis dictum.</div><div><br /></div><div>Nulla feugiat tincidunt varius. Sed ultricies accumsan ultricies. Donec bibendum scelerisque nulla vel tristique. Praesent hendrerit dolor eget risus feugiat tristique. Proin rhoncus odio dolor, et bibendum velit hendrerit quis. Suspendisse laoreet ut dolor sed iaculis. Suspendisse tempus in ante a tincidunt. Cras condimentum metus sed neque varius rutrum. Phasellus volutpat ut velit at lobortis. Curabitur blandit a erat at port</div>
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{D590210C-4B80-4014-B82E-3DD16DB7331C}" />
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>Raise your heart rate even when time is short with these high intensity workouts from trainer Sydney Cummings.</p>
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Ten Minute Home Workouts
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -280,23 +331,13 @@ Languages:
     - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
       Hint: Subtitle
       Value: スマート ジム
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "87030c6e-0be8-4ece-bb35-a17a72965347"
     - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
       Hint: Navigation Image
       Value: |
         <image mediaid="{D590210C-4B80-4014-B82E-3DD16DB7331C}" alt="デジタルフィットネストレーナー" height="" width="" hspace="" vspace="" />
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        extranet\Anonymous
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
       Hint: Introduction
       Value: <p>トレーナーであるシドニーカミングスのこのような高強度のトレーニングで、時間が足りなくても心拍数を上げてください。</p>
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190613T152211Z
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: 10分ホームワークアウト

@@ -1,0 +1,21 @@
+span.field-title {
+    &.tag-text {
+        position: relative;
+        border-bottom: 1px solid transparent;
+        display: block;
+        float: left;
+        padding-left: 20px;
+        &:hover {
+            cursor: pointer;
+            text-decoration: none;
+        }
+        &:before {
+            content: $fa-var-tag;
+            @include fa-icon();
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+        }
+    }
+}

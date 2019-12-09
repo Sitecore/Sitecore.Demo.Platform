@@ -1,0 +1,38 @@
+﻿---
+ID: "601564cf-9bff-493a-8703-0fd9d2fd01b7"
+Parent: "fdbfd648-fcee-4098-9fd1-4fbb7713f816"
+Template: "f42cb279-a2e3-48d6-a3c4-b3d252b50e95"
+Path: "/sitecore/content/Habitat SXA Sites/Sitecore Demo/Home/news-events/News"
+DB: master
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: "{CA3168E9-2E1C-443D-A7C8-9C17F7517562}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190921T120330Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "435dbfa4-97ad-442c-acd4-a156f8178bb1"
+      Hint: Lead
+      Value: Keeping you informed. A few noteworthy news items about our company.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: News
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: News

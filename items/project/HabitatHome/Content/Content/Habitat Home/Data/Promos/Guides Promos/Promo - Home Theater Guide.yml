@@ -1,4 +1,4 @@
----
+﻿---
 ID: "39a77a15-b405-4cd8-bcfc-f44e84abc526"
 Parent: "3209696f-f313-44b8-bdcf-cb1543f7592a"
 Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
@@ -15,11 +15,11 @@ Languages:
     Fields:
     - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
       Hint: PromoText
-      Value: <p>The 2017 Home Theater Guide</p>
+      Value: "<p>The Cutting-Edge Home Theater Guide</p>"
     - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
       Hint: PromoIcon
       Value: |
-        <image mediaid="{815FCF64-4D70-46E4-A3C2-75F0619EB12A}" />
+        <image mediaid="{815FCF64-4D70-46E4-A3C2-75F0619EB12A}" ></image>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20171208T205429Z
@@ -33,9 +33,6 @@ Languages:
     - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
       Hint: PromoText3
       Value: <p>home theater guide</p>
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "c68b817c-88c1-4103-8bac-71f644b290d5"
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
       Value: |
@@ -43,14 +40,7 @@ Languages:
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link linktype="internal" text="Read Now" querystring="" target="" id="{07A119CD-9B00-4BA9-A7D1-93D63A2CA26B}" />
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165228Z
+        <link text="Read Now" anchor="" linktype="internal" class="" title="" querystring="" id="{07A119CD-9B00-4BA9-A7D1-93D63A2CA26B}" />
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -101,9 +91,6 @@ Languages:
     - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
       Hint: PromoText3
       Value: <p>home theater guide</p>
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "ba9a18ef-c89b-4274-9f1e-72efafa815e7"
     - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
       Hint: __Semantics
       Type: Multilist with Search
@@ -115,21 +102,14 @@ Languages:
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link linktype="internal" text="Read Now" querystring="" target="" id="{07A119CD-9B00-4BA9-A7D1-93D63A2CA26B}" />
+        <link text="Read Now" anchor="" linktype="internal" class="" title="" querystring="" id="{07A119CD-9B00-4BA9-A7D1-93D63A2CA26B}" />
     - ID: "b8f42732-9cb8-478d-ae95-07e25345fb0f"
       Hint: __Hide version
       Type: checkbox
       Value: 0
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165228Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -155,9 +135,6 @@ Languages:
     - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
       Hint: PromoText3
       Value: <p>ホームシアターガイド</p>
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "f6df6ffb-da62-4492-a16a-5dc38f50d96f"
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
       Value: |
@@ -166,10 +143,3 @@ Languages:
       Hint: PromoLink
       Value: |
         <link linktype="internal" text="今すぐ見る" querystring="" target="" id="{07A119CD-9B00-4BA9-A7D1-93D63A2CA26B}" />
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165228Z

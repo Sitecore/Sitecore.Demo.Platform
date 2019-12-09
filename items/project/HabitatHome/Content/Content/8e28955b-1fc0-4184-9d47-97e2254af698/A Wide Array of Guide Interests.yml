@@ -1,0 +1,349 @@
+﻿---
+ID: "874ed455-af6f-438d-bea8-1916b7fab5bd"
+Parent: "8e28955b-1fc0-4184-9d47-97e2254af698"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Habitat SXA Sites/Habitat Home/Data/Snippets/Two Column Snippets for Home and L1 pages/A Wide Array of Guide Interests
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{D26E6B1B-1108-4238-AAA4-85C65E22093C}"
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          p:before="*"
+          s:ds=""
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=2"
+          s:ph="section-content" />
+        <r
+          uid="{E84563C1-E7DE-432E-8BEF-06C21F338C2D}"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          p:after="r[@uid='{D26E6B1B-1108-4238-AAA4-85C65E22093C}']"
+          s:ds="{14CD7D35-4268-4C34-A3B3-3F44C6521937}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;Reset Caching Options=1&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/section-content/column-2-2">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{7764D894-F965-429E-AC49-435D403294B0}"
+                s:name="Fitness">
+                <conditions>
+                  <or
+                    uid="78C54B460390489AB8825596D3436750">
+                    <or
+                      uid="6993B13B532E4BFFA7C0FD0C41255CFF">
+                      <condition
+                        uid="DF85B8B5837A473EA45302B3004AA1B6"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}" />
+                      <condition
+                        uid="BE935392CB47452DBB3A84A9ACDD4B55"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:PatternName="Fitness"
+                        s:ProfileName="Topic Interest Category" />
+                    </or>
+                    <condition
+                      uid="67641F5A8E27430D8F4E6CAF159ADF87"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{753836A7-AEA0-4572-89E7-0DBC55A631FD}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="D809FD9E25DC448CA409001188302C53"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{6238B3BB-E9C4-4AFB-B445-BE302466691E}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{F74024A8-FDAE-4D42-AF0A-9C5F4537B0ED}"
+                s:name="Gaming">
+                <conditions>
+                  <or
+                    uid="C22EF3DF31D4428CA0077DD7699201B0">
+                    <or
+                      uid="6C85CDA9FE6E427D92D0611B50E63FDA">
+                      <condition
+                        uid="58CD8F60DF6F4B6A82DF491367C2AA9C"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{13F24114-C29B-4ACB-A39B-445CCE2ED60C}"
+                        s:ExpectedAncestorTaxonId="{43CF5A42-2D0C-4E82-BAB6-03E996E4097C}" />
+                      <condition
+                        uid="A42789D1871441ED8B59E6DBF34D128A"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:PatternName="Games"
+                        s:ProfileName="Electronics Category" />
+                    </or>
+                    <condition
+                      uid="87E58A97DB484804BFF6FF47B25AF697"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{7C0D0B32-E1B3-4969-890F-3793C1CFDB6A}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="9853B72400BF4794BA206035C40C60B1"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{D942055D-6315-4FDC-BB63-B3E2D65037A0}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{0CC11035-3124-42A8-8277-3C8099854C22}"
+                s:name="Home Theater">
+                <conditions>
+                  <or
+                    uid="3A486999368E47DEA54B13B50CDCC2C3">
+                    <or
+                      uid="B09DD98A159A4479A1BD67DAF6AE5536">
+                      <condition
+                        uid="F8FC8423D03448B2AD113E219E27B288"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{13F24114-C29B-4ACB-A39B-445CCE2ED60C}"
+                        s:ExpectedAncestorTaxonId="{67AFC2F1-234A-4AD5-9075-36C61BBFEBAE}" />
+                      <condition
+                        uid="B3C429A2E2B1432F80A1B14EBBEC3A40"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:PatternName="Home Cinema"
+                        s:ProfileName="Electronics Category" />
+                    </or>
+                    <condition
+                      uid="B8420C2F6CDF4D38800B64186611652A"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{CDCADE11-E1F4-4792-8FA3-9F95C6954772}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="CFD731D0B59E47EC8363E04EEB57DC23"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{9FDEAA6E-709B-4082-ABCF-B740DC80EEFE}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{AEA9AE7D-3AD9-493C-A808-DDAAE9E0F500}"
+                s:name="Smart and Connected">
+                <conditions>
+                  <or
+                    uid="37D998E87D6E46F0B51EF1D714816EBA">
+                    <or
+                      uid="9B389263E49D43F78ADA11C469925F20">
+                      <condition
+                        uid="83C2D07355114FC69FFEB07B0931FCA5"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{C26DAD2C-26F2-413D-93C4-9CA8C99CC930}" />
+                      <condition
+                        uid="B25E9439BE8E4B09AD41B4DA7D1417FB"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:PatternName="Smart and Connected"
+                        s:ProfileName="Topic Interest Category" />
+                    </or>
+                    <condition
+                      uid="321614152DED44A48FB864118403C4BF"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{F79D6476-4E33-4FCB-B7E7-7A8D983B8F22}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="5C8E6617DC0543F3BE14B9DBD26329EB"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{0A419FC1-C98F-400F-A6A8-8A70562A0A6E}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="7F13742842E8404EB77C1DAB6FA7FA80"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{4EF9A41F-3AE5-4367-9514-D2A39B2E418F}"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          p:after="*[1=2]"
+          s:ds="{C9D2D5F3-E258-4483-AF1C-CE18B7857BEA}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;Reset Caching Options=1&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/section-content/column-1-2">
+          <rls>
+            <ruleset>
+              <rule
+                uid="{2BF2A864-A4A1-400B-AA78-342E27653B78}"
+                s:name="Fitness">
+                <conditions>
+                  <or
+                    uid="55BE2CBDA5B44FEF9B54DB49A41977E7">
+                    <or
+                      uid="1F762BAD87B04E7BA0A1412908FF2143">
+                      <condition
+                        uid="10FC59960C3C4280BAFFD504562E233B"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}" />
+                      <condition
+                        uid="BE60FDF29D1444B48ACD3C281E58B555"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:PatternName="Fitness"
+                        s:ProfileName="Topic Interest Category" />
+                    </or>
+                    <condition
+                      uid="792D046D38BB43B099C27342BC743559"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{753836A7-AEA0-4572-89E7-0DBC55A631FD}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="D083F3937C0F468580F92964119649D5"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{7FFDAD1C-50A6-4CE7-81C5-259DCD6D1FC1}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{5DB1A95D-A044-4C5B-8555-AC1CCABD5F71}"
+                s:name="Foodie">
+                <conditions>
+                  <or
+                    uid="C51E5986617041E39F8F7A9179EBAC6C">
+                    <or
+                      uid="D31687E12BBC4E72967C2114D7C3FAF1">
+                      <condition
+                        uid="B15FCF8D79244AEE997292ACCB3343BE"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
+                      <condition
+                        uid="C8AF0C6C5DD746FB9284C5306810342C"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:PatternName="Cooking"
+                        s:ProfileName="Topic Interest Category" />
+                    </or>
+                    <condition
+                      uid="41C8755C0B74483BB293645DA4141257"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{B7A02EED-A729-42B0-978B-2C6EF479FC8F}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="A0784149B9A145A3808B2306B62CCD5F"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{B5684B40-75E9-4FE6-912F-2D1C8D761AF2}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{3A31E586-41E3-48A7-BCD4-94082B8D0AA3}"
+                s:name="Gaming">
+                <conditions>
+                  <or
+                    uid="56546299172140379BB6CCA3C5A7918A">
+                    <or
+                      uid="89FE35371DCB467EABE268A0F5512426">
+                      <condition
+                        uid="2AA42830191F4334B3C2149E23482F44"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{13F24114-C29B-4ACB-A39B-445CCE2ED60C}"
+                        s:ExpectedAncestorTaxonId="{43CF5A42-2D0C-4E82-BAB6-03E996E4097C}" />
+                      <condition
+                        uid="A3A83D544E2E44FCB12B52620EE7B801"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:PatternName="Games"
+                        s:ProfileName="Electronics Category" />
+                    </or>
+                    <condition
+                      uid="B9F9F06A149F475E878F2888C214E557"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{7C0D0B32-E1B3-4969-890F-3793C1CFDB6A}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="198AE9E5B8994C95B40891BF203928B8"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{D279E21C-5EBA-4C90-ADB5-03FF1A5D4426}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{54561250-08AE-44B3-81AB-E3CDBF7A036F}"
+                s:name="Home Theater">
+                <conditions>
+                  <or
+                    uid="44F107AF77424CBC8F99490B9DBC70B3">
+                    <or
+                      uid="C86E67BCAF5C4CDDA94E20EB0F1C6AC0">
+                      <condition
+                        uid="76A2141EDC2D4ED8A38FCA9656BDF97B"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{13F24114-C29B-4ACB-A39B-445CCE2ED60C}"
+                        s:ExpectedAncestorTaxonId="{67AFC2F1-234A-4AD5-9075-36C61BBFEBAE}" />
+                      <condition
+                        uid="03D498603ED04AC79B448537020FBA4E"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:PatternName="Home Cinema"
+                        s:ProfileName="Electronics Category" />
+                    </or>
+                    <condition
+                      uid="26BC22D7B5314A6BB173442EC8A50B4E"
+                      s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                      s:PatternList="{CDCADE11-E1F4-4792-8FA3-9F95C6954772}" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="2964B55787884305B0F35AEBEDD5AB3C"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{07A119CD-9B00-4BA9-A7D1-93D63A2CA26B}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="0EF88B187DB64651BD9E1BE22FFE654D"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180801T140951Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T032508Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

@@ -1,0 +1,82 @@
+@import "abstracts/mixins";
+@import "abstracts/vars";
+.tabs {
+    overflow: hidden;
+    position: relative;
+    background: none;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+.tab-slider {
+    position: absolute;
+    background: $tab-heading-bg;
+    cursor: pointer;
+    border: 2px solid $border-basic-color;
+    vertical-align: center;
+    width: 15px;
+    text-indent: -9999px;
+    z-index: 10;
+}
+.tabs-heading {
+    overflow: hidden;
+    li {
+        @include border-basic(top, $tab-heading-bg, 2px);
+        @include border-basic(left, $tab-heading-bg);
+        @include border-basic(right, $tab-heading-bg);
+        @include border-basic(bottom, $tab-container-border);
+        float: left;
+        display: block;
+        margin-left: 1px;
+        background: $tab-heading-bg;
+        width: auto;
+        cursor: pointer;
+        >div {
+            @include clearfix();
+            padding: 3px 10px;
+            display: block;
+            text-decoration: none;
+            color: $tab-heading-color;
+            .field-heading {
+                font-size: $tab-font-header;
+            }
+            >.row {
+                display: block;
+            }
+        }
+        .component.content {
+            margin: 5px 0;
+        }
+        &.active {
+            background: $tab-heading-active-bg;
+            @include border-basic(top, $tab-container-border, 2px);
+            @include border-basic(bottom, $tab-container-border);
+            @include border-basic(left);
+            @include border-basic(right);
+            a {
+                color: $tab-heading-active-color;
+            }
+        }
+        &:hover {
+            @include border-basic(top, $tab-container-border, 2px);
+            background: $tab-heading-active-bg;
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+.tabs-container {
+    @include border-basic(top, $tab-container-border);
+    background: $tab-container-bg;
+    margin-top: -1px;
+}
+.tab {
+    @include clearfix();
+    display: none;
+    padding: 10px;
+    &.active {
+        display: block;
+    }
+}
+@import "styles/tabs/*";

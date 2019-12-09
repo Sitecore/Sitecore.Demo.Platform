@@ -1,0 +1,64 @@
+﻿---
+ID: "6573f143-f39f-466a-818f-003e8233b2b5"
+Parent: "a2a7bafc-e093-46e4-96f9-357fb86cd777"
+Template: "1afe38a7-9461-4278-adaf-d807f27f36e4"
+Path: /sitecore/content/Email/Messages/2018/01/15T154000/Internal Home Installation Request Notification
+DB: master
+SharedFields:
+- ID: "0934bec4-325a-427b-95bb-46f78cea9591"
+  Hint: Message Type
+  Value: "{B2F77E26-C5AC-4A6B-BBB3-F290100EB3D8}"
+- ID: "21f2a1e0-ac16-443b-b7a9-83504159f2bb"
+  Hint: Device
+  Value: "{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+- ID: "2bbf5276-ed11-4cd0-946f-66678b524457"
+  Hint: Campaign Position
+  Value: "{C1B8669B-C41A-4ED3-BF0D-E859CF880D42}"
+- ID: "6ec7a9e6-9fd5-4892-bbf6-11e76e0e5db8"
+  Hint: Start Time
+  Value: 20180116T200619Z
+- ID: "78f0b1f8-fdf4-4c1c-bec6-1ac68a210a52"
+  Hint: Campaign
+  Value: "{FA630D6A-3336-40C8-8D2E-5CE20B4E6942}"
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: Checkbox
+  Value: 1
+- ID: "af0fe26a-a78b-491d-885c-03d95bc17342"
+  Hint: State
+  Value: Active
+Languages:
+- Language: en
+  Fields:
+  - ID: "577f1689-7de4-4ad2-a15f-7fdc1759285f"
+    Hint: __Long description
+    Value: The Habitat Home Installation team will receive this notification email when a request form is submitted.
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Internal Home Installation Request Notification
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0d844c9c-bd6c-49b8-9475-947da791f268"
+      Hint: From Address
+      Value: noreply@habitathomedemo.com
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180116T200207Z
+    - ID: "8436a90c-85c0-4f16-8373-393c4c0a82c6"
+      Hint: From Name
+      Value: Habitat Home Installation Request
+    - ID: "b6fb0df3-bbb7-4e5a-ba3c-c7be67c46c3a"
+      Hint: Body
+      Value: |
+        The request for home installation information was submitted by:
+        
+        $fullname$
+        $email$
+        $phone$
+        
+        
+        
+    - ID: "d6d7cf71-876a-4572-837d-cf995c05ea15"
+      Hint: Subject
+      Value: A home installation request has been submitted

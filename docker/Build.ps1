@@ -32,44 +32,44 @@ $ErrorActionPreference = "STOP"
 $ProgressPreference = "SilentlyContinue"
 
 $tags = @(
-    @{
-      "context" = (Join-Path $PSScriptRoot "\images\windows\habitathome-xp-cd");
-      "assets"     = $CdPublishPath;
-      "tag"     = "habitathome-xp-cd:9.2.0-windowsservercore-ltsc2019";
-      "options" = @("--build-arg BASE_IMAGE=$Registry`sitecore-xp-sxa-1.9.0-cd:9.2.0-windowsservercore-ltsc2019");
-    },
+    # @{
+    #   "context" = (Join-Path $PSScriptRoot "\images\windows\habitathome-xp-cd");
+    #   "assets"     = $CdPublishPath;
+    #   "tag"     = "habitathome-xp-cd:9.2.0-windowsservercore-1903";
+    #   "options" = @("--build-arg BASE_IMAGE=$Registry`sitecore-xp-sxa-cd:9.2.0-windowsservercore-1903");
+    # },
     @{
       "context" = (Join-Path $PSScriptRoot "\images\windows\habitathome-xp-standalone");
       "assets"     = $CmPublishPath;
-      "tag"     = "habitathome-xp-standalone:9.2.0-windowsservercore-ltsc2019";
-      "options" = @("--build-arg BASE_IMAGE=$Registry`sitecore-xp-sxa-1.9.0-standalone:9.2.0-windowsservercore-ltsc2019");
+      "tag"     = "habitathome-xp-standalone:9.2.0-windowsservercore-1903";
+      "options" = @("--build-arg BASE_IMAGE=$Registry`sitecore-xp-sxa-standalone:9.2.0-windowsservercore-1903");
     },
     @{
       "context" = (Join-Path $PSScriptRoot "\images\windows\habitathome-xp-sqldev");
       "assets"     = $DacpacPath;
-      "tag"     = "habitathome-xp-sqldev:9.2.0-windowsservercore-ltsc2019";
+      "tag"     = "habitathome-xp-sqldev:9.2.0-windowsservercore-1903";
       "options" = @(
           "--memory 4GB",
-          "--build-arg BASE_IMAGE=$Registry`sitecore-xp-sxa-1.9.0-sqldev:9.2.0-windowsservercore-ltsc2019"
+          "--build-arg BASE_IMAGE=$Registry`sitecore-xp-sxa-sqldev:9.2.0-windowsservercore-1903"
       );
     },
     @{
       "context" = (Join-Path $PSScriptRoot "\images\windows\habitathome-xp-xconnect");
       "assets"     = $XConnectPath;
-      "tag"     = "habitathome-xp-xconnect:9.2.0-windowsservercore-ltsc2019";
-      "options" = @("--build-arg BASE_IMAGE=$Registry`sitecore-xp-xconnect:9.2.0-windowsservercore-ltsc2019");
+      "tag"     = "habitathome-xp-xconnect:9.2.0-windowsservercore-1903";
+      "options" = @("--build-arg BASE_IMAGE=$Registry`sitecore-xp-xconnect:9.2.0-windowsservercore-1903");
     },
     @{
       "context" = (Join-Path $PSScriptRoot "\images\windows\habitathome-xp-xconnect-indexworker");
       "assets"     = $XConnectPath;
-      "tag"     = "habitathome-xp-xconnect-indexworker:9.2.0-windowsservercore-ltsc2019";
-      "options" = @("--build-arg BASE_IMAGE=$Registry`sitecore-xp-xconnect-indexworker:9.2.0-windowsservercore-ltsc2019");
+      "tag"     = "habitathome-xp-xconnect-indexworker:9.2.0-windowsservercore-1903";
+      "options" = @("--build-arg BASE_IMAGE=$Registry`sitecore-xp-xconnect-indexworker:9.2.0-windowsservercore-1903");
     },
     @{
       "context" = (Join-Path $PSScriptRoot "\images\linux\habitathome-xp-sql");
       "assets"     = $DacpacPath;
       "tag"     = "habitathome-xp-sql:9.2.0-linux";
-      "options" = @("--build-arg BASE_IMAGE=$Registry`sitecore-xp-sxa-1.9.0-sql:9.2.0-linux");
+      "options" = @("--build-arg BASE_IMAGE=$Registry`sitecore-xp-sxa-sql:9.2.0-linux");
     }
 )
 

@@ -1,4 +1,4 @@
----
+﻿---
 ID: "3133fcfe-671b-404e-b8b8-e2c4138e8f17"
 Parent: "3209696f-f313-44b8-bdcf-cb1543f7592a"
 Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
@@ -33,9 +33,6 @@ Languages:
     - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
       Hint: PromoText3
       Value: <p>Computing news</p>
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "1ce22799-ed46-43d3-8453-3714f4236114"
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
       Value: |
@@ -43,14 +40,7 @@ Languages:
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link linktype="internal" text="Read More" querystring="" target="" id="{0397DE13-C539-4683-8599-F57D437AD23E}" />
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165228Z
+        <link text="Read More" anchor="" linktype="internal" class="" title="" querystring="" id="{0397DE13-C539-4683-8599-F57D437AD23E}" />
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -101,9 +91,6 @@ Languages:
     - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
       Hint: PromoText3
       Value: "<p>Nouvelles: ordinateurs</p>"
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "ea725b80-ef92-4e0e-be53-0b6c28925c35"
     - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
       Hint: __Semantics
       Type: Multilist with Search
@@ -116,21 +103,14 @@ Languages:
     - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
       Hint: PromoLink
       Value: |
-        <link linktype="internal" text="Plus d'infos" querystring="" target="" id="{0397DE13-C539-4683-8599-F57D437AD23E}" />
+        <link text="Plus d'infos" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{0397DE13-C539-4683-8599-F57D437AD23E}" />
     - ID: "b8f42732-9cb8-478d-ae95-07e25345fb0f"
       Hint: __Hide version
       Type: checkbox
       Value: 0
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165228Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
@@ -156,9 +136,6 @@ Languages:
     - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
       Hint: PromoText3
       Value: <p>コンピューターニュース</p>
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "7fc6b967-b9ed-49d4-ac08-535e64bf0803"
     - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
       Hint: PromoText2
       Value: |
@@ -167,10 +144,3 @@ Languages:
       Hint: PromoLink
       Value: |
         <link linktype="internal" text="より詳しく" querystring="" target="" id="{0397DE13-C539-4683-8599-F57D437AD23E}" />
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\unicorn
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20190425T165228Z

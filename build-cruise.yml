@@ -33,17 +33,3 @@ steps:
     solution: HabitatHome.sln
     configuration: 'Debug'
     msbuildArguments: '/m'
-
-- task: NuGetCommand@2
-  displayName: 'NuGet Restore TDS Solution'
-  inputs:
-    restoreSolution: HabitatHome.TDS.sln
-    feedsToUse: config
-    nugetConfigPath: '$(nuget.config)'
-
-- task: MSBuild@1
-  displayName: 'HabitatHome.Platform - Build TDS Solution'
-  inputs:
-    solution: HabitatHome.TDS.sln
-    configuration: 'Release'
-    msbuildArguments: '/m'

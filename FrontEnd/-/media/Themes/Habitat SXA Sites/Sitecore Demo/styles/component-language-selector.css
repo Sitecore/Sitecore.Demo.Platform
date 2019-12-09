@@ -1,0 +1,1836 @@
+@charset "UTF-8";
+/* breakpoints */
+.language-selector {
+  position: relative;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #60ddea;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.language-selector .flags-ad {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -25px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ae {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3125px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-af {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -50px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ag {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -75px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ai {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -100px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-al {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -125px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-am {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -150px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ao {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -175px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-aq {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -200px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ar {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -225px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-as {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -250px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-at {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -275px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-au {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -300px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-aw {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -325px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ax {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -350px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-az {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -375px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ba {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -400px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bb {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -425px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bd {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -450px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-be {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -475px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bf {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -500px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bg {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -525px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bh {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -550px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bi {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -575px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bj {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -600px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bl {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -625px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -650px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bn {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -675px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bo {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -700px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bq {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -725px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-br {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -750px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bs {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -775px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bt {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -800px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bv {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -825px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bw {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -850px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-by {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -875px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-bz {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -900px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ca {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -925px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cc {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -950px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cd {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -975px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cf {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1000px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cg {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1025px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ch {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1050px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ci {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1075px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ck {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1100px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cl {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1125px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1150px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cn {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1175px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-co {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1200px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1225px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cu {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1250px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cv {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1275px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cw {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1300px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cx {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1325px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cy {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1350px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-cz {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1375px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-de {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1400px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-dj {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1425px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-dk {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1450px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-dm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1475px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-do {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1500px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-dz {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1525px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ec {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1550px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ee {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1575px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-eg {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1600px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-eh {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1625px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-er {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1650px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-es {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1675px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-et {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1700px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-fi {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1725px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-fj {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1750px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-fk {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1775px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-fm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1800px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-fo {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1825px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-fr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1850px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ga {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1875px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gb {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1900px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gd {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1925px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ge {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1950px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gf {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -1975px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gg {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2000px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gh {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2025px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gi {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2050px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gl {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2075px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2100px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gn {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2125px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gp {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2150px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gq {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2175px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2200px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gs {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2225px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gt {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2250px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gu {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2275px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gw {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2300px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-gy {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2325px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-hk {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2350px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-hm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2375px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-hn {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2400px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-hr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2425px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ht {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2450px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-hu {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2475px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-id {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2500px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ie {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2525px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-il {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2550px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-im {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2575px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-in {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2600px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-io {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2625px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-iq {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2650px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ir {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2675px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-is {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2700px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-it {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2725px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-je {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2750px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-jm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2775px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-jo {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2800px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-jp {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2825px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ke {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2850px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-kg {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2875px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-kh {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2900px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ki {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2925px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-km {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2950px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-kn {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -2975px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-kp {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3000px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-kr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3025px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-kw {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3050px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ky {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3075px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-kz {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3100px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-la {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px 0px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-lb {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3150px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-lc {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3175px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-li {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3200px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-lk {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3225px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-lr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3250px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ls {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3275px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-lt {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3300px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-lu {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3325px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-lv {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3350px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ly {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3375px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ma {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3400px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mc {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3425px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-md {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3450px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-me {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3475px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mf {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3500px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mg {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3525px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mh {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3550px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mk {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3575px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ml {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3600px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3625px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mn {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3650px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mo {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3675px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mp {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3700px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mq {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3725px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3750px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ms {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3775px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mt {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3800px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mu {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3825px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mv {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3850px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mw {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3875px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mx {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3900px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-my {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3925px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-mz {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3950px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-na {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -3975px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-nc {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4000px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ne {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4025px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-nf {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4050px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ng {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4075px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ni {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4100px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-nl {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4125px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-no {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4150px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-np {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4175px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-nr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4200px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-nu {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4225px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-nz {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4250px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-om {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4275px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pa {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4300px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pe {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4325px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pf {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4350px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pg {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4375px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ph {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4400px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pk {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4425px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pl {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4450px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4475px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pn {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4500px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4525px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ps {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4550px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pt {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4575px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-pw {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4600px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-py {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4625px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-qa {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4650px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-re {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4675px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ro {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4700px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-rs {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4725px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ru {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4750px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-rw {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4775px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sa {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4800px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sb {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4825px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sc {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4850px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sd {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4875px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-se {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4900px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sg {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4925px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sh {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4950px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-si {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -4975px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sj {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5000px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sk {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5025px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sl {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5050px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5075px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sn {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5100px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-so {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5125px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5150px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ss {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5175px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-st {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5200px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sv {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5225px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sx {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5250px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sy {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5275px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-sz {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5300px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tc {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5325px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-td {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5350px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tf {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5375px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tg {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5400px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-th {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5425px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tj {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5450px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tk {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5475px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tl {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5500px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5525px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tn {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5550px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-to {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5575px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tr {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5600px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tt {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5625px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tv {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5650px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tw {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5675px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-tz {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5700px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ua {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5725px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ug {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5750px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-um {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5775px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-us {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5800px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-uy {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5825px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-uz {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5850px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-va {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5875px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-vc {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5900px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ve {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5925px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-vg {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5950px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-vi {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -5975px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-vn {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -6000px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-vu {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -6025px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-wf {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -6050px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ws {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -6075px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-ye {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -6100px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-yt {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -6125px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-za {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -6150px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-zm {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -6175px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-zw {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -6200px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .flags-zz {
+  background-image: url(../images/sprite-flag);
+  background-position: 0px -6225px;
+  width: 20px;
+  height: 15px;
+}
+
+.language-selector .language-selector-select-item {
+  cursor: pointer;
+}
+
+.language-selector .language-selector-select-item > a {
+  width: 100%;
+  display: block;
+  position: relative;
+  padding-right: 15px;
+}
+
+.language-selector .language-selector-select-item > a:hover {
+  text-decoration: none;
+}
+
+.language-selector .language-selector-select-item:after {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.language-selector .language-selector-item-container {
+  box-shadow: 0 2px 9px 0px #b3b3b3;
+  padding: 0;
+  position: absolute;
+  top: 110%;
+  min-width: 220px;
+  z-index: 10;
+  background: #FFFFFF;
+  display: none;
+  left: 0;
+  right: 0;
+}
+
+.language-selector .language-selector-item {
+  margin: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ffffff;
+}
+
+.language-selector .language-selector-item:hover {
+  background-color: #ffffff;
+  border-bottom: 1px solid #15909c;
+}
+
+.language-selector .language-selector-item:first-child {
+  margin-bottom: 0;
+}
+
+.language-selector .language-selector-item a {
+  text-decoration: none;
+  color: #747474;
+  font-weight: normal;
+  padding-left: 25px;
+  background-repeat: no-repeat;
+}
+
+.language-selector .language-selector-link {
+  padding: 0px 20px 0 30px;
+}
+
+.language-selector .language-selector-select-link {
+  padding-left: 25px;
+  background-repeat: no-repeat;
+}
