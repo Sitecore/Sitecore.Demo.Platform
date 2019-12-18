@@ -68,7 +68,7 @@ stages:
     - task: PowerShell@2
       env:
         SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-        INTERNAL_NUGET_SOURCE: "https://pkgs.dev.azure.com/sitecoredst/_packaging/sc-demo-packages/nuget/v3/index.json"
+        INTERNAL_NUGET_SOURCE: "$(Nuget.Internal.Feed.Url)"
       displayName: "Build Solution"
       inputs:
         filePath: 'build.ps1'
@@ -78,8 +78,8 @@ stages:
       displayName: "Docker Compose Build"
       inputs:
         containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'MK-NA_US_East-PM-DEMO-INT-JFL-1500 (8ae723fd-8e32-44bd-bd0e-f3f71631e11e)'
-        azureContainerRegistry: '{"loginServer":"sitecoredemocontainers.azurecr.io", "id" : "/subscriptions/8ae723fd-8e32-44bd-bd0e-f3f71631e11e/resourceGroups/docker/providers/Microsoft.ContainerRegistry/registries/sitecoredemocontainers"}'
+        azureSubscription: 'AzureSubscription'
+        azureContainerRegistry: 'docker-registry'
         dockerComposeFile: 'docker-compose.yml'
         dockerComposeFileArgs: |
           DEMO_VERSION=$(tag)
@@ -97,9 +97,8 @@ stages:
     - task: DockerCompose@0
       displayName: "Push Images"
       inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'MK-NA_US_East-PM-DEMO-INT-JFL-1500 (8ae723fd-8e32-44bd-bd0e-f3f71631e11e)'
-        azureContainerRegistry: '{"loginServer":"sitecoredemocontainers.azurecr.io", "id" : "/subscriptions/8ae723fd-8e32-44bd-bd0e-f3f71631e11e/resourceGroups/docker/providers/Microsoft.ContainerRegistry/registries/sitecoredemocontainers"}'
+        containerregistrytype: 'Container Registry'
+        dockerRegistryEndpoint: 'docker-registry-push'
         dockerComposeFile: 'docker-compose.yml'
         dockerComposeFileArgs: |
           REGISTRY=$(REGISTRY)
@@ -111,5 +110,5 @@ stages:
           SITECORE_LICENSE=$(SITECORE_LICENSE)
           TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
         action: 'Push services'
-        currentWorkingDirectory: '$(Build.SourcesDirectory)'
         additionalImageTags: '$(additionalImageTags)'
+        currentWorkingDirectory: '$(Build.SourcesDirectory)'
