@@ -18,7 +18,7 @@ services:
       SA_PASSWORD: ${SQL_SA_PASSWORD}
       ACCEPT_EULA: "Y"
     networks:
-      - habitathome
+      - demo
 
   solr:
     image: ${REGISTRY}habitathome-solr:${DEMO_VERSION}
@@ -33,7 +33,7 @@ services:
     ports:
       - "44011:8983"
     networks:
-      - habitathome
+      - demo
 
   ps:
     image: ${REGISTRY}habitathome-ps:${DEMO_VERSION}
@@ -53,7 +53,7 @@ services:
     ports:
       - "44015:80"
     networks:
-      - habitathome
+      - demo
 
   xconnect:
     image: ${REGISTRY}habitathome-xconnect:${DEMO_VERSION}
@@ -82,7 +82,7 @@ services:
       - sql
       - solr
     networks:
-      - habitathome
+      - demo
 
   xconnect-automationengine:
     image: ${REGISTRY}habitathome-automationengine:${DEMO_VERSION}
@@ -104,7 +104,7 @@ services:
       - sql
       - xconnect
     networks:
-      - habitathome
+      - demo
 
   xconnect-indexworker:
     image: ${REGISTRY}habitathome-indexworker:${DEMO_VERSION}
@@ -128,7 +128,7 @@ services:
       - sql
       - solr
     networks:
-      - habitathome
+      - demo
 
   xconnect-processingengine:
     image: ${REGISTRY}habitathome-processingengine:${DEMO_VERSION}
@@ -157,7 +157,7 @@ services:
       - sql
       - xconnect
     networks:
-      - habitathome
+      - demo
 
   cd:
     image: ${REGISTRY}habitathome-cd:${DEMO_VERSION}
@@ -189,7 +189,7 @@ services:
       - solr
       - xconnect
     networks:
-      - habitathome
+      - demo
 
   cm:
     image: ${REGISTRY}habitathome-cm:${DEMO_VERSION}
@@ -240,7 +240,7 @@ services:
       - solr
       - xconnect
     networks:
-      - habitathome
+      - demo
 
 networks:
-  habitathome:
+  demo:

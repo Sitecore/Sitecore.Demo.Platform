@@ -91,9 +91,9 @@ stages:
           SITECORE_LICENSE=$(SITECORE_LICENSE)
           TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
         action: 'Build services'
+        additionalImageTags: '$(additionalImageTags)'
         arguments: '-m 16G --parallel'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
-        additionalImageTags: '$(additionalImageTags)'    
     - task: DockerCompose@0
       displayName: "Push Images"
       inputs:

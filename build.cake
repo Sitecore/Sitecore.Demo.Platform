@@ -33,18 +33,20 @@ Setup(context =>
   configuration = DeserializeJsonFromFile<Configuration>(configFile);
   configuration.SolutionFile =  $"{configuration.ProjectFolder}\\{configuration.SolutionName}";
   configuration.PublishWebFolder = $"{configuration.ProjectFolder}\\data\\cm\\src";
+  configuration.PublishxConnectFolder = $"{configuration.ProjectFolder}\\data\\xconnect\\src";
+
 
   if (deploymentTarget.Contains("Docker"))  {
-    publishLocal = true;
-    syncUnicorn = false;
-    applyTransforms = false;
     configuration.UnicornSerializationFolder = "c:\\unicorn"; // This maps to the container's volume setting (see docker-compose.yml)
+    applyTransforms = false;
   }
 
   if (deploymentTarget == "DockerBuild")  {
     configuration.PublishWebFolder = $"{configuration.ProjectFolder}\\docker\\images\\windows\\demo-xp-standalone\\Data";
     configuration.PublishDataFolder = $"{configuration.ProjectFolder}\\docker\\images\\windows\\demo-xp-sqldev\\Data";
     configuration.PublishxConnectFolder = $"{configuration.ProjectFolder}\\docker\\images\\windows\\demo-xp-xconnect\\Data";
+    publishLocal = true;
+    syncUnicorn = false;
   }
 
   if (deploymentTarget == "Docker") {
