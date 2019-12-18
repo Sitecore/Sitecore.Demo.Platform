@@ -1,0 +1,31 @@
+assembly-versioning-scheme: MajorMinorPatch
+mode: ContinuousDeployment
+continuous-delivery-fallback-tag: ''
+tag-prefix: '[vV]'
+next-version: 930.0.0
+major-version-bump-message: '\+semver:\s?(dotnotuse)'
+minor-version-bump-message: '\+semver:\s?(breaking|major)'
+patch-version-bump-message: '\+semver:\s?(feature|minor)'
+no-bump-message: '\+semver:\s?(none|skip)'
+branches:
+  develop:
+    mode: ContinuousDeployment
+    tag: beta
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+    is-mainline: true
+  master: {}
+  feature:
+    mode: ContinuousDeployment
+    tag: ft
+    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+  pull-request:
+    mode: ContinuousDeployment
+    tag: pull
+    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+  release:
+    mode: ContinuousDeployment
+    tag: rc
+    is-release-branch: true
+    increment: Inherit
+merge-message-formats: {}

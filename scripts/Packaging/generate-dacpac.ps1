@@ -6,6 +6,9 @@ Param(
 )
 $wdpName = (Split-Path $updatePackagePath -Leaf).replace("update","scwdp.zip")
 $securityPackageName = (Split-Path $securityPackagePath -Leaf)
+
+New-Item -Path $destinationPath -ItemType Directory -ErrorAction SilentlyContinue
+
 Copy-Item $securityPackagePath "$destinationPath\$securityPackageName" -Verbose
 
 Import-Module (Join-Path $sitecoreAzureToolkitPath "tools\Sitecore.Cloud.Cmdlets.dll") -Force

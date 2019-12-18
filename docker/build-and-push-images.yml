@@ -1,0 +1,115 @@
+# Build Sitecoredemo Docker images
+trigger:
+  branches:
+    include:
+    - master
+    - develop
+    - release/*
+
+resources:
+- repo: self
+
+variables:
+  GitVersion.SemVer: ''
+  GitVersion.PreReleaseLabel: ''
+  tag: '$(GitVersion.PreReleaseLabel)-$(GitVersion.MajorMinorPatch)'
+  additionalImageTags: ''
+
+stages:
+- stage: Build
+  displayName: Build images
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      name: docker
+      demands:
+        - Agent.OS -equals Windows_NT
+    steps:
+
+    - task: GitVersion@5
+      inputs:
+        runtime: 'full'
+        configFilePath: 'GitVersion.yml'
+        updateAssemblyInfo: true
+    - task: PowerShell@2
+      displayName: 'Set correct image tag'
+      inputs:
+        targetType: 'inline'
+        script: 'echo "##vso[task.setvariable variable=tag]$(GitVersion.MajorMinorPatch)"'
+      condition: eq(variables['GitVersion.PreReleaseLabel'], '')
+    - task: PowerShell@2
+      displayName: 'Set :latest tag'
+      inputs:
+        targetType: 'inline'
+        script: 'echo "##vso[task.setvariable variable=additionalImageTags]latest"'
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    - task: PowerShell@2
+      displayName: 'Set :stable tag'
+      inputs:
+        targetType: 'inline'
+        script: 'echo "##vso[task.setvariable variable=additionalImageTags]stable"'
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    - task: PowerShell@2
+      displayName: "Modifying cake-config"
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Modify ProjectFolder
+          $escapedPath = "$(Build.SourcesDirectory)" | ConvertTo-Json
+          (Get-Content cake-config.json) -replace '(\"ProjectFolder\":) \"(.*)\"', "`$1$escapedPath" |Set-Content .\cake-config.json
+          # Modify PublishTempFolder
+          $escapedPath = (Join-Path "$(Build.SourcesDirectory)" "Temp") | ConvertTo-Json
+          (Get-Content cake-config.json) -replace '(\"PublishTempFolder\":) \"(.*)\"', "`$1$escapedPath" |Set-Content .\cake-config.json
+          # Modify Sitecore Azure Toolkit Folder
+          $escapedPath = "f:\assets\sat" |ConvertTo-Json # TODO - bad assumption that SAT exists
+          (Get-Content cake-config.json) -replace '(\"SitecoreAzureToolkitPath\":) \"(.*)\"', "`$1$escapedPath" |Set-Content .\cake-config.json
+        workingDirectory: '$(Build.SourcesDirectory)'
+    - task: PowerShell@2
+      env:
+        SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+        INTERNAL_NUGET_SOURCE: "https://pkgs.dev.azure.com/sitecoredst/_packaging/sc-demo-packages/nuget/v3/index.json"
+      displayName: "Build Solution"
+      inputs:
+        filePath: 'build.ps1'
+        arguments: '-DeploymentTarget=DockerBuild'
+        workingDirectory: '$(Build.SourcesDirectory)'
+    - task: DockerCompose@0
+      displayName: "Docker Compose Build"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'MK-NA_US_East-PM-DEMO-INT-JFL-1500 (8ae723fd-8e32-44bd-bd0e-f3f71631e11e)'
+        azureContainerRegistry: '{"loginServer":"sitecoredemocontainers.azurecr.io", "id" : "/subscriptions/8ae723fd-8e32-44bd-bd0e-f3f71631e11e/resourceGroups/docker/providers/Microsoft.ContainerRegistry/registries/sitecoredemocontainers"}'
+        dockerComposeFile: 'docker-compose.yml'
+        dockerComposeFileArgs: |
+          DEMO_VERSION=$(tag)
+          REGISTRY=$(REGISTRY)
+          WINDOWSSERVERCORE_VERSION=$(WINDOWSSERVERCORE_VERSION)
+          NANOSERVER_VERSION=$(NANOSERVER_VERSION)
+          SITECORE_VERSION=$(SITECORE_VERSION)
+          SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
+          SITECORE_LICENSE=$(SITECORE_LICENSE)
+          TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
+        action: 'Build services'
+        arguments: '-m 16G --parallel'
+        currentWorkingDirectory: '$(Build.SourcesDirectory)'
+        additionalImageTags: '$(additionalImageTags)'    
+    - task: DockerCompose@0
+      displayName: "Push Images"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'MK-NA_US_East-PM-DEMO-INT-JFL-1500 (8ae723fd-8e32-44bd-bd0e-f3f71631e11e)'
+        azureContainerRegistry: '{"loginServer":"sitecoredemocontainers.azurecr.io", "id" : "/subscriptions/8ae723fd-8e32-44bd-bd0e-f3f71631e11e/resourceGroups/docker/providers/Microsoft.ContainerRegistry/registries/sitecoredemocontainers"}'
+        dockerComposeFile: 'docker-compose.yml'
+        dockerComposeFileArgs: |
+          REGISTRY=$(REGISTRY)
+          DEMO_VERSION=$(tag)
+          WINDOWSSERVERCORE_VERSION=$(WINDOWSSERVERCORE_VERSION)
+          NANOSERVER_VERSION=$(NANOSERVER_VERSION)
+          SITECORE_VERSION=$(SITECORE_VERSION)
+          SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
+          SITECORE_LICENSE=$(SITECORE_LICENSE)
+          TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
+        action: 'Push services'
+        currentWorkingDirectory: '$(Build.SourcesDirectory)'
+        additionalImageTags: '$(additionalImageTags)'

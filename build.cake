@@ -9,7 +9,8 @@
 #load "local:?path=CakeScripts/xml-helpers.cake"
 
 var target = Argument<string>("Target", "Default");
-var deploymentTarget = Argument<string>("DeploymentTarget", "IIS"); // Possible values are 'IIS', 'Folder' and 'Docker'
+var deploymentTarget = Argument<string>("DeploymentTarget", "IIS"); // Possible values are 'IIS', 'Docker' and 'DockerBuild'
+bool usePublicFeedOnly = HasArgument ("PublicFeedsOnly");
 var configuration = new Configuration();
 var cakeConsole = new CakeConsole();
 var configJsonFile = "cake-config.json";
@@ -31,20 +32,64 @@ Setup(context =>
   var configFile = new FilePath(configJsonFile);
   configuration = DeserializeJsonFromFile<Configuration>(configFile);
   configuration.SolutionFile =  $"{configuration.ProjectFolder}\\{configuration.SolutionName}";
+  configuration.PublishWebFolder = $"{configuration.ProjectFolder}\\data\\cm\\src";
 
-  if (deploymentTarget == "Docker") {
-
-    configuration.WebsiteRoot = $"{configuration.ProjectFolder}\\Publish\\Web\\";
-    configuration.XConnectRoot = $"{configuration.ProjectFolder}\\Publish\\xConnect\\";
-    configuration.InstanceUrl = "http://127.0.0.1:44001";     // This is based on the CM container's settings (see docker-compose.yml)
-    configuration.UnicornSerializationFolder = "c:\\unicorn"; // This maps to the container's volume setting (see docker-compose.yml)
-	applyTransforms = false;
-  }
-  else if (deploymentTarget == "Local") {
+  if (deploymentTarget.Contains("Docker"))  {
     publishLocal = true;
     syncUnicorn = false;
-	applyTransforms = false;
+    applyTransforms = false;
+    configuration.UnicornSerializationFolder = "c:\\unicorn"; // This maps to the container's volume setting (see docker-compose.yml)
   }
+
+  if (deploymentTarget == "DockerBuild")  {
+    configuration.PublishWebFolder = $"{configuration.ProjectFolder}\\docker\\images\\windows\\demo-xp-standalone\\Data";
+    configuration.PublishDataFolder = $"{configuration.ProjectFolder}\\docker\\images\\windows\\demo-xp-sqldev\\Data";
+    configuration.PublishxConnectFolder = $"{configuration.ProjectFolder}\\docker\\images\\windows\\demo-xp-xconnect\\Data";
+  }
+
+  if (deploymentTarget == "Docker") {
+    configuration.WebsiteRoot = $"{configuration.ProjectFolder}\\data\\cm\\src\\";
+    configuration.XConnectRoot = $"{configuration.ProjectFolder}\\data\\xconnect\\src\\";
+    configuration.InstanceUrl = "http://127.0.0.1:44001";     // This is based on the CM container's settings (see docker-compose.yml)
+  }
+
+// Automatically add additional NuGet source to local feed at build time
+// Requires environment variables
+//   SYSTEM_ACCESSTOKEN:      DevOps Personal Access Token
+//   INTERNAL_NUGET_SOURCE:   feed's URL
+  var accessToken = EnvironmentVariable ("SYSTEM_ACCESSTOKEN");
+  var internalFeed = EnvironmentVariable ("INTERNAL_NUGET_SOURCE");
+
+  if (!string.IsNullOrEmpty(internalFeed)){
+    var feed = new {
+      Name = "sc-demo-packages-internal",
+      Source = internalFeed
+    };
+    if (NuGetHasSource (source: feed.Source)) {
+      Information("Removing internal NuGet feed");
+      NuGetRemoveSource (
+        name: feed.Name,
+        source: feed.Source
+      );
+    }
+    if (!string.IsNullOrEmpty(accessToken) && !usePublicFeedOnly && !string.IsNullOrEmpty(internalFeed)) {
+      // Add the authenticated feed source
+      var feedSettings = new NuGetSourcesSettings {
+      UserName = "VSTS",
+        Password = accessToken,
+        IsSensitiveSource = true
+
+      };
+      Information("Adding internal NuGet feed");
+      NuGetAddSource (
+        name: feed.Name,
+        source: feed.Source,
+        settings: feedSettings
+      );
+
+    }
+  }
+  // end automatically add NuGet feed
 });
 
 /*===============================================
@@ -58,10 +103,12 @@ Task("Base-PreBuild")
 
 Task("Base-Publish")
 .IsDependentOn("Publish-Core-Project")
+.IsDependentOn("Publish-FrontEnd-Project")
 .IsDependentOn("Apply-DotnetCore-Transforms")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Copy-to-Destination")
-.IsDependentOn("Publish-xConnect-Project");
+.IsDependentOn("Publish-xConnect-Project")
+.IsDependentOn("Modify-Unicorn-Source-Folder");
 
 Task("Default")
 .IsDependentOn("Base-PreBuild")
@@ -184,6 +231,23 @@ Task("Publish-Core-Project").Does(() => {
   DotNetCorePublish(projectFile, settings);
 });
 
+Task("Publish-FrontEnd-Project").Does(() => {
+  var source = $"{configuration.ProjectFolder}\\FrontEnd\\**\\*";
+  var destination = configuration.WebsiteRoot;
+  if (publishLocal) {
+    destination = configuration.PublishWebFolder;
+  }
+  
+  destination = destination + "\\App_Data\\FrontEnd\\-";    
+  EnsureDirectoryExists(destination);
+  Information("Source: " + source);
+  Information("Destination: " + destination);
+
+  var contentFiles = GetFiles(source)
+  .Where(file => !file.FullPath.ToLower().Contains("node_modules"));
+  CopyFiles(contentFiles, destination, preserveFolderStructure: true);
+});
+
 Task("Copy-to-Destination").Does(() => {
   var destination = configuration.WebsiteRoot;
   var publishTempFolder = $"{configuration.PublishTempFolder}";
@@ -258,7 +322,6 @@ Task("Create-UpdatePackage")
 .IsDependentOn("Publish-YML")
 .Does(() => {
   StartPowershellFile(packagingScript, new PowershellSettings()
-    .SetFormatOutput()
     .SetLogOutput()
     .WithArguments(args => {
       args.Append("target", $"{configuration.PublishTempFolder}\\yml")
@@ -272,11 +335,10 @@ Task("Generate-Dacpacs")
 .IsDependentOn("Create-UpdatePackage")
 .Does(() => {
   StartPowershellFile(dacpacScript, new PowershellSettings()
-    .SetFormatOutput()
     .SetLogOutput()
     .WithArguments(args => {
       args.Append("SitecoreAzureToolkitPath", $"{configuration.SitecoreAzureToolkitPath}")
-        .Append("updatePackagePath", $"{configuration.PublishTempFolder}\\update\\package.update")		
+        .Append("updatePackagePath", $"{configuration.PublishTempFolder}\\update\\package.update")
         .Append("securityPackagePath", $"{configuration.PublishTempFolder}\\update\\security.dacpac")
         .Append("destinationPath", $"{configuration.PublishDataFolder}");
     })
@@ -322,7 +384,7 @@ Task("Apply-Xml-Transform")
 Task("Merge-and-Copy-Xml-Transform")
 .WithCriteria(() => (publishLocal || !applyTransforms))
 .Does(() => {
-  // Method will process all transforms from the temporary locations, merge them together and copy them to the temporary Publish\Web directory
+  // Method will process all transforms from the temporary locations, merge them together and copy them to the temporary data\cm\src directory
   string[] excludePattern = {"ssl","azure"};
 
   var PublishTempFolder = $"{configuration.PublishTempFolder}";
@@ -345,10 +407,12 @@ Task("Merge-and-Copy-Xml-Transform")
 });
 
 Task("Modify-Unicorn-Source-Folder")
-.WithCriteria(() => syncUnicorn)
 .Does(() => {
-  var zzzDevSettingsFile = File($"{configuration.WebsiteRoot}/App_config/Include/Project/z.DevSettings.config");
-
+  var destination = configuration.WebsiteRoot;
+  if (publishLocal) {
+    destination = configuration.PublishWebFolder;
+  }
+  var zzzDevSettingsFile = File($"{destination}/App_config/Include/Project/z.DevSettings.config");
   var rootXPath = "configuration/sitecore/sc.variable[@name='{0}']/@value";
   var sourceFolderXPath = string.Format(rootXPath, "sourceFolder");
   var directoryPath = MakeAbsolute(new DirectoryPath(configuration.UnicornSerializationFolder)).FullPath;
@@ -372,7 +436,7 @@ Task("Turn-On-Unicorn")
   };
 
   var unicornAppSettingXPath = "configuration/appSettings/add[@key='unicorn:define']/@value";
-  XmlPoke(webConfigFile, unicornAppSettingXPath, "On", xmlSetting);
+  XmlPoke(webConfigFile, unicornAppSettingXPath, "Enabled", xmlSetting);
 });
 
 Task("Modify-PublishSettings").Does(() => {
@@ -451,22 +515,6 @@ Task("Rebuild-Web-Index")
 Task("Rebuild-Test-Index")
 .WithCriteria(() => !publishLocal).Does(() => {
   RebuildIndex("sitecore_testing_index");
-});
-
-/*===============================================
-============ Packaging Tasks ====================
-===============================================*/
-
-Task("Generate-HabitatHomeUpdatePackages").Does(() => {
-  StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatHomeUpdatePackages.ps1", args => {
-    args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-  });
-});
-
-Task("Generate-HabitatHomeWDP").Does(() => {
-  StartPowershellFile ($"{configuration.ProjectFolder}\\Azure\\HelperScripts\\Generate-HabitatHomeWDP.ps1", args => {
-    args.AppendQuoted($"{configuration.ProjectFolder}\\cake-config.json");
-  });
 });
 
 RunTarget(target);

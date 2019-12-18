@@ -1,6 +1,6 @@
 [CmdletBinding()]
 Param(
-    [string[]]$Folders = @(".\Publish\Web", ".\Publish\xConnect", ".\Publish\Data")
+    [string[]]$Folders = @(".\data\cm\src", ".\data\xconnect\src")
 )
 
 foreach ($folder in $Folders)
