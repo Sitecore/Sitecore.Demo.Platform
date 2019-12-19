@@ -35,7 +35,6 @@ Setup(context =>
   configuration.PublishWebFolder = $"{configuration.ProjectFolder}\\data\\cm\\src";
   configuration.PublishxConnectFolder = $"{configuration.ProjectFolder}\\data\\xconnect\\src";
 
-
   if (deploymentTarget.Contains("Docker"))  {
     configuration.UnicornSerializationFolder = "c:\\unicorn"; // This maps to the container's volume setting (see docker-compose.yml)
     applyTransforms = false;
@@ -45,6 +44,7 @@ Setup(context =>
     configuration.PublishWebFolder = $"{configuration.ProjectFolder}\\docker\\images\\windows\\demo-xp-standalone\\Data";
     configuration.PublishDataFolder = $"{configuration.ProjectFolder}\\docker\\images\\windows\\demo-xp-sqldev\\Data";
     configuration.PublishxConnectFolder = $"{configuration.ProjectFolder}\\docker\\images\\windows\\demo-xp-xconnect\\Data";
+    configuration.PublishxConnectIndexWorkerFolder = $"{configuration.ProjectFolder}\\docker\\images\\windows\\demo-xp-xconnect-indexworker\\Data";
     publishLocal = true;
     syncUnicorn = false;
   }
@@ -52,6 +52,7 @@ Setup(context =>
   if (deploymentTarget == "Docker") {
     configuration.WebsiteRoot = $"{configuration.ProjectFolder}\\data\\cm\\src\\";
     configuration.XConnectRoot = $"{configuration.ProjectFolder}\\data\\xconnect\\src\\";
+    configuration.PublishxConnectIndexWorkerFolder = $"{configuration.ProjectFolder}\\data\\xconnect-indexworker\\src\\";
     configuration.InstanceUrl = "http://127.0.0.1:44001";     // This is based on the CM container's settings (see docker-compose.yml)
   }
 
@@ -110,6 +111,7 @@ Task("Base-Publish")
 .IsDependentOn("Publish-All-Projects")
 .IsDependentOn("Copy-to-Destination")
 .IsDependentOn("Publish-xConnect-Project")
+.IsDependentOn("Publish-xConnect-Project-IndexWorker")
 .IsDependentOn("Modify-Unicorn-Source-Folder");
 
 Task("Default")
@@ -369,6 +371,17 @@ Task("Publish-xConnect-Project").Does(() => {
   }
   PublishProjects(xConnectProject, destination);
 });
+
+Task("Publish-xConnect-Project-IndexWorker")
+.WithCriteria(() => (deploymentTarget.Contains("Docker")))
+.Does(() => {
+  var xConnectProject = $"{configuration.ProjectSrcFolder}\\xConnect";
+  var destination = configuration.PublishxConnectIndexWorkerFolder;
+  PublishProjects(xConnectProject, destination);
+});
+
+
+
 
 Task("Apply-Xml-Transform")
 .WithCriteria(() => (!publishLocal && applyTransforms))

@@ -40,6 +40,7 @@ public class Configuration
   public string ProjectSrcFolder => $"{SourceFolder}\\Project";
   public string PublishWebFolder {get;set;}
   public string PublishxConnectFolder {get;set;}
+  public string PublishxConnectIndexWorkerFolder {get;set;}
   public string PublishDataFolder {get;set;}
 
   public MSBuildToolVersion MSBuildToolVersion => this._msBuildToolVersion;
