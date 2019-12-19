@@ -38,9 +38,10 @@ public class Configuration
   public string FoundationSrcFolder => $"{SourceFolder}\\Foundation";
   public string FeatureSrcFolder => $"{SourceFolder}\\Feature";
   public string ProjectSrcFolder => $"{SourceFolder}\\Project";
-  public string PublishWebFolder => $"{ProjectFolder}\\Publish\\Web";
-  public string PublishxConnectFolder => $"{ProjectFolder}\\Publish\\xConnect";
-  public string PublishDataFolder => $"{ProjectFolder}\\Publish\\Data";
+  public string PublishWebFolder {get;set;}
+  public string PublishxConnectFolder {get;set;}
+  public string PublishxConnectIndexWorkerFolder {get;set;}
+  public string PublishDataFolder {get;set;}
 
   public MSBuildToolVersion MSBuildToolVersion => this._msBuildToolVersion;
   public string BuildTargets => this.RunCleanBuilds ? "Clean;Build" : "Build";
@@ -111,7 +112,7 @@ public FilePathCollection GetTransformFiles(string rootFolder)
 public void Transform(string rootFolder, string filter, string publishDestination, string[] excludePatterns)
 {
   var xdtFiles = GetTransformFiles(rootFolder);
-  
+
 
   foreach (var file in xdtFiles) {
 
@@ -204,14 +205,14 @@ public void WriteError(string errorMessage)
   cakeConsole.ResetColor();
 }
 
-public void MergeTransforms(string source, string destination)
+public void MergeTransforms(string source, string destination, string[] excludePatterns)
 {
   var xdtFiles = GetTransformFiles(source);
 
   foreach (var file in xdtFiles)
   {
-    if (file.FullPath.Contains(".azure"))
-    {
+    if (excludePatterns.Any(s => file.FullPath.ToLower().Contains(s.ToLower()))) {
+      Information ($"Skipping {file}");
       continue;
     }
 

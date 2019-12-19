@@ -48,8 +48,9 @@ Param(
     [switch]$SkipToolPackageRestore,
     [Parameter(Position=0,Mandatory=$false,ValueFromRemainingArguments=$true)]
     [string[]]$ScriptArgs,
-    [ValidateSet("Local", "IIS", "Docker")]
-    [string]$DeploymentTarget
+    [ValidateSet("IIS", "Docker", "DockerBuild")]
+    [string]$DeploymentTarget,
+  	[switch]$PublicFeedsOnly 
 )
 
 # Check if PowerShell is running in Admministrative mode and exit if not:
@@ -243,6 +244,7 @@ if ($DeploymentTarget) {$cakeArguments += "-deploymentTarget=$DeploymentTarget" 
 if ($Configuration) { $cakeArguments += "-configuration=$Configuration" }
 if ($Verbosity) { $cakeArguments += "-verbosity=$Verbosity" }
 if ($ShowDescription) { $cakeArguments += "-showdescription" }
+if ($PublicFeedsOnly) { $cakeArguments += "-publicfeedsonly" }
 if ($DryRun) { $cakeArguments += "-dryrun" }
 $cakeArguments += $ScriptArgs
 
