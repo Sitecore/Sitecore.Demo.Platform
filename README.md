@@ -36,7 +36,7 @@ The code, samples and/or solutions provided in this repository are for example p
 
 ### Prerequisites
 
-The latest Habitat Home demo is built to support **[Sitecore Experience Platform 9.2](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/92/Sitecore_Experience_Platform_92_Initial_Release.aspx)** using **[Sitecore Experience Accelerator (SXA) 1.9](https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/19/Sitecore_Experience_Accelerator_190.aspx)**.
+The latest Habitat Home demo is built to support **[Sitecore Experience Platform 9.3](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/93/Sitecore_Experience_Platform_93_Initial_Release.aspx)** using **[Sitecore Experience Accelerator (SXA) 9.3](https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/9x/Sitecore_Experience_Accelerator_930.aspx)**.
 
 ***In order to follow the build instructions in the README, you need to have [MSBuild Tools for Visual Studio 2019](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) installed.***
 
@@ -81,13 +81,28 @@ The following is a list of default values / assumptions for settings ( `cake-con
 | Instance Url | Url of site | https://habitathome.dev.local/
 | BuildConfiguration | 'Debug/Release' point to NuGet, 'Local' copies DLLs from an existing installation | Debug
 | DeployFolder | Used for WDP generation and Azure deployments | C:\\deploy
-| Version | Version of Sitecore being targeted. Must match official 3-digit version | 9.2.0
+| Version | Version of Sitecore being targeted. Must match official 3-digit version | 9.3.0
 
 ### Deploying HabitatHome Locally
 
-Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.2** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/92/Sitecore_Experience_Platform_92_Initial_Release.aspx).
+Prior to attempting the demo installation, ensure you have a working **Sitecore XP 9.3** instance. Detailed installation instructions can be found at [doc.sitecore.com](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/93/Sitecore_Experience_Platform_93_Initial_Release.aspx).
 
-## Local Build / Deployment
+## Local Build / Docker Deployment 
+
+### Prerequisites
+
+1. Windows 1809 or higher, but prefer version 1909  
+2. The latest Docker Desktop **[Docker Desktop](https://docs.docker.com/docker-for-windows/install/)** 
+3. From the Docker Desktop menu, you can toggle which daemon (Linux or Windows) the Docker CLI talks to. Select Switch to Windows containers to use `Windows containers`
+4. Pre-build [docker-images](https://github.com/Sitecore/docker-images/blob/master/README.md) local or taken from your own `ACR` 
+
+## Starting the demo
+
+1. Run `docker-compose up -d`
+2. Browse to [http://localhost:44001](http://localhost:44001)
+3. .\build.ps1 -DeploymentTarget Docker
+
+## Local Build / Deployment 
 
 ### The hostname habitathome.dev.local is used in the SXA Hostname (Site Grouping)
 
@@ -123,9 +138,9 @@ Note: If the deployment fails at `Sync-Unicorn` or `Deploy-EXM-Campaigns` step, 
 
 When Unicorn is active, the Content Editor will display warnings that certain items are controlled by Unicorn. If you wish to disable Unicorn serialization, open the Web.config file in your webroot and update the following appSetting
 
-    <add key="unicorn:define" value="Off"/>
+    <add key="unicorn:define" value="Disabled"/>
 
-This appSetting is `On` by default. Setting it to `Off` ensures that none of the Unicorn serialization configuration files are loaded.
+This appSetting is `Enabled` by default. Setting it to `Disabled` ensures that none of the Unicorn serialization configuration files are loaded.
 
 ## Contribute or Issues
 
