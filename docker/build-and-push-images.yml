@@ -39,6 +39,12 @@ stages:
         script: 'echo "##vso[task.setvariable variable=tag]$(GitVersion.MajorMinorPatch)"'
       condition: eq(variables['GitVersion.PreReleaseLabel'], '')
     - task: PowerShell@2
+      displayName: 'Non-versioned image tag for Pull Request'
+      inputs:
+        targetType: 'inline'
+        script: 'echo "##vso[task.setvariable variable=tag]$(GitVersion.PreReleaseLabel)"'
+      condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+    - task: PowerShell@2
       displayName: 'Set :latest tag'
       inputs:
         targetType: 'inline'
