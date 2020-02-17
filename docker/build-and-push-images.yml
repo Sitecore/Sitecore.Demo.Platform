@@ -26,7 +26,9 @@ stages:
       demands:
         - Agent.OS -equals Windows_NT
     steps:
-
+    - task: NuGetToolInstaller@1
+      inputs:
+        versionSpec: 
     - task: GitVersion@5
       inputs:
         runtime: 'full'

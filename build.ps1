@@ -50,7 +50,7 @@ Param(
     [string[]]$ScriptArgs,
     [ValidateSet("IIS", "Docker", "DockerBuild")]
     [string]$DeploymentTarget,
-  	[switch]$PublicFeedsOnly 
+    [switch]$PublicFeedsOnly
 )
 
 # Check if PowerShell is running in Admministrative mode and exit if not:
@@ -194,6 +194,16 @@ if(-Not $SkipToolPackageRestore.IsPresent) {
     Write-Verbose -Message ($NuGetOutput | out-string)
 
     Pop-Location
+}
+
+# Automatically add additional NuGet source to local feed at build time. Requires environment variables.
+$accessToken = $env:SYSTEM_ACCESSTOKEN
+$internalFeed = $env:INTERNAL_NUGET_SOURCE
+
+if($accessToken -and $internalFeed)
+{
+  nuget sources add -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken | Out-Null
+  nuget sources update -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken
 }
 
 # Restore addins from NuGet

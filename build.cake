@@ -53,44 +53,6 @@ Setup(context =>
     configuration.PublishxConnectIndexWorkerFolder = $"{configuration.ProjectFolder}\\data\\xconnect-indexworker\\src\\";
     configuration.InstanceUrl = "http://127.0.0.1:44001";     // This is based on the CM container's settings (see docker-compose.yml)
   }
-
-// Automatically add additional NuGet source to local feed at build time
-// Requires environment variables
-//   SYSTEM_ACCESSTOKEN:      DevOps Personal Access Token
-//   INTERNAL_NUGET_SOURCE:   feed's URL
-  var accessToken = EnvironmentVariable ("SYSTEM_ACCESSTOKEN");
-  var internalFeed = EnvironmentVariable ("INTERNAL_NUGET_SOURCE");
-
-  if (!string.IsNullOrEmpty(internalFeed)){
-    var feed = new {
-      Name = "sc-demo-packages-internal",
-      Source = internalFeed
-    };
-    if (NuGetHasSource (source: feed.Source)) {
-      Information("Removing internal NuGet feed");
-      NuGetRemoveSource (
-        name: feed.Name,
-        source: feed.Source
-      );
-    }
-    if (!string.IsNullOrEmpty(accessToken) && !usePublicFeedOnly && !string.IsNullOrEmpty(internalFeed)) {
-      // Add the authenticated feed source
-      var feedSettings = new NuGetSourcesSettings {
-      UserName = "VSTS",
-        Password = accessToken,
-        IsSensitiveSource = true
-
-      };
-      Information("Adding internal NuGet feed");
-      NuGetAddSource (
-        name: feed.Name,
-        source: feed.Source,
-        settings: feedSettings
-      );
-
-    }
-  }
-  // end automatically add NuGet feed
 });
 
 /*===============================================
