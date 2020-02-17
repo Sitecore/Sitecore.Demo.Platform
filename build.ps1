@@ -202,8 +202,8 @@ $internalFeed = $env:INTERNAL_NUGET_SOURCE
 
 if($accessToken -and $internalFeed)
 {
-  nuget sources add -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken | Out-Null
-  nuget sources update -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken
+  & "$NUGET_EXE" sources add -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken | Out-Null
+  & "$NUGET_EXE" sources update -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken
 }
 
 # Restore addins from NuGet
