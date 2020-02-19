@@ -240,6 +240,17 @@ services:
       - solr
       - xconnect
     networks:
+      demo:
+        aliases:
+          - habitathome.dev.local
+  monitor:
+    image: ${REGISTRY}sitecore-hostswriter:9174-nanoserver-${NANOSERVER_VERSION}
+    volumes:
+      - C:/windows/system32/drivers/etc:C:\driversetc
+      - source: '\\.\pipe\docker_engine'
+        target: '\\.\pipe\docker_engine'
+        type: npipe
+    networks:
       - demo
 
 networks:
