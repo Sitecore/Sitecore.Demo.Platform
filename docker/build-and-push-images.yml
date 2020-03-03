@@ -86,8 +86,8 @@ stages:
       displayName: "Docker Compose Build"
       inputs:
         containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'AzureSubscription'
-        azureContainerRegistry: 'docker-registry'
+        azureSubscription: 'MK-NA_US_East-PM-DEMO-INT-JFL-1500 (8ae723fd-8e32-44bd-bd0e-f3f71631e11e)'
+        azureContainerRegistry: '{"loginServer":"sitecoredemocontainers.azurecr.io", "id" : "/subscriptions/8ae723fd-8e32-44bd-bd0e-f3f71631e11e/resourceGroups/docker/providers/Microsoft.ContainerRegistry/registries/sitecoredemocontainers"}'
         dockerComposeFile: 'docker-compose.yml'
         dockerComposeFileArgs: |
           DEMO_VERSION=$(tag)
@@ -100,13 +100,14 @@ stages:
           TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
         action: 'Build services'
         additionalImageTags: '$(additionalImageTags)'
-        arguments: '-m 16G --parallel'
+        arguments: '-m 16G'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
     - task: DockerCompose@0
       displayName: "Push Images"
       inputs:
-        containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'docker-registry-push'
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'MK-NA_US_East-PM-DEMO-INT-JFL-1500 (8ae723fd-8e32-44bd-bd0e-f3f71631e11e)'
+        azureContainerRegistry: '{"loginServer":"sitecoredemocontainers.azurecr.io", "id" : "/subscriptions/8ae723fd-8e32-44bd-bd0e-f3f71631e11e/resourceGroups/docker/providers/Microsoft.ContainerRegistry/registries/sitecoredemocontainers"}'
         dockerComposeFile: 'docker-compose.yml'
         dockerComposeFileArgs: |
           REGISTRY=$(REGISTRY)
