@@ -42,6 +42,7 @@ services:
       context: .\docker\images\windows\demo-xp-ps
       args:
         BASE_IMAGE: ${REGISTRY}sitecore-ps:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    restart: unless-stopped
     environment:
       CONN_STRING_CORE: Data Source=sql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       CONN_STRING_MASTER: Data Source=sql;Initial Catalog=Sitecore.Master;User ID=sa;Password=${SQL_SA_PASSWORD}
