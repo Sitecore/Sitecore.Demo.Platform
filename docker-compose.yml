@@ -131,35 +131,6 @@ services:
     networks:
       - demo
 
-  xconnect-processingengine:
-    image: ${REGISTRY}habitathome-processingengine:${DEMO_VERSION}
-    isolation: hyperv
-    build:
-      context: .\docker\images\windows\demo-xp-xconnect-processingengine
-      args:
-        BASE_IMAGE: ${REGISTRY}sitecore-xp-xconnect-processingengine:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
-    volumes:
-      - .\data\xconnect-processingengine:C:\inetpub\wwwroot\App_Data\logs
-    mem_limit: 500MB
-    restart: unless-stopped
-    environment:
-      SITECORE_LICENSE: ${SITECORE_LICENSE}
-      SITECORE_CONNECTIONSTRINGS_PROCESSING.ENGINE.STORAGE: Data Source=sql;Database=Sitecore.Processing.Engine.Storage;User ID=sa;Password=${SQL_SA_PASSWORD}
-      SITECORE_CONNECTIONSTRINGS_PROCESSING.ENGINE.TASKS: Data Source=sql;Database=Sitecore.Processing.Engine.Tasks;User ID=sa;Password=${SQL_SA_PASSWORD}
-      SITECORE_CONNECTIONSTRINGS_PROCESSING.WEBAPI.BLOB: http://xconnect
-      SITECORE_CONNECTIONSTRINGS_PROCESSING.WEBAPI.TABLE: http://xconnect
-      SITECORE_CONNECTIONSTRINGS_XCONNECT.COLLECTION: http://xconnect
-      SITECORE_CONNECTIONSTRINGS_XCONNECT.CONFIGURATION: http://xconnect
-      SITECORE_CONNECTIONSTRINGS_XCONNECT.SEARCH: http://xconnect
-      SITECORE_CONNECTIONSTRINGS_MESSAGING: Data Source=sql;Database=Sitecore.Messaging;User ID=sa;Password=${SQL_SA_PASSWORD}
-      SITECORE_CONNECTIONSTRINGS_REPORTING: Data Source=sql;Database=Sitecore.Reporting;User ID=sa;Password=${SQL_SA_PASSWORD}
-      SITECORE_SETTINGS:SERILOG:MINIMUMLEVEL:DEFAULT: Information
-    depends_on:
-      - sql
-      - xconnect
-    networks:
-      - demo
-
   cd:
     image: ${REGISTRY}habitathome-cd:${DEMO_VERSION}
     isolation: hyperv
