@@ -170,7 +170,7 @@ services:
       context: .\docker\images\windows\demo-xp-standalone
       args:
         BASE_IMAGE: ${REGISTRY}sitecore-xp-sxa-ps-standalone:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
-    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('Web.config'); }"
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('C:\\src\\Web.config'); }"
     mem_limit: 4G
     volumes:
       - .\data\cm\src:C:\src
