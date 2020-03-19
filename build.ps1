@@ -245,7 +245,10 @@ if (!(Test-Path $CAKE_EXE)) {
     Throw "Could not find Cake.exe at $CAKE_EXE"
 }
 
-
+# Only download when DeploymentTarget equals DockerBuild
+if ($DeploymentTarget -eq "DockerBuild") {
+    ./download-wdps.ps1
+}
 
 # Build Cake arguments
 $cakeArguments = @("$Script");

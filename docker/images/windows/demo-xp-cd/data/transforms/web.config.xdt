@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <modules>
+      <remove name="FormsAuthentication" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+    </modules>
+  </system.webServer>
+  <system.web>
+    <authentication mode="None" xdt:Transform="Replace"></authentication>
+  </system.web>
+  <appSettings>
+    <!-- SUPPORTED ENVIRONMENTS
+         Local
+         Production
+    Default value: Local
+    -->
+    <add key="env:define" value="Local" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <!-- UNICORN MODE SUPPORTED VALUES
+         On
+         Off
+    Default value: On
+    -->
+    <add key="unicorn:define" value="Disabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <!-- PUBLISHING SERVICE MODE SUPPORTED VALUES
+         On
+         Off
+    Default value: Off
+    -->
+    <add key="publishingservice:define" value="Disabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <!-- THIRD PARTY INTEGRATIONS: SUPPORTED VALUES
+         None (disables all)
+         Dynamics (CRM integration with Data Exchange Framework)
+         Salesforce (CRM integration with Data Exchange Framework)
+         Facebook (Fed Auth with Facebook)
+         MS (Fed Auth with Microsoft)
+         CDN (Azure CDN integration)
+
+         example: <add key="integrations:define" value="Dynamics,Salesforce,Facebook,MS,CDN" />
+
+   Default value: None
+    -->
+    <add key="integrations:define" value="None" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+  </appSettings>
+</configuration>
