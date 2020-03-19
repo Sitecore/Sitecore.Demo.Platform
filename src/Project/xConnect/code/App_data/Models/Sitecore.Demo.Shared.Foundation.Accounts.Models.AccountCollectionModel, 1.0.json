@@ -1,0 +1,48 @@
+{
+  "Name": "Sitecore.Demo.Shared.Foundation.Accounts.Models.AccountCollectionModel",
+  "Version": "1.0",
+  "References": [
+    {
+      "Name": "XConnect",
+      "Version": "1.0"
+    },
+    {
+      "Name": "Sitecore.XConnect.Collection.Model",
+      "Version": "9.3"
+    }
+  ],
+  "Types": {
+    "Sitecore.Demo.Shared.Foundation.Accounts.Models.Facets.SportName": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Sitecore.Demo.Shared.Foundation.Accounts.Models.Facets.SportName, Sitecore.Demo.Shared.Foundation.Accounts, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "Value": {
+          "Type": "String"
+        }
+      }
+    },
+    "Sitecore.Demo.Shared.Foundation.Accounts.Models.Facets.SportType": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Sitecore.Demo.Shared.Foundation.Accounts.Models.Facets.SportType, Sitecore.Demo.Shared.Foundation.Accounts, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "Value": {
+          "Type": "String"
+        }
+      }
+    }
+  },
+  "Facets": [
+    {
+      "Target": "Contact",
+      "Name": "SportName",
+      "Type": "Sitecore.Demo.Shared.Foundation.Accounts.Models.Facets.SportName"
+    },
+    {
+      "Target": "Contact",
+      "Name": "SportType",
+      "Type": "Sitecore.Demo.Shared.Foundation.Accounts.Models.Facets.SportType"
+    }
+  ]
+}

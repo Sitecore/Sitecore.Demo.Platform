@@ -1,0 +1,43 @@
+﻿---
+ID: "6b0c8552-3d0e-478f-9622-0e9d04dc0b16"
+Parent: "dc18fce3-8801-4dbf-aaaa-df074bf5dec8"
+Template: "d4d43c33-3661-4630-af63-0754cab7b110"
+Path: /sitecore/system/Marketing Control Panel/Automation Plans/2019/12/10/20/46/HabitatHome Abandoned Cart
+DB: master
+SharedFields:
+- ID: "1766652d-080b-409c-abbf-3a90e0f801f5"
+  Hint: Start Date
+  Value: 00010101T000000Z
+- ID: "2c41a32f-86a9-4f43-8550-bf0af266e3f2"
+  Hint: End Date
+  Value: 20241210T204645Z
+- ID: "394d49b2-b579-43aa-ab32-b4010b18fd07"
+  Hint: Marketing Theme
+  Value: "85506484-7854-4b14-ab0c-dfc61ca65cc0"
+- ID: "3fb918c8-08ec-4879-8062-088bbf71ee72"
+  Hint: Plan Data
+  Value: |
+    {"ReentryMode":1,"ContextKeyFactoryType":null,"EntryActivityId":"e4684b8e-72e6-6a74-fa31-840ad3a52b93","NewEnrollmentRegulatorType":null,"NewEnrollmentRegulatorParameters":null,"Alias":"HabitatHome Abandoned Cart","IgnoreIsActiveProperty":true,"Activities":{"e4684b8e-72e6-6a74-fa31-840ad3a52b93":{"Paths":{"default":"622086f9-cba2-8b7c-cac0-3721340e0319"},"Id":"e4684b8e-72e6-6a74-fa31-840ad3a52b93","ActivityTypeId":"8c92d3c1-2c38-4e8a-92d1-9590e17cce89","Parameters":{"EventIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"GoalIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["03a5996c-e2db-441a-8c4d-942be038a16b"]},"OutcomeIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"TestOperation":0,"UseCondition":false}},"622086f9-cba2-8b7c-cac0-3721340e0319":{"Paths":{"false":"92fcc090-a84a-3d8b-768d-bb8d7606f4f6","true":"0efce5a3-08bd-af12-1f4a-82413b327c80"},"Id":"622086f9-cba2-8b7c-cac0-3721340e0319","ActivityTypeId":"7fca5e5b-4796-4d7e-abec-28f376e4d7e2","Parameters":{"Condition":{"$type":"Sitecore.Marketing.Rules.Rule[], Sitecore.Marketing","$values":[{"Id":"edf06467-a0db-42ed-bd23-7d30095a4140","Name":" ","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=13.1.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"$type":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing","Id":"c12d9b91-97e2-4ded-9c48-79943cc9e53f","DescriptorId":"47134e14-c9ff-4c9a-816d-7cfd92e7616d","Properties":{"$type":"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String, mscorlib]], mscorlib"}}}]},"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"00:02:00","WaitUntil":null},"Name":"Check cart activities"}},"92fcc090-a84a-3d8b-768d-bb8d7606f4f6":{"Paths":{"false":"948fef06-afc9-38da-2f68-e3b5a823ca17","true":"d466f40e-9edd-862e-f5ca-b4e99e081b76"},"Id":"92fcc090-a84a-3d8b-768d-bb8d7606f4f6","ActivityTypeId":"e16592de-c9cd-4926-8f39-beb3db067d0a","Parameters":{"Condition":{"$type":"Sitecore.Marketing.Rules.Rule[], Sitecore.Marketing","$values":[{"Id":"3c4b01f6-4b54-4b36-9eaf-0f9bd911e79f","Name":" ","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=13.1.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"$type":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing","Id":"921da6c7-5f3f-4b6f-94cd-855411b568e9","DescriptorId":"a3362146-1f26-4046-bc25-fe51415eb78d","Properties":{"$type":"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String, mscorlib]], mscorlib"}}}]},"Name":"Is the Contact Cart Empty"}},"948fef06-afc9-38da-2f68-e3b5a823ca17":{"Paths":{"false":"d466f40e-9edd-862e-f5ca-b4e99e081b76","true":"7e90a08c-8070-0dc0-5efa-5b6c5160a99d"},"Id":"948fef06-afc9-38da-2f68-e3b5a823ca17","ActivityTypeId":"e16592de-c9cd-4926-8f39-beb3db067d0a","Parameters":{"Condition":{"$type":"Sitecore.Marketing.Rules.Rule[], Sitecore.Marketing","$values":[{"Id":"d490ac7d-26af-4c16-8a2f-8c48d7a28cca","Name":" ","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=13.1.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"$type":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing","Id":"bfbcf517-5dbc-4f41-8f93-2429834e7753","DescriptorId":"5915ea5a-aa31-4696-b440-6fd75cf06ded","Properties":{"$type":"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String, mscorlib]], mscorlib"}}}]},"Name":"Contact has an Email"}},"7e90a08c-8070-0dc0-5efa-5b6c5160a99d":{"Paths":{"default":"b54e8da1-a909-3be2-f3d2-11643831dceb"},"Id":"7e90a08c-8070-0dc0-5efa-5b6c5160a99d","ActivityTypeId":"67cf10d8-0f12-4829-a25b-5cc5cba01ca9","Parameters":{"MessageId":"9249b1e3-7cd9-4ed3-adfb-ed42634392e9"}},"b54e8da1-a909-3be2-f3d2-11643831dceb":{"Paths":{"default":"f442d50f-dd9e-dd5b-1f36-6d4708a77ec6"},"Id":"b54e8da1-a909-3be2-f3d2-11643831dceb","ActivityTypeId":"9046a4aa-07d9-4377-8a6e-1db27765b2ba","Parameters":{"Name":"Delay","ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"1.00:00:00","WaitUntil":null}}},"f442d50f-dd9e-dd5b-1f36-6d4708a77ec6":{"Paths":{"default":"d466f40e-9edd-862e-f5ca-b4e99e081b76"},"Id":"f442d50f-dd9e-dd5b-1f36-6d4708a77ec6","ActivityTypeId":"7ae9476d-816e-44bf-b9b5-a2ca339e5db5","Parameters":{}},"0efce5a3-08bd-af12-1f4a-82413b327c80":{"Paths":{"default":"c48ce0fc-c716-e036-b78b-c502a8358d8f"},"Id":"0efce5a3-08bd-af12-1f4a-82413b327c80","ActivityTypeId":"9046a4aa-07d9-4377-8a6e-1db27765b2ba","Parameters":{"Name":"Delay","ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"00:01:00","WaitUntil":null}}},"c48ce0fc-c716-e036-b78b-c502a8358d8f":{"Paths":{"default":"d466f40e-9edd-862e-f5ca-b4e99e081b76"},"Id":"c48ce0fc-c716-e036-b78b-c502a8358d8f","ActivityTypeId":"44a0f03f-1892-4e91-8def-0e5dd28376ec","Parameters":{}},"d466f40e-9edd-862e-f5ca-b4e99e081b76":{"Paths":{},"Id":"d466f40e-9edd-862e-f5ca-b4e99e081b76","ActivityTypeId":"a47371c2-8921-421f-8902-f3eccd229d56","Parameters":{}}},"UniversalActivities":{}}
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191210T204645Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: HabitatHome Abandoned Cart
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "e259e500-b38e-41fe-82db-8b604bcf9e75"
+      Hint: Description
+      Value: Handles the shop cart abandoned process.

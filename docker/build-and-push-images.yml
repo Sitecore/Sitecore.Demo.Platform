@@ -2,9 +2,7 @@
 trigger:
   branches:
     include:
-    - master
     - develop
-    - release/*
 
 resources:
 - repo: self
@@ -26,7 +24,9 @@ stages:
       demands:
         - Agent.OS -equals Windows_NT
     steps:
-
+    - task: NuGetToolInstaller@1
+      inputs:
+        versionSpec: 
     - task: GitVersion@5
       inputs:
         runtime: 'full'
@@ -38,6 +38,12 @@ stages:
         targetType: 'inline'
         script: 'echo "##vso[task.setvariable variable=tag]$(GitVersion.MajorMinorPatch)"'
       condition: eq(variables['GitVersion.PreReleaseLabel'], '')
+    - task: PowerShell@2
+      displayName: 'Tag the PR without the version number'
+      inputs:
+        targetType: 'inline'
+        script: 'echo "##vso[task.setvariable variable=tag]$(GitVersion.PreReleaseLabel)"'
+      condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
     - task: PowerShell@2
       displayName: 'Set :latest tag'
       inputs:
@@ -65,10 +71,20 @@ stages:
           $escapedPath = "f:\assets\sat" |ConvertTo-Json # TODO - bad assumption that SAT exists
           (Get-Content cake-config.json) -replace '(\"SitecoreAzureToolkitPath\":) \"(.*)\"', "`$1$escapedPath" |Set-Content .\cake-config.json
         workingDirectory: '$(Build.SourcesDirectory)'
+    - task: AzureCLI@2
+      displayName: Azure CLI
+      inputs:
+        azureSubscription: $(azure.subscription)
+        scriptType: ps
+        scriptLocation: inlineScript
+        inlineScript: |
+            az --version
+            az account show
+            .\download-wdps.ps1
     - task: PowerShell@2
       env:
         SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-        INTERNAL_NUGET_SOURCE: "$(Nuget.Internal.Feed.Url)"
+        INTERNAL_NUGET_SOURCE: $(nuget.source)
       displayName: "Build Solution"
       inputs:
         filePath: 'build.ps1'
@@ -78,8 +94,8 @@ stages:
       displayName: "Docker Compose Build"
       inputs:
         containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'AzureSubscription'
-        azureContainerRegistry: 'docker-registry'
+        azureSubscription: $(azure.subscription)
+        azureContainerRegistry: $(container.registry)
         dockerComposeFile: 'docker-compose.yml'
         dockerComposeFileArgs: |
           DEMO_VERSION=$(tag)
@@ -97,8 +113,9 @@ stages:
     - task: DockerCompose@0
       displayName: "Push Images"
       inputs:
-        containerregistrytype: 'Container Registry'
-        dockerRegistryEndpoint: 'docker-registry-push'
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: $(azure.subscription)
+        azureContainerRegistry: $(container.registry)
         dockerComposeFile: 'docker-compose.yml'
         dockerComposeFileArgs: |
           REGISTRY=$(REGISTRY)
@@ -110,5 +127,5 @@ stages:
           SITECORE_LICENSE=$(SITECORE_LICENSE)
           TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
         action: 'Push services'
-        additionalImageTags: '$(additionalImageTags)'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
+        additionalImageTags: '$(additionalImageTags)'

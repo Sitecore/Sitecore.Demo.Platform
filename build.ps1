@@ -50,7 +50,7 @@ Param(
     [string[]]$ScriptArgs,
     [ValidateSet("IIS", "Docker", "DockerBuild")]
     [string]$DeploymentTarget,
-  	[switch]$PublicFeedsOnly 
+    [switch]$PublicFeedsOnly
 )
 
 # Check if PowerShell is running in Admministrative mode and exit if not:
@@ -196,6 +196,16 @@ if(-Not $SkipToolPackageRestore.IsPresent) {
     Pop-Location
 }
 
+# Automatically add additional NuGet source to local feed at build time. Requires environment variables.
+$accessToken = $env:SYSTEM_ACCESSTOKEN
+$internalFeed = $env:INTERNAL_NUGET_SOURCE
+
+if($accessToken -and $internalFeed)
+{
+  & "$NUGET_EXE" sources add -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken | Out-Null
+  & "$NUGET_EXE" sources update -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken
+}
+
 # Restore addins from NuGet
 if (Test-Path $ADDINS_PACKAGES_CONFIG) {
     Push-Location
@@ -235,7 +245,10 @@ if (!(Test-Path $CAKE_EXE)) {
     Throw "Could not find Cake.exe at $CAKE_EXE"
 }
 
-
+# Only download when DeploymentTarget equals DockerBuild
+if ($DeploymentTarget -eq "DockerBuild") {
+    ./download-wdps.ps1
+}
 
 # Build Cake arguments
 $cakeArguments = @("$Script");
