@@ -4,7 +4,7 @@
 #addin nuget:?package=Cake.Powershell&version=0.4.8
 #addin nuget:?package=Cake.XdtTransform&version=0.16.0
 #addin nuget:?package=Newtonsoft.Json&version=11.0.2
-#addin nuget:?package=Cake.SitecoreDemo&version=930.2.10
+#addin nuget:?package=Cake.SitecoreDemo&version=930.2.11
 
 var target = Argument<string>("Target", "Default");
 var deploymentTarget = Argument<string>("DeploymentTarget", "IIS"); // Possible values are 'IIS', 'Docker' and 'DockerBuild'
