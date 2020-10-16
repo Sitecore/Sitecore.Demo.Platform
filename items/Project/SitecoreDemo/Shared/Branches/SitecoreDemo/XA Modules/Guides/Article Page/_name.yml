@@ -1,0 +1,31 @@
+﻿---
+ID: "c378d422-7669-49fe-a21d-af2ec8c57a87"
+Parent: "cc8a8c28-8d50-4d3e-871b-06816d1f73c4"
+Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
+Path: /sitecore/templates/Branches/Project/Demo Shared SXA Sites/SitecoreDemo/XA Modules/Guides/Article Page/$name
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{B92947D7-F9D5-4781-8796-5B17A7B5FBF7}"
+          s:ds=""
+          s:id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/sxa-article-content/container-1/column-2-2/container-4" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180706T144709Z

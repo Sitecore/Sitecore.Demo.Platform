@@ -1,0 +1,44 @@
+﻿---
+ID: "1cbaa182-1194-421b-b403-86a07afce3ee"
+Parent: "bb306e0a-cbb6-44e6-8956-bdaec3ab1468"
+Template: "d4d43c33-3661-4630-af63-0754cab7b110"
+Path: "/sitecore/system/Marketing Control Panel/Automation Plans/2018/03/21/21/22/1cbaa182-1194-421b-b403-86a07afce3ee"
+DB: master
+SharedFields:
+- ID: "1766652d-080b-409c-abbf-3a90e0f801f5"
+  Hint: Start Date
+  Value: 00010101T000000
+- ID: "2c41a32f-86a9-4f43-8550-bf0af266e3f2"
+  Hint: End Date
+  Value: 20270630T210214Z
+- ID: "394d49b2-b579-43aa-ab32-b4010b18fd07"
+  Hint: Marketing Theme
+  Value: 
+- ID: "3fb918c8-08ec-4879-8062-088bbf71ee72"
+  Hint: Plan Data
+  Value: |
+    {"ReentryMode":0,"ContextKeyFactoryType":null,"EntryActivityId":"7637f1bd-bcd0-826b-7146-8698712616e8","NewEnrollmentRegulatorType":null,"NewEnrollmentRegulatorParameters":null,"PlanEntrySchedule":null,"ScheduledContactListId":null,"Alias":"1cbaa182-1194-421b-b403-86a07afce3ee","IgnoreIsActiveProperty":true,"Activities":{"7637f1bd-bcd0-826b-7146-8698712616e8":{"Paths":{"default":"9237a943-c6aa-e3b7-b402-fee21d114b9d"},"Id":"7637f1bd-bcd0-826b-7146-8698712616e8","ActivityTypeId":"8c92d3c1-2c38-4e8a-92d1-9590e17cce89","Parameters":{"EventIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"GoalIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["a81fc0a2-bfba-439b-b412-ee6f07379f14"]},"OutcomeIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"TestOperation":0,"UseCondition":false}},"9237a943-c6aa-e3b7-b402-fee21d114b9d":{"Paths":{"false":"a2cd9d2e-2eb8-621a-18ec-d834288a4fb1","true":"5cc68ad8-ace1-3539-4063-99bf84c22e74"},"Id":"9237a943-c6aa-e3b7-b402-fee21d114b9d","ActivityTypeId":"bb714802-ce83-491f-963f-16fb11c61bf2","Parameters":{"Goals":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["a39866ff-6b67-49a1-9d42-34890abb4815"]},"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"00:05:00","WaitUntil":null},"MatchAll":false,"Name":"Goal triggered"}},"a2cd9d2e-2eb8-621a-18ec-d834288a4fb1":{"Paths":{"default":"5cc68ad8-ace1-3539-4063-99bf84c22e74"},"Id":"a2cd9d2e-2eb8-621a-18ec-d834288a4fb1","ActivityTypeId":"51774db5-b90b-4189-9613-104039723a0b","Parameters":{"MessageId":"5f21f55a-900b-4783-92c7-de1a420c8bc6"}},"5cc68ad8-ace1-3539-4063-99bf84c22e74":{"Paths":{},"Id":"5cc68ad8-ace1-3539-4063-99bf84c22e74","ActivityTypeId":"a47371c2-8921-421f-8902-f3eccd229d56","Parameters":{}}},"UniversalActivities":{}}
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180324T013812Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: "Fitness - Fitness Tracker Registered"
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

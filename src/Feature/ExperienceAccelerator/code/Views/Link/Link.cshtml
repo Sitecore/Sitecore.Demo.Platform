@@ -1,0 +1,41 @@
+﻿@using Sitecore.XA.Feature.Navigation.Models
+@using Sitecore.XA.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.XA.Foundation.MarkupDecorator.Extensions
+@using Sitecore.XA.Foundation.RenderingVariants.Extensions
+@using Sitecore.XA.Foundation.Variants.Abstractions.Fields
+
+
+@model Sitecore.XA.Feature.Navigation.Models.LinkRenderingModel
+
+
+@if (string.IsNullOrEmpty(@RenderingContext.CurrentOrNull.Rendering.DataSource) || Model.DataSourceItem == null)
+{
+	return;
+}
+
+<div @Html.Sxa().Component(Model.Rendering.RenderingCssClass ?? "link", Model.Attributes)>
+	<div class="component-content">
+
+		@if (@Model.HyperlinkLinkType == LinkType.Specific)
+		{
+			foreach (BaseVariantField variantField in Model.VariantFields)
+			{
+				@Html.RenderingVariants().RenderVariant(variantField, Model.DataSourceItem, Model.RenderingWebEditingParams, Model)
+			}
+		}
+		else
+		{
+			if (Model.AdjacentItem != null)
+			{
+				foreach (BaseVariantField variantField in Model.VariantFields)
+				{
+					@Html.RenderingVariants().RenderVariant(variantField, @Model.AdjacentItem, Model.RenderingWebEditingParams, Model)
+				}
+			}
+			else
+			{
+				@Model.MessageIsEmpty
+			}
+		}
+	</div>
+</div>

@@ -1,0 +1,38 @@
+﻿---
+ID: "d87aac6d-d68e-480c-a150-8672e7f89633"
+Parent: "64fe6d79-717b-4337-af5f-7d22e227813b"
+Template: "587f891a-8df6-444c-89d1-b3ab83cffb63"
+Path: "/sitecore/content/SFMC Tenant/Pipelines/Push xConnect Contacts/Process Single xConnect Contact/Try To Execute Queue - xDB Contacts Upsert"
+DB: master
+SharedFields:
+- ID: "13ccd004-eb1f-42d2-8e23-35baeb70c15e"
+  Hint: ResponseHandler
+  Value: "{99FD1BB6-B586-4051-9022-0C520F2DDBF6}"
+- ID: "7914afe0-3f94-4029-8997-d7740c2ff1dc"
+  Hint: Endpoint
+  Value: "{689FB77D-6A64-4B0F-A2ED-66BD430D70D2}"
+- ID: "9b1aedfc-7599-4040-9e5e-32debc185592"
+  Hint: Conditions
+  Type: Treelist
+  Value: "{A199C47A-3874-426A-B31B-BDD349CCFDF1}"
+- ID: "b03c77b6-da59-451b-ac78-7a260f2840f2"
+  Hint: Request
+  Value: "{ED824A6C-AD86-4A8B-BA8E-47F7A4DA3EDB}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 450
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D87AAC6D-D68E-480C-A150-8672E7F89633}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163707Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

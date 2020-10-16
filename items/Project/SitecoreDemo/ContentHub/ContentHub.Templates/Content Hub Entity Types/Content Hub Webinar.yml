@@ -1,0 +1,27 @@
+﻿---
+ID: "ec72f1a0-1ef5-49cd-8cd9-1095a2801475"
+Parent: "f2a8962f-7b7b-4985-a68d-339b7cd66d3b"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/Demo Shared SXA Sites/Content Hub Entity Types/Content Hub Webinar
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/monitor.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: |
+    {76036F5E-CBCE-46D1-AF0A-4143F9B557AA}
+    {0D17BE5B-EC2A-4296-8D3F-930EB60DFE7C}
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{C385DA28-0BA3-4C5B-B320-9DB2EEB5B61D}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190614T160624Z

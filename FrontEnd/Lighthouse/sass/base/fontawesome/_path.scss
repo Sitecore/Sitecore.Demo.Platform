@@ -1,0 +1,15 @@
+/* FONT PATH
+ * -------------------------- */
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('#{$fa-font-path}/fontawesome-webfont-eot.eot?v=#{$fa-version}'); // HabitatHome Custom Value
+  src: url('#{$fa-font-path}/fontawesome-webfont-eot.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'), // HabitatHome Custom Value
+    url('#{$fa-font-path}/fontawesome-webfont-woff2.woff2?v=#{$fa-version}') format('woff2'), // HabitatHome Custom Value
+    url('#{$fa-font-path}/fontawesome-webfont-woff.woff?v=#{$fa-version}') format('woff'), // HabitatHome Custom Value
+    url('#{$fa-font-path}/fontawesome-webfont-ttf.ttf?v=#{$fa-version}') format('truetype'), // HabitatHome Custom Value
+    url('#{$fa-font-path}/fontawesome-webfont-svg.svg?v=#{$fa-version}#fontawesomeregular') format('svg'); // HabitatHome Custom Value
+//  src: url('#{$fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+  font-weight: normal;
+  font-style: normal;
+}

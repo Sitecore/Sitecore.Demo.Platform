@@ -1,0 +1,29 @@
+﻿---
+ID: "ab9771b0-3501-44d5-97fa-d9f9fd7c3e40"
+Parent: "67d7f274-9a09-4450-bbed-fd0e5777d81e"
+Template: "0fd90877-c5a1-4a9a-b7d5-a8469cfa89b1"
+Path: "/sitecore/content/SFMC Tenant/Pipelines/Push Marketing Lists/Read Sitecore Marketing Lists/Iterate - Process Single Marketing List Memberships"
+DB: master
+SharedFields:
+- ID: "585fe5a4-68d8-4c1e-8056-635f3d73d723"
+  Hint: Pipelines
+  Type: Treelist
+  Value: "{EB02E4DB-5FCF-46AA-8B19-A80A8E3F0332}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 406
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{AB9771B0-3501-44D5-97FA-D9F9FD7C3E40}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163708Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

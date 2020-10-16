@@ -1,0 +1,14 @@
+version: '2.4'
+
+services:
+  dacpac:
+    image: dacpac:${DEMO_VERSION}
+    isolation: hyperv
+    build:
+      context: .
+      dockerfile: ./docker/images/windows/demo-sqldev/Dockerfile
+      target: build
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+        INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
+        SYSTEM_ACCESSTOKEN: ${SYSTEM_ACCESSTOKEN}

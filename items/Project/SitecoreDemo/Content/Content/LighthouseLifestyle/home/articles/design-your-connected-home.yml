@@ -1,0 +1,293 @@
+﻿---
+ID: "97ccf2ee-2242-4fb5-8a86-1c525fc6ebcd"
+Parent: "64f922b1-d57d-4afa-ae26-9d59502f69a6"
+Template: "e255d331-aea1-4f66-a5e7-4ab2e26408e0"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/articles/design-your-connected-home"
+DB: master
+SharedFields:
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: 20191112T110000Z
+- ID: "7bd35dcd-61bb-42e0-8bf5-07803af6eede"
+  Hint: Author
+  Value: "{166285C6-BFEC-4BDC-A3AA-CAB623EE27D2}"
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: JAbLg8TNBUeOkk4D9Ztapg
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="01cef8a9-a5d1-40cd-9462-809fdbc0def7"
+        name="Stage of Life"
+        presets="young professional|100||">
+        <key
+          name="Young Professional"
+          value="10" />
+        <key
+          name="Newlywed"
+          value="0" />
+        <key
+          name="Family with Kids"
+          value="0" />
+        <key
+          name="Empty Nester"
+          value="0" />
+        <key
+          name="Retired"
+          value="0" />
+      </profile>
+      <profile
+        id="3b752260-57e2-488c-9d84-95a8a5171af8"
+        name="Health Focus"
+        presets="everyday health|100||">
+        <key
+          name="Children"
+          value="10" />
+        <key
+          name="Cooking"
+          value="5" />
+        <key
+          name="Exercise"
+          value="0" />
+        <key
+          name="Fitness Tech"
+          value="0" />
+        <key
+          name="Mental Health"
+          value="10" />
+        <key
+          name="Nutrition"
+          value="0" />
+      </profile>
+      <profile
+        id="f72f3d3c-b4ca-4256-86a1-1ab13ee68ed2"
+        name="Health Location"
+        presets="at home|100||">
+        <key
+          name="At Home"
+          value="10" />
+        <key
+          name="At Work"
+          value="0" />
+        <key
+          name="On the Go"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        <r
+          uid="{FAAD95E3-7370-40E8-9C7A-29E2CA134740}"
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-article-content/container-1/column-2-2/container-4" />
+        <r
+          uid="{23A7FE50-C7A4-4906-813C-0E343714440C}"
+          ds="{F908C985-29A0-4C42-9E13-5358F3FD9FF6}"
+          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          ph="/main/sxa-article-content/container-1" />
+        <r
+          uid="{B261CE71-CFC6-452B-918F-2FD1326AD8AF}"
+          ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="/main/sxa-article-content/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Design Your Connected Home
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{03DA35E8-4E53-4311-AB1E-4118519CF0FE}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20201002T100153Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Learn how to design the ideal connected home from a Lighthouse Home Goods expert.
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: |
+        Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Lighthouse has a few "smart" suggestions.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Design Your Connected Home
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: |
+        Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Lighthouse has a few "smart" suggestions.
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Your smartphone wakes you up with a gentle song. Your blinds automatically open and your coffeepot brews a perfect cup, timed so that it's ready as soon as you emerge from the shower. As you leave for work, your lights automatically click off, your thermostat adjusts, and your security system kicks in. All this activity, and you didn't lift a finger.</p><p>Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Lighthouse has a few "smart" suggestions.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: connected home, home automation, smart home, energy efficiency,
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: |
+        Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Lighthouse has a few "smart" suggestions.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: How to Design Your Connected Home
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <p><strong>Start with the basics</strong></p><p>If you're designing a connected home from scratch, you'll need a few foundational items first. A home automation hub allows you to connect and use multiple devices. Even better, you can control them all from one app.</p><p>You'll also want to download IFTTT ("if this, then that"). The mobile app and website lets you write simple commands without programming. For example, "if the alarm clock goes off at 5:45 a.m., turn on the coffeepot."</p><p>Once you invest in the basics, you can experiment with small items, such as smart light bulbs. With your smartphone, you can control individual or groups of bulbs to turn on when you wake up and turn off when you leave the house. They cost more than LED bulbs ($15 and up) but last about 22 years and use 80 percent less power than traditional bulbs.</p><p><strong>Smart security</strong></p><p>A "smart" security system is one of the wisest investments you can make for your home and family. The Helix Sentinel 4 Camera Network Video Recorder Bundle offers motion detection and selectable zoom to get clear footage of potential intruders. Remote access lets you check in on the home front via your smartphone or tablet.</p><p>For extra protection and style, consider keyless locks, such as the Lighthouse Sentinel Touchscreen Key-Free Deadbolt. A built-in interference alarm sounds when someone tries to break in, which gives you extra peace of mind.</p><p>To protect your little ones, products such as the Lighthouse Sentinel HD Wireless Baby Monitoring Camera offer streaming video so you can monitor baby from anywhere with your smartphone. A built-in microphone and two-way speaker let you hear her cries and coax her to sleep.</p><p><strong>Get smarter gadgets</strong></p><p>A connected home includes not only major appliances, but also small devices we use every day. Products such as the iGrill Mini alert your smartphone when your steak reaches the perfect temperature. Sous vide cookers, once reserved for high-end restaurants, have made their way into high-end homes, with smart features such as Bluetooth and built-in WiFi. Lighthouse coffeemakers, countertop ovens, and other small appliances also come with smart features for easy programming.</p><p><strong>Appliances</strong></p><p>If you want to fully dive into the connected home philosophy, replace your "dumb" appliances with connected versions. Lighthouse's Viva appliance line includes refrigerators that check inventory and let you control settings from your smartphone. Tell your Lighthouse Dwell smart vacuum to clean the living room floor, and command your Lighthouse Gleam smart washer to start a new cycle, all while watching your favorite show.</p><p>From light bulbs to refrigerators, smart devices work together to make life easier. Let Lighthouse help you design your connected home to suit your budget and your lifestyle.</p>
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{0F50A67E-B439-436D-A5D8-5DEF0B7A6BB7}" />
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: |
+        Connected homes aim to make our lives more comfortable and our homes more energy efficient. Lighthouse has a few "smart" suggestions.
+    - ID: "d8b38dd7-e9a0-4410-9f17-d436b0c8635a"
+      Hint: OpenGraphImageUrl
+      Value: |
+        <image mediaid="{03DA35E8-4E53-4311-AB1E-4118519CF0FE}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Design Your Connected Home
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{03DA35E8-4E53-4311-AB1E-4118519CF0FE}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20201002T100529Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Concevez votre maison intelligente
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Votre téléphone intelligent vous réveille avec une douce chanson. Vos stores s'ouvrent automatiquement et votre cafetière prépare une tasse parfaite, programmée pour être prête dès que vous sortez de la douche. Lorsque vous partez pour le travail, vos lumières s'éteignent automatiquement, votre thermostat s'ajuste et votre système de sécurité entre en action. Toute cette activité, et vous n'avez pas levé le petit doigt.</p>
+        <p>Les maisons connectées visent à rendre nos vies plus confortables et nos maisons plus économes en énergie. Avec une telle gamme de produits intelligents disponibles tels les électroménagers, les commutateurs et ampoules, par où commencer? Lighthouse Home Goods a quelques suggestions "intelligentes".</p>
+        <p><strong>Commencez avec la base</strong></p>
+        <p>Si vous concevez une maison connectée à partir de zéro, vous aurez premièrement besoin de quelques éléments de base. Un concentrateur domotique vous permet de brancher et d'utiliser plusieurs périphériques. Encore mieux, vous pouvez les contrôler tous à partir d'une application.<br /></p>
+        <p>Vous aurez également besoin de télécharger IFTTT ("if this, then that"). L'application mobile et le site Web vous permettent d'écrire des commandes simples sans programmation. Par exemple, "si le réveil sonne à 5h45, allumez la cafetière."</p>
+        <p>Une fois que vous investissez dans un système de base, vous pouvez expérimenter avec de petits objets, tels que les ampoules intelligentes. Avec votre téléphone intelligent, vous pouvez contrôler individuellement ou en groupe les ampoules à allumer lorsque vous vous réveillez et éteindre lorsque vous quittez la maison. Ils coûtent plus cher que les ampoules DEL (15 $ et plus), mais durent environ 22 ans et consomment 80% moins d'énergie que les ampoules traditionnelles.</p>
+        <p><strong>Sécurité intelligente</strong></p>
+        <p>Un système de sécurité «intelligent» est l'un des investissements les plus judicieux que vous pouvez faire pour votre maison et votre famille. L'ensemble enregistreur vidéo réseau Helix Sentinel 4 offre une détection de mouvement et un zoom sélectionnable pour obtenir des images claires d'intrus potentiels. L'accès à distance vous permet de vous assurer que tout est sous contrôle à la maison et tout à partir de votre téléphone intelligent ou de votre tablette.</p>
+        <p>Pour plus de protection et de style, pensez à utiliser des serrures sans clé, tels que le "Lighthouse Sentinel Touchscreen Key-Free Deadbolt". Une alarme d'interférence intégrée retentit lorsque quelqu'un essaie d'entrer par effraction, ce qui vous procure une tranquillité d'esprit supplémentaire.</p>
+        <p>Pour protéger vos tout-petits, des produits comme la caméra de surveillance pour bébé sans fil HD Sentinel d'Lighthouse offrent des vidéos en continu pour que vous puissiez surveiller votre bébé de n'importe où avec votre téléphone intelligent. Un microphone intégré et un haut-parleur bidirectionnel vous permettent d'entendre ses cris et de l'inciter à dormir.</p>
+        <p><strong>Obtenez des gadgets plus intelligents</strong></p>
+        <p>Une maison branchée comprend non seulement des appareils ménagers, mais aussi de petits appareils que nous utilisons tous les jours. Des produits tels que l'iGrill Mini alertent votre téléphone intelligent lorsque votre bifteck atteint la température idéale. Les cuiseurs sous-vide, autrefois réservés aux restaurants haut de gamme, ont fait leur chemin dans les maisons haut de gamme, avec des fonctionnalités intelligentes telles que le Bluetooth et le WiFi intégré. Les cafetières, les fours de comptoir et d'autres petits appareils ménagers d'Lighthouse viennent également avec les dispositifs futés pour la programmation facile.</p>
+        <p><strong>Appareils électroménagers</strong></p>
+        <p>Si vous voulez vous plonger complètement dans la philosophie de la maison branchée, remplacez vos appareils «stupides» par des versions branchées. La gamme d'appareils Viva d'Lighthouse comprend des réfrigérateurs qui vérifient l'inventaire et vous permettent de contrôler les paramètres à partir de votre téléphone intelligents. Dites à votre aspirateur intelligent Lighthouse Dwell de nettoyer le plancher du salon et commandez à votre laveuse intelligente Lighthouse Gleam de démarrer un nouveau cycle, tout en regardant votre émission de télé préférée.</p>
+        <p>Des ampoules aux réfrigérateurs, les appareils intelligents travaillent ensemble pour vous faciliter la vie. Laissez Lighthouse Home Goods vous aider à concevoir votre maison branchée en fonction de votre budget et de votre style de vie.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{0F50A67E-B439-436D-A5D8-5DEF0B7A6BB7}" />
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: |
+        Les maisons connect&eacute;es visent &agrave; rendre nos vies plus confortables et nos maisons plus &eacute;conomes en &eacute;nergie. Avec une telle gamme de produits intelligents disponibles tels les &eacute;lectrom&eacute;nagers, les commutateurs et ampoules, par o&ugrave; commencer? Lighthouse Home Goods a quelques suggestions "intelligentes".
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Concevez votre maison intelligente
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Design Your Connected Home
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{03DA35E8-4E53-4311-AB1E-4118519CF0FE}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20201002T100653Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: ガイド１
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Your smartphone wakes you up with a gentle song. Your blinds automatically open and your coffeepot brews a perfect cup, timed so that it's ready as soon as you emerge from the shower. As you leave for work, your lights automatically click off, your thermostat adjusts, and your security system kicks in. All this activity, and you didn't lift a finger.</p>
+        <p>Connected homes aim to make our lives more comfortable and our homes more energy efficient. With such a wide range of products available, from smart appliances and mattress covers to switches and light bulbs, where do you start? Lighthouse has a few "smart" suggestions.</p>
+        <p><strong>Start with the basics</strong></p>
+        <p>If you're designing a connected home from scratch, you'll need a few foundational items first. A home automation hub allows you to connect and use multiple devices. Even better, you can control them all from one app.</p>
+        <p>You'll also want to download IFTTT ("if this, then that"). The mobile app and website lets you write simple commands without programming. For example, "if the alarm clock goes off at 5:45 a.m., turn on the coffeepot."</p>
+        <p>Once you invest in the basics, you can experiment with small items, such as smart light bulbs. With your smartphone, you can control individual or groups of bulbs to turn on when you wake up and turn off when you leave the house. They cost more than LED bulbs ($15 and up) but last about 22 years and use 80 percent less power than traditional bulbs.</p>
+        <p><strong>Smart security</strong></p>
+        <p>A "smart" security system is one of the wisest investments you can make for your home and family. The Helix Sentinel 4 Camera Network Video Recorder Bundle offers motion detection and selectable zoom to get clear footage of potential intruders. Remote access lets you check in on the home front via your smartphone or tablet.</p>
+        <p>For extra protection and style, consider keyless locks, such as the Lighthouse Sentinel Touchscreen Key-Free Deadbolt. A built-in interference alarm sounds when someone tries to break in, which gives you extra peace of mind.</p>
+        <p>To protect your little ones, products such as the Lighthouse Sentinel HD Wireless Baby Monitoring Camera offer streaming video so you can monitor baby from anywhere with your smartphone. A built-in microphone and two-way speaker let you hear her cries and coax her to sleep.</p>
+        <p><strong>Get smarter gadgets</strong></p>
+        <p>A connected home includes not only major appliances, but also small devices we use every day. Products such as the iGrill Mini alert your smartphone when your steak reaches the perfect temperature. Sous vide cookers, once reserved for high-end restaurants, have made their way into high-end homes, with smart features such as Bluetooth and built-in WiFi. Lighthouse coffeemakers, countertop ovens, and other small appliances also come with smart features for easy programming.</p>
+        <p><strong>Appliances</strong></p>
+        <p>If you want to fully dive into the connected home philosophy, replace your "dumb" appliances with connected versions. Lighthouse's Viva appliance line includes refrigerators that check inventory and let you control settings from your smartphone. Tell your Lighthouse Dwell smart vacuum to clean the living room floor, and command your Lighthouse Gleam smart washer to start a new cycle, all while watching your favorite show.</p>
+        <p>From light bulbs to refrigerators, smart devices work together to make life easier. Let Lighthouse help you design your connected home to suit your budget and your lifestyle.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: コネクテッドホームは、私たちの生活をより快適にし、家庭をよりエネルギー効率的にすることを目指しています。 スマート・アプライアンスやマットレス・カバーからスイッチや電球まで、幅広い製品がありますが、どこから始めますか？ ハビタットには「スマートな」提案がいくつかあります。
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: コネクテッドホームのデザイン
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: 
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: コネクテッドホームは、私たちの生活をより快適にし、家庭をよりエネルギー効率的にすることを目指しています。 スマート・アプライアンスやマットレス・カバーからスイッチや電球まで、幅広い製品がありますが、どこから始めますか？ ハビタットには「スマートな」提案がいくつかあります。
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: コネクテッドホームのデザイン

@@ -1,0 +1,8 @@
+﻿<configuration  xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <configBuilders >
+    <builders>
+      <add name="SitecoreAppSettingsBuilder" mode="Strict" prefix="SITECORE_APPSETTINGS_" stripPrefix="true" type="Sitecore.Demo.Platform.Foundation.AKS.Configuration.AKSEnvironmentConfigBuilder, Sitecore.Demo.Platform.Foundation.AKS" xdt:Transform="Remove" xdt:Locator="Match(name)"/>
+      <add name="SitecoreAppSettingsBuilder" mode="Strict" prefix="SITECORE_APPSETTINGS_" stripPrefix="true" type="Sitecore.Demo.Platform.Foundation.AKS.Configuration.AKSEnvironmentConfigBuilder, Sitecore.Demo.Platform.Foundation.AKS" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"/>
+    </builders>
+  </configBuilders>
+</configuration>

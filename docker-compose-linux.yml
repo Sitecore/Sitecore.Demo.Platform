@@ -1,0 +1,60 @@
+version: '2.4'
+
+services:
+
+  sql:
+    image: ${REGISTRY}demo/lighthouse-mssql:${SITECORE_VERSION}-${DEMO_VERSION}-linux
+    isolation: default
+    build:
+      context: .
+      dockerfile: ./docker/images/windows/demo-sqldev/Dockerfile.linux
+      args:
+        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-mssql:${SITECORE_VERSION}-linux-${BASE_MODULE_VERSION}
+    volumes:
+      - .\data\sql:/var/opt/mssql/data
+    mem_limit: 2GB
+    ports:
+      - "44010:1433"
+    environment:
+      SA_PASSWORD: ${SQL_SA_PASSWORD}
+      ACCEPT_EULA: "Y"
+      USER_PASSWORD: "b"
+      ADMIN_PASSWORD: "b"
+      ADMIN_USER_NAME: "sitecore\\superuser"
+      DISABLE_DEFAULT_ADMIN: 'FALSE'
+      EXM_BASE_URL: "http://${HOSTNAME_SUFFIX}"
+      BOOT_OVERRIDE_SCRIPTS: "Demo-Boot-Platform.ps1"
+  init:
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    image: ${REGISTRY}demo/lighthouse-init:${SITECORE_VERSION}-${DEMO_VERSION}-linux
+    build:
+      context: ./docker/images/windows/demo-init
+      dockerfile: Dockerfile.linux
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/core/sdk:3.1-alpine3.11
+        BASE_IMAGE: mcr.microsoft.com/dotnet/core/runtime:3.1-alpine3.11
+    environment:
+      ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      ADMIN_USER_NAME: "superuser"
+      HOST_CD: "http://cd"
+      HOST_CM: "http://cm"
+      HOST_PS: "http://ps"
+      HOST_ID: "http://id"
+      MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
+  solr:
+    image: ${REGISTRY}demo/lighthouse-solr:${SITECORE_VERSION}-${DEMO_VERSION}-linux
+    isolation: default
+    build:
+      context: ./docker/images/linux/demo-xp-solr
+      dockerfile: Dockerfile
+      args:
+        BASE_IMAGE: solr:8.4.0-slim
+        CORE_NAMES: "sitecore_core_index, sitecore_master_index, sitecore_web_index, sitecore_marketingdefinitions_master, sitecore_marketingdefinitions_web, sitecore_marketing_asset_index_master, sitecore_marketing_asset_index_web, sitecore_testing_index, sitecore_suggested_test_index, sitecore_fxm_master_index, sitecore_fxm_web_index, sitecore_personalization_index, sitecore_xdb, sitecore_xdb_rebuild, sitecore_sxa_master_index, sitecore_sxa_web_index"
+        MANAGED_SCHEMA_DEFAULT_NAME: "managed-schema.default.1000"
+        MANAGED_SCHEMA_XDB_NAME: "managed-schema.xdb.1000"
+    volumes:
+      - ./data/solr:/data
+    mem_limit: 1GB
+    ports:
+      - "44011:8983"

@@ -1,0 +1,7 @@
+<connectionStrings configBuilders="SitecoreConnectionStringsBuilder" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <add name="SFMC" connectionString="" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+  <add name="CMP.ServiceBusEntityPathIn" connectionString="" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+  <add name="CMP.ServiceBusEntityPathOut" connectionString="" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+  <add name="CMP.ServiceBusSubscription" connectionString="" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+  <add name="CMP.ContentHub" connectionString="" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+</connectionStrings>

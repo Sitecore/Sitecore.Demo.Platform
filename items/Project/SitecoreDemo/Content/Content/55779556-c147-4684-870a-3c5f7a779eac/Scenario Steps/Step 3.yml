@@ -1,0 +1,58 @@
+﻿---
+ID: "ce89ccc8-41da-4040-8a3c-0e5340149170"
+Parent: "323b17d4-9c9f-4103-9854-817644b9068b"
+Template: "a6ddac75-7d24-4bdb-b3f6-5f47fbb21379"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/scenarios/onboarding-customer-journey/Data/Scenario Steps/Step 3"
+DB: master
+BranchID: "bab1fb9b-58a3-4df8-9f05-204b25ddb8e0"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{09BD444B-FABC-47EA-981D-2C8271655469}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B5423143A-760D-4F0E-BA4D-0B02E649A778%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-title"
+          uid="{00ABCDE1-D7B1-4357-9DBB-0FF17BA56891}" />
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-content"
+          uid="{928528F7-6043-4DC9-8EB3-5DA69F799A2C}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D957D258-35AD-4302-966C-49D5AF64BAC5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200702T124328Z
+    - ID: "5a236869-e375-49c0-a92d-0c2f1db7788f"
+      Hint: Content
+      Value: |
+        <p>In this step the visitor has been placed in a Marketing Automation plan to help control the customer journey for new contact acquisitions.</p>
+        <p>The Marketing Automation plan will check visitor consent information and will only re-market if consent has been given. If no consent has been given we remove the contact from the Marketing Automation plan and place them on a contact list for later use.</p>
+        <p>The goal of the Marketing Automation plan is to direct visitors to complete other goals on the website. The follow up goals involve completing a <em><strong>3-step questionnaire</strong></em> and <strong><em>creating a new account</em></strong>&nbsp;in order to gather more information about the visitor.</p>
+        <p>You can review the plan by going to the <em><strong>Marketing Automation app</strong></em> on the Sitecore dashboard. The Marketing Automation plan is named <strong><em>New Contact - Onboarding Customer Journey</em></strong>.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "7240053b-9140-48ac-acea-abfccd7761a1"
+      Hint: Heading
+      Value: "<b>Step 3</b> - Control the Customer Journey with Marketing Automation Plans"

@@ -1,0 +1,43 @@
+.facet-single-selection-list {
+  .facet-hided {
+    .hide-facet-value {
+      display: none;
+    }
+  }
+  .toogle-facet-visibility {
+    font-size: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: $search-item-color;
+    cursor: pointer;
+  }
+  .facet-dropdown {
+    margin: 10px 0;
+    select {
+      min-width: 100%;
+    }
+  }
+  .facet-value {
+    input[type="checkbox"] {
+      display: none;
+    }
+    label {
+      color: $search-item-color;
+    }
+    &.active-facet {
+      .facet-count {
+      }
+      label,
+      .facet-count.highlighted,
+      span {
+        color: $text-blue;
+      }
+    }
+  }
+  .bottom-remove-filter {
+    float: left;
+  }
+  .bottom-filter-button {
+    float: right;
+  }
+}

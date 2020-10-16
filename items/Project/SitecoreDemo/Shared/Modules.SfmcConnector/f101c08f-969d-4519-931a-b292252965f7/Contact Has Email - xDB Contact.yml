@@ -1,0 +1,28 @@
+﻿---
+ID: "0944adf7-e641-4e19-ac3e-253a0f0bd6d2"
+Parent: "f101c08f-969d-4519-931a-b292252965f7"
+Template: "c7bde772-aea0-4dcc-a19d-72c684180951"
+Path: "/sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Conditions/Data Extension Records/Contact Has Email - xDB Contact"
+DB: master
+SharedFields:
+- ID: "5a35f5b4-a722-4b16-82c2-ab88a5641c09"
+  Hint: ValueAccessor
+  Value: "{D67D1960-26C7-4108-A874-3FA75112DB98}"
+- ID: "6213af78-ed34-4130-8269-e44aae31cf7e"
+  Hint: ObjectLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{0944ADF7-E641-4E19-AC3E-253A0F0BD6D2}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163716Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

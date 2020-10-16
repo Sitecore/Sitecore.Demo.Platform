@@ -1,0 +1,39 @@
+﻿---
+ID: "f1839ae8-91a5-4920-8de5-1ec74a5b5035"
+Parent: "5664475d-9cbc-433a-925c-0db5244bb3b0"
+Template: "9121d435-48b8-4649-9d13-03d680474fad"
+Path: /sitecore/Forms/Demo Shared SXA Sites/Cumulus/Card Signup/card_type/card_type_list
+DB: master
+SharedFields:
+- ID: "21ed172d-97e2-4ac4-8eaf-0a8860b891f4"
+  Hint: Default Selection
+  Value: "{AB69AF04-8FFB-4B52-ACCE-00C2FD3CF007}"
+- ID: "6bf5048d-fbbd-4839-9f18-4412d4e11834"
+  Hint: Show Empty Item
+  Type: Checkbox
+  Value: 0
+- ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
+  Hint: Conditions
+  Value: |
+    {"fieldConditions":[]}
+- ID: "84ece662-5034-40cb-9c60-744db64bb294"
+  Hint: Field Key
+  Value: 12432C734F3A4CDF81F4BF81F59CE1A7
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200306T154434Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
+      Hint: Title
+      Value: Card Type

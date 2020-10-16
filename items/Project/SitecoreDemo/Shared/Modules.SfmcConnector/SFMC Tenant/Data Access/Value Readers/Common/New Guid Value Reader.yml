@@ -1,0 +1,28 @@
+﻿---
+ID: "54566dfd-1a4c-4549-bf0b-5e29b55d12fc"
+Parent: "1c3e1293-3ff5-41bb-8288-02fb3381a43c"
+Template: "4e7a0a27-1159-49a6-8410-ff742784ca7b"
+Path: /sitecore/content/SFMC Tenant/Data Access/Value Readers/Common/New Guid Value Reader
+DB: master
+SharedFields:
+- ID: "2b087b5e-b0b5-42f4-875b-88e177ae1b7b"
+  Hint: MethodName
+  Value: NewGuid
+- ID: "ca402829-e8f2-4fb5-9374-e30701e42957"
+  Hint: TypeWithStaticMethod
+  Value: System.Guid
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{54566DFD-1A4C-4549-BF0B-5E29B55D12FC}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163702Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

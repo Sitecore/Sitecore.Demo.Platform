@@ -1,0 +1,48 @@
+﻿---
+ID: "da66b9f1-2236-4579-8ceb-8dfcb99b14e7"
+Parent: "388926a9-3db7-46b5-9b94-ab6fab9ad20e"
+Template: "d4d43c33-3661-4630-af63-0754cab7b110"
+Path: "/sitecore/system/Marketing Control Panel/Automation Plans/2019/07/02/16/08/Onboarding Customer Journey-da66b9f1-2236-4579-8ceb-8dfcb99b14e7"
+DB: master
+SharedFields:
+- ID: "1766652d-080b-409c-abbf-3a90e0f801f5"
+  Hint: Start Date
+  Value: 00010101T000000
+- ID: "2c41a32f-86a9-4f43-8550-bf0af266e3f2"
+  Hint: End Date
+  Value: 99991231T235959
+- ID: "394d49b2-b579-43aa-ab32-b4010b18fd07"
+  Hint: Marketing Theme
+  Value: 
+- ID: "3fb918c8-08ec-4879-8062-088bbf71ee72"
+  Hint: Plan Data
+  Value: |
+    {"ReentryMode":1,"ContextKeyFactoryType":null,"EntryActivityId":"162dd9c5-bf4c-d6e9-5c26-51602e27d9ac","NewEnrollmentRegulatorType":"Sitecore.Xdb.MarketingAutomation.Processing.Plan.MaximumCountNewEnrollmentRegulator, Sitecore.Xdb.MarketingAutomation","NewEnrollmentRegulatorParameters":{"MaxEnrollmentsCount":1},"PlanEntrySchedule":null,"ScheduledContactListId":null,"Alias":"Onboarding Customer Journey-da66b9f1-2236-4579-8ceb-8dfcb99b14e7","IgnoreIsActiveProperty":true,"Activities":{"162dd9c5-bf4c-d6e9-5c26-51602e27d9ac":{"Paths":{"default":"fdb2acd4-a059-090f-a004-cf55b808e5c5"},"Id":"162dd9c5-bf4c-d6e9-5c26-51602e27d9ac","ActivityTypeId":"8c92d3c1-2c38-4e8a-92d1-9590e17cce89","Parameters":{"Condition":{"$type":"Sitecore.Marketing.Rules.Rule[], Sitecore.Marketing","$values":[{"Id":"2544685f-fd78-4ca6-8539-44f584f43f0e","Name":" ","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=14.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"$type":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing","Id":"75ca5b96-21ec-482b-9eb7-bd301dd9665e","DescriptorId":"8fd32f80-c9a8-4fc2-9d29-b99c37db04d0","Properties":{"$type":"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String, mscorlib]], mscorlib","DefinitionId":"{098F51D0-E7A6-490E-B990-BEFEE13CDC86}","Number":"2","Unit":"Hours"}}}]},"UseCondition":true}},"fdb2acd4-a059-090f-a004-cf55b808e5c5":{"Paths":{"default":"b09c3d66-8c18-5729-fd6d-bd8309843628"},"Id":"fdb2acd4-a059-090f-a004-cf55b808e5c5","ActivityTypeId":"51774db5-b90b-4189-9613-104039723a0b","Parameters":{"MessageId":"fbab7273-9362-4f68-99b0-39cdf5301c47"}},"b09c3d66-8c18-5729-fd6d-bd8309843628":{"Paths":{"false":"487fa416-6f49-0583-db4b-a98ad9320f63","true":"04519e3b-a346-7a23-783b-6d55c1a4fa06"},"Id":"b09c3d66-8c18-5729-fd6d-bd8309843628","ActivityTypeId":"bb714802-ce83-491f-963f-16fb11c61bf2","Parameters":{"Goals":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["a39866ff-6b67-49a1-9d42-34890abb4815"]},"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"01:00:00","WaitUntil":null},"MatchAll":false,"Name":"Goal Completed"}},"487fa416-6f49-0583-db4b-a98ad9320f63":{"Paths":{"false":"86b5e83e-720e-8576-5f78-8fe3ec03eeaa","true":"dcb0a3fc-6994-e9ea-0b69-f17724543ab8"},"Id":"487fa416-6f49-0583-db4b-a98ad9320f63","ActivityTypeId":"7fca5e5b-4796-4d7e-abec-28f376e4d7e2","Parameters":{"Condition":{"$type":"Sitecore.Marketing.Rules.Rule[], Sitecore.Marketing","$values":[{"Id":"ecbabfd9-91b1-4f98-b5bc-df0a0f0b5bb6","Name":" ","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=14.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"$type":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing","Id":"6619e916-8955-4712-9679-12b62ac8db04","DescriptorId":"5fa2b8b7-88cb-40e9-a138-83a17fbce7b4","Properties":{"$type":"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String, mscorlib]], mscorlib","ItemId":"{AFC33226-AD64-4418-B0FD-D49B69AA2506}"}}}]},"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"00:05:00","WaitUntil":null},"Name":"Clicked Email Link"}},"86b5e83e-720e-8576-5f78-8fe3ec03eeaa":{"Paths":{"false":"18e20d0d-9e95-50e1-1334-717211ce7776","true":"903119d9-2f39-0d04-89a0-48b8058f80b2"},"Id":"86b5e83e-720e-8576-5f78-8fe3ec03eeaa","ActivityTypeId":"37d0918f-255a-417a-9205-100bbd1bdf0d","Parameters":{"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"00:05:00","WaitUntil":null},"Name":"Visited Website"}},"18e20d0d-9e95-50e1-1334-717211ce7776":{"Paths":{"default":"c7375322-c6be-7b5f-54ba-2ef8f9f4d447"},"Id":"18e20d0d-9e95-50e1-1334-717211ce7776","ActivityTypeId":"fef847a8-540e-408d-9cf1-3d8a133c3de0","Parameters":{}},"903119d9-2f39-0d04-89a0-48b8058f80b2":{"Paths":{"default":"c7375322-c6be-7b5f-54ba-2ef8f9f4d447"},"Id":"903119d9-2f39-0d04-89a0-48b8058f80b2","ActivityTypeId":"743489a2-8bd0-49ed-b284-5534ac59685a","Parameters":{"EngagementValue":10}},"dcb0a3fc-6994-e9ea-0b69-f17724543ab8":{"Paths":{"default":"c7375322-c6be-7b5f-54ba-2ef8f9f4d447"},"Id":"dcb0a3fc-6994-e9ea-0b69-f17724543ab8","ActivityTypeId":"743489a2-8bd0-49ed-b284-5534ac59685a","Parameters":{"EngagementValue":25}},"04519e3b-a346-7a23-783b-6d55c1a4fa06":{"Paths":{"default":"c7375322-c6be-7b5f-54ba-2ef8f9f4d447"},"Id":"04519e3b-a346-7a23-783b-6d55c1a4fa06","ActivityTypeId":"743489a2-8bd0-49ed-b284-5534ac59685a","Parameters":{"EngagementValue":50}},"c7375322-c6be-7b5f-54ba-2ef8f9f4d447":{"Paths":{"default":"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba"},"Id":"c7375322-c6be-7b5f-54ba-2ef8f9f4d447","ActivityTypeId":"51774db5-b90b-4189-9613-104039723a0b","Parameters":{"MessageId":"3556ec0a-31c7-4a08-b8f0-e0433d2bba6a"}},"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba":{"Paths":{},"Id":"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba","ActivityTypeId":"a47371c2-8921-421f-8902-f3eccd229d56","Parameters":{}}},"UniversalActivities":{}}
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200702T160844Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: Onboarding Customer Journey
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "e259e500-b38e-41fe-82db-8b604bcf9e75"
+      Hint: Description
+      Value: |
+        As part of the "Identify and Nurture New Contact" scenario, a new contact is enrolled in this plan as an example of controlling the customer journey.

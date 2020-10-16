@@ -1,0 +1,51 @@
+﻿---
+ID: "98605429-6a7a-496e-857c-09abd7fa6407"
+Parent: "aa19a911-cd7c-4aed-9d50-da00fc078593"
+Template: "197c8a18-c17d-46cb-838d-61e88d7d78fa"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/LighthouseLifestyle Emails/Messages/2020/06/17T00513510/Sample Lead Gen Email/Message Root/Content
+DB: master
+BranchID: "6fe51eb4-1d30-4e6b-8ba0-0ebb1405d283"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{CA244B04-8CB5-45B1-8BB2-93A9041886D1}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Content
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200617T000209Z
+    - ID: "4abe9631-4175-471f-a9fb-251f1b0e69f6"
+      Hint: Body
+      Value: |
+        <h2>Hello $firstname$</h2>
+        Thank you for your interest. Please go ahead and download the whitepaper below.
+        <ul>
+            <li><a href="-/media/Project/Demo%20Shared%20SXA%20Sites/LighthouseLifestyle/PDFs/Unlocking-the-Smart-Home.pdf">Download the Whitepaper</a></li>
+        </ul>
+        <br /><br />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Content
+  Versions:
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Content
+  Versions:

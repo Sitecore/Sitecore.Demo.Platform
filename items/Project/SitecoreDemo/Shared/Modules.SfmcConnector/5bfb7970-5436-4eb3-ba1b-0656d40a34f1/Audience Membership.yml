@@ -1,0 +1,44 @@
+﻿---
+ID: "9a7b6f29-39d4-4cfd-9b9f-aa4e765c6001"
+Parent: "5bfb7970-5436-4eb3-ba1b-0656d40a34f1"
+Template: "b0073a7f-0d90-4cc4-91f9-ccedf70ac346"
+Path: /sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Object Definitions/Data Extensions/Audience Membership
+DB: master
+SharedFields:
+- ID: "16d15b55-8d99-4ff3-87ec-56435782b8e7"
+  Hint: Name
+  Value: Audience Membership
+- ID: "60529e21-a7a8-4c20-bada-58885f449a48"
+  Hint: ExternalKey
+  Value: "audience-membership"
+- ID: "8db4ebe1-68a0-4ebb-ad0e-6acfdb1a0b2c"
+  Hint: SendableSubscriptionFieldName
+  Value: Subscriber Key
+- ID: "8e71c6ce-2c21-4938-9bd2-05ed0556efdb"
+  Hint: SendableDataExtensionField
+  Value: "{32F92825-99CF-4EFA-B6CA-CC2B88278DDF}"
+- ID: "a768949f-8f27-4f99-ae6c-eb14b7886889"
+  Hint: FolderPath
+  Value: /Data Extensions/Sitecore/Journeys/
+- ID: "c0f27d85-63fe-4a02-94a3-3941f8f00a10"
+  Hint: Sendable
+  Type: Checkbox
+  Value: 1
+- ID: "c2263e47-90bb-43fa-9082-be835dd76b4e"
+  Hint: Description
+  Value: Audience Membership
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{9A7B6F29-39D4-4CFD-9B9F-AA4E765C6001}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163723Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

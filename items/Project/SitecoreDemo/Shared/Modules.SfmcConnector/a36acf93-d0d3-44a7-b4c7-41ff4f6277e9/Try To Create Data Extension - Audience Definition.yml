@@ -1,0 +1,38 @@
+﻿---
+ID: "a4d14f0d-cf8e-4b1a-b13f-46bcbb117713"
+Parent: "a36acf93-d0d3-44a7-b4c7-41ff4f6277e9"
+Template: "587f891a-8df6-444c-89d1-b3ab83cffb63"
+Path: "/sitecore/content/SFMC Tenant/Pipelines/Journey Builder/Setup Data Extension Definitions/Try To Create Data Extension - Audience Definitions"
+DB: master
+SharedFields:
+- ID: "13ccd004-eb1f-42d2-8e23-35baeb70c15e"
+  Hint: ResponseHandler
+  Value: "{A1C4CA67-97B4-4795-B083-DF4463ADFC8F}"
+- ID: "7914afe0-3f94-4029-8997-d7740c2ff1dc"
+  Hint: Endpoint
+  Value: "{689FB77D-6A64-4B0F-A2ED-66BD430D70D2}"
+- ID: "9b1aedfc-7599-4040-9e5e-32debc185592"
+  Hint: Conditions
+  Type: Treelist
+  Value: "{ED774CF9-F711-40BC-A351-6758069EEC3A}"
+- ID: "b03c77b6-da59-451b-ac78-7a260f2840f2"
+  Hint: Request
+  Value: "{2DC37971-8A51-44D0-ABF0-3EC14181F105}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{A4D14F0D-CF8E-4B1A-B13F-46BCBB117713}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163712Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

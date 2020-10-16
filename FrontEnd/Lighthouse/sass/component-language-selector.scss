@@ -1,0 +1,74 @@
+@import "mixins";
+@import "vars";
+@import "base/sprites/sprite-flag";
+@import "base/fontawesome/font-awesome-mix-var";
+.language-selector {
+    position: relative;
+    background-color: $lang-selector-bg;
+    text-transform: uppercase;
+
+    .language-selector-select-item {
+        cursor: pointer;
+        >a {
+            width: 100%;
+            position: relative;
+            padding-left: 25px !important;
+            padding-right: 25px !important;
+            background-repeat: no-repeat;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        &:after {
+            @include fa-icon();
+            content: $fa-var-caret-down;
+            position: absolute;
+            right: 10px;
+            top: 55%;
+            transform: translateY(-50%);
+            color: $text-passive;
+        }
+    }
+    .language-selector-item-container {
+        box-shadow: 0 2px 9px 0px #b3b3b3;
+        padding: 0;
+        position: absolute;
+        top: 110%;
+        min-width: 220px;
+        z-index: 10;
+        background: $bg-basic-color;
+        display: none;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    .language-selector-item {
+        margin: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid $lang-selector-item-border;
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $text-basic;
+            height: 100%;
+            display: block;
+            font-weight: normal;
+            padding: 10px 15px;
+            background-repeat: no-repeat;
+            font-size: $navigation-font-small;
+            border-bottom: none;
+
+            &:hover {
+                border-bottom: none;
+                text-decoration: none;
+                color:lighten( $lang-selector-text,20);
+            }
+        }
+        &:first-child {
+            margin-bottom: 0;
+        }
+    }
+    .language-selector-link {
+        padding: 0px 20px 0 30px;
+    }
+}

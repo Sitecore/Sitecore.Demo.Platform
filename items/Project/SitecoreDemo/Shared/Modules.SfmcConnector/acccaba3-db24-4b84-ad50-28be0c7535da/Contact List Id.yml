@@ -1,0 +1,36 @@
+﻿---
+ID: "f26754a8-c4e6-437b-8c0c-8b79f579afcb"
+Parent: "acccaba3-db24-4b84-ad50-28be0c7535da"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: "/sitecore/content/SFMC Tenant/Value Mapping Sets/Email Studio - Sitecore into SFMC/List Membership Model - List Id into Flat Object/Contact List Id"
+DB: master
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{F86B1185-6770-4693-A9DD-EB233937D671}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1000
+- ID: "c33e6e51-d4ed-454c-bc9c-6337210e0f1f"
+  Hint: DoNotFailIfUnableToReadSourceValue
+  Type: Checkbox
+  Value: 1
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{7721C030-7D64-4C08-907A-6719BFA7ED9F}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{F26754A8-C4E6-437B-8C0C-8B79F579AFCB}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163732Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

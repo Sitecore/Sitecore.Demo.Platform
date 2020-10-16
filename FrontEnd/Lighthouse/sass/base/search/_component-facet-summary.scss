@@ -1,0 +1,133 @@
+.facet-summary {
+    margin-bottom: 10px;
+
+    .component-content {
+        .facet-summary-wrapper {
+            background-color: $search-facet-summary-background;
+            padding: 10px;
+            @include clearfix;
+
+            .active-facet-summary-element {
+                float: left;
+                font-size: 12px;
+                position: relative;
+                padding: 10px 15px 10px 0;
+                border-bottom: 1px solid $search-facet-summary-item-border;
+                width: 100%;
+
+                span {
+                    font-weight: bold;
+                }
+
+                .removeFacet {
+                    color: $search-facet-summary-clear-color;
+                    cursor: pointer;
+                    position: absolute;
+                    right: 5px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-weight: bold;
+                }
+            }
+
+
+        }
+
+        .bottom-remove-filter {
+            width: 100%;
+            float: left;
+            padding-top: 10px;
+
+            button {
+                width: 100%;
+                font-size: 12px;
+                font-weight: bold;
+                cursor: pointer;
+                color: $search-facet-summary-clear-color;
+                border-color: transparent;
+                text-align: left;
+                text-indent: 10px;
+                position: relative;
+                padding-left: 3px;
+
+                &:before {
+                    content: "x";
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 1px;
+                    color: $search-facet-summary-clear-color;
+                    transform: translate(-50%, -50%);
+                }
+
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+        }
+
+        .clear-filter {
+            display: none;
+        }
+    }
+
+    &.facet-summary-hoizontal {
+        .component-content {
+            .facet-summary-wrapper {
+                background-color: transparent;
+
+                .active-facet-summary-element {
+                    margin: 5px 5px 5px 0;
+                    padding: 10px 35px 10px 15px;
+                    border: 1px solid $search-facet-summary-item-border-horizontal;
+                    border-radius: 20px;
+                    color: $search-facet-summary-item-color-horizontal;
+                    width: auto;
+
+                    .removeFacet {
+                        right: 15px;
+                    }
+                }
+            }
+
+        }
+
+        .bottom-remove-filter {
+            width: 100%;
+            float: left;
+            padding-top: 10px;
+
+            button {
+                width: auto;
+                font-size: 12px;
+                font-weight: bold;
+                cursor: pointer;
+                color: $search-facet-summary-item-color-horizontal;
+                border-color: transparent;
+                text-align: left;
+                text-indent: 10px;
+                position: relative;
+                padding-left: 3px;
+
+                &:before {
+                    content: "x";
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 1px;
+                    color: $search-facet-summary-item-color-horizontal;
+                    transform: translate(-50%, -50%);
+                }
+
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+        }
+
+        .clear-filter {
+            display: none;
+        }
+    }
+
+}

@@ -1,0 +1,294 @@
+version: "2.4"
+
+services:
+
+  traefik:
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    volumes:
+      - ./data/traefik:C:/etc/traefik
+    depends_on:
+      cd:
+        condition: service_healthy
+    networks:
+      - demo
+
+  id:
+    image: ${REGISTRY}demo/lighthouse-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    build:
+      context: .
+      dockerfile: .\docker\images\windows\demo-id\dockerfile
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+
+  xdbsearchworker:
+    image: ${REGISTRY}demo/lighthouse-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\worker\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\service'; }"
+    build:
+      context: .
+      dockerfile: .\docker\images\windows\demo-xdbsearchworker\dockerfile
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
+        INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
+        SYSTEM_ACCESSTOKEN: ${SYSTEM_ACCESSTOKEN}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+      - .\data\indexworker\src:C:\src
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\
+    networks:
+      - demo
+
+  xdbautomationworker:
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\
+    networks:
+      - demo
+
+  mssql:
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    image: ${REGISTRY}demo/lighthouse-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    build:
+      context: .
+      dockerfile: .\docker\images\windows\demo-sqldev\dockerfile
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
+        SYSTEM_ACCESSTOKEN: ${SYSTEM_ACCESSTOKEN}
+    environment:
+      USER_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      ADMIN_USER_NAME: "sitecore\\superuser"
+      DISABLE_DEFAULT_ADMIN: 'FALSE'
+      EXM_BASE_URL: "https://${CD_HOST}"
+      DAM_URL: ${DAM_URL}
+    mem_limit: 2GB
+    volumes:
+      - type: bind
+        source: .\data\sql
+        target: c:\data
+    networks:
+      - demo
+
+  solr:
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    image: ${REGISTRY}demo/lighthouse-solr:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    build:
+      context: .
+      dockerfile: .\docker\images\windows\demo-solr\dockerfile
+      args:
+        BASE_IMAGE: ${REGISTRY}community/sitecore-xp0-custom-sxa-solr:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    mem_limit: 1GB
+    volumes:
+      - type: bind
+        source: .\data\solr
+        target: c:\data
+    networks:
+      - demo
+
+  ps:
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    isolation: ${ISOLATION}
+    build:
+      context: .
+      dockerfile: .\docker\images\windows\demo-ps\dockerfile
+      args:
+        BASE_IMAGE: ${REGISTRY}community/sitecore-custom-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    restart: unless-stopped
+    environment:
+      CONN_STRING_CORE: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
+      CONN_STRING_MASTER: Data Source=mssql;Initial Catalog=Sitecore.Master;User ID=sa;Password=${SQL_SA_PASSWORD}
+      CONN_STRING_WEB: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
+    depends_on:
+      mssql:
+        condition: service_healthy
+    ports:
+      - "44015:80"
+    networks:
+      - demo
+
+  cm:
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    image: ${REGISTRY}demo/lighthouse-xp0-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('C:\\src\\Web.config'); }"
+    build:
+      context: .
+      dockerfile: .\docker\images\windows\demo-standalone\dockerfile
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
+        INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
+        SYSTEM_ACCESSTOKEN: ${SYSTEM_ACCESSTOKEN}
+        OPENCALAIS_ACCESSTOKEN: ${OPENCALAIS_ACCESSTOKEN}
+    mem_limit: 4G
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
+      SITECORE_APPSETTINGS_ENV:DEFINE: Docker
+      SITECORE_APPSETTINGS_UNICORN:DEFINE: Enabled
+      SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: Enabled
+      SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: None
+      SITECORE_APPSETTINGS_CONTENTHUB:DEFINE: Enabled
+      SITECORE_CONNECTIONSTRINGS_CMP.ContentHub: ${CMP_CONTENTHUB}
+      SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusEntityPathIn: ${CMP_SERVICEBUSENTITYPATHIN}
+      SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusSubscription: ${CMP_SERVICEBUSSUBSCRIPTION}
+      SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusEntityPathOut: ${CMP_SERVICEBUSENTITYPATHOUT}
+      SITECORE_CONNECTIONSTRINGS_SFMC: ${SFMC_CONNECTIONSTRING}
+      SITECORE_CONNECTIONSTRINGS_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
+      EXM_RENDERER_URL: http://cm
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+      - .\items:c:\items
+      - .\data\cm\src:C:\src
+    depends_on:
+      ps:
+        condition: service_started
+    networks:
+      demo:
+        aliases:
+          - "${CM_HOST}"
+
+  cd:
+    isolation: ${ISOLATION}
+    image: ${REGISTRY}demo/lighthouse-xp0-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('Web.config'); }"
+    build:
+      context: .
+      dockerfile: .\docker\images\windows\demo-cd\dockerfile
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp1-modules-base-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
+        INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
+        SYSTEM_ACCESSTOKEN: ${SYSTEM_ACCESSTOKEN}
+    scale: ${CD_CONTAINERS_COUNT}
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
+      SITECORE_APPSETTINGS_ENV:DEFINE: Docker
+      SITECORE_APPSETTINGS_UNICORN:DEFINE: Disabled
+      SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: Disabled
+      SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: None
+      Sitecore_ConnectionStrings_Security: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Web: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Messaging: Data Source=mssql;Initial Catalog=Sitecore.Messaging;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_ExperienceForms: Data Source=mssql;Initial Catalog=Sitecore.ExperienceForms;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Exm.Master: Data Source=mssql;Initial Catalog=Sitecore.Exm.master;User ID=sa;Password=${SQL_SA_PASSWORD}
+      Sitecore_ConnectionStrings_Solr.Search: http://solr:8983/solr
+      Sitecore_ConnectionStrings_XConnect.Collection: http://xconnect
+      Sitecore_ConnectionStrings_Xdb.MarketingAutomation.Operations.Client: http://xconnect
+      Sitecore_ConnectionStrings_Xdb.MarketingAutomation.Reporting.Client: http://xconnect
+      Sitecore_ConnectionStrings_Xdb.ReferenceData.Client: http://xconnect
+      Sitecore_ConnectionStrings_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
+      Sitecore_License: ${SITECORE_LICENSE}
+      EXM_RENDERER_URL: http://cm
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+      - .\data\cd\src:C:\src
+    depends_on:
+      mssql:
+        condition: service_started
+      ps:
+        condition: service_started
+      solr:
+        condition: service_started
+      xconnect:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
+      - "traefik.http.routers.cd-secure.entrypoints=websecure"
+      - "traefik.http.routers.cd-secure.rule=Host(`${CD_HOST}`)"
+      - "traefik.http.routers.cd-secure.tls=true"
+      - "traefik.http.routers.cd-secure.middlewares=force-STS-Header"
+    networks:
+      demo:
+        aliases:
+          - "${CD_HOST}"
+
+  xconnect:
+    image: ${REGISTRY}demo/lighthouse-xp0-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    # TODO: Do we need a specific xConnect entrypoint like in 9.3?
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('Web.config'); }"
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+      - .\data\xconnect\src:C:\src
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\
+    build:
+      context: .
+      dockerfile: .\docker\images\windows\demo-xconnect\dockerfile
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
+        INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
+        SYSTEM_ACCESSTOKEN: ${SYSTEM_ACCESSTOKEN}
+    networks:
+      - demo
+
+  smtp:
+    image: maildev/maildev
+    command: ["--smtp", "25", "--web", "80"]
+    isolation: ${ISOLATION}
+    ports:
+      - "44025:25"
+      - "44026:80"
+    networks:
+      - demo
+
+  init:
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    image: ${REGISTRY}demo/lighthouse-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    isolation: ${ISOLATION}
+    build:
+      context: .\docker\images\windows\demo-init
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/core/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
+        BASE_IMAGE: mcr.microsoft.com/dotnet/core/runtime:3.1-nanoserver-${NANOSERVER_VERSION}
+    environment:
+      ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      ADMIN_USER_NAME: "superuser"
+      HOST_CD: "http://cd"
+      HOST_CM: "http://cm"
+      HOST_PS: "http://ps"
+      HOST_ID: "http://id"
+      MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
+      SKIP_WARMUP_CD: ${SKIP_WARMUP_CD}
+    depends_on:
+      mssql:
+        condition: service_healthy
+      ps:
+        condition: service_started
+      cm:
+        condition: service_started
+    networks:
+      - demo
+
+networks:
+  demo:
+    external:
+      name: nat

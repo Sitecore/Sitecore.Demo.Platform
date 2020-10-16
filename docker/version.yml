@@ -1,0 +1,41 @@
+steps:
+- task: GitVersion@5
+  inputs:
+    runtime: 'core'
+    configFilePath: 'GitVersion.yml'
+    updateAssemblyInfo: true
+- task: PowerShell@2
+  displayName: 'Set correct image tag'
+  inputs:
+    targetType: 'inline'
+    script: 'echo "##vso[task.setvariable variable=tag]$(GitVersion.MajorMinorPatch)"'
+  condition: eq(variables['GitVersion.PreReleaseLabel'], '')
+- task: PowerShell@2
+  displayName: 'Tag the PR without the version number'
+  inputs:
+    targetType: 'inline'
+    script: 'echo "##vso[task.setvariable variable=tag]$(GitVersion.PreReleaseLabel)"'
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+- task: PowerShell@2
+  displayName: 'Set additional image tag for PR'
+  inputs:
+    targetType: 'inline'
+    script: 'echo "##vso[task.setvariable variable=additionalImageTags]$(GitVersion.PreReleaseLabel)"'
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+- task: PowerShell@2
+  displayName: 'Set :latest tag'
+  inputs:
+    targetType: 'inline'
+    script: 'echo "##vso[task.setvariable variable=additionalImageTags]latest"'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+- task: PowerShell@2
+  displayName: 'Set :stable tag'
+  inputs:
+    targetType: 'inline'
+    script: 'echo "##vso[task.setvariable variable=additionalImageTags]stable"'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+- task: PowerShell@2
+  displayName: 'Update version transform'
+  inputs:
+    targetType: 'inline'
+    script: '(Get-Content .\src\Project\Global\code\web.config.xdt).replace(''{version}'', ''$(GitVersion.InformationalVersion)'') | Set-Content .\src\Project\Global\code\web.config.xdt -Verbose'

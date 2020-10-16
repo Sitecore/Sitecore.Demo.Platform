@@ -1,0 +1,96 @@
+﻿---
+ID: "14d71dc5-f486-44e4-bcc8-3ea07a3500c0"
+Parent: "2cbc9016-898e-4ae3-b173-9d762f1825f9"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Snippets/Single Page Teaser for column
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "c80e6f3c-5bcd-426b-b1eb-6d10672e985d"
+  Hint: Data Source Selection Behavior
+  Value: AskUser
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{D44182C7-844C-4572-82F2-EDFD4E72556D}"
+          s:ds="{234D031E-9D64-4245-B3C3-A97F14F8D5D4}"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b27992E19-7C79-40E3-B861-85CA324956C9%7d&amp;DynamicPlaceholderId=1&amp;Reset Caching Options"
+          s:ph="section-content">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{1BF5A050-1CC4-4881-8C25-5F9950AAA180}"
+                s:name="Cooking">
+                <conditions>
+                  <or
+                    uid="3E5FD534D02147B1BEF1E25A7FEC362D">
+                    <condition
+                      uid="22CEACA85B8E4CAE8F77E390C22B7585"
+                      s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                      s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                      s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
+                    <condition
+                      uid="81FDA6940996478CBF7D4284C0F891D7"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:PatternName="Foodie"
+                      s:ProfileName="Health Focus" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="6489A60FFF1A4B0780B553A6C902DD20"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{B5684B40-75E9-4FE6-912F-2D1C8D761AF2}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="5CCCAA9FC0B9429B9D01C0180F1D2B0F"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180627T122904Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: シングルページ カラム用ティーザー
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180628T023250Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous

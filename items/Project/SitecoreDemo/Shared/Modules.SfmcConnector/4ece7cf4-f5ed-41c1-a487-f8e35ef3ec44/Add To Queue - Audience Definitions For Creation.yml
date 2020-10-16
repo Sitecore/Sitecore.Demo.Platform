@@ -1,0 +1,38 @@
+﻿---
+ID: "22f8e941-4387-49b5-b6ee-37d15ce19ae1"
+Parent: "4ece7cf4-f5ed-41c1-a487-f8e35ef3ec44"
+Template: "b005b83d-a73f-429b-bbd8-67da06c82573"
+Path: "/sitecore/content/SFMC Tenant/Pipelines/Email Studio/Process Single Audience Definition/Add To Queue - Audience Definitions For Creation"
+DB: master
+SharedFields:
+- ID: "3bf2f10b-350d-48ee-abe4-daa1e6b44533"
+  Hint: BatchSize
+  Value: 500
+- ID: "654137b4-8bd1-466b-ae2f-e60350ba2b86"
+  Hint: QueueKey
+  Value: audience_definitions_creation
+- ID: "65a24b7f-ced2-4cf5-ac45-2eb7b65b4143"
+  Hint: Conditions
+  Type: Treelist
+  Value: "{03524CBC-08DE-4592-A74B-5741C6550BD0}"
+- ID: "b3db71d4-19d9-4fde-8d33-bb4af11da475"
+  Hint: ObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{22F8E941-4387-49B5-B6EE-37D15CE19AE1}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163709Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

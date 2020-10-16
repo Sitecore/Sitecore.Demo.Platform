@@ -1,0 +1,37 @@
+﻿---
+ID: "a7fa7d01-1997-423a-bdd7-2eb8198cf8c0"
+Parent: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
+Template: "14807d83-9671-4d70-b0f4-f54012f2bfb8"
+Path: /sitecore/templates/Project/Demo Shared SXA Sites/SitecoreDemo/Pages/Article Page/__Standard Values
+DB: master
+SharedFields:
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: $now
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{3651792B-489E-4A25-9B69-48219439CF2A}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180214T035808Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Main body content for the article.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Montes nascetur ridiculus mus mauris vitae ultricies. Eget nullam non nisi est. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Tempor orci dapibus ultrices in iaculis nunc sed augue. Duis convallis convallis tellus id interdum velit laoreet. Urna id volutpat lacus laoreet non curabitur gravida arcu ac. Magna fringilla urna porttitor rhoncus dolor purus non enim praesent. Quis blandit turpis cursus in hac habitasse platea. Nascetur ridiculus mus mauris vitae ultricies leo. In ante metus dictum at. Cursus eget nunc scelerisque viverra mauris in. Id semper risus in hendrerit gravida rutrum quisque. Enim sed faucibus turpis in eu mi bibendum. Quam quisque id diam vel quam elementum pulvinar etiam non. Vulputate odio ut enim blandit volutpat maecenas.</p>
+    - ID: "6f76ce61-3806-4512-8e49-207f96308d8b"
+      Hint: Subtitle
+      Value: Article
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: Introduction text is displayed at the top of articles. It is also used as the text snippet displayed on the article listing page and in promos around the website.

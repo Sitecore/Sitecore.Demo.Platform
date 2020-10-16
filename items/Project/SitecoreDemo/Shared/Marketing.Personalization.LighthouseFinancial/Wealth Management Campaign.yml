@@ -1,0 +1,40 @@
+﻿---
+ID: "648d160c-542c-44fd-b877-7de74c16149a"
+Parent: "055634ef-74f9-4b13-a282-f1d1bbb4c0cf"
+Template: "550b5cef-242c-463f-8ed5-983922a39863"
+Path: /sitecore/system/Marketing Control Panel/Personalization/Predefined Rules/Wealth Management Campaign
+DB: master
+SharedFields:
+- ID: "5c29555e-6565-4984-a692-115b49c047a0"
+  Hint: Rule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{513E9BBE-254A-4513-BB87-1BBEF22A5461}">
+        <conditions>
+          <condition
+            id="{0290AA90-B948-4C8C-B576-F3C17F9DE389}"
+            uid="40C9022FBFCE4FD1B53DAC187C10C9E1"
+            CampaignsList="{47C2B246-7FD0-4984-A177-051B4F55BB41}" />
+        </conditions>
+      </rule>
+    </ruleset>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "062041c0-682e-4bd3-a778-85451ea11956"
+      Hint: Name
+      Value: Wealth Management Campaign
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200711T214919Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Casey

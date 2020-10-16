@@ -1,0 +1,10 @@
+#!/bin/sh
+echo '{'
+[ -f status/DeployMarketingDefinitions.Ready ] && echo '"DeployMarketingDefinitions" : "Ready",' || echo '"DeployMarketingDefinitions" : "NotReady",'
+[ -f status/ExperienceGenerator.Ready ] && echo '"ExperienceGenerator" : "Ready",' || echo '"ExperienceGenerator" : "NotReady",'
+[ -f status/IndexRebuild.Ready ] && echo '"IndexRebuild" : "Ready",' || echo '"IndexRebuild" : "NotReady",'
+[ -f status/PublishItems.Ready ] && echo '"PublishItems" : "Ready",' || echo '"PublishItems" : "NotReady",'
+[ -f status/WaitForPublishingServiceToStart.Ready ] && echo '"WaitForPublishingServiceToStart" : "Ready",' || echo '"WaitForPublishingServiceToStart" : "NotReady",'
+[ -f status/WarmupCD.Ready ] && echo '"WarmupCD" : "Ready",' || echo '"WarmupCD" : "NotReady",'
+[ -f status/WarmupCM.Ready ] && echo '"WarmupCM" : "Ready"' || echo '"WarmupCM" : "NotReady"'
+echo '}'

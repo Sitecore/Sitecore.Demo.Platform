@@ -1,0 +1,29 @@
+﻿---
+ID: "5d765f37-6e92-4bba-a865-cd918b370dc1"
+Parent: "1c3e1293-3ff5-41bb-8288-02fb3381a43c"
+Template: "4ba5aef9-e9b4-47dc-b9f5-1bcbdb30f4b1"
+Path: /sitecore/content/SFMC Tenant/Data Access/Value Readers/Common/Constructor Value Reader
+DB: master
+SharedFields:
+- ID: "9106d4dd-85df-455f-a6c1-58041621741f"
+  Hint: DoNotUseSourceForConstructorParameters
+  Type: Checkbox
+  Value: 1
+- ID: "e98bc3c6-7bea-4efb-a317-958853ea4aa3"
+  Hint: Type
+  Value: System.Guid
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{5D765F37-6E92-4BBA-A865-CD918B370DC1}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163701Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,0 +1,252 @@
+﻿---
+ID: "5d104d9d-155a-44d3-aae7-d37c416eb3ec"
+Parent: "813ce1d0-61e4-422f-9a3a-657bc47f60ab"
+Template: "ce98d373-6154-4e38-8b5c-70b5b4afea60"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Home/Insurance
+DB: master
+SharedFields:
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="d387e7ed-61a7-4d4a-b85b-93bb3a6a598a"
+        name="Cumulus Finserv Topic Interest"
+        presets="insurance|100||">
+        <key
+          name="Banking"
+          value="0" />
+        <key
+          name="Borrowing"
+          value="0" />
+        <key
+          name="Corporate Banking"
+          value="0" />
+        <key
+          name="Credit Cards"
+          value="0" />
+        <key
+          name="Insurance"
+          value="10" />
+        <key
+          name="Investing"
+          value="0" />
+        <key
+          name="Personal Banking"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{DC0A4DAE-F45A-459C-A475-78BB8FE3C1D0}"
+              p:before="*"
+              s:ds="{A437CAF1-5E94-4B61-8C2C-D1277BE49401}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B292F9A86-3B80-450D-B340-E26F4C717C53%7D&amp;Styles=%7BAFC0C94E-6914-40DB-A12E-37A38C2289B7%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1" />
+            <r
+              uid="{BA41A3DD-A9C1-4278-9564-E18204E3F3BE}"
+              p:after="r[@uid='{DC0A4DAE-F45A-459C-A475-78BB8FE3C1D0}']"
+              s:ds="{B0EC90D8-6100-4703-8975-5D986D65D73C}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7BFC6A1A4D-91C6-4908-9B94-DF03ED671FD8%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1" />
+            <r
+              uid="{2B158DE0-FA1D-45A5-B2DF-E1915E2DDC2F}"
+              p:after="*[1=2]"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200124T152906Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Insurance
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+                 <div class="gray-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Auto Insurance</h4>
+                          <p>Cumulus keeps you and your family covered with great auto insurance that's also a great value.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Provides benefits to survivors when an accident results in death</li>
+                            <li>Cover lawsuits against you as the result of an accident</li>
+                            <li>Cover the bills of vehicle repairs due to damage</li>
+                            <li>Cover damage caused by other than an accident</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Home Insurance</h4>
+                          <p>Caring for your home and loved ones is crucial. That’s why we offer homeowners insurance you can depend on.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Safeguard your home from damages</li>
+                            <li>Coverage for your personal belongings</li>
+                            <li>Protect your liability</li>
+                            <li>Includes temporary housing after a disaster</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gray-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Property &amp; Casualty</h4>
+                          <p>Protect your personal property in the event that they are damaged or stolen and protect yourself if you are liable.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Coverage for personal belongings and property</li>
+                            <li>Coverage for incidents in which you are legally liable</li>
+                            <li>Liability is covered in and out of court </li>
+                            <li>Includes loss of income</li>
+                            <li>Offers different levels of coverage</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Life Insurance</h4>
+                          <p>There's so much to protect around you, and most importantly your loved ones. Help ensure a more secure financial future for your loved ones when you're gone.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Benefits can be used to pay final expenses</li>
+                            <li>Relpace your income for your beneficiaries if you pass away</li>
+                            <li>Secure an inheritance for your loved ones</li>
+                            <li>Help offset paying for federal or state estate tax</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gray-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Renters Insurance</h4>
+                          <p>Coverage you obtain from our renters insurance can save you a headache in the event of a theft, accident or environmental damage.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Protect your personal belongings against damage</li>
+                            <li>Temporary living expenses</li>
+                            <li>Protection from theft</li>
+                            <li>Coverage for liability medical and legal bills</li>
+                            <li>Protection from damages you inadvertently caused</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Small Business Insurance</h4>
+                          <p>Invest in fixed income securities that may offer a higher level of stability and provide a steady stream of income.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Build a balanced portfolio and generating regular income</li>
+                            <li>Reduce portfolio volatility and meet long and short-term goals</li>
+                            <li>Complement mutual funds in your investment portfolio</li>
+                            <li>Rely on receiving full-face amount when your investment matures</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gray-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Pet Insurance</h4>
+                          <p>Invest in shares of publicly-traded companies across a variety of sectors.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Buy ownership shares in a specific company</li>
+                            <li>Build a balanced portfolio</li>
+                            <li>Keep the stock you have in a retirement plan at work</li>
+                            <li>Buy at a specific price set throughout the day</li>
+                            <li>Complement the mutual funds in your existing portfolio</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Umbrella Insurance</h4>
+                          <p>Invest in fixed income securities that may offer a higher level of stability and provide a steady stream of income.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Build a balanced portfolio and generating regular income</li>
+                            <li>Reduce portfolio volatility and meet long and short-term goals</li>
+                            <li>Complement mutual funds in your investment portfolio</li>
+                            <li>Rely on receiving full-face amount when your investment matures</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Insurance

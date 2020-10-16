@@ -1,0 +1,38 @@
+﻿---
+ID: "5842651d-5e6e-4103-8f33-0a33bbd266c7"
+Parent: "67d7f274-9a09-4450-bbed-fd0e5777d81e"
+Template: "5d01716d-e88d-422b-b74b-ca2211fed8d4"
+Path: /sitecore/content/SFMC Tenant/Pipelines/Push Marketing Lists/Read Sitecore Marketing Lists/Cache Remote Audience Definitions
+DB: master
+SharedFields:
+- ID: "13ccd004-eb1f-42d2-8e23-35baeb70c15e"
+  Hint: ResponseHandler
+  Value: "{1C1FFF9E-CBD4-4A54-9AB4-B080F5B612A3}"
+- ID: "7914afe0-3f94-4029-8997-d7740c2ff1dc"
+  Hint: Endpoint
+  Value: "{689FB77D-6A64-4B0F-A2ED-66BD430D70D2}"
+- ID: "9b1aedfc-7599-4040-9e5e-32debc185592"
+  Hint: Conditions
+  Type: Treelist
+  Value: "{DD2663AF-C1CC-4857-8655-B5C6D6AB8BBF}"
+- ID: "b03c77b6-da59-451b-ac78-7a260f2840f2"
+  Hint: Request
+  Value: "{691CC16A-A1DA-428D-806F-C1E86F87FEBE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{5842651D-5E6E-4103-8F33-0A33BBD266C7}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163708Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

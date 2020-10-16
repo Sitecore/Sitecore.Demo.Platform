@@ -1,0 +1,42 @@
+﻿---
+ID: "ccc9cbe3-fbca-4ec8-8b0e-9e8ad3f9a357"
+Parent: "6e27a939-b45b-4376-8713-e685cab5c1ab"
+Template: "8fcd3cfe-8b3b-423e-8176-6a7c72cb43fc"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Presentation/Rendering Variants/Promo/PromoImageLeft/promo
+DB: master
+SharedFields:
+- ID: "936e68b4-5346-4adb-9b77-79771d0b40dc"
+  Hint: Template
+  Value: |
+    <div {{ sc_decorate "promo" }}>
+        <div class="component promo container promo-right">
+            <div class="component-content ">
+                <div class="field-promoicon">
+                    {{ i_item.PromoIcon }}
+                </div>
+                <div> 
+                    <div>
+                        <div>
+                            <h3 class="field-promotext">
+                                    {{ i_item.PromoText }}
+                            </h3>
+                            <div class="field-promotext2">
+                                    {{ i_item.PromoText2 }}
+                            </div>
+                            <div class="field-promolink">
+                                    {{ i_item.PromoLink }}
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200131T204334Z

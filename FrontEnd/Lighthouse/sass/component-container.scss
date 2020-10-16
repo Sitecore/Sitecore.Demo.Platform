@@ -1,0 +1,27 @@
+@import "styles/container/*";
+@import "mixins";
+@import "vars";
+.container {
+	.component-content {
+        @include clearfix();
+    }
+
+    &.col-sm-12,
+    &.col-xs-12 {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        @include container;    
+    }
+
+    .full-width-container {
+        @include full-width-container;
+
+        .column-splitter {
+            max-width: 80%;
+            margin-left: 10%;
+        }
+    }
+}
+

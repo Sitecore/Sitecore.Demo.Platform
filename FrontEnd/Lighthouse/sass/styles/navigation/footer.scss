@@ -1,0 +1,173 @@
+#footer {
+	margin: 0 0 0 0;
+	padding: 3em 0 0em 0;
+	background-color: $bg-charcoal;
+
+	.image img {
+		width: 60%;
+	}
+
+	.footer-links-container {
+		* {
+			float: none;
+		}
+
+		.component-content {
+			display: flex;
+			flex-wrap: wrap;
+
+			@include respond-to(tablet) {
+				flex-wrap: nowrap;
+			}
+		}
+
+		.row {
+			> div {
+				@include clearfix;
+			}
+		}
+
+		.link-list {
+			flex-shrink: 1;
+			flex-grow: 1;
+
+			li {
+				a {
+					padding: 0.25em 0;
+					margin: 0 0 0.25em;
+				}
+			}
+
+			@include respond-to(tablet) {
+				flex-basis: 0;
+			}
+
+			width: 50%;
+
+			ul {
+				width: 100%;
+			}
+
+			a {
+				display: inline-block;
+				color: #747474;
+				position: relative;
+				padding: 0.5em 0;
+				font-size: 1em;
+				text-decoration: none;
+				@include proxima-font;
+
+				&:before {
+					display: none;
+				}
+
+				&:hover {
+					color: white;
+					border: 0;
+				}
+			}
+
+			&:last-child a,
+			.first a {
+				color: white;
+				font-weight: bold;
+				display: block;
+				border-bottom: 1px solid $primary-color;
+			}
+		}
+
+		@include respond-to(tablet) {
+			.link-list {
+				width: auto;
+			}
+		}
+	}
+
+	.social-link-list {
+		li {
+			display: inline-block;
+
+			a {
+				font-size: 0;
+				&:before {
+					font-size: 20px;
+					padding: 5px;
+				}
+			}
+		}
+
+		h3 {
+			display: none;
+		}
+
+		a {
+			font-size: 0;
+			padding: 1em;
+			display: inline-block;
+			width: 32px;
+
+			&:hover {
+				border: 0;
+			}
+
+			&:before {
+				font: normal normal normal 14px/1 FontAwesome;
+				font-size: 20px;
+				color: $social-media-color;
+			}
+
+			&.social-links-facebook:before {
+				content: "\f09a";
+			}
+			&.social-links-linkedin:before {
+				content: "\f0e1";
+			}
+			&.social-links-twitter:before {
+				content: "\f099";
+			}
+			&.social-links-youtube:before {
+				content: "\f167";
+			}
+		}
+
+		ul {
+			padding: 1em 0;
+			margin: 1em 0;
+		}
+		li {
+			display: inline-block;
+		}
+	}
+
+	.search-box {
+		.component-content {
+			> .twitter-typeahead {
+				margin: 0;
+			}
+
+			> label {
+				display: none;
+			}
+		}
+
+		button {
+			border: 0;
+			background-color: $btn-primary-bg !important;
+			color: $btn-primary;
+			font-size: $navigation-font-basic;
+			height: 44px;
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		input[type="text"] {
+			border: 0;
+			height: 44px;
+			font-size: $navigation-font-basic;
+			box-shadow: none;
+			background-color: $search-box-bg !important;
+			border: 1px solid #757575;
+			color: $text-light;
+		}
+	}
+}

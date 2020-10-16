@@ -1,0 +1,63 @@
+﻿---
+ID: "2785c137-9271-46ac-bf4a-9039d590c6e2"
+Parent: "323b17d4-9c9f-4103-9854-817644b9068b"
+Template: "a6ddac75-7d24-4bdb-b3f6-5f47fbb21379"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/scenarios/onboarding-customer-journey/Data/Scenario Steps/Step 2"
+DB: master
+BranchID: "bab1fb9b-58a3-4df8-9f05-204b25ddb8e0"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{09BD444B-FABC-47EA-981D-2C8271655469}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B5423143A-760D-4F0E-BA4D-0B02E649A778%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-title"
+          uid="{FE0EB88E-C287-495F-A791-2299BCA384E1}" />
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-content"
+          uid="{FBA9FF17-0B80-4094-8598-518D391D3113}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D957D258-35AD-4302-966C-49D5AF64BAC5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200702T124328Z
+    - ID: "5a236869-e375-49c0-a92d-0c2f1db7788f"
+      Hint: Content
+      Value: |
+        <p>The goal of this step is customer acquisition. The visitor arrives on the website at an article page that contains a call-to-action form. If the visitor submits the call-to-action form, we are able to do the following:</p>
+        <ul>
+            <li>Use the visitor's email address to turn them into a known contact in Sitecore's Experience Database</li>
+            <li>Trigger a Sitecore goal (which can be used for personalization or other purposes in the current and future visits)</li>
+            <li>Attempt to collect consent information for re-marketing opportunities</li>
+            <li>Send a confirmation email</li>
+            <li>Enroll the visitor in a Marketing Automation plan to nurture new contacts</li>
+        </ul>
+        <p>The visitor will receive an email after submitting the call-to-action form due to implied consent but it is important that we collect&nbsp;<strong><em>consent information</em></strong>&nbsp;from the visitor if we wish to send marketing emails in the future.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "7240053b-9140-48ac-acea-abfccd7761a1"
+      Hint: Heading
+      Value: "<b>Step 2</b> - Identify Contact and Collect Consent"

@@ -1,0 +1,37 @@
+﻿---
+ID: "cf536f42-c91c-40ac-8faf-15595563be07"
+Parent: "0bcf8834-8731-4fc5-976a-d0f82abc359c"
+Template: "6ebb38ce-04fc-425c-895b-3c81fa4a7b5c"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Data/POIs/US Branches/Baltimore
+DB: master
+SharedFields:
+- ID: "1df37811-7355-4ee2-b1c7-ecbd6be8df44"
+  Hint: Latitude
+  Value: 39.2848183
+- ID: "38732912-d8c3-46c3-9e23-6933552429fa"
+  Hint: Longitude
+  Value: "-76.6905356"
+- ID: "8e09c5d1-4ec5-48fd-b355-3d1c65dd5c0f"
+  Hint: Type
+  Value: "{F556E700-BE42-4C99-AE19-CA927B5CCDBA}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200113T203117Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "7db4985a-73a1-44a3-9b2c-ffea56093431"
+      Hint: Description
+      Value: |
+        <p>443 East Avenue<br />
+        Baltimore, MD<br />
+        90005</p>
+    - ID: "e428dd88-04a5-43c2-be37-35e0e3cf9890"
+      Hint: Title
+      Value: Baltimore Branch

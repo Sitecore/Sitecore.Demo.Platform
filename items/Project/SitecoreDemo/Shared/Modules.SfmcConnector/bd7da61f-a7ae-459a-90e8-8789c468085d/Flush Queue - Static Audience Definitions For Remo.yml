@@ -1,0 +1,38 @@
+﻿---
+ID: "e34789fb-e216-4461-ad5f-cd4fbf9eb329"
+Parent: "bd7da61f-a7ae-459a-90e8-8789c468085d"
+Template: "587f891a-8df6-444c-89d1-b3ab83cffb63"
+Path: "/sitecore/content/SFMC Tenant/Pipelines/Journey Builder/Clean Outdated Records/Flush Queue - Static Audience Definitions For Removal"
+DB: master
+SharedFields:
+- ID: "13ccd004-eb1f-42d2-8e23-35baeb70c15e"
+  Hint: ResponseHandler
+  Value: "{478CE970-EB3A-46A3-BC00-1B93E62D4BE4}"
+- ID: "7914afe0-3f94-4029-8997-d7740c2ff1dc"
+  Hint: Endpoint
+  Value: "{689FB77D-6A64-4B0F-A2ED-66BD430D70D2}"
+- ID: "9b1aedfc-7599-4040-9e5e-32debc185592"
+  Hint: Conditions
+  Type: Treelist
+  Value: "{CA2ED15E-9090-4F07-B97D-02CB7BD84724}"
+- ID: "b03c77b6-da59-451b-ac78-7a260f2840f2"
+  Hint: Request
+  Value: "{AEE95A5D-E4FE-47EC-AFF9-8DC1277C0F1B}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{E34789FB-E216-4461-AD5F-CD4FBF9EB329}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163714Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

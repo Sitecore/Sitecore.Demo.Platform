@@ -1,0 +1,46 @@
+﻿---
+ID: "47541b8e-e26d-4e15-ad6e-a09c653d73ac"
+Parent: "c1299037-d587-462a-8dc3-45e86121a6cf"
+Template: "142e5fc1-ec62-4540-bad9-cd88f337cd2e"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Data/Carousels/Retail Banking/Slide3
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B8AB7438-FF88-41A2-B0FD-493FB644E1B2}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B7C5FEDFB-F002-4136-99B0-5ED23040938B%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-content"
+          uid="{0AFFCDDF-A1EA-4BAF-8BE2-3B8D0180761C}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200711T204957Z
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{A5EFE61B-BC42-47AC-85EF-85F976E165F9}" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Casey
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: Credit Cards
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link text="Apply Today" anchor="" linktype="internal" class="" title=""  querystring="" id="{A5AA1350-1E56-414B-A8A6-C490D6CECFF9}" />

@@ -1,0 +1,22 @@
+.footer-legal-container {
+    background-color: $bg-black;
+    min-height: 44px;
+    max-width: none !important;        
+    width: 100vw !important;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .copyrights {
+        color: $nav-footer-legal;
+        padding: 15px 30px;
+        font-size: 1em;
+
+        p {
+            font-size: $navigation-font-small;
+        }
+
+        a {
+            color: $nav-footer-legal;
+        }
+    }
+}

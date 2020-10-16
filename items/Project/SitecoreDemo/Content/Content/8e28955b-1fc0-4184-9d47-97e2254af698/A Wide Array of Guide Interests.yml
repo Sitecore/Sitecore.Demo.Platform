@@ -1,0 +1,291 @@
+﻿---
+ID: "874ed455-af6f-438d-bea8-1916b7fab5bd"
+Parent: "8e28955b-1fc0-4184-9d47-97e2254af698"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Snippets/Two Column Snippets for Home and L1 pages/A Wide Array of Guide Interests
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{D26E6B1B-1108-4238-AAA4-85C65E22093C}"
+          p:before="*"
+          s:ds=""
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=2"
+          s:ph="section-content" />
+        <r
+          uid="{E84563C1-E7DE-432E-8BEF-06C21F338C2D}"
+          p:after="r[@uid='{D26E6B1B-1108-4238-AAA4-85C65E22093C}']"
+          s:ds="/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/articles/sheet-pan-jambalaya"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:pt="{E312B859-DB3C-46C9-B554-FBAA11593F2D}"
+          s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;Reset Caching Options=1&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/section-content/column-2-2">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{7764D894-F965-429E-AC49-435D403294B0}"
+                s:name="Fitness"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="442D526173A94A1E847BB29D98E169E2">
+                    <or
+                      uid="7F6B1822763D4D198E34E36DEA791483">
+                      <condition
+                        uid="DF85B8B5837A473EA45302B3004AA1B6"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}" />
+                      <condition
+                        uid="67641F5A8E27430D8F4E6CAF159ADF87"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{38D5EEFC-52CB-4DD8-8B4A-75F0CA461E9E}" />
+                    </or>
+                    <condition
+                      uid="6D49993DD0CF4AABBC7DA97D18ED1BA4"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Fitness Fanatic" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="D809FD9E25DC448CA409001188302C53"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{CB96DF66-E22F-4906-9ABE-E0403794D485}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{F74024A8-FDAE-4D42-AF0A-9C5F4537B0ED}"
+                s:name="Foodie"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="32290EA4285B4DE6AD2CCAF572AA6499">
+                    <or
+                      uid="D85407F9EC1F4C66904592458C3368F4">
+                      <condition
+                        uid="58CD8F60DF6F4B6A82DF491367C2AA9C"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
+                      <condition
+                        uid="87E58A97DB484804BFF6FF47B25AF697"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="2EFBC68FCACB44DC87AE52D596CD5175"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="9853B72400BF4794BA206035C40C60B1"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{B324AA9A-4053-4B7E-97A2-8133988E4371}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{0CC11035-3124-42A8-8277-3C8099854C22}"
+                s:name="Everyday Health"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="CA6E41D31F8A435C9C8C440310C0A71C">
+                    <or
+                      uid="F141C62A8F174CA3880A25C1701D7073">
+                      <condition
+                        uid="FC42F9A61513407598F55FCC8407D08A"
+                        s:id="{BE334DF8-9A0F-4FF3-A6D8-C396EC713809}"
+                        s:PageId="{14CD7D35-4268-4C34-A3B3-3F44C6521937}" />
+                      <condition
+                        uid="B8420C2F6CDF4D38800B64186611652A"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{C3E2C23C-5FE2-4FD1-97A1-1416B7D23115}" />
+                    </or>
+                    <condition
+                      uid="C316CED24C9F4972B0919209A277957C"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Everyday Health" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="CFD731D0B59E47EC8363E04EEB57DC23"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{10F66202-C76C-40F9-8247-66328B96338E}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="7F13742842E8404EB77C1DAB6FA7FA80"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{4EF9A41F-3AE5-4367-9514-D2A39B2E418F}"
+          p:after="*[1=2]"
+          s:ds="/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/articles/importance-of-stretching"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:pt=""
+          s:par="Reset Caching Options=1&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/section-content/column-1-2">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{2BF2A864-A4A1-400B-AA78-342E27653B78}"
+                s:name="Fitness">
+                <conditions>
+                  <or
+                    uid="DBF5E8A67B2D4E34B09FEA2A24E9E9CB">
+                    <or
+                      uid="9149AC497D794D86835C73824CC04F64">
+                      <condition
+                        uid="10FC59960C3C4280BAFFD504562E233B"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}" />
+                      <condition
+                        uid="792D046D38BB43B099C27342BC743559"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{38D5EEFC-52CB-4DD8-8B4A-75F0CA461E9E}" />
+                    </or>
+                    <condition
+                      uid="170CC8EAA9C640CA81A2CA0A345CFC3B"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Fitness Fanatic" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="D083F3937C0F468580F92964119649D5"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{6238B3BB-E9C4-4AFB-B445-BE302466691E}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{5DB1A95D-A044-4C5B-8555-AC1CCABD5F71}"
+                s:name="Foodie">
+                <conditions>
+                  <or
+                    uid="08EFE97F4589481D9780571E207C9E0B">
+                    <or
+                      uid="F62D334182C446278B9E57294F0AA043">
+                      <condition
+                        uid="B15FCF8D79244AEE997292ACCB3343BE"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
+                      <condition
+                        uid="41C8755C0B74483BB293645DA4141257"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="3C5F4460B58046B38C8B41A7D5EBD2DB"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="A0784149B9A145A3808B2306B62CCD5F"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{B5684B40-75E9-4FE6-912F-2D1C8D761AF2}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{54561250-08AE-44B3-81AB-E3CDBF7A036F}"
+                s:name="Everyday Fitness">
+                <conditions>
+                  <or
+                    uid="F5239B8B78CA4D35B007739651CD4780">
+                    <or
+                      uid="DB2DE7E2475D48C68DF79E6A45CD89C3">
+                      <condition
+                        uid="851430F98F9048C7AB594E93E910FC38"
+                        s:id="{BE334DF8-9A0F-4FF3-A6D8-C396EC713809}"
+                        s:PageId="{7FFDAD1C-50A6-4CE7-81C5-259DCD6D1FC1}" />
+                      <condition
+                        uid="11FFB95314424EF29ABC458BC53788E3"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{C3E2C23C-5FE2-4FD1-97A1-1416B7D23115}" />
+                    </or>
+                    <condition
+                      uid="DC8567E6775C4756B832152C371AE65E"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Everyday Health" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="2964B55787884305B0F35AEBEDD5AB3C"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{79E4221A-D150-45D4-8DA0-C453C491F1B7}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="0EF88B187DB64651BD9E1BE22FFE654D"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180801T140951Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T032508Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

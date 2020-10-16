@@ -1,0 +1,36 @@
+﻿---
+ID: "38d5eefc-52cb-4dd8-8b4a-75f0ca461e9e"
+Parent: "d67e2949-8843-4312-bbb5-37ffde29390f"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/LighthouseLifestyle/Health Focus/Pattern Cards/Fitness Fanatic
+DB: master
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="3b752260-57e2-488c-9d84-95a8a5171af8" name="Health Focus">
+        <key name="Children" value="0" />
+        <key name="Cooking" value="0" />
+        <key name="Exercise" value="10" />
+        <key name="Fitness Tech" value="10" />
+        <key name="Mental Health" value="5" />
+        <key name="Nutrition" value="10" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Fitness Fanatic
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200519T123812Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

@@ -1,0 +1,34 @@
+﻿---
+ID: "40a395fb-7f6f-4662-bbba-31812ade6aea"
+Parent: "7f0b5f04-983f-46fd-b337-2c0c4fd98251"
+Template: "8fcd3cfe-8b3b-423e-8176-6a7c72cb43fc"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Presentation/Rendering Variants/Promo/PromoImageThumbnail/PromoImageThumbnail
+DB: master
+SharedFields:
+- ID: "936e68b4-5346-4adb-9b77-79771d0b40dc"
+  Hint: Template
+  Value: |
+    <div {{ sc_decorate "promo" }} role="banner">
+      <div class="inside-intro-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 offset-sm-2">
+            <div>
+            {{i_item.PromoIcon}}
+            </div>
+              <h1>{{i_item.PromoText}}</h1>
+              <h3>{{i_item.PromoText2}}</h3>
+          </div>
+        </div>
+      </div>
+    </div> 
+    </div>
+    
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200213T213442Z

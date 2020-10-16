@@ -1,0 +1,182 @@
+﻿---
+ID: "2cb3b106-a183-49c4-8d88-44ceb5042d75"
+Parent: "47609752-379d-495c-9321-8222bcac5ec8"
+Template: "459a510b-5e2c-425f-a321-1d9423937eb0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Home/Small Business/Cash Management
+DB: master
+SharedFields:
+- ID: "1fbc6a49-6281-48ee-87e9-a3970b145adb"
+  Hint: NavigationFilter
+  Type: Checklist
+  Value: 
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{16923AF2-95E8-48A2-91B9-F60F972FE9FA}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="3a0f2ec6-1346-434d-8df1-1c576628c7fa"
+        name="Financial Client"
+        presets="business owner|100||">
+        <key
+          name="Checking"
+          value="0" />
+        <key
+          name="Mortgage"
+          value="0" />
+        <key
+          name="IRA"
+          value="3" />
+        <key
+          name="Mutual Funds"
+          value="2" />
+        <key
+          name="Business Account"
+          value="10" />
+        <key
+          name="SBA Lending"
+          value="10" />
+        <key
+          name="Monetary Exchange Rate"
+          value="0" />
+        <key
+          name="Corporate Lending"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{32F268F0-E4D0-4ACE-8A04-12E9B1AEE0E6}"
+              s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+              s:par="BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD85BD5A8-A6B6-4209-8693-AE0414CBF0AC%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-article-content/container-1/column-2-2/container-4" />
+          </d>
+        </r>
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{0D32148C-BABD-4FB6-B2FA-DABBB0B056BD}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200708T173350Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Cash Management
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h2>We Can Help You Manage Your Cash Flow</h2>
+        <br />
+        These tips and recommendations can help small business owners better calculate and manage cash flow in order to maximize the financial health of their companies.<br />
+        <h3>Negotiate with vendors</h3>
+        <p>To prevent future fiscal headaches, talk to your vendors about extending due dates on accounts payable or try negotiating longer payment terms. If you speak with vendors up front and are reasonable about the time you request to make your payments, your chances of getting a longer billing cycle will likely go up.</p>
+        <p>But remember: Your vendors are also in business and they, like you, want to get paid on time. One of the most important lessons to learn about cash flow management is that being both a good customer and a good vendor pays dividends in the long run.</p>
+        <h3>Build a financial cushion</h3>
+        <p>Nearly every business goes through an up-and-down cash cycle. Such fluctuations can often be dictated by a range of factors that include everything from seasonal trends to the overall health of the economy. During periods when you have a positive cash flow, you should be putting away money to cover expenses during a down cycle.</p>
+        <h3>Set up smarter payments</h3>
+        <p>Online and mobile banking capabilities can help you avoid incurring late fees and penalties. Control cash flow with online direct payments so that individuals or businesses get paid on time. Making payments electronically also enables you to hold on to your money longer, since you decide when the funds will be taken from your account. If a bill is due in 30 days, don't pay it in 15. Schedule to pay it on the day it's due. You'll remain current with your vendors and you'll also hold on to your cash longer.</p>
+        <p>When it comes to optimizing your accounts receivable, it&rsquo;s a good idea to make use of cash flow management tools like remote deposit capture. This feature lets you avoid the hassle of taking checks to the bank and offers the convenience of later deposit cutoff times. Using a free bank-provided scanner, you can make unlimited deposits to your business checking account from your office or home.</p>
+        <h3>Upgrade payroll systems</h3>
+        <p>For more mature companies that are wondering how to improve cash flow, using state-of-the-art payroll software or services can be a great way to increase liquidity, save time and save effort.</p>
+        <h3>Switch to electronic invoicing</h3>
+        <p>A big part of managing cash flow more effectively involves getting paid consistently and on time. One smart strategy to help ensure this happens is to invoice customers electronically. Electronic billing enables you to customize business invoices and set up automatic payment reminder emails as well as past-due notices.</p>
+        <p>Once you set up a customer&rsquo;s electronic invoice, it can go out when you decide without having to create a new one each time. Another tip: Consider offering small discounts to customers who pay their bills quickly.</p>
+        <h3>Utilize account management tools</h3>
+        <p>Successful cash flow management means having control and flexibility when it comes to business finances. Account management allows you to establish individual access capabilities among different employees. So, for example, you can allow one employee to see details of one account for specific business needs, but allow your company&rsquo;s accountant to see all accounts and make payments from an account you designate.</p>
+        <p>&nbsp;</p>
+    - ID: "b7c8dbcf-14cf-485c-88ba-af35e0a9460a"
+      Hint: isFeatured
+      Type: Checkbox
+      Value: 1
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>Cash management is a crucial responsibility for small business owners. According to the Small Business Administration, cash flow problems are the major reason why so many small businesses fail each year. Neglecting, or simply not paying adequate attention to, your company's cash position can quickly jeopardize an otherwise profitable business.</p>
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Cash Management
+  - Version: 2
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{32F268F0-E4D0-4ACE-8A04-12E9B1AEE0E6}"
+              s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+              s:par="BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD85BD5A8-A6B6-4209-8693-AE0414CBF0AC%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-article-content/container-1/column-2-2/container-4" />
+          </d>
+        </r>
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{0D32148C-BABD-4FB6-B2FA-DABBB0B056BD}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200708T173350Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Cash Management
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h2>We Can Help You Manage Your Cash Flow</h2>
+        <br />
+        These tips and recommendations can help small business owners better calculate and manage cash flow in order to maximize the financial health of their companies.<br />
+        <h3>Negotiate with vendors</h3>
+        <p>To prevent future fiscal headaches, talk to your vendors about extending due dates on accounts payable or try negotiating longer payment terms. If you speak with vendors up front and are reasonable about the time you request to make your payments, your chances of getting a longer billing cycle will likely go up.</p>
+        <p>But remember: Your vendors are also in business and they, like you, want to get paid on time. One of the most important lessons to learn about cash flow management is that being both a good customer and a good vendor pays dividends in the long run.</p>
+        <h3>Build a financial cushion</h3>
+        <p>Nearly every business goes through an up-and-down cash cycle. Such fluctuations can often be dictated by a range of factors that include everything from seasonal trends to the overall health of the economy. During periods when you have a positive cash flow, you should be putting away money to cover expenses during a down cycle.</p>
+        <h3>Set up smarter payments</h3>
+        <p>Online and mobile banking capabilities can help you avoid incurring late fees and penalties. Control cash flow with online direct payments so that individuals or businesses get paid on time. Making payments electronically also enables you to hold on to your money longer, since you decide when the funds will be taken from your account. If a bill is due in 30 days, don't pay it in 15. Schedule to pay it on the day it's due. You'll remain current with your vendors and you'll also hold on to your cash longer.</p>
+        <p>When it comes to optimizing your accounts receivable, it&rsquo;s a good idea to make use of cash flow management tools like remote deposit capture. This feature lets you avoid the hassle of taking checks to the bank and offers the convenience of later deposit cutoff times. Using a free bank-provided scanner, you can make unlimited deposits to your business checking account from your office or home.</p>
+        <h3>Upgrade payroll systems</h3>
+        <p>For more mature companies that are wondering how to improve cash flow, using state-of-the-art payroll software or services can be a great way to increase liquidity, save time and save effort.</p>
+        <h3>Switch to electronic invoicing</h3>
+        <p>A big part of managing cash flow more effectively involves getting paid consistently and on time. One smart strategy to help ensure this happens is to invoice customers electronically. Electronic billing enables you to customize business invoices and set up automatic payment reminder emails as well as past-due notices.</p>
+        <p>Once you set up a customer&rsquo;s electronic invoice, it can go out when you decide without having to create a new one each time. Another tip: Consider offering small discounts to customers who pay their bills quickly.</p>
+        <h3>Utilize account management tools</h3>
+        <p>Successful cash flow management means having control and flexibility when it comes to business finances. Account management allows you to establish individual access capabilities among different employees. So, for example, you can allow one employee to see details of one account for specific business needs, but allow your company&rsquo;s accountant to see all accounts and make payments from an account you designate.</p>
+        <p>&nbsp;</p>
+    - ID: "b7c8dbcf-14cf-485c-88ba-af35e0a9460a"
+      Hint: isFeatured
+      Type: Checkbox
+      Value: 1
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>Cash management is a crucial responsibility for small business owners. According to the Small Business Administration, cash flow problems are the major reason why so many small businesses fail each year. Neglecting, or simply not paying adequate attention to, your company's cash position can quickly jeopardize an otherwise profitable business.</p>
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Cash Management

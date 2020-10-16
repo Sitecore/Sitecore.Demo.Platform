@@ -1,0 +1,38 @@
+﻿---
+ID: "816e892b-9542-49b5-b9d2-8de9a7a64ebc"
+Parent: "27346326-6b88-455b-b24f-45f293f273e2"
+Template: "5b672865-55d2-413e-b699-fdfc7e732ccf"
+Path: /sitecore/Forms/Demo Shared SXA Sites/Cumulus/Card Signup/get_started/citizen_list
+DB: master
+SharedFields:
+- ID: "21ed172d-97e2-4ac4-8eaf-0a8860b891f4"
+  Hint: Default Selection
+  Value: "{C8E5918B-79E1-4D4F-BA0B-93F38ACEE6DE}"
+- ID: "589a7ade-81d4-4a60-b9e2-7eaf6ae8a563"
+  Hint: Field Type
+  Value: "{EDBD38A8-1AE9-42EC-8CCD-F5B0E2998B4F}"
+- ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
+  Hint: Conditions
+  Value: |
+    {"fieldConditions":[]}
+- ID: "84ece662-5034-40cb-9c60-744db64bb294"
+  Hint: Field Key
+  Value: 2A208C8FCF5D42AEB091E1E3414679CE
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200306T153952Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
+      Hint: Title
+      Value: "Are you a U.S. Citizen?"

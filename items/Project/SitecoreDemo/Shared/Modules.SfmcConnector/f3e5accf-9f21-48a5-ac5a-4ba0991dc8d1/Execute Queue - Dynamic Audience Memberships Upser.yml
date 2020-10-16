@@ -1,0 +1,37 @@
+﻿---
+ID: "b7e8dccd-69f9-4e45-b5d2-c5e9d8948ad6"
+Parent: "f3e5accf-9f21-48a5-ac5a-4ba0991dc8d1"
+Template: "3d9a1656-0962-4f44-a0ab-a48ee0fe6f11"
+Path: "/sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Contents/Data Extension Records/Execute Queue - Dynamic Audience Memberships Upsert"
+DB: master
+SharedFields:
+- ID: "31bf9e6f-9dab-483d-a810-8866d4432060"
+  Hint: DataExtension
+  Value: "{51620C0C-C37A-4183-841D-E323F68F59E2}"
+- ID: "3bd83629-b06f-4a92-868e-6c3197cea5c7"
+  Hint: HeaderXElementBuilder
+  Value: "{03D91AD5-A465-4435-9276-136B9D253B68}"
+- ID: "5302a704-42f3-4923-b1cd-bcb9e0d3c2be"
+  Hint: CustomerKeyAttributeValueAccessor
+  Value: "{7721C030-7D64-4C08-907A-6719BFA7ED9F}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 950
+- ID: "f5c47a01-b54c-46a6-b816-17268eba56d9"
+  Hint: QueueKey
+  Value: dynamic_audience_memberships_upsert
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{B7E8DCCD-69F9-4E45-B5D2-C5E9D8948AD6}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163719Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

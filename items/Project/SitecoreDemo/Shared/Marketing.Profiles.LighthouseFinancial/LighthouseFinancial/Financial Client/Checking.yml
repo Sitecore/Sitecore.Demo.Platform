@@ -1,0 +1,29 @@
+﻿---
+ID: "4bba13fa-c7c0-4438-b73d-43ddb4c0a1d7"
+Parent: "3a0f2ec6-1346-434d-8df1-1c576628c7fa"
+Template: "44ab5107-3c73-42f0-a427-bec549f944b9"
+Path: /sitecore/system/Marketing Control Panel/Profiles/LighthouseFinancial/Financial Client/Checking
+DB: master
+SharedFields:
+- ID: "12e2c64a-5f08-4948-86c8-55ae06afeef8"
+  Hint: MaxValue
+  Value: 10
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+Languages:
+- Language: en
+  Fields:
+  - ID: "2e1a9aab-f7c1-49ee-b032-28b98d3688d6"
+    Hint: Name
+    Value: Checking
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200526T180044Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Casey

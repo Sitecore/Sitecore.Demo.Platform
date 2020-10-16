@@ -1,0 +1,31 @@
+﻿---
+ID: "44f8420f-a482-4df3-8b2e-3c523908619f"
+Parent: "c8303afe-57f6-43ec-a238-f6e219ca9842"
+Template: "b49144d6-e681-4a75-83c8-40774986756a"
+Path: /sitecore/content/SFMC Tenant/Pipelines/Push xConnect Contacts/Handle Outdated Contacts  at SFMC/Set Pipeline Batch Kickoff Time On Context
+DB: master
+SharedFields:
+- ID: "614c8d0d-7991-4306-8ada-b2745373d191"
+  Hint: ObjectLocationId
+  Value: "{252FC7D6-BF86-445F-A952-7B9268A47FDA}"
+- ID: "b5b6fc54-4bf0-43d9-8c2a-a36ccc970483"
+  Hint: Format
+  Value: yyyyMMddHHmmss
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{44F8420F-A482-4DF3-8B2E-3C523908619F}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163707Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

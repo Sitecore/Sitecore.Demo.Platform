@@ -1,0 +1,31 @@
+﻿---
+ID: "edfb608b-a62f-4d9b-8f20-1d518818f8f0"
+Parent: "bd7da61f-a7ae-459a-90e8-8789c468085d"
+Template: "b49144d6-e681-4a75-83c8-40774986756a"
+Path: /sitecore/content/SFMC Tenant/Pipelines/Journey Builder/Clean Outdated Records/Set Pipeline Batch Kickoff Time On Context
+DB: master
+SharedFields:
+- ID: "614c8d0d-7991-4306-8ada-b2745373d191"
+  Hint: ObjectLocationId
+  Value: "{252FC7D6-BF86-445F-A952-7B9268A47FDA}"
+- ID: "b5b6fc54-4bf0-43d9-8c2a-a36ccc970483"
+  Hint: Format
+  Value: yyyyMMddHHmmss
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{EDFB608B-A62F-4D9B-8F20-1D518818F8F0}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163713Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,0 +1,117 @@
+﻿---
+ID: "3556ec0a-31c7-4a08-b8f0-e0433d2bba6a"
+Parent: "53bca795-2558-4fa6-b268-dc5c66452a27"
+Template: "078d8a76-f971-4891-b422-76c0bcf9fa03"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/LighthouseLifestyle Emails/Messages/2020/07/06T02420003/New Account Registration
+DB: master
+BranchID: "06a7ea2b-a5c7-4091-8e4b-35001a173758"
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: office/32x32/mail_write.png
+- ID: "0934bec4-325a-427b-95bb-46f78cea9591"
+  Hint: Message Type
+  Value: "{B2F77E26-C5AC-4A6B-BBB3-F290100EB3D8}"
+- ID: "09ad7c00-a8de-46f7-bc54-e7572e38c136"
+  Hint: Body
+  Value: "{5736A147-8BFC-48F6-A0C6-AE4020171C82}"
+- ID: "21f2a1e0-ac16-443b-b7a9-83504159f2bb"
+  Hint: Device
+  Value: "{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+- ID: "2bbf5276-ed11-4cd0-946f-66678b524457"
+  Hint: Campaign Position
+  Value: "{C1B8669B-C41A-4ED3-BF0D-E859CF880D42}"
+- ID: "6ec7a9e6-9fd5-4892-bbf6-11e76e0e5db8"
+  Hint: Start Time
+  Value: 20200706T024319Z
+- ID: "78f0b1f8-fdf4-4c1c-bec6-1ac68a210a52"
+  Hint: Campaign
+  Value: "{B7793416-4186-4B4E-960E-016757DF5A8F}"
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: Checkbox
+  Value: 0
+- ID: "af0fe26a-a78b-491d-885c-03d95bc17342"
+  Hint: State
+  Value: Active
+- ID: "e2d1d8a4-24aa-4536-a420-7eadd8719cf6"
+  Hint: Service Message
+  Type: Checkbox
+  Value: 0
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{48D55F1B-C559-411D-AC73-A51DF6C02247}">
+        <r
+          ds="{0E8DE8B9-18E5-41D5-A2E7-24B667495607}"
+          id="{69EB7A6D-ACEF-4D06-A923-804918AA245E}"
+          par=""
+          ph="ec-title"
+          uid="{C472E7DB-2977-4A4A-9F58-CF271AAE45F3}" />
+        <r
+          ds="{BA5076B7-DC7A-4E62-8BE0-FF11DC28C41C}"
+          id="{87A142FF-6DA2-40E1-93B2-93BAB4560EE6}"
+          par=""
+          ph="ec-header"
+          uid="{15E98787-AEC1-4007-81CC-069D310D7209}" />
+        <r
+          ds="{0E8DE8B9-18E5-41D5-A2E7-24B667495607}"
+          id="{26A4BFDF-B274-46A0-BB76-D4E025B40C47}"
+          par=""
+          ph="ec-main"
+          uid="{A5ECCE8C-CBD2-4669-BA39-5CAD038864FA}" />
+        <r
+          ds="{94E25A7C-E475-43A7-82F7-A35BD7A84F5E}"
+          id="{6BDA85A1-1CB2-4F84-A777-67025160523F}"
+          par=""
+          ph="ec-main"
+          uid="{F71D3F57-B8AB-48AC-8D72-EEF37982A3B8}" />
+        <r
+          ds="{F5A10537-1B70-490A-8CE6-A376D270AABE}"
+          id="{D7040DF2-C910-4353-80E8-53EFAB32495C}"
+          par=""
+          ph="ec-footer"
+          uid="{D6FCB945-D468-40E3-BCFF-3C888A8F33B2}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{E6267A85-945B-444B-B246-400D4522A380}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Create a New Account
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0d844c9c-bd6c-49b8-9475-947da791f268"
+      Hint: From Address
+      Value: noreply@sitecoredemo.com
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200706T024201Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8436a90c-85c0-4f16-8373-393c4c0a82c6"
+      Hint: From Name
+      Value: Sitecore No Reply
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Register For The Self-Service Portal"
+  Versions:
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Register For The Self-Service Portal"
+  Versions:

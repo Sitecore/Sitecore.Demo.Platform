@@ -1,0 +1,177 @@
+ @keyframes swing {
+     0% {
+         transform: translateY(-100%);
+     }
+     50% {
+         transform: translateY(-50%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }
+ @keyframes easeInOutBack {
+     0% {
+         transform: translateY(-100%);
+     }
+     20% {
+         transform: translateY(-40%);
+     }
+     30% {
+         transform: translateY(-60%);
+     }
+     60% {
+         transform: translateY(0%);
+     }
+     80% {
+         transform: translateY(40%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }
+ @keyframes easeInOutBounce {
+     0% {
+         transform: translateY(-100%);
+     }
+     25% {
+         transform: translateY(-50%);
+     }
+     50% {
+         transform: translateY(0%);
+     }
+     62.5% {
+         transform: translateY(-10%);
+     }
+     75% {
+         transform: translateY(0%);
+     }
+     87.5% {
+         transform: translateY(-5%);
+     }
+     100% {
+         transform: translateY(-0%);
+     }
+ }
+ @keyframes easeInOutCirc {
+     0% {
+         transform: translateY(-100%);
+     }
+     10% {
+         transform: translateY(-80%);
+     }
+     90% {
+         transform: translateY(-20%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }
+ @keyframes easeInOutCubic {
+     0% {
+         transform: translateY(-100%);
+     }
+     30% {
+         transform: translateY(-80%);
+     }
+     70% {
+         transform: translateY(-20%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }
+ @keyframes easeInOutElastic {
+     0% {
+         transform: translateY(-100%);
+     }
+     30% {
+         transform: translateY(-80%);
+     }
+     70% {
+         transform: translateY(-20%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }
+ @keyframes easeInOutExpo {
+     0% {
+         transform: translateY(-100%);
+     }
+     30% {
+         transform: translateY(-90%);
+     }
+     70% {
+         transform: translateY(-10%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }
+ @keyframes easeInOutQad {
+     0% {
+         transform: translateY(-100%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }
+ @keyframes easeInOutQuart {
+     0% {
+         transform: translateY(-100%);
+     }
+     30% {
+         transform: translateY(-90%);
+     }
+     70% {
+         transform: translateY(-10%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }
+ @keyframes easeInOutQuint {
+     0% {
+         transform: translateY(-100%);
+     }
+     30% {
+         transform: translateY(-90%);
+     }
+     70% {
+         transform: translateY(-10%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }
+ @keyframes easeInOutSine {
+     0% {
+         transform: translateY(-100%);
+     }
+     25% {
+         transform: translateY(-80%);
+     }
+     75% {
+         transform: translateY(-20%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }
+ @keyframes outQuad {
+     0% {
+         transform: translateY(-100%);
+     }
+     25% {
+         transform: translateY(-70%);
+     }
+     50% {
+         transform: translateY(-40%);
+     }
+     75% {
+         transform: translateY(-20%);
+     }
+     100% {
+         transform: translateY(0%);
+     }
+ }

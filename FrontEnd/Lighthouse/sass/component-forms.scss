@@ -1,0 +1,566 @@
+@import "vars";
+@import "mixins";
+@import "base/fontawesome/font-awesome-mix-var";
+
+.form {
+    margin: 10px 0;
+    font-size: 14px;
+    overflow: hidden;
+    table {
+        width: 100%;
+    }
+    .scfSectionContent>div {
+        // Remove spacings between form elements
+        margin: 5px 0 0 0;
+        padding: 0;
+        &~div {
+            margin: 0;
+        }
+        &>label, &>div {
+            width: 100%;
+            display: block;
+            padding: 0;
+        }
+    }
+    .has-feedback {
+        @include clearfix();
+    }
+    .scfRequired {
+        display: none !important;
+    }
+    fieldset {
+        @include border-basic();
+        padding: 15px;
+        margin: 10px 0;
+        position: relative;
+        legend {
+            font-weight: 700;
+            padding: 0 5px;
+            font-size: 16px;
+            position: absolute;
+            top: -33px;
+            background: #fff;
+            left: 0;
+        }
+    }
+    .scfSectionContent {
+        >div {
+            box-sizing: border-box;
+            margin: 15px 0;
+            border: 1px dashed gray;
+            padding: 10px;
+            position: relative;
+            &:after {
+                clear: both;
+                content: "";
+                display: block;
+            }
+            &:hover [class$="GeneralPanel"]>[class$="UsefulInfo"] {
+                opacity: 1;
+            }
+            select, input {
+                margin-left: 5px;
+            }
+        }
+        [class$="UsefulInfo"] {
+            transition: opacity 0.75s;
+            box-sizing: border-box;
+            opacity: 0;
+            font-size: 12px;
+            margin-left: 5px;
+            position: absolute;
+            @include border-basic();
+            left: 0px;
+            top: -15px;
+            padding: 4px 8px;
+            max-width: 98%;
+            width: auto;
+            background-color: #F5F5F5;
+            color: #808080;
+        }
+    }
+    input, select, textarea {
+        @include border-basic();
+        padding: 2px 4px;
+        max-width: 98%;
+    }
+    .scfCaptcha {
+        input[type="text"] {
+            margin: 0;
+        }
+    }
+    .scfCaptchaLimitGeneralPanel, .scfCaptchStrongTextPanel {
+        max-width: 100%;
+        width: auto;
+    }
+    .scfCaptchaLabel {
+        display: none;
+    }
+    .scfSectionContent .scfCaptchaGeneralPanel embed {
+        max-width: 180px;
+    }
+    input[type="image"] {
+        border: none;
+    }
+    input[type="submit"], button {
+        @include border-basic();
+        background: $bg-basic-color;
+        cursor: pointer;
+        margin-left: 0;
+    }
+    input[type="text"], input[type="password"], textarea, input[type="file"] {
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: border-box;
+        @include border-basic(bottom);
+        width: 95%;
+        padding: 2px;
+        &+span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    input[type="file"] {
+        appearance: none;
+    }
+    input[type="radio"] {
+        position: absolute;
+        &+label:before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            display: block;
+            width: 16px;
+            height: 16px;
+            background-color: $bg-basic-color;
+        }
+        &+label:after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            display: block;
+            width: 16px;
+            height: 15px;
+            background: image-url("radiobox.png");
+        }
+        &:checked+label:after {
+            background-position: -16px 0;
+        }
+        &+label {
+            user-select: none;
+            padding-left: 20px;
+            margin-left: 5px;
+            position: relative;
+        }
+    }
+    select {
+        @include border-basic();
+        max-height: 30px;
+        position: relative;
+        text-indent: 2px;
+    }
+    .scfListBox {
+        background: none;
+        max-height: none;
+    }
+    .scfDateSelectorDay, .scfDateSelectorMonth, .scfDateSelectorYear {
+        width: 30%;
+    }
+}
+.content-finder {
+  form {
+    margin: 1em 0;
+
+    .col-right > input[type="radio"] {
+      position: absolute;
+      z-index: -100;
+      opacity: 0;
+      display: block;
+      width: 0;
+      height: 0;
+    }
+
+    .col-right > label {
+      display: inline-block;
+      vertical-align: top;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      position: relative;
+      border: 1px solid #D8D9D5;
+      background: linear-gradient(167.43deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+      background-color: rgba(216, 217, 213, 0.5);
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+      width: 31%;
+      min-height: 160px;
+      margin: 0 0 20px 1.8%;
+      padding: 20px 16px;
+      cursor: pointer;
+      -webkit-transition: border-color .2s ease-out, background-color .2s ease-out;
+      transition: border-color .2s ease-out, background-color .2s ease-out;
+
+      @include respond-to(mobile-horizontal) {
+        width: 47%;
+      }
+
+      &:before {
+        color: $primary-color;
+        font-family: $demo-icons;
+        font-weight: normal;
+        display: block;
+        font-size: 84px;
+        line-height: 1;
+      }
+    }
+
+    .col-right > input[type="radio"]:checked + label {
+      background: $primary-color;
+      color: white;
+
+      &:before {
+        color: white;
+      }
+    }
+
+    label.content-finder-label {
+      display: none;
+    }
+
+    h3.question-title {
+      font-size: 32px;
+      font-weight: bold;
+      padding: 0;
+      margin: 15px 0 0 0;
+      border: none;
+      color: $primary-color;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.0);
+      margin-bottom: 65px;
+      background: transparent;
+    }
+
+    .columns:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    @include respond-to(desktop) {
+      .col-left {
+        float: left;
+        width: 33%;
+        padding-right: 20px;
+      }
+
+      .col-right {
+        float: left;
+        width: 66%;
+      }
+    }
+
+    // Finders shared
+    label.n-a:before,
+    label.other:before {
+      content: $icon-dont-know;
+    }
+
+    // Content finder page 1, interest
+    label.connected-home:before {
+      content: $icon-connected-home;
+    }
+    label.child-safety:before {
+      content: $icon-child-safety;
+    }
+    label.exercise:before {
+      content: $icon-Aerobics;
+      font-size: 72px;
+      line-height: 84px;
+    }
+    label.mental-health:before {
+      content: $icon-Yoga;
+      font-size: 64px;
+      line-height: 84px;
+    }
+    label.nutrition:before {
+      content: $icon-kitchen;
+    }
+
+    // Content finder page 2, stage of life
+    label.young-professional:before {
+      @include fa-icon();
+      content: $fa-var-black-tie;
+      display: block;
+      font-size: 78px;
+      line-height: 84px;
+    }
+    label.family-kids:before {
+      @include fa-icon();
+      content: $fa-var-users;
+      display: block;
+      font-size: 72px;
+      line-height: 84px;
+    }
+    label.newlywed:before {
+      @include fa-icon();
+      content: $fa-var-diamond;
+      display: block;
+      font-size: 72px;
+      line-height: 84px;
+    }
+    label.empty-nester:before {
+      @include fa-icon();
+      content: $fa-var-user;
+      display: block;
+      font-size: 78px;
+      line-height: 84px;
+    }
+    label.retired:before {
+      @include fa-icon();
+      content: $fa-var-suitcase;
+      display: block;
+      font-size: 72px;
+      line-height: 84px;
+    }
+
+    // Content finder page 3, product interest
+    label.appliances:before {
+      content: $icon-appliances;
+    }
+    label.cameras:before {
+      content: $icon-cameras;
+    }
+    label.desktops-laptops:before {
+      content: $icon-desktops-laptops;
+    }
+    label.fitness-tech:before {
+      content: $icon-fitness-tech;
+    }
+    label.gaming:before {
+      content: $icon-gaming;
+    }
+    label.phones-tablets:before {
+      content: $icon-phones-tablets;
+    }
+    label.tv-audio:before {
+      content: $icon-tv-audio;
+    }
+
+    // Trainer finder page 1, exercise
+    label.aerobics:before {
+      content: $icon-Aerobics;
+    }
+    label.cardio:before{
+      content: $icon-fitness-tech;
+    }
+    label.strength:before {
+      content: $icon-Strength;
+    }
+    label.weight-lifting {
+      overflow: hidden;
+    }
+    label.weight-lifting:before {
+      content: $icon-Weight-Lifting;
+      font-size: 51px;
+      line-height: 84px;
+    }
+    label.yoga:before {
+      content: $icon-Yoga;
+    }
+
+    // Trainer finder page 2, days
+    label.one-two-days:before {
+      content: $icon-2Days;
+    }
+    label.three-four-days:before {
+      content: $icon-4Days;
+    }
+    label.five-or-more:before {
+      content: $icon-days;
+    }
+
+    // Trainer finder page 3, intensity
+    label.low {
+      overflow: hidden;
+    }
+    label.low:before {
+      content: $icon-Low;
+      font-size: 52px;
+      line-height: 84px;
+    }
+    label.medium {
+      overflow: hidden;
+    }
+    label.medium:before {
+      content: $icon-Medium;
+      font-size: 52px;
+      line-height: 84px;
+    }
+    label.high {
+      overflow: hidden;
+    }
+    label.high:before {
+      content: $icon-High;
+      font-size: 52px;
+      line-height: 84px;
+    }
+
+    .help-block {
+      font-size: 20px;
+      line-height: 32px;
+      font-weight: normal;
+      color: black;
+      margin: 0 0 1.5em;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    .help-block-subtext {
+      display: block;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}
+.form-narrow {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-submit-border {
+  border-bottom: 1px solid #D8D9D5;
+  text-align: right;
+  margin-bottom: 100px;
+
+  .btn-next,
+  .btn-previous {
+    position: relative;
+    @include btn-primary;
+    transform: translateY(50%);
+    min-width: 200px;
+  }
+}
+
+.newsletter-form {
+  padding: 0;
+  font-size: 24px;
+  margin: 40px 0;
+
+  @include respond-to(tablet) {
+    padding: 5em;
+    margin: 80px 0;
+  }
+
+  .field-bgimage {
+    display: none;
+
+    img {
+      width: 100%;
+      @include object-fit;
+    }
+
+    @include respond-to(tablet) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+
+  &.image-top .field-bgimage img{
+      @include object-fit(cover, top);
+  }
+
+  &.image-center .field-bgimage img{
+      @include object-fit(cover, center);
+  }
+
+  &.image-bottom .field-bgimage img{
+      @include object-fit(cover, bottom);
+  }
+
+  form {
+    background: #fff;
+    padding: 2em;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+    @include respond-to(tablet) {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+  }
+
+  label.checkcontainer {
+    display: block;
+    font-size: 20px;
+  }
+
+  label {
+    display: none;
+  }
+
+  .field-group-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .field-group {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    input[type="email"] {
+      height: 48px;
+      width: 100%;
+    }
+
+    input[type="submit"] {
+      @include btn-primary();
+      padding: 0.5em;
+      font-size: 14px;
+      height: 48px;
+
+      @include respond-to(tablet) {
+        padding: 0.5em 2em;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.register-panel {
+  input[type="submit"] {
+    display: block;
+    width: 150px;
+    text-align: center;
+    padding: 1em;
+    margin: 2em auto;
+  }
+}
+
+.field-group {
+  display: block;
+  vertical-align: top;
+  margin: 1em .5em 1em 0;
+
+  input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    margin: 6px 6px 6px 0;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+  }
+}
+
+@import "styles/forms/*";

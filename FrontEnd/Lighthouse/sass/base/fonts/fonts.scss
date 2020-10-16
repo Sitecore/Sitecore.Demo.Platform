@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese");
+
+@font-face {
+	font-family: "AvenirNextLTW05-Condensed";
+	src: url("../fonts/avenir/AvenirNextLTW05-Condensed-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-Condensed-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-Condensed-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-Condensed-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-Condensed-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-MediumCond";
+	src: url("../fonts/avenir/AvenirNextLTW05-MediumCond-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-MediumCond-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-MediumCond-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-MediumCond-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-MediumCond-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-HeavyItalic";
+	src: url("../fonts/avenir/AvenirNextW05-HeavyItalic-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-HeavyItalic-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-HeavyItalic-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-HeavyItalic-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-HeavyItalic-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-ThinCond";
+	src: url("../fonts/avenir/AvenirNextLTW05-ThinCond-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-ThinCond-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-ThinCond-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-ThinCond-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-ThinCond-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-UltLightCn";
+	src: url("../fonts/avenir/AvenirNextLTW05-UltLightCn-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-UltLightCn-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-UltLightCn-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-UltLightCn-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-UltLightCn-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-Heavy";
+	src: url("../fonts/avenir/AvenirNextW05-Heavy-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-Heavy-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-Heavy-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-Heavy-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-Heavy-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-ThinCondIt";
+	src: url("../fonts/avenir/AvenirNextLTW05-ThinCondIt-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-ThinCondIt-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-ThinCondIt-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-ThinCondIt-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-ThinCondIt-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-Bold";
+	src: url("../fonts/avenir/AvenirNextW05-Bold-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-Bold-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-Bold-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-Bold-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-Bold-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-UltraLight";
+	src: url("../fonts/avenir/AvenirNextW05-UltraLight-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-UltraLight-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-UltraLight-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-UltraLight-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-UltraLight-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-UltraLightIt";
+	src: url("../fonts/avenir/AvenirNextW05-UltraLightIt-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-UltraLightIt-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-UltraLightIt-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-UltraLightIt-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-UltraLightIt-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-Demi";
+	src: url("../fonts/avenir/AvenirNextW05-Demi-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-Demi-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-Demi-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-Demi-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-Demi-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-MediumItalic";
+	src: url("../fonts/avenir/AvenirNextW05-MediumItalic-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-MediumItalic-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-MediumItalic-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-MediumItalic-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-MediumItalic-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-Medium";
+	src: url("../fonts/avenir/AvenirNextW05-Medium-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-Medium-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-Medium-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-Medium-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-Medium-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-HeavyCondIt";
+	src: url("../fonts/avenir/AvenirNextLTW05-HeavyCondIt-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-HeavyCondIt-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-HeavyCondIt-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-HeavyCondIt-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-HeavyCondIt-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-BoldItalic";
+	src: url("../fonts/avenir/AvenirNextW05-BoldItalic-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-BoldItalic-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-BoldItalic-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-BoldItalic-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-BoldItalic-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-LightCond";
+	src: url("../fonts/avenir/AvenirNextLTW05-LightCond-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-LightCond-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-LightCond-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-LightCond-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-LightCond-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-LightCondIt";
+	src: url("../fonts/avenir/AvenirNextLTW05-LightCondIt-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-LightCondIt-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-LightCondIt-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-LightCondIt-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-LightCondIt-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-UltLtCnIt";
+	src: url("../fonts/avenir/AvenirNextLTW05-UltLtCnIt-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-UltLtCnIt-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-UltLtCnIt-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-UltLtCnIt-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-UltLtCnIt-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-HeavyCond";
+	src: url("../fonts/avenir/AvenirNextLTW05-HeavyCond-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-HeavyCond-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-HeavyCond-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-HeavyCond-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-HeavyCond-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextGEOW05-Regular";
+	src: url("../fonts/avenir/AvenirNextGEOW05-Regular-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextGEOW05-Regular-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextGEOW05-Regular-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextGEOW05-Regular-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextGEOW05-Regular-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextGEOW05-Medium";
+	src: url("../fonts/avenir/AvenirNextGEOW05-Medium-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextGEOW05-Medium-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextGEOW05-Medium-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextGEOW05-Medium-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextGEOW05-Medium-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextGEOW05-Demi";
+	src: url("../fonts/avenir/AvenirNextGEOW05-Demi-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextGEOW05-Demi-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextGEOW05-Demi-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextGEOW05-Demi-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextGEOW05-Demi-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextGEOW05-Bold";
+	src: url("../fonts/avenir/AvenirNextGEOW05-Bold-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextGEOW05-Bold-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextGEOW05-Bold-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextGEOW05-Bold-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextGEOW05-Bold-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-Regular";
+	src: url("../fonts/avenir/AvenirNextW05-Regular-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-Regular-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-Regular-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-Regular-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-Regular-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-LightItalic";
+	src: url("../fonts/avenir/AvenirNextW05-LightItalic-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-LightItalic-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-LightItalic-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-LightItalic-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-LightItalic-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-Italic";
+	src: url("../fonts/avenir/AvenirNextW05-Italic-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-Italic-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-Italic-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-Italic-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-Italic-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-DemiItalic";
+	src: url("../fonts/avenir/AvenirNextW05-DemiItalic-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-DemiItalic-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-DemiItalic-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-DemiItalic-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-DemiItalic-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-CondensedIt";
+	src: url("../fonts/avenir/AvenirNextLTW05-CondensedIt-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-CondensedIt-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-CondensedIt-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-CondensedIt-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-CondensedIt-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-MediumCnIt";
+	src: url("../fonts/avenir/AvenirNextLTW05-MediumCnIt-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-MediumCnIt-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-MediumCnIt-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-MediumCnIt-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-MediumCnIt-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-DemiCond";
+	src: url("../fonts/avenir/AvenirNextLTW05-DemiCond-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-DemiCond-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-DemiCond-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-DemiCond-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-DemiCond-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-DemiCondIt";
+	src: url("../fonts/avenir/AvenirNextLTW05-DemiCondIt-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-DemiCondIt-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-DemiCondIt-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-DemiCondIt-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-DemiCondIt-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-BoldCondIt";
+	src: url("../fonts/avenir/AvenirNextLTW05-BoldCondIt-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-BoldCondIt-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-BoldCondIt-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-BoldCondIt-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-BoldCondIt-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextLTW05-BoldCond";
+	src: url("../fonts/avenir/AvenirNextLTW05-BoldCond-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextLTW05-BoldCond-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextLTW05-BoldCond-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextLTW05-BoldCond-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextLTW05-BoldCond-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-Thin";
+	src: url("../fonts/avenir/AvenirNextW05-Thin-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-Thin-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-Thin-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-Thin-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-Thin-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-ThinItalic";
+	src: url("../fonts/avenir/AvenirNextW05-ThinItalic-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-ThinItalic-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-ThinItalic-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-ThinItalic-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-ThinItalic-ttf") format("truetype");
+}
+@font-face {
+	font-family: "AvenirNextW05-Light";
+	src: url("../fonts/avenir/AvenirNextW05-Light-eot?#iefix");
+	src: url("../fonts/avenir/AvenirNextW05-Light-eot?#iefix") format("eot"),
+		url("../fonts/avenir/AvenirNextW05-Light-woff2") format("woff2"),
+		url("../fonts/avenir/AvenirNextW05-Light-woff") format("woff"),
+		url("../fonts/avenir/AvenirNextW05-Light-ttf") format("truetype");
+}
+
+@font-face {
+	font-family: $demo-icons;
+	src:  url('#{$icomoon-font-path}/SitecoreDemo-eot.eot?fii7vz');
+	src:  url('#{$icomoon-font-path}/SitecoreDemo-eot.eot?fii7vz#iefix') format('embedded-opentype'),
+	  url('#{$icomoon-font-path}/SitecoreDemo-ttf.ttf?fii7vz') format('truetype'),
+	  url('#{$icomoon-font-path}/SitecoreDemo-woff.woff?fii7vz') format('woff'),
+	  url('#{$icomoon-font-path}/SitecoreDemo-svg.svg?fii7vz#SitecoreDemo') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

@@ -1,0 +1,57 @@
+﻿---
+ID: "f72dc918-2fb8-472a-8012-e3d781d88536"
+Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/SitecoreDemo/SXA Module Functions/Add Header and Footer to Page Designs
+DB: master
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    function Invoke-ModuleScriptBody {
+        [CmdletBinding()]
+        param(
+        [Parameter(Mandatory=$true, Position=0 )]
+        [Item]$Root,
+        [Parameter(Mandatory=$true, Position=1 )]        
+        [Item[]]$TenantTemplates
+        )
+        begin {
+            Write-Verbose "Cmdlet Add Header and Footer to Page Designs - Begin"
+        }
+        process {
+            Write-Verbose "Cmdlet Add Header and Footer to Page Designs - Process"
+    
+            $header = Get-Item -Path "master://$($Root.Paths.Path)/Presentation/Partial Designs/Header"
+            $metadata = Get-Item -Path "master://$($Root.Paths.Path)/Presentation/Partial Designs/Metadata"
+            $footer = Get-Item -Path "master://$($Root.Paths.Path)/Presentation/Partial Designs/Footer"
+            $pageDesigns = Get-Item -Path "master://$($Root.Paths.Path)/Presentation/Page Designs"
+    
+            $items = $pageDesigns.Children
+            foreach ($item in $items) {
+                    $item.Locking.Unlock()
+                    $item.Editing.BeginEdit()
+                    if(!$item.Fields['PartialDesigns'].Value.Contains($header.ID)) {
+                            $item.Fields['PartialDesigns'].Value =  "$($item.Fields['PartialDesigns'].Value)|$($header.ID)|$($metadata.ID)|$($footer.ID)"
+                    }
+    
+                    $item.Editing.EndEdit()
+            }
+    
+        }
+        end {
+            Write-Verbose "Cmdlet Add Header and Footer to Page Designs - End"
+        }
+    }
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191002T215628Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

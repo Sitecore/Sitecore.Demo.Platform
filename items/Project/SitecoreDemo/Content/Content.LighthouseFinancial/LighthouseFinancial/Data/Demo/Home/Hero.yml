@@ -1,0 +1,40 @@
+﻿---
+ID: "fe702f44-f49d-4fd7-b70a-487e91806b5a"
+Parent: "dde5d58b-fe04-4347-a0c4-04fe1cd156ee"
+Template: "643a85f5-c9f1-4836-b17b-35ade22d03d3"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Data/Demo/Home/Hero
+DB: master
+BranchID: "f02c705e-c8d0-47d2-b6fa-92f0627ac170"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D3F52DA7-7234-4958-89F8-F4D086E5A38E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200511T215923Z
+    - ID: "440b5413-5322-4166-9fbe-580f70973751"
+      Hint: HeroTitle
+      Value: "This sentence has five words. Here are five more words. Five-word sentencers are fine. But several together become monotonous."
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "9c385368-a554-4a92-9a8d-37f3ef3a09f4"
+      Hint: HeroImage
+      Value: |
+        <image mediaid="{D6A45694-0ADE-47F4-871C-4AF4D6E520D2}" />
+    - ID: "a3d8e124-b602-455c-ab3b-c59db150256e"
+      Hint: HeroLink
+      Value: |
+        <link text="Compelling CTA" linktype="external" url="/" anchor="" target="" />
+    - ID: "af73cf76-4e8a-46b0-9403-bcea092724ef"
+      Hint: HeroSupertitle
+      Value: Summarize why this page is important
+    - ID: "e50b8dc2-0ec1-47af-b1da-0a6622368986"
+      Hint: HeroText
+      Value: This is an example of an awesome hero component

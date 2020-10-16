@@ -1,0 +1,28 @@
+﻿---
+ID: "f2ad3330-01f0-4100-9565-3e3b1d96a117"
+Parent: "8d49c5db-009f-41c5-81a3-4a376a3bba0e"
+Template: "1646a6d5-3771-422d-9cff-d9528e605c4e"
+Path: "/sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Conditions/Data Extension Definitions/Queue Not Empty - Dynamic Audience Definitions For Update"
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 99
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{F2AD3330-01F0-4100-9565-3E3B1D96A117}"
+- ID: "f9a6a9f2-bbd5-409f-b02a-0dc058206ef8"
+  Hint: QueueKey
+  Value: dynamic_audience_definitions_update
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163716Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

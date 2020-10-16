@@ -1,0 +1,36 @@
+﻿---
+ID: "4608f306-33ee-49d1-ac05-73de733b9065"
+Parent: "8ecb2c0d-fe56-4343-9b48-23444f98e958"
+Template: "3de7aa7e-961a-4b90-98f2-01ac2be92ec5"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Settings/Social Media Groups/Default/Google Plus
+DB: master
+BranchID: "4ddbdd69-8a15-4520-bed8-f7553139586b"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{56D3F543-2E41-415D-9C0D-CC18313EEC28}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200511T220220Z
+    - ID: "31b5c056-cfd5-4331-950d-25453a808d7c"
+      Hint: ButtonCode
+      Value: |
+        <div class="g-plusone" data-size="medium"></div>
+    - ID: "3a453560-042a-4df9-945f-5750ea7c4a46"
+      Hint: OnlyOnceCode
+      Value: |
+        <script type="text/javascript">
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>

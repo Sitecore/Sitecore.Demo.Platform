@@ -1,0 +1,115 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using Sitecore.Demo.Platform.Foundation.Accounts.Services
+@using Sitecore.Demo.Platform.Foundation.Dictionary.Extensions
+@using Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.DependencyInjection
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Configuration
+@model Sitecore.Demo.Platform.Feature.Accounts.Models.RegistrationInfo
+
+@using (Html.BeginRouteForm(MvcSettings.SitecoreRouteName, FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.AddUniqueFormId()
+
+    var contactData = ((IContactFacetService)ServiceLocator.ServiceProvider.GetService(typeof(IContactFacetService))).GetContactData();
+
+    <div class="form-group @Html.ValidationErrorFor(x => x.FirstName, "has-error")">
+        @Html.LabelFor(x => x.FirstName, new
+        {
+            @class = "control-label",
+            @for = "registerFirstName"
+        })
+
+        @Html.TextBoxFor(x => x.FirstName, new
+        {
+            @class = "form-control",
+            id = "registerFirstName",
+            @Value = contactData != null ? contactData.FirstName : ""
+        })
+        @Html.ValidationMessageFor(x => x.FirstName, "", new
+        {
+            @class = "help-block"
+        }, "p")
+    </div>
+
+    <div class="form-group @Html.ValidationErrorFor(x => x.LastName, "has-error")">
+        @Html.LabelFor(x => x.LastName, new
+        {
+            @class = "control-label",
+            @for = "registerLastName"
+        })
+
+        @Html.TextBoxFor(x => x.LastName, new
+        {
+            @class = "form-control",
+            id = "registerLastName",
+            @Value = contactData != null ? contactData.LastName : ""
+        })
+        @Html.ValidationMessageFor(x => x.LastName, "", new
+        {
+            @class = "help-block"
+        }, "p")
+    </div>
+
+    <div class="form-group @Html.ValidationErrorFor(x => x.Email, "has-error")">
+        @Html.LabelFor(x => x.Email, new
+        {
+            @class = "control-label",
+            @for = "registerEmail"
+        })
+
+        @Html.TextBoxFor(x => x.Email, new
+        {
+            @class = "form-control",
+            id = "registerEmail",
+            @Value = contactData != null ? contactData.EmailAddress : ""
+        })
+        @Html.ValidationMessageFor(x => x.Email, "", new
+        {
+            @class = "help-block"
+        }, "p")
+    </div>
+
+    <div class="form-group @Html.ValidationErrorFor(x => x.Password, "has-error")">
+        @Html.LabelFor(x => x.Password, new
+        {
+            @class = "control-label",
+            @for = "registerPassword"
+        })
+
+        @Html.PasswordFor(x => x.Password, new
+        {
+            @class = "form-control",
+            id = "registerPassword"
+        })
+        @Html.ValidationMessageFor(x => x.Password, "", new
+        {
+            @class = "help-block"
+        }, "p")
+    </div>
+
+    <div class="form-group @Html.ValidationErrorFor(x => x.ConfirmPassword, "has-error")">
+        @Html.LabelFor(x => x.ConfirmPassword, new
+        {
+            @class = "control-label",
+            @for = "registerConfirmPassword"
+        })
+
+        @Html.PasswordFor(x => x.ConfirmPassword, new
+        {
+            @class = "form-control",
+            id = "registerConfirmPassword"
+        })
+        @Html.ValidationMessageFor(x => x.ConfirmPassword, "", new
+        {
+            @class = "help-block"
+        }, "p")
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="submit" class="btn btn-primary btn-block" value="@Html.Sitecore().Dictionary("/Accounts/Register/Register", "Register")" />
+        </div>
+    </div>
+}

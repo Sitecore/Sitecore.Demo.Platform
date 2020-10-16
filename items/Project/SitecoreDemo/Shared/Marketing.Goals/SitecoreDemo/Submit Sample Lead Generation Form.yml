@@ -1,0 +1,44 @@
+﻿---
+ID: "9093c03f-ff05-43a4-a1e8-b663d3622756"
+Parent: "0c21f083-63e7-4cdf-aeed-e029996b088b"
+Template: "475e9026-333f-432d-a4dc-52e03b75cb6b"
+Path: /sitecore/system/Marketing Control Panel/Goals/SitecoreDemo/Submit Sample Lead Generation Form
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/graph_connection_directed.png
+- ID: "1398896a-b1aa-420f-b5ba-693841e37a55"
+  Hint: IsLiveEvent
+  Type: Checkbox
+  Value: 1
+- ID: "33ae0e84-74a0-437f-ab2b-859dfa96f6c9"
+  Hint: Points
+  Value: 15
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+- ID: "b3d6c41e-e37b-48ab-b8ec-13dca18ce729"
+  Hint: Goal facet 2
+  Value: "{2D1115D5-2A5F-4265-9AA5-034B5966530C}"
+- ID: "e7b5c821-a54c-4264-9c06-c6ebdbfcd6b8"
+  Hint: Goal facet 1
+  Value: "{00DB4823-044B-49CF-BDBF-811BEA3F185E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200617T190617Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "ac6ba888-4213-43bd-b787-d8da2b6b881f"
+      Hint: Name
+      Value: Submit Sample Lead Generation Form

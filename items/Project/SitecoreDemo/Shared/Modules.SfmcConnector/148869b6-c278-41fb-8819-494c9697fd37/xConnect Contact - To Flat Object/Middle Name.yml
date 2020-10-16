@@ -1,0 +1,29 @@
+﻿---
+ID: "a728e236-fac3-428f-b9cf-d0bb3929772a"
+Parent: "21aaf674-d60c-4546-a7b2-4494c57f59e2"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: "/sitecore/content/SFMC Tenant/Value Mapping Sets/Sitecore - xConnect Contact To SFMC/xConnect Contact - To Flat Object/Middle Name"
+DB: master
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{D8EC8A2C-3CCE-4370-A0DB-4623A025E98D}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{CBA17B41-4553-4535-B741-2D08E0D31F5C}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{A728E236-FAC3-428F-B9CF-D0BB3929772A}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163729Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

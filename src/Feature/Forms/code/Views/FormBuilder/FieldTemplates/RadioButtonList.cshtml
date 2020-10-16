@@ -1,0 +1,15 @@
+@using Sitecore.ExperienceForms.Mvc.Html
+@model Sitecore.ExperienceForms.Mvc.Models.Fields.ListViewModel
+
+<div class="field-group">
+    <label class="@Model.LabelCssClass">@Html.DisplayTextFor(t => Model.Title)</label>
+    @foreach (var item in Model.Items)
+    {
+        <label class="checkcontainer @item.Value" for="@item.ItemId">
+            <input type="radio" id="@item.ItemId" name="@Html.NameFor(m => Model.Value)" @if (item.Selected) { <text> checked</text>} value="@item.Value" data-sc-tracking="@Model.IsTrackingEnabled" data-sc-field-name="@Model.Name" data-sc-field-key="@Model.ConditionSettings.FieldKey"  @Html.GenerateUnobtrusiveValidationAttributes(m => m.Value) />
+            @item.Text
+            <span class="checkmark"></span>
+        </label>
+    }
+    @Html.ValidationMessageFor(m => Model.Value)
+</div>

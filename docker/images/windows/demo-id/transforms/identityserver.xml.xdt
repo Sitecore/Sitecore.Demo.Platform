@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <Sitecore>
+    <IdentityServer>
+      <SitecoreMembershipOptions>
+        <PasswordHashAlgorithm xdt:Transform="Replace">SHA512</PasswordHashAlgorithm>
+      </SitecoreMembershipOptions> 
+    </IdentityServer>
+  </Sitecore>
+</Settings>

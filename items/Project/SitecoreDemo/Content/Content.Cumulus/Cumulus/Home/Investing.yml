@@ -1,0 +1,171 @@
+﻿---
+ID: "39c4d412-5d16-40ce-94db-5a6c2303c268"
+Parent: "813ce1d0-61e4-422f-9a3a-657bc47f60ab"
+Template: "26745e9d-be97-4902-993d-1982b47b64bf"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Home/Investing
+DB: master
+SharedFields:
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="d387e7ed-61a7-4d4a-b85b-93bb3a6a598a"
+        name="Cumulus Finserv Topic Interest"
+        presets="investing|80||banking|20||">
+        <key
+          name="Banking"
+          value="2" />
+        <key
+          name="Borrowing"
+          value="0" />
+        <key
+          name="Corporate Banking"
+          value="0" />
+        <key
+          name="Credit Cards"
+          value="0" />
+        <key
+          name="Insurance"
+          value="0" />
+        <key
+          name="Investing"
+          value="8" />
+        <key
+          name="Personal Banking"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{DC0A4DAE-F45A-459C-A475-78BB8FE3C1D0}"
+              p:before="*"
+              s:ds="{F6D312F9-9853-4DA7-9205-1B63534EBAC4}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames=%7B292F9A86-3B80-450D-B340-E26F4C717C53%7D&amp;Styles=%7BAFC0C94E-6914-40DB-A12E-37A38C2289B7%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1" />
+            <r
+              uid="{D26A1E97-990C-4862-8BC5-630992512357}"
+              p:after="r[@uid='{DC0A4DAE-F45A-459C-A475-78BB8FE3C1D0}']"
+              s:ds="{B0EC90D8-6100-4703-8975-5D986D65D73C}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7BFC6A1A4D-91C6-4908-9B94-DF03ED671FD8%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1" />
+            <r
+              uid="{1ACD487C-0A78-4F7C-BC12-5274840B7642}"
+              p:after="*[1=2]"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200206T154832Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Investing
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+                  <div class="gray-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>IRA</h4>
+                          <p>Supplement your employer-sponsored retirement savings plan and take advantage of tax-deferred or tax-free growth.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Traditional IRA and Roth IRA options available</li>
+                            <li>Immediate enrollment with no waiting period</li>
+                            <li>Wide range of investment options available</li>
+                            <li>Utilize low cost index funds not availabe in your 401K</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Mutual Funds</h4>
+                          <p>Invest in professionally managed funds aligned to a variety of investment strategies and time horizons.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Professional money management</li>
+                            <li>Build a balanced portfolio with built-in diversification</li>
+                            <li>Meet long-term investment goals</li>
+                            <li>Purchase in such small amounts to easily get started</li>
+                            <li>Secure website allows you to check your portfolio 24/7</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gray-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Stocks</h4>
+                          <p>Invest in shares of publicly-traded companies across a variety of sectors.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Buy ownership shares in a specific company</li>
+                            <li>Build a balanced portfolio</li>
+                            <li>Keep the stock you have in a retirement plan at work</li>
+                            <li>Buy at a specific price set throughout the day</li>
+                            <li>Complement the mutual funds in your existing portfolio</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="white-background-content">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4 offset-sm-2">
+                          <h4>Bonds + CDs</h4>
+                          <p>Invest in fixed income securities that may offer a higher level of stability and provide a steady stream of income.</p>
+                          <button class="btn btn-primary" type="submit">Learn More</button>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                          <h4>Benefits Include:</h4>
+                          <ul>
+                            <li>Build a balanced portfolio and generating regular income</li>
+                            <li>Reduce portfolio volatility and meet long and short-term goals</li>
+                            <li>Complement mutual funds in your investment portfolio</li>
+                            <li>Rely on receiving full-face amount when your investment matures</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Investing

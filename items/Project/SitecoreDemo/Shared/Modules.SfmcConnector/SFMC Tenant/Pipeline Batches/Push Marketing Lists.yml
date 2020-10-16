@@ -1,0 +1,44 @@
+﻿---
+ID: "2d248821-c65d-4e38-969c-caaae01ddff1"
+Parent: "3ce02eae-63cc-47d8-9ff4-cbb984798da1"
+Template: "075c4fbd-f54e-4e6d-bd54-d49bda0913d8"
+Path: /sitecore/content/SFMC Tenant/Pipeline Batches/Push Marketing Lists
+DB: master
+SharedFields:
+- ID: "2aa5c591-ff55-411d-96c0-978bb2c58b94"
+  Hint: Log
+  Value: |
+    C:\inetpub\wwwroot\App_Data\logs\DataExchange\SFMC.Tenant\Push.Marketing.Lists.20200407.141029.txt
+- ID: "6a2b2cbb-4338-4814-a8a9-9fecbb90456a"
+  Hint: LastRunFinished
+  Value: 20200407T141034Z
+- ID: "9061beea-df25-4b2b-a698-3f5b4e867d18"
+  Hint: Pipelines
+  Type: Treelist
+  Value: |
+    {A36ACF93-D0D3-44A7-B4C7-41FF4F6277E9}
+    {67D7F274-9A09-4450-BBED-FD0E5777D81E}
+    {0E7F1252-B89F-49DC-9847-E2153EC71769}
+    {713528B0-C977-4089-B46A-37AEDF23A643}
+    {BD7DA61F-A7AE-459A-90E8-8789C468085D}
+- ID: "985ba535-0f3e-4da8-a768-a469026de9db"
+  Hint: RequestedAt
+  Value: 20200407T141030Z
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{2D248821-C65D-4E38-969C-CAAAE01DDFF1}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163705Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

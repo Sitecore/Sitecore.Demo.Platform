@@ -1,0 +1,62 @@
+﻿---
+ID: "e16df800-2bd1-44c7-8653-d9bb9fe4a349"
+Parent: "9aa1efb1-8a82-48dc-b329-b3f76dc914a7"
+Template: "eaffc9f9-3684-4650-92f4-78560bed789b"
+Path: /sitecore/content/Demo SXA Sites/Global/Presentation/Partial Designs/Shared/Page Content
+DB: master
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "page-content"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{A7C10EE7-9AA4-403E-8A95-DF2F64936985}"
+          p:before="*"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/main/container-3" />
+        <r
+          uid="{A6BA7C85-C8A6-411A-BA28-1160518FEC63}"
+          p:after="r[@uid='{A7C10EE7-9AA4-403E-8A95-DF2F64936985}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="main" />
+        <r
+          uid="{2E28D82A-8CF7-46F7-86F0-03D596A58F70}"
+          p:after="r[@uid='{A6BA7C85-C8A6-411A-BA28-1160518FEC63}']"
+          s:ds=""
+          s:id="{99A633FC-B9A9-44A0-B78A-BCBB08DD02C9}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BF40C5936-DD7A-4C36-B456-20CFFAAA0F4C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          s:ph="/main/container-3/container-4" />
+        <r
+          uid="{4A957D38-4F39-4024-AE6C-63A4AE3E5CB8}"
+          p:after="*[1=2]"
+          s:ds=""
+          s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles=%7B28C65397-7759-49B0-B39F-AFBC6F5D508A%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/container-3/container-4" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180611T163606Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

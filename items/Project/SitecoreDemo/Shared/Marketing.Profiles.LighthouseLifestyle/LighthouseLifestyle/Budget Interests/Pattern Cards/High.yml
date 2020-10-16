@@ -1,0 +1,32 @@
+﻿---
+ID: "4798ecfe-803a-4a31-bf46-46d94cb96f57"
+Parent: "779ce383-c35b-483d-93b7-a318f254573a"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/LighthouseLifestyle/Budget Interests/Pattern Cards/High
+DB: master
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="6a453529-0dc7-494c-8eb2-85b039471e1a" name="Budget Interests">
+        <key name="Low" value="0" />
+        <key name="Medium" value="0" />
+        <key name="High" value="10" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+Languages:
+- Language: en
+  Fields:
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: High
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190726T032109Z

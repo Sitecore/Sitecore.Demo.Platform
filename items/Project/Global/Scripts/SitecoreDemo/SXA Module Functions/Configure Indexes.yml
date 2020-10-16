@@ -1,0 +1,33 @@
+﻿---
+ID: "15f738e4-75d8-47c6-8f00-50f3fab96c55"
+Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/SitecoreDemo/SXA Module Functions/Configure Indexes
+DB: master
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    function Invoke-ModuleScriptBody {}
+    function Invoke-Step {}
+    
+    Import-Function Get-SiteItem
+    $Root = Get-SiteItem $Site
+    
+    $siteGrouping = Get-Item -Path "master://$($Root.Paths.Path)/Settings/Site Grouping/$($Root.Name)"
+    $siteGrouping.Locking.Unlock()
+    $siteGrouping.Editing.BeginEdit()
+    $siteGrouping.Fields['Indexes'].Value = "master/*=sitecore_sxa_master_index&web/*=sitecore_sxa_web_index"
+    $siteGrouping.Editing.EndEdit()
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191017T141356Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

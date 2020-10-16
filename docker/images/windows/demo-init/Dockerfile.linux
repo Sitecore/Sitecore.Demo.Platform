@@ -1,0 +1,44 @@
+ARG BUILD_IMAGE=mcr.microsoft.com/dotnet/core/sdk:3.1-alpine3.11
+ARG BASE_IMAGE=mcr.microsoft.com/dotnet/core/runtime:3.1-alpine3.11
+
+FROM ${BASE_IMAGE} AS base
+
+WORKDIR /app
+
+FROM ${BUILD_IMAGE} AS build
+
+WORKDIR /src
+
+COPY ["Sitecore.Demo.Init.csproj", ""]
+
+RUN dotnet restore "./Sitecore.Demo.Init.csproj"
+
+COPY . .
+WORKDIR "/src"
+
+RUN dotnet build "Sitecore.Demo.Init.csproj" -c Release -o /app/build
+
+FROM build AS publish
+
+RUN dotnet publish "Sitecore.Demo.Init.csproj" -c Release -o /app/publish
+
+FROM base AS final
+
+ENV DOTNET_RUNNING_IN_CONTAINER=true
+
+ENV HOST_CM=placeholder
+ENV HOST_PS=placeholder
+ENV HOST_ID=placeholder
+ENV MARKETING_DEFINITIONS_APIKEY=placeholder
+ENV ADMIN_USER_NAME=placeholder
+ENV ADMIN_PASSWORD=placeholder
+
+WORKDIR /app
+
+COPY --from=publish /app/publish .
+
+COPY status.sh .
+
+RUN mkdir status \
+    && chmod +x /app/status.sh
+ENTRYPOINT ["dotnet", "Sitecore.Demo.Init.dll"]

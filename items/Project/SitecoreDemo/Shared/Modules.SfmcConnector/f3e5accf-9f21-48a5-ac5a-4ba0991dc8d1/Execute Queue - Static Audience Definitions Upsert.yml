@@ -1,0 +1,34 @@
+﻿---
+ID: "5ff1d8c3-af63-4729-ae30-2609a32dc946"
+Parent: "f3e5accf-9f21-48a5-ac5a-4ba0991dc8d1"
+Template: "e6aa5b9d-45e8-43ec-893d-d48bbc242e05"
+Path: "/sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Contents/Data Extension Records/Execute Queue - Static Audience Definitions Upsert"
+DB: master
+SharedFields:
+- ID: "31bf9e6f-9dab-483d-a810-8866d4432060"
+  Hint: DataExtension
+  Value: "{6FC1DEA8-57EE-400D-A561-0F3B69479E0A}"
+- ID: "3bd83629-b06f-4a92-868e-6c3197cea5c7"
+  Hint: HeaderXElementBuilder
+  Value: "{03D91AD5-A465-4435-9276-136B9D253B68}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 900
+- ID: "f5c47a01-b54c-46a6-b816-17268eba56d9"
+  Hint: QueueKey
+  Value: static_audience_definitions_upsert
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{5FF1D8C3-AF63-4729-AE30-2609A32DC946}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163719Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

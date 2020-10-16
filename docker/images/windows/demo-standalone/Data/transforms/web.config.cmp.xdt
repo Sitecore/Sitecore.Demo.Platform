@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1" xdt:Transform="Insert">
+      <dependentAssembly>
+        <assemblyIdentity name="Polly" publicKeyToken="c8a3ffc3f8f825cc" />
+        <codeBase version="6.0.0.0" href="bin\cmp\Polly.dll" />
+        <codeBase version="6.0.1.0" href="bin\cmp\Polly.dll" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+
+  <location>
+    <system.webServer>
+      <httpProtocol>
+        <customHeaders>
+          <add xdt:Transform="SetAttributes" xdt:Locator="Match(name)" name="Content-Security-Policy" value="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://apps.sitecore.net https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com; img-src 'self' data: https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' 'unsafe-inline' https://fonts.gstatic.com;"/>
+        </customHeaders>
+      </httpProtocol>
+    </system.webServer>
+  </location>
+</configuration>

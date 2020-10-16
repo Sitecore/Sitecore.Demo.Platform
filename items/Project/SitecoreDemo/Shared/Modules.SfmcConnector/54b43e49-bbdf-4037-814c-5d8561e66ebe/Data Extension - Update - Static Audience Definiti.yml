@@ -1,0 +1,37 @@
+﻿---
+ID: "7425d79b-8173-4905-8e09-5e2f91da520e"
+Parent: "54b43e49-bbdf-4037-814c-5d8561e66ebe"
+Template: "8b387b1c-f726-4cf0-9eff-a304e845c48a"
+Path: "/sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Contents/Data Extension Definitions/Data Extension - Update - Static Audience Definition"
+DB: master
+SharedFields:
+- ID: "3bd83629-b06f-4a92-868e-6c3197cea5c7"
+  Hint: HeaderXElementBuilder
+  Value: "{03D91AD5-A465-4435-9276-136B9D253B68}"
+- ID: "3c640fb8-e296-4874-9d95-5aca07555d32"
+  Hint: DataExtension
+  Value: "{6FC1DEA8-57EE-400D-A561-0F3B69479E0A}"
+- ID: "4a295a45-2587-43cf-a400-7ce9e610bbdf"
+  Hint: SfmcObjectIdValueAccessor
+  Value: "{03B93301-3BF5-44AF-A588-DE7EC23B94BC}"
+- ID: "5b2a1830-ccaa-4955-b9de-01a08646882f"
+  Hint: SfmcObjectIdLocation
+  Value: "{252FC7D6-BF86-445F-A952-7B9268A47FDA}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{7425D79B-8173-4905-8E09-5E2F91DA520E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163718Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

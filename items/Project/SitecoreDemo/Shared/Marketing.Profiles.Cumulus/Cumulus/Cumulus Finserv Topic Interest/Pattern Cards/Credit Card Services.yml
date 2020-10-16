@@ -1,0 +1,41 @@
+﻿---
+ID: "adc0c1da-8407-4a0c-93c7-de1a4440cdc0"
+Parent: "68dc3d87-75c2-473b-a206-e33f7f496892"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/Cumulus/Cumulus Finserv Topic Interest/Pattern Cards/Credit Card Services
+DB: master
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="d387e7ed-61a7-4d4a-b85b-93bb3a6a598a" name="Cumulus Finserv Topic Interest">
+        <key name="Banking" value="0" />
+        <key name="Borrowing" value="0" />
+        <key name="Corporate Banking" value="0" />
+        <key name="Credit Card Services" value="10" />
+        <key name="Insurance" value="0" />
+        <key name="Investing" value="0" />
+        <key name="Personal Banking" value="0" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{60A60BE0-A16C-4439-857E-7A6022F72D03}" />
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Credit Card Services
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200421T135711Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

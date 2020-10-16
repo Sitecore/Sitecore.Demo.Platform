@@ -1,0 +1,118 @@
+﻿---
+ID: "a156e3f5-3677-409d-9d29-76ba2733b8bf"
+Parent: "4b4d7517-89a2-4bd0-91f4-81ec97daad24"
+Template: "3f12d78c-b7b7-4157-98fc-da3322ee1a5b"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/LighthouseLifestyle Emails/Messages/2020/07/05T23133929/Registration Confirmation/Message Root
+DB: master
+BranchID: "06a7ea2b-a5c7-4091-8e4b-35001a173758"
+SharedFields:
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: Checkbox
+  Value: 0
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{48D55F1B-C559-411D-AC73-A51DF6C02247}">
+        <r
+          ds="{8B17960C-BC94-42AF-8D1B-191FBA8AC5A1}"
+          id="{69EB7A6D-ACEF-4D06-A923-804918AA245E}"
+          par=""
+          ph="ec-title"
+          uid="{C472E7DB-2977-4A4A-9F58-CF271AAE45F3}" />
+        <r
+          ds="{82CEC31C-6E63-48B0-BBFE-9E5A731A2D4D}"
+          id="{87A142FF-6DA2-40E1-93B2-93BAB4560EE6}"
+          par=""
+          ph="ec-header"
+          uid="{15E98787-AEC1-4007-81CC-069D310D7209}" />
+        <r
+          ds="{8B17960C-BC94-42AF-8D1B-191FBA8AC5A1}"
+          id="{26A4BFDF-B274-46A0-BB76-D4E025B40C47}"
+          par=""
+          ph="ec-main"
+          uid="{A5ECCE8C-CBD2-4669-BA39-5CAD038864FA}" />
+        <r
+          ds="{6D731115-3675-4D1F-A637-5B8242265FFE}"
+          id="{6BDA85A1-1CB2-4F84-A777-67025160523F}"
+          par=""
+          ph="ec-main"
+          uid="{F71D3F57-B8AB-48AC-8D72-EEF37982A3B8}">
+          <rls>
+            <ruleset
+              pet="false">
+              <rule
+                name="Foodie Profile"
+                uid="{00955DF5-41B4-4C26-A2B3-509E77693D1E}">
+                <conditions>
+                  <condition
+                    id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                    uid="FD6B4D37FD8B405F84C7F50CCE714AA2"
+                    PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                </conditions>
+                <actions>
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="12B276A1FAFD4262A41E539F485AF309"
+                    DataSource="{4F4D2D43-95A0-4E02-A2EC-354D2940A6C3}" />
+                </actions>
+              </rule>
+              <rule
+                name="Fitness Fanatic Profile"
+                uid="{9A597063-B504-4806-ADD4-754D1822785D}">
+                <conditions>
+                  <condition
+                    id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                    uid="83D650ACD7914D89B0155052AC17A362"
+                    PatternList="{38D5EEFC-52CB-4DD8-8B4A-75F0CA461E9E}" />
+                </conditions>
+                <actions>
+                  <action
+                    id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    uid="EAEE48E7A8A1484EBCDC9F1F93924EA0"
+                    DataSource="{B6755527-F523-4AAA-9052-B22A71BF3554}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                name="Default">
+                <conditions>
+                  <condition
+                    id="{4888ABBB-F17D-4485-B14B-842413F88732}"
+                    uid="75A2FAD7DEBB4F449A777AD93990B8AA" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          ds="{00323603-86DC-4ED0-A1AE-047057479C0F}"
+          id="{D7040DF2-C910-4353-80E8-53EFAB32495C}"
+          par=""
+          ph="ec-footer"
+          uid="{D6FCB945-D468-40E3-BCFF-3C888A8F33B2}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D369FEE5-9F71-4A85-BE2D-263D50D4B259}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200702T192513Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "c0bfd467-0b74-4efe-b7c9-1ecf7f0e5370"
+      Hint: Subject
+      Value: Registration Confirmation

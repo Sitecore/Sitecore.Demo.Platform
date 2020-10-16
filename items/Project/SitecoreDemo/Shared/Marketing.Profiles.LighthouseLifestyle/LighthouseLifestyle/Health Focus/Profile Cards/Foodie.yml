@@ -1,0 +1,36 @@
+﻿---
+ID: "0c5509c5-b499-4a70-87f2-ab474601b871"
+Parent: "9a7c476d-6717-4a13-aecc-bdeb2af40a85"
+Template: "0fc09ea4-8d87-4b0e-a5c9-8076ae863d9c"
+Path: /sitecore/system/Marketing Control Panel/Profiles/LighthouseLifestyle/Health Focus/Profile Cards/Foodie
+DB: master
+SharedFields:
+- ID: "85970ab7-22ea-4206-be86-c0167178860b"
+  Hint: Profile Card Value
+  Value: |
+    <tracking>
+      <profile id="3b752260-57e2-488c-9d84-95a8a5171af8" name="Health Focus">
+        <key name="Children" value="0" />
+        <key name="Cooking" value="10" />
+        <key name="Exercise" value="0" />
+        <key name="Fitness Tech" value="0" />
+        <key name="Mental Health" value="0" />
+        <key name="Nutrition" value="5" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "a26fc256-1db0-44aa-ba3d-1c830bf882a2"
+    Hint: Name
+    Value: Foodie
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200519T115040Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

@@ -1,0 +1,56 @@
+﻿---
+ID: "c21ec3be-5b3d-4181-89e2-f7024c3aea8a"
+Parent: "323b17d4-9c9f-4103-9854-817644b9068b"
+Template: "a6ddac75-7d24-4bdb-b3f6-5f47fbb21379"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/scenarios/onboarding-customer-journey/Data/Scenario Steps/Step 5"
+DB: master
+BranchID: "bab1fb9b-58a3-4df8-9f05-204b25ddb8e0"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{09BD444B-FABC-47EA-981D-2C8271655469}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B5423143A-760D-4F0E-BA4D-0B02E649A778%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-title"
+          uid="{6DA86455-E172-46ED-AB1A-C43FD3C29163}" />
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-content"
+          uid="{F2B2B2AF-DCE5-4417-B6FF-0AAAC2F38DC0}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D957D258-35AD-4302-966C-49D5AF64BAC5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200702T124328Z
+    - ID: "5a236869-e375-49c0-a92d-0c2f1db7788f"
+      Hint: Content
+      Value: |
+        <p>In this step the visitor completes a 3-step questionnaire. The questionnaire is built with Sitecore Forms and is designed to collect more information about the visitor.</p>
+        <p>This will also show an example of personalization in action. Your personalized digital fitness trainer is based on your answers in the 3-step questionnaire and uses Sitecore personalization to display the result.</p>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "7240053b-9140-48ac-acea-abfccd7761a1"
+      Hint: Heading
+      Value: "<strong>Step 5</strong>&nbsp;- Personalization in Action"

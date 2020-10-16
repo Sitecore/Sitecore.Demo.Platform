@@ -1,0 +1,49 @@
+﻿---
+ID: "bb95ad4d-3103-45b2-81d8-2f4aa5994432"
+Parent: "c1299037-d587-462a-8dc3-45e86121a6cf"
+Template: "142e5fc1-ec62-4540-bad9-cd88f337cd2e"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Data/Carousels/Retail Banking/Slide1
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B8AB7438-FF88-41A2-B0FD-493FB644E1B2}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B7C5FEDFB-F002-4136-99B0-5ED23040938B%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-content"
+          uid="{FE226C5C-3173-4037-9B1B-1B58D3F64109}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{35B145AB-48A1-4621-91CD-EFBAD228D5D1}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200711T204944Z
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{5BBB9432-DCD8-4451-A608-ACE80D87957E}" />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Casey
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: Checking
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link text="Learn More" anchor="" linktype="internal" class="" title=""  querystring="" id="{BD13A5DF-9432-4794-82D7-C7D5B4121FFB}" />

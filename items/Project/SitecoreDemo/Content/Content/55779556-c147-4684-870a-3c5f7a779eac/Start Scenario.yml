@@ -1,0 +1,31 @@
+﻿---
+ID: "663ec87c-4708-48ce-97b4-7839f23f5047"
+Parent: "55779556-c147-4684-870a-3c5f7a779eac"
+Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/scenarios/onboarding-customer-journey/Data/Start Scenario"
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: Get Started
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200702T135709Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: "<p><b>Important:</b> Ensure you are using <i>incognito mode </i>or a<i> fresh browser session&nbsp;</i>before starting the scenario. Open this page in the new browser session and click the button below to begin.</p>"
+    - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
+      Hint: PromoLink
+      Value: |
+        <link id="{CF9A9C8A-6BCB-4073-B7D7-F79667672407}" querystring="sc_camp=7F3D54DB06A84146897E5036BCC9315A" text="Start Scenario" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/best-in-wearable-fitness-technology" linktype="internal" />

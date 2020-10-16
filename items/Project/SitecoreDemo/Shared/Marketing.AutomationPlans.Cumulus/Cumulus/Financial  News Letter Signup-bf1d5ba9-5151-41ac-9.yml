@@ -1,0 +1,44 @@
+﻿---
+ID: "bf1d5ba9-5151-41ac-9ab0-3bf65571a183"
+Parent: "8d033b11-d5e6-43b3-8964-d5dcbe6c0d79"
+Template: "d4d43c33-3661-4630-af63-0754cab7b110"
+Path: "/sitecore/system/Marketing Control Panel/Automation Plans/Cumulus/Financial  News Letter Signup-bf1d5ba9-5151-41ac-9ab0-3bf65571a183"
+DB: master
+SharedFields:
+- ID: "1766652d-080b-409c-abbf-3a90e0f801f5"
+  Hint: Start Date
+  Value: 20200409T141400Z
+- ID: "2c41a32f-86a9-4f43-8550-bf0af266e3f2"
+  Hint: End Date
+  Value: 99991231T235959Z
+- ID: "394d49b2-b579-43aa-ab32-b4010b18fd07"
+  Hint: Marketing Theme
+  Value: "00000000-0000-0000-0000-000000000000"
+- ID: "3fb918c8-08ec-4879-8062-088bbf71ee72"
+  Hint: Plan Data
+  Value: |
+    {"ReentryMode":1,"ContextKeyFactoryType":null,"EntryActivityId":"162dd9c5-bf4c-d6e9-5c26-51602e27d9ac","NewEnrollmentRegulatorType":null,"NewEnrollmentRegulatorParameters":null,"PlanEntrySchedule":null,"ScheduledContactListId":null,"Alias":"Financial  News Letter Signup-bf1d5ba9-5151-41ac-9ab0-3bf65571a183","IgnoreIsActiveProperty":false,"Activities":{"162dd9c5-bf4c-d6e9-5c26-51602e27d9ac":{"Paths":{"default":"f5b9c2d9-e52b-b563-fe75-b5e5f7f1762d"},"Id":"162dd9c5-bf4c-d6e9-5c26-51602e27d9ac","ActivityTypeId":"8c92d3c1-2c38-4e8a-92d1-9590e17cce89","Parameters":{"EventIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"GoalIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["e361986c-288b-4f6d-bf4f-cf14ce3c8cb3"]},"OutcomeIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"TestOperation":0,"UseCondition":false}},"f5b9c2d9-e52b-b563-fe75-b5e5f7f1762d":{"Paths":{"default":"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba"},"Id":"f5b9c2d9-e52b-b563-fe75-b5e5f7f1762d","ActivityTypeId":"c2a5ef3a-dde9-4309-8921-5a6fd011d0ba","Parameters":{"Lists":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["c6fc1c9a-2b27-4856-ade4-7bfe58d3e1d1"]}}},"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba":{"Paths":{},"Id":"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba","ActivityTypeId":"a47371c2-8921-421f-8902-f3eccd229d56","Parameters":{}}},"UniversalActivities":{}}
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200409T141455Z
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: Financial  News Letter Signup
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

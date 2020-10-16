@@ -1,0 +1,42 @@
+﻿---
+ID: "49c81182-8600-4ddb-a8a7-3e85dc88e94a"
+Parent: "e3e3e21e-d5ef-426f-8307-4584594c6f95"
+Template: "886adec1-abf8-40e1-9926-d9189c4e8e1b"
+Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseFinancial/Lighthouse Credit Card Application/Page/Email
+DB: master
+SharedFields:
+- ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
+  Hint: Conditions
+  Value: |
+    {"fieldConditions":[]}
+- ID: "84ece662-5034-40cb-9c60-744db64bb294"
+  Hint: Field Key
+  Value: AAE492624A7E4CCEA5B41D3D1C466DA6
+- ID: "8a43af61-0812-4b37-a343-96cde3f12bb1"
+  Hint: Required
+  Type: Checkbox
+  Value: 1
+- ID: "9f7da002-7b86-436b-8dda-7efe5837b88e"
+  Hint: Min Length
+  Value: 0
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200218T134049Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
+      Hint: Title
+      Value: Email
+    - ID: "a6972f08-cbb5-4830-a8c9-8a0ae34650d1"
+      Hint: Placeholder Text
+      Value: Email

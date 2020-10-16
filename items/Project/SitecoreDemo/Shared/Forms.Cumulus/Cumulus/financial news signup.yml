@@ -1,0 +1,33 @@
+﻿---
+ID: "0c6b1ec5-04f5-4c91-931b-5f35ae8c630f"
+Parent: "ef8ca979-0527-4bbb-876a-93a812938367"
+Template: "6abee1f2-4ab4-47f0-ad8b-bdb36f37f64c"
+Path: /sitecore/Forms/Demo Shared SXA Sites/Cumulus/financial news signup
+DB: master
+SharedFields:
+- ID: "9eb86f19-2e5d-48db-9795-0ee4868eff11"
+  Hint: Is Ajax
+  Type: Checkbox
+  Value: 0
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 
+- ID: "c0ce58b7-2592-439d-b197-ca27bf69f7b2"
+  Hint: Is Robot Detection Enabled
+  Type: Checkbox
+  Value: 0
+- ID: "fce03b41-4cbb-4f7f-920f-ff04f12fa896"
+  Hint: Scripts
+  Value: "jquery-3.4.1.min.js|jquery.validate.min.js|jquery.unobtrusive-ajax.min.js|form.validate.js|form.tracking.js|form.conditions.js"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200218T134049Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

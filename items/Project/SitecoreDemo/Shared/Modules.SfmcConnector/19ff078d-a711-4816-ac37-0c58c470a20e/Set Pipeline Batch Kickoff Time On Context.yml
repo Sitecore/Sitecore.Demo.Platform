@@ -1,0 +1,31 @@
+﻿---
+ID: "3cd13330-c755-40c3-86b6-d4763177bd6e"
+Parent: "19ff078d-a711-4816-ac37-0c58c470a20e"
+Template: "b49144d6-e681-4a75-83c8-40774986756a"
+Path: /sitecore/content/SFMC Tenant/Pipelines/Email Studio/Process Single List To Clean Outdated Memberships/Set Pipeline Batch Kickoff Time On Context
+DB: master
+SharedFields:
+- ID: "614c8d0d-7991-4306-8ada-b2745373d191"
+  Hint: ObjectLocationId
+  Value: "{252FC7D6-BF86-445F-A952-7B9268A47FDA}"
+- ID: "b5b6fc54-4bf0-43d9-8c2a-a36ccc970483"
+  Hint: Format
+  Value: yyyyMMddHHmmss
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{3CD13330-C755-40C3-86B6-D4763177BD6E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163711Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,0 +1,29 @@
+﻿---
+ID: "23a40ba0-6181-4ad2-b097-1666c6d1c00a"
+Parent: "d07a5925-3f10-48a3-b341-8d74da4e715c"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: "/sitecore/content/SFMC Tenant/Value Mapping Sets/Journey Builder - Sitecore into SFMC/List Model - To Flat Object/Segment Id"
+DB: master
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{D4D660CE-70F1-406F-B11A-6884A37D8B75}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{AD862275-1C09-46A5-8427-5C102568D82C}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{23A40BA0-6181-4AD2-B097-1666C6D1C00A}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163733Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

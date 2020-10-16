@@ -1,0 +1,238 @@
+@import "vars";
+@import "mixins";
+.promo {    
+    line-height: 1.6;
+    margin: 8em auto;
+    float: none;
+
+    >.component-content {
+        padding: 0;
+        background-color: $surface;
+
+        @include proxima-font;
+
+        >div {
+            @include respond-to(tablet){
+                float: left;
+                width: 50%;
+                text-align: left;
+            }
+        }
+
+        p {
+            color: $text-light;
+            font-size: 1.25em;
+        }
+        @include respond-to(tablet) {
+            padding: 0 2em;  
+        }
+
+        @include respond-to (desktop) {
+            padding: 0 8em;
+        }
+    }
+
+    .field-promotext {
+        margin: $extrasmall-margin 0;
+        p{
+            font-size: 1;
+            margin: 0;     
+            color: $text-heading-color;
+
+            @include respond-to(tablet) {
+                font-size: 2em;
+            }
+        }
+    } 
+
+    .field-introduction {
+        p {
+            margin: 0.5em;
+            font-weight: 300;
+        }        
+    }
+
+    .field-promotext3 {
+        p {
+            color: $text-black;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+    }
+
+    .field-promoicon {
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @include respond-to (tablet) {
+            padding: 0 60px 0 0;
+        }
+
+        @include respond-to (desktop) {
+            padding: 0 120px 0 0;
+        }
+    }
+
+    .field-promolink {
+        a {
+            @include btn-secondary;
+            min-width: 200px;
+            margin-top: 0.25em;
+            display: inline-block;
+            width: auto;
+        }
+        
+        &.cta {
+            a {
+                  @include btn-primary;
+            }
+            
+        }
+    }
+
+    &.promo-left {
+        .field-promoicon {        
+
+            @include respond-to(tablet) {
+                padding: 0 0 0 60px;
+                float: right; 
+            }
+            @include respond-to(desktop) {
+                padding: 0 0 0 120px;
+            }
+        }
+    }
+
+    &.promo-top {
+        >.component-content{
+            width: 100%;
+            padding: 0 0 3em 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1),	0 0 8px 0 rgba(0, 0, 0, 0.06);
+
+            .field-promoicon {
+                padding: 0;
+            }
+
+            >div {
+                float: none;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    &.promo-text {
+        >.component-content{
+            width: 100%;
+            padding: 0 0 3em 0;
+
+            >div {
+                float: none;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    &.promo-top-icon {
+        margin: 4em auto 2em auto;
+
+        >.component-content{
+            width: 100%;
+            padding: 0 0 3em 0;
+            border-radius: 4px;
+
+            .field-promoicon {
+                padding: 0;
+
+                img {
+                    width: auto;
+                    display: inline;
+                }
+            }
+
+            >div {
+                float: none;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    @import "variants/promo/*";
+    @import "base/richtext/richtext";
+}
+
+.full-width-promo {
+    @include full-width-container;
+    padding: 0;
+
+    .promo {
+        margin: 0 auto;
+
+        > .component-content {
+            padding: 90px 0;
+            display: flex;
+
+            @include respond-to(tablet) {
+                padding: 180px 0;  
+            }   
+
+            p {
+                color: $fw-promo-text;
+            }
+
+            .field-promotext {
+                p {
+                    color: $fw-promo-headline;
+                }
+            }
+
+            > div {
+                float: none;
+                width: 100%;
+                position: relative;
+                z-index: 20;
+                background: rgba(255,255,255,0.75);
+                padding: 2em;                
+                width: 100%;
+
+                @include respond-to(tablet) {
+                    width: 500px;    
+                }                
+
+                &.field-promoicon {
+                    padding: 0;
+                    position: absolute;
+                    z-index: 10;
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+
+                    img {
+                        @include object-fit;
+                    }
+                }
+            }
+        }
+
+        &.promo-right {
+            >.component-content {
+                justify-content: flex-end;
+            }
+        }
+        
+    }
+}
+
+@import "styles/promo/*";
+@import "variants/promo/*";

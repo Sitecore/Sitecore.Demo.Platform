@@ -1,0 +1,33 @@
+﻿---
+ID: "220d74ca-fd0b-496a-b1b2-b644c619752a"
+Parent: "de582131-20b4-475f-98f8-7256320c4749"
+Template: "3de7aa7e-961a-4b90-98f2-01ac2be92ec5"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Settings/Social Media Groups/Default/Twitter
+DB: master
+BranchID: "4ddbdd69-8a15-4520-bed8-f7553139586b"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{30D5794E-95E8-4E30-A378-BEAABE5B3257}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200122T193356Z
+    - ID: "31b5c056-cfd5-4331-950d-25453a808d7c"
+      Hint: ButtonCode
+      Value: |
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="%ShareText%" data-lang="en">Tweet</a>
+    - ID: "3a453560-042a-4df9-945f-5750ea7c4a46"
+      Hint: OnlyOnceCode
+      Value: |
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    - ID: "66509977-761c-499c-ac9b-65830516ee11"
+      Hint: ShareTextProperty
+      Value: Title

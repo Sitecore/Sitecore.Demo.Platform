@@ -1,0 +1,38 @@
+﻿---
+ID: "395fc28c-52ec-4817-b114-8bbe1a685fcd"
+Parent: "4ece7cf4-f5ed-41c1-a487-f8e35ef3ec44"
+Template: "22bc9b89-0d79-4142-b359-2cec5135741c"
+Path: /sitecore/content/SFMC Tenant/Pipelines/Email Studio/Process Single Audience Definition/Mark Audience Definition As Persisted
+DB: master
+SharedFields:
+- ID: "5302a704-42f3-4923-b1cd-bcb9e0d3c2be"
+  Hint: CustomerKeyAttributeValueAccessor
+  Value: "{D4D660CE-70F1-406F-B11A-6884A37D8B75}"
+- ID: "5470c3a4-a9c3-4560-a347-0ff28fee50ab"
+  Hint: ObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "65a24b7f-ced2-4cf5-ac45-2eb7b65b4143"
+  Hint: Conditions
+  Type: Treelist
+  Value: "{97D9A7C1-F9FA-48BC-B317-AB742B81377F}"
+- ID: "6d22715f-8f12-4fc0-9757-4daa9dbe3c81"
+  Hint: DataExtensionTemplate
+  Value: "{51620C0C-C37A-4183-841D-E323F68F59E2}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{395FC28C-52EC-4817-B114-8BBE1A685FCD}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163709Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

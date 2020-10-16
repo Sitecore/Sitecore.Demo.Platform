@@ -1,0 +1,83 @@
+﻿---
+ID: "ba81210e-ef97-42e3-8735-5a5e21b06d41"
+Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/SitecoreDemo/SXA Module Functions/Add Home Page Renderings
+DB: master
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    function Invoke-ModuleScriptBody {}
+    function Invoke-Step {}
+    
+    Import-Function Get-SiteItem
+    $Root = Get-SiteItem $Site
+    $itemPath = "$($Root.Paths.Path)/Home"
+    
+    Reset-Layout -Path $itemPath
+    
+    # Carousel
+    $renderingPath = "/sitecore/layout/Renderings/Feature/Experience Accelerator/Composites/Carousel"
+    $renderingItem = Get-Item -Database "master" -Path $renderingPath | New-Rendering -Placeholder "/main/sxa-content-container/container-1"
+    $item = Get-Item -Path $itemPath
+    Add-Rendering -Item $item -PlaceHolder "/main/sxa-content-container/container-1" `
+    -Instance $renderingItem `
+    -DataSource "$($Root.Paths.Path)/Data/Demo/Home/Sample Carousel" `
+    -Parameter @{Styles = "{5F1937B9-3A84-4F4B-A96E-C60419A06667}"; Navigation = "{F5A400A0-C183-4A46-892A-F4DE38A5ECDE}" }
+    
+    # Full Width Container
+    $renderingPath = "/sitecore/layout/Renderings/Feature/Experience Accelerator/Page Structure/Container"
+    $renderingItem = Get-Item -Database "master" -Path $renderingPath | New-Rendering -Placeholder "/main/sxa-content-container/container-1"
+    $item = Get-Item -Path $itemPath
+    Add-Rendering -Item $item -PlaceHolder "/main/sxa-content-container/container-1" -Instance $renderingItem `
+    -Parameter @{Styles = "{B32CF8A3-6E9B-4D8B-992C-91B8C667FFFA}"; DynamicPlaceholderId = "2" }
+    
+    # Promo
+    $renderingPath = "/sitecore/layout/Renderings/Feature/Experience Accelerator/Page Content/Promo"
+    $renderingItem = Get-Item -Database "master" -Path $renderingPath | New-Rendering -Placeholder "/main/sxa-content-container/container-1"
+    $item = Get-Item -Path $itemPath
+    Add-Rendering -Item $item `
+    -PlaceHolder "/main/sxa-content-container/container-1/container-2" `
+    -Instance $renderingItem `
+    -DataSource "$($Root.Paths.Path)/Data/Demo/Home/Simple Promo" `
+    -Parameter @{FieldNames = "{184DC7A4-FDBB-446F-94BE-30B44B12C2AD}"; }
+    
+    # Full Width Promo (Container)
+    $renderingPath = "/sitecore/layout/Renderings/Feature/Experience Accelerator/Page Structure/Container"
+    $renderingItem = Get-Item -Database "master" -Path $renderingPath | New-Rendering -Placeholder "/main/sxa-content-container/container-1"
+    $item = Get-Item -Path $itemPath
+    Add-Rendering -Item $item -PlaceHolder "/main/sxa-content-container/container-1" -Instance $renderingItem `
+    -Parameter @{Styles = "{37959667-EE0C-4E0F-8A37-5687BB143510}"; DynamicPlaceholderId = "3" }
+    
+    # Full Width Promo
+    $renderingPath = "/sitecore/layout/Renderings/Feature/Experience Accelerator/Page Content/Promo"
+    $renderingItem = Get-Item -Database "master" -Path $renderingPath | New-Rendering -Placeholder "/main/sxa-content-container/container-1"
+    $item = Get-Item -Path $itemPath
+    Add-Rendering -Item $item `
+    -PlaceHolder "/main/sxa-content-container/container-1/container-3" `
+    -Instance $renderingItem `
+    -DataSource "$($Root.Paths.Path)/Data/Demo/Home/Background Promo" `
+    -Parameter @{FieldNames = "{B8DCE263-F093-4EF3-9B53-B4A4B919A337}"; }
+    
+    # Bottom Promo
+    $renderingPath = "/sitecore/layout/Renderings/Feature/Experience Accelerator/Page Content/Promo"
+    $renderingItem = Get-Item -Database "master" -Path $renderingPath | New-Rendering -Placeholder "/main/sxa-content-container/container-1"
+    $item = Get-Item -Path $itemPath
+    Add-Rendering -Item $item `
+    -PlaceHolder "/main/sxa-content-container/container-1" `
+    -Instance $renderingItem `
+    -DataSource "$($Root.Paths.Path)/Data/Demo/Home/Bottom Promo" `
+    -Parameter @{FieldNames = "{F8C8F184-053D-4947-840B-A96495DB434C}"; }
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191017T141356Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

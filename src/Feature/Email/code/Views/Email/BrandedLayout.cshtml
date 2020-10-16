@@ -1,0 +1,142 @@
+﻿@model Sitecore.Mvc.Presentation.RenderingModel
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>@Html.Sitecore().Placeholder("ec-title")</title>
+
+    <style>
+        @@media only screen and (max-width: 620px) {
+        table[class=body] h1 {
+        font-size: 28px !important;
+        margin-bottom: 10px !important;
+        }
+        table[class=body] p,
+        table[class=body] ul,
+        table[class=body] ol,
+        table[class=body] td,
+        table[class=body] span,
+        table[class=body] a {
+        font-size: 16px !important;
+        }
+        table[class=body] .wrapper,
+        table[class=body] .article {
+        padding: 10px !important;
+        }
+        table[class=body] .content {
+        padding: 0 !important;
+        }
+        table[class=body] .container {
+        padding: 0 !important;
+        width: 100% !important;
+        }
+        table[class=body] .main {
+        border-left-width: 0 !important;
+        border-radius: 0 !important;
+        border-right-width: 0 !important;
+        }
+        table[class=body] .btn table {
+        width: 100% !important;
+        }
+        table[class=body] .btn a {
+        width: 100% !important;
+        }
+        table[class=body] .img-responsive {
+        height: auto !important;
+        max-width: 100% !important;
+        width: auto !important;
+        }
+        }
+        /* -------------------------------------
+        PRESERVE THESE STYLES IN THE HEAD
+        ------------------------------------- */
+        @@media all {
+        .ExternalClass {
+        width: 100%;
+        }
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+        line-height: 100%;
+        }
+        .apple-link a {
+        color: inherit !important;
+        font-family: inherit !important;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+        text-decoration: none !important;
+        }
+        .btn-primary table td:hover {
+        background-color: #34495e !important;
+        }
+        .btn-primary a:hover {
+        background-color: #34495e !important;
+        border-color: #34495e !important;
+        }
+        }
+        .footer a {
+            color: #747474;
+            text-decoration:none;
+        }
+        .footer a:hover{
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <table class="body" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" cellspacing="0" cellpadding="0" border="0">
+        <tbody>
+            <tr>
+                <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
+                <td class="container" style="font-family: sans-serif; font-size: 14px; vertical-align: top; display: block; margin: 0 auto; max-width: 580px; padding: 10px 30px; width: 580px;">
+                    <div class="content" style="box-sizing: border-box; display: block; margin: 0 auto; max-width: 580px;">
+                        <!-- START CENTERED WHITE CONTAINER -->
+                        <span class="preheader" style="width: 0px; height: 0px; overflow: hidden; display: none; visibility: hidden; max-height: 0px; max-width: 0px; opacity: 0; color: transparent;">
+                            This is preheader text. Some clients will show this text as a preview.
+                        </span>
+                        <table class="main" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+                            <!-- START MAIN CONTENT AREA -->
+                            <tbody>
+                                <tr>
+                                    <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box;">
+                                        <table style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" cellspacing="0" cellpadding="0" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
+                                                        @Html.Sitecore().Placeholder("ec-header")
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
+                                                        @Html.Sitecore().Placeholder("ec-main")
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
+                                                        @Html.Sitecore().Placeholder("ec-footer")
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!-- END MAIN CONTENT AREA -->
+                            </tbody>
+                        </table>
+                        <!-- END CENTERED WHITE CONTAINER -->
+                    </div>
+                </td>
+                <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

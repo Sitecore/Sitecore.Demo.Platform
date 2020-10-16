@@ -1,0 +1,62 @@
+﻿---
+ID: "c3eee554-17b5-49f3-b270-d98249e0184f"
+Parent: "d10a78d5-557f-43cf-9d8e-9a9dd0ed7658"
+Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/your-health/Data/Promo - Healthy Home Tools"
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: <p>Smart Homes Make You Healthier</p>
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{C572C422-19D2-4F46-812C-659196B6D15A}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180315T205459Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "832d3c97-5c05-49bf-89ef-9c29d30345e7"
+      Hint: PromoText3
+      Value: <p>Article</p>
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: |
+        <p>Gadgets may not be the first things that come to mind when you think "Healthy Lifestyle". Technology is more likely to be vilified for the harm it can do to your health. But that doesn’t have to be the case.&nbsp;</p>
+    - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
+      Hint: PromoLink
+      Value: |
+        <link id="{FDFC0B0D-7B3A-4753-BBC5-E17C508398FA}" querystring="" target="" text="Learn More" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/kitchen-appliances" linktype="internal" />
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: <p>Smart Homes Make You Healthier</p>
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{C572C422-19D2-4F46-812C-659196B6D15A}" ></image>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181025T021330Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: |
+        <p>Gadgets and gizmos may not be the first things that come to mind when you think about a "Healthy Lifestyle". Technology is much more likely to be vilified for the harm they can do to your mental and physical health. But, according to our health experts here at Lighthouse Home Goods, that doesn’t have to be the case.&nbsp;</p>
+    - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
+      Hint: PromoLink
+      Value: |
+        <link id="{FDFC0B0D-7B3A-4753-BBC5-E17C508398FA}" querystring="" text="Read More" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/kitchen-appliances" linktype="internal" target="" />

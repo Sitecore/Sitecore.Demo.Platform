@@ -1,0 +1,147 @@
+﻿---
+ID: "3e54a390-bffd-40e6-9af7-e951a806e691"
+Parent: "10083ca0-5093-4d67-99db-2579abb421d3"
+Template: "69dd5f28-429f-46b6-b55c-9da3500a7369"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/services
+DB: master
+SharedFields:
+- ID: "1fbc6a49-6281-48ee-87e9-a3970b145adb"
+  Hint: NavigationFilter
+  Type: Checklist
+  Value: "{D063E9D1-C7B5-4B1E-B31E-69886C9C59F5}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 900
+- ID: "db51d4e9-c24d-4670-af0e-62c8aa08e2b6"
+  Hint: LocalData
+  Value: "{AFA6C825-C024-4B1D-854C-8947C19F4CE1}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{D13C9ED0-2890-492A-A7EC-F54D1736ECB7}"
+          p:before="*"
+          s:ds="{0270D6AD-278D-4746-A9F9-439D1804130F}"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B6C6DCD16-6835-4C2B-BC30-B19AF38AAB21%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
+          s:ph="/main/sxa-content-container/container-1/container-3/column-2-4" />
+        <r
+          uid="{5266A527-8065-49C4-92EC-536B3857D1A7}"
+          p:after="r[@uid='{D13C9ED0-2890-492A-A7EC-F54D1736ECB7}']"
+          s:ds="{3E8652BF-C174-4CEF-B1EF-1FD7408579FC}"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=5&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b6C6DCD16-6835-4C2B-BC30-B19AF38AAB21%7d"
+          s:ph="/main/sxa-content-container/container-1/container-3/column-1-4" />
+        <r
+          uid="{B319B291-B2E6-47A3-982D-6228B18FBB5B}"
+          p:after="r[@uid='{5266A527-8065-49C4-92EC-536B3857D1A7}']"
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="DynamicPlaceholderId=4&amp;EnabledPlaceholders=1%2c2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;ColumnWidth1=%7bFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7d&amp;ColumnWidth2=%7bFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7d"
+          s:ph="/main/sxa-content-container/container-1/container-3" />
+        <r
+          uid="{87DB5200-7806-4555-9785-5D3E47D522D7}"
+          p:after="r[@uid='{B319B291-B2E6-47A3-982D-6228B18FBB5B}']"
+          s:ds="local:/Data/Hero - Services"
+          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=1&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{C68253C2-8B71-4A9E-B39A-F82576C73DFF}"
+          p:after="r[@uid='{87DB5200-7806-4555-9785-5D3E47D522D7}']"
+          s:ds="local:/Data/Promo - Home Installation"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=8&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7bF8C8F184-053D-4947-840B-A96495DB434C%7d"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{5AB6F3A7-2411-4E08-A1B9-47C8EFD7BBB8}"
+          p:after="r[@uid='{C68253C2-8B71-4A9E-B39A-F82576C73DFF}']"
+          s:ds="local:/Data/Promo - Ultimate Smart Home Checklist"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=2&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;FieldNames=%7b184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7d"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{FF3EAFD9-699B-49F5-833B-B9BE2FEFBD55}"
+          p:after="*[1=2]"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b9CB76B6C-2B77-4728-8508-CF7041C7B69C%7d&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-content-container/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Services
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180323T185620Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Services
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Services
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Services
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180807T045355Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Services
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Services
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: サービス
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180817T180340Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: サービス
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: サービス

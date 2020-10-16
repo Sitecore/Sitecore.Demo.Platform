@@ -1,0 +1,96 @@
+﻿---
+ID: "dd9e8fde-3423-418e-8549-127cd1682be8"
+Parent: "94dc3946-e711-4f0d-bd20-f91f6374dbb0"
+Template: "c2a8e276-1757-4957-9dd5-8669b79fd80d"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Presentation/Partial Designs/Metadata
+DB: master
+BranchID: "b90549b5-c997-4d6b-b102-c9ab82528974"
+SharedFields:
+- ID: "55faae90-3bba-4f7f-96fe-13c3f40055ff"
+  Hint: Signature
+  Value: "metadata-partial-design"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{D2956116-72C1-4E20-85AE-146D20B6DEE5}"
+          p:before="*"
+          s:id="{3A91FC31-BA4C-4BC7-B6E4-29B4BB768736}"
+          s:par=""
+          s:ph="body-bottom" />
+        <r
+          uid="{83C63669-99BF-4412-B754-DE438CF08898}"
+          p:after="r[@uid='{D2956116-72C1-4E20-85AE-146D20B6DEE5}']"
+          s:id="{24374313-44B3-4E9C-9C55-C4194019D1B3}"
+          s:par=""
+          s:ph="body-bottom" />
+        <r
+          uid="{468AC100-BE3F-4667-A649-BCE53C154ED1}"
+          p:after="r[@uid='{83C63669-99BF-4412-B754-DE438CF08898}']"
+          s:id="{3EA2AA92-8885-4C28-9C5D-37E94721A481}"
+          s:par=""
+          s:ph="head" />
+        <r
+          uid="{5D0D1A83-4844-4726-AA13-7651CE35DA60}"
+          p:after="r[@uid='{468AC100-BE3F-4667-A649-BCE53C154ED1}']"
+          s:id="{5DA64EA1-D631-4880-A1F6-9C5291B4E1AE}"
+          s:par=""
+          s:ph="head" />
+        <r
+          uid="{F8DED043-E533-4486-B0F7-7E29402687A5}"
+          p:after="r[@uid='{5D0D1A83-4844-4726-AA13-7651CE35DA60}']"
+          s:id="{B9EE29F7-2CCE-4172-9E51-D65DB818E3FA}"
+          s:par=""
+          s:ph="head" />
+        <r
+          uid="{414686FA-4BAB-4897-9486-00FE9D9BC02C}"
+          p:after="r[@uid='{F8DED043-E533-4486-B0F7-7E29402687A5}']"
+          s:id="{E3E3F484-0C27-42CC-9F36-E2D33430C8CD}"
+          s:par=""
+          s:ph="head" />
+        <r
+          uid="{D65C6CEE-8172-4E9E-9FD4-877078B13F50}"
+          p:after="r[@uid='{414686FA-4BAB-4897-9486-00FE9D9BC02C}']"
+          s:id="{B07712AD-28B9-4B93-A524-D8BD29CA9D8D}"
+          s:par=""
+          s:ph="head" />
+        <r
+          uid="{E20C7098-62D4-4A23-AE41-990DDDC9ACCD}"
+          p:after="r[@uid='{D65C6CEE-8172-4E9E-9FD4-877078B13F50}']"
+          s:id="{CA9D504B-B04F-4327-BCEB-A789BA5C3865}"
+          s:par=""
+          s:ph="head" />
+        <r
+          uid="{0B779863-9F68-4647-824F-8D06582D16BD}"
+          p:after="r[@uid='{E20C7098-62D4-4A23-AE41-990DDDC9ACCD}']"
+          s:id="{0A6935A8-3AC2-4977-8677-1F4360B212EE}"
+          s:par=""
+          s:ph="head" />
+        <r
+          uid="{C80E57E1-3EA1-4A33-A944-DA2EFA3D60A1}"
+          p:after="*[1=2]"
+          s:id="{3B138D20-BB25-449D-898A-670997743402}"
+          s:par=""
+          s:ph="head" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{C7A35BB6-7B78-49A5-A0CE-23A6DFA3E00E}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Metadata
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200122T193156Z

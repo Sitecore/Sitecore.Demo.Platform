@@ -1,0 +1,6 @@
+﻿@using Sitecore.ExperienceForms.Mvc.Constants
+@using Sitecore.ExperienceForms.Mvc.Html
+@model Sitecore.ExperienceForms.Mvc.Models.Fields.FieldViewModel
+
+@Html.Hidden(AttributeNames.PageItemId, Model.ItemId)
+@Html.RenderFields(Model)

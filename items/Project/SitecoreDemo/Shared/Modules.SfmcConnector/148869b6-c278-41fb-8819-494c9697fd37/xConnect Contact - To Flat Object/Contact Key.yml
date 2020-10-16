@@ -1,0 +1,32 @@
+﻿---
+ID: "18dfd0c2-6a94-456e-81d0-a2ff6dcb2c01"
+Parent: "21aaf674-d60c-4546-a7b2-4494c57f59e2"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: "/sitecore/content/SFMC Tenant/Value Mapping Sets/Sitecore - xConnect Contact To SFMC/xConnect Contact - To Flat Object/Contact Key"
+DB: master
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{95449B62-8C8B-413E-8CF5-41E7FBB033A6}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{A5645C2C-31D1-4108-BC42-6CB6B355FB39}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{18DFD0C2-6A94-456E-81D0-A2FF6DCB2C01}"
+- ID: "fd738fc4-54b9-4aa3-bb8c-5749ba0907c4"
+  Hint: SourceValueTransformer
+  Value: "{5F024730-FD1C-4369-AA1C-338EF47CEB67}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163729Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

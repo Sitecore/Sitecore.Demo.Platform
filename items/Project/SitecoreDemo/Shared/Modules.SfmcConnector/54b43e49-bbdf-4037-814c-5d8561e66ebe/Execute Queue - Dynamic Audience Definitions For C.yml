@@ -1,0 +1,40 @@
+﻿---
+ID: "e9f1bae2-8c63-4bd5-b55b-f4b4ec4b2e65"
+Parent: "54b43e49-bbdf-4037-814c-5d8561e66ebe"
+Template: "c74d409d-3954-40aa-9ac0-bce88a18f46c"
+Path: "/sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Contents/Data Extension Definitions/Execute Queue - Dynamic Audience Definitions For Creation"
+DB: master
+SharedFields:
+- ID: "3bd83629-b06f-4a92-868e-6c3197cea5c7"
+  Hint: HeaderXElementBuilder
+  Value: "{03D91AD5-A465-4435-9276-136B9D253B68}"
+- ID: "78bbe831-ba6a-465c-a840-71de9e9c8509"
+  Hint: DataExtensionTemplate
+  Value: "{51620C0C-C37A-4183-841D-E323F68F59E2}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1000
+- ID: "be48ca92-8183-4090-a512-578e24a20281"
+  Hint: NameAttributeValueAccessor
+  Value: "{0B7C4D0D-9B95-45DD-AFB9-AF93F9B947A3}"
+- ID: "f5c47a01-b54c-46a6-b816-17268eba56d9"
+  Hint: QueueKey
+  Value: audience_definitions_creation
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{E9F1BAE2-8C63-4BD5-B55B-F4B4EC4B2E65}"
+- ID: "fc2f3c4b-ee9b-4a43-a375-d0ecf82b7e78"
+  Hint: CustomerKeyAttributeValueAccessor
+  Value: "{D4D660CE-70F1-406F-B11A-6884A37D8B75}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163719Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,0 +1,36 @@
+﻿---
+ID: "cc2b3baf-f8a1-4215-9146-dd00693623fe"
+Parent: "9a7b6f29-39d4-4cfd-9b9f-aa4e765c6001"
+Template: "f18e6413-ec6b-483a-b251-7160fb1ad966"
+Path: /sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Object Definitions/Data Extensions/Audience Membership/Segment Id
+DB: master
+SharedFields:
+- ID: "3bf98af6-a4cd-433d-a28e-494bfcc4c7ce"
+  Hint: Length
+  Value: 150
+- ID: "70fd8b01-1c07-4afa-86de-231f145505dc"
+  Hint: Name
+  Value: Segment Id
+- ID: "d07d32eb-eba1-4a5d-b342-82daf25eff95"
+  Hint: PrimaryKey
+  Type: Checkbox
+  Value: 1
+- ID: "e048489f-1575-4458-b76f-adb1150b041a"
+  Hint: Required
+  Type: Checkbox
+  Value: 1
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{CC2B3BAF-F8A1-4215-9146-DD00693623FE}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163723Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

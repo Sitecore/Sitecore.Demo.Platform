@@ -1,0 +1,32 @@
+﻿---
+ID: "e9baa889-c654-4489-b958-50a66d51ef1b"
+Parent: "3819532c-2b3e-45d8-b4db-02b7db84472a"
+Template: "05fe45d4-b9c7-40de-b767-7c5abe7119f9"
+Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseFinancial/Lighthouse Financial News Signup/Page/Submit Button/SubmitActions/Redirect to Page
+DB: master
+SharedFields:
+- ID: "5c796924-3f06-4d1f-8510-8ad9a4244477"
+  Hint: Parameters
+  Value: |
+    {"referenceId":"{5F6276DB-F968-4BBC-A307-F3F0FBC69F5D}"}
+- ID: "abc57b6d-5542-4ab9-a889-106225a032e6"
+  Hint: Submit Action
+  Value: "{3F3E2093-9DEA-4199-86CA-44FC69EF624D}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200409T132209Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8251a6fa-2e61-4e01-8832-8d99c69869b5"
+      Hint: Description
+      Value: Home

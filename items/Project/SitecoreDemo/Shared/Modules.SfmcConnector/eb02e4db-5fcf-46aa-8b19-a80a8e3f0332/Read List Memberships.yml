@@ -1,0 +1,43 @@
+﻿---
+ID: "1124a1f3-f4dd-45d9-b008-16227010c1e7"
+Parent: "eb02e4db-5fcf-46aa-8b19-a80a8e3f0332"
+Template: "aa30e141-a4e8-434b-baad-d165433f72ce"
+Path: /sitecore/content/SFMC Tenant/Pipelines/Push Marketing Lists/Read Single Marketing List Memberships/Read List Memberships
+DB: master
+SharedFields:
+- ID: "010e5d89-6409-4fbc-843b-ceb84c8ed3bb"
+  Hint: IdentifierObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "3c301932-ca91-4a6d-ac08-e5823c090045"
+  Hint: ContactBatchSize
+  Value: 500
+- ID: "4ce9ed44-bc7f-44e5-886d-97d9a6890faa"
+  Hint: IdentifierValueAccessor
+  Value: "{DBEC9723-8871-460B-BC5B-696977BB58C6}"
+- ID: "8137a6b1-3312-46e2-a6dd-894a7b8d337e"
+  Hint: ContactFacetsToRead
+  Type: Treelist
+  Value: |
+    {8873D0F9-5E13-E855-4765-F4C87026208B}
+    {2C2D1047-DF19-E8DC-B7AB-B9A5B085B879}
+    {1E5FFB53-CF10-0107-6C6D-E813CF0E6A25}
+    {AD4D0307-10B3-0417-5286-BA47B9089C02}
+    {603FC138-982E-1AAF-FAB7-AC66BB279D12}
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 800
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{1124A1F3-F4DD-45D9-B008-16227010C1E7}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200406T163709Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

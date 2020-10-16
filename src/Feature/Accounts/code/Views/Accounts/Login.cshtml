@@ -1,0 +1,58 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using Sitecore.Demo.Platform.Feature.Accounts
+@using Sitecore.Demo.Platform.Feature.Accounts.Services
+@using Sitecore.Demo.Platform.Foundation.Dictionary.Extensions
+@using Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Configuration
+@model Sitecore.Demo.Platform.Feature.Accounts.Models.LoginInfo
+
+@using (Html.BeginRouteForm(MvcSettings.SitecoreRouteName, FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.Hidden("ReturnUrl", Model.ReturnUrl)
+    @Html.AddUniqueFormId()
+    @Html.ValidationSummary(true)
+    <div class="form-group @Html.ValidationErrorFor(x => x.Email, "has-error")">
+        @Html.LabelFor(x => x.Email, new
+        {
+            @class = "control-label",
+            @for = "loginEmail"
+        })
+        @Html.TextBoxFor(x => x.Email, new
+        {
+            @class = "form-control",
+            id = "loginEmail"
+        })
+        @Html.ValidationMessageFor(x => x.Email, "", new
+        {
+            @class = "help-block"
+        }, "p")
+    </div>
+    <div class="form-group @Html.ValidationErrorFor(x => x.Password, "has-error")">
+        @Html.LabelFor(x => x.Password, new
+        {
+            @class = "control-label",
+            @for = "loginPassword"
+        })
+        @Html.PasswordFor(x => x.Password, new
+        {
+            @class = "form-control",
+            id = "loginPassword"
+        })
+        @Html.ValidationMessageFor(x => x.Password, "", new
+        {
+            @class = "help-block"
+        }, "p")
+    </div>
+    @Html.ValidationMessage("invalidCredentials", new
+    {
+        @class = "alert alert-danger"
+    }, "div")
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="submit" class="btn btn-primary btn-block" value="@Html.Sitecore().Dictionary("/Accounts/Login/Login", "Login")"/>
+        </div>
+    </div>
+    <a href="@AccountsSettingsService.Instance.GetPageLinkOrDefault(Sitecore.Context.Item, Templates.AccountsSettings.Fields.ForgotPasswordPage)" class="btn btn-link">@Html.Sitecore().DictionaryField("/Accounts/Login/Forgot Your Password", "Forgot your password?")</a>
+}
