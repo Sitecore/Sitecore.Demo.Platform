@@ -96,7 +96,7 @@ stages:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: '$(azure.subscription)'
         azureContainerRegistry: '$(container.registry)'
-        dockerComposeFile: 'docker-compose-dacpac.yml'
+        dockerComposeFile: 'docker/docker-compose-dacpac.yml'
         dockerComposeFileArgs: |
           INTERNAL_NUGET_SOURCE=$(INTERNAL_NUGET_SOURCE)
           SYSTEM_ACCESSTOKEN=$(INTERNAL_NUGET_TOKEN)
@@ -138,7 +138,7 @@ stages:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: '$(azure.subscription)'
         azureContainerRegistry: '$(container.registry)'
-        dockerComposeFile: 'docker-compose-linux.yml'
+        dockerComposeFile: 'docker/docker-compose-linux.yml'
         dockerComposeFileArgs: |
           DEMO_VERSION=$(tag)
           REGISTRY=$(REGISTRY)
@@ -160,7 +160,7 @@ stages:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: $(azure.subscription)
         azureContainerRegistry: $(container.registry)
-        dockerComposeFile: 'docker-compose-linux.yml'
+        dockerComposeFile: 'docker/docker-compose-linux.yml'
         dockerComposeFileArgs: |
           REGISTRY=$(REGISTRY)
           DEMO_VERSION=$(tag)
@@ -243,7 +243,7 @@ stages:
           targetType: 'inline'
           script: |
             Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
-                       
+
             Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
 - stage: Trigger_Harbor_Push
