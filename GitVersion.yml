@@ -2,7 +2,7 @@ assembly-versioning-scheme: MajorMinorPatch
 mode: ContinuousDeployment
 continuous-delivery-fallback-tag: ''
 tag-prefix: '[vV]'
-next-version: 1000.0.0
+next-version: 1000.0.2
 major-version-bump-message: '\+semver:\s?(dotnotuse)'
 minor-version-bump-message: '\+semver:\s?(breaking|major)'
 patch-version-bump-message: '\+semver:\s?(feature|minor)'
@@ -14,7 +14,18 @@ branches:
     increment: Patch
     prevent-increment-of-merged-branch-version: false
     is-mainline: true
-  main: {}
+  main:
+    mode: ContinuousDeployment
+    tag: ''
+    increment: Patch
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: false
+    regex: ^main$
+    source-branches:
+    - develop
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: true
   feature:
     mode: ContinuousDeployment
     tag: ft

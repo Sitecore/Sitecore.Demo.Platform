@@ -5,7 +5,7 @@ services:
     image: dacpac:${DEMO_VERSION}
     isolation: hyperv
     build:
-      context: .
+      context: ../
       dockerfile: ./docker/images/windows/demo-sqldev/Dockerfile
       target: build
       args:

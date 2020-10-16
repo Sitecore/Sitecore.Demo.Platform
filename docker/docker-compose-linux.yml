@@ -6,7 +6,7 @@ services:
     image: ${REGISTRY}demo/lighthouse-mssql:${SITECORE_VERSION}-${DEMO_VERSION}-linux
     isolation: default
     build:
-      context: .
+      context: ../
       dockerfile: ./docker/images/windows/demo-sqldev/Dockerfile.linux
       args:
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-mssql:${SITECORE_VERSION}-linux-${BASE_MODULE_VERSION}
@@ -29,7 +29,7 @@ services:
       test: ["CMD", "powershell", "ps"]
     image: ${REGISTRY}demo/lighthouse-init:${SITECORE_VERSION}-${DEMO_VERSION}-linux
     build:
-      context: ./docker/images/windows/demo-init
+      context: ./images/windows/demo-init
       dockerfile: Dockerfile.linux
       args:
         BUILD_IMAGE: mcr.microsoft.com/dotnet/core/sdk:3.1-alpine3.11
@@ -46,7 +46,7 @@ services:
     image: ${REGISTRY}demo/lighthouse-solr:${SITECORE_VERSION}-${DEMO_VERSION}-linux
     isolation: default
     build:
-      context: ./docker/images/linux/demo-xp-solr
+      context: ./images/linux/demo-xp-solr
       dockerfile: Dockerfile
       args:
         BASE_IMAGE: solr:8.4.0-slim
