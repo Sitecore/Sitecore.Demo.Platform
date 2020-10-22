@@ -92,6 +92,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Platform.Feat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRM", "CRM", "{53D32728-D07F-452A-ADA9-34072FE13B0D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraphQL", "GraphQL", "{7451CE06-38B5-4A1B-B25F-447DB6E91189}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Platform.Foundation.GraphQL", "src\Foundation\GraphQL\code\Sitecore.Demo.Platform.Foundation.GraphQL.csproj", "{96FB0E35-F610-4370-B05D-09863036A856}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -355,6 +359,20 @@ Global
 		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Package-CM|Any CPU.Build.0 = Local|Any CPU
 		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.DockerDeploy|Any CPU.Build.0 = DockerDeploy|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.Local|Any CPU.Build.0 = Local|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.NoDeploy|Any CPU.ActiveCfg = NoDeploy|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.NoDeploy|Any CPU.Build.0 = NoDeploy|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.Package-CD|Any CPU.ActiveCfg = Package-CD|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.Package-CD|Any CPU.Build.0 = Package-CD|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.Package-CM|Any CPU.ActiveCfg = Package-CM|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.Package-CM|Any CPU.Build.0 = Package-CM|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96FB0E35-F610-4370-B05D-09863036A856}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -396,9 +414,11 @@ Global
 		{5D1C63AD-D212-4DD0-89BB-7ABF00AC2D13} = {E039079C-7452-4C00-B888-C14052AB6770}
 		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04} = {53D32728-D07F-452A-ADA9-34072FE13B0D}
 		{53D32728-D07F-452A-ADA9-34072FE13B0D} = {37394D96-A276-41B7-BFC0-E0897AFE4690}
+		{7451CE06-38B5-4A1B-B25F-447DB6E91189} = {DF6B2506-3CDA-4F09-A383-59D03F8CC59F}
+		{96FB0E35-F610-4370-B05D-09863036A856} = {7451CE06-38B5-4A1B-B25F-447DB6E91189}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal
