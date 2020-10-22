@@ -105,29 +105,6 @@ if (-not $ready) {
 
 	Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsExmRoot
 	Write-Verbose "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
-
-	# set DAM hostname if specified
-	if ($env:DAM_URL) {
-		Write-Verbose "$(Get-Date -Format $timeFormat): Set DAM URL"
-		# /sitecore/system/Modules/DAM/Config/DAM connector
-		$itemParamDAM = ("ItemId='15BE535E-1A49-4C91-A1CA-1DE14B35FF77'")
-
-		# SearchPage field
-		$fieldParamDAM = ("FieldId='0C74C58C-C855-43B7-A397-C6BB9EE4A792'")
-		$valueParamDAM = ("Value='" + $env:DAM_URL + "/en-us/sitecore-dam-connect/approved-assets" + "'")
-		$paramsDAM = $itemParamDAM, $fieldParamDAM, $valueParamDAM
-
-		Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsDAM
-		Write-Verbose "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
-
-		# DAMInstance field
-		$fieldParamDAM = ("FieldId='803A50F3-C1F8-46A1-9FEC-D55B8BB9BE10'")
-		$valueParamDAM = ("Value='" + $env:DAM_URL + "'")
-		$paramsDAM = $itemParamDAM, $fieldParamDAM, $valueParamDAM
-
-		Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsDAM
-		Write-Verbose "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
-	}
 }
 
 # set datafolder

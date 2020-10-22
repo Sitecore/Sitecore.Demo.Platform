@@ -23,6 +23,8 @@ namespace Sitecore.Demo.Init
 
 			await WaitForPublishingServiceToStart.Run();
 			await PublishItems.Run();
+			await UpdateFieldValues.Run();
+
 			Task.WaitAll(WarmupCM.Run(), WarmupCD.Run());
 			List<string> asyncJobList = new List<string>
 			{

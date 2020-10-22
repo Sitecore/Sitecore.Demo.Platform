@@ -75,7 +75,6 @@ services:
       ADMIN_USER_NAME: "sitecore\\superuser"
       DISABLE_DEFAULT_ADMIN: 'FALSE'
       EXM_BASE_URL: "https://${CD_HOST}"
-      DAM_URL: ${DAM_URL}
     mem_limit: 2GB
     volumes:
       - type: bind
@@ -278,6 +277,7 @@ services:
       HOST_ID: "http://id"
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
       SKIP_WARMUP_CD: ${SKIP_WARMUP_CD}
+      DAM_URL: ${DAM_URL}
     depends_on:
       mssql:
         condition: service_healthy
