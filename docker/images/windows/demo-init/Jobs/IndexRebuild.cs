@@ -8,7 +8,6 @@ namespace Sitecore.Demo.Init.Jobs
 	{
 		public static async Task Run()
 		{
-
 			await Start(typeof(IndexRebuild).Name);
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
@@ -24,7 +23,6 @@ namespace Sitecore.Demo.Init.Jobs
 				{
 					using (var response = await client.SendAsync(request))
 					{
-						var contents = await response.Content.ReadAsStringAsync();
 						Console.WriteLine($"Rebuilding index {index}");
 						Console.WriteLine($"{response.StatusCode}");
 					}

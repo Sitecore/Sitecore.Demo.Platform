@@ -2,14 +2,13 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Sitecore.Demo.Init.Jobs;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Sitecore.Demo.Init.Model;
 
 namespace Sitecore.Demo.Init
 {
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Linq;
-	using Sitecore.Demo.Init.Model;
-
 	class Program
 	{
 		private static readonly AutoResetEvent _closing = new AutoResetEvent(false);
@@ -20,26 +19,21 @@ namespace Sitecore.Demo.Init
 		{
 			var startTime = DateTime.UtcNow;
 			Console.WriteLine($"{DateTime.UtcNow} Init started.");
-
 			await WaitForPublishingServiceToStart.Run();
-			await PublishItems.Run();
-			await UpdateFieldValues.Run();
 
+			Task.WaitAll(PublishItems.Run(), UpdateFieldValues.Run(), DeployMarketingDefinitions.Run(), RebuildLinkDatabase.Run());
 			Task.WaitAll(WarmupCM.Run(), WarmupCD.Run());
-			List<string> asyncJobList = new List<string>
-			{
-				typeof(DeployMarketingDefinitions).Name,
-				typeof(IndexRebuild).Name,
-				typeof(ExperienceGenerator).Name
-			};
-
-			await DeployMarketingDefinitions.Run();
-			await IndexRebuild.Run();
-			await ExperienceGenerator.Run();
-			await RebuildLinkDatabase.Run();
+			Task.WaitAll(IndexRebuild.Run(), ExperienceGenerator.Run());
 
 			Console.WriteLine($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below.");
 			Console.WriteLine($"Elapsed time: {(DateTime.UtcNow - startTime):c}");
+
+			var asyncJobList = new List<string>
+			                   {
+				                   typeof(DeployMarketingDefinitions).Name,
+				                   typeof(IndexRebuild).Name,
+				                   typeof(ExperienceGenerator).Name
+			                   };
 
 			// Prevent container from exiting. Otherwise it will get re-created and ran on each subsequent 'dc up -d' locally
 			await Task.Factory.StartNew(
@@ -71,7 +65,8 @@ namespace Sitecore.Demo.Init
 								await File.WriteAllTextAsync(Path.Combine(statusDirectory, $"{job}.Ready"), "Ready");
 							}
 						}
-						Thread.Sleep(30000);
+
+						Thread.Sleep(60000);
 					}
 				});
 
@@ -81,25 +76,32 @@ namespace Sitecore.Demo.Init
 
 		private static async Task<List<SitecoreJobStatus>> CheckAsyncJobsStatus()
 		{
-			if (!CheckStatus)
+			try
 			{
-				return null;
-			}
-
-			Console.WriteLine($"{DateTime.UtcNow} Job status:");
-			var jobs = await JobStatus.Run();
-			if (jobs.Any())
-			{
-				foreach (var job in jobs)
+				if (!CheckStatus)
 				{
-					Console.WriteLine($"{job.Title} {job.Added} - {job.Progress}");
+					return null;
 				}
-				return jobs;
-			}
-			else
-			{
+
+				Console.WriteLine($"{DateTime.UtcNow} Job status:");
+				var jobs = await JobStatus.Run();
+				if (jobs.Any())
+				{
+					foreach (var job in jobs)
+					{
+						Console.WriteLine($"{job.Title} {job.Added} - {job.Progress}");
+					}
+
+					return jobs;
+				}
+
 				CheckStatus = false;
 				Console.WriteLine("No jobs are running. Monitoring stopped.");
+				return null;
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("Failed to retrieve running jobs. " + ex);
 				return null;
 			}
 		}

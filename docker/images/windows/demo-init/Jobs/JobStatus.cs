@@ -19,7 +19,6 @@ namespace Sitecore.Demo.Init.Jobs
 			var authenticatedClient = await new SitecoreLoginService().GetSitecoreClient(cm, id, user, password);
 			var status = await authenticatedClient.DownloadStringTaskAsync($"{cm}/sitecore/admin/jobs.aspx?refresh=5");
 
-
 			var jobsPage = new HtmlAgilityPack.HtmlDocument();
 			jobsPage.LoadHtml(status);
 			var statusTableNode = jobsPage.DocumentNode.SelectNodes("//*[@id=\"Form1\"]/div[3]/table[1]").FirstOrDefault();

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	class WaitForPublishingServiceToStart : WarmupBase
+	class WaitForPublishingServiceToStart : TaskBase
 	{
 		public static async Task Run()
 		{
