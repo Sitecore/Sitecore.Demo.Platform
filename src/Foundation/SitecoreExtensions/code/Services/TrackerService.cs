@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using Sitecore.Analytics;
+using Sitecore.Analytics.Model;
+using Sitecore.Analytics.Model.Entities;
 using Sitecore.Demo.Platform.Foundation.DependencyInjection;
 using Sitecore.Diagnostics;
 using Sitecore.Marketing.Definitions;
@@ -127,7 +130,6 @@ namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Services
             Tracker.Current.CurrentPage.RegisterOutcome(outcomeDefinition, "USD", 0);
         }
 
-
         public void IdentifyContact(string source, string identifier)
         {
             if (!this.IsActive)
@@ -135,7 +137,18 @@ namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Services
                 return;
             }
 
-            Tracker.Current.Session.IdentifyAs(source, identifier);
+            // Contact already has the identifier
+            if (Tracker.Current.Session.Contact.Identifiers.Any(x => x.Source == source && x.Identifier == identifier))
+            {
+                return;
+            }
+
+            // Use default identifyAs for unknown contacts
+            if (Tracker.Current.Contact.IdentificationLevel != ContactIdentificationLevel.Known)
+            {
+                Tracker.Current.Session.IdentifyAs(source, identifier);
+                return;
+            }
         }
     }
 }
