@@ -3,7 +3,7 @@ version: '2.4'
 services:
 
   sql:
-    image: ${REGISTRY}demo/lighthouse-mssql:${SITECORE_VERSION}-${DEMO_VERSION}-linux
+    image: ${REGISTRY}demo/lighthouse-mssql:${SITECORE_VERSION}-linux-${DEMO_VERSION}
     isolation: default
     build:
       context: ../
@@ -27,7 +27,7 @@ services:
   init:
     healthcheck:
       test: ["CMD", "powershell", "ps"]
-    image: ${REGISTRY}demo/lighthouse-init:${SITECORE_VERSION}-${DEMO_VERSION}-linux
+    image: ${REGISTRY}demo/lighthouse-init:${SITECORE_VERSION}-linux-${DEMO_VERSION}
     build:
       context: ./images/windows/demo-init
       dockerfile: Dockerfile.linux
@@ -43,7 +43,7 @@ services:
       HOST_ID: "http://id"
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
   solr:
-    image: ${REGISTRY}demo/lighthouse-solr:${SITECORE_VERSION}-${DEMO_VERSION}-linux
+    image: ${REGISTRY}demo/lighthouse-solr:${SITECORE_VERSION}-linux-${DEMO_VERSION}
     isolation: default
     build:
       context: ./images/linux/demo-xp-solr
