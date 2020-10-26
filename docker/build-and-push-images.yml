@@ -151,7 +151,7 @@ stages:
           OPENCALAIS_ACCESSTOKEN=$(OpenCalais.AccessToken)
         qualifyImageNames: false
         action: 'Build services'
-        additionalImageTags: '$(SITECORE_VERSION)-$(additionalImageTags)-linux'
+        additionalImageTags: '$(SITECORE_VERSION)-linux-$(additionalImageTags)'
         arguments: '-m 4G --parallel $(no.cache)'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
     - task: DockerCompose@0
@@ -169,7 +169,7 @@ stages:
           SITECORE_LICENSE=$(SITECORE_LICENSE)
           TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
         action: 'Push services'
-        additionalImageTags: '$(SITECORE_VERSION)-$(additionalImageTags)-linux'
+        additionalImageTags: '$(SITECORE_VERSION)-linux-$(additionalImageTags)'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
 - stage: Release_Notes
   dependsOn:
