@@ -15,14 +15,6 @@ RUN apt-get -y update \
 COPY docker/images/windows/demo-sqldev/data/ /opt/src/data/
 COPY docker/images/windows/demo-sqldev/install-databases.sh /opt
 
-RUN ls /opt/src/data/
-
-RUN ls /opt/src/data/data
-
-RUN ls /opt/src/data/descendants
-
-RUN ls /opt/src/data/security
-
 # install solution dacpac
 ENV DB_PREFIX='sc'
 

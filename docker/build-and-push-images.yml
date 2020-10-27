@@ -27,11 +27,27 @@ variables:
 stages:
 - stage: Docker_Windows
   pool:
-    name: Docker
+    name: docker-ltsc2019-agents
   displayName: 'Build Windows Docker Images'
   jobs:
   - job: Build_Platform
     steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '2.1.x'
+        installationPath: 'c:/program files/dotnet'
+        performMultiLevelLookup: true
+    - task: PowerShell@2
+      displayName: "Add dotnet core to Path"
+      inputs:
+        targetType: 'inline'
+        script: |
+          # workaround for setting dotnet core runtime path
+          $toolPath = '$(Agent.ToolsDirectory)'
+          Write-Host "$toolPath"
+          $dotnetPath = Join-Path $toolPath "dotnet"
+          $env:Path += $dotnetPath
     - template: version.yml
     - task: DockerCompose@0
       displayName: "Docker Compose Build"
@@ -85,11 +101,16 @@ stages:
   jobs:
   - job: Build_Dacpacs
     pool:
-      name: Docker
+      name: docker-ltsc2019-agents
     displayName: "Publish Dacpacs"
     steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '2.1.x'
+        installationPath: 'c:/program files/dotnet'
+        performMultiLevelLookup: true
     - template: version.yml
-
     - task: DockerCompose@0
       displayName: "Docker Compose Build Dacpacs"
       inputs:
@@ -104,7 +125,7 @@ stages:
           SITECORE_VERSION=$(SITECORE_VERSION)
         action: 'Build services'
         qualifyImageNames: false
-        arguments: '-m 2G --pull --parallel $(no.cache)'
+        arguments: '-m 8G --pull $(no.cache)'
     - task: PowerShell@2
       displayName: "Copy output from container to Artifacts"
       inputs:
@@ -123,8 +144,12 @@ stages:
     displayName: "Build Linux Images"
     dependsOn: Build_Dacpacs
     pool:
-      vmImage: ubuntu-latest
+      name: docker-linux-agents
     steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '2.1.x'
     - template: version.yml
     - task: DownloadPipelineArtifact@2
       displayName: "Download Dacpac Artifacts"
@@ -152,7 +177,7 @@ stages:
         qualifyImageNames: false
         action: 'Build services'
         additionalImageTags: '$(SITECORE_VERSION)-linux-$(additionalImageTags)'
-        arguments: '-m 4G --parallel $(no.cache)'
+        arguments: '$(no.cache)'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
     - task: DockerCompose@0
       displayName: "Push Images"
