@@ -211,7 +211,7 @@ stages:
   jobs:
     - job: Generate_Release_Notes
       pool:
-        name: Docker
+        vmImage: 'windows-latest'
       displayName: 'Generate Release Notes'
       steps:
       - template: version.yml
@@ -288,8 +288,6 @@ stages:
   condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
   jobs:
     - job: Harbor_Push
-      pool:
-        name: Docker
       displayName: 'Harbor Push'
       steps:
       - template: version.yml
