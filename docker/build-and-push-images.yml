@@ -18,7 +18,6 @@ resources:
 variables:
   GitVersion.SemVer: ''
   SITECORE_VERSION: '10.0.0'
-  WINDOWSSERVERCORE_VERSION: 'ltsc2019'
   NANOSERVER_VERSION: '1809'
   GitVersion.PreReleaseLabel: ''
   tag: '$(GitVersion.SemVer)'
@@ -26,11 +25,19 @@ variables:
 
 stages:
 - stage: Docker_Windows
-  pool:
-    name: docker-ltsc2019-agents
-  displayName: 'Build Windows Docker Images'
   jobs:
   - job: Build_Platform
+    strategy:
+      matrix:
+        windows2004:
+          poolName: 'docker-2004-agents'
+          osVersion: '2004'
+        ltsc2019:
+          poolName: 'docker-ltsc2019-agents'
+          osVersion: 'ltsc2019'
+    displayName: 'Build Windows Docker Images'
+    pool:
+      name: $(poolName)
     steps:
     - task: UseDotNet@2
       inputs:
@@ -60,7 +67,7 @@ stages:
         dockerComposeFileArgs: |
           DEMO_VERSION=$(tag)
           REGISTRY=$(REGISTRY)
-          WINDOWSSERVERCORE_VERSION=$(WINDOWSSERVERCORE_VERSION)
+          WINDOWSSERVERCORE_VERSION=$(osVersion)
           NANOSERVER_VERSION=$(NANOSERVER_VERSION)
           SITECORE_VERSION=$(SITECORE_VERSION)
           SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
@@ -71,7 +78,7 @@ stages:
           SITECORE_ID_CERTIFICATE=$(sitecore.id.certificate)
         qualifyImageNames: false
         action: 'Build services'
-        additionalImageTags: '$(SITECORE_VERSION)-$(WINDOWSSERVERCORE_VERSION)-$(additionalImageTags)'
+        additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
         arguments: '-m 4G --pull $(no.cache)'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
     - task: DockerCompose@0
@@ -85,7 +92,7 @@ stages:
         dockerComposeFileArgs: |
           REGISTRY=$(REGISTRY)
           DEMO_VERSION=$(tag)
-          WINDOWSSERVERCORE_VERSION=$(WINDOWSSERVERCORE_VERSION)
+          WINDOWSSERVERCORE_VERSION=$(osVersion)
           NANOSERVER_VERSION=$(NANOSERVER_VERSION)
           SITECORE_VERSION=$(SITECORE_VERSION)
           SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
@@ -93,7 +100,7 @@ stages:
           TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
           SITECORE_ID_CERTIFICATE=$(sitecore.id.certificate)
         action: 'Push services'
-        additionalImageTags: '$(SITECORE_VERSION)-$(WINDOWSSERVERCORE_VERSION)-$(additionalImageTags)'
+        additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
 - stage: Docker_Linux
   dependsOn: []
@@ -203,6 +210,8 @@ stages:
   condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
   jobs:
     - job: Generate_Release_Notes
+      pool:
+        name: Docker
       displayName: 'Generate Release Notes'
       steps:
       - template: version.yml
@@ -268,7 +277,7 @@ stages:
           targetType: 'inline'
           script: |
             Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
-            
+
             # Enable after we deploy -linux image name changes to PROD
             # Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
@@ -279,6 +288,8 @@ stages:
   condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
   jobs:
     - job: Harbor_Push
+      pool:
+        name: Docker
       displayName: 'Harbor Push'
       steps:
       - template: version.yml
