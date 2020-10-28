@@ -344,7 +344,7 @@ stages:
             Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
             # Enable after we deploy -linux image name changes to PROD
-            # Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+            Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
 - stage: Trigger_Harbor_Push
   displayName: "Trigger Harbor Push"
