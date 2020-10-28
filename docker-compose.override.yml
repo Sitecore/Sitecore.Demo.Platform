@@ -50,7 +50,7 @@ services:
       context: .
       dockerfile: .\docker\images\windows\demo-xdbsearchworker\dockerfile
       args:
-        SOLUTION_IMAGE: ${REGISTRY}lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
     volumes:
@@ -77,7 +77,7 @@ services:
       context: .
       dockerfile: .\docker\images\windows\demo-mssql\dockerfile
       args:
-        SOLUTION_IMAGE: ${REGISTRY}lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
     environment:
       USER_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
@@ -142,7 +142,7 @@ services:
       context: .
       dockerfile: .\docker\images\windows\demo-standalone\dockerfile
       args:
-        SOLUTION_IMAGE: ${REGISTRY}lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
         ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
         OPENCALAIS_ACCESSTOKEN: ${OPENCALAIS_ACCESSTOKEN}
@@ -182,7 +182,7 @@ services:
       context: .
       dockerfile: .\docker\images\windows\demo-cd\dockerfile
       args:
-        SOLUTION_IMAGE: ${REGISTRY}lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp1-modules-base-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
         ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
     scale: ${CD_CONTAINERS_COUNT}
@@ -243,7 +243,7 @@ services:
       context: .
       dockerfile: .\docker\images\windows\demo-xconnect\dockerfile
       args:
-        SOLUTION_IMAGE: ${REGISTRY}lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
     networks:
