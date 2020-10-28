@@ -2,7 +2,7 @@
 
 ## Clone this repository
 
-Clone the Sitecore.Demo.Platform repository locally - defaults are configured for **C:\Projects\Sitecore.Demo.Platform**.
+Clone the Sitecore.Demo.Platform repository locally - defaults are configured for **`C:\Projects\Sitecore.Demo.Platform`**.
 
 * **https**: `git clone https://github.com/Sitecore/Sitecore.Demo.Platform.git`
 * **ssh**: `git clone git@github.com:Sitecore/Sitecore.Demo.Platform.git`
@@ -15,22 +15,47 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 * At least 16 Gb of memory. 32 Gb or more is preferred.
 * A valid Sitecore 10 license file located at `C:\license\license.xml`
 * The latest [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows/).
-* From the Docker Desktop menu, you can toggle which daemon (Linux or Windows) the Docker CLI talks to. Select "Switch to Windows containers..." to use Windows containers.
+
+### Preparing Docker for running the demo
+
+1. Ensure you are running Windows containers:
+   1. From the Docker Desktop taskbar icon contextual menu (right click), you can toggle which daemon (Linux or Windows) the Docker CLI talks to. Select "Switch to Windows containers..." to use Windows containers.
+2. Ensure the Windows Docker engine experimental features are enabled (to allow the Linux smtp container to run at the same time as the Windows containers):
+   1. From the Docker Desktop taskbar icon contextual menu (right click), choose "Settings".
+   2. In the left tab group, navigate to the "Docker Engine" tab.
+   3. In the JSON block, locate the `"experimental"` key.
+      1. If you do not have an `"experimental"` key, add it after the existing ones. Ensure you add a comma (`,`) after the previous key/value pair.
+   4. Ensure the value of the `"experimental"` key is set to `true`.
+   5. At the end, the JSON block should have at least:
+
+      ```json
+      {
+        "experimental": true
+      }
+      ```
+
+   6. Click the "Apply & Restart" button to restart your Windows Docker engine.
 
 ### Preparing your environment for running the demo
 
 1. Open an elevated (as administrator) PowerShell session.
-2. Create certificates and initialize the environment file:
+2. Navigate to your repository clone folder:
+   * `cd C:\Projects\Sitecore.Demo.Platform`
+3. Create certificates and initialize the environment file:
    * `.\init.ps1 -InitEnv -LicenseXmlPath C:\license\license.xml -AdminPassword b`
    * You can change the admin password and the license.xml file path to match your needs.
+4. Pull the latest demo Docker images:
+   * `docker-compose pull`
 
 ### Starting the demo containers
 
 1. Open an elevated (as administrator) PowerShell session.
-2. Stop the IIS service:
+2. Navigate to your repository clone folder:
+   * `cd C:\Projects\Sitecore.Demo.Platform`
+3. Stop the IIS service:
    * `iisreset /stop`
    * This is required each time you want to use the demo as the Traefik container is using the same port (443) as IIS.
-3. Start the demo containers:
+4. Start the demo containers:
    * `docker-compose up -d`
    * This will pull all of the necessary images to spin up your Sitecore environment. It will take quite some time if this is the first time you execute it.
    * After pulling the images, the Sitecore instance will be up and available within minutes, but not fully working until the init container jobs are completed. The init container runs scripts that:
@@ -43,9 +68,10 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
      * Marketing Automation plans may not work as Sitecore marketing definitions are not deployed.
      * Some Content Editor features and other admin pages relying on search indices may not work.
      * The search page and search based components may not work on the CD.
-4. Check the progress of the initialization by viewing the init container's logs:
+5. Check the progress of the initialization by viewing the init container's logs:
    * `docker-compose logs -f init`
-5. Wait about 30 minutes until the init container logs can read `No jobs are running. Monitoring stopped.`.
+6. Wait about 30 minutes until the init container logs can read `No jobs are running. Monitoring stopped.`.
+   * The init container has a known issue where it may stop itself before the jobs are all done. If you notice the init container has stopped before logging the `No jobs are running. Monitoring stopped.` message, restart the init container by running `docker-compose up -d` and continue monitoring its logs.
 
 ### Validating deployment
 
@@ -86,21 +112,25 @@ If you want to reset all of your changes and get a fresh intsance:
    * `REGISTRY`: Set your registry url (The trailing slash (/) is very important).
    * `SQL_SA_PASSWORD`: Set the SA password to the one configured in your base image.
 2. Open an elevated (as administrator) PowerShell session.
-3. Create certificates and initialize the environment file:
+3. Navigate to your repository clone folder:
+   * `cd C:\Projects\Sitecore.Demo.Platform`
+4. Create certificates and initialize the environment file:
    * `.\init.ps1 -InitEnv -LicenseXmlPath C:\license\license.xml -AdminPassword b`
    * You can change the admin password and the license.xml file path to match your needs.
-4. Login to your docker registry:
+5. Login to your docker registry:
    * For Azure ACR:
      * `az login`
      * `az acr login --name <registryname>`
-5. Pull the latest base images:
+6. Pull the latest base images:
    * `docker-compose pull`
    * This will pull all of the necessary base images to spin up your Sitecore environment. It will take quite some time if this is the first time you execute it.
 
 ### Building Docker images
 
 1. Open an elevated (as administrator) PowerShell session.
-2. Build your Docker images:
+2. Navigate to your repository clone folder:
+   * `cd C:\Projects\Sitecore.Demo.Platform`
+3. Build your Docker images:
    * `docker-compose build -m 8G`
    * This command will use up to 8 Gb of memory to build the Docker images. Adjust the number based on your available free memory.
 
@@ -109,7 +139,9 @@ If you want to reset all of your changes and get a fresh intsance:
 After changes to the code:
 
 1. Open an elevated (as administrator) PowerShell session.
-2. `.\build.ps1 -DeploymentTarget Docker`
+2. Navigate to your repository clone folder:
+   * `cd C:\Projects\Sitecore.Demo.Platform`
+3. `.\build.ps1 -DeploymentTarget Docker`
 
 ## Troubleshooting deployment
 

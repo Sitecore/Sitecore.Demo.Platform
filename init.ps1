@@ -16,11 +16,7 @@ Param (
     [Parameter(Mandatory = $true,
         HelpMessage = "Sets the sitecore\\admin password for this environment via environment variable.",
         ParameterSetName = "env-init")]
-    [string]$AdminPassword,
-
-    [Parameter(HelpMessage = "Sets the .env file values for Sitecore demo team developers.",
-        ParameterSetName = "env-init")]
-    [switch]$DemoTeam
+    [string]$AdminPassword
 )
 
 $ErrorActionPreference = "Stop";
@@ -153,29 +149,6 @@ if ($InitEnv) {
 
     # SITECORE_SERVICES_TOKEN_SECURITYKEY = random 32 chars
     Set-DockerComposeEnvFileVariable "SITECORE_SERVICES_TOKEN_SECURITYKEY" -Value (Get-SitecoreRandomString 32 -DisallowSpecial)
-}
-
-if ($DemoTeam) {
-    Write-Host "Populating required demo team .env file values..." -ForegroundColor Green
-
-    $demoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
-    if ($null -eq $demoTeamRegistry) {
-        # Environment variable not found. Try to set it using demo team function.
-        Set-DemoEnvironmentVariables
-        refreshenv
-    }
-
-    # Retry
-    $demoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
-    if ($null -eq $demoTeamRegistry) {
-        Write-Host "The DEMO_TEAM_DOCKER_REGISTRY environment variable is not set. Please:" -ForegroundColor Red
-        Write-Host "  1. Ensure you are using the team's PowerShell profile." -ForegroundColor Red
-        Write-Host "  2. From a new PowerShell window, re-run this command." -ForegroundColor Red
-        throw
-    }
-
-    Set-DockerComposeEnvFileVariable "REGISTRY" -Value $demoTeamRegistry
-    Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value "latest"
 }
 
 Write-Host "Done!" -ForegroundColor Green

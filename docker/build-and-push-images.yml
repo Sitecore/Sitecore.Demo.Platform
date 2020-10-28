@@ -39,10 +39,11 @@ stages:
         performMultiLevelLookup: true
     - template: version.yml
     - task: PowerShell@2
-      displayName: "Prepare custom docker-compose.override files"
+      displayName: "Prepare custom docker-compose.override and .env files"
       inputs:
         targetType: 'inline'
-        script: '(Get-Content docker-compose.override.yml)[0..16] | Set-Content docker-compose.override.solution.yml'
+        script: |
+          (Get-Content docker-compose.override.yml)[0..16] | Set-Content docker-compose.override.solution.yml
     - task: DockerCompose@0
       displayName: "Build Solution Image"
       inputs:
@@ -120,15 +121,11 @@ stages:
         installationPath: 'c:/program files/dotnet'
         performMultiLevelLookup: true
     - task: PowerShell@2
-      displayName: "Add dotnet core to Path"
+      displayName: "Prepare .env file"
       inputs:
         targetType: 'inline'
         script: |
-          # workaround for setting dotnet core runtime path
-          $toolPath = '$(Agent.ToolsDirectory)'
-          Write-Host "$toolPath"
-          $dotnetPath = Join-Path $toolPath "dotnet"
-          $env:Path += $dotnetPath
+          ./init-ci.ps1 -DemoTeamRegistry $(REGISTRY)
     - template: version.yml
     - task: PowerShell@2
       displayName: "Prepare custom docker-compose.override files"
@@ -216,13 +213,20 @@ stages:
       inputs:
         packageType: 'sdk'
         version: '2.1.x'
-    - template: version.yml    
+    - template: version.yml
     - task: DownloadPipelineArtifact@2
       displayName: "Download Dacpac Artifacts"
       inputs:
         buildType: 'current'
         artifactName: 'dacpac.$(tag)'
         targetPath: '$(Build.SourcesDirectory)/docker/images/windows/demo-mssql/data'
+    - task: PowerShell@2
+      displayName: "Prepare .env file"
+      inputs:
+        targetType: 'inline'
+        script: './init-ci.ps1 -DemoTeamRegistry $(REGISTRY)'
+        pwsh: true
+      
     - task: DockerCompose@0
       displayName: "Docker Compose Build"
       inputs:
