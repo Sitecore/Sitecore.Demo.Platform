@@ -1,16 +1,9 @@
 # escape=`
 ARG BASE_IMAGE
-ARG BUILD_IMAGE
+ARG SOLUTION_IMAGE
 
-FROM ${BUILD_IMAGE} as build
+FROM ${SOLUTION_IMAGE} as solution
 
-ARG INTERNAL_NUGET_SOURCE
-ARG SYSTEM_ACCESSTOKEN
-WORKDIR /src
-COPY src/Project/xConnect .
+FROM $BASE_IMAGE as production
 
-RUN msbuild /m:1 /v:minimal /p:Configuration="Debug" /p:Platform=AnyCPU /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=false /p:publishUrl=C:\out\demo-indexworker /p:BuildProjectReferences=false /target:Build "code/Sitecore.Demo.Platform.XConnect.csproj"
-
- FROM $BASE_IMAGE as production
-
- COPY --from=build /out/demo-indexworker/App_Data/jobs/continuous/IndexWorker /worker/
+COPY --from=solution /solution/xconnect/App_Data/jobs/continuous/IndexWorker /worker/

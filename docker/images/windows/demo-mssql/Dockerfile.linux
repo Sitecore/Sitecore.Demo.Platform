@@ -12,8 +12,8 @@ RUN apt-get -y update \
     && chmod +x /opt/sqlpackage/sqlpackage
 
 # copy solution dacpac
-COPY docker/images/windows/demo-sqldev/data/ /opt/src/data/
-COPY docker/images/windows/demo-sqldev/install-databases.sh /opt
+COPY docker/images/windows/demo-mssql/data/ /opt/src/data/
+COPY docker/images/windows/demo-mssql/install-databases.sh /opt
 
 # install solution dacpac
 ENV DB_PREFIX='sc'
@@ -43,11 +43,11 @@ ENV BOOT_OVERRIDE_SCRIPTS="Demo-Boot-Platform.ps1"
 COPY --from=builder ["/install/*", "/clean/"]
 
 # start-up scripts for demo
-COPY /docker/images/windows/demo-sqldev/sql /sql
-COPY /docker/images/windows/demo-sqldev/HashPassword.ps1 /opt
-COPY /docker/images/windows/demo-sqldev/Demo-Boot.ps1 /opt
-COPY /docker/images/windows/demo-sqldev/Demo-Boot-Platform.ps1 /opt
-COPY /docker/images/windows/demo-sqldev/boot.sh /opt
+COPY /docker/images/windows/demo-mssql/sql /sql
+COPY /docker/images/windows/demo-mssql/HashPassword.ps1 /opt
+COPY /docker/images/windows/demo-mssql/Demo-Boot.ps1 /opt
+COPY /docker/images/windows/demo-mssql/Demo-Boot-Platform.ps1 /opt
+COPY /docker/images/windows/demo-mssql/boot.sh /opt
 
 RUN chmod +x /opt/HashPassword.ps1 \
 	&& chmod +x /opt/Demo-Boot.ps1 \

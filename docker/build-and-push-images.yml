@@ -24,7 +24,81 @@ variables:
   additionalImageTags: ''
 
 stages:
+- stage: Build_Solution
+  pool:
+    name: docker-ltsc2019-agents
+  displayName: "Build Solution Image"
+  jobs:
+  - job: Build_Solution
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '2.1.x'
+        installationPath: 'c:/program files/dotnet'
+        performMultiLevelLookup: true
+    - template: version.yml
+    - task: PowerShell@2
+      displayName: "Prepare custom docker-compose.override files"
+      inputs:
+        targetType: 'inline'
+        script: '(Get-Content docker-compose.override.yml)[0..16] | Set-Content docker-compose.override.solution.yml'
+    - task: DockerCompose@0
+      displayName: "Build Solution Image"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: '$(azure.subscription)'
+        azureContainerRegistry: '$(container.registry)'
+        dockerComposeFile: 'docker-compose.override.solution.yml'
+        dockerComposeFileArgs: |
+          ISOLATION=process
+          DEMO_VERSION=$(tag)
+          REGISTRY=$(REGISTRY)
+          NANOSERVER_VERSION=$(NANOSERVER_VERSION)
+          WINDOWSSERVERCORE_VERSION=ltsc2019
+          SITECORE_VERSION=$(SITECORE_VERSION)
+          INTERNAL_NUGET_SOURCE=$(INTERNAL_NUGET_SOURCE)
+          SYSTEM_ACCESSTOKEN=$(INTERNAL_NUGET_TOKEN)
+        qualifyImageNames: false
+        action: 'Build services'
+        additionalImageTags: '$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)'
+        arguments: '-m 3G --pull $(no.cache)'
+        currentWorkingDirectory: '$(Build.SourcesDirectory)'
+    - task: DockerCompose@0
+      displayName: "Push Images"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: $(azure.subscription)
+        azureContainerRegistry: $(container.registry)
+        dockerComposeFile: 'docker-compose.override.solution.yml'
+        dockerComposeFileArgs: |
+          DEMO_VERSION=$(tag)
+          REGISTRY=$(REGISTRY)
+          NANOSERVER_VERSION=$(NANOSERVER_VERSION)
+          WINDOWSSERVERCORE_VERSION='ltsc2019'
+          SITECORE_VERSION=$(SITECORE_VERSION)
+          INTERNAL_NUGET_SOURCE=
+          SYSTEM_ACCESSTOKEN=
+        action: 'Push services'
+        currentWorkingDirectory: '$(Build.SourcesDirectory)'
+        additionalImageTags: '$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)'
+    - task: PowerShell@2
+      displayName: "Copy output from container to Artifacts"
+      inputs:
+        targetType: 'inline'
+        script: |
+          docker container create --name dacpac$(tag) $(REGISTRY)build/lighthouse-solution:$(SITECORE_VERSION)-$(tag)
+          docker container cp dacpac$(tag):/solution/db $(Build.ArtifactStagingDirectory)/dacpacs
+          docker container rm -f dacpac$(tag)
+    - task: PublishPipelineArtifact@1
+      displayName: "Publish Dacpac Artifacts"
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)/dacpacs'
+        artifact: 'dacpac.$(tag)'
+        publishLocation: 'pipeline'
 - stage: Docker_Windows
+  dependsOn: Build_Solution
+  displayName: "Build Windows Images"
   jobs:
   - job: Build_Platform
     strategy:
@@ -56,6 +130,35 @@ stages:
           $dotnetPath = Join-Path $toolPath "dotnet"
           $env:Path += $dotnetPath
     - template: version.yml
+    - task: PowerShell@2
+      displayName: "Prepare custom docker-compose.override files"
+      inputs:
+        targetType: 'inline'
+        script: |
+          $override = Get-Content docker-compose.override.yml
+          (Get-Content docker-compose.override.yml)[0..16] | Set-Content docker-compose.override.solution.yml
+          (Get-Content docker-compose.override.yml)[0..3] | Add-Content docker-compose.override.nosolution.yml
+          (Get-Content docker-compose.override.yml)[17..$override.length] | Add-Content docker-compose.override.nosolution.yml
+          (Get-Content docker-compose.override.nosolution.yml -Raw) -replace '- solution','- smtp' | Set-Content docker-compose.override.nosolution.yml
+          (Get-Content docker-compose.override.nosolution.yml)
+    - task: DockerCompose@0
+      displayName: "Pull Solution Image"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: '$(azure.subscription)'
+        azureContainerRegistry: '$(container.registry)'
+        dockerComposeFile: 'docker-compose.override.solution.yml'
+        dockerComposeFileArgs: |
+          DEMO_VERSION=$(tag).$(Build.BuildId)
+          REGISTRY=$(REGISTRY)
+          NANOSERVER_VERSION=$(NANOSERVER_VERSION)
+          SITECORE_VERSION=$(SITECORE_VERSION)
+          INTERNAL_NUGET_SOURCE=
+          SYSTEM_ACCESSTOKEN=
+        qualifyImageNames: false
+        action: 'Run a Docker Compose command'
+        dockerComposeCommand: 'pull'
+        currentWorkingDirectory: '$(Build.SourcesDirectory)'
     - task: DockerCompose@0
       displayName: "Docker Compose Build"
       inputs:
@@ -63,7 +166,7 @@ stages:
         azureSubscription: '$(azure.subscription)'
         azureContainerRegistry: '$(container.registry)'
         dockerComposeFile: 'docker-compose.yml'
-        additionalDockerComposeFiles: 'docker-compose.override.yml'
+        additionalDockerComposeFiles: 'docker-compose.override.nosolution.yml'
         dockerComposeFileArgs: |
           DEMO_VERSION=$(tag)
           REGISTRY=$(REGISTRY)
@@ -73,8 +176,6 @@ stages:
           SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
           SITECORE_LICENSE=$(SITECORE_LICENSE)
           TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
-          INTERNAL_NUGET_SOURCE=$(INTERNAL_NUGET_SOURCE)
-          SYSTEM_ACCESSTOKEN=$(INTERNAL_NUGET_TOKEN)
           SITECORE_ID_CERTIFICATE=$(sitecore.id.certificate)
         qualifyImageNames: false
         action: 'Build services'
@@ -88,7 +189,7 @@ stages:
         azureSubscription: $(azure.subscription)
         azureContainerRegistry: $(container.registry)
         dockerComposeFile: 'docker-compose.yml'
-        additionalDockerComposeFiles: 'docker-compose.override.yml'
+        additionalDockerComposeFiles: 'docker-compose.override.nosolution.yml'
         dockerComposeFileArgs: |
           REGISTRY=$(REGISTRY)
           DEMO_VERSION=$(tag)
@@ -103,53 +204,11 @@ stages:
         additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
 - stage: Docker_Linux
-  dependsOn: []
-  displayName: 'Build Linux Docker Images'
+  dependsOn: Build_Solution
+  displayName: 'Build Linux Images'
   jobs:
-  - job: Build_Dacpacs
-    pool:
-      name: docker-ltsc2019-agents
-    displayName: "Publish Dacpacs"
-    steps:
-    - task: UseDotNet@2
-      inputs:
-        packageType: 'sdk'
-        version: '2.1.x'
-        installationPath: 'c:/program files/dotnet'
-        performMultiLevelLookup: true
-    - template: version.yml
-    - task: DockerCompose@0
-      displayName: "Docker Compose Build Dacpacs"
-      inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: '$(azure.subscription)'
-        azureContainerRegistry: '$(container.registry)'
-        dockerComposeFile: 'docker/docker-compose-dacpac.yml'
-        dockerComposeFileArgs: |
-          INTERNAL_NUGET_SOURCE=$(INTERNAL_NUGET_SOURCE)
-          SYSTEM_ACCESSTOKEN=$(INTERNAL_NUGET_TOKEN)
-          DEMO_VERSION=$(tag)
-          SITECORE_VERSION=$(SITECORE_VERSION)
-        action: 'Build services'
-        qualifyImageNames: false
-        arguments: '-m 8G --pull $(no.cache)'
-    - task: PowerShell@2
-      displayName: "Copy output from container to Artifacts"
-      inputs:
-        targetType: 'inline'
-        script: |
-          docker container create --name dacpac$(tag) dacpac:$(tag)
-          docker container cp dacpac$(tag):/output $(Build.ArtifactStagingDirectory)/dacpacs
-          docker container rm -f dacpac$(tag)
-    - task: PublishPipelineArtifact@1
-      displayName: "Publish Dacpac Artifacts"
-      inputs:
-        targetPath: '$(Build.ArtifactStagingDirectory)/dacpacs'
-        artifact: 'dacpac.$(tag)'
-        publishLocation: 'pipeline'
   - job: Build_Linux_Images
     displayName: "Build Linux Images"
-    dependsOn: Build_Dacpacs
     pool:
       name: docker-linux-agents
     steps:
@@ -157,13 +216,13 @@ stages:
       inputs:
         packageType: 'sdk'
         version: '2.1.x'
-    - template: version.yml
+    - template: version.yml    
     - task: DownloadPipelineArtifact@2
       displayName: "Download Dacpac Artifacts"
       inputs:
         buildType: 'current'
         artifactName: 'dacpac.$(tag)'
-        targetPath: '$(Build.SourcesDirectory)/docker/images/windows/demo-sqldev/data'
+        targetPath: '$(Build.SourcesDirectory)/docker/images/windows/demo-mssql/data'
     - task: DockerCompose@0
       displayName: "Docker Compose Build"
       inputs:
@@ -178,9 +237,8 @@ stages:
           SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
           SITECORE_LICENSE=$(SITECORE_LICENSE)
           TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
-          INTERNAL_NUGET_SOURCE=$(INTERNAL_NUGET_SOURCE)
-          SYSTEM_ACCESSTOKEN=$(INTERNAL_NUGET_TOKEN)
           OPENCALAIS_ACCESSTOKEN=$(OpenCalais.AccessToken)
+          HOSTNAME_SUFFIX=
         qualifyImageNames: false
         action: 'Build services'
         additionalImageTags: '$(SITECORE_VERSION)-linux-$(additionalImageTags)'
@@ -200,10 +258,12 @@ stages:
           SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
           SITECORE_LICENSE=$(SITECORE_LICENSE)
           TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
+          HOSTNAME_SUFFIX=
         action: 'Push services'
         additionalImageTags: '$(SITECORE_VERSION)-linux-$(additionalImageTags)'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
 - stage: Release_Notes
+  displayName: "Create Release Notes"
   dependsOn:
   - Docker_Windows
   - Docker_Linux
@@ -263,6 +323,7 @@ stages:
           scriptLocation: 'inlineScript'
           inlineScript: 'az storage file upload --account-name dockerassets  --share-name release-notes --source $(Build.ArtifactStagingDirectory)/releasenotes-10.0.0-$(additionalImageTags).md --account-key $(dockerassets.storage.accountkey) --path releasenotes-10.0.0-$(additionalImageTags).md'
 - stage: Update_Portal_Database
+  displayName: "Update Portal Database"
   dependsOn:
   - Docker_Windows
   - Docker_Linux
@@ -282,6 +343,7 @@ stages:
             # Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
 - stage: Trigger_Harbor_Push
+  displayName: "Trigger Harbor Push"
   dependsOn:
   - Docker_Windows
   - Docker_Linux

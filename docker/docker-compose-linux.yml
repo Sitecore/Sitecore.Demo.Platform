@@ -7,7 +7,7 @@ services:
     isolation: default
     build:
       context: ../
-      dockerfile: ./docker/images/windows/demo-sqldev/Dockerfile.linux
+      dockerfile: ./docker/images/windows/demo-mssql/Dockerfile.linux
       args:
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-mssql:${SITECORE_VERSION}-linux-${BASE_MODULE_VERSION}
     volumes:
