@@ -28,8 +28,6 @@ namespace Sitecore.Demo.Init.Services
 			var response = webClient.DownloadString(idBaseUrl + new Uri(webClient.LastResponseHeaders["Location"]).PathAndQuery);
 
 			string token = ExtractParameter(response, "__RequestVerificationToken", "\"");
-			Console.WriteLine("__RequestVerificationToken: " + token);
-
 			string queryString = webClient.LastResponseUri.Query;
 			var queryDictionary = HttpUtility.ParseQueryString(queryString);
 
@@ -68,7 +66,7 @@ namespace Sitecore.Demo.Init.Services
 			// Test that it worked
 			response = webClient.DownloadString("/sitecore/shell");
 
-			Console.WriteLine(response.Substring(0, 200));
+			Console.WriteLine(response.Substring(0, 100));
 
 			webClient.AllowAutoRedirect = true;
 

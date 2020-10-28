@@ -35,7 +35,7 @@ namespace Sitecore.Demo.Init.Jobs
 					var response = await client.SendAsync(request);
 					if (response.StatusCode == HttpStatusCode.OK)
 					{
-						Console.WriteLine($"{response.StatusCode} Sitecore is ready");
+						Console.WriteLine($"{response.StatusCode} Sitecore is ready - {baseAddress}");
 						break;
 					}
 
@@ -49,7 +49,7 @@ namespace Sitecore.Demo.Init.Jobs
 				await Task.Delay(5000);
 			}
 
-			Console.WriteLine("WaitForSitecoreToStart() complete");
+			Console.WriteLine($"WaitForSitecoreToStart() complete - {baseAddress}");
 		}
 	}
 }

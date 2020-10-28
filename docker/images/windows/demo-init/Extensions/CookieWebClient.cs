@@ -21,10 +21,6 @@ namespace Sitecore.Demo.Init.Extensions
 
 		protected override WebResponse GetWebResponse(WebRequest request)
 		{
-			Console.WriteLine();
-			Console.WriteLine(request.RequestUri);
-			Console.WriteLine();
-
 			WebResponse response = null;
 			try
 			{

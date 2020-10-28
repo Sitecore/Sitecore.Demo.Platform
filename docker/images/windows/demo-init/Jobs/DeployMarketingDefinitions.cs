@@ -8,7 +8,6 @@ namespace Sitecore.Demo.Init.Jobs
 	{
 		public static async Task Run()
 		{
-
 			await Start(typeof(DeployMarketingDefinitions).Name);
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
