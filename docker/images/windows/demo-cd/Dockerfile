@@ -23,6 +23,7 @@ RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\ConnectionStrings*.x
 
 FROM $BASE_IMAGE as production
 
+COPY --from=assets ["C:\\tools\\", "C:\\tools\\"]
 COPY --from=build /inetpub/wwwroot /inetpub/wwwroot
 
 # Disable custom config file for Redis in CD container

@@ -34,4 +34,5 @@ FROM $BASE_IMAGE as production
 
 RUN icacls 'C:\inetpub\wwwroot' /grant 'IIS_IUSRS:(F)' /t
 
+COPY --from=assets ["/tools/", "/tools/"]
 COPY --from=build /inetpub/wwwroot /inetpub/wwwroot

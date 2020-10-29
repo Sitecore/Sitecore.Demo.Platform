@@ -7,16 +7,14 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 * **https**: `git clone https://github.com/Sitecore/Sitecore.Demo.Platform.git`
 * **ssh**: `git clone git@github.com:Sitecore/Sitecore.Demo.Platform.git`
 
-## Running the demo
-
-### Prerequisites for running the demo
+## Prerequisites
 
 * Windows 1809 or higher. Version 1909 is preferred.
 * At least 16 Gb of memory. 32 Gb or more is preferred.
 * A valid Sitecore 10 license file located at `C:\license\license.xml`
 * The latest [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows/).
 
-### Preparing Docker for running the demo
+## Preparing Docker
 
 1. Ensure you are running Windows containers:
    1. From the Docker Desktop taskbar icon contextual menu (right click), you can toggle which daemon (Linux or Windows) the Docker CLI talks to. Select "Switch to Windows containers..." to use Windows containers.
@@ -34,9 +32,10 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
       }
       ```
 
-   6. Click the "Apply & Restart" button to restart your Windows Docker engine.
+   6. Optionally, you may want to also set DNS servers in the Docker engine configuration. See the [Issue downloading nodejs](#Issue%20downloading%20nodejs) known issue for details and inscruptions.
+   7. Click the "Apply & Restart" button to restart your Windows Docker engine.
 
-### Preparing your environment for running the demo
+## Preparing your environment
 
 1. Open an elevated (as administrator) PowerShell session.
 2. Navigate to your repository clone folder:
@@ -44,7 +43,15 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 3. Create certificates and initialize the environment file:
    * `.\init.ps1 -InitEnv -LicenseXmlPath C:\license\license.xml -AdminPassword b`
    * You can change the admin password and the license.xml file path to match your needs.
-4. Pull the latest demo Docker images:
+
+## Running the demo
+
+### Pulling the Docker images
+
+1. Open an elevated (as administrator) PowerShell session.
+2. Navigate to your repository clone folder:
+   * `cd C:\Projects\Sitecore.Demo.Platform`
+3. Pull the latest demo Docker images:
    * `docker-compose pull`
 
 ### Starting the demo containers
@@ -80,6 +87,8 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
    2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that all the "init" container jobs are completed by checking its logs.
 2. Browse to [https://cm.lighthouse.localhost/sitecore](https://cm.lighthouse.localhost/sitecore)
    1. You should be able to login with the "admin" user and the password provided while running the `init.ps1` script.
+3. Browse to [http://127.0.0.1:44026/](http://127.0.0.1:44026/)
+   1. You should see the SMTP container catch-all mailbox for all emails sent by EXM.
 
 ### Stopping the demo
 
@@ -99,40 +108,18 @@ If you want to reset all of your changes and get a fresh intsance:
 
 ## Building the demo
 
-### Prerequisites for building the demo
-
-* Pre-built [docker-images](https://github.com/Sitecore/docker-images/blob/master/README.md) images stored locally or in your own Docker registry.
-* Pre-built [Sitecore.Demo.Base](https://github.com/Sitecore/Sitecore.Demo.Base/blob/contrib/README.md) images stored locally or in your own Docker registry.
-* [MSBuild Tools for Visual Studio 2019](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16).
-* [https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest]("az" PowerShell module).
-
-### Preparing your environment for building the demo
-
-1. Modify your `.env` file:
-   * `REGISTRY`: Set your registry url (The trailing slash (/) is very important).
-   * `SQL_SA_PASSWORD`: Set the SA password to the one configured in your base image.
-2. Open an elevated (as administrator) PowerShell session.
-3. Navigate to your repository clone folder:
-   * `cd C:\Projects\Sitecore.Demo.Platform`
-4. Create certificates and initialize the environment file:
-   * `.\init.ps1 -InitEnv -LicenseXmlPath C:\license\license.xml -AdminPassword b`
-   * You can change the admin password and the license.xml file path to match your needs.
-5. Login to your docker registry:
-   * For Azure ACR:
-     * `az login`
-     * `az acr login --name <registryname>`
-6. Pull the latest base images:
-   * `docker-compose pull`
-   * This will pull all of the necessary base images to spin up your Sitecore environment. It will take quite some time if this is the first time you execute it.
-
-### Building Docker images
-
 1. Open an elevated (as administrator) PowerShell session.
 2. Navigate to your repository clone folder:
    * `cd C:\Projects\Sitecore.Demo.Platform`
 3. Build your Docker images:
-   * `docker-compose build -m 8G`
-   * This command will use up to 8 Gb of memory to build the Docker images. Adjust the number based on your available free memory.
+   * `.\build-images.ps1 -Memory 8G`
+   * This command will:
+     * Pull all the base images required by the dockerfiles.
+       * You can use the `-SkipPull` switch to skip this step.
+     * Build the demo images using the memory limit passed in the `-Memory` argument.
+       * Adjust the number based on your available free memory.
+       * The format is a number followed by the letter `G` for Gb. Same as the `--memory` argument of the `docker-compose build` command.
+       * The `-Memory` argument is optional.
 
 ## Development cycle
 
@@ -147,13 +134,70 @@ After changes to the code:
 
 ### unauthorized: authentication required
 
+**Problem:**
+
 When running `docker-compose up -d`, you get the following error:
 
 ```text
 ERROR: Get https://<registryname>/<someimage>/manifests/<someimage>: unauthorized: authentication required
 ```
 
-This indicates you are not logged in your registry. Run `az acr login --name <registryname>` (or the equivalent `docker login`) and retry.
+**Cause:**
+
+This indicates you are not logged in your registry.
+
+**Solution:**
+
+Run `az acr login --name <registryname>` (or the equivalent `docker login`) and retry.
+
+### manifest for scr.sitecore.com/build/lighthouse-solution:10.0.0-1000.0 not found
+
+**Problem:**
+
+When running `docker-compose build --pull`, you get the following error:
+
+```text
+ERROR: Service 'mssql' failed to build : manifest for scr.sitecore.com/build/lighthouse-solution:10.0.0-1000.0 not found: manifest unknown: manifest tagged by "10.0.0-1000.0" is not found
+```
+
+**Cause:**
+
+The `--pull` switch tries to pull newer versions of all the base images used by the dockerfiles. The `lighthouse-solution` image is built by the `solution` service in the `docker-compose.override.yml` file. However, it is never pushed to the public Sitecore Docker registry.
+
+**Solution:**
+
+Do not use the `--pull` switch with the `docker-compose build` command. Instead, use the `.\build-images.ps1` script as instructed in this documentation. This script will pull the required base images first, then build the Docker images without the `--pull` switch.
+
+### Issue downloading nodejs
+
+**Problem:**
+
+When running `.\build-images.ps1` or `docker-compose up -d`, you get an error about downloading nodejs.
+
+**Cause:**
+
+On some computers, containers are unable to resolve DNS entries. This issue is described in details in the following blog post: [https://development.robinwinslow.uk/2016/06/23/fix-docker-networking-dns/](https://development.robinwinslow.uk/2016/06/23/fix-docker-networking-dns/)
+
+**Solution:**
+
+Ensure the Windows Docker engine has DNS servers configured:
+
+1. From the Docker Desktop taskbar icon contextual menu (right click), choose "Settings".
+2. In the left tab group, navigate to the "Docker Engine" tab.
+3. In the JSON block, locate the `"dns"` key.
+   1. If you do not have a `"dns"` key, add it after the existing ones. Ensure you add a comma (`,`) after the previous key/value pair.
+4. Ensure the value of the `"dns"` key is set to at least `["8.8.8.8"]`.
+   * You can also add your ISP DNS server as instructed by the blog post.
+5. At the end, the JSON block should have at least:
+
+   ```json
+   {
+     "dns": ["8.8.8.8"]
+   }
+   ```
+
+6. Click the "Apply & Restart" button to restart your Windows Docker engine.
+7. Retry the command that resulted in the error.
 
 ## Additional Settings
 
