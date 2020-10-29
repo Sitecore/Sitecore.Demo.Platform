@@ -1,5 +1,4 @@
 Param (
-
   [Parameter(
     HelpMessage = "Demo version used in image tagging.")]
   [string]$DemoVersion = "latest",
@@ -12,8 +11,6 @@ Param (
     HelpMessage = "Internal ACR use by the demo team")]
   [string]$DemoTeamRegistry = ""
 )
-
-
 
 $ErrorActionPreference = "Stop";
 
@@ -49,16 +46,16 @@ Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
 Write-Host "Populating required demo team .env file values..." -ForegroundColor Green
 if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
   # if it wasn't passed as a parameter, let's try to find it in environment
-  $demoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
-  if ($null -eq $demoTeamRegistry) {
+  $DemoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
+  if ($null -eq $DemoTeamRegistry) {
     # Environment variable not found. Try to set it using demo team function.
     Set-DemoEnvironmentVariables
     refreshenv
   }
 
   # Retry
-  $demoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
-  if ($null -eq $demoTeamRegistry) {
+  $DemoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
+  if ($null -eq $DemoTeamRegistry) {
     Write-Host "The DEMO_TEAM_DOCKER_REGISTRY environment variable is not set. Please:" -ForegroundColor Red
     Write-Host "  1. Ensure you are using the team's PowerShell profile." -ForegroundColor Red
     Write-Host "  2. From a new PowerShell window, re-run this command." -ForegroundColor Red
@@ -66,7 +63,7 @@ if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
   }
 }
 
-Set-DockerComposeEnvFileVariable "REGISTRY" -Value $demoTeamRegistry
+Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
 Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
 Set-DockerComposeEnvFileVariable "BASE_MODULE_VERSION" -Value $BaseModuleVersion
 
