@@ -8,7 +8,7 @@ module.exports = {
     sassSourceMap: false,
     // Please configure
     serverOptions: {
-        server: 'http://127.0.0.1:44001', //need to be changed
+        server: 'https://cm.lighthouse.localhost', //need to be changed
         removeScriptPath: '/-/script/v2/master/RemoveMedia',
         uploadScriptPath: '/sitecore modules/PowerShell/Services/RemoteScriptCall.ashx',
         updateTemplatePath: '/-/script/v2/master/ChangeTemplate',
