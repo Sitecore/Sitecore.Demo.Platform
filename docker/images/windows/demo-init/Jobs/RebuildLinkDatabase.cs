@@ -9,6 +9,7 @@ namespace Sitecore.Demo.Init.Jobs
 		public static async Task Run()
 		{
 			await Start(typeof(RebuildLinkDatabase).Name);
+			await WaitForSitecoreToStart.Run();
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			Console.WriteLine($"RebuildLinkDatabase() started {hostCM}");
 
