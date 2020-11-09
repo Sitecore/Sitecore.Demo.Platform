@@ -1,0 +1,31 @@
+﻿---
+ID: "02a863f6-542c-4d40-babf-ed7a8d2bf0f9"
+Parent: "cd819c45-6eba-4c4f-8d81-8599523952e1"
+Template: "e43e2773-7a50-4145-a266-312024f27382"
+Path: "/sitecore/system/Modules/CMP/Config/Article/Content-PublicationDate"
+DB: master
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 75
+- ID: "da990633-7884-44a2-8638-94389c5cbfec"
+  Hint: CMP Field Name
+  Value: Content.PublicationDate
+- ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
+  Hint: Sitecore Field Name
+  Value: __Valid from
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{83DE4F50-ACAE-435A-A28F-ADBC977B2F92}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200323T124942Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
