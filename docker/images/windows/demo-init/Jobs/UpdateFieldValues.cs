@@ -14,6 +14,7 @@ namespace Sitecore.Demo.Init.Jobs
 		public static async Task Run()
 		{
 			await Start(typeof(UpdateFieldValues).Name);
+			await WaitForSitecoreToStart.Run();
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			var user = Environment.GetEnvironmentVariable("ADMIN_USER_NAME").Replace("sitecore\\", string.Empty);

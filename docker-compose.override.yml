@@ -145,6 +145,7 @@ services:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
         ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
+        HOTFIX_IMAGE: ${REGISTRY}demo/base/lighthouse-hotfixes:${SITECORE_VERSION}-${NANOSERVER_VERSION}
         OPENCALAIS_ACCESSTOKEN: ${OPENCALAIS_ACCESSTOKEN}
     mem_limit: 4G
     environment:

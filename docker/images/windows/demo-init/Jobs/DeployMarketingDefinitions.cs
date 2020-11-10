@@ -9,6 +9,7 @@ namespace Sitecore.Demo.Init.Jobs
 		public static async Task Run()
 		{
 			await Start(typeof(DeployMarketingDefinitions).Name);
+			await WaitForSitecoreToStart.Run();
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			var marketingDefinitionsApikey = Environment.GetEnvironmentVariable("MARKETING_DEFINITIONS_APIKEY");

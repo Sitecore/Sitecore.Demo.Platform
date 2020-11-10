@@ -2,17 +2,20 @@
 ARG BASE_IMAGE
 ARG SOLUTION_IMAGE
 ARG ASSETS_IMAGE
+ARG HOTFIX_IMAGE
 
-FROM $ASSETS_IMAGE as assets
 FROM ${SOLUTION_IMAGE} as solution
+FROM $ASSETS_IMAGE as assets
+FROM $HOTFIX_IMAGE as hotfixes
 FROM $BASE_IMAGE as build
 
 ARG OPENCALAIS_ACCESSTOKEN
 
 COPY --from=assets ["/tools/", "/tools/"]
 COPY --from=solution /solution/cm/ /inetpub/wwwroot/
+COPY --from=hotfixes /cm/ /inetpub/wwwroot/
+
 COPY docker/images/windows/demo-standalone/Data/transforms/ /inetpub/wwwroot/transforms/
-COPY docker/images/windows/demo-standalone/Data/bin/ /inetpub/wwwroot/bin/
 
 RUN (Get-Content /inetpub/wwwroot/App_Config/Include/Feature/Sitecore.Demo.Platform.Feature.ContentTagging.config).replace('{calaisAccessToken}', $env:OPENCALAIS_ACCESSTOKEN) | Set-Content /inetpub/wwwroot/App_Config/Include/Feature/Sitecore.Demo.Platform.Feature.ContentTagging.config -Verbose
 

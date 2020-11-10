@@ -15,6 +15,7 @@ namespace Sitecore.Demo.Init.Jobs
 		public static async Task Run()
 		{
 			await Start(typeof(PublishItems).Name);
+			await WaitForPublishingServiceToStart.Run();
 
 			var hostPS = Environment.GetEnvironmentVariable("HOST_PS");
 

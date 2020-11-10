@@ -19,11 +19,10 @@ namespace Sitecore.Demo.Init
 		{
 			var startTime = DateTime.UtcNow;
 			Console.WriteLine($"{DateTime.UtcNow} Init started.");
-			await WaitForPublishingServiceToStart.Run();
 
-			Task.WaitAll(PublishItems.Run(), UpdateFieldValues.Run(), DeployMarketingDefinitions.Run(), RebuildLinkDatabase.Run());
-			Task.WaitAll(WarmupCM.Run(), WarmupCD.Run());
-			Task.WaitAll(IndexRebuild.Run(), ExperienceGenerator.Run());
+			await Task.WhenAll(PublishItems.Run(), UpdateFieldValues.Run(), DeployMarketingDefinitions.Run(), RebuildLinkDatabase.Run());
+			await Task.WhenAll(WarmupCM.Run(), WarmupCD.Run());
+			await Task.WhenAll(IndexRebuild.Run(), ExperienceGenerator.Run());
 
 			Console.WriteLine($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below.");
 			Console.WriteLine($"Elapsed time: {(DateTime.UtcNow - startTime):c}");

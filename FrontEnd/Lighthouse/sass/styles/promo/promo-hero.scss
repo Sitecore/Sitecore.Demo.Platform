@@ -1,6 +1,89 @@
 @import "vars";
 @import "mixins";
 .promo {
+    &.promo-video {
+        float: none;
+        margin-top: 0;
+        margin-bottom: 2em;
+        overflow-y: hidden;
+        height: 200px;
+
+        @include respond-to(tablet) {
+            height: 300px;
+        }
+
+        @include respond-to(desktop) {
+            height: 500px;
+        }
+
+        @include respond-to(desktop-large) {
+            height: 600px;
+        }
+
+        >.component-content {
+            padding: 0;
+            height: 100%;
+            >div {
+                float: none;
+                width: 100%;
+            }
+        }
+    
+        video {
+            width: 100%;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+          }
+
+        .hero-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 0 15px;
+            max-width: $max-content-width;
+            height: 100%;
+            position: relative;
+        }
+
+        .field-herosupertitle {
+            @include proxima-font;
+            font-size: 1em;
+            text-transform: uppercase;            
+            color: $promo-hero-video-secondary-text-color;
+        }
+
+        .field-herotitle {
+            font-size: 2em;
+            line-height: 0.9;
+            font-weight: bold;
+            margin-bottom: 0.25em;
+            color: $promo-hero-video-text-color;
+    
+            @include respond-to(tablet) {
+                font-size: 5em;
+            }
+        }
+
+        .field-herolink {
+            a {
+                @include btn-primary;
+                font-size: 1em;
+                min-width: 300px;
+                display: none;
+
+                @include respond-to(tablet) {
+                    display: inline;
+                }        
+            }        
+        }
+    }
+
     &.promo-hero {
         float: none;
         position: relative;
