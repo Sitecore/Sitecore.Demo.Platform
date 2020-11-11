@@ -2,7 +2,7 @@
 ID: "0211dba8-658b-4132-b6c3-60a5578aa2ec"
 Parent: "cd304d58-d53b-420c-9d1a-c83255af1554"
 Template: "95d4ed35-1e47-48e9-95db-de0614a0e86c"
-Path: "/sitecore/system/Marketing Control Panel/Segments/weekly  news-0211dba8-658b-4132-b6c3-60a5578aa2ec"
+Path: "/sitecore/system/Marketing Control Panel/Segments/weekly news-0211dba8-658b-4132-b6c3-60a5578aa2ec"
 DB: master
 SharedFields:
 - ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
@@ -11,10 +11,13 @@ SharedFields:
 - ID: "75af2497-ada0-4271-80da-84f9dd2e4075"
   Hint: Rules
   Value: |
-    [{"Id":"82c6ea03-9840-4c84-8cad-050e8b8ccf87","Name":"Specify name...","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=14.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"Id":"4d2f23ca-a133-4559-ba1a-ad612efa6d00","DescriptorId":"578dc851-00c9-439e-b05b-c77f1dea4ee5","Properties":{"ListId":"{CDFEF2AB-52C2-4803-97CE-98D7DFBE8555}"}}}]
+    [{"Id":"82c6ea03-9840-4c84-8cad-050e8b8ccf87","Name":"Specify name...","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=16.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"Id":"4d2f23ca-a133-4559-ba1a-ad612efa6d00","DescriptorId":"578dc851-00c9-439e-b05b-c77f1dea4ee5","Properties":{"ListId":"{CDFEF2AB-52C2-4803-97CE-98D7DFBE8555}"}}}]
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+- ID: "c538bfee-8a38-4551-b57a-d4422f33874e"
+  Hint: DeployDate
+  Value: 20201028T132900Z
 - ID: "deb7070e-39a2-411c-82ea-e288efcad8e2"
   Hint: UseAsAnalyticsFilter
   Type: Checkbox
@@ -29,7 +32,7 @@ Languages:
       Value: 20200409T125814Z
     - ID: "365f1971-b028-4065-bc11-ce1f471452af"
       Hint: Name
-      Value: weekly  news
+      Value: Weekly News
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
