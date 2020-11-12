@@ -29,7 +29,7 @@ echo "### SQL Server PID = '$SQL_PID'."
 
 echo "### Init Demo SQL..."
 
-pwsh /opt/Demo-Boot.ps1
+pwsh /opt/Demo-Boot-Linux.ps1
 
 # temp
 

@@ -38,20 +38,20 @@ ENV SITECORE_ADMIN_PASSWORD="b"
 ENV ADMIN_USER_NAME="sitecore\superuser"
 ENV DISABLE_DEFAULT_ADMIN=FALSE
 ENV EXM_BASE_URL=http://cd
-ENV BOOT_OVERRIDE_SCRIPTS="Demo-Boot-Platform.ps1"
+ENV BOOT_OVERRIDE_SCRIPTS="Demo-Boot-Platform-Linux.ps1"
 
 COPY --from=builder ["/install/*", "/clean/"]
 
 # start-up scripts for demo
 COPY /docker/images/windows/demo-mssql/sql /sql
 COPY /docker/images/windows/demo-mssql/HashPassword.ps1 /opt
-COPY /docker/images/windows/demo-mssql/Demo-Boot.ps1 /opt
-COPY /docker/images/windows/demo-mssql/Demo-Boot-Platform.ps1 /opt
+COPY /docker/images/windows/demo-mssql/Demo-Boot-Linux.ps1 /opt
+COPY /docker/images/windows/demo-mssql/Demo-Boot-Platform-Linux.ps1 /opt
 COPY /docker/images/windows/demo-mssql/boot.sh /opt
 
 RUN chmod +x /opt/HashPassword.ps1 \
-	&& chmod +x /opt/Demo-Boot.ps1 \
-	&& chmod +x /opt/Demo-Boot-Platform.ps1 \
+	&& chmod +x /opt/Demo-Boot-Linux.ps1 \
+	&& chmod +x /opt/Demo-Boot-Platform-Linux.ps1 \
 	&& chmod +x /opt/boot.sh \
 	&& chmod +x /opt/attach-databases.sh \
 	&& chmod +x /opt/install-databases.sh
