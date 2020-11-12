@@ -1,5 +1,6 @@
 ﻿using Sitecore.Analytics;
 using Sitecore.Analytics.Model;
+using Sitecore.Analytics.Tracking;
 using Sitecore.Analytics.XConnect.Facets;
 using Sitecore.Demo.Platform.Foundation.Accounts.Models.Facets;
 using Sitecore.Demo.Platform.Foundation.DependencyInjection;
@@ -12,6 +13,13 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Providers
     [Service(typeof(IContactFacetsProvider), Lifetime = Lifetime.Transient)]
     public class ContactFacetsProvider : IContactFacetsProvider
     {
+        private readonly ContactManager contactManager;
+
+        public ContactFacetsProvider()
+        {
+            contactManager = Configuration.Factory.CreateObject("tracking/contactManager", true) as ContactManager;
+        }
+
         public PersonalInformation PersonalInfo => GetFacet<PersonalInformation>(PersonalInformation.DefaultFacetKey);
 
         public AddressList Addresses => GetFacet<AddressList>(AddressList.DefaultFacetKey);
@@ -47,7 +55,18 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Providers
 
         protected T GetFacet<T>(string facetName) where T : Facet
         {
-            var xConnectFacet = Tracker.Current.Contact.GetFacet<IXConnectFacets>("XConnectFacets");
+            if (Tracker.Current?.Contact == null)
+            {
+                return null;
+            }
+
+            var contact = contactManager.LoadContact(Tracker.Current.Contact.ContactId);
+            if (contact == null)
+            {
+                return null;
+            }
+
+            var xConnectFacet = contact.GetFacet<IXConnectFacets>("XConnectFacets");
             var allFacets = xConnectFacet.Facets;
             if (allFacets == null)
                 return null;
