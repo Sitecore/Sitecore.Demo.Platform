@@ -1,10 +1,15 @@
 steps:
-- task: GitVersion@5
+- task: gitversion/setup@0
+  displayName: 'Install GitVersion'
+  inputs:
+    versionSpec: '5.x'
+- task: gitversion/execute@0
+  displayName: 'Execute GitVersion'
   inputs:
     runtime: 'core'
+    useConfigFile: true
     configFilePath: 'GitVersion.yml'
-    updateAssemblyInfo: true
-    versionSpec: "5.3.7"
+    additionalArguments: '/updateassemblyinfo'
 - task: PowerShell@2
   displayName: 'Set correct image tag'
   inputs:
