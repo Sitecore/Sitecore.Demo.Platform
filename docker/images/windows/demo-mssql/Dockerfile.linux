@@ -46,11 +46,15 @@ COPY --from=builder ["/install/*", "/clean/"]
 COPY /docker/images/windows/demo-mssql/sql /sql
 COPY /docker/images/windows/demo-mssql/HashPassword.ps1 /opt
 COPY /docker/images/windows/demo-mssql/Demo-Boot-Linux.ps1 /opt
+# TODO: Remove the Demo-Boot-Platform.ps1 line after develop is merged to main
+COPY /docker/images/windows/demo-mssql/Demo-Boot-Platform.ps1 /opt
 COPY /docker/images/windows/demo-mssql/Demo-Boot-Platform-Linux.ps1 /opt
 COPY /docker/images/windows/demo-mssql/boot.sh /opt
 
+# TODO: Remove the Demo-Boot-Platform.ps1 line after develop is merged to main
 RUN chmod +x /opt/HashPassword.ps1 \
 	&& chmod +x /opt/Demo-Boot-Linux.ps1 \
+	&& chmod +x /opt/Demo-Boot-Platform.ps1 \
 	&& chmod +x /opt/Demo-Boot-Platform-Linux.ps1 \
 	&& chmod +x /opt/boot.sh \
 	&& chmod +x /opt/attach-databases.sh \
