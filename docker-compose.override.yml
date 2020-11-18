@@ -84,6 +84,7 @@ services:
       ADMIN_USER_NAME: "sitecore\\superuser"
       DISABLE_DEFAULT_ADMIN: 'FALSE'
       EXM_BASE_URL: "https://${CD_HOST}"
+      START_OVERRIDE_SCRIPTS: "start-override-platform-windows.ps1"
     mem_limit: 2GB
     volumes:
       - type: bind

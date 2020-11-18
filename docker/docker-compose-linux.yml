@@ -23,7 +23,7 @@ services:
       ADMIN_USER_NAME: "sitecore\\superuser"
       DISABLE_DEFAULT_ADMIN: 'FALSE'
       EXM_BASE_URL: "http://${HOSTNAME_SUFFIX}"
-      BOOT_OVERRIDE_SCRIPTS: "Demo-Boot-Platform.ps1"
+      BOOT_OVERRIDE_SCRIPTS: "Demo-Boot-Platform-Linux.ps1"
   init:
     healthcheck:
       test: ["CMD", "powershell", "ps"]

@@ -7,10 +7,6 @@ param(
 	[string]$scripts = "/opt"
 )
 
-# NOTE: This file is a copy of the new Demo-Boot-Platform-Linux.ps1 file.
-# It exists only for not breaking nightly deployments from the production portal while waiting for Demo-Boot-Platform-Linux.ps1 to be merged in the main branch.
-# Please delete this file once Demo-Boot-Platform-Linux.ps1 is merged in the main branch.
-
 Write-Host "$(Get-Date -Format $timeFormat): Starting demo team Platform boot override."
 
 # create new admin user if specified

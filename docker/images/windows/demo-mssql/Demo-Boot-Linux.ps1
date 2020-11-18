@@ -7,17 +7,15 @@ param(
 	[string]$scripts = "/opt"
 )
 
-# For Linux container
-
-Write-Host "Init Linux"
-
 $timeFormat = "HH:mm:ss:fff"
 
 $ready = Invoke-Sqlcmd -Query "select name from sys.databases where name = 'platform_init_ready'" -HostName $SqlHostname -Username sa -Password $env:SA_PASSWORD
 if ($ready) {
-	Write-Host "$(Get-Date -Format $timeFormat): Demo-Boot.ps1 override has already been executed, it will not execute this time."
+	Write-Host "$(Get-Date -Format $timeFormat): Demo team boot override has already been executed, it will not execute this time."
 	return
 }
+
+Write-Host "$(Get-Date -Format $timeFormat): Starting demo team boot override."
 
 $env:BOOT_OVERRIDE_SCRIPTS.Split(";") | ForEach-Object {
 	# Get script path
