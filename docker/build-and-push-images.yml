@@ -30,6 +30,8 @@ stages:
   displayName: "Build Solution Image"
   jobs:
   - job: Build_Solution
+    workspace:
+      clean: all
     steps:
     - task: UseDotNet@2
       inputs:
