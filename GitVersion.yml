@@ -1,5 +1,5 @@
 assembly-versioning-scheme: MajorMinorPatch
-mode: ContinuousDeployment
+mode: mainline
 continuous-delivery-fallback-tag: ''
 tag-prefix: '[vV]'
 next-version: 1000.0.2
@@ -9,13 +9,10 @@ patch-version-bump-message: '\+semver:\s?(feature|minor)'
 no-bump-message: '\+semver:\s?(none|skip)'
 branches:
   develop:
-    mode: ContinuousDeployment
     tag: beta
     increment: Patch
     prevent-increment-of-merged-branch-version: false
-    is-mainline: true
-  main:
-    mode: ContinuousDeployment
+  master:
     tag: ''
     increment: Patch
     prevent-increment-of-merged-branch-version: true
@@ -27,15 +24,12 @@ branches:
     is-release-branch: false
     is-mainline: true
   feature:
-    mode: ContinuousDeployment
     tag: ft
     tag-number-pattern: '[/-](?<number>\d+)[-/]'
   pull-request:
-    mode: ContinuousDeployment
     tag: pull
     tag-number-pattern: '[/-](?<number>\d+)[-/]'
   release:
-    mode: ContinuousDeployment
     tag: rc
     is-release-branch: true
     increment: Inherit
