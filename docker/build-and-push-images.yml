@@ -328,8 +328,8 @@ stages:
           scriptType: 'pscore'
           scriptLocation: 'inlineScript'
           inlineScript: 'az storage file upload --account-name dockerassets  --share-name release-notes --source $(Build.ArtifactStagingDirectory)/releasenotes-10.0.0-$(additionalImageTags).md --account-key $(dockerassets.storage.accountkey) --path releasenotes-10.0.0-$(additionalImageTags).md'
-- stage: Update_Portal_Database
-  displayName: "Update Portal Database"
+- stage: Update_Portal_Databases_Nightly
+  displayName: "Update 'nightly' version in portal databases"
   dependsOn:
   - Docker_Windows
   - Docker_Linux
@@ -344,9 +344,36 @@ stages:
           targetType: 'inline'
           script: |
             Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
-
-            # Enable after we deploy -linux image name changes to PROD
             Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+
+- stage: Update_Portal_Databases_Stable
+  displayName: "Update 'stable' version in portal databases"
+  dependsOn:
+  - Docker_Windows
+  - Docker_Linux
+  condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+    - job: Update_Tags      
+      displayName: 'Update Tags'
+      steps:
+      - template: version.yml
+      - task: PowerShell@2
+        inputs:
+          targetType: 'inline'
+          script: |
+            Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=stable" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+    - deployment: Update_Production_Database
+      displayName: 'Update Production Database'
+      environment: Production Portal Database
+      strategy:
+        runOnce:
+          deploy: 
+            steps:
+            - task: PowerShell@2
+              inputs:
+                targetType: 'inline'
+                script: |
+                  Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=stable" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
 - stage: Trigger_Harbor_Push
   displayName: "Trigger Harbor Push"
