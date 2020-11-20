@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.web>
+    <!-- 
+      https://docs.microsoft.com/en-us/dotnet/api/system.web.configuration.httpruntimesection.requestvalidationmode?view=netframework-4.8#remarks
+      RequestValidationMode was set to 4.5, which was preventing some characters from passing validation, thus causing 'A potentially dangerous Request.Form value was detected' error. 
+      4.5 (the default). In this mode, values are lazily loaded, that is, they are not read until they are requested.
+      4.0 The HttpRequest object internally sets a flag that indicates that request validation should be triggered whenever any HTTP request data is accessed. This guarantees that the request validation is triggered before data such as cookies and URLs are accessed during the request. The request validation settings of the <pages> element (if any) in the configuration file or of the @ Page directive in an individual page are ignored.
+      2.0. Request validation is enabled only for pages, not for all HTTP requests. In addition, the request validation settings of the <pages> element (if any) in the configuration file or of the @ Page directive in an individual page are used to determine which page requests to validate.
+      0.0. Request validation is disabled for the application. 0.0 is only recognized in ASP.NET 4.6 and later.
+    --> 
+    <httpRuntime xdt:Transform="SetAttributes" requestValidationMode="2.0" />
+   </system.web>
+</configuration>
