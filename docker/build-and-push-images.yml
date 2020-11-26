@@ -349,15 +349,15 @@ stages:
             Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
             Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
-- stage: Update_Portal_Databases_Stable
-  displayName: "Update 'stable' version in portal databases"
+- stage: Update_DEV_Portal_Databases_Stable
+  displayName: "Update 'stable' version in the DEV portal database"
   dependsOn:
   - Docker_Windows
   - Docker_Linux
   condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
-    - job: Update_Tags
-      displayName: 'Update Tags'
+    - job: Update_Dev_Database
+      displayName: 'Update Dev Database'
       steps:
       - template: version.yml
       - task: PowerShell@2
@@ -365,6 +365,14 @@ stages:
           targetType: 'inline'
           script: |
             Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=stable" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+
+- stage: Update_PROD_Portal_Database_Stable
+  displayName: "Update 'stable' version in the PROD portal database"
+  dependsOn:
+  - Docker_Windows
+  - Docker_Linux
+  condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
     - deployment: Update_Production_Database
       displayName: 'Update Production Database'
       environment: Production Portal Database
@@ -372,6 +380,7 @@ stages:
         runOnce:
           deploy:
             steps:
+            - template: version.yml
             - task: PowerShell@2
               inputs:
                 targetType: 'inline'
