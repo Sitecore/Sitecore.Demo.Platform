@@ -19,7 +19,7 @@ SharedFields:
   Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 200
+  Value: 100
 Languages:
 - Language: en
   Versions:
@@ -77,6 +77,9 @@ Languages:
       Value: Managing Liquidity in a Crisis
   - Version: 2
     Fields:
+    - ID: "03462135-1c76-4ff2-a67c-50cbaa443cf1"
+      Hint: FinCategory
+      Value: Commercial
     - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
       Hint: __Final Renderings
       Type: Layout
@@ -121,6 +124,16 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Casey
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: While treasurers already had liquidity, credit and FX risk strategies in place before, risk scenarios that seemed almost inconceivable have shifted quickly from theory to reality today. Many are revisiting their models to reflect more extreme stress test scenarios than those they had anticipated during more benign periods.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Managing Liquidity in a Crisis
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{AA155839-4FB5-4257-9B83-D9BB5CBD9497}" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
       Hint: Introduction
       Value: <p>While treasurers already had liquidity, credit and FX risk strategies in place before, risk scenarios that seemed almost inconceivable have shifted quickly from theory to reality today. Many are revisiting their models to reflect more extreme stress test scenarios than those they had anticipated during more benign periods.</p>

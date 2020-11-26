@@ -5,6 +5,10 @@ Template: "26745e9d-be97-4902-993d-1982b47b64bf"
 Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Home/Personal
 DB: master
 SharedFields:
+- ID: "21f74f6e-42d4-42a2-a4b4-4cefbcfbd2bb"
+  Hint: __Facets
+  Type: Treelist
+  Value: "{A8AAAB96-53D4-47F5-9F61-982B07F5F5D1}"
 - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
   Hint: Page Design
   Value: "{C028BDDE-13CC-4407-B418-4BD7C7D6AAD0}"
@@ -188,7 +192,7 @@ Languages:
       Hint: Content
       Value: |
         <h2>Build your financial confidence</h2>
-        <p>The right combination of financial products that best fits your needs and goals can put you at an advantage. Habitat Financial solutions can help you budget, build your savings, and pave the way for success now and in the future.</p>
+        <p>The right combination of financial products that best fits your needs and goals can put you at an advantage. Lighthouse Financial solutions can help you budget, build your savings, and pave the way for success now and in the future.</p>
         <h3>Checking Accounts</h3>
         <p>Manage your money with confidence, online or on the go. Find out how to earn rewards and more.</p>
         <h3>Savings Accounts</h3>
@@ -197,7 +201,8 @@ Languages:
         <p>Apply for the lowest interest rates in the industry along with loyalty points to redeem great benefits.</p>
         <h3>Digital Banking Services</h3>
         <p>Bank on the move with digital banking solutions. View accounts, move money and pay bills anytime with Online and Mobile Banking. Deposit cash or checks at the ATM.</p>
-        <br /><br />
+        <br />
+        <br />
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

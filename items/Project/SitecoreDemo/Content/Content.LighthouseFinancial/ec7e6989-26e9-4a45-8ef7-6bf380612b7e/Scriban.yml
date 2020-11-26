@@ -1,0 +1,33 @@
+﻿---
+ID: "fc1580a0-7e91-4df4-8ac1-b45463ea8cc6"
+Parent: "ec7e6989-26e9-4a45-8ef7-6bf380612b7e"
+Template: "8fcd3cfe-8b3b-423e-8176-6a7c72cb43fc"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseFinancial/Presentation/Rendering Variants/Image/Image - Logo - Text/Scriban"
+DB: master
+SharedFields:
+- ID: "8a85a595-3298-4eb1-96dd-c882ee5802ae"
+  Hint: Tag
+  Value: "{18C8C889-C723-452A-970C-7CE4D41EE371}"
+- ID: "936e68b4-5346-4adb-9b77-79771d0b40dc"
+  Hint: Template
+  Value: |
+    <div class="logo-container">
+      <ul>
+        <li>
+          <div class="logo-holder logo">
+            <a href="{{ sc_link i_home }}">
+              {{ i_item.ImageCaption.raw }}
+              {{ i_item.Image}}
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200708T174759Z

@@ -1,0 +1,32 @@
+﻿---
+ID: "41237c77-5036-4254-afaf-562dbc3bd903"
+Parent: "410df2d8-3f23-4002-8a0d-b0f16b238bed"
+Template: "94a46d66-b1b8-405d-aae4-7b5a9cd61c5e"
+Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseFinancial/Lighthouse Financial Advisor Appointment/Page/Schedule
+DB: master
+SharedFields:
+- ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
+  Hint: Conditions
+  Value: |
+    {"fieldConditions":[]}
+- ID: "84ece662-5034-40cb-9c60-744db64bb294"
+  Hint: Field Key
+  Value: C44C0E967E9E4AD8818B4C357D00F48C
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200407T133243Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
+      Hint: Title
+      Value: Schedule Appointment

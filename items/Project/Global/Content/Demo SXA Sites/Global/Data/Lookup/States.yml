@@ -1,0 +1,28 @@
+﻿---
+ID: "9ee8545a-3764-4739-89ff-172da4fb3c5b"
+Parent: "ee3ea7e5-d22b-4d90-b243-521885680548"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/content/Demo SXA Sites/Global/Data/Lookup/States
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Flags/32x32/flag_usa.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Type: TreelistEx
+  Value: |
+    {228BA4A5-C841-4066-A23E-F093D035C6F6}
+    {A87A00B1-E6DB-45AB-8B54-636FEC3B5523}
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200813T165806Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Casey

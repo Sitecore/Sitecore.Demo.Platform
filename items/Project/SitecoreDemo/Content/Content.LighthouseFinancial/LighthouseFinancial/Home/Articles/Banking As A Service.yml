@@ -16,7 +16,7 @@ SharedFields:
   Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 3
+  Value: 100
 Languages:
 - Language: en
   Versions:
@@ -65,6 +65,9 @@ Languages:
       Value: Banking As A Service
   - Version: 2
     Fields:
+    - ID: "03462135-1c76-4ff2-a67c-50cbaa443cf1"
+      Hint: FinCategory
+      Value: Small Business
     - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
       Hint: Image
       Value: |
@@ -100,6 +103,16 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Casey
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: "The rise of open banking (and account aggregation) has shaped the conventional wisdom that banking will pivot toward innovation and service-oriented offerings."
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Banking As A Service
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{27E5082B-7621-4747-A029-F371DD4D1D13}" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
       Hint: Introduction
       Value: "<p>The rise of open banking (and account aggregation) has shaped the conventional wisdom that banking will pivot toward innovation and service-oriented offerings.</p>"

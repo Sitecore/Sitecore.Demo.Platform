@@ -1,0 +1,51 @@
+﻿---
+ID: "422a7377-107d-43bc-99de-c6f14c3fbf0e"
+Parent: "8b06db5e-9993-4ee0-8706-6959dd7b6c45"
+Template: "cf9c8a2a-2794-4fea-980a-ef8426f3d6c3"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/LighthouseFinancial Emails
+DB: master
+SharedFields:
+- ID: "1b963507-6176-4336-a14d-d5070c3b0286"
+  Hint: Base URL
+  Value: "https://cd.lighthouse.localhost"
+- ID: "1ec023fb-dbb4-4a7b-837d-55f9614737b8"
+  Hint: POP3 Password
+  Value: 
+- ID: "52d572ad-9678-423f-96e2-477528418ba1"
+  Hint: "Global Opt-out List"
+  Value: "{0B5092D1-7A9B-4040-B95A-4C5D48DA7BD5}"
+- ID: "6ce2099a-ab45-40e9-bb59-7ef2f9ba7bfb"
+  Hint: Brand Logo
+  Value: 
+- ID: "826730f6-4aeb-4fa5-a55b-b02fece73c14"
+  Hint: Brand Name
+  Value: Lighthouse Financial
+- ID: "afb3e366-dab4-4e10-b61f-bc3776542bb8"
+  Hint: POP3 User Name
+  Value: admin
+- ID: "ff64b61e-e68d-4be1-bfd1-aae311f4aca1"
+  Hint: Embed Images
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0f383cd8-c031-4a9d-9ed0-d55217f91287"
+      Hint: From Address
+      Value: noreply@sitecoredemo.com
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170601T175900Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Casey
+    - ID: "69aad409-ca36-4767-b945-abb77f3611fd"
+      Hint: From Name
+      Value: Sitecore Demo

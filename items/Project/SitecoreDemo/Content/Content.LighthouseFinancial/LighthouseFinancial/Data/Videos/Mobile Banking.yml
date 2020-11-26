@@ -1,0 +1,33 @@
+﻿---
+ID: "9f5a13ff-66c3-44db-a1b9-9729f7be3bd4"
+Parent: "ba914209-e73f-404d-a681-8006fd9db506"
+Template: "ade9eff4-da78-4e26-9248-b01bd93eae95"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Data/Videos/Mobile Banking
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "10dc336d-04a0-4ad7-acd9-7e820cfcb9cb"
+      Hint: MP4Movie
+      Value: |
+        <link linktype="media" target="" id="{849A0E0D-7C39-4F8F-97D9-E918BBE696A9}" />
+    - ID: "22379a66-606e-4205-abee-f9ac597084dd"
+      Hint: PosterImage
+      Value: |
+        <image mediaid="{F9A8095A-D3F3-4239-A570-1CF431C1BE69}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200824T165213Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Casey
