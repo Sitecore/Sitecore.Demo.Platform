@@ -57,6 +57,37 @@ Languages:
                 <ruleset
                   s:pet="false">
                   <rule
+                    uid="{85975302-2354-4EE6-9DF0-D74C7538029B}"
+                    s:name="Retail Client - Applied for Credit Card">
+                    <conditions>
+                      <and
+                        uid="8DDE93DAF5104DDC8D8CFF03233A60A8">
+                        <condition
+                          uid="AD33C8FCEDE842A2931ED0E0B214CC7A"
+                          s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                          s:ProfileName="Financial Client"
+                          s:PatternName="Retail Client" />
+                        <and
+                          uid="437B6970E5074A0F930A69FF473D4B13">
+                          <condition
+                            uid="B999C40CA3E540B3A1AC9782EFFC8179"
+                            s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
+                            s:GoalId="{8E9DEDA8-8ABC-47D2-A266-95C91B93029E}" />
+                          <condition
+                            uid="29435047C6A045C2A07B6CBEE6D11657"
+                            s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
+                            s:GoalId="{C3D664C0-50B7-4500-8202-5EF2B81DBE7A}" />
+                        </and>
+                      </and>
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="59137F2231C941D7AAC36249D22CC82C"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{DFD830E0-B120-4F74-8263-E2E26AB015BE}" />
+                    </actions>
+                  </rule>
+                  <rule
                     uid="{7A4DAE58-A17F-4661-B94A-DAB5968E4E7D}"
                     s:name="Retail Client"
                     s:test="true">
@@ -71,14 +102,45 @@ Languages:
                         <condition
                           uid="B82437F3C6924F8784AA888ACBE5FC72"
                           s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
-                          s:GoalId="{1779CC42-EF7A-4C58-BF19-FA85D30755C9}" />
+                          s:GoalId="{8E9DEDA8-8ABC-47D2-A266-95C91B93029E}" />
                       </and>
                     </conditions>
                     <actions>
                       <action
                         uid="8BB38D2D8BF64BADB715E04B9469597B"
                         s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                        s:DataSource="{413BF6B9-A541-49D8-AF4C-765FF6C8EFF7}" />
+                        s:DataSource="{B0C2F294-8E6D-4103-BE89-D89B0C5842C6}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{8F9D8519-2BD7-472B-BAC9-4D584192E963}"
+                    s:name="Investor - Scheduled Appointment with Financial Advisor">
+                    <conditions>
+                      <and
+                        uid="0312784E58964878B35586BB5D1B2005">
+                        <condition
+                          uid="9CD266276B43494CA71E6C50438F7D16"
+                          s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                          s:ProfileName="Financial Client"
+                          s:PatternName="Investor" />
+                        <and
+                          uid="A3D83511516E477DA53A8AA92B4C367C">
+                          <condition
+                            uid="2F80FBDCD79342AFB680A4E16CC04B02"
+                            s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
+                            s:GoalId="{8E9DEDA8-8ABC-47D2-A266-95C91B93029E}" />
+                          <condition
+                            uid="B3CEBDE213454B3CB410B1B8EBDA7FFB"
+                            s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
+                            s:GoalId="{4D23BC7C-C5CE-4E09-970E-457411E50243}" />
+                        </and>
+                      </and>
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="683854ADC4B440669674F39974823330"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{161E1AC2-7D53-4490-9114-B5BC7409B958}" />
                     </actions>
                   </rule>
                   <rule
@@ -96,7 +158,7 @@ Languages:
                         <condition
                           uid="59FDF723B12D42659A14B78BF0C9675A"
                           s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
-                          s:GoalId="{1779CC42-EF7A-4C58-BF19-FA85D30755C9}" />
+                          s:GoalId="{8E9DEDA8-8ABC-47D2-A266-95C91B93029E}" />
                       </and>
                     </conditions>
                     <actions>
@@ -123,7 +185,7 @@ Languages:
             <r
               uid="{FEA99350-91A2-4893-98C9-6B3C26F8C1B7}"
               p:after="r[@uid='{A21BEE85-58C5-4701-B3E9-744B2FF4B50E}']"
-              s:ds="local:/Data/Promo - Banking as a Service"
+              s:ds="{D2DE6245-FEEA-4EA8-9D59-44F4D046C27F}"
               s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
               s:pt="{E89F0371-7C1E-4E23-BB25-B34E434909A5}"
               s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B6C6DCD16-6835-4C2B-BC30-B19AF38AAB21%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=29"
@@ -165,6 +227,40 @@ Languages:
                         uid="F721F813DE7F45489FCA84FC22CC93A5"
                         s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
                         s:DataSource="{D46C54D1-130F-4CC8-8B06-B7899BEC4469}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{6260F000-7110-4034-8AE5-D9815C41DF32}"
+                    s:name="Los Angeles">
+                    <conditions>
+                      <condition
+                        uid="9FE15E5B90AB4581A045EAFE67A755E4"
+                        s:id="{03558744-9EA4-43BD-81DD-A9D8B5D59474}"
+                        s:value="Los Angeles"
+                        s:operatorid="{537244C2-3A3F-4B81-A6ED-02AF494C0563}" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="7CEADBA849FE4B388C98D8853C961377"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{15DC81FF-2EAA-4DE2-BF41-2A6B13F0EEA0}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{B2BA1229-D2B4-4B1E-8A1D-CFE4C17E42F8}"
+                    s:name="Miami">
+                    <conditions>
+                      <condition
+                        uid="6E701F61711A48CD8B9A4AADE15AE757"
+                        s:id="{03558744-9EA4-43BD-81DD-A9D8B5D59474}"
+                        s:operatorid="{537244C2-3A3F-4B81-A6ED-02AF494C0563}"
+                        s:value="Miami" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="23552C34CD8847A28E3727E3503DA8BF"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{895C7A44-3523-4F2E-AD00-B2FA1AFCAF79}" />
                     </actions>
                   </rule>
                   <rule
@@ -236,7 +332,7 @@ Languages:
               s:ds="{8FC5609E-2E52-45BB-AEE0-63B76DB2D46C}"
               s:id="{5A21C781-8E74-4DD0-8261-8CCDA1BF0454}"
               s:pt="{E89F0371-7C1E-4E23-BB25-B34E434909A5}"
-              s:par="Navigation=%7BF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7D&amp;Transition=%7BB0EFE255-B28D-452F-9C89-791D6C014D18%7D&amp;Timeout=4500&amp;PauseOnHover=1&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B5F1937B9-3A84-4F4B-A96E-C60419A06667%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=21"
+              s:par="Navigation=%7BF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7D&amp;Transition=%7BB0EFE255-B28D-452F-9C89-791D6C014D18%7D&amp;Timeout=20000&amp;PauseOnHover=1&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B5F1937B9-3A84-4F4B-A96E-C60419A06667%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=21"
               s:ph="/main/sxa-content-container/container-1/container-16">
               <rls>
                 <ruleset

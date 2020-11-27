@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.web>
+    <!--
+      RequestValidationMode was set to 4.5, which was preventing some characters from passing validation, thus causing 'A potentially dangerous Request.Form value was detected' error.
+      See https://docs.microsoft.com/en-us/dotnet/api/system.web.configuration.httpruntimesection.requestvalidationmode?view=netframework-4.8#remarks
+    -->
+    <httpRuntime xdt:Transform="SetAttributes" requestValidationMode="2.0" />
+    </system.web>
+      <location>
+        <system.webServer>
+          <httpProtocol>
+            <customHeaders>
+            <!-- CSP -->
+              <add xdt:Transform="SetAttributes" xdt:Locator="Match(name)" name="Content-Security-Policy" value="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://apps.sitecore.net https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com; img-src 'self' data: https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' 'unsafe-inline' https://fonts.gstatic.com;"/>
+            </customHeaders>
+          </httpProtocol>
+        </system.webServer>
+    </location>
+</configuration>

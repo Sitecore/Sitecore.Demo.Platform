@@ -1,0 +1,56 @@
+﻿---
+ID: "2e31c9c0-b79e-47be-ad12-efce75a175e8"
+Parent: "9c94d116-62bb-4744-8a44-5f6220ec7cb6"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Data/Snippets/Mobile Banking Videos
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{8009511B-3451-4EA1-A4DC-D5671F088FA8}"
+              p:before="*"
+              s:ds="/sitecore/content/Demo SXA Sites/LighthouseFinancial/Data/Videos/Mobile Banking"
+              s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;RenderingIdentifier"
+              s:ph="/section-content/column-2-1" />
+            <r
+              uid="{A964A69B-FBF1-4BA6-9E44-8DEF38F0C6DC}"
+              p:after="r[@uid='{8009511B-3451-4EA1-A4DC-D5671F088FA8}']"
+              s:ds="/sitecore/content/Demo SXA Sites/LighthouseFinancial/Data/Videos/Credit Card Mobile"
+              s:id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;RenderingIdentifier"
+              s:ph="/section-content/column-1-1" />
+            <r
+              uid="{C696BC3F-0236-4ED4-BF43-2051097B2D9B}"
+              p:after="*[1=2]"
+              s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+              s:par="ColumnWidth1=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D%7C%7B2040C827-8640-4E61-907E-D3D5A25696C3%7D&amp;ColumnWidth2=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D%7C%7B2040C827-8640-4E61-907E-D3D5A25696C3%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1"
+              s:ph="section-content"
+              s:ds="" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200824T165350Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Casey

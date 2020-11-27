@@ -5,6 +5,12 @@ Template: "0908030b-4564-42ea-a6fa-c7a5a2d921a8"
 Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseFinancial/Lighthouse Credit Card Application/Page/FirstName
 DB: master
 SharedFields:
+- ID: "5d09f88a-0e2a-4f87-8151-af4a2aa26ec3"
+  Hint: Value Provider
+  Value: "{B9572B47-4D42-42F3-B417-517ACD33C64B}"
+- ID: "71061c01-a495-4bf3-a52c-d378346bfae2"
+  Hint: Max Length
+  Value: 50
 - ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
   Hint: Conditions
   Value: |
@@ -22,6 +28,9 @@ SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 100
+- ID: "f6696439-2dac-4183-8f3d-1979188d8336"
+  Hint: Value Provider Parameters
+  Value: First Name
 Languages:
 - Language: en
   Versions:

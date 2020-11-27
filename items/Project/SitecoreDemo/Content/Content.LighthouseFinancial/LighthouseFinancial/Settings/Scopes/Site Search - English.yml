@@ -1,0 +1,46 @@
+﻿---
+ID: "74ed75fd-bcf7-4a7c-8ed8-89f447a30636"
+Parent: "3a755c26-0402-461a-a9c9-3a19791029d8"
+Template: "8b649372-cc12-4f31-802a-8c3b3d09bb3f"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseFinancial/Settings/Scopes/Site Search - English"
+DB: master
+SharedFields:
+- ID: "b04fe662-2b23-44dd-b971-2b864a1ec55f"
+  Hint: ScopeQuery
+  Value: "+location:{5F6276DB-F968-4BBC-A307-F3F0FBC69F5D};template:{1c1b88ad-425a-4349-9a51-27d1fc4b8357};template:{459a510b-5e2c-425f-a321-1d9423937eb0};language:english;template:{8c4f0517-9de4-40c0-9f5f-c46772f44269}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0f628fd3-a28c-4da7-968b-dce9f3b71b5a"
+      Hint: Rule
+      Type: Rules
+      Value: |
+        <ruleset>
+          <rule
+            uid="{EA2CA599-BC46-45F0-B3CA-18D1722835F0}">
+            <conditions>
+              <condition
+                id="{5DE6D53E-EA62-4D17-8BDD-FEBCD80AC07B}"
+                uid="E99B77C4EE54421FA41B5B6B200EC6FD"
+                templateid="{459A510B-5E2C-425F-A321-1D9423937EB0}" />
+            </conditions>
+            <actions>
+              <action
+                id="{9A00D97A-E3A8-4011-B519-FEB70E80EA54}"
+                uid="3B987B15FA4D476CBF6EC498997C843C"
+                boost="1000" />
+            </actions>
+          </rule>
+        </ruleset>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200831T144632Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Casey

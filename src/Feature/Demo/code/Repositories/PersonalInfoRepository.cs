@@ -81,16 +81,9 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Repositories
 
             foreach (var identifier in identifiers)
             {
-                switch (identifier.Type)
+                if (identifier.Type == ContactIdentificationLevel.Known)
                 {
-                    case ContactIdentificationLevel.Anonymous:
-                        yield return new KeyValuePair<string, string>(string.Format(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Anonymous ID", "Anonymous ID ({0})"), identifier.Source), identifier.Identifier);
-                        break;
-                    case ContactIdentificationLevel.Known:
-                        yield return new KeyValuePair<string, string>(string.Format(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Identification", "Known ID ({0})"), identifier.Source), identifier.Identifier);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    yield return new KeyValuePair<string, string>(string.Format(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Identification", "Known ID ({0})"), identifier.Source), identifier.Identifier);
                 }
             }
         }

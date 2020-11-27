@@ -12,6 +12,9 @@ SharedFields:
 - ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
   Hint: Page Design
   Value: "{16923AF2-95E8-48A2-91B9-F60F972FE9FA}"
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: 20200514T000000Z
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
@@ -137,12 +140,13 @@ Languages:
       Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
-      Value: Commercial Checking
+      Value: Business Checking
     - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
       Hint: Content
       Value: |
         <h2>Small Business Checking</h2>
-        Some of the key features to accounts for small businesses include:<br /><ul>
+        Some of the key features to accounts for small businesses include:<br />
+        <ul>
             <li>Essential tools for small businesses</li>
             <br />
             <li>Mobile banking with mobile check deposit</li>
@@ -152,11 +156,24 @@ Languages:
             <li>Business debit cards with security protection</li>
         </ul>
         <h3>Business Savings Account</h3>
-        All our business checking accounts come with free access to Habitat Financial Small Business Online with unlimited bill payment. Plus, you can pair any of our business checking accounts with a Habitat Business Credit or Debit Card.
+        All our business checking accounts come with free access to Lighthouse Financial Small Business Online with unlimited bill payment. Plus, you can pair any of our business checking accounts with a Lighthouse Business Credit or Debit Card.
         <p>&nbsp;</p>
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: ​Lighthouse Finance offers a variety of checking accounts designed for businesses and community organizations based on their needs. Look no further – we have the right business account for you.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Commercial Checking
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{1F78F812-3EB6-4214-BAB8-6DFBBF1A1EF0}" />
     - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
       Hint: Introduction
-      Value: <p>Habitat Finance offers a variety of checking accounts designed for businesses and community organizations based on their needs. Look no further &ndash; we have the right business account for you.</p>
+      Value: <p>Lighthouse Finance offers a variety of checking accounts designed for businesses and community organizations based on their needs. Look no further &ndash; we have the right business account for you.</p>
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
-      Value: Commercial Checking
+      Value: Business Checking
+    - ID: "eb2d62c0-062b-4a82-bc4e-46e7d1513ace"
+      Hint: FinCategory
+      Value: Small Business

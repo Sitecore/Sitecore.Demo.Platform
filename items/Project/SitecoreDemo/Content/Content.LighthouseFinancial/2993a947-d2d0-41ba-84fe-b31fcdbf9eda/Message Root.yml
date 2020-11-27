@@ -1,0 +1,72 @@
+﻿---
+ID: "d8a8a70a-a9f0-49fa-8e15-d88c4d9e2aad"
+Parent: "2993a947-d2d0-41ba-84fe-b31fcdbf9eda"
+Template: "3f12d78c-b7b7-4157-98fc-da3322ee1a5b"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/LighthouseFinancial Emails/Messages/2020/08/13T20434920/Lighthouse Financial Credit Card Savings/Message Root
+DB: master
+SharedFields:
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
+  Type: Checkbox
+  Value: 1
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{48D55F1B-C559-411D-AC73-A51DF6C02247}">
+        <r
+          ds="{BDBC8CDF-24BF-4B6A-8BE7-CC8632C9E951}"
+          id="{69EB7A6D-ACEF-4D06-A923-804918AA245E}"
+          par=""
+          ph="ec-title"
+          uid="{C472E7DB-2977-4A4A-9F58-CF271AAE45F3}" />
+        <r
+          ds="{576ED263-AA42-46BE-A54D-2E9FA9859884}"
+          id="{87A142FF-6DA2-40E1-93B2-93BAB4560EE6}"
+          par=""
+          ph="ec-header"
+          uid="{15E98787-AEC1-4007-81CC-069D310D7209}" />
+        <r
+          ds="{BDBC8CDF-24BF-4B6A-8BE7-CC8632C9E951}"
+          id="{26A4BFDF-B274-46A0-BB76-D4E025B40C47}"
+          par=""
+          ph="ec-main"
+          uid="{A5ECCE8C-CBD2-4669-BA39-5CAD038864FA}" />
+        <r
+          ds="{3E4AB0F5-BB5C-4598-9EC9-EB39194B462D}"
+          id="{6BDA85A1-1CB2-4F84-A777-67025160523F}"
+          par=""
+          ph="ec-main"
+          uid="{F71D3F57-B8AB-48AC-8D72-EEF37982A3B8}" />
+        <r
+          ds="{F4CD65AB-42BB-4F38-A3E0-A7810771FCA4}"
+          id="{D7040DF2-C910-4353-80E8-53EFAB32495C}"
+          par=""
+          ph="ec-footer"
+          uid="{D6FCB945-D468-40E3-BCFF-3C888A8F33B2}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D369FEE5-9F71-4A85-BE2D-263D50D4B259}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200813T204349Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Casey
+    - ID: "69909e89-5e8f-4a4b-9c16-b06a13f7b056"
+      Hint: AlternateText
+      Value: "Start saving on credit card interest today!"
+    - ID: "c0bfd467-0b74-4efe-b7c9-1ecf7f0e5370"
+      Hint: Subject
+      Value: Low Interest Credit Card Offer
