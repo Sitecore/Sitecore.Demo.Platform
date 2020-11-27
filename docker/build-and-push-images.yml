@@ -373,19 +373,19 @@ stages:
   - Docker_Linux
   condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
-    - deployment: Update_Production_Database
-      displayName: 'Update Production Database'
+    - job: Update_Production_Database
+      displayName: 'Update Dev Database'
+      steps:
+      - template: version.yml
+      - task: PowerShell@2
+        inputs:
+          targetType: 'inline'
+          script: |
+            Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=stable" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+
+    - deployment: Update_Production_Database_Deployment
+      displayName: 'Update Production Database Deployment'
       environment: Production Portal Database
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - template: version.yml
-            - task: PowerShell@2
-              inputs:
-                targetType: 'inline'
-                script: |
-                  Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=stable" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
 - stage: Trigger_Harbor_Push
   displayName: "Trigger Harbor Push"
