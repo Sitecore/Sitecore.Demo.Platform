@@ -9,6 +9,7 @@ using Sitecore.Demo.Init.Model;
 
 namespace Sitecore.Demo.Init.Jobs
 {
+	using Microsoft.Extensions.Logging;
 
 	class PublishItems : TaskBase
 	{
@@ -19,7 +20,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 			var hostPS = Environment.GetEnvironmentVariable("HOST_PS");
 
-			Console.WriteLine($"PublishItems() started on {hostPS}");
+			Log.LogInformation($"PublishItems() started on {hostPS}");
 			using var client = new HttpClient { BaseAddress = new Uri(hostPS) };
 			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -35,11 +36,11 @@ namespace Sitecore.Demo.Init.Jobs
 			var jobId = JsonConvert.DeserializeObject<PublishJobResponse>(contents).value;
 			await WaitForPublishToComplete(client, jobId);
 
-			Console.WriteLine($"{response.StatusCode} {contents}");
+			Log.LogInformation($"{response.StatusCode} {contents}");
 
 			await Stop(typeof(PublishItems).Name);
 
-			Console.WriteLine("PublishItems() complete");
+			Log.LogInformation("PublishItems() complete");
 		}
 
 		static async Task WaitForPublishToComplete(HttpClient client, string jobId)
@@ -54,22 +55,22 @@ namespace Sitecore.Demo.Init.Jobs
 					var status = JsonConvert.DeserializeObject<PublishJobStatus>(contents);
 					if (status.status <= 1)
 					{
-						Console.WriteLine($"#{i} {DateTime.UtcNow} Publishing is in progress...");
+						Log.LogInformation($"#{i} {DateTime.UtcNow} Publishing is in progress...");
 					}
 					else
 					{
-						Console.WriteLine($"Publishing completed with the status: {status.statusMessage}");
+						Log.LogInformation($"Publishing completed with the status: {status.statusMessage}");
 						break;
 					}
 				}
-				catch
+				catch(Exception)
 				{
 					// Ignore exceptions during warmup
-					Console.WriteLine($"Publishing is not ready yet, retrying...");
+					Log.LogInformation($"Publishing is not ready yet, retrying...");
 					break;
 				}
 
-				await Task.Delay(5000);
+				await Task.Delay(10000);
 			}
 		}
 	}

@@ -5,18 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using HtmlAgilityPack;
 using Sitecore.Demo.Init.Model;
+using Microsoft.Extensions.Logging;
+using Sitecore.Demo.Init.Extensions;
 
 namespace Sitecore.Demo.Init.Jobs
 {
 	public class JobStatus
 	{
+		protected static ILogger Log = ApplicationLogging.CreateLogger<JobStatus>();
+
 		public static async Task<List<SitecoreJobStatus>> Run()
 		{
 			var cm = Environment.GetEnvironmentVariable("HOST_CM");
 			var user = Environment.GetEnvironmentVariable("ADMIN_USER_NAME");
 			var password = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
 			var id = Environment.GetEnvironmentVariable("HOST_ID");
-			var authenticatedClient = await new SitecoreLoginService().GetSitecoreClient(cm, id, user, password);
+			var authenticatedClient = await new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
 			var status = await authenticatedClient.DownloadStringTaskAsync($"{cm}/sitecore/admin/jobs.aspx?refresh=5");
 
 			var jobsPage = new HtmlAgilityPack.HtmlDocument();

@@ -9,19 +9,20 @@ using Sitecore.Demo.Init.Extensions;
 
 namespace Sitecore.Demo.Init.Jobs
 {
+	using Microsoft.Extensions.Logging;
+
 	class UpdateFieldValues : TaskBase
 	{
 		public static async Task Run()
 		{
 			await Start(typeof(UpdateFieldValues).Name);
-			await WaitForSitecoreToStart.Run();
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			var user = Environment.GetEnvironmentVariable("ADMIN_USER_NAME").Replace("sitecore\\", string.Empty);
 			var password = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
 			var damUrl = Environment.GetEnvironmentVariable("DAM_URL");
 
-			Console.WriteLine($"UpdateFieldValues() started on {hostCM}");
+			Log.LogInformation($"UpdateFieldValues() started on {hostCM}");
 			using var client = new HttpClient { BaseAddress = new Uri(hostCM) };
 			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -36,9 +37,9 @@ namespace Sitecore.Demo.Init.Jobs
 
 			UpdateValues(hostCM, damUrl, token);
 
-			Console.WriteLine($"{response.StatusCode} {contents}");
+			Log.LogInformation($"{response.StatusCode} {contents}");
 			await Stop(typeof(UpdateFieldValues).Name);
-			Console.WriteLine("UpdateFieldValues() complete");
+			Log.LogInformation("UpdateFieldValues() complete");
 		}
 
 		private static void UpdateValues(string hostCM, string damUrl, string token)

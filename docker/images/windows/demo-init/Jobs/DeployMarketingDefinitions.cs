@@ -4,17 +4,18 @@ using System.Threading.Tasks;
 
 namespace Sitecore.Demo.Init.Jobs
 {
+	using Microsoft.Extensions.Logging;
+
 	class DeployMarketingDefinitions : TaskBase
 	{
 		public static async Task Run()
 		{
 			await Start(typeof(DeployMarketingDefinitions).Name);
-			await WaitForSitecoreToStart.Run();
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			var marketingDefinitionsApikey = Environment.GetEnvironmentVariable("MARKETING_DEFINITIONS_APIKEY");
 
-			Console.WriteLine($"DeployMarketingDefinitions() started {hostCM}");
+			Log.LogInformation($"DeployMarketingDefinitions() started {hostCM}");
 
 			using var client = new HttpClient { BaseAddress = new Uri(hostCM) };
 
@@ -23,8 +24,8 @@ namespace Sitecore.Demo.Init.Jobs
 				using (var response = await client.SendAsync(request))
 				{
 					var contents = await response.Content.ReadAsStringAsync();
-					Console.WriteLine($"{response.StatusCode} {contents}");
-					Console.WriteLine("DeployMarketingDefinitions() complete");
+					Log.LogInformation($"{response.StatusCode} {contents}");
+					Log.LogInformation("DeployMarketingDefinitions() complete");
 				}
 			}
 		}

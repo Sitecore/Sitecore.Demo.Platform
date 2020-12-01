@@ -8,6 +8,8 @@ using System.Net.Http;
 
 namespace Sitecore.Demo.Init.Jobs
 {
+	using Microsoft.Extensions.Logging;
+
 	public class WarmupCM : WarmupBase
 	{
 		public static async Task Run()
@@ -19,7 +21,7 @@ namespace Sitecore.Demo.Init.Jobs
 				var content = File.ReadAllText("data/warmup-config.json");
 				var config = JsonConvert.DeserializeObject<WarmupConfig>(content);
 
-				Console.WriteLine($"{DateTime.UtcNow} Warmup CM started");
+				Log.LogInformation($"{DateTime.UtcNow} Warmup CM started");
 				await WaitForSitecoreToStart.Run();
 
 				var cm = Environment.GetEnvironmentVariable("HOST_CM");
@@ -27,10 +29,10 @@ namespace Sitecore.Demo.Init.Jobs
 				var user = Environment.GetEnvironmentVariable("ADMIN_USER_NAME");
 				var password = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
 
-				Console.WriteLine($"Warmup CM - URL: {cm}");
-				Console.WriteLine($"Warmup CM - ID: {id}");
-				Console.WriteLine($"Warmup CM - User: {user}");
-				Console.WriteLine($"Warmup CM - Password: {password}");
+				Log.LogInformation($"Warmup CM - URL: {cm}");
+				Log.LogInformation($"Warmup CM - ID: {id}");
+				Log.LogInformation($"Warmup CM - User: {user}");
+				Log.LogInformation($"Warmup CM - Password: {password}");
 
 				var client = new HttpClient();
 				client.Timeout = TimeSpan.FromMinutes(10);
@@ -38,11 +40,11 @@ namespace Sitecore.Demo.Init.Jobs
 
 				await Stop(typeof(WarmupCM).Name);
 
-				Console.WriteLine($"{DateTime.UtcNow} Warmup CM complete");
+				Log.LogInformation($"{DateTime.UtcNow} Warmup CM complete");
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine($"Warmup CM failed. " + ex);
+				Log.LogError(ex, "Warmup CM failed");
 			}
 		}
 
@@ -56,7 +58,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 		private static async Task WarmupBackend(string cm, string id, string user, string password, WarmupConfig config)
 		{
-			var authenticatedClient = await new SitecoreLoginService().GetSitecoreClient(cm, id, user, password);
+			var authenticatedClient = await new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
 			foreach (var entry in config.urls[0].sitecore)
 			{
 				await LoadUrl(cm, entry.url, authenticatedClient);

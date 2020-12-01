@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 
 namespace Sitecore.Demo.Init.Jobs
 {
+	using Microsoft.Extensions.Logging;
+
 	class IndexRebuild : TaskBase
 	{
 		public static async Task Run()
@@ -12,7 +14,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 
-			Console.WriteLine($"IndexRebuild() started {hostCM}");
+			Log.LogInformation($"IndexRebuild() started {hostCM}");
 
 			using var client = new HttpClient { BaseAddress = new Uri(hostCM) };
 			var indexes = new[] { "sitecore_sxa_web_index", "sitecore_sxa_master_index", "sitecore_master_index", "sitecore_web_index", "sitecore_marketingdefinitions_master", "sitecore_marketingdefinitions_web", "sitecore_testing_index" };
@@ -23,8 +25,8 @@ namespace Sitecore.Demo.Init.Jobs
 				{
 					using (var response = await client.SendAsync(request))
 					{
-						Console.WriteLine($"Rebuilding index {index}");
-						Console.WriteLine($"{response.StatusCode}");
+						Log.LogInformation($"Rebuilding index {index}");
+						Log.LogInformation($"{response.StatusCode}");
 					}
 				}
 			}

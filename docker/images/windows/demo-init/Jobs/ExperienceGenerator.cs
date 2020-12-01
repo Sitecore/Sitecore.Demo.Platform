@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Sitecore.Demo.Init.Jobs
 {
+	using Microsoft.Extensions.Logging;
+
 	class ExperienceGenerator : TaskBase
 	{
 		public static async Task Run()
@@ -15,7 +17,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 
-			Console.WriteLine($"RunExperienceGenerator() started on {hostCM}");
+			Log.LogInformation($"RunExperienceGenerator() started on {hostCM}");
 			using var client = new HttpClient { BaseAddress = new Uri(hostCM) };
 			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -30,7 +32,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 			var response = await client.SendAsync(request);
 			var contents = await response.Content.ReadAsStringAsync();
-			Console.WriteLine($"{response.StatusCode} {contents}");
+			Log.LogInformation($"{response.StatusCode} {contents}");
 		}
 	}
 }

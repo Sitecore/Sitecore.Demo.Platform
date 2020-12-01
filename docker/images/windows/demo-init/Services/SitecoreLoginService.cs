@@ -4,11 +4,19 @@ using System.Text;
 using System.Web;
 using Sitecore.Demo.Init.Extensions;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Services
 {
 	public class SitecoreLoginService
 	{
+		private readonly ILogger logger;
+
+		public SitecoreLoginService(ILogger logger)
+		{
+			this.logger = logger;
+		}
+
 		public async Task<WebClient> GetSitecoreClient(string baseUrl, string idBaseUrl, string user, string password)
 		{
 			string uri = string.Format(
@@ -52,7 +60,7 @@ namespace Sitecore.Demo.Init.Services
 				$"code={ExtractParameter(response, "code", "'")}&id_token={ExtractParameter(response, "id_token", "'")}&access_token={ExtractParameter(response, "access_token", "'")}&token_type={ExtractParameter(response, "token_type", "'")}&expires_in={ExtractParameter(response, "expires_in", "'")}&scope={ExtractParameter(response, "scope", "'")}&state={ExtractParameter(response, "state", "'")}&session_state={ExtractParameter(response, "session_state", "'")}";
 			webClient.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
 
-			Console.WriteLine(signInData);
+			logger.LogInformation(signInData);
 
 			// Send token to /identity/signin
 			webClient.UploadData(
@@ -66,7 +74,7 @@ namespace Sitecore.Demo.Init.Services
 			// Test that it worked
 			response = webClient.DownloadString("/sitecore/shell");
 
-			Console.WriteLine(response.Substring(0, 100));
+			logger.LogInformation(response.Substring(0, 100));
 
 			webClient.AllowAutoRedirect = true;
 
