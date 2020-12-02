@@ -374,7 +374,7 @@ stages:
   condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Update_Production_Database
-      displayName: 'Update Dev Database'
+      displayName: 'Update Production Database'
       steps:
       - template: version.yml
       - task: PowerShell@2
