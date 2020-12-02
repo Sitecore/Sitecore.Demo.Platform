@@ -5,6 +5,8 @@
 	using System.Net.Http;
 	using System.Threading.Tasks;
 
+	using Microsoft.Extensions.Logging;
+
 	public class WarmupBase: TaskBase
 	{
 		protected static async Task LoadUrl(string baseUrl, string path, WebClient client)
@@ -13,14 +15,14 @@
 			{
 				try
 				{
-					Console.WriteLine($"{DateTime.UtcNow} Loading {baseUrl}{path}");
+					Log.LogInformation($"{DateTime.UtcNow} Loading {baseUrl}{path}");
 					await client.DownloadStringTaskAsync($"{baseUrl}/{path}");
 					return;
 				}
 				catch (Exception ex)
 				{
 					// Ignore exceptions during warmup
-					Console.WriteLine($"{DateTime.UtcNow} Failed to load {baseUrl}{path}: \r\n {ex}");
+					Log.LogInformation($"{DateTime.UtcNow} Failed to load {baseUrl}{path}: \r\n {ex}");
 				}
 
 				await Task.Delay(1000);
@@ -31,13 +33,13 @@
 		{
 			try
 			{
-				Console.WriteLine($"{DateTime.UtcNow} Loading {baseUrl}{path}");
+				Log.LogInformation($"{DateTime.UtcNow} Loading {baseUrl}{path}");
 				await client.SendAsync(new HttpRequestMessage(HttpMethod.Head, $"{baseUrl}{path}"));
 			}
 			catch (Exception ex)
 			{
 				// Ignore exceptions during warmup
-				Console.WriteLine($"{DateTime.UtcNow} Failed to load {baseUrl}{path}: \r\n {ex}");
+				Log.LogInformation($"{DateTime.UtcNow} Failed to load {baseUrl}{path}: \r\n {ex}");
 			}
 		}
 	}

@@ -7,6 +7,8 @@ using System.Net.Http;
 
 namespace Sitecore.Demo.Init.Jobs
 {
+	using Microsoft.Extensions.Logging;
+
 	public class WarmupCD : WarmupBase
 	{
 		public static async Task Run()
@@ -17,7 +19,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 				if (skipWarmupCd)
 				{
-					Console.WriteLine($"{DateTime.UtcNow} SKIP_WARMUP_CD set to true. Skipping Warmup CD");
+					Log.LogInformation($"{DateTime.UtcNow} SKIP_WARMUP_CD set to true. Skipping Warmup CD");
 					return;
 				}
 
@@ -26,11 +28,11 @@ namespace Sitecore.Demo.Init.Jobs
 				var content = File.ReadAllText("data/warmup-config.json");
 				var config = JsonConvert.DeserializeObject<WarmupConfig>(content);
 
-				Console.WriteLine($"{DateTime.UtcNow} Warmup CD started");
+				Log.LogInformation($"{DateTime.UtcNow} Warmup CD started");
 				await WaitForSitecoreToStart.RunCD();
 
 				var cd = Environment.GetEnvironmentVariable("HOST_CD");
-				Console.WriteLine($"Warmup CD - URL: {cd}");
+				Log.LogInformation($"Warmup CD - URL: {cd}");
 
 				var client = new HttpClient();
 				client.Timeout = TimeSpan.FromMinutes(10);
@@ -41,11 +43,11 @@ namespace Sitecore.Demo.Init.Jobs
 
 				await Stop(typeof(WarmupCD).Name);
 
-				Console.WriteLine($"{DateTime.UtcNow} Warmup CD complete");
+				Log.LogInformation($"{DateTime.UtcNow} Warmup CD complete");
 			}
 			catch(Exception ex)
 			{
-				Console.WriteLine($"Warmup CD failed. " + ex);
+				Log.LogError(ex, "Warmup CD failed");
 			}
 		}
 	}
