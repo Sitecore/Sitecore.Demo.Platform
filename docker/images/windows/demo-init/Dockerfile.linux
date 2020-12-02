@@ -33,6 +33,10 @@ ENV MARKETING_DEFINITIONS_APIKEY=placeholder
 ENV ADMIN_USER_NAME=placeholder
 ENV ADMIN_PASSWORD=placeholder
 
+# https://www.abhith.net/blog/docker-sql-error-on-aspnet-core-alpine/
+RUN apk add icu-libs
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+
 WORKDIR /app
 
 COPY --from=publish /app/publish .

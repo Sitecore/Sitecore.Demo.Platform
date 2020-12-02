@@ -4,16 +4,26 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	using Microsoft.Extensions.Logging;
-
 	class ExperienceGenerator : TaskBase
 	{
-		public static async Task Run()
+		public ExperienceGenerator(InitContext initContext)
+			: base(initContext)
 		{
-			await Start(typeof(ExperienceGenerator).Name);
+		}
+
+		public async Task Run()
+		{
+			if (this.IsCompleted())
+			{
+				Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
+				return;
+			}
+
+			await Start(nameof(ExperienceGenerator));
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 

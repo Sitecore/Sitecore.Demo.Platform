@@ -2,16 +2,41 @@
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Sitecore.Demo.Init.Extensions;
+using System.Linq;
+using Sitecore.Demo.Init.Model;
 
 namespace Sitecore.Demo.Init.Jobs
 {
 	public class TaskBase
 	{
 		private static readonly string StatusDirectory = Path.Combine(Directory.GetCurrentDirectory(), "status");
+		private readonly InitContext initContext;
 
-		protected static ILogger Log = ApplicationLogging.CreateLogger<TaskBase>();
+		public TaskBase(InitContext initContext)
+		{
+			this.initContext = initContext;
+		}
 
-		protected static async Task Start(string theType)
+		protected virtual ILogger Log
+		{
+			get
+			{
+				return ApplicationLogging.CreateLogger(this.GetType().Name);
+			}
+		}
+
+		protected bool IsCompleted()
+		{
+			var completedJobs = initContext.CompletedJobs.Where(x => x.Name == this.GetType().Name);
+			if (completedJobs.Any())
+			{
+				return true;
+			}
+
+			return false;
+		}
+
+		protected async Task Start(string theType)
 		{
 			if (!Directory.Exists(StatusDirectory))
 			{
@@ -21,8 +46,10 @@ namespace Sitecore.Demo.Init.Jobs
 			await File.WriteAllTextAsync(Path.Combine(StatusDirectory, $"{theType}.Started"), "Started");
 		}
 
-		protected static async Task Stop(string theType)
+		protected async Task Stop(string theType)
 		{
+			initContext.CompletedJobs.Add(new CompletedJob(this.GetType().Name));
+			await initContext.SaveChangesAsync();
 			await File.WriteAllTextAsync(Path.Combine(StatusDirectory, $"{theType}.Ready"), "Ready");
 		}
 	}

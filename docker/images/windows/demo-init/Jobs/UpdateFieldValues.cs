@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Sitecore.Demo.Init.Model;
 using Sitecore.Demo.Init.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	using Microsoft.Extensions.Logging;
-
 	class UpdateFieldValues : TaskBase
 	{
-		public static async Task Run()
+		public UpdateFieldValues(InitContext initContext)
+			: base(initContext)
 		{
-			await Start(typeof(UpdateFieldValues).Name);
+		}
+
+		public async Task Run()
+		{
+			await Start(nameof(UpdateFieldValues));
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			var user = Environment.GetEnvironmentVariable("ADMIN_USER_NAME").Replace("sitecore\\", string.Empty);
@@ -38,7 +42,7 @@ namespace Sitecore.Demo.Init.Jobs
 			UpdateValues(hostCM, damUrl, token);
 
 			Log.LogInformation($"{response.StatusCode} {contents}");
-			await Stop(typeof(UpdateFieldValues).Name);
+			await Stop(nameof(UpdateFieldValues));
 			Log.LogInformation("UpdateFieldValues() complete");
 		}
 

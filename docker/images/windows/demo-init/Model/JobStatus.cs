@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Sitecore.Demo.Init.Model
+﻿namespace Sitecore.Demo.Init.Model
 {
 	public class SitecoreJobStatus
 	{

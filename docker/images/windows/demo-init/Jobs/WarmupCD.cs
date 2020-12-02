@@ -4,14 +4,21 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Sitecore.Demo.Init.Model;
 using System.Net.Http;
+using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	using Microsoft.Extensions.Logging;
-
 	public class WarmupCD : WarmupBase
 	{
-		public static async Task Run()
+		private readonly WaitForSitecoreToStart waitForSitecoreToStart;
+
+		public WarmupCD(InitContext initContext)
+			: base(initContext)
+		{
+			waitForSitecoreToStart = new WaitForSitecoreToStart(initContext);
+		}
+
+		public async Task Run()
 		{
 			try
 			{
@@ -23,13 +30,13 @@ namespace Sitecore.Demo.Init.Jobs
 					return;
 				}
 
-				await Start(typeof(WarmupCD).Name);
+				await Start(nameof(WarmupCD));
 
 				var content = File.ReadAllText("data/warmup-config.json");
 				var config = JsonConvert.DeserializeObject<WarmupConfig>(content);
 
 				Log.LogInformation($"{DateTime.UtcNow} Warmup CD started");
-				await WaitForSitecoreToStart.RunCD();
+				await waitForSitecoreToStart.RunCD();
 
 				var cd = Environment.GetEnvironmentVariable("HOST_CD");
 				Log.LogInformation($"Warmup CD - URL: {cd}");
@@ -41,7 +48,7 @@ namespace Sitecore.Demo.Init.Jobs
 					await LoadUrl(cd, entry.url, client);
 				}
 
-				await Stop(typeof(WarmupCD).Name);
+				await Stop(nameof(WarmupCD));
 
 				Log.LogInformation($"{DateTime.UtcNow} Warmup CD complete");
 			}

@@ -6,17 +6,30 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Sitecore.Demo.Init.Model;
+using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	using Microsoft.Extensions.Logging;
-
 	class PublishItems : TaskBase
 	{
-		public static async Task Run()
+		private readonly WaitForPublishingServiceToStart waitForPublishingServiceToStart;
+
+		public PublishItems(InitContext initContext)
+			: base(initContext)
 		{
-			await Start(typeof(PublishItems).Name);
-			await WaitForPublishingServiceToStart.Run();
+			waitForPublishingServiceToStart = new WaitForPublishingServiceToStart(initContext);
+		}
+
+		public async Task Run()
+		{
+			if (this.IsCompleted())
+			{
+				Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
+				return;
+			}
+
+			await Start(nameof(PublishItems));
+			await waitForPublishingServiceToStart.Run();
 
 			var hostPS = Environment.GetEnvironmentVariable("HOST_PS");
 
@@ -38,12 +51,12 @@ namespace Sitecore.Demo.Init.Jobs
 
 			Log.LogInformation($"{response.StatusCode} {contents}");
 
-			await Stop(typeof(PublishItems).Name);
+			await Stop(nameof(PublishItems));
 
 			Log.LogInformation("PublishItems() complete");
 		}
 
-		static async Task WaitForPublishToComplete(HttpClient client, string jobId)
+		async Task WaitForPublishToComplete(HttpClient client, string jobId)
 		{
 			for (int i = 0; i < 50; i++)
 			{

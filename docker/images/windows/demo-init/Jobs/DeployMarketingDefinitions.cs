@@ -8,9 +8,20 @@ namespace Sitecore.Demo.Init.Jobs
 
 	class DeployMarketingDefinitions : TaskBase
 	{
-		public static async Task Run()
+		public DeployMarketingDefinitions(InitContext initContext)
+			: base(initContext)
 		{
-			await Start(typeof(DeployMarketingDefinitions).Name);
+		}
+
+		public async Task Run()
+		{
+			if (this.IsCompleted())
+			{
+				Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
+				return;
+			}
+
+			await Start(nameof(DeployMarketingDefinitions));
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			var marketingDefinitionsApikey = Environment.GetEnvironmentVariable("MARKETING_DEFINITIONS_APIKEY");
@@ -29,5 +40,6 @@ namespace Sitecore.Demo.Init.Jobs
 				}
 			}
 		}
+
 	}
 }

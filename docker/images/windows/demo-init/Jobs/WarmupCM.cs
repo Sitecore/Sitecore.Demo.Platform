@@ -5,24 +5,31 @@ using Newtonsoft.Json;
 using Sitecore.Demo.Init.Model;
 using Sitecore.Demo.Init.Services;
 using System.Net.Http;
+using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	using Microsoft.Extensions.Logging;
-
 	public class WarmupCM : WarmupBase
 	{
-		public static async Task Run()
+		private readonly WaitForSitecoreToStart waitForSitecoreToStart;
+
+		public WarmupCM(InitContext initContext)
+			: base(initContext)
+		{
+			waitForSitecoreToStart = new WaitForSitecoreToStart(initContext);
+		}
+
+		public async Task Run()
 		{
 			try
 			{
-				await Start(typeof(WarmupCM).Name);
+				await Start(nameof(WarmupCM));
 
 				var content = File.ReadAllText("data/warmup-config.json");
 				var config = JsonConvert.DeserializeObject<WarmupConfig>(content);
 
 				Log.LogInformation($"{DateTime.UtcNow} Warmup CM started");
-				await WaitForSitecoreToStart.Run();
+				await waitForSitecoreToStart.Run();
 
 				var cm = Environment.GetEnvironmentVariable("HOST_CM");
 				var id = Environment.GetEnvironmentVariable("HOST_ID");
@@ -38,7 +45,7 @@ namespace Sitecore.Demo.Init.Jobs
 				client.Timeout = TimeSpan.FromMinutes(10);
 				Task.WaitAll(WarmupBackend(cm, id, user, password, config), WarmupFrontend(config, client, cm));
 
-				await Stop(typeof(WarmupCM).Name);
+				await Stop(nameof(WarmupCM));
 
 				Log.LogInformation($"{DateTime.UtcNow} Warmup CM complete");
 			}
@@ -48,7 +55,7 @@ namespace Sitecore.Demo.Init.Jobs
 			}
 		}
 
-		private static async Task WarmupFrontend(WarmupConfig config, HttpClient client, string cm)
+		private async Task WarmupFrontend(WarmupConfig config, HttpClient client, string cm)
 		{
 			foreach (var entry in config.urls[1].xp)
 			{
@@ -56,7 +63,7 @@ namespace Sitecore.Demo.Init.Jobs
 			}
 		}
 
-		private static async Task WarmupBackend(string cm, string id, string user, string password, WarmupConfig config)
+		private async Task WarmupBackend(string cm, string id, string user, string password, WarmupConfig config)
 		{
 			var authenticatedClient = await new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
 			foreach (var entry in config.urls[0].sitecore)

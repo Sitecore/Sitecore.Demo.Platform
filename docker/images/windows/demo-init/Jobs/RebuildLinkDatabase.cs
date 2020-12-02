@@ -8,9 +8,20 @@ namespace Sitecore.Demo.Init.Jobs
 
 	class RebuildLinkDatabase : TaskBase
 	{
-		public static async Task Run()
+		public RebuildLinkDatabase(InitContext initContext)
+			: base(initContext)
 		{
-			await Start(typeof(RebuildLinkDatabase).Name);
+		}
+
+		public async Task Run()
+		{
+			if (this.IsCompleted())
+			{
+				Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
+				return;
+			}
+
+			await Start(nameof(RebuildLinkDatabase));
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			Log.LogInformation($"RebuildLinkDatabase() started {hostCM}");
 
