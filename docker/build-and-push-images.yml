@@ -30,7 +30,6 @@ stages:
   displayName: "Build Solution Image"
   jobs:
   - job: Build_Solution
-    timeoutInMinutes: 240
     workspace:
       clean: all
     steps:
@@ -114,7 +113,6 @@ stages:
           poolName: 'docker-ltsc2019-agents'
           osVersion: 'ltsc2019'
     displayName: 'Build Windows Docker Images'
-    timeoutInMinutes: 240
     pool:
       name: $(poolName)
     steps:
@@ -210,7 +208,6 @@ stages:
   
   jobs:
   - job: Build_Linux_Images
-    timeoutInMinutes: 240
     displayName: "Build Linux Images"
     pool:
       name: docker-linux-agents
