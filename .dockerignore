@@ -7,9 +7,10 @@ obj/**/*
 **/node_modules/*
 **/node_modules
 /**/[Dd]ockerfile*
+.env
 .editorconfig
 
-CleanDockerData.ps1
+
 docker-compose*
 LICENSE
 *.DotSettings
@@ -19,6 +20,12 @@ Gitversion.yml
 Sitecore.Demo.Platform.sln.DotSettings
 build-cruise.yml
 release-notes-template.hb
+
+CleanDockerData.ps1
+build-images.ps1
+pull-build-images.ps1
+init.ps1
+init-ci.ps1
 
 /build
 /data

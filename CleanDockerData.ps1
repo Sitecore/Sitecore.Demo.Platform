@@ -5,7 +5,9 @@ Param(
         ".\data\sql",
         ".\data\solr",
         ".\data\cm\src",
+        ".\data\cm\backup",
         ".\data\cd\src",
+        ".\data\cd\backup",
         ".\data\xconnect\src"
     )
 )

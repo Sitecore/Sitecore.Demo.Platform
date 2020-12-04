@@ -66,5 +66,6 @@ if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
 Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
 Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
 Set-DockerComposeEnvFileVariable "BASE_MODULE_VERSION" -Value $BaseModuleVersion
+Set-DockerComposeEnvFileVariable "SMTP_CONTAINERS_COUNT" -Value 0
 
 Write-Host "Done!" -ForegroundColor Green

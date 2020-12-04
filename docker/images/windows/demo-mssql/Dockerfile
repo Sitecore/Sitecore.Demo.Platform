@@ -8,7 +8,7 @@ FROM $BASE_IMAGE as data
 
 COPY --from=solution /solution/db /output/
 
-COPY docker/images/windows/demo-mssql/data/ /output
+COPY ./data/ /output
 
 RUN C:\DeployDatabases.ps1 -ResourcesDirectory "/output/security"
 RUN C:\DeployDatabases.ps1 -ResourcesDirectory "/output/data"
@@ -26,8 +26,8 @@ ENV EXM_BASE_URL=http://cd
 ENV SQL_SERVER="mssql"
 ENV START_OVERRIDE_SCRIPTS="start-override-platform-windows.ps1"
 
-COPY /docker/images/windows/demo-mssql/sql /sql
+COPY ./sql /sql
 
-COPY /docker/images/windows/demo-mssql/HashPassword.ps1 /docker/images/windows/demo-mssql/start-override.ps1 /docker/images/windows/demo-mssql/start-override-platform-windows.ps1 /
+COPY ./HashPassword.ps1 ./start-override.ps1 ./start-override-platform-windows.ps1 /
 
-CMD .\start-override -sa_password $env:sa_password -ACCEPT_EULA $env:ACCEPT_EULA -attach_dbs \"$env:attach_dbs\" -Verbose
+CMD ./start-override -sa_password $env:sa_password -ACCEPT_EULA $env:ACCEPT_EULA -attach_dbs \"$env:attach_dbs\" -Verbose

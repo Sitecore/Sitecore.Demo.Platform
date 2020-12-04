@@ -1,6 +1,6 @@
 Write-Host "Pulling base images..." -ForegroundColor Green
 
-$configuration = docker-compose config
+$configuration = docker-compose -f docker-compose.yml -f docker-compose.build.yml -f docker-compose.build.solution.yml config
 $images = @()
 
 # Find images to pull in the docker-compose configuration

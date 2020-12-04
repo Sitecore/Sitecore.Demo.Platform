@@ -6,7 +6,7 @@ FROM $ASSETS_IMAGE as assets
 FROM $BASE_IMAGE as production
 
 COPY --from=assets ["C:\\tools\\", "C:\\tools\\"]
-COPY docker/images/windows/demo-id/ /Identity/
+COPY ./ /Identity/
 
 #perform transform
 RUN (Get-Item -Path 'C:\\Identity\\transforms\\identityserver.xml.xdt' ) | `

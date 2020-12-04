@@ -1,0 +1,15 @@
+version: "2.4"
+
+services:
+  solution:
+    image: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+    isolation: ${ISOLATION}
+    build:
+      context: .
+      target: solution
+      dockerfile: .\docker\images\windows\demo-solution\Dockerfile
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}
+        INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
+        SYSTEM_ACCESSTOKEN: ${SYSTEM_ACCESSTOKEN}
