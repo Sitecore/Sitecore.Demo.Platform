@@ -25,6 +25,7 @@ namespace Sitecore.Demo.Init.Jobs
 			if (this.IsCompleted())
 			{
 				Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
+				await Stop(nameof(PublishItems));
 				return;
 			}
 
@@ -32,7 +33,6 @@ namespace Sitecore.Demo.Init.Jobs
 			await waitForPublishingServiceToStart.Run();
 
 			var hostPS = Environment.GetEnvironmentVariable("HOST_PS");
-
 			Log.LogInformation($"PublishItems() started on {hostPS}");
 			using var client = new HttpClient { BaseAddress = new Uri(hostPS) };
 			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
