@@ -51,11 +51,11 @@ namespace Sitecore.Demo.Init.Jobs
 			switch (htmlJobName)
 			{
 				case string a when a.Contains("ExperienceGenerator"):
-					return typeof(ExperienceGenerator).Name;
+					return nameof(ExperienceGenerator);
 				case string b when b.Contains("Index_Update"):
-					return typeof(IndexRebuild).Name;
+					return nameof(IndexRebuild);
 				case string c when c.Contains("Deploy all definitions"):
-					return typeof(DeployMarketingDefinitions).Name;
+					return nameof(DeployMarketingDefinitions);
 				default:
 					return htmlJobName;
 			}

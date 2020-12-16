@@ -2,70 +2,12 @@ version: "2.4"
 
 services:
 
-  solution:
-    image: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
-    isolation: ${ISOLATION}
-    build:
-      context: .
-      target: solution
-      dockerfile: .\docker\images\windows\demo-solution\Dockerfile
-      args:
-        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
-        BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}
-        INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
-        SYSTEM_ACCESSTOKEN: ${SYSTEM_ACCESSTOKEN}
-    scale: 0
-
   traefik:
-    healthcheck:
-      test: ["CMD", "powershell", "ps"]
     volumes:
       - ./data/traefik:C:/etc/traefik
     depends_on:
-      - cd
-    networks:
-      - demo
-
-  id:
-    image: ${REGISTRY}demo/lighthouse-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    build:
-      context: .
-      dockerfile: .\docker\images\windows\demo-id\dockerfile
-      args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
-    healthcheck:
-      test: ["CMD", "powershell", "ps"]
-    volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-    environment:
-      SITECORE_LICENSE_LOCATION: c:\license\license.xml
-    networks:
-      - demo
-
-  xdbsearchworker:
-    image: ${REGISTRY}demo/lighthouse-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\worker\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\service'; }"
-    build:
-      context: .
-      dockerfile: .\docker\images\windows\demo-xdbsearchworker\dockerfile
-      args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
-    volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-      - .\data\indexworker\src:C:\src
-    environment:
-      SITECORE_LICENSE_LOCATION: c:\license\
-    networks:
-      - demo
-
-  xdbautomationworker:
-    volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-    environment:
-      SITECORE_LICENSE_LOCATION: c:\license\
+      cd:
+        condition: service_healthy
     networks:
       - demo
 
@@ -73,12 +15,6 @@ services:
     healthcheck:
       test: ["CMD", "powershell", "ps"]
     image: ${REGISTRY}demo/lighthouse-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    build:
-      context: .
-      dockerfile: .\docker\images\windows\demo-mssql\dockerfile
-      args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
     environment:
       USER_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
       ADMIN_USER_NAME: "sitecore\\superuser"
@@ -90,8 +26,6 @@ services:
       - type: bind
         source: .\data\sql
         target: c:\data
-    depends_on:
-      - solution
     networks:
       - demo
 
@@ -99,11 +33,6 @@ services:
     healthcheck:
       test: ["CMD", "powershell", "ps"]
     image: ${REGISTRY}demo/lighthouse-solr:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    build:
-      context: .
-      dockerfile: .\docker\images\windows\demo-solr\dockerfile
-      args:
-        BASE_IMAGE: ${REGISTRY}community/sitecore-xp0-custom-sxa-solr:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
     mem_limit: 1GB
     volumes:
       - type: bind
@@ -112,42 +41,18 @@ services:
     networks:
       - demo
 
-  ps:
-    healthcheck:
-      test: ["CMD", "powershell", "ps"]
-    image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    isolation: ${ISOLATION}
-    build:
-      context: .
-      dockerfile: .\docker\images\windows\demo-ps\dockerfile
-      args:
-        BASE_IMAGE: ${REGISTRY}community/sitecore-custom-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-    restart: unless-stopped
+  id:
+    image: ${REGISTRY}demo/lighthouse-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
-      CONN_STRING_CORE: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
-      CONN_STRING_MASTER: Data Source=mssql;Initial Catalog=Sitecore.Master;User ID=sa;Password=${SQL_SA_PASSWORD}
-      CONN_STRING_WEB: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
-    depends_on:
-      - mssql
-    ports:
-      - "44015:80"
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
     networks:
       - demo
 
   cm:
-    healthcheck:
-      test: ["CMD", "powershell", "ps"]
     image: ${REGISTRY}demo/lighthouse-xp0-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('C:\\src\\Web.config'); }"
-    build:
-      context: .
-      dockerfile: .\docker\images\windows\demo-standalone\dockerfile
-      args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
-        HOTFIX_IMAGE: ${REGISTRY}demo/base/lighthouse-hotfixes:${SITECORE_VERSION}-${NANOSERVER_VERSION}
-        OPENCALAIS_ACCESSTOKEN: ${OPENCALAIS_ACCESSTOKEN}
     mem_limit: 4G
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
@@ -168,25 +73,77 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\items:c:\items
       - .\data\cm\src:C:\src
+      - .\data\cm\backup:c:\backup
     depends_on:
-      - ps
-      - solution
+      ps:
+        condition: service_healthy
+      id:
+        condition: service_healthy
+      xconnect:
+        condition: service_healthy
     networks:
       demo:
         aliases:
           - "${CM_HOST}"
 
+  xconnect:
+    image: ${REGISTRY}demo/lighthouse-xp0-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    # TODO: Do we need a specific xConnect entrypoint like in 9.3?
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('Web.config'); }"
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+      - .\data\xconnect\src:C:\src
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\
+    depends_on:
+      mssql:
+        condition: service_healthy
+      solr:
+        condition: service_healthy
+    networks:
+      - demo
+
+  xdbsearchworker:
+    image: ${REGISTRY}demo/lighthouse-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\worker\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\service'; }"
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+      - .\data\indexworker\src:C:\src
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\
+    networks:
+      - demo
+
+  xdbautomationworker:
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\
+    networks:
+      - demo
+
+  ps:
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    isolation: ${ISOLATION}
+    restart: unless-stopped
+    environment:
+      CONN_STRING_CORE: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
+      CONN_STRING_MASTER: Data Source=mssql;Initial Catalog=Sitecore.Master;User ID=sa;Password=${SQL_SA_PASSWORD}
+      CONN_STRING_WEB: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
+    depends_on:
+      mssql:
+        condition: service_healthy
+    ports:
+      - "44015:80"
+    networks:
+      - demo
+
   cd:
     isolation: ${ISOLATION}
     image: ${REGISTRY}demo/lighthouse-xp0-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('Web.config'); }"
-    build:
-      context: .
-      dockerfile: .\docker\images\windows\demo-cd\dockerfile
-      args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp1-modules-base-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
     scale: ${CD_CONTAINERS_COUNT}
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
@@ -211,12 +168,16 @@ services:
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\data\cd\src:C:\src
+      - .\data\cd\backup:c:\backup
     depends_on:
-      - mssql
-      - ps
-      - solr
-      - xconnect
-      - solution
+      mssql:
+        condition: service_healthy
+      ps:
+        condition: service_healthy
+      solr:
+        condition: service_healthy
+      xconnect:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "powershell", "ps"]
     labels:
@@ -232,24 +193,7 @@ services:
         aliases:
           - "${CD_HOST}"
 
-  xconnect:
-    image: ${REGISTRY}demo/lighthouse-xp0-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    # TODO: Do we need a specific xConnect entrypoint like in 9.3?
-    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('Web.config'); }"
-    volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-      - .\data\xconnect\src:C:\src
-    environment:
-      SITECORE_LICENSE_LOCATION: c:\license\
-    build:
-      context: .
-      dockerfile: .\docker\images\windows\demo-xconnect\dockerfile
-      args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.0.0-${NANOSERVER_VERSION}
-    networks:
-      - demo
+
 
   smtp:
     image: maildev/maildev
@@ -260,17 +204,13 @@ services:
       - "44026:80"
     networks:
       - demo
+    scale: ${SMTP_CONTAINERS_COUNT}
 
   init:
     healthcheck:
       test: ["CMD", "powershell", "ps"]
     image: ${REGISTRY}demo/lighthouse-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     isolation: ${ISOLATION}
-    build:
-      context: .\docker\images\windows\demo-init
-      args:
-        BUILD_IMAGE: mcr.microsoft.com/dotnet/core/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
-        BASE_IMAGE: mcr.microsoft.com/dotnet/core/runtime:3.1-nanoserver-${NANOSERVER_VERSION}
     environment:
       ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
       ADMIN_USER_NAME: "superuser"
@@ -281,10 +221,14 @@ services:
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
       SKIP_WARMUP_CD: ${SKIP_WARMUP_CD}
       DAM_URL: ${DAM_URL}
+      INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
     depends_on:
-      - mssql
-      - ps
-      - cm
+      mssql:
+        condition: service_healthy
+      ps:
+        condition: service_healthy
+      cm:
+        condition: service_healthy
     networks:
       - demo
 

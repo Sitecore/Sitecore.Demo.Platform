@@ -1,16 +1,26 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	using Microsoft.Extensions.Logging;
-
 	class IndexRebuild : TaskBase
 	{
-		public static async Task Run()
+		public IndexRebuild(InitContext initContext)
+			: base(initContext)
 		{
-			await Start(typeof(IndexRebuild).Name);
+		}
+
+		public async Task Run()
+		{
+			if (this.IsCompleted())
+			{
+				Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
+				return;
+			}
+
+			await Start(nameof(IndexRebuild));
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 

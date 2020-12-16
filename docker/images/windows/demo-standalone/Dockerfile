@@ -15,7 +15,7 @@ COPY --from=assets ["/tools/", "/tools/"]
 COPY --from=solution /solution/cm/ /inetpub/wwwroot/
 COPY --from=hotfixes /cm/ /inetpub/wwwroot/
 
-COPY docker/images/windows/demo-standalone/Data/transforms/ /inetpub/wwwroot/transforms/
+COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
 
 RUN (Get-Content /inetpub/wwwroot/App_Config/Include/Feature/Sitecore.Demo.Platform.Feature.ContentTagging.config).replace('{calaisAccessToken}', $env:OPENCALAIS_ACCESSTOKEN) | Set-Content /inetpub/wwwroot/App_Config/Include/Feature/Sitecore.Demo.Platform.Feature.ContentTagging.config -Verbose
 
@@ -39,3 +39,7 @@ RUN icacls 'C:\inetpub\wwwroot' /grant 'IIS_IUSRS:(F)' /t
 
 COPY --from=assets ["/tools/", "/tools/"]
 COPY --from=build /inetpub/wwwroot /inetpub/wwwroot
+
+COPY ./tools/ /tools/
+
+ENTRYPOINT [ "powershell.exe", "C:\\tools\\entrypoints\\aks\\boot.ps1" ]

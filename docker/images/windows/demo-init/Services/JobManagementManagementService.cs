@@ -8,19 +8,21 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Sitecore.Demo.Init.Jobs;
 using Sitecore.Demo.Init.Model;
+using Sitecore.Demo.Init.Extensions;
 
 namespace Sitecore.Demo.Init.Services
 {
-	using Sitecore.Demo.Init.Extensions;
 
 	public sealed class JobManagementManagementService : BackgroundService, IJobManagementService
 	{
 		private readonly ILogger<JobManagementManagementService> logger;
+		private readonly InitContext initContext;
 
-		public JobManagementManagementService(ILogger<JobManagementManagementService> logger, ILoggerFactory logFactory)
+		public JobManagementManagementService(ILoggerFactory logFactory, ILogger<JobManagementManagementService> logger, InitContext initContext)
 		{
-			this.logger = logger;
 			ApplicationLogging.LoggerFactory = logFactory;
+			this.logger = logger;
+			this.initContext = initContext;
 		}
 
 		protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -30,20 +32,22 @@ namespace Sitecore.Demo.Init.Services
 				var startTime = DateTime.UtcNow;
 				logger.LogInformation($"{DateTime.UtcNow} Init started.");
 
-				await PublishItems.Run();
-				await WaitForSitecoreToStart.Run();
-				await Task.WhenAll(UpdateFieldValues.Run(), DeployMarketingDefinitions.Run(), RebuildLinkDatabase.Run());
-				await Task.WhenAll(WarmupCM.Run(), WarmupCD.Run());
-				await Task.WhenAll(IndexRebuild.Run(), ExperienceGenerator.Run());
+				await new WaitForContextDatabase(initContext).Run();
+				await new PublishItems(initContext).Run();
+				await new WaitForSitecoreToStart(initContext).Run();
+				await Task.WhenAll(new UpdateFieldValues(initContext).Run(), new DeployMarketingDefinitions(initContext).Run(), new RebuildLinkDatabase(initContext).Run());
+				await Task.WhenAll(new WarmupCM(initContext).Run(), new WarmupCD(initContext).Run());
+				await Task.WhenAll(new IndexRebuild(initContext).Run(), new ExperienceGenerator(initContext).Run());
 
 				logger.LogInformation($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below.");
 				logger.LogInformation($"Elapsed time: {(DateTime.UtcNow - startTime):c}");
 
 				var asyncJobList = new List<string>
 				                   {
-					                   typeof(DeployMarketingDefinitions).Name,
-					                   typeof(IndexRebuild).Name,
-					                   typeof(ExperienceGenerator).Name
+					                   nameof(DeployMarketingDefinitions),
+					                   nameof(RebuildLinkDatabase),
+					                   nameof(IndexRebuild),
+					                   nameof(ExperienceGenerator)
 				                   };
 
 				while (true)
@@ -52,12 +56,10 @@ namespace Sitecore.Demo.Init.Services
 					List<SitecoreJobStatus> runningJobs = await CheckAsyncJobsStatus();
 					if (runningJobs != null)
 					{
-						var completedJobs = asyncJobList.Where(s => !runningJobs.Any(p => p.Title == s)).ToList();
+						var completedJobs = asyncJobList.Where(s => runningJobs.All(p => p.Title != s)).ToList();
 						foreach (var completedJob in completedJobs)
 						{
-							logger.LogInformation("Writing job complete file to disk");
-
-							await File.WriteAllTextAsync(Path.Combine(statusDirectory, $"{completedJob}.Ready"), "Ready", stoppingToken);
+							await LogCompletedJob(completedJob, statusDirectory);
 							asyncJobList.Remove(completedJob);
 						}
 					}
@@ -67,7 +69,7 @@ namespace Sitecore.Demo.Init.Services
 					{
 						foreach (var job in asyncJobList)
 						{
-							await File.WriteAllTextAsync(Path.Combine(statusDirectory, $"{job}.Ready"), "Ready", stoppingToken);
+							await LogCompletedJob(job, statusDirectory);
 						}
 
 						return;
@@ -84,6 +86,14 @@ namespace Sitecore.Demo.Init.Services
 			{
 				logger.LogError(ex, "An error has occurred when running JobManagementManagementService");
 			}
+		}
+
+		private async Task LogCompletedJob(string completedJob, string statusDirectory)
+		{
+			logger.LogInformation($"Writing job complete file to disk - {completedJob}");
+			initContext.CompletedJobs.Add(new CompletedJob(completedJob));
+			await initContext.SaveChangesAsync();
+			await File.WriteAllTextAsync(Path.Combine(statusDirectory, $"{completedJob}.Ready"), "Ready");
 		}
 
 		private async Task<List<SitecoreJobStatus>> CheckAsyncJobsStatus()

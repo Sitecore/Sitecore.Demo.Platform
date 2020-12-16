@@ -2,16 +2,21 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	using Microsoft.Extensions.Logging;
 
 	class WaitForPublishingServiceToStart : TaskBase
 	{
-		public static async Task Run()
+		public WaitForPublishingServiceToStart(InitContext initContext)
+			: base(initContext)
 		{
-			await Start(typeof(WaitForPublishingServiceToStart).Name);
+		}
+
+		public async Task Run()
+		{
+			await Start(nameof(WaitForPublishingServiceToStart));
 
 			var hostPS = Environment.GetEnvironmentVariable("HOST_PS");
 
@@ -41,9 +46,10 @@ namespace Sitecore.Demo.Init.Jobs
 				await Task.Delay(5000);
 			}
 
-			await Stop(typeof(WaitForPublishingServiceToStart).Name);
+			await Stop(nameof(WaitForPublishingServiceToStart));
 
 			Log.LogInformation("WaitForPublishingServiceToStart() complete");
 		}
+
 	}
 }

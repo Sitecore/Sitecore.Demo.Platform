@@ -5,6 +5,8 @@ using Sitecore.Demo.Init.Services;
 
 namespace Sitecore.Demo.Init
 {
+	using Microsoft.EntityFrameworkCore;
+
 	public class Startup
 	{
 		public IConfiguration Configuration { get; }
@@ -19,7 +21,12 @@ namespace Sitecore.Demo.Init
 			services.AddLogging(loggingBuilder => {
 				loggingBuilder.AddFile("app.log", false);
 				loggingBuilder.AddConsole();
+				loggingBuilder.AddFilter("Microsoft.EntityFrameworkCore.Database.Command", LogLevel.Warning);
 			});
+			
+			string connectionString = Configuration["INIT_CONTEXT"];
+			services.AddDbContext<InitContext>(options =>
+				options.UseSqlServer(connectionString));
 
 			services.AddHostedService<JobManagementManagementService>();
 		}

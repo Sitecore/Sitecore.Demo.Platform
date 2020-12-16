@@ -1,20 +1,39 @@
 # Using Lighthouse Demo
 
-## Clone this repository
+## Table of Contents
+
+- **[Prerequisites](#prerequisites)**
+- **[Preparing Docker](#preparing-docker)**
+- **[Preparing Your Environment](#preparing-your-environment)**
+- **[Running the Demo](#running-the-demo)**
+  - [Pulling the Docker Images](#pulling-the-docker-images)
+  - [Starting the Demo Containers](#starting-the-demo-containers)
+  - [Validating the Deployment](#validating-deployment)
+  - [Stopping the Demo](#stopping-the-demo)
+  - [Starting Over](#starting-over)
+- **[Building the Demo](#building-the-demo)**
+- **[Development Lifecycle](#development-lifecycle)**
+- **[Troubleshooting](#troubleshooting)**
+
+## Clone this Repository
 
 Clone the Sitecore.Demo.Platform repository locally - defaults are configured for **`C:\Projects\Sitecore.Demo.Platform`**.
 
-* **https**: `git clone https://github.com/Sitecore/Sitecore.Demo.Platform.git`
-* **ssh**: `git clone git@github.com:Sitecore/Sitecore.Demo.Platform.git`
+- **https**: `git clone https://github.com/Sitecore/Sitecore.Demo.Platform.git`
+- **ssh**: `git clone git@github.com:Sitecore/Sitecore.Demo.Platform.git`
 
 ## Prerequisites
 
-* Windows 1809 or higher. Version 1909 is preferred.
-* At least 16 Gb of memory. 32 Gb or more is preferred.
-* A valid Sitecore 10 license file located at `C:\license\license.xml`
-* The latest [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows/).
+[top](#table-of-contents)
+
+- Windows 1809 or higher. Version 1909 is preferred.
+- At least 16 Gb of memory. 32 Gb or more is preferred.
+- A valid Sitecore 10 license file located at `C:\license\license.xml`
+- The latest [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows/).
 
 ## Preparing Docker
+
+[top](#table-of-contents)
 
 1. Ensure you are running Windows containers:
    1. From the Docker Desktop taskbar icon contextual menu (right click), you can toggle which daemon (Linux or Windows) the Docker CLI talks to. Select "Switch to Windows containers..." to use Windows containers.
@@ -35,52 +54,60 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
    6. Optionally, you may want to also set DNS servers in the Docker engine configuration. See the [Issue downloading nodejs](#Issue%20downloading%20nodejs) known issue for details and inscruptions.
    7. Click the "Apply & Restart" button to restart your Windows Docker engine.
 
-## Preparing your environment
+## Preparing Your Environment
+
+[top](#table-of-contents)
 
 1. Open an elevated (as administrator) PowerShell session.
 2. Navigate to your repository clone folder:
-   * `cd C:\Projects\Sitecore.Demo.Platform`
+   - `cd C:\Projects\Sitecore.Demo.Platform`
 3. Create certificates and initialize the environment file:
-   * `.\init.ps1 -InitEnv -LicenseXmlPath C:\license\license.xml -AdminPassword b`
-   * You can change the admin password and the license.xml file path to match your needs.
+   - `.\init.ps1 -InitEnv -LicenseXmlPath C:\license\license.xml -AdminPassword b`
+   - You can change the admin password and the license.xml file path to match your needs.
 
-## Running the demo
+## Running the Demo
 
-### Pulling the Docker images
+### Pulling the Docker Images
+
+[top](#table-of-contents)
 
 1. Open an elevated (as administrator) PowerShell session.
 2. Navigate to your repository clone folder:
-   * `cd C:\Projects\Sitecore.Demo.Platform`
+   - `cd C:\Projects\Sitecore.Demo.Platform`
 3. Pull the latest demo Docker images:
-   * `docker-compose pull`
+   - `docker-compose pull`
 
-### Starting the demo containers
+### Starting the Demo Containers
+
+[top](#table-of-contents)
 
 1. Open an elevated (as administrator) PowerShell session.
 2. Navigate to your repository clone folder:
-   * `cd C:\Projects\Sitecore.Demo.Platform`
-3. Stop the IIS service:
-   * `iisreset /stop`
-   * This is required each time you want to use the demo as the Traefik container is using the same port (443) as IIS.
+   - `cd C:\Projects\Sitecore.Demo.Platform`
+3. Stop the IIS service: (_if applicable_)
+   - `iisreset /stop`
+   - This is required each time you want to use the demo as the Traefik container uses port (443), which is used by IIS.
 4. Start the demo containers:
-   * `docker-compose up -d`
-   * This will pull all of the necessary images to spin up your Sitecore environment. It will take quite some time if this is the first time you execute it.
-   * After pulling the images, the Sitecore instance will be up and available within minutes, but not fully working until the init container jobs are completed. The init container runs scripts that:
-     * Publish the master database to the web database using Sitecore Publishing Service.
-     * Warmup CM and CD pages for a fast first load.
-     * Deploy Sitecore marketing definitions.
-     * Rebuild Sitecore and SXA indices.
-     * Generate analytics data using Sitecore Experience Generator.
-   * Loading the Sitecore instance before the completion of the init container may cause:
-     * Marketing Automation plans may not work as Sitecore marketing definitions are not deployed.
-     * Some Content Editor features and other admin pages relying on search indices may not work.
-     * The search page and search based components may not work on the CD.
+   - `docker-compose up -d`
+   - This will pull all of the necessary images to spin up your Sitecore environment. It will take quite some time if this is the first time you execute it.
+   - After pulling the images, the Sitecore instance will be up and available within minutes, but not fully working until the init container jobs are completed. The init container runs scripts that:
+     - Publish the master database to the web database using Sitecore Publishing Service.
+     - Warmup CM and CD pages for a fast first load.
+     - Deploy Sitecore marketing definitions.
+     - Rebuild Sitecore and SXA indices.
+     - Generate analytics data using Sitecore Experience Generator.
+   - Loading the Sitecore instance before the completion of the init container may cause:
+     - Marketing Automation plans may not work as Sitecore marketing definitions are not deployed.
+     - Some Content Editor features and other admin pages relying on search indices may not work.
+     - The search page and search based components may not work on the CD.
 5. Check the progress of the initialization by viewing the init container's logs:
-   * `docker-compose logs -f init`
+   - `docker-compose logs -f init`
 6. Wait about 30 minutes until the init container logs can read `No jobs are running. Monitoring stopped.`.
-   * The init container has a known issue where it may stop itself before the jobs are all done. If you notice the init container has stopped before logging the `No jobs are running. Monitoring stopped.` message, restart the init container by running `docker-compose up -d` and continue monitoring its logs.
+   - The init container has a known issue where it may stop itself before the jobs are all done. If you notice the init container has stopped before logging the `No jobs are running. Monitoring stopped.` message, restart the init container by running `docker-compose up -d` and continue monitoring its logs.
 
-### Validating deployment
+### Validating the Deployment
+
+[top](#table-of-contents)
 
 1. Browse to [https://cd.lighthouse.localhost](https://cd.lighthouse.localhost)
    1. You should see the Lighthouse landing page with a full-width carousel.
@@ -90,7 +117,9 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 3. Browse to [http://127.0.0.1:44026/](http://127.0.0.1:44026/)
    1. You should see the SMTP container catch-all mailbox for all emails sent by EXM.
 
-### Stopping the demo
+### Stopping the Demo
+
+[top](#table-of-contents)
 
 If you want to stop the demo without losing your changes:
 
@@ -98,7 +127,9 @@ If you want to stop the demo without losing your changes:
 
 At this point you can start the demo again with `docker-compose start` to continue your work where you left off.
 
-### Starting over
+### Starting Over
+
+[top](#table-of-contents)
 
 If you want to reset all of your changes and get a fresh intsance:
 
@@ -106,31 +137,37 @@ If you want to reset all of your changes and get a fresh intsance:
 2. Run `.\CleanDockerData.ps1`
 3. Start again with `docker-compose up -d` to have a fresh installation of Sitecore with no files/items deployed!
 
-## Building the demo
+## Building the Demo
+
+[top](#table-of-contents)
 
 1. Open an elevated (as administrator) PowerShell session.
 2. Navigate to your repository clone folder:
-   * `cd C:\Projects\Sitecore.Demo.Platform`
+   - `cd C:\Projects\Sitecore.Demo.Platform`
 3. Build your Docker images:
-   * `.\build-images.ps1 -Memory 8G`
-   * This command will:
-     * Pull all the base images required by the dockerfiles.
-       * You can use the `-SkipPull` switch to skip this step.
-     * Build the demo images using the memory limit passed in the `-Memory` argument.
-       * Adjust the number based on your available free memory.
-       * The format is a number followed by the letter `G` for Gb. Same as the `--memory` argument of the `docker-compose build` command.
-       * The `-Memory` argument is optional.
+   - `.\build-images.ps1 -Memory 8G`
+   - This command will:
+     - Pull all the base images required by the dockerfiles.
+       - You can use the `-SkipPull` switch to skip this step.
+     - Build the demo images using the memory limit passed in the `-Memory` argument.
+       - Adjust the number based on your available free memory.
+       - The format is a number followed by the letter `G` for Gb. Same as the `--memory` argument of the `docker-compose build` command.
+       - The `-Memory` argument is optional.
 
-## Development cycle
+## Development Lifecycle
+
+[top](#table-of-contents)
 
 After changes to the code:
 
 1. Open an elevated (as administrator) PowerShell session.
 2. Navigate to your repository clone folder:
-   * `cd C:\Projects\Sitecore.Demo.Platform`
+   - `cd C:\Projects\Sitecore.Demo.Platform`
 3. `.\build.ps1 -DeploymentTarget Docker`
 
-## Troubleshooting deployment
+## Troubleshooting
+
+[top](#table-of-contents)
 
 ### unauthorized: authentication required
 
@@ -187,7 +224,7 @@ Ensure the Windows Docker engine has DNS servers configured:
 3. In the JSON block, locate the `"dns"` key.
    1. If you do not have a `"dns"` key, add it after the existing ones. Ensure you add a comma (`,`) after the previous key/value pair.
 4. Ensure the value of the `"dns"` key is set to at least `["8.8.8.8"]`.
-   * You can also add your ISP DNS server as instructed by the blog post.
+   - You can also add your ISP DNS server as instructed by the blog post.
 5. At the end, the JSON block should have at least:
 
    ```json

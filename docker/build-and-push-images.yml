@@ -30,7 +30,6 @@ stages:
   displayName: "Build Solution Image"
   jobs:
   - job: Build_Solution
-    timeoutInMinutes: 240
     workspace:
       clean: all
     steps:
@@ -41,19 +40,13 @@ stages:
         installationPath: 'c:/program files/dotnet'
         performMultiLevelLookup: true
     - template: version.yml
-    - task: PowerShell@2
-      displayName: "Prepare custom docker-compose.override and .env files"
-      inputs:
-        targetType: 'inline'
-        script: |
-          (Get-Content docker-compose.override.yml)[0..16] | Set-Content docker-compose.override.solution.yml
     - task: DockerCompose@0
       displayName: "Build Solution Image"
       inputs:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: '$(azure.subscription)'
         azureContainerRegistry: '$(container.registry)'
-        dockerComposeFile: 'docker-compose.override.solution.yml'
+        dockerComposeFile: 'docker-compose.build.solution.yml'
         dockerComposeFileArgs: |
           ISOLATION=process
           DEMO_VERSION=$(tag)
@@ -74,7 +67,7 @@ stages:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: $(azure.subscription)
         azureContainerRegistry: $(container.registry)
-        dockerComposeFile: 'docker-compose.override.solution.yml'
+        dockerComposeFile: 'docker-compose.build.solution.yml'
         dockerComposeFileArgs: |
           DEMO_VERSION=$(tag)
           REGISTRY=$(REGISTRY)
@@ -114,7 +107,6 @@ stages:
           poolName: 'docker-ltsc2019-agents'
           osVersion: 'ltsc2019'
     displayName: 'Build Windows Docker Images'
-    timeoutInMinutes: 240
     pool:
       name: $(poolName)
     steps:
@@ -131,24 +123,13 @@ stages:
         script: |
           ./init-ci.ps1 -DemoTeamRegistry $(REGISTRY)
     - template: version.yml
-    - task: PowerShell@2
-      displayName: "Prepare custom docker-compose.override files"
-      inputs:
-        targetType: 'inline'
-        script: |
-          $override = Get-Content docker-compose.override.yml
-          (Get-Content docker-compose.override.yml)[0..16] | Set-Content docker-compose.override.solution.yml
-          (Get-Content docker-compose.override.yml)[0..3] | Add-Content docker-compose.override.nosolution.yml
-          (Get-Content docker-compose.override.yml)[17..$override.length] | Add-Content docker-compose.override.nosolution.yml
-          (Get-Content docker-compose.override.nosolution.yml -Raw) -replace '- solution','- smtp' | Set-Content docker-compose.override.nosolution.yml
-          (Get-Content docker-compose.override.nosolution.yml)
     - task: DockerCompose@0
       displayName: "Pull Solution Image"
       inputs:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: '$(azure.subscription)'
         azureContainerRegistry: '$(container.registry)'
-        dockerComposeFile: 'docker-compose.override.solution.yml'
+        dockerComposeFile: 'docker-compose.build.solution.yml'
         dockerComposeFileArgs: |
           DEMO_VERSION=$(tag).$(Build.BuildId)
           REGISTRY=$(REGISTRY)
@@ -167,7 +148,7 @@ stages:
         azureSubscription: '$(azure.subscription)'
         azureContainerRegistry: '$(container.registry)'
         dockerComposeFile: 'docker-compose.yml'
-        additionalDockerComposeFiles: 'docker-compose.override.nosolution.yml'
+        additionalDockerComposeFiles: 'docker-compose.build.yml'
         dockerComposeFileArgs: |
           DEMO_VERSION=$(tag)
           REGISTRY=$(REGISTRY)
@@ -190,7 +171,7 @@ stages:
         azureSubscription: $(azure.subscription)
         azureContainerRegistry: $(container.registry)
         dockerComposeFile: 'docker-compose.yml'
-        additionalDockerComposeFiles: 'docker-compose.override.nosolution.yml'
+        additionalDockerComposeFiles: 'docker-compose.build.yml'
         dockerComposeFileArgs: |
           REGISTRY=$(REGISTRY)
           DEMO_VERSION=$(tag)
@@ -207,10 +188,9 @@ stages:
 - stage: Docker_Linux
   dependsOn: Build_Solution
   displayName: 'Build Linux Images'
-  
+
   jobs:
   - job: Build_Linux_Images
-    timeoutInMinutes: 240
     displayName: "Build Linux Images"
     pool:
       name: docker-linux-agents
@@ -374,7 +354,7 @@ stages:
   condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Update_Production_Database
-      displayName: 'Update Dev Database'
+      displayName: 'Update Production Database'
       steps:
       - template: version.yml
       - task: PowerShell@2

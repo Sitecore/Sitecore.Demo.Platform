@@ -4,12 +4,16 @@
 	using System.Net;
 	using System.Net.Http;
 	using System.Threading.Tasks;
-
 	using Microsoft.Extensions.Logging;
 
 	public class WarmupBase: TaskBase
 	{
-		protected static async Task LoadUrl(string baseUrl, string path, WebClient client)
+		public WarmupBase(InitContext initContext)
+			: base(initContext)
+		{
+		}
+
+		protected async Task LoadUrl(string baseUrl, string path, WebClient client)
 		{
 			for (int i = 0; i < 10; i++)
 			{
@@ -29,7 +33,7 @@
 			}
 		}
 
-		protected static async Task LoadUrl(string baseUrl, string path, HttpClient client)
+		protected async Task LoadUrl(string baseUrl, string path, HttpClient client)
 		{
 			try
 			{

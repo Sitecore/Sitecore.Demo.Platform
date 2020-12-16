@@ -2,26 +2,30 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	using Microsoft.Extensions.Logging;
-
 	class WaitForSitecoreToStart : TaskBase
 	{
-		public static async Task Run()
+		public WaitForSitecoreToStart(InitContext initContext)
+			: base(initContext)
+		{
+		}
+
+		public async Task Run()
 		{
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			await WaitForTheInstanceToStart(hostCM, "/sitecore");
 		}
 
-		public static async Task RunCD()
+		public async Task RunCD()
 		{
 			var hostCD = Environment.GetEnvironmentVariable("HOST_CD");
 			await WaitForTheInstanceToStart(hostCD, string.Empty);
 		}
 
-		private static async Task WaitForTheInstanceToStart(string baseAddress, string path)
+		private async Task WaitForTheInstanceToStart(string baseAddress, string path)
 		{
 			Log.LogInformation($"WaitForSitecoreToStart() started {baseAddress}");
 			using var client = new HttpClient { BaseAddress = new Uri(baseAddress) };
