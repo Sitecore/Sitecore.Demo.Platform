@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Web.Mvc;
 using Sitecore.Analytics;
 using Sitecore.Demo.Platform.Feature.Demo.Models;
@@ -20,6 +21,7 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Controllers
     {
         private IDemoStateService DemoStateService { get; }
         private IExperienceDataFactory ExperienceDataFactory { get; }
+        private const string AnalyticsGlobalCookieName = "SC_ANALYTICS_GLOBAL_COOKIE";
 
         public DemoController(IDemoStateService demoStateService)
         {
@@ -72,6 +74,25 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Controllers
 
         public ActionResult EndVisit()
         {
+            this.Session.Abandon();
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+        public ActionResult NewContact()
+        {
+            foreach (string key in Request.Cookies.AllKeys)
+            {
+                var cookie = Request.Cookies[key];
+                cookie.Expires = DateTime.Now.AddMonths(-1);
+                cookie.Value = string.Empty;
+                if ((key == AnalyticsGlobalCookieName) && !string.IsNullOrEmpty(Configuration.Settings.GetSetting("Analytics.CookieDomain")))
+                {
+                    cookie.Domain = $".{Configuration.Settings.GetSetting("Analytics.CookieDomain")}";
+                }
+
+                Response.AppendCookie(cookie);
+            }
+
             this.Session.Abandon();
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }

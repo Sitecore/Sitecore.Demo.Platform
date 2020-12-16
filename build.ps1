@@ -199,7 +199,7 @@ if(-Not $SkipToolPackageRestore.IsPresent) {
 # Automatically add additional NuGet source to local feed at build time. Requires environment variables.
 $accessToken = $env:SYSTEM_ACCESSTOKEN
 $internalFeed = $env:INTERNAL_NUGET_SOURCE
-if($accessToken -and $internalFeed)
+if($accessToken -and $internalFeed -and -not $PublicFeedsOnly)
 {
   & "$NUGET_EXE" sources add -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken -ConfigFile (Join-Path $PWD nuget.config) -StorePasswordInClearText | Out-Null
   & "$NUGET_EXE" sources update -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken -ConfigFile (Join-Path $PWD nuget.config) -StorePasswordInClearText
@@ -251,7 +251,6 @@ if ($DeploymentTarget) {$cakeArguments += "-deploymentTarget=$DeploymentTarget" 
 if ($Configuration) { $cakeArguments += "-configuration=$Configuration" }
 if ($Verbosity) { $cakeArguments += "-verbosity=$Verbosity" }
 if ($ShowDescription) { $cakeArguments += "-showdescription" }
-if ($PublicFeedsOnly) { $cakeArguments += "-publicfeedsonly" }
 if ($DryRun) { $cakeArguments += "-dryrun" }
 $cakeArguments += $ScriptArgs
 

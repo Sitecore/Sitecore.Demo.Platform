@@ -51,6 +51,10 @@
         line-height: 0.9;
         margin-bottom: $small-margin;
 
+        p {
+            font-size: unset;
+        }
+
         @include respond-to(all-mobile) {
             font-size: 3.5em;
         }

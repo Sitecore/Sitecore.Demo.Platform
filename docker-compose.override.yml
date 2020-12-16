@@ -47,6 +47,8 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup2: https://${SH_HOST}|http://${SH_HOST}
+
     networks:
       - demo
 
@@ -60,6 +62,7 @@ services:
       SITECORE_APPSETTINGS_ENV:DEFINE: Docker
       SITECORE_APPSETTINGS_UNICORN:DEFINE: Enabled
       SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: Enabled
+      SOLR_CORE_PREFIX_NAME: sitecore
       SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: None
       SITECORE_APPSETTINGS_CONTENTHUB:DEFINE: Enabled
       SITECORE_CONNECTIONSTRINGS_CMP.ContentHub: ${CMP_CONTENTHUB}
@@ -69,6 +72,7 @@ services:
       SITECORE_CONNECTIONSTRINGS_SFMC: ${SFMC_CONNECTIONSTRING}
       SITECORE_CONNECTIONSTRINGS_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
       EXM_RENDERER_URL: http://cm
+      Sitecore_Horizon_ClientHost: https://${SH_HOST}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\items:c:\items
@@ -115,6 +119,7 @@ services:
       - demo
 
   xdbautomationworker:
+    image: ${REGISTRY}demo/lighthouse-xp0-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}    
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
@@ -193,8 +198,6 @@ services:
         aliases:
           - "${CD_HOST}"
 
-
-
   smtp:
     image: maildev/maildev
     command: ["--smtp", "25", "--web", "80"]
@@ -232,6 +235,68 @@ services:
     networks:
       - demo
 
+  tenantservice:
+    image: ${REGISTRY}demo/base/lighthouse-xp0-modules-tenant-service:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+    entrypoint: [ "powershell.exe", "C:\\tools\\entrypoints\\iis\\development.ps1" ]
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      Sitecore_ConnectionStrings_Sitecore: database=master;tenant id={10000000-0000-0000-0000-000000000000};host=dataexchange;password=b;user name=sitecore\admin;timeout=20
+      Sitecore_ConnectionStrings_xconnect_collection: http://xconnect
+      Sitecore_ConnectionStrings_xconnect_collection_certificate: StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue=
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
+      - "traefik.http.routers.ts-secure.entrypoints=websecure"
+      - "traefik.http.routers.ts-secure.rule=Host(`${TS_HOST}`)"
+      - "traefik.http.routers.ts-secure.tls=true"
+      - "traefik.http.routers.ts-secure.middlewares=force-STS-Header"
+    networks:
+      demo:
+        aliases:
+          - ${TS_HOST}
+
+  authoringhost:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
+    image: ${REGISTRY}demo/lighthouse-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    isolation: ${ISOLATION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      Sitecore_FederatedUI__HostBaseUrl: http://authoringhost
+      Sitecore_ApiGateway__SitecoreHost: https://${CM_HOST}
+      Sitecore_Proxy__DataServiceEndpoint: https://${CM_HOST}
+      Sitecore_ApiGateway__InternalSitecoreHost: http://cm
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__RequireHttpsMetadata: 'false'
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__Authority: https://${ID_HOST}
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__CallbackAuthority: https://${SH_HOST}
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__InternalAuthority: http://id
+      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__Authority: https://${ID_HOST}
+      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__InternalAuthority: http://id
+      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__RequireHttpsMetadata: 'false'
+      Sitecore_Plugins__Filters__ContentHub: +ContentHub
+      Sitecore_ContentHubDam__PlatformUrl: http://cm
+      Sitecore_Sitecore__Logging__Serilog__MinimumLevel__Default: Debug
+    depends_on:
+      id:
+        condition: service_healthy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
+      - "traefik.http.routers.sh-secure.entrypoints=websecure"
+      - "traefik.http.routers.sh-secure.rule=Host(`${SH_HOST}`)"
+      - "traefik.http.routers.sh-secure.tls=true"
+      - "traefik.http.routers.sh-secure.middlewares=force-STS-Header"
+      - "traefik.http.services.sh.loadbalancer.server.port=80"
+    networks:
+      demo:
+        aliases:
+          - ${SH_HOST}
 networks:
   demo:
     external:

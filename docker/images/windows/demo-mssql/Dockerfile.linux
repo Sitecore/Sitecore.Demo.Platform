@@ -46,15 +46,11 @@ COPY --from=builder ["/install/*", "/clean/"]
 COPY ./sql /sql
 COPY ./HashPassword.ps1 /opt
 COPY ./Demo-Boot-Linux.ps1 /opt
-# TODO: Remove the Demo-Boot-Platform.ps1 line after develop is merged to main
-COPY ./Demo-Boot-Platform.ps1 /opt
 COPY ./Demo-Boot-Platform-Linux.ps1 /opt
 COPY ./boot.sh /opt
 
-# TODO: Remove the Demo-Boot-Platform.ps1 line after develop is merged to main
 RUN chmod +x /opt/HashPassword.ps1 \
 	&& chmod +x /opt/Demo-Boot-Linux.ps1 \
-	&& chmod +x /opt/Demo-Boot-Platform.ps1 \
 	&& chmod +x /opt/Demo-Boot-Platform-Linux.ps1 \
 	&& chmod +x /opt/boot.sh \
 	&& chmod +x /opt/attach-databases.sh \

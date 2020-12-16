@@ -56,8 +56,16 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Kernel" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc" Version="10.0.0-*" />
+        <PackageReference Include="Sitecore.Annotations" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Mvc" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+
       </ItemGroup>
     </Otherwise>
   </Choose>

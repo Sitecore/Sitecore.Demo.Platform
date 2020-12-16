@@ -47,11 +47,17 @@
         <Reference Include="Sitecore.Kernel">
           <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
         </Reference>
+        <Reference Include="Sitecore.ContentSearch">
+          <HintPath>..\..\..\..\lib\Sitecore.ContentSearch.dll</HintPath>
+        </Reference>
       </ItemGroup>
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Kernel" Version="10.0.0-*">
+        <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ContentSearch" Version="10.0.*-*">
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
       </ItemGroup>
@@ -90,11 +96,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Sitecore.ContentSearch" Version="10.0.0-*">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

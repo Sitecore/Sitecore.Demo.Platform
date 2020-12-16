@@ -187,14 +187,14 @@ This indicates you are not logged in your registry.
 
 Run `az acr login --name <registryname>` (or the equivalent `docker login`) and retry.
 
-### manifest for scr.sitecore.com/build/lighthouse-solution:10.0.0-1000.0 not found
+### manifest for scr.sitecore.com/build/lighthouse-solution:10.0.1-1001.0 not found
 
 **Problem:**
 
 When running `docker-compose build --pull`, you get the following error:
 
 ```text
-ERROR: Service 'mssql' failed to build : manifest for scr.sitecore.com/build/lighthouse-solution:10.0.0-1000.0 not found: manifest unknown: manifest tagged by "10.0.0-1000.0" is not found
+ERROR: Service 'mssql' failed to build : manifest for scr.sitecore.com/build/lighthouse-solution:10.0.1-1001.0 not found: manifest unknown: manifest tagged by "10.0.1-1001.0" is not found
 ```
 
 **Cause:**
@@ -258,7 +258,7 @@ The following is a list of default values / assumptions for settings in `cake-co
 | MarketingDefinitionsApiKey | API key for the marketing definitions. | `"DF7D20E837254C6FBFA2B854C295CB61"` |
 | DeployExmTimeout | The timeout, in seconds, to wait for the deployment of EXM. | `60` |
 | PublishTempFolder | Location of the temporary build publishing folder in the build containers. | `"c:\\publishTemp"` |
-| version | Version of Sitecore being targeted. Must match official 3-digit version. | `"10.0.0"` |
+| version | Version of Sitecore being targeted. Must match official 3-digit version. | `"10.0.1"` |
 | IsContentHubEnabled | Whether Content Hub should be enabled. | `"false"` |
 | SitecoreAzureToolkitPath | The location of the Sitecore Azure Toolkit files on the host computer. | `"c:\\sat"` |
 

@@ -5,11 +5,14 @@ Param (
 
   [Parameter(
     HelpMessage = "Base Module Version - used to refer to a specific build of the base images.")]
-  [string]$BaseModuleVersion = "1000.0-beta",
+  [string]$BaseModuleVersion = "1001.0-beta",
 
   [Parameter(
     HelpMessage = "Internal ACR use by the demo team")]
-  [string]$DemoTeamRegistry = ""
+  [string]$DemoTeamRegistry = "",
+  [Parameter(
+    HelpMessage = "Internal Sitecore ACR")]
+  [string]$SitecoreRegistry="scr.sitecore.com/"
 )
 
 $ErrorActionPreference = "Stop";
@@ -62,7 +65,7 @@ if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
     throw
   }
 }
-
+Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
 Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
 Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
 Set-DockerComposeEnvFileVariable "BASE_MODULE_VERSION" -Value $BaseModuleVersion

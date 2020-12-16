@@ -17,7 +17,7 @@ resources:
 
 variables:
   GitVersion.SemVer: ''
-  SITECORE_VERSION: '10.0.0'
+  SITECORE_VERSION: '10.0.1'
   NANOSERVER_VERSION: '1809'
   GitVersion.PreReleaseLabel: ''
   tag: '$(GitVersion.SemVer)'
@@ -106,6 +106,9 @@ stages:
         ltsc2019:
           poolName: 'docker-ltsc2019-agents'
           osVersion: 'ltsc2019'
+        20H2:
+          poolName: 'docker-20H2-agents'
+          osVersion: '2009'
     displayName: 'Build Windows Docker Images'
     pool:
       name: $(poolName)
@@ -278,7 +281,7 @@ stages:
           powerShellErrorActionPreference: 'silentlyContinue'
       - task: XplatGenerateReleaseNotes@3
         inputs:
-          outputfile: '$(Build.ArtifactStagingDirectory)/releasenotes-10.0.0-$(additionalImageTags).md'
+          outputfile: '$(Build.ArtifactStagingDirectory)/releasenotes-$(SITECORE_VERSION)-$(additionalImageTags).md'
           templateLocation: 'File'
           templatefile: 'release-notes-template.hb'
           dumpPayloadToConsole: false
@@ -289,7 +292,7 @@ stages:
           sortWi: true
       - task: replacetokens@3
         inputs:
-          targetFiles: '$(Build.ArtifactStagingDirectory)/releasenotes-10.0.0-$(additionalImageTags).md'
+          targetFiles: '$(Build.ArtifactStagingDirectory)/releasenotes-$(SITECORE_VERSION)-$(additionalImageTags).md'
           encoding: 'auto'
           writeBOM: false
           verbosity: 'detailed'
@@ -301,7 +304,7 @@ stages:
           enableTelemetry: true
       - task: PublishPipelineArtifact@1
         inputs:
-          targetPath: '$(Build.ArtifactStagingDirectory)/releasenotes-10.0.0-$(additionalImageTags).md'
+          targetPath: '$(Build.ArtifactStagingDirectory)/releasenotes-$(SITECORE_VERSION)-$(additionalImageTags).md'
           artifact: 'Release Notes'
           publishLocation: 'pipeline'
       - task: AzureCLI@2
@@ -310,7 +313,7 @@ stages:
           azureSubscription: '$(azure.subscription)'
           scriptType: 'pscore'
           scriptLocation: 'inlineScript'
-          inlineScript: 'az storage file upload --account-name dockerassets  --share-name release-notes --source $(Build.ArtifactStagingDirectory)/releasenotes-10.0.0-$(additionalImageTags).md --account-key $(dockerassets.storage.accountkey) --path releasenotes-10.0.0-$(additionalImageTags).md'
+          inlineScript: 'az storage file upload --account-name dockerassets  --share-name release-notes --source $(Build.ArtifactStagingDirectory)/releasenotes-$(SITECORE_VERSION)-$(additionalImageTags).md --account-key $(dockerassets.storage.accountkey) --path releasenotes-$(SITECORE_VERSION)-$(additionalImageTags).md'
 - stage: Update_Portal_Databases_Nightly
   displayName: "Update 'nightly' version in portal databases"
   dependsOn:
@@ -326,8 +329,8 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
-            Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+            Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+            Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
 - stage: Update_DEV_Portal_Databases_Stable
   displayName: "Update 'stable' version in the DEV portal database"
@@ -344,7 +347,7 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=stable" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+            Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
 - stage: Update_PROD_Portal_Database_Stable
   displayName: "Update 'stable' version in the PROD portal database"
@@ -361,7 +364,7 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=10.0.0&channel=stable" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+            Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
     - deployment: Update_Production_Database_Deployment
       displayName: 'Update Production Database Deployment'

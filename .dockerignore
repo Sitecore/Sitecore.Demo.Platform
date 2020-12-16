@@ -15,7 +15,6 @@ docker-compose*
 LICENSE
 *.DotSettings
 snaketail*
-docker/**/*.yml
 Gitversion.yml
 Sitecore.Demo.Platform.sln.DotSettings
 build-cruise.yml
@@ -32,6 +31,7 @@ init-ci.ps1
 /Deploy
 /tools
 /docs
+/docker
 
 
 
