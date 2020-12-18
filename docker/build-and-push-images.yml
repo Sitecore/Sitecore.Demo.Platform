@@ -125,6 +125,9 @@ stages:
         targetType: 'inline'
         script: |
           ./init-ci.ps1 -DemoTeamRegistry $(REGISTRY)
+          az login -u $(sitecore.container.registry.username) -p $(sitecore.container.registry.password)
+          az acr login -n $(container.registry.short)
+          ./pull-build-images.ps1
     - template: version.yml
     - task: DockerCompose@0
       displayName: "Pull Solution Image"
