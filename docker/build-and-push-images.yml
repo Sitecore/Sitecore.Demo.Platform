@@ -153,14 +153,14 @@ stages:
               script: |
                 $params = @{}
                 $sitecoreVersion = "$(SITECORE_VERSION)"
-                Write-Host "Sitecore Version: $sitecoreVersion"
+                
                 $params.Add("DemoTeamRegistry","$(REGISTRY)")
                 $params.Add("SitecoreRegistry","$(sitecore.container.registry)")
                 $params.Add("WindowsVersion","$(osVersion)")
                 $params.Add("IsolationMode","process")
                 $params.Add("SitecoreVersion","$sitecoreVersion")
 
-                $baseModuleVersion = "$(($sitecoreVersion -replace '.','') + '.0')"
+                $baseModuleVersion = "$(($sitecoreVersion -replace '\.','') + '.0')"
 
                 if ("$(Build.SourceBranch)" -eq "refs/heads/develop") {
                   $baseModuleVersion += "-beta"
