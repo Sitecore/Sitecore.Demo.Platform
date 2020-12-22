@@ -152,14 +152,15 @@ stages:
               targetType: "inline"
               script: |
                 $params = @{}
+                $sitecoreVersion = "$(SITECORE_VERSION)"
 
                 $params.Add("DemoTeamRegistry","$(REGISTRY)")
                 $params.Add("SitecoreRegistry","$(sitecore.container.registry)")
                 $params.Add("WindowsVersion","$(osVersion)")
                 $params.Add("IsolationMode","process")
-                $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
+                $params.Add("SitecoreVersion","$sitecoreVersion")
 
-                $baseModuleVersion = "$(($(SITECORE_VERSION) -replace '.','') + '.0')"
+                $baseModuleVersion = "$(($sitecoreVersion -replace '.','') + '.0')"
 
                 if ("$(Build.SourceBranch)" -eq "refs/heads/develop") {
                   $baseModuleVersion += "-beta"
