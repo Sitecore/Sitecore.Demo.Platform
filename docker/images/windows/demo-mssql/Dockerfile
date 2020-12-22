@@ -9,6 +9,9 @@ FROM $BASE_IMAGE as data
 COPY --from=solution /solution/db /output/
 
 COPY ./data/ /output
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
 RUN $modules = @('security', 'data', 'descendants'); `
     foreach($module in $modules) { C:\DeployDatabases.ps1 -ResourcesDirectory /output/$module; Remove-Item -Path /output/$module -Recurse -Force; }
 

@@ -1,12 +1,11 @@
 # escape=`
 ARG BASE_IMAGE
-ARG ASSETS_IMAGE
 
-FROM $ASSETS_IMAGE as assets
 FROM $BASE_IMAGE as production
 
-COPY --from=assets ["C:\\tools\\", "C:\\tools\\"]
 COPY ./ /Identity/
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 #perform transform
 RUN (Get-Item -Path 'C:\\Identity\\transforms\\identityserver.xml.xdt' ) | `

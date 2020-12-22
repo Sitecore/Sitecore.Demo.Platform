@@ -3,7 +3,7 @@ version: "2.4"
 services:
 
   solution:
-    image: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+    image: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
 
   id:
     image: ${REGISTRY}demo/lighthouse-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
@@ -11,16 +11,14 @@ services:
       context: docker\images\windows\demo-id
       args:
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}${TOOLS_IMAGE}
 
   xdbsearchworker:
     image: ${REGISTRY}demo/lighthouse-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
       context: docker\images\windows\demo-xdbsearchworker
       args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}${TOOLS_IMAGE}
     depends_on:
       - solution
   mssql:
@@ -28,9 +26,8 @@ services:
     build:
       context: docker\images\windows\demo-mssql
       args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-    mem_limit: 2GB
     depends_on:
       - solution
 
@@ -40,7 +37,6 @@ services:
       context: docker\images\windows\demo-solr
       args:
         BASE_IMAGE: ${REGISTRY}community/sitecore-xp0-custom-sxa-solr:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-    mem_limit: 1GB
 
   ps:
     image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
@@ -55,11 +51,9 @@ services:
     build:
       context: docker\images\windows\demo-standalone
       args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}${TOOLS_IMAGE}
         HOTFIX_IMAGE: ${REGISTRY}demo/base/lighthouse-hotfixes:10.0.1-${NANOSERVER_VERSION}
-    mem_limit: 4G
     depends_on:
       - solution
 
@@ -69,9 +63,8 @@ services:
     build:
       context: docker\images\windows\demo-cd
       args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp1-modules-base-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}${TOOLS_IMAGE}
     depends_on:
       - solution
 
@@ -80,9 +73,8 @@ services:
     build:
       context: docker\images\windows\demo-xconnect
       args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}${TOOLS_IMAGE}
     depends_on:
       - solution
 
@@ -91,9 +83,7 @@ services:
     build:
       context: docker\images\windows\demo-automationengine
       args:
-        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}${TOOLS_IMAGE}
     depends_on:
       - solution
 
