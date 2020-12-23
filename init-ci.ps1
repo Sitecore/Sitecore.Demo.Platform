@@ -1,15 +1,31 @@
 Param (
   [Parameter(
     HelpMessage = "Demo version used in image tagging.")]
-  [string]$DemoVersion = "latest",
-
+  [string]$DemoVersion = "latest"
+  ,
   [Parameter(
     HelpMessage = "Base Module Version - used to refer to a specific build of the base images.")]
-  [string]$BaseModuleVersion = "1000.0-beta",
-
+  [string]$BaseModuleVersion = "1001.0-beta"
+  ,
   [Parameter(
     HelpMessage = "Internal ACR use by the demo team")]
   [string]$DemoTeamRegistry = ""
+  ,
+  [Parameter(
+    HelpMessage = "Internal Sitecore ACR")]
+  [string]$SitecoreRegistry = "scr.sitecore.com/"
+  ,
+  [Parameter(
+    HelpMessage = "Process Isolation to use when building images")]
+  [string]$IsolationMode = "hyperv"
+  ,
+  [Parameter(
+    HelpMessage = "Windows image version")]
+  [string]$WindowsVersion = "ltsc2019"
+  ,
+  [Parameter(
+    HelpMessage = "Sitecore version")]
+  [string]$SitecoreVersion = "10.0.1"
 )
 
 $ErrorActionPreference = "Stop";
@@ -62,10 +78,16 @@ if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
     throw
   }
 }
+$NanoserverVersion = $(if ($WindowsVersion -eq "ltsc2019") { "1809" } else { $WindowsVersion })
 
+Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
 Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
 Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
 Set-DockerComposeEnvFileVariable "BASE_MODULE_VERSION" -Value $BaseModuleVersion
 Set-DockerComposeEnvFileVariable "SMTP_CONTAINERS_COUNT" -Value 0
+Set-DockerComposeEnvFileVariable "ISOLATION" -Value $IsolationMode
+Set-DockerComposeEnvFileVariable "WINDOWSSERVERCORE_VERSION" -Value $WindowsVersion
+Set-DockerComposeEnvFileVariable "NANOSERVER_VERSION" -Value $NanoserverVersion
+Set-DockerComposeEnvFileVariable "SITECORE_VERSION" -Value $SitecoreVersion
 
 Write-Host "Done!" -ForegroundColor Green

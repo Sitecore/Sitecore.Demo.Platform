@@ -86,18 +86,42 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Analytics.Core" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Analytics.Model" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Analytics" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceEditor.Speak" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceEditor.Speak.Ribbon" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceExplorer.Core" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceExplorer.Web" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Kernel" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Owin.Authentication" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Owin" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Speak.Client" Version="10.0.0-*" />
+        <PackageReference Include="Sitecore.Analytics.Core" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Analytics.Model" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Analytics" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceEditor.Speak" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceEditor.Speak.Ribbon" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceExplorer.Core" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceExplorer.Web" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Mvc" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Owin.Authentication" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Owin" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Speak.Client" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
       </ItemGroup>
     </Otherwise>
   </Choose>

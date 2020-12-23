@@ -119,28 +119,72 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Analytics.Model" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Analytics" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Analytics.XConnect" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Buckets" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Cintel" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Cintel.Client" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Client" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.DataExchange.DataAccess" Version="2.1.1-*" />
-        <PackageReference Include="Sitecore.DataExchange.Local" Version="2.1.1-*" />
-        <PackageReference Include="Sitecore.DataExchange" Version="2.1.1-*" />
-        <PackageReference Include="Sitecore.DataExchange.Tools.SalesforceConnect" Version="2.1.1-*" />
-        <PackageReference Include="Sitecore.EmailCampaign.Model" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Kernel" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Logging" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Marketing" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Services.Core" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Web" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect.Client" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect" Version="10.0.0-*" />
+        <PackageReference Include="Sitecore.Analytics.Model" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Analytics" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Analytics.XConnect" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Buckets" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Cintel" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Cintel.Client" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Client" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.DataExchange.DataAccess" Version="2.1.1-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.DataExchange.Local" Version="2.1.1-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.DataExchange" Version="2.1.1-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.DataExchange.Tools.SalesforceConnect" Version="2.1.1-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.EmailCampaign.Model" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Logging" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Marketing" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Mvc" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Services.Core" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Web" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.XConnect.Client" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.XConnect" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
       </ItemGroup>
     </Otherwise>
   </Choose>

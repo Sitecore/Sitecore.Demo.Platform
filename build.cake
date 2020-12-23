@@ -9,7 +9,6 @@
 
 var target = Argument<string>("Target", "Default");
 var deploymentTarget = Argument<string>("DeploymentTarget", "IIS"); // Possible values are 'IIS', 'Docker' and 'DockerBuild'
-bool usePublicFeedOnly = HasArgument ("PublicFeedsOnly");
 var configuration = new Configuration();
 var platform = new CakePlatform();
 var runtime = new CakeRuntime();

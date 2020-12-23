@@ -131,30 +131,78 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Analytics.Core" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Analytics.Model" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Analytics" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Analytics.XConnect" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.CES.DeviceDetection" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.CES.GeoIp.Core" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Cintel" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceAnalytics.Core" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceEditor" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceExplorer.Core" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Kernel" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Marketing.Automation" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Marketing" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Marketing.Taxonomy" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc.Analytics" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect.Client" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect.Diagnostics" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.XConnect.Search" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Xdb.MarketingAutomation.Tracking" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Cintel" Version="10.0.0-*" />
+        <PackageReference Include="Sitecore.Analytics.Core" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Analytics.Model" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Analytics" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Analytics.XConnect" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.CES.DeviceDetection" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.CES.GeoIp.Core" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Cintel" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceAnalytics.Core" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceEditor" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceExplorer.Core" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Marketing.Automation" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Marketing" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Marketing.Taxonomy" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Mvc.Analytics" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Mvc" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.XConnect.Client" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.XConnect.Diagnostics" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.XConnect" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.XConnect.Search" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Xdb.MarketingAutomation.Tracking" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Cintel" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
       </ItemGroup>
     </Otherwise>
   </Choose>

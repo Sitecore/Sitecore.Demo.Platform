@@ -71,22 +71,22 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Kernel" Version="10.0.0-*">
+        <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Sitecore.Logging" Version="10.0.0-*">
+        <PackageReference Include="Sitecore.Logging" Version="10.0.*-*">
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Sitecore.Mvc.Analytics" Version="10.0.0-*">
+        <PackageReference Include="Sitecore.Mvc.Analytics" Version="10.0.*-*">
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Sitecore.Mvc" Version="10.0.0-*">
+        <PackageReference Include="Sitecore.Mvc" Version="10.0.*-*">
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Sitecore.Update" Version="10.0.0-*">
+        <PackageReference Include="Sitecore.Update" Version="10.0.*-*">
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Sitecore.Zip" Version="10.0.0-*">
+        <PackageReference Include="Sitecore.Zip" Version="10.0.*-*">
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
       </ItemGroup>
@@ -117,6 +117,7 @@
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Serialization.Shared.config" />
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Indexing.ContentDelivery.config" />
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Indexing.config" />
+    <Content Include="App_Config\Include\Project\Sitecore.Demo.Horizon.Patch.Delete.Hotfix.config" />
     <None Include="sitecore.demo.platform.version.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

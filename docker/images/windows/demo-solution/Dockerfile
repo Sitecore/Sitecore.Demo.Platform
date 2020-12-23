@@ -5,6 +5,8 @@ ARG BUILD_IMAGE
 
 FROM ${BUILD_IMAGE} as npm
 
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
 RUN curl.exe -o node.zip https://nodejs.org/dist/v12.16.3/node-v12.16.3-win-x64.zip; `
     mkdir 'C:\\Program Files\\node'; `
     tar.exe -xf node.zip -C 'C:\\Program Files\\node' --strip-components=1; `
@@ -12,6 +14,8 @@ RUN curl.exe -o node.zip https://nodejs.org/dist/v12.16.3/node-v12.16.3-win-x64.
 RUN setx PATH $($env:PATH + ';C:\\Program Files\\node;') /M
 
 FROM npm as frontend
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 ARG INTERNAL_NUGET_SOURCE
 ARG SYSTEM_ACCESSTOKEN
@@ -38,6 +42,8 @@ RUN .\build-themes.ps1
 
 FROM ${BUILD_IMAGE} as data
 
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
 COPY scripts/Packaging/ /packaging
 
 COPY --from=frontend /items /items
@@ -51,6 +57,8 @@ FROM ${BUILD_IMAGE} as build
 ARG INTERNAL_NUGET_SOURCE
 ARG SYSTEM_ACCESSTOKEN
 
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
 COPY build* nuget.config publishsettings.targets Sitecore.Demo.Platform.sln ./build/
 COPY cake-config-container.json ./cake-config.json
 COPY src/ ./src
@@ -60,6 +68,8 @@ RUN Copy-Item ./build/* .
 RUN .\build.ps1 -DeploymentTarget DockerBuild -Target Content-Management
 
 FROM ${BUILD_IMAGE} as xconnect
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 ARG INTERNAL_NUGET_SOURCE
 ARG SYSTEM_ACCESSTOKEN

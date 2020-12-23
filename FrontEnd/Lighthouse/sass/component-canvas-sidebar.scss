@@ -74,6 +74,15 @@ html.show-sidebar-right {
                 }
             }
 
+            &.new-contact {
+                background-color: $sidebar-contact-btn-bg !important;
+                color: $sidebar-end-btn;
+
+                &:hover {
+                    background-color: lighten($sidebar-contact-btn-bg, 10) !important;
+                }
+            }
+
             &.sidebar-opened i {
                 width: 14px;
             }

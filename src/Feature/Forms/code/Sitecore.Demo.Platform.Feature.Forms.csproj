@@ -71,14 +71,30 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Analytics.Model" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Analytics" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceForms.Client" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceForms.Mvc" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceForms" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.ExperienceForms.SubmitActions" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Kernel" Version="10.0.0-*" />
-        <PackageReference Include="Sitecore.Mvc" Version="10.0.0-*" />
+        <PackageReference Include="Sitecore.Analytics.Model" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Analytics" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceForms.Client" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceForms.Mvc" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceForms" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.ExperienceForms.SubmitActions" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Sitecore.Mvc" Version="10.0.*-*">
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
       </ItemGroup>
     </Otherwise>
   </Choose>

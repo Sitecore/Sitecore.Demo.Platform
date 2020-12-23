@@ -16,9 +16,13 @@
             <i class="fa fa-refresh" aria-hidden="true"></i>
             <span class="hover-only">@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/Refresh Label", "Refresh")</span>
         </button>
-        <button href="#" class="btn btn-danger end-visit sidebar-opened" style="display: none" title="@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/End Visit", "End the current visit and submit it to the Sitecore Experience Database")">
-            <i class="fa fa-eye-slash" aria-hidden="true"></i>
-            <span class="hover-only">@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/End Visit Label", "End Visit")</span>
+        <button href="#" class="btn new-contact sidebar-opened" style="display: none" title="@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/New Visitor", "Start fresh as a new visitor. This will clear all analytics and session cookies.")">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="hover-only">@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/New Visitor Label", "New Visitor")</span>
+        </button>
+        <button href="#" class="btn btn-danger end-visit sidebar-opened" style="display: none" title="@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/New Visit", "End the current visit and submit it to the Sitecore Experience Database")">
+            <i class="fa fa-file" aria-hidden="true"></i>
+			<span class="hover-only">@Html.Sitecore().Dictionary("/Demo/ExperiencePanel/New Visit Label", "New Visit")</span>
         </button>
     </div>
 

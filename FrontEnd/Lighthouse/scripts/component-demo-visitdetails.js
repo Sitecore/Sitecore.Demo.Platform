@@ -33,5 +33,19 @@
                     });
                 $(this).fadeIn();
             });
+        $(".new-contact")
+            .click(function () {
+                $(this).fadeOut();
+                $.ajax(
+                    {
+                        url: "/api/Demo/NewContact",
+                        method: "get",
+                        cache: false,
+                        success: function () {
+                            refreshExperincePanel();
+                        }
+                    });
+                $(this).fadeIn();
+            });
     });
 })(jQuery);

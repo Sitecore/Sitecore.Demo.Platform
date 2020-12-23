@@ -10,11 +10,10 @@ COPY --from=solution /solution/db /output/
 
 COPY ./data/ /output
 
-RUN C:\DeployDatabases.ps1 -ResourcesDirectory "/output/security"
-RUN C:\DeployDatabases.ps1 -ResourcesDirectory "/output/data"
-RUN C:\DeployDatabases.ps1 -ResourcesDirectory "/output/descendants"
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN Remove-Item "/output" -Recurse
+RUN $modules = @('security', 'data', 'descendants'); `
+    foreach($module in $modules) { C:\DeployDatabases.ps1 -ResourcesDirectory /output/$module; Remove-Item -Path /output/$module -Recurse -Force; }
 
 FROM data as production
 
