@@ -3,14 +3,6 @@ trigger:
   branches:
     include:
       - develop
-schedules:
-  - cron: "0 17 * * 0"
-    displayName: Weekly Sunday build
-    branches:
-      include:
-        - main
-        - develop
-    always: true
 resources:
   - repo: self
     clean: true
@@ -24,25 +16,17 @@ variables:
 
 stages:
   - stage: Build_Solution
-    pool:
-      name: $(poolName)
     displayName: "Build Solution Image"
     jobs:
       - job: Build_Solution_Job
         strategy:
           matrix:
-            windows2004:
-              poolName: "docker-2004-agents"
-              osVersion: "2004"
-              nanoserverVersion: "2004"
             ltsc2019:
               poolName: "docker-ltsc2019-agents"
               osVersion: "ltsc2019"
               nanoserverVersion: "1809"
-            20H2:
-              poolName: "docker-20H2-agents"
-              osVersion: "2009"
-              nanoserverVersion: "2009"
+        pool:
+          name: $(poolName)
         workspace:
           clean: all
         steps:
@@ -90,6 +74,66 @@ stages:
                 SITECORE_VERSION=$(SITECORE_VERSION)
                 INTERNAL_NUGET_SOURCE=
                 SYSTEM_ACCESSTOKEN=
+              action: "Push services"
+              currentWorkingDirectory: "$(Build.SourcesDirectory)"
+              additionalImageTags: "$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)"
+      - job: Copy_Solution_Job
+        displayName: "Copy solution assets to additional OS versions"
+        dependsOn: Build_Solution_Job
+        strategy:
+          matrix:
+            windows2004:
+              poolName: "docker-2004-agents"
+              osVersion: "2004"
+              nanoserverVersion: "2004"
+            20H2:
+              poolName: "docker-20H2-agents"
+              osVersion: "2009"
+              nanoserverVersion: "2009"
+        workspace:
+          clean: all
+        pool:
+          name: "$(poolName)"
+        steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: "sdk"
+              version: "2.1.x"
+              installationPath: "c:/program files/dotnet"
+              performMultiLevelLookup: true
+          - template: version.yml
+          - task: DockerCompose@0
+            displayName: "Build Solution Image"
+            inputs:
+              containerregistrytype: "Azure Container Registry"
+              azureSubscription: "$(azure.subscription)"
+              azureContainerRegistry: "$(container.registry)"
+              dockerComposeFile: "docker/docker-compose.copy.solution.yml"
+              dockerComposeFileArgs: |
+                DEMO_VERSION=$(tag)
+                REGISTRY=$(REGISTRY)
+                NANOSERVER_VERSION=$(nanoserverVersion)
+                LTSC_NANOSERVER_VERSION=1809
+                SITECORE_VERSION=$(SITECORE_VERSION)
+              qualifyImageNames: false
+              action: "Build services"
+              additionalImageTags: "$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)"
+              arguments: "$(no.cache)"
+              currentWorkingDirectory: "$(Build.SourcesDirectory)"
+          - task: DockerCompose@0
+            displayName: "Push Images"
+            inputs:
+              containerregistrytype: "Azure Container Registry"
+              azureSubscription: $(azure.subscription)
+              azureContainerRegistry: $(container.registry)
+              dockerComposeFile: "docker/docker-compose.copy.solution.yml"
+              dockerComposeFileArgs: |
+                ISOLATION=hyperv
+                DEMO_VERSION=$(tag)
+                REGISTRY=$(REGISTRY)
+                NANOSERVER_VERSION=$(nanoserverVersion)
+                LTSC_NANOSERVER_VERSION=1809
+                SITECORE_VERSION=$(SITECORE_VERSION)
               action: "Push services"
               currentWorkingDirectory: "$(Build.SourcesDirectory)"
               additionalImageTags: "$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)"
@@ -153,7 +197,6 @@ stages:
               script: |
                 $params = @{}
                 $sitecoreVersion = "$(SITECORE_VERSION)"
-                
                 $params.Add("DemoTeamRegistry","$(REGISTRY)")
                 $params.Add("SitecoreRegistry","$(sitecore.container.registry)")
                 $params.Add("WindowsVersion","$(osVersion)")

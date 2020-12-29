@@ -1,0 +1,13 @@
+version: "2.4"
+
+services:
+  solution:
+    image: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
+    isolation: hyperv
+    build:
+      context: images/windows/demo-solution
+      target: solution
+      dockerfile: Dockerfile.CI
+      args:
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${LTSC_NANOSERVER_VERSION}-${DEMO_VERSION}
+        BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}
