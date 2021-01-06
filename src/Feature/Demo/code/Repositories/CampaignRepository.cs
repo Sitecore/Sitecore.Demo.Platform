@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using Sitecore.Analytics;
 using Sitecore.Demo.Platform.Feature.Demo.Models;
 using Sitecore.Demo.Platform.Foundation.DependencyInjection;
@@ -45,7 +46,7 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Repositories
         public IEnumerable<Campaign> GetHistoric()
         {
             var keyBehaviourCache = Tracker.Current.Contact.KeyBehaviorCache;
-            foreach (var cachedCampaign in keyBehaviourCache.Campaigns)
+            foreach (var cachedCampaign in keyBehaviourCache.Campaigns.GroupBy(x => x.Id.ToString() + x.DateTime).Select(x => x.First()))
             {
                 var campaign = GetCampaignDefinition(cachedCampaign.Id);
 
