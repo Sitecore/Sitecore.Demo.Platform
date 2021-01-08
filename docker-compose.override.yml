@@ -235,29 +235,6 @@ services:
     networks:
       - demo
 
-  tenantservice:
-    image: ${REGISTRY}demo/base/lighthouse-xp0-modules-tenant-service:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-    entrypoint: [ "powershell.exe", "C:\\tools\\entrypoints\\iis\\development.ps1" ]
-    volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-    environment:
-      SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      Sitecore_ConnectionStrings_Sitecore: database=master;tenant id={10000000-0000-0000-0000-000000000000};host=dataexchange;password=b;user name=sitecore\admin;timeout=20
-      Sitecore_ConnectionStrings_xconnect_collection: http://xconnect
-      Sitecore_ConnectionStrings_xconnect_collection_certificate: StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue=
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
-      - "traefik.http.routers.ts-secure.entrypoints=websecure"
-      - "traefik.http.routers.ts-secure.rule=Host(`${TS_HOST}`)"
-      - "traefik.http.routers.ts-secure.tls=true"
-      - "traefik.http.routers.ts-secure.middlewares=force-STS-Header"
-    networks:
-      demo:
-        aliases:
-          - ${TS_HOST}
-
   authoringhost:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
