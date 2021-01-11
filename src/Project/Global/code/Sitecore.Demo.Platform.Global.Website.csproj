@@ -43,67 +43,45 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <Choose>
-    <When Condition=" '$(Configuration)'=='Local' ">
-      <ItemGroup>
-        <Reference Include="Sitecore.ContentSearch">
-          <HintPath>..\..\..\..\lib\Sitecore.ContentSearch.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.Kernel">
-          <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.Logging">
-          <HintPath>..\..\..\..\lib\Sitecore.Logging.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.Marketing">
-          <HintPath>..\..\..\..\lib\Sitecore.Marketing.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.Marketing.xMgmt">
-          <HintPath>..\..\..\..\lib\Sitecore.Marketing.xMgmt.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.Update">
-          <HintPath>..\..\..\..\lib\Sitecore.Update.dll</HintPath>
-        </Reference>
-        <Reference Include="Sitecore.Zip">
-          <HintPath>..\..\..\..\lib\Sitecore.Zip.dll</HintPath>
-        </Reference>
-      </ItemGroup>
-    </When>
-    <Otherwise>
-      <ItemGroup>
-        <PackageReference Include="Sitecore.ContentSearch" Version="10.0.*-*">
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Sitecore.Logging" Version="10.0.*-*">
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Sitecore.Marketing" Version="10.0.*-*">
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Sitecore.Marketing.xMgmt" Version="10.0.*-*">
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Sitecore.Marketing.xMgmt.ReferenceData" Version="10.0.*-*">
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Sitecore.Update" Version="10.0.*-*">
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Sitecore.Zip" Version="10.0.*-*">
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Sitecore.XConnect.Client" Version="10.0.*-*">
-          <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-      </ItemGroup>
-    </Otherwise>
-  </Choose>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Sitecore.ContentSearch" Version="10.0.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Logging" Version="10.0.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Marketing" Version="10.0.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Marketing.xMgmt" Version="10.0.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Marketing.xMgmt.ReferenceData" Version="10.0.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Update" Version="10.0.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Zip" Version="10.0.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.XConnect.Client" Version="10.0.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
