@@ -17,7 +17,8 @@ New-Item -ItemType Directory -Path "$output/security"
 New-CourierSecurityPackage -items $target -output "$output/security/Sitecore.Core.dacpac"
 Write-Host "Created Security Update Package" -ForegroundColor Green
 
-Rename-Item  -Verbose -Path "$output/data/master.dacpac" -NewName "Sitecore.Master.dacpac"
-Rename-Item  -Verbose -Path "$output/data/core.dacpac" -NewName "Sitecore.Core.dacpac"
+Remove-Item -Verbose -Path "$output/data/master.sql"
+Remove-Item -Verbose -Path "$output/data/core.sql"
 
-Write-Host "Renaming dacpacs" -ForegroundColor Green
+Rename-Item -Verbose -Path "$output/data/master.dacpac" -NewName "Sitecore.Master.dacpac"
+Rename-Item -Verbose -Path "$output/data/core.dacpac" -NewName "Sitecore.Core.dacpac"
