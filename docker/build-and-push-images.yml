@@ -10,6 +10,10 @@ resources:
 variables:
   GitVersion.SemVer: ""
   SITECORE_VERSION: "10.0.1"
+  # Base module version used when building 'develop' and all other branches except 'main'
+  BASE_MODULE_VERSION: "1001.1-beta"
+  # Base module version used when building 'main' branch
+  BASE_MODULE_VERSION_MAIN: "1001.1"
   GitVersion.PreReleaseLabel: ""
   tag: "$(GitVersion.SemVer)"
   additionalImageTags: ""
@@ -203,14 +207,11 @@ stages:
                 $params.Add("IsolationMode","process")
                 $params.Add("SitecoreVersion","$sitecoreVersion")
 
-                $baseModuleVersion = "$(($sitecoreVersion -replace '\.','') + '.0')"
-
-                if ("$(Build.SourceBranch)" -eq "refs/heads/develop") {
-                  $baseModuleVersion += "-beta"
-                  $params.add("BaseModuleVersion","$baseModuleVersion")
+                if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
+                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION_MAIN)")
                 }
-                elseif ("$(Build.SourceBranch)" -eq "refs/heads/main") {
-                  $params.add("BaseModuleVersion","$baseModuleVersion")
+                else {
+                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION)")
                 }
 
                 ./init-ci.ps1 @params
