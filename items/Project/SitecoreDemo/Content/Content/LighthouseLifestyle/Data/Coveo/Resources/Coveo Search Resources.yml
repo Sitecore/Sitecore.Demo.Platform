@@ -1,0 +1,27 @@
+﻿---
+ID: "b594a3b4-2c78-415d-aafc-aed921d34f8a"
+Parent: "4ac0c1c6-23e3-4213-8da3-1a406f0a90f8"
+Template: "1a7f04cc-504e-4b7b-b546-136e21b348fe"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Coveo/Resources/Coveo Search Resources
+DB: master
+SharedFields:
+- ID: "430de9b8-55aa-4e00-812c-7edbd7b4df0c"
+  Hint: UseLocalFiles
+  Type: Checkbox
+  Value: 1
+- ID: "e07c3abd-9b76-491c-a7de-db880d58cc6d"
+  Hint: AdditionalDictionaries
+  Type: Treelist
+  Value: "{212DF9C2-A36F-4775-B80D-74C831B4668B}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20201210T161521Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

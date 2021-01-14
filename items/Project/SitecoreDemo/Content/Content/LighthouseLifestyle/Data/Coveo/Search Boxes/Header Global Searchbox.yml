@@ -1,0 +1,31 @@
+﻿---
+ID: "d6c641d3-9be4-4d57-84c3-7a9d10716510"
+Parent: "fa2c04ce-155a-47fc-86ec-95e086e25aae"
+Template: "6d0fe651-03c9-43c6-8831-00a4cde05ae7"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Coveo/Search Boxes/Header Global Searchbox
+DB: master
+SharedFields:
+- ID: "e29c2085-1bc7-40d0-a02a-c554595a6a94"
+  Hint: SearchPageUri
+  Value: "{8BBAEB6B-EDBA-4FB0-82CC-BAD75FB4B6D2}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20201210T061447Z
+    - ID: "4c8f3093-237e-4bb3-a658-c58710710234"
+      Hint: PlaceholderText
+      Value: Search here...
+    - ID: "5798999c-094c-496d-82a2-354007c895c8"
+      Hint: AdditionalDataAttributes
+      Value: "prebind-placeholder=translate"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "77d02c3e-b008-4d62-aabe-7a4be4fbd77d"
+      Hint: Height
+      Value: 40

@@ -26,12 +26,18 @@ FROM base AS final
 
 ENV DOTNET_RUNNING_IN_CONTAINER=true
 
+ENV HOST_CD=placeholder
 ENV HOST_CM=placeholder
 ENV HOST_PS=placeholder
 ENV HOST_ID=placeholder
 ENV MARKETING_DEFINITIONS_APIKEY=placeholder
 ENV ADMIN_USER_NAME=placeholder
 ENV ADMIN_PASSWORD=placeholder
+ENV COVEO_ORGANIZATION_ID=
+ENV COVEO_API_KEY=
+ENV COVEO_SEARCH_API_KEY=
+ENV COVEO_FARM_NAME=
+ENV COVEO_ADMIN_USER_NAME=
 
 # https://www.abhith.net/blog/docker-sql-error-on-aspnet-core-alpine/
 RUN apk add icu-libs

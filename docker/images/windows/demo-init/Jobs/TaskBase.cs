@@ -1,8 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Sitecore.Demo.Init.Extensions;
-using System.Linq;
 using Sitecore.Demo.Init.Model;
 
 namespace Sitecore.Demo.Init.Jobs
@@ -51,6 +52,12 @@ namespace Sitecore.Demo.Init.Jobs
 			initContext.CompletedJobs.Add(new CompletedJob(this.GetType().Name));
 			await initContext.SaveChangesAsync();
 			await File.WriteAllTextAsync(Path.Combine(StatusDirectory, $"{theType}.Ready"), "Ready");
+		}
+
+		protected bool AreCoveoEnvironmentVariablesSet()
+		{
+			var organizationId = Environment.GetEnvironmentVariable("COVEO_ORGANIZATION_ID");
+			return !string.IsNullOrEmpty(organizationId);
 		}
 	}
 }

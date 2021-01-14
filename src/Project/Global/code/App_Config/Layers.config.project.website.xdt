@@ -1,11 +1,7 @@
 <layers xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-    <layer name="Custom" includeFolder="/App_Config/Include/" xdt:Locator="Match(name)">
-        <loadOrder xdt:Transform="Remove"/>
+    <layer name="Custom" xdt:Locator="Match(name)">
         <loadOrder xdt:Transform="InsertIfMissing">
-            <add path="Rainbow.config" type="File"/>
-            <add path="Foundation" type="Folder" />
-            <add path="Feature" type="Folder" />
-            <add path="Project" type="Folder" />
+            <add xdt:Transform="InsertBefore(*[1])" path="Rainbow.config" type="File" />
         </loadOrder>
     </layer>
 </layers>

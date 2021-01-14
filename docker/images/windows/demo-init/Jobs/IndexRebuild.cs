@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -27,7 +28,13 @@ namespace Sitecore.Demo.Init.Jobs
 			Log.LogInformation($"IndexRebuild() started {hostCM}");
 
 			using var client = new HttpClient { BaseAddress = new Uri(hostCM) };
-			var indexes = new[] { "sitecore_sxa_web_index", "sitecore_sxa_master_index", "sitecore_master_index", "sitecore_web_index", "sitecore_marketingdefinitions_master", "sitecore_marketingdefinitions_web", "sitecore_testing_index" };
+			var indexes = new List<string>() { "sitecore_sxa_web_index", "sitecore_sxa_master_index", "sitecore_master_index", "sitecore_web_index", "sitecore_marketingdefinitions_master", "sitecore_marketingdefinitions_web", "sitecore_testing_index" };
+
+			if (AreCoveoEnvironmentVariablesSet())
+			{
+				indexes.Add("Coveo_master_index");
+				indexes.Add("Coveo_web_index");
+			}
 
 			foreach (var index in indexes)
 			{

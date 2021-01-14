@@ -24,6 +24,7 @@ ENV DISABLE_DEFAULT_ADMIN=FALSE
 ENV EXM_BASE_URL=http://cd
 ENV SQL_SERVER="mssql"
 ENV START_OVERRIDE_SCRIPTS="start-override-platform-windows.ps1"
+ENV COVEO_ADMIN_USER_NAME="sitecore\coveoadmin"
 
 COPY ./sql /sql
 

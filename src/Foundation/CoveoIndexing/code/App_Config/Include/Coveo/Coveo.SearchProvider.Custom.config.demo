@@ -1,0 +1,223 @@
+<!--
+    This file patches the Coveo.SearchProvider.config file default configuration.
+    It is automatically modified by Coveo for Sitecore configuration wizards.
+    This is where you should add your custom configuration.
+    See the parent file for all the configuration elements and additional descriptions.
+-->
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:role="http://www.sitecore.net/xmlconfig/role/" xmlns:coveo="http://www.sitecore.net/xmlconfig/coveo/">
+  <sitecore coveo:require="!disabled">
+    <pipelines>
+      <!--
+         Pipeline used to specify which fields should be returned on LINQ queries results.
+         By default, the AddAllFieldsProcessor returns all fields. Comment this pipeline and uncomment the others to specify basic fields.
+         The AddAllFieldsProcessor also stops the pipeline execution.
+      -->
+      <coveoQueryFieldPipeline>
+        <!--
+          <processor type="Coveo.SearchProvider.Processors.Queries.AddAllFieldsProcessor, Coveo.SearchProviderBase">
+            <patch:delete />
+          </processor>
+          <processor type="Coveo.SearchProvider.Processors.Queries.AddBasicFieldsProcessor, Coveo.SearchProviderBase" />
+          <processor type="Coveo.SearchProvider.Processors.Queries.AddVirtualFieldsProcessor, Coveo.SearchProviderBase" />
+          <processor type="Coveo.SearchProvider.Processors.Queries.AddFieldsRelatedToSearchTypeProcessor, Coveo.SearchProviderBase" />
+        -->
+      </coveoQueryFieldPipeline>
+      <coveoInboundFilterPipeline>
+        <processor type="Coveo.SearchProvider.InboundFilters.ApplySitecoreInboundFilterProcessor, Coveo.SearchProviderBase">
+          <!-- Uncomment this to apply the processor only to the specified indexes. -->
+          <!--
+            <includedIndexNames hint="list">
+              <indexName>Coveo_web_index</indexName>
+            </includedIndexNames>
+          -->
+          <!-- Uncomment this to apply the processor to all indexes but those specified in the list. -->
+          <!--
+            <excludedIndexNames hint="list">
+              <indexName>Coveo_master_index</indexName>
+            </excludedIndexNames>
+          -->
+          <!-- Exclusion has priority over inclusion. This means that if the same index is specified both in inclusion and exclusion, the processor will not be applied. -->
+        </processor>
+      </coveoInboundFilterPipeline>
+      <coveoPostItemProcessingPipeline>
+        <!-- Uncomment this processor to deny anonymous users on items from master database. For more information, see: https://docs.coveo.com/en/2716 -->
+        <!-- 
+          <processor type="Coveo.SearchProvider.Processors.AddSecurityOnItemsWithDatabase, Coveo.SearchProviderBase">
+            <database>master</database>
+          </processor>
+        -->
+        <processor type="Coveo.SearchProvider.Processors.ExecuteGetBinaryDataPipeline, Coveo.SearchProviderBase" />
+      </coveoPostItemProcessingPipeline>
+      <coveoGetBinaryData>
+        <processor type="Coveo.SearchProvider.Processors.FetchPageContentProcessor, Coveo.SearchProviderBase">
+          <inboundFilter hint="list:AddInboundFilter">
+            <processor type="Coveo.SearchProvider.Processors.FetchPageContent.Filters.ItemsWithLayout, Coveo.SearchProviderBase" />
+          </inboundFilter>
+          <preAuthentication hint="list:AddPreAuthenticator" />
+          <postProcessing hint="list:AddPostProcessing">
+            <processor type="Coveo.SearchProvider.Processors.FetchPageContent.PostProcessing.CleanHtml, Coveo.SearchProviderBase">
+              <startComment>BEGIN NOINDEX</startComment>
+              <endComment>END NOINDEX</endComment>
+            </processor>
+          </postProcessing>
+        </processor>
+      </coveoGetBinaryData>
+    </pipelines>
+    <coveo>
+      <defaultIndexConfiguration>
+        <fieldMap>
+          <fieldNames hint="raw:AddFieldByFieldName">
+            <!-- Use this section to configure options of Sitecore template fields or computed index fields in the Coveo search index.
+                 You should never modify field options directly in the Coveo index administration website as they will be overriden at the next configuration synchronization of Coveo for Sitecore.
+                 Always modify field options in the fieldMap. Then, synchronize the configuration to propagate your changes to the index. Most options need the items to be re-indexed.
+
+                 Mandatory attributes:
+                   fieldName: Defines the name of the Sitecore template field or Sitecore computed index field to configure options for.
+                   settingType: Defines the type of class to be used for the configuration of this field. This should not be changed.
+                 Most used option attributes:
+                   General options for all fields:
+                     isDisplayField: Defines whether the field should be returned in search results. Items don't need to be re-indexed when this option is modified.
+                     isSourceSpecific: Defines whether this field should be translated (addition of the "f" prefix and the source name hash suffix).
+                   String field options (cannot be modified for date, numeric, and long fields):
+                     isFacet: Defines whether facets can be bound to this field.
+                     isMultiValue: Defines whether this field contains multiple values.
+                     isSortable: Defines whether this field can be used to sort search results.
+                     includeForFreeTextSearch: Defines whether full-text search operations can be performed on this field.
+                     useForRanking: Defines whether values used in a filter on this field are used for search results ranking calculation and highlighting. Items don't need to be re-indexed when this option is modified.
+
+                 For additional options, descriptions, example values, default values, limitations, and more, see: https://docs.coveo.com/en/2562/coveo-for-sitecore-v5/understanding-the-coveo-search-provider-configuration-file
+                 For examples with configuration samples, see: https://docs.coveo.com/en/2166/coveo-for-sitecore-v5/changing-the-settings-of-sitecore-fields
+
+                 This is an example of field configuration. -->
+            <!--
+              <fieldType fieldName="theSitecoreFieldToConfigure" isMultiValue="true" settingType="Coveo.Framework.Configuration.FieldConfiguration, Coveo.Framework" />
+            -->
+          </fieldNames>
+          <externalFields hint="raw:AddExternalField">
+            <!-- Use this section to configure non-Sitecore fields to be used in Sitecore.
+                 No configuration synchronization or item re-indexing is required after a modification to this section.
+
+                 Mandatory attribute:
+                   fieldName: Defines the name of the non-Sitecore field to make available in Sitecore.
+                 Optionnal attribute:
+                   fieldTypeName: Defines the type of the field seen by the Coveo components (Facet, Facet Range, Slider...). Valid values are Number, Integer, date, datetime, and string.
+
+                 For more details, see: https://docs.coveo.com/en/2562/coveo-for-sitecore-v5/understanding-the-coveo-search-provider-configuration-file
+                 For an example with configuration sample, see: https://docs.coveo.com/en/2620/coveo-for-sitecore-v5/using-external-content-with-sitecore-facets
+
+                 This is an example of field configuration. -->
+            <!--
+              <field fieldName="theExternalFieldToUseInSitecore" />
+            -->
+          </externalFields>
+        </fieldMap>
+        <documentOptions>
+          <fields hint="raw:AddComputedIndexField">
+            <!-- Uncomment the culture field if the revision number of your Sitecore instance is greater than 150400. -->
+            <!--
+              <field fieldName="culture">Sitecore.ContentSearch.ComputedFields.Culture,Sitecore.ContentSearch</field>
+            -->
+            <!-- Those are examples of built in Coveo computed fields. Use them to compute an image URL or alt from an image field. -->
+            <!--
+              <field fieldName="imageUrl" sourceField="Image">Coveo.SearchProvider.ComputedFields.ImageUrlComputedField, Coveo.SearchProviderBase</field>
+              <field fieldName="imageAlt" sourceField="Image">Coveo.SearchProvider.ComputedFields.ImageAltComputedField, Coveo.SearchProviderBase</field>
+            -->
+            <!-- This is another example of built in Coveo computed fields. Use it to get any value from a referenced field.
+                 Supported attributes, fieldName: The new field to create.
+                                       sourceField: The field containing the referenced item id.
+                                       referencedFieldName: Name of the field on the referenced item.
+                                       returnType: The type of the field. By default, it is a string. -->
+            <!--
+              <field fieldName="theNewFieldToCreate" sourceField="theReferencedFieldId" referencedFieldName="referencedField">Coveo.SearchProvider.ComputedFields.ReferencedFieldComputedField, Coveo.SearchProviderBase</field>
+            -->
+          </fields>
+        </documentOptions>
+        <disableSourceCreation>False</disableSourceCreation>
+        <farmName></farmName>
+        <sitecoreUsername></sitecoreUsername>
+        <sitecorePassword></sitecorePassword>
+        <securityConfiguration>
+          <indexPermissions>False</indexPermissions>
+        </securityConfiguration>
+        <indexCommunicationFactory>
+          <patch:attribute name="ref">coveo/cloudPlatformCommunicationFactory</patch:attribute>
+        </indexCommunicationFactory>
+      </defaultIndexConfiguration>
+    </coveo>
+    <contentSearch>
+      <configuration>
+        <indexes hint="list:AddIndex">
+          <index role:require="!ContentDelivery" id="Coveo_master_index">
+            <locations hint="list:AddCrawler">
+              <crawler name="ContentCrawler">
+                <!-- Uncomment this node if you want to change the crawling root to a smaller portion of your site. -->
+                <!--<root>/sitecore/content/YOUR_PATH</root> -->
+              </crawler>
+              <!-- Uncomment this node if you want to crawl a different section of your site. -->
+              <!--
+              <crawler name="SubSiteCrawler" type="Sitecore.ContentSearch.SitecoreItemCrawler, Sitecore.ContentSearch">
+                <database>master</database>
+                <root>/sitecore/YOUR_PATH</root>
+                <stopOnError>true</stopOnError>
+              </crawler>
+              -->
+            </locations>
+          </index>
+          <index id="Coveo_web_index">
+            <locations hint="list:AddCrawler">
+              <crawler name="ContentCrawler">
+                <!-- Uncomment this node if you want to change the crawling root to a smaller portion of your site. -->
+                <!--<root>/sitecore/content/YOUR_PATH</root> -->
+              </crawler>
+              <!-- Uncomment this node if you want to crawl a different section of your site. -->
+              <!--
+              <crawler name="SubSiteCrawler" type="Sitecore.ContentSearch.SitecoreItemCrawler, Sitecore.ContentSearch">
+                <database>web</database>
+                <root>/sitecore/YOUR_PATH</root>
+                <stopOnError>true</stopOnError>
+              </crawler>
+              -->
+            </locations>
+          </index>
+        </indexes>
+      </configuration>
+    </contentSearch>
+    <!-- Example of Coveo for Sitecore log4net configuration.
+         Uncomment the log4net configuration below to enable Coveo logging.
+
+         CoveoLogger appender conversionPattern description:
+            %4t: Thread name or number, left padded with spaces if less than 4 characters.
+            %d{ABSOLUTE}: Time, in the local time zone, when the logging event was generated.
+            %l: Location in the code where the logging event was generated.
+            %-5p: All the properties of the logging event, right padded with spaces if less than 5 characters.
+            %m: Message of the logging event.
+            %n: New line character.
+
+         Coveo logger:
+            Default level is INFO.
+            Performance degradation is expected at DEBUG level due to the large quantity of logs generated and the "%l" in the appender's conversionPattern.
+            If you need to run at DEBUG level for a long period of time, consider removing "%l" from the appender's conversionPattern for better performance.
+
+    -->
+    <!--
+      <log4net>
+        <appender name="CoveoLogger" type="log4net.Appender.RollingFileAppender, Sitecore.Logging">
+          <file value="$(dataFolder)/logs/Coveo.Search" />
+          <appendToFile value="true" />
+          <rollingStyle value="Composite" />
+          <datePattern value=".yyyyMMdd'.txt'" />
+          <staticLogFileName value="false" />
+          <maxSizeRollBackups value="20" />
+          <maximumFileSize value="250MB" />
+          <layout type="log4net.Layout.PatternLayout">
+            <conversionPattern value="%4t %d{ABSOLUTE} %l %-5p %m%n" />
+          </layout>
+        </appender>
+        <logger name="Coveo" additivity="false">
+          <level value="INFO" />
+          <appender-ref ref="CoveoLogger" />
+        </logger>
+      </log4net>
+    -->
+  </sitecore>
+</configuration>

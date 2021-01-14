@@ -1,0 +1,56 @@
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:role="http://www.sitecore.net/xmlconfig/role/" xmlns:coveo="http://www.sitecore.net/xmlconfig/coveo/">
+	<sitecore coveo:require="!disabled">
+		<pipelines>
+			<coveoInboundFilterPipeline>
+				<processor type="Sitecore.Demo.Platform.Foundation.CoveoIndexing.Processors.ExcludeItemsCoveoInboundFilter, Sitecore.Demo.Platform.Foundation.CoveoIndexing">
+					<ItemIds>{74A89460-3E7A-4A64-887A-2D766706ACAE};{1D7CF3BF-B919-49F9-B47B-6F37BFCF1FC9};{8BBAEB6B-EDBA-4FB0-82CC-BAD75FB4B6D2};{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF};{49FE5A16-733B-4486-923A-3ADC7B8E984F};{3EC3A117-8D9E-4702-8FB1-3AC84188B89F};{8F193217-612B-44F9-A53F-07D2E886F5B0};{DAA517D6-DDDF-43DF-A0F1-1E18006B5DE9};{F2718720-D119-467B-988F-32F8593C1C2A};{ECB62287-275F-48A4-B49F-E4EF1844F583};{C8121F23-0CED-4828-8F8B-994D27F1CC7E};{417C0A40-0B0C-47FF-B78B-CA6A4B3A8CA2};{94557F49-05B1-4DA3-8876-F79E86C3630B};{ED673E80-64F4-479F-BFA4-6E4C94539D17};{F8BB107D-38AF-4C64-9235-3B13F26B01B7}</ItemIds>
+				</processor>
+			</coveoInboundFilterPipeline>
+			<coveoGetBinaryData>
+				<processor type="Coveo.SearchProvider.Processors.FetchPageContentProcessor, Coveo.SearchProviderBase">
+					<postProcessing hint="list:AddPostProcessing">
+						<processor type="Sitecore.Demo.Platform.Foundation.CoveoIndexing.Processors.CleanCoveoIndexedHtml, Sitecore.Demo.Platform.Foundation.CoveoIndexing" />
+					</postProcessing>
+				</processor>
+			</coveoGetBinaryData>
+		</pipelines>
+		<coveo>
+			<defaultIndexConfiguration>
+				<fieldMap>
+					<fieldNames hint="raw:AddFieldByFieldName">
+						<fieldType fieldName="PageType" isFacet="true" includeForFreeTextSearch="true" returnType="string" settingType="Coveo.Framework.Configuration.FieldConfiguration, Coveo.Framework"/>
+					</fieldNames>
+				</fieldMap>
+				<documentOptions>
+					<fields hint="raw:AddComputedIndexField">
+						<field fieldName="PageType" dictionaryDomain="Coveo Indexing Values" mappings="{ 'PageTypes': [ { 'Name': 'Article', 'Templates': [ '{E255D331-AEA1-4F66-A5E7-4AB2E26408E0}', '{14807D83-9671-4D70-B0F4-F54012F2BFB8}', '{1C1B88AD-425A-4349-9A51-27D1FC4B8357}' ] }, { 'Name': 'Blog', 'Templates': [ '{5CE1848F-C7AD-48D7-8C74-3AE23D206097}' ] }, { 'Name': 'Webinar', 'Templates': [ '{EC72F1A0-1EF5-49CD-8CD9-1095A2801475}' ] }, { 'Name': 'Landing Page', 'Templates': [ '{C2786E73-44C7-43BE-954B-1B35AEBA4BD0}' ] }, { 'Name': 'Campaign Page', 'Templates': [ '{568D0B5C-ECCB-4A2F-A301-79C7761CDA36}' ] }, { 'Name': 'Home Page', 'Templates': [ '{2C6679F9-65B4-4437-8A4C-BE4C790B16E0}' ] }, { 'Name': 'Page', 'Templates': [ '{67D31403-09AA-4336-8BF1-D93300E81876}', '{69DD5F28-429F-46B6-B55C-9DA3500A7369}', '{E3B950BB-1B55-4CDD-819F-031B3BE1A66C}', '{BD74A392-DACD-4C23-853A-D520762B33A1}' ] }, { 'Name': 'Account Page', 'Templates': [ '{CB5E16DF-B01C-44A0-A4D6-C99235ACF860}', '{67A3063B-3801-4C53-8762-ACFA1CD75113}' ] } ] }">Sitecore.Demo.Platform.Foundation.CoveoIndexing.ComputedFields.PageTypeComputedField, Sitecore.Demo.Platform.Foundation.CoveoIndexing</field>
+					</fields>
+				</documentOptions>
+			</defaultIndexConfiguration>
+		</coveo>
+		<contentSearch>
+			<configuration>
+				<indexes>
+					<index role:require="!ContentDelivery" id="Coveo_master_index">
+						<locations>
+							<crawler name="LighthouseLifestyleCrawler" type="Sitecore.ContentSearch.SitecoreItemCrawler, Sitecore.ContentSearch">
+								<database>master</database>
+								<root>/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home</root>
+								<stopOnError>true</stopOnError>
+							</crawler>
+						</locations>
+					</index>
+					<index id="Coveo_web_index">
+						<locations>
+							<crawler name="LighthouseLifestyleCrawler" type="Sitecore.ContentSearch.SitecoreItemCrawler, Sitecore.ContentSearch">
+								<database>web</database>
+								<root>/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home</root>
+								<stopOnError>true</stopOnError>
+							</crawler>
+						</locations>
+					</index>
+				</indexes>
+			</configuration>
+		</contentSearch>
+	</sitecore>
+</configuration>

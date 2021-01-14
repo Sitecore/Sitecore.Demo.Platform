@@ -21,6 +21,7 @@ services:
       DISABLE_DEFAULT_ADMIN: 'FALSE'
       EXM_BASE_URL: "https://${CD_HOST}"
       START_OVERRIDE_SCRIPTS: "start-override-platform-windows.ps1"
+      COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
     mem_limit: 2GB
     volumes:
       - type: bind
@@ -48,7 +49,6 @@ services:
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup2: https://${SH_HOST}|http://${SH_HOST}
-
     networks:
       - demo
 
@@ -73,6 +73,8 @@ services:
       SITECORE_CONNECTIONSTRINGS_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
       EXM_RENDERER_URL: http://cm
       Sitecore_Horizon_ClientHost: https://${SH_HOST}
+      HOST_CD: http://cd
+      COVEO_SERVER_URL: ${COVEO_SERVER_URL}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\items:c:\items
@@ -119,7 +121,7 @@ services:
       - demo
 
   xdbautomationworker:
-    image: ${REGISTRY}demo/lighthouse-xp0-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}    
+    image: ${REGISTRY}demo/lighthouse-xp0-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
@@ -170,6 +172,7 @@ services:
       Sitecore_ConnectionStrings_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
       Sitecore_License: ${SITECORE_LICENSE}
       EXM_RENDERER_URL: http://cm
+      COVEO_SERVER_URL: ${COVEO_SERVER_URL}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\data\cd\src:C:\src
@@ -225,6 +228,11 @@ services:
       SKIP_WARMUP_CD: ${SKIP_WARMUP_CD}
       DAM_URL: ${DAM_URL}
       INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
+      COVEO_ORGANIZATION_ID: ${COVEO_ORGANIZATION_ID}
+      COVEO_API_KEY: ${COVEO_API_KEY}
+      COVEO_SEARCH_API_KEY: ${COVEO_SEARCH_API_KEY}
+      COVEO_FARM_NAME: ${COVEO_FARM_NAME}
+      COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
     depends_on:
       mssql:
         condition: service_healthy

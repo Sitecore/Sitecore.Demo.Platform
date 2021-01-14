@@ -39,6 +39,7 @@ ENV ADMIN_USER_NAME="sitecore\superuser"
 ENV DISABLE_DEFAULT_ADMIN=FALSE
 ENV EXM_BASE_URL=http://cd
 ENV BOOT_OVERRIDE_SCRIPTS="Demo-Boot-Platform-Linux.ps1"
+ENV COVEO_ADMIN_USER_NAME="sitecore\coveoadmin"
 
 COPY --from=builder ["/install/*", "/clean/"]
 
