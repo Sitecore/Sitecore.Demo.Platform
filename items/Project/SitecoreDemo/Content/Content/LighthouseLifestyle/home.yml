@@ -351,8 +351,42 @@ SharedFields:
             <ruleset
               s:pet="false">
               <rule
+                uid="{8CE65710-1561-4AA9-B3B7-248492ECCD8D}"
+                s:name="Gold Member Tier">
+                <conditions>
+                  <condition
+                    uid="238F29D05B8C421385579BBB34571605"
+                    s:id="{DB2650CC-5F84-4328-AA6C-CF57487A570A}"
+                    s:operatorid="{537244C2-3A3F-4B81-A6ED-02AF494C0563}"
+                    s:MemberTierStatus="Gold" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="4D4D54020F3B438BBD462CE37D765EBD"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{0F499A68-2402-416E-BB22-DF9ACF8106C1}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{F7C79C71-4B10-4B95-B884-3D5E808FB1CD}"
+                s:name="Silver Member Tier">
+                <conditions>
+                  <condition
+                    uid="3F2B33A8781B40DE825AC2E14D2391C1"
+                    s:id="{DB2650CC-5F84-4328-AA6C-CF57487A570A}"
+                    s:operatorid="{537244C2-3A3F-4B81-A6ED-02AF494C0563}"
+                    s:MemberTierStatus="Silver" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="7AA56C8FA9624DE6A572C9A97FF13D2B"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{725F4F50-5ECC-4C6B-BD59-6AAE2ED630E1}" />
+                </actions>
+              </rule>
+              <rule
                 uid="{032168D5-A31E-49AF-8CF1-F8231151D8EA}"
-                s:name="Specify name...">
+                s:name="Hide after Login">
                 <actions>
                   <action
                     uid="ED0AAFD85E3440B0A22BCC7BBAC9B3D1"

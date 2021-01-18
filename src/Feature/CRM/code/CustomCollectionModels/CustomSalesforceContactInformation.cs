@@ -8,6 +8,6 @@ namespace Sitecore.Demo.Platform.Feature.CRM.CustomCollectionModels
     public class CustomSalesforceContactInformation : Facet
     {
         public const string DefaultFacetKey = "CustomSalesforceContact";
-        public string WelcomeJourneyStatus { get; set; }
+        public string MemberTier { get; set; }
     }
 }

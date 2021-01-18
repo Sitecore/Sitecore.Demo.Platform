@@ -1,0 +1,30 @@
+﻿---
+ID: "bea413d7-b691-4222-a299-f2177da1cf14"
+Parent: "69b132fc-37fd-479c-a086-69ba4b7cce79"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/content/Salesforce CRM Tenant/Value Mapping Sets/Salesforce to xConnect Contact Mappings/Salesforce Contact to xConnect Contact Custom Salesforce Facet/Member Tier Facet
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{CAD13901-1199-4B61-851A-42BFCC918879}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{5773A25D-A93F-49B0-B499-4C59F69F3F36}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{B31D75CE-5FB4-4A76-8252-3045EA54037E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210111T115521Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

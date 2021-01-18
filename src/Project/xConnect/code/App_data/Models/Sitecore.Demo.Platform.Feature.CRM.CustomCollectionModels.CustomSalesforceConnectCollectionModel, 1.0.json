@@ -19,7 +19,7 @@
     "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceContactInformation": {
       "Type": "Facet",
       "BaseType": "Sitecore.XConnect.Facet",
-      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceContactInformation, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceContactInformation, Sitecore.DataExchange.Tools.SalesforceConnect, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Properties": {
         "CreatedDate": {
           "Type": "DateTime"
@@ -39,7 +39,7 @@
       "BaseType": "Sitecore.XConnect.Facet",
       "ClrType": "Sitecore.Demo.Platform.Feature.CRM.CustomCollectionModels.CustomSalesforceContactInformation, Sitecore.Demo.Platform.Feature.CRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Properties": {
-        "WelcomeJourneyStatus": {
+        "MemberTier": {
           "Type": "String"
         }
       }
@@ -47,7 +47,7 @@
     "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceCampaignMembership": {
       "Type": "Facet",
       "BaseType": "Sitecore.XConnect.Facet",
-      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceCampaignMembership, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceCampaignMembership, Sitecore.DataExchange.Tools.SalesforceConnect, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Properties": {
         "CampaignIds": {
           "Type": [
@@ -59,7 +59,7 @@
     "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceInteraction": {
       "Type": "Facet",
       "BaseType": "Sitecore.XConnect.Facet",
-      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceInteraction, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Facets.SalesforceInteraction, Sitecore.DataExchange.Tools.SalesforceConnect, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Properties": {
         "Identifier": {
           "Type": "String"
@@ -69,7 +69,7 @@
     "Sitecore.DataExchange.Tools.SalesforceConnect.Events.TaskEvent": {
       "Type": "Event",
       "BaseType": "Sitecore.XConnect.Event",
-      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.TaskEvent, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.TaskEvent, Sitecore.DataExchange.Tools.SalesforceConnect, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Properties": {
         "Subject": {
           "Type": "String"
@@ -91,13 +91,13 @@
     "Sitecore.DataExchange.Tools.SalesforceConnect.Events.EmailEvent": {
       "Type": "Event",
       "BaseType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.TaskEvent",
-      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.EmailEvent, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.EmailEvent, Sitecore.DataExchange.Tools.SalesforceConnect, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Properties": {}
     },
     "Sitecore.DataExchange.Tools.SalesforceConnect.Events.CallEvent": {
       "Type": "Event",
       "BaseType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.TaskEvent",
-      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.CallEvent, Sitecore.DataExchange.Tools.SalesforceConnect, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null",
+      "ClrType": "Sitecore.DataExchange.Tools.SalesforceConnect.Events.CallEvent, Sitecore.DataExchange.Tools.SalesforceConnect, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Properties": {}
     }
   },

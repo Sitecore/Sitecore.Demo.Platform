@@ -1,0 +1,39 @@
+﻿---
+ID: "fd74a562-e75a-4080-918d-647d875127f6"
+Parent: "2a06a6e5-19bf-4366-b17e-a4c50dff7985"
+Template: "e21f2c61-6ea5-41ca-8795-f5167bccfd46"
+Path: /sitecore/content/Salesforce CRM Tenant/Pipelines/Salesforce Tasks to xConnect Sync Pipelines/Process Single Task from Salesforce Pipeline/Add Interaction Model to xConnect Batch
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "549d7f4e-ffdb-475d-a2fe-a97606f8020a"
+  Hint: BatchEntryStoragePluginLocation
+  Value: "{ADDE6B1E-20CD-4DE7-BFFA-14426395BA91}"
+- ID: "8fd77171-9ac2-4da8-b082-5045f4d4803c"
+  Hint: EntityModelLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "a12d2e66-f52a-43fb-a349-a40234e1e7d3"
+  Hint: AddEntityToBatchRules
+  Type: Treelist
+  Value: "{61A56B45-7805-47DD-8882-BF4998C63E30}"
+- ID: "b8a8463b-25fc-4790-a1ae-380a7d0d154d"
+  Hint: EntityType
+  Value: "{C2BC584F-39E5-140E-B537-4D6F321BCA9A}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{FD74A562-E75A-4080-918D-647D875127F6}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210111T115510Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

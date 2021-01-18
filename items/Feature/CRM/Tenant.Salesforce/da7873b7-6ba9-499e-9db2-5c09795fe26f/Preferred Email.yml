@@ -1,0 +1,30 @@
+﻿---
+ID: "2ea5af3c-7b4a-4b94-a5aa-807331438318"
+Parent: "da7873b7-6ba9-499e-9db2-5c09795fe26f"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/content/Salesforce CRM Tenant/Value Mapping Sets/Salesforce to xConnect Contact Mappings/Salesforce Contact to xConnect Contact Emails Facet/Preferred Email
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{B4CBF145-6BD6-4C98-95B0-AC963EF3CE3F}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{00C592DB-7A43-4246-8423-25008A978C3F}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{2EA5AF3C-7B4A-4B94-A5AA-807331438318}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210111T115523Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
