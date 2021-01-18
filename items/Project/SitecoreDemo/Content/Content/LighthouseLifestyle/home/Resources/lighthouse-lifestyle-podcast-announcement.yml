@@ -1,0 +1,66 @@
+﻿---
+ID: "2f8a98d5-620f-4ac9-a665-b82d34b48680"
+Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
+Template: "358026a9-8037-4ab1-98c8-6325c0f6d56f"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/lighthouse-lifestyle-podcast-announcement"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Lighthouse Lifestyle Podcast Announcement
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "176397f2-cd7e-4d11-b5d3-2d79223e4522"
+      Hint: Industry
+      Type: Multilist
+      Value: |
+        {DCF12C5B-5271-4110-B9F7-72C0145F170D}
+        {02576E04-1888-4ADF-A0DF-E2CDA203F78A}
+        {7978B6C8-D55D-4456-B43E-D9A13CAB51C1}
+        {5E881A6E-EF45-4E0E-B1EF-D8EA93315FEC}
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210108T215247Z
+    - ID: "3cbc835c-a8e8-47f8-ac92-f57b8c0f15e2"
+      Hint: Region
+      Type: Multilist
+      Value: |
+        {28E8E1CA-8D52-4915-B0F0-031B2D57D4F5}
+        {68470BCB-F80E-4C78-9CAF-D1B39338F223}
+        {CC02C81F-C592-4AF0-938E-8E09F9BB855D}
+        {49220CB2-6B13-4743-ACA1-543AD9A57466}
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Audio Resource
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+        Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. </p>
+        <p>Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
+        Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. </p>
+        <p>Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley j&iuml;&iquest;&frac12;cama salsify.</p>
+    - ID: "89fee1cc-8c88-4b07-aa6a-235179f9d48e"
+      Hint: Image
+      Value: |
+        <image mediaid="{FD45FB7F-9212-43A9-B1DF-96E75BE92363}" />
+    - ID: "c7d27e8e-df35-4e14-bb43-c66b3a9fd8a4"
+      Hint: Media
+      Value: |
+        <file mediaid="{EC25CCF3-3AED-4B26-BD1D-25FF7AA41E17}" src="-/media/EC25CCF33AED4B26BD1D25FF7AA41E17.ashx" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Lighthouse Lifestyle Podcast Announcement
+    - ID: "e612d3fe-3862-47f1-9ec7-3ab6a45938d3"
+      Hint: Introduction
+      Value: <p>We have announced the launch of Lighthouse Sound, a new Lifestyle strategy designed to create innovative and meaningful connections between users, enthusiasts, and the tech and lifestyle they all love.</p>

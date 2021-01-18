@@ -1,0 +1,58 @@
+﻿---
+ID: "cb92b31d-0c81-4dff-a3ae-c56d5680de23"
+Parent: "2b6546aa-302f-45d0-84a0-85a4f0a850d9"
+Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
+Path: /sitecore/content/Demo SXA Sites/Global/Presentation/Rendering Variants/Page Content/Resource CTA/Link Section
+DB: master
+SharedFields:
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{5759C4F4-26BB-4AED-A8DE-D0D6B6142C25}">
+        <conditions>
+          <or
+            uid="2EC3CB956FBE4C8CBBDD1B755CC83ACC">
+            <or
+              uid="85E1C3FA80E34F8E820A1A95663F6A71">
+              <or
+                uid="6F232C86B6404536A83638026AD99CE6">
+                <condition
+                  id="{D0810F9D-734C-452D-BBB6-4730368D68F1}"
+                  uid="60547BD33F5A49BEB40A17B573831301"
+                  templateid="{37ECC079-3B98-444A-AF72-FC5C487A2C4C}" />
+                <condition
+                  id="{D0810F9D-734C-452D-BBB6-4730368D68F1}"
+                  uid="478083BAD1254558979B0C905DFBD769"
+                  templateid="{CC9B9EEF-1345-4DB4-8A36-A002EC113419}" />
+              </or>
+              <condition
+                id="{D0810F9D-734C-452D-BBB6-4730368D68F1}"
+                uid="90AACCB9F4AF48FB9F41187E9C6B93B8"
+                templateid="{52DB32BB-AD15-40CC-8264-F18EEB7C2E89}" />
+            </or>
+            <condition
+              id="{D0810F9D-734C-452D-BBB6-4730368D68F1}"
+              uid="51C3163825F14ECD836F62C5FD65E391"
+              templateid="{2479B730-E575-4600-BAAC-A22CF2D1E335}" />
+          </or>
+        </conditions>
+      </rule>
+    </ruleset>
+- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
+  Hint: CssClass
+  Value: 
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210107T223157Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
