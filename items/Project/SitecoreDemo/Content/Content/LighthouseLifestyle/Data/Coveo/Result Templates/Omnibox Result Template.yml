@@ -1,0 +1,29 @@
+﻿---
+ID: "776e8cfb-bab3-4540-9a12-df4291620d8a"
+Parent: "a2d67c28-b3c1-482b-8d74-cfb122c1e33d"
+Template: "92311d82-d2ae-4155-9c8d-6c20dba0cac2"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Coveo/Result Templates/Omnibox Result Template
+DB: master
+SharedFields:
+- ID: "5a29f470-49e9-4e25-9746-c21b0f917909"
+  Hint: ResultLayout
+  Value: List
+- ID: "5a35c89a-9597-4d24-b5d6-7c1662d0cf7b"
+  Hint: Script
+  Value: |
+    <div class="CoveoResultLink"></div>
+- ID: "d48ad7e5-fd34-4ec2-b753-4e1867b05714"
+  Hint: ItemId
+  Value: coveo7333da5f
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20201221T124725Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser

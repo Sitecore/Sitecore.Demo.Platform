@@ -9,22 +9,43 @@ param(
 
 Write-Host "$(Get-Date -Format $timeFormat): Starting demo team Platform boot override."
 
-# create new admin user if specified
-$adminUserName = $env:ADMIN_USER_NAME
-if ($null -ne $adminUserName -AND $adminUserName.ToLower() -ne "admin" ) {
+function CreateAdminUser
+{
+	Param(
+		[string] $username,
+		[string] $password
+	)
+
+	if ([string]::IsNullOrEmpty($username) -or [string]::IsNullOrEmpty($password))
+	{
+		Write-Warning "There was no username or password provided. Not creating admin user."
+		return $null
+	}
 
 	$command = Join-Path $scripts  "HashPassword.ps1"
-	$userinfoAdmin = & $command $env:SITECORE_ADMIN_PASSWORD
+	$userinfoAdmin = & $command $password
 
 	$passwordParamAdmin = ("EncodedPassword='" + $userinfoAdmin.Password + "'")
 	$saltParamAdmin = ("EncodedSalt='" + $userinfoAdmin.Salt + "'")
-	$UserNameParamAdmin = ("UserName='" + $env:ADMIN_USER_NAME + "'")
+	$UserNameParamAdmin = ("UserName='" + $username + "'")
 	$EMailParamAdmin = ("EMail='noreply@sitecoredemo.com'")
 	$paramsAdmin = $passwordParamAdmin, $saltParamAdmin, $UserNameParamAdmin, $EMailParamAdmin
 
 	$command = Join-Path $sql_scripts "CreateSitecoreAdminUser.sql"
 	Invoke-Sqlcmd -InputFile $command -Variable $paramsAdmin -HostName $SqlHostname -Username sa -Password $env:SA_PASSWORD
-	Write-Verbose "$(Get-Date -Format $timeFormat): Invoke CreateSitecoreAdminUser.sql"
+	Write-Verbose "$(Get-Date -Format $timeFormat): Invoke CreateSitecoreAdminUser.sql for $username"
+}
+
+# create new admin user if specified
+$adminUserName = $env:ADMIN_USER_NAME
+if ($null -ne $adminUserName -AND $adminUserName.ToLower() -ne "admin" ) {
+	CreateAdminUser $adminUserName $env:SITECORE_ADMIN_PASSWORD
+}
+
+# create new Coveo admin user if specified
+$coveoAdminUserName = $env:COVEO_ADMIN_USER_NAME
+if ($null -ne $coveoAdminUserName -AND $coveoAdminUserName.ToLower() -ne "admin" -AND $coveoAdminUserName.ToLower() -ne $adminUserName ) {
+	CreateAdminUser $coveoAdminUserName $env:SITECORE_ADMIN_PASSWORD
 }
 
 # disable admin user, if specified

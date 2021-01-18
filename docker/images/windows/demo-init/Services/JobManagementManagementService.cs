@@ -33,8 +33,10 @@ namespace Sitecore.Demo.Init.Services
 				logger.LogInformation($"{DateTime.UtcNow} Init started.");
 
 				await new WaitForContextDatabase(initContext).Run();
+				await new ActivateCoveo(initContext).Run();
 				await new PublishItems(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
+				await Task.WhenAll(new RemoveItems(initContext).Run());
 				await Task.WhenAll(new UpdateFieldValues(initContext).Run(), new DeployMarketingDefinitions(initContext).Run(), new RebuildLinkDatabase(initContext).Run());
 				await Task.WhenAll(new WarmupCM(initContext).Run(), new WarmupCD(initContext).Run());
 				await Task.WhenAll(new IndexRebuild(initContext).Run(), new ExperienceGenerator(initContext).Run());

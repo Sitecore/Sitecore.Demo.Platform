@@ -1,0 +1,70 @@
+﻿---
+ID: "0e6d3477-003d-4fad-9c40-8128502abc7d"
+Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
+Template: "2479b730-e575-4600-baac-a22cf2d1e335"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/healthbit
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Healthbit
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "176397f2-cd7e-4d11-b5d3-2d79223e4522"
+      Hint: Industry
+      Type: Multilist
+      Value: |
+        {090E7382-D38E-4D69-A8E0-85A894F36428}
+        {7978B6C8-D55D-4456-B43E-D9A13CAB51C1}
+        {5E881A6E-EF45-4E0E-B1EF-D8EA93315FEC}
+        {24B31D57-CD16-4ACC-A14C-4A718EE595B5}
+        {6EB5F965-9A75-44F5-A551-7130164716B5}
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210108T063936Z
+    - ID: "3cbc835c-a8e8-47f8-ac92-f57b8c0f15e2"
+      Hint: Region
+      Type: Multilist
+      Value: |
+        {28E8E1CA-8D52-4915-B0F0-031B2D57D4F5}
+        {49220CB2-6B13-4743-ACA1-543AD9A57466}
+        {B1EA70BB-4B21-473E-B5FA-A4BC8781F2BF}
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Case Study Resource
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Life live joy kale vinyasa poolside avocado toast. Squats burpee warrior pose lifting quinoa carbs splash run play. Run lift jog jump press pull abdominals metabolic. Organic grass-fed superfoods lunge barbell ropes mat banana. Omega natural local performance tech tee yoga sweat bend.
+        </p>
+        <p>Work play protein sports love lift studio. Barre run jump natural sit stand coffee. Athletic health free explore train happy. Lunge team group training cycle breakfast. LifeCafe family fun kids laugh learn. Possibilities classes move body spirit mind. Progress goals welcome community.
+        </p>
+        <p>Join experience home lifestyle gather imagine. Spa massage weights pool lounge comfort. Skin relax design space amenities. Luxury outdoor oasis club. Perks living park advanced unique cafe salad. Black beans warrior sculpt Pilates reformer. Feeling good smile racquetball fun.
+        </p>
+        <p>Destination child care outdoor pools explore leafy greens. Cutting-edge endless amenities healthy sandwich. Tasty flavors wholesome goodness. Pickleball whole grain professional. Seamless empowering high-standard egg white. Brown rice yoga mat roasted vegetables.
+        </p>
+        <p>Supplements exercise wearable technology vitamins health habits. Plant nutrients muscle yoga leggings. Protein biceps basketball Red pepper mayo locker rooms lunch. Cycle mountain biking wholesome healthcare. Recipe colorful hearty meal. Warm happy superfoods sustainable detox.</p>
+    - ID: "65acc459-a8e3-49f3-bc9a-fbd9f9b34f13"
+      Hint: Link
+      Value: |
+        <link text="Download the HealthBit Case Study" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{A5179E9A-1E45-4336-B837-CB6206B8E843}" />
+    - ID: "89fee1cc-8c88-4b07-aa6a-235179f9d48e"
+      Hint: Image
+      Value: |
+        <image mediaid="{A58AB51E-1B5E-41FE-81A3-49E4B6FE5FEC}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Healthbit integration
+    - ID: "e612d3fe-3862-47f1-9ec7-3ab6a45938d3"
+      Hint: Introduction
+      Value: <p>Healthbit has announced a huge partnership with Lighthouse Lifestyle to incorporate our tools directly in their software and hardware. This tools will be available to masses early next year. This is a great accomplishment and a step forward.</p>

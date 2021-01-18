@@ -1,0 +1,29 @@
+﻿---
+ID: "98004834-1b47-493b-9a0f-14ad95c43ce2"
+Parent: "6699cc9c-00ca-4af3-b00d-2936e9034a67"
+Template: "c7a6f264-b9f7-4a60-962b-11004fafb9b8"
+Path: /sitecore/content/Salesforce CRM Tenant/Pipelines/xConnect Contacts and Interactions to Salesforce Sync/Read Contact Interactions from xConnect Pipeline/Submit Remaining Tasks In Salesforce Object Queue
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "493d5d0b-f8f6-48fa-a715-77c17e021579"
+  Hint: ObjectName
+  Value: event
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 275
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{98004834-1B47-493B-9A0F-14AD95C43CE2}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210111T115513Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -415,7 +415,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             return true;
         }
 
-        private IdentifiedContactReference GetContactId()
+        public IdentifiedContactReference GetContactId()
         {
             if (Tracker.Current?.Contact == null)
             {

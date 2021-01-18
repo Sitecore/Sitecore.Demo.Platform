@@ -1,4 +1,4 @@
----
+﻿---
 ID: "c3cc8f51-afa2-07ad-21e0-53bc1836b57e"
 Parent: "cf89b29e-813e-dad1-0330-5ae2399ffc4d"
 Template: "be9bfd91-0509-4573-807e-d8be6af7034f"
@@ -21,9 +21,11 @@ Languages:
 - Language: en
   Versions:
   - Version: 1
-- Language: "fr-CA"
-  Versions:
-  - Version: 1
-- Language: "ja-JP"
-  Versions:
-  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210115T215643Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

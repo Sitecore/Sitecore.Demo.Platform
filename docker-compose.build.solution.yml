@@ -11,5 +11,6 @@ services:
       args:
         BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
         BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}
+        COVEO_ASSETS_IMAGE: ${REGISTRY}community/modules/custom-coveo${COVEO_VERSION}-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
         INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
         SYSTEM_ACCESSTOKEN: ${SYSTEM_ACCESSTOKEN}

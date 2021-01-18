@@ -1,0 +1,59 @@
+﻿---
+ID: "76021e95-4ce6-4634-a6b7-2956815005be"
+Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
+Template: "52db32bb-ad15-40cc-8264-f18eeb7c2e89"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/smart-home-guide-for-beginners"
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Smart Home Guide for Beginners
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "176397f2-cd7e-4d11-b5d3-2d79223e4522"
+      Hint: Industry
+      Type: Multilist
+      Value: |
+        {5E881A6E-EF45-4E0E-B1EF-D8EA93315FEC}
+        {090E7382-D38E-4D69-A8E0-85A894F36428}
+        {02576E04-1888-4ADF-A0DF-E2CDA203F78A}
+        {AE8D2B0E-35A7-444B-95F6-48BD6D5BA1DA}
+        {DCF12C5B-5271-4110-B9F7-72C0145F170D}
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210107T171416Z
+    - ID: "3cbc835c-a8e8-47f8-ac92-f57b8c0f15e2"
+      Hint: Region
+      Type: Multilist
+      Value: |
+        {28E8E1CA-8D52-4915-B0F0-031B2D57D4F5}
+        {CC5CDB6F-C4B7-440D-865B-AD4A2725DCFD}
+        {09C18D8F-33B6-4000-BFC1-40871D5C8023}
+        {B1EA70BB-4B21-473E-B5FA-A4BC8781F2BF}
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: External Resource
+    - ID: "8787162f-bf00-4d89-b458-5c455f6afbd1"
+      Hint: Link
+      Value: |
+        <link text="Beginners guide to smart home" linktype="external" url="https://www.techhive.com/article/3297744/smart-home-guide-for-beginners-how-to-make-your-home-more-convenient-to-live-in.html" anchor="" target="_blank" />
+    - ID: "89fee1cc-8c88-4b07-aa6a-235179f9d48e"
+      Hint: Image
+      Value: |
+        <image mediaid="{31C87670-CE16-4D48-B9AF-B4493AD0E25E}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Smart Home Guide for Beginners
+    - ID: "e612d3fe-3862-47f1-9ec7-3ab6a45938d3"
+      Hint: Introduction
+      Value: "<p>Make your home more convenient to live in without spending lots of time or money. You don&rsquo;t need to be an expert or spend a fortune on cutting-edge gear, these first steps will lay a foundation you can build on.</p>"

@@ -16,8 +16,6 @@ namespace Sitecore.Demo.Platform.Feature.Accounts.Models
         public string LastName { get; set; }
 
         [Display(Name = nameof(PhoneNumberCaption), ResourceType = typeof(EditProfile))]
-        [RegularExpression(@"^\+?\d*(\(\d+\)-?)?\d+(-?\d+)+$", ErrorMessageResourceName = nameof(PhoneNumberFormat), ErrorMessageResourceType = typeof(EditProfile))]
-        [MaxLength(20, ErrorMessageResourceName = nameof(MaxLengthExceeded), ErrorMessageResourceType = typeof(EditProfile))]
         public string PhoneNumber { get; set; }
 
         [Display(Name = nameof(InterestsCaption), ResourceType = typeof(EditProfile))]

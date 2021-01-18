@@ -80,7 +80,7 @@ namespace Sitecore.Demo.Platform.Feature.CRM.ExperienceProfile
             string gender = string.Empty;
             string jobTitle = string.Empty;
             string salesforceContactCreatedDate = string.Empty;
-            string customSalesforceJourneyStatus = string.Empty;
+            string customSalesforceMemberStatus = string.Empty;
             KeyValuePair<string, IAddress> preferredAddress = new KeyValuePair<string, IAddress>();
             KeyValuePair<string, IEmailAddress> preferredEmailAddress = new KeyValuePair<string, IEmailAddress>();
             KeyValuePair<string, IPhoneNumber> preferredPhoneNumber = new KeyValuePair<string, IPhoneNumber>();
@@ -124,13 +124,13 @@ namespace Sitecore.Demo.Platform.Feature.CRM.ExperienceProfile
             }
             if (salseforceContactInformation != null)
             {
-                salesforceContactCreatedDate = salseforceContactInformation.CreatedDate.ToLongDateString();
+                salesforceContactCreatedDate = salseforceContactInformation.LastModified.Value.ToLongDateString();
             }
             if (customSalseforceContactInformation != null)
             {
-                customSalesforceJourneyStatus = customSalseforceContactInformation.WelcomeJourneyStatus;
+                customSalesforceMemberStatus = customSalseforceContactInformation.MemberTier;
             }
-            return new ExperienceProfileSalesforceReadonlyContact(contactId, classification1, identifiers1, firstName, middleName, surname, title, suffix, nickname, birthDate, gender, jobTitle, totalValue, visitCount, preferredAddress, preferredEmailAddress, preferredPhoneNumber, addresses, emailAddresses, phoneNumbers, salesforceContactCreatedDate, customSalesforceJourneyStatus);
+            return new ExperienceProfileSalesforceReadonlyContact(contactId, classification1, identifiers1, firstName, middleName, surname, title, suffix, nickname, birthDate, gender, jobTitle, totalValue, visitCount, preferredAddress, preferredEmailAddress, preferredPhoneNumber, addresses, emailAddresses, phoneNumbers, salesforceContactCreatedDate, customSalesforceMemberStatus);
         }
     }
 }

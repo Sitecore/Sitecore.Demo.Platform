@@ -5,7 +5,7 @@ Param (
   ,
   [Parameter(
     HelpMessage = "Base Module Version - used to refer to a specific build of the base images.")]
-  [string]$BaseModuleVersion = "1001.0-beta"
+  [string]$BaseModuleVersion = "1001.1"
   ,
   [Parameter(
     HelpMessage = "Internal ACR use by the demo team")]

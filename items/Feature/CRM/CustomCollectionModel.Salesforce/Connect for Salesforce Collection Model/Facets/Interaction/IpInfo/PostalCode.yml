@@ -1,4 +1,4 @@
----
+﻿---
 ID: "6da2fa9c-fac1-9872-6bb3-283ac0c1be77"
 Parent: "80454b61-f4ea-b02a-7d99-f4680f82ed55"
 Template: "dd11efa5-caaa-4345-8017-6cdd20017faa"
@@ -17,6 +17,10 @@ SharedFields:
 - ID: "34b08f94-e310-4d8d-babb-24b619032967"
   Hint: EntityType
   Value: "{C2BC584F-39E5-140E-B537-4D6F321BCA9A}"
+- ID: "9c9c26ed-1ed5-41e4-8a4d-f505465255b2"
+  Hint: ReadOnly
+  Type: Checkbox
+  Value: 0
 - ID: "b96d5d51-1372-41c5-a3a7-fff17ba34089"
   Hint: CollectionModelType
   Value: Sitecore.Demo.Platform.Feature.CRM.CustomCollectionModels.CustomSalesforceConnectCollectionModel, Sitecore.Demo.Platform.Feature.CRM
@@ -24,9 +28,11 @@ Languages:
 - Language: en
   Versions:
   - Version: 1
-- Language: "fr-CA"
-  Versions:
-  - Version: 1
-- Language: "ja-JP"
-  Versions:
-  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210115T215642Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

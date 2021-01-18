@@ -21,6 +21,7 @@ services:
       DISABLE_DEFAULT_ADMIN: 'FALSE'
       EXM_BASE_URL: "https://${CD_HOST}"
       START_OVERRIDE_SCRIPTS: "start-override-platform-windows.ps1"
+      COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
     mem_limit: 2GB
     volumes:
       - type: bind
@@ -48,7 +49,6 @@ services:
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup2: https://${SH_HOST}|http://${SH_HOST}
-
     networks:
       - demo
 
@@ -63,16 +63,19 @@ services:
       SITECORE_APPSETTINGS_UNICORN:DEFINE: Enabled
       SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: Enabled
       SOLR_CORE_PREFIX_NAME: sitecore
-      SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: None
+      SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: Salesforce
       SITECORE_APPSETTINGS_CONTENTHUB:DEFINE: Enabled
       SITECORE_CONNECTIONSTRINGS_CMP.ContentHub: ${CMP_CONTENTHUB}
       SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusEntityPathIn: ${CMP_SERVICEBUSENTITYPATHIN}
       SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusSubscription: ${CMP_SERVICEBUSSUBSCRIPTION}
       SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusEntityPathOut: ${CMP_SERVICEBUSENTITYPATHOUT}
       SITECORE_CONNECTIONSTRINGS_SFMC: ${SFMC_CONNECTIONSTRING}
+      SITECORE_CONNECTIONSTRINGS_SFDC: ${SFDC_CONNECTIONSTRING} 
       SITECORE_CONNECTIONSTRINGS_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
       EXM_RENDERER_URL: http://cm
       Sitecore_Horizon_ClientHost: https://${SH_HOST}
+      HOST_CD: http://cd
+      COVEO_SERVER_URL: ${COVEO_SERVER_URL}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\items:c:\items
@@ -119,7 +122,7 @@ services:
       - demo
 
   xdbautomationworker:
-    image: ${REGISTRY}demo/lighthouse-xp0-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}    
+    image: ${REGISTRY}demo/lighthouse-xp0-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
@@ -156,7 +159,8 @@ services:
       SITECORE_APPSETTINGS_ENV:DEFINE: Docker
       SITECORE_APPSETTINGS_UNICORN:DEFINE: Disabled
       SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: Disabled
-      SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: None
+      SOLR_CORE_PREFIX_NAME: sitecore
+      SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: Salesforce
       Sitecore_ConnectionStrings_Security: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Web: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Messaging: Data Source=mssql;Initial Catalog=Sitecore.Messaging;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -170,6 +174,7 @@ services:
       Sitecore_ConnectionStrings_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
       Sitecore_License: ${SITECORE_LICENSE}
       EXM_RENDERER_URL: http://cm
+      COVEO_SERVER_URL: ${COVEO_SERVER_URL}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\data\cd\src:C:\src
@@ -225,6 +230,11 @@ services:
       SKIP_WARMUP_CD: ${SKIP_WARMUP_CD}
       DAM_URL: ${DAM_URL}
       INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
+      COVEO_ORGANIZATION_ID: ${COVEO_ORGANIZATION_ID}
+      COVEO_API_KEY: ${COVEO_API_KEY}
+      COVEO_SEARCH_API_KEY: ${COVEO_SEARCH_API_KEY}
+      COVEO_FARM_NAME: ${COVEO_FARM_NAME}
+      COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
     depends_on:
       mssql:
         condition: service_healthy

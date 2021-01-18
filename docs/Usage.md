@@ -2,20 +2,26 @@
 
 ## Table of Contents
 
+- **[Clone this Repository](#clone-this-repository)**
 - **[Prerequisites](#prerequisites)**
 - **[Preparing Docker](#preparing-docker)**
 - **[Preparing Your Environment](#preparing-your-environment)**
 - **[Running the Demo](#running-the-demo)**
   - [Pulling the Docker Images](#pulling-the-docker-images)
   - [Starting the Demo Containers](#starting-the-demo-containers)
-  - [Validating the Deployment](#validating-deployment)
-  - [Stopping the Demo](#stopping-the-demo)
-  - [Starting Over](#starting-over)
+  - [Validating the Deployment](#validating-the-deployment)
+  - [Optional - Enable Coveo for Sitecore](#Optional---Enable-Coveo-for-Sitecore)
+- **[Stopping the Demo](#stopping-the-demo)**
+- **[Starting Over](#starting-over)**
 - **[Building the Demo](#building-the-demo)**
 - **[Development Lifecycle](#development-lifecycle)**
+  - [Local Build Prerequisites](#Local-Build-Prerequisites)
+  - [After changes to the code](#After-changes-to-the-code)
 - **[Troubleshooting](#troubleshooting)**
 
 ## Clone this Repository
+
+[top](#table-of-contents)
 
 Clone the Sitecore.Demo.Platform repository locally - defaults are configured for **`C:\Projects\Sitecore.Demo.Platform`**.
 
@@ -117,7 +123,15 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 3. Browse to [http://127.0.0.1:44026/](http://127.0.0.1:44026/)
    1. You should see the SMTP container catch-all mailbox for all emails sent by EXM.
 
-### Stopping the Demo
+### Optional - Enable Coveo for Sitecore
+
+[top](#table-of-contents)
+
+There is an optional Coveo for Sitecore integration in the Lighthouse Demo.
+
+Once Sitecore is up and running, you can [setup Coveo for Sitecore](/Setup-coveo.md) on your instance.
+
+## Stopping the demo
 
 [top](#table-of-contents)
 
@@ -127,7 +141,7 @@ If you want to stop the demo without losing your changes:
 
 At this point you can start the demo again with `docker-compose start` to continue your work where you left off.
 
-### Starting Over
+## Starting Over
 
 [top](#table-of-contents)
 
@@ -156,14 +170,27 @@ If you want to reset all of your changes and get a fresh intsance:
 
 ## Development Lifecycle
 
+### Local Build Prerequisites
+
 [top](#table-of-contents)
 
-After changes to the code:
+When building locally from Visual Studio or using the `.\build.ps1` script, you need some DLLs that are not available in NuGet packages. We created a script to pull them from Docker assets images.
+
+1. Open an elevated (as administrator) PowerShell session.
+2. Navigate to your repository clone folder:
+   - `cd C:\Projects\Sitecore.Demo.Platform`
+3. `.\pull-build-libraries.ps1`
+
+### After changes to the code
+
+[top](#table-of-contents)
 
 1. Open an elevated (as administrator) PowerShell session.
 2. Navigate to your repository clone folder:
    - `cd C:\Projects\Sitecore.Demo.Platform`
 3. `.\build.ps1 -DeploymentTarget Docker`
+
+This will build the solutions and deploy the build output to the `.\data\*\src` folders. The containers have volumes mounted to these `src` folders and are deploying any modified file directly to their `C:\inetpub\wwwroot` folders. Sitecore will shut down due to file changes. The container will still continue to run. The next HTTP request will restart Sitecore with the new DLLs and configuration files.
 
 ## Troubleshooting
 
