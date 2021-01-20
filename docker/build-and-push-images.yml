@@ -92,8 +92,8 @@ stages:
               nanoserverVersion: "2004"
             20H2:
               poolName: "docker-20H2-agents"
-              osVersion: "2009"
-              nanoserverVersion: "2009"
+              osVersion: "20H2"
+              nanoserverVersion: "20H2"
         workspace:
           clean: all
         pool:
@@ -181,8 +181,8 @@ stages:
               nanoserverVersion: "1809"
             20H2:
               poolName: "docker-20H2-agents"
-              osVersion: "2009"
-              nanoserverVersion: "2009"
+              osVersion: "20H2"
+              nanoserverVersion: "20H2"
         displayName: "Build Windows Docker Images"
         pool:
           name: $(poolName)

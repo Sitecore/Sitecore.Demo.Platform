@@ -54,7 +54,7 @@ services:
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        HOTFIX_IMAGE: ${REGISTRY}demo/base/lighthouse-hotfixes:10.0.1-${NANOSERVER_VERSION}
+        HOTFIX_IMAGE: ${REGISTRY}demo/base/lighthouse-hotfixes:10.0.1-${NANOSERVER_VERSION}-1001.1.0
     depends_on:
       - solution
 
@@ -103,5 +103,5 @@ services:
     build:
       context: docker\images\windows\demo-init
       args:
-        BUILD_IMAGE: mcr.microsoft.com/dotnet/core/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
-        BASE_IMAGE: mcr.microsoft.com/dotnet/core/runtime:3.1-nanoserver-${NANOSERVER_VERSION}
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
+        BASE_IMAGE: mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-${NANOSERVER_VERSION}
