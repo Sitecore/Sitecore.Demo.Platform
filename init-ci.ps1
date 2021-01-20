@@ -38,11 +38,16 @@ Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Gr
 
 # Check for Sitecore Gallery
 Import-Module PowerShellGet
-$SitecoreGallery = Get-PSRepository | Where-Object { $_.SourceLocation -eq "https://sitecore.myget.org/F/sc-powershell/api/v2" }
+$SitecoreGallery = Get-PSRepository | Where-Object { $_.Name -eq "SitecoreGallery" }
 if (-not $SitecoreGallery) {
   Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
-  Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted
+  Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v3/index.json -InstallationPolicy Trusted -Verbose
   $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
+}
+else
+{
+  Write-Host "Updating Sitecore PowerShell Gallery url..." -ForegroundColor Yellow
+  Set-PSRepository -Name $SitecoreGallery.Name -Source "https://sitecore.myget.org/F/sc-powershell/api/v3/index.json" -Verbose
 }
 
 #Install and Import SitecoreDockerTools
