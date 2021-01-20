@@ -33,8 +33,8 @@ services:
       context: ./images/windows/demo-init
       dockerfile: Dockerfile.linux
       args:
-        BUILD_IMAGE: mcr.microsoft.com/dotnet/core/sdk:3.1-alpine3.11
-        BASE_IMAGE: mcr.microsoft.com/dotnet/core/runtime:3.1-alpine3.11
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-alpine
+        BASE_IMAGE: mcr.microsoft.com/dotnet/runtime:3.1-alpine
     environment:
       ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
       ADMIN_USER_NAME: "superuser"
