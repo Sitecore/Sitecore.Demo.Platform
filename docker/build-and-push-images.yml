@@ -37,7 +37,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "2.1.x"
+              version: "3.1.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -102,7 +102,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "2.1.x"
+              version: "3.1.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -190,7 +190,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "2.1.x"
+              version: "3.1.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -298,7 +298,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "2.1.x"
+              version: "3.1.x"
           - template: version.yml
           - task: DownloadPipelineArtifact@2
             displayName: "Download Dacpac Artifacts"
