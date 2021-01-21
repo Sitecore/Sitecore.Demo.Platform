@@ -25,17 +25,6 @@
 				</processor>
 			</coveoGetBinaryData>
 		</pipelines>
-		<sites>
-			<!--
-				DEMO WORKAROUND
-				Coveo for Sitecore and Horizon modules are incompatible by default. Horizon handles the coveo_website as a content site.
-				We are applying a workaround similar to what Unicorn had done to fix the same issue: https://github.com/SitecoreUnicorn/Unicorn/issues/398
-				We change the coveo_website rootPath to a item that does not exist.
-			-->
-			<site name="coveo_website">
-				<patch:attribute name="rootPath" value="/coveo/for/sitecore/module" />
-			</site>
-		</sites>
 		<coveo>
 			<defaultIndexConfiguration>
 				<serverUrl>$(env:COVEO_SERVER_URL)</serverUrl>

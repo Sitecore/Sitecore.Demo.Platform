@@ -43,15 +43,14 @@ Import-Module PowerShellGet
 $SitecoreGallery = Get-PSRepository | Where-Object { $_.Name -eq "SitecoreGallery" }
 if (-not $SitecoreGallery) {
   Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
-  Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v3/index.json -InstallationPolicy Trusted -Verbose
+  Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted -Verbose
   $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
 }
 else
 {
   Write-Host "Updating Sitecore PowerShell Gallery url..." -ForegroundColor Yellow
-  Set-PSRepository -Name $SitecoreGallery.Name -Source "https://sitecore.myget.org/F/sc-powershell/api/v3/index.json" -Verbose
+  Set-PSRepository -Name $SitecoreGallery.Name -Source "https://sitecore.myget.org/F/sc-powershell/api/v2"
 }
-
 
 #Install and Import SitecoreDockerTools
 $dockerToolsVersion = "10.0.5"
