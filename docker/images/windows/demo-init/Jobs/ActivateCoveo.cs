@@ -248,7 +248,7 @@ namespace Sitecore.Demo.Init.Jobs
 		private bool ShouldActivateCoveoOnCd()
 		{
 			var skipWarmupCd = Environment.GetEnvironmentVariable("SKIP_WARMUP_CD");
-			return skipWarmupCd == "false";
+			return skipWarmupCd != "true";
 		}
 
 		private async Task<bool> IsCoveoActivatedOnCd(string hostCD)
