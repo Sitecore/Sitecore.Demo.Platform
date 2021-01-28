@@ -1,0 +1,12 @@
+# escape=`
+
+ARG SOLUTION_IMAGE
+ARG BASE_IMAGE
+
+FROM $SOLUTION_IMAGE as solution
+FROM $BASE_IMAGE
+
+COPY --from=solution /solution/cm /solution/cm
+COPY --from=solution /solution/cd /solution/cd
+COPY --from=solution /solution/db /solution/db
+COPY --from=solution /solution/xconnect /solution/xconnect

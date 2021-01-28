@@ -1,4 +1,4 @@
----
+﻿---
 ID: "cba60024-478b-4541-8ad5-d805095a3d83"
 Parent: "6fc4c9f5-72aa-496a-a0c2-f0aa5bb3ac01"
 Template: "f62b4cd7-754c-4461-810f-2b6bd2c92a0d"
@@ -15,7 +15,7 @@ SharedFields:
   Hint: __Renderings
   Type: layout
   Value: |
-    <r>
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{759BEFD1-3323-404D-A243-E0ED81163C03}">
@@ -68,7 +68,7 @@ SharedFields:
         <r
           ds="{1A56BBE1-A094-4FD4-9170-362B8D9AC6D5}"
           id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
-          par="Id=FirstNameLabel"
+          par="TextType&amp;Text=Last%20Synced%3A&amp;Tooltip&amp;IsVisible=1&amp;AccessKey&amp;ConfigurationItem&amp;Id=FirstNameLabel&amp;Behaviors&amp;FieldName"
           ph="FirstNameBorder.Content"
           uid="{3238B880-C015-47D3-8445-88841376BB2D}" />
         <r
@@ -84,7 +84,7 @@ SharedFields:
         <r
           ds="{77D5C1B9-7FA1-4A04-BB6E-4AB2A57E5903}"
           id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
-          par="Id=MiddleNameLabel"
+          par="TextType&amp;Text=Salesforce%20ID%3A&amp;Tooltip&amp;IsVisible=1&amp;AccessKey&amp;ConfigurationItem&amp;Id=MiddleNameLabel&amp;Behaviors&amp;FieldName"
           ph="MiddleNameBorder.Content"
           uid="{7381B236-3C51-47B8-9C00-9DDD9B5113D2}" />
         <r
@@ -100,7 +100,7 @@ SharedFields:
         <r
           ds="{4AB11A39-5331-4D24-89C9-AA5EEEB6326E}"
           id="{7717EB6C-9F90-4C58-826D-5E87722A0318}"
-          par="Id=LastNameLabel"
+          par="TextType&amp;Text=Member%20Tier%3A&amp;Tooltip&amp;IsVisible=1&amp;AccessKey&amp;ConfigurationItem&amp;Id=LastNameLabel&amp;Behaviors&amp;FieldName"
           ph="LastNameBorder.Content"
           uid="{0CAFD0BF-205D-430D-980F-01C5E12575B7}" />
         <r
@@ -175,7 +175,7 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: ?????
+    Value: "?????"
   Versions:
   - Version: 1
     Fields:

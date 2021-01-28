@@ -1,0 +1,38 @@
+﻿---
+ID: "6dbf521b-a9de-495e-97d8-bd9a2088e8dd"
+Parent: "db47bbc3-4ff7-4051-b68a-cb72eaf2b8d4"
+Template: "bc4f1da8-7efe-489c-8b2f-b5092b165e99"
+Path: /sitecore/content/Salesforce CRM Tenant/Pipelines/xConnect Contacts and Interactions to Salesforce Sync/Add Contact Identifier for Salesforce to xConnect Contact Pipeline/Resolve xConnect Contact by Salesforce Id
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "010e5d89-6409-4fbc-843b-ceb84c8ed3bb"
+  Hint: IdentifierObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "4ce9ed44-bc7f-44e5-886d-97d9a6890faa"
+  Hint: IdentifierValueAccessor
+  Value: "{53D3F583-154A-4B16-A277-3CD73CB2A65B}"
+- ID: "5c061c42-ff86-4f43-b5ad-831dc03dc77d"
+  Hint: ResolvedObjectLocation
+  Value: "{EC64487D-E7E6-40B0-A86C-40C74B95E04E}"
+- ID: "afc22e90-10ef-4a8d-9a71-bf429dce85e4"
+  Hint: EntityType
+  Value: "{8ECD641B-8F97-DB64-DF17-7E94D8AF6124}"
+- ID: "d4f2f278-178d-4e0f-9465-d4a1221ca99f"
+  Hint: EndpointFrom
+  Value: "{309A0542-A143-426F-9D5E-A1AC5865F533}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{6DBF521B-A9DE-495E-97D8-BD9A2088E8DD}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210111T115512Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

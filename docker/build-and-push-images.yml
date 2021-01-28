@@ -3,14 +3,6 @@ trigger:
   branches:
     include:
       - develop
-schedules:
-  - cron: "0 17 * * 0"
-    displayName: Weekly Sunday build
-    branches:
-      include:
-        - main
-        - develop
-    always: true
 resources:
   - repo: self
     clean: true
@@ -18,38 +10,34 @@ resources:
 variables:
   GitVersion.SemVer: ""
   SITECORE_VERSION: "10.0.1"
+  # Base module version used when building 'develop' and all other branches except 'main'
+  BASE_MODULE_VERSION: "1001.1-beta"
+  # Base module version used when building 'main' branch
+  BASE_MODULE_VERSION_MAIN: "1001.1"
   GitVersion.PreReleaseLabel: ""
   tag: "$(GitVersion.SemVer)"
   additionalImageTags: ""
 
 stages:
   - stage: Build_Solution
-    pool:
-      name: $(poolName)
     displayName: "Build Solution Image"
     jobs:
       - job: Build_Solution_Job
         strategy:
           matrix:
-            windows2004:
-              poolName: "docker-2004-agents"
-              osVersion: "2004"
-              nanoserverVersion: "2004"
             ltsc2019:
               poolName: "docker-ltsc2019-agents"
               osVersion: "ltsc2019"
               nanoserverVersion: "1809"
-            20H2:
-              poolName: "docker-20H2-agents"
-              osVersion: "2009"
-              nanoserverVersion: "2009"
+        pool:
+          name: $(poolName)
         workspace:
           clean: all
         steps:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "2.1.x"
+              version: "3.1.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -93,6 +81,66 @@ stages:
               action: "Push services"
               currentWorkingDirectory: "$(Build.SourcesDirectory)"
               additionalImageTags: "$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)"
+      - job: Copy_Solution_Job
+        displayName: "Copy solution assets to additional OS versions"
+        dependsOn: Build_Solution_Job
+        strategy:
+          matrix:
+            windows2004:
+              poolName: "docker-2004-agents"
+              osVersion: "2004"
+              nanoserverVersion: "2004"
+            20H2:
+              poolName: "docker-20H2-agents"
+              osVersion: "20H2"
+              nanoserverVersion: "20H2"
+        workspace:
+          clean: all
+        pool:
+          name: "$(poolName)"
+        steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: "sdk"
+              version: "3.1.x"
+              installationPath: "c:/program files/dotnet"
+              performMultiLevelLookup: true
+          - template: version.yml
+          - task: DockerCompose@0
+            displayName: "Build Solution Image"
+            inputs:
+              containerregistrytype: "Azure Container Registry"
+              azureSubscription: "$(azure.subscription)"
+              azureContainerRegistry: "$(container.registry)"
+              dockerComposeFile: "docker/docker-compose.copy.solution.yml"
+              dockerComposeFileArgs: |
+                DEMO_VERSION=$(tag)
+                REGISTRY=$(REGISTRY)
+                NANOSERVER_VERSION=$(nanoserverVersion)
+                LTSC_NANOSERVER_VERSION=1809
+                SITECORE_VERSION=$(SITECORE_VERSION)
+              qualifyImageNames: false
+              action: "Build services"
+              additionalImageTags: "$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)"
+              arguments: "$(no.cache)"
+              currentWorkingDirectory: "$(Build.SourcesDirectory)"
+          - task: DockerCompose@0
+            displayName: "Push Images"
+            inputs:
+              containerregistrytype: "Azure Container Registry"
+              azureSubscription: $(azure.subscription)
+              azureContainerRegistry: $(container.registry)
+              dockerComposeFile: "docker/docker-compose.copy.solution.yml"
+              dockerComposeFileArgs: |
+                ISOLATION=hyperv
+                DEMO_VERSION=$(tag)
+                REGISTRY=$(REGISTRY)
+                NANOSERVER_VERSION=$(nanoserverVersion)
+                LTSC_NANOSERVER_VERSION=1809
+                SITECORE_VERSION=$(SITECORE_VERSION)
+              action: "Push services"
+              currentWorkingDirectory: "$(Build.SourcesDirectory)"
+              additionalImageTags: "$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)"
       - job: Publish_Solution_Artifacts
         displayName: "Publish Solution Artifacts"
         dependsOn: Build_Solution_Job
@@ -133,8 +181,8 @@ stages:
               nanoserverVersion: "1809"
             20H2:
               poolName: "docker-20H2-agents"
-              osVersion: "2009"
-              nanoserverVersion: "2009"
+              osVersion: "20H2"
+              nanoserverVersion: "20H2"
         displayName: "Build Windows Docker Images"
         pool:
           name: $(poolName)
@@ -142,7 +190,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "2.1.x"
+              version: "3.1.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -153,21 +201,17 @@ stages:
               script: |
                 $params = @{}
                 $sitecoreVersion = "$(SITECORE_VERSION)"
-                
                 $params.Add("DemoTeamRegistry","$(REGISTRY)")
                 $params.Add("SitecoreRegistry","$(sitecore.container.registry)")
                 $params.Add("WindowsVersion","$(osVersion)")
                 $params.Add("IsolationMode","process")
                 $params.Add("SitecoreVersion","$sitecoreVersion")
 
-                $baseModuleVersion = "$(($sitecoreVersion -replace '\.','') + '.0')"
-
-                if ("$(Build.SourceBranch)" -eq "refs/heads/develop") {
-                  $baseModuleVersion += "-beta"
-                  $params.add("BaseModuleVersion","$baseModuleVersion")
+                if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
+                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION_MAIN)")
                 }
-                elseif ("$(Build.SourceBranch)" -eq "refs/heads/main") {
-                  $params.add("BaseModuleVersion","$baseModuleVersion")
+                else {
+                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION)")
                 }
 
                 ./init-ci.ps1 @params
@@ -254,7 +298,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "2.1.x"
+              version: "3.1.x"
           - template: version.yml
           - task: DownloadPipelineArtifact@2
             displayName: "Download Dacpac Artifacts"

@@ -59,38 +59,23 @@ SharedFields:
                     s:DataSource="local:/Data/Gold Member" />
                 </actions>
                 <conditions>
-                  <or
-                    uid="53D609D19277461BAA6830996EEF9467">
-                    <condition
-                      uid="60B95DAEC0694925BDB3BF76B03B0350"
-                      s:id="{03C88BC4-8583-4AB9-A7CB-428E13E7C325}"
-                      s:operatorid="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                      s:value="250" />
-                    <condition
-                      uid="540C5A62901C40A494D1BD2419E2F4DC"
-                      s:id="{26C7F5C8-2BC0-429B-9F7E-BFE053CAE897}"
-                      s:OperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                      s:ContactEngagementValue="250" />
-                  </or>
+                  <condition
+                    uid="781BBA7917294989A25A22E8233F6F14"
+                    s:id="{DB2650CC-5F84-4328-AA6C-CF57487A570A}"
+                    s:operatorid="{537244C2-3A3F-4B81-A6ED-02AF494C0563}"
+                    s:JourneyStatus="gold"
+                    s:MemberTierStatus="Gold" />
                 </conditions>
               </rule>
               <rule
                 uid="{15EF1D05-4607-4A21-9E59-EBA6095E34B9}"
                 s:name="Silver Member">
                 <conditions>
-                  <or
-                    uid="3A9DB9D11196458A881641167B22661B">
-                    <condition
-                      uid="2223F93EE76649069448D5D7B6E65A83"
-                      s:id="{03C88BC4-8583-4AB9-A7CB-428E13E7C325}"
-                      s:operatorid="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                      s:value="100" />
-                    <condition
-                      uid="1702D2AA47264D038E1BF8D25E7CC847"
-                      s:id="{26C7F5C8-2BC0-429B-9F7E-BFE053CAE897}"
-                      s:OperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
-                      s:ContactEngagementValue="100" />
-                  </or>
+                  <condition
+                    uid="4610963FEE264EE6B287084EA2DB818B"
+                    s:id="{DB2650CC-5F84-4328-AA6C-CF57487A570A}"
+                    s:operatorid="{537244C2-3A3F-4B81-A6ED-02AF494C0563}"
+                    s:MemberTierStatus="Silver" />
                 </conditions>
                 <actions>
                   <action

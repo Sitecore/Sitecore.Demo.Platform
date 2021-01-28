@@ -1,0 +1,43 @@
+﻿---
+ID: "10811bd2-17e0-42ef-a1d5-04e321d29e4d"
+Parent: "69e921ff-5a06-48c6-aa3d-7063b4aff258"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/content/Salesforce CRM Tenant/Value Mapping Sets/xConnect Contact to Salesforce Contact Mappings/Contact Model to Salesforce Contact/Phone
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{70EBE04A-AF80-4A91-8F80-C6BE239F0517}"
+- ID: "95885001-6243-4d7a-af10-90ad1326d6e2"
+  Hint: IgnoreNullValues
+  Type: Checkbox
+  Value: 1
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+- ID: "bfbf3626-69e3-42b2-8b18-6330254e88de"
+  Hint: SourceValuePreTransformer
+  Value: 
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{DA4A5B70-0333-4288-9DA8-5EDCD11685E9}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{39A73A01-F622-4763-BCE1-70DB3304B3DC}"
+- ID: "fd738fc4-54b9-4aa3-bb8c-5749ba0907c4"
+  Hint: SourceValueTransformer
+  Value: "{302B8B07-F5A6-42B0-9B82-094EEB04CD10}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210111T115530Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -40,11 +40,16 @@ Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Gr
 
 # Check for Sitecore Gallery
 Import-Module PowerShellGet
-$SitecoreGallery = Get-PSRepository | Where-Object { $_.SourceLocation -eq "https://sitecore.myget.org/F/sc-powershell/api/v2" }
+$SitecoreGallery = Get-PSRepository | Where-Object { $_.Name -eq "SitecoreGallery" }
 if (-not $SitecoreGallery) {
-    Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
-    Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted
-    $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
+  Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
+  Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted -Verbose
+  $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
+}
+else
+{
+  Write-Host "Updating Sitecore PowerShell Gallery url..." -ForegroundColor Yellow
+  Set-PSRepository -Name $SitecoreGallery.Name -Source "https://sitecore.myget.org/F/sc-powershell/api/v2"
 }
 
 #Install and Import SitecoreDockerTools
@@ -99,6 +104,7 @@ Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 Add-HostsEntry "cm.lighthouse.localhost"
 Add-HostsEntry "cd.lighthouse.localhost"
 Add-HostsEntry "id.lighthouse.localhost"
+Add-HostsEntry "sh.lighthouse.localhost"
 Add-HostsEntry "www.lighthouse.localhost"
 
 
@@ -120,6 +126,9 @@ if ($InitEnv) {
 
     # ID_HOST
     Set-DockerComposeEnvFileVariable "ID_HOST" -Value "id.lighthouse.localhost"
+    
+    # SH_HOST
+    Set-DockerComposeEnvFileVariable "SH_HOST" -Value "sh.lighthouse.localhost"
 
     # RENDERING_HOST
     Set-DockerComposeEnvFileVariable "RENDERING_HOST" -Value "www.lighthouse.localhost"

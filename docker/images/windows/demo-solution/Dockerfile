@@ -2,6 +2,9 @@
 
 ARG BASE_IMAGE
 ARG BUILD_IMAGE
+ARG COVEO_ASSETS_IMAGE
+
+FROM $COVEO_ASSETS_IMAGE as coveo_assets
 
 FROM ${BUILD_IMAGE} as npm
 
@@ -61,6 +64,7 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 COPY build* nuget.config publishsettings.targets Sitecore.Demo.Platform.sln ./build/
 COPY cake-config-container.json ./cake-config.json
+COPY --from=coveo_assets /module/cm/content/bin/Coveo.AbstractLayer.dll /module/cm/content/bin/Coveo.Framework.dll /module/cm/content/bin/Coveo.SearchProvider.Rest.dll /module/cm/content/bin/Coveo.SearchProviderBase.dll /lib/
 COPY src/ ./src
 COPY FrontEnd/ ./FrontEnd
 RUN Copy-Item ./build/* .

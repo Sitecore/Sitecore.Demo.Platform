@@ -1,0 +1,43 @@
+﻿---
+ID: "2142d18f-72a8-4067-a433-3b610c2670fd"
+Parent: "9fb93433-b44e-42e4-a5a0-af319d0bfc16"
+Template: "ceea573d-0220-49e6-8f4e-c9730186bf4a"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Coveo/Search Interfaces/Search Interface
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: 
+- ID: "4eaa4851-dde1-47a5-a13d-b433533ff78a"
+  Hint: FilterExpressionRules
+  Type: Rules
+  Value: <ruleset />
+- ID: "5513294b-e906-4509-91b7-2541a1c7baf8"
+  Hint: ExcludeMediaFoldersInResults
+  Type: Checkbox
+  Value: 0
+- ID: "aa2cc445-940e-44e9-a730-ff3773ac2a34"
+  Hint: ExcludeBucketFoldersInResults
+  Type: Checkbox
+  Value: 0
+- ID: "d48ad7e5-fd34-4ec2-b753-4e1867b05714"
+  Hint: ItemId
+  Value: coveoC606340E
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{4E8596BF-A016-4681-B746-5CE1D59F93D8}"
+- ID: "fbcbca71-434a-469e-81fb-5fb47b97d2e6"
+  Hint: CustomCssClasses
+  Value: MainCoveoSearchPage
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20201125T191746Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

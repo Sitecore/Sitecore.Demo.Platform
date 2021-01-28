@@ -1,0 +1,30 @@
+﻿---
+ID: "4e79a52d-6cc9-4913-ba1a-a22da27a0c87"
+Parent: "00a98a9b-a50c-41fb-83b6-f38bcbb2854c"
+Template: "9ad54363-326c-4ea4-aba0-2d57aa945265"
+Path: /sitecore/content/Salesforce CRM Tenant/Data Access/Value Readers/Providers/Salesforce/Address Line 3 Value Reader
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "b8e3812f-a4fc-4f85-bc5f-cae6fa0158b0"
+  Hint: SplitSeparator
+  Value: |
+    \n
+- ID: "f2a861e4-9f90-4ebb-8dd3-b76badc0b404"
+  Hint: LineToRead
+  Value: 3
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{4E79A52D-6CC9-4913-BA1A-A22DA27A0C87}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210111T115502Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

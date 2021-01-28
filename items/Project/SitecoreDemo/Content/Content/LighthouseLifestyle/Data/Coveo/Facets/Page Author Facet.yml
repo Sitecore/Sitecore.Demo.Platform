@@ -1,0 +1,31 @@
+﻿---
+ID: "f0d52bce-05d6-46af-bc79-d392085e6a00"
+Parent: "8773dba4-09e7-47f2-b2d4-e209c2dc292c"
+Template: "dc181cdf-76ab-45d5-9349-443af40bd6e2"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Coveo/Facets/Page Author Facet
+DB: master
+SharedFields:
+- ID: "21f86a99-b823-4cbb-8183-dea9d72855ca"
+  Hint: FacetField
+  Value: pageauthor
+- ID: "d48ad7e5-fd34-4ec2-b753-4e1867b05714"
+  Hint: ItemId
+  Value: coveo1bf61602
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20201222T185356Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "976807a8-e981-4127-9f1f-f12188a5550d"
+      Hint: FacetTitle
+      Value: Author
+    - ID: "b877794e-482c-487a-b576-53272da9f0b1"
+      Hint: FacetNumberOfValues
+      Value: 10

@@ -43,14 +43,10 @@ namespace Sitecore.Demo.Platform.Feature.Accounts.Services
             var contactData = _contactFacetsService.GetContactData();
             var model = new EditProfile
                         {
-                            Email = user.Profile.Email,
-                            FirstName = user.Profile.GetCustomProperty(Constants.UserProfile.Fields.FirstName) ?? "",
-                            LastName = user.Profile.GetCustomProperty(Constants.UserProfile.Fields.LastName) ?? "",
-                            PhoneNumber = user.Profile.GetCustomProperty(Constants.UserProfile.Fields.PhoneNumber) ?? "",
-                            Interest = user.Profile.GetCustomProperty(Constants.UserProfile.Fields.Interest) ?? "",
-                            InterestTypes = _profileSettingsService.GetInterests(),
-                            SportType = contactData.SportType,
-                            SportName = contactData.SportName
+                            Email = contactData.EmailAddress,
+                            FirstName = contactData.FirstName,
+                            LastName = contactData.LastName,
+                            PhoneNumber = contactData.PhoneNumber
                         };
 
             return model;
@@ -124,6 +120,12 @@ namespace Sitecore.Demo.Platform.Feature.Accounts.Services
             {
                 data.EmailKey = "Work Email";
             }
+
+            if (!string.IsNullOrEmpty(data.PhoneNumber))
+            {
+                data.PhoneKey = "Preferred Phone";
+            }
+
             _contactFacetsService.UpdateContactFacets(data);
         }
     }

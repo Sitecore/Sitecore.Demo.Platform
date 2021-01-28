@@ -24,6 +24,7 @@ services:
       DISABLE_DEFAULT_ADMIN: 'FALSE'
       EXM_BASE_URL: "http://${HOSTNAME_SUFFIX}"
       BOOT_OVERRIDE_SCRIPTS: "Demo-Boot-Platform-Linux.ps1"
+      COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
   init:
     healthcheck:
       test: ["CMD", "powershell", "ps"]
@@ -32,8 +33,8 @@ services:
       context: ./images/windows/demo-init
       dockerfile: Dockerfile.linux
       args:
-        BUILD_IMAGE: mcr.microsoft.com/dotnet/core/sdk:3.1-alpine3.11
-        BASE_IMAGE: mcr.microsoft.com/dotnet/core/runtime:3.1-alpine3.11
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-alpine
+        BASE_IMAGE: mcr.microsoft.com/dotnet/runtime:3.1-alpine
     environment:
       ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
       ADMIN_USER_NAME: "superuser"
@@ -42,6 +43,11 @@ services:
       HOST_PS: "http://ps"
       HOST_ID: "http://id"
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
+      COVEO_ORGANIZATION_ID: ${COVEO_ORGANIZATION_ID}
+      COVEO_API_KEY: ${COVEO_API_KEY}
+      COVEO_SEARCH_API_KEY: ${COVEO_SEARCH_API_KEY}
+      COVEO_FARM_NAME: ${COVEO_FARM_NAME}
+      COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
   solr:
     image: ${REGISTRY}demo/lighthouse-solr:${SITECORE_VERSION}-linux-${DEMO_VERSION}
     isolation: default

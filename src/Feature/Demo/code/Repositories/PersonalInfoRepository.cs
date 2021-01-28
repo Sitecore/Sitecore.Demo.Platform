@@ -121,6 +121,9 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Repositories
         private string FormatPhone(PhoneNumber phoneNumber)
         {
             var formattedPhone = "";
+
+            if (phoneNumber == null) return formattedPhone;
+
             if (!string.IsNullOrEmpty(phoneNumber.CountryCode))
             {
                 formattedPhone += $"+{phoneNumber.CountryCode}";
@@ -153,7 +156,7 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Repositories
                 yield break;
 
             var addressTitle = DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Address", "Address");
-            yield return new KeyValuePair<string, string>($"{addressTitle})", this.FormatAddress(this.contactFacetsProvider.Addresses.PreferredAddress));
+            yield return new KeyValuePair<string, string>($"{addressTitle}", this.FormatAddress(this.contactFacetsProvider.Addresses.PreferredAddress));
             foreach (var addressKey in this.contactFacetsProvider.Addresses.Others.Keys)
             {
                 yield return new KeyValuePair<string, string>($"{addressTitle} ({addressKey.Humanize()})", this.FormatAddress(this.contactFacetsProvider.Addresses.Others[addressKey]));
