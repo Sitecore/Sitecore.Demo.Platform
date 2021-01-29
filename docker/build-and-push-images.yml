@@ -113,41 +113,21 @@ stages:
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
-          - task: DockerCompose@0
-            displayName: "Copy Solution Image to other OS versions"
+          - task: PowerShell@2
+            displayName: "Copy Solution Image"
             inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: "$(azure.subscription)"
-              azureContainerRegistry: "$(container.registry)"
-              dockerComposeFile: "docker/docker-compose.copy.solution.yml"
-              dockerComposeFileArgs: |
-                DEMO_VERSION=$(tag)
-                REGISTRY=$(REGISTRY)
-                NANOSERVER_VERSION=$(nanoserverVersion)
-                LTSC_NANOSERVER_VERSION=1809
-                SITECORE_VERSION=$(SITECORE_VERSION)
-              qualifyImageNames: false
-              action: "Build services"
-              additionalImageTags: "$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)"
-              arguments: "$(no.cache)"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
-          - task: DockerCompose@0
-            displayName: "Push Images"
-            inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: $(azure.subscription)
-              azureContainerRegistry: $(container.registry)
-              dockerComposeFile: "docker/docker-compose.copy.solution.yml"
-              dockerComposeFileArgs: |
-                ISOLATION=hyperv
-                DEMO_VERSION=$(tag)
-                REGISTRY=$(REGISTRY)
-                NANOSERVER_VERSION=$(nanoserverVersion)
-                LTSC_NANOSERVER_VERSION=1809
-                SITECORE_VERSION=$(SITECORE_VERSION)
-              action: "Push services"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
-              additionalImageTags: "$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)"
+              targetType: "inline"
+              script: |
+                $sitecoreRegistry = "$(sitecore.container.registry)"
+
+                az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
+                az acr login -n $(container.registry.short)
+                $env:DEMO_VERSION="$(tag).$(Build.BuildId)"
+                $env:REGISTRY="$(REGISTRY)"
+                $env:LTSC_NANOSERVER_VERSION="1809"
+                $env:SITECORE_VERSION="$(SITECORE_VERSION)"
+                docker-compose -f docker/docker-compose.copy.solution.yml build
+                docker-compose -f docker/docker-compose.copy.solution.yml push
       - job: Publish_Solution_Artifacts
         displayName: "Publish Solution Artifacts"
         dependsOn: Build_Solution_Job
@@ -162,7 +142,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                docker container create --name dacpac$(tag) $(REGISTRY)build/lighthouse-solution:$(SITECORE_VERSION)-$(nanoserverVersion)-$(tag)
+                docker container create --name dacpac$(tag) $(REGISTRY)build/lighthouse-solution:$(SITECORE_VERSION)-$(nanoserverVersion)-$(tag).$(Build.BuildId)
                 docker container cp dacpac$(tag):/solution/db $(Build.ArtifactStagingDirectory)/dacpacs
                 docker container rm -f dacpac$(tag)
           - task: PublishPipelineArtifact@1
@@ -230,7 +210,8 @@ stages:
 
                 docker-compose -f docker-compose.build.solution.yml pull
 
-                $params.DemoVersion = "$(tag)"
+                # Reset demo version to correct tag without build id
+                $env:DEMO_VERSION = "$(tag)"
 
                 ./init-ci.ps1 @params
 
