@@ -70,7 +70,7 @@ stages:
                 $params.Add("DemoTeamRegistry","$(REGISTRY)")
                 $params.Add("WindowsVersion","$(osVersion)")
                 $params.Add("SitecoreVersion","$sitecoreVersion")
-                $params.Add("DemoVersion", "$(tag).$(Build.BuildId)")
+                $params.Add("DemoVersion", "$(tag)")
                 $params.add("Prerelease", $preRelease)
 
                 if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
@@ -88,7 +88,6 @@ stages:
 
                 docker-compose -f docker-compose.build.solution.yml build
                 docker-compose -f docker-compose.build.solution.yml push
-
       - job: Copy_Solution_Job
         displayName: "Copy solution assets to additional OS versions"
         dependsOn: Build_Solution_Job
