@@ -10,6 +10,7 @@ resources:
 variables:
   GitVersion.SemVer: ""
   SITECORE_VERSION: "10.0.1"
+  SITECORE_SHORT_VERSION: "10.0"
   # Base module version used when building 'develop' and all other branches except 'main'
   BASE_MODULE_VERSION: "1001.1-beta"
   # Base module version used when building 'main' branch
@@ -41,46 +42,53 @@ stages:
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
-          - task: DockerCompose@0
+          - task: PowerShell@2
             displayName: "Build Solution Image"
             inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: "$(azure.subscription)"
-              azureContainerRegistry: "$(container.registry)"
-              dockerComposeFile: "docker-compose.build.solution.yml"
-              dockerComposeFileArgs: |
-                ISOLATION=process
-                DEMO_VERSION=$(tag)
-                REGISTRY=$(REGISTRY)
-                NANOSERVER_VERSION=$(nanoserverVersion)
-                WINDOWSSERVERCORE_VERSION=$(osVersion)
-                SITECORE_VERSION=$(SITECORE_VERSION)
-                INTERNAL_NUGET_SOURCE=$(INTERNAL_NUGET_SOURCE)
-                SYSTEM_ACCESSTOKEN=$(INTERNAL_NUGET_TOKEN)
-              qualifyImageNames: false
-              action: "Build services"
-              additionalImageTags: "$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)"
-              arguments: "$(no.cache)"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
-          - task: DockerCompose@0
-            displayName: "Push Images"
-            inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: $(azure.subscription)
-              azureContainerRegistry: $(container.registry)
-              dockerComposeFile: "docker-compose.build.solution.yml"
-              dockerComposeFileArgs: |
-                ISOLATION=process
-                DEMO_VERSION=$(tag)
-                REGISTRY=$(REGISTRY)
-                NANOSERVER_VERSION=$(nanoserverVersion)
-                WINDOWSSERVERCORE_VERSION=$(osVersion)
-                SITECORE_VERSION=$(SITECORE_VERSION)
-                INTERNAL_NUGET_SOURCE=
-                SYSTEM_ACCESSTOKEN=
-              action: "Push services"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
-              additionalImageTags: "$(SITECORE_VERSION)-$(additionalImageTags).$(Build.BuildId)"
+              targetType: "inline"
+              script: |
+                $sitecoreRegistry = "$(sitecore.container.registry)"
+                $sitecoreVersion = "$(SITECORE_VERSION)"
+                $preRelease = $false
+
+                az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
+
+                if ("$(Build.SourceBranch)" -match "upgrade/(?<version>\d+\.\d+\.\d+)") {
+                    $sitecoreRegistry = "$(sitecore.internal.container.registry)"
+                    $preRelease = $true
+                }
+
+                if ("$sitecoreRegistry" -ne "scr.sitecore.com/"){
+                  az acr login -n "$sitecoreRegistry"
+                }
+
+                az acr login -n $(container.registry.short)
+
+                $params = @{}
+                $params.Add("IsolationMode","process")
+                $params.Add("SitecoreRegistry","$sitecoreRegistry")
+                $params.Add("DemoTeamRegistry","$(REGISTRY)")
+                $params.Add("WindowsVersion","$(osVersion)")
+                $params.Add("SitecoreVersion","$sitecoreVersion")
+                $params.Add("DemoVersion", "$(tag).$(Build.BuildId)")
+                $params.add("Prerelease", $preRelease)
+
+                if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
+                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION_MAIN)")
+                }
+                else {
+                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION)")
+                }
+
+                ./init-ci.ps1 @params
+
+                $env:INTERNAL_NUGET_SOURCE_USERNAME="$(INTERNAL_NUGET_SOURCE_USERNAME)"
+                $env:INTERNAL_NUGET_SOURCE="$(INTERNAL_NUGET_SOURCE)"
+                $env:INTERNAL_NUGET_SOURCE_PASSWORD="$(INTERNAL_NUGET_SOURCE_PASSWORD)"
+
+                docker-compose -f docker-compose.build.solution.yml build
+                docker-compose -f docker-compose.build.solution.yml push
+
       - job: Copy_Solution_Job
         displayName: "Copy solution assets to additional OS versions"
         dependsOn: Build_Solution_Job
@@ -107,7 +115,7 @@ stages:
               performMultiLevelLookup: true
           - template: version.yml
           - task: DockerCompose@0
-            displayName: "Build Solution Image"
+            displayName: "Copy Solution Image to other OS versions"
             inputs:
               containerregistrytype: "Azure Container Registry"
               azureSubscription: "$(azure.subscription)"
@@ -195,7 +203,7 @@ stages:
               performMultiLevelLookup: true
           - template: version.yml
           - task: PowerShell@2
-            displayName: "Downloading Latest Images"
+            displayName: "Build and Push Windows Images"
             inputs:
               targetType: "inline"
               script: |
@@ -206,7 +214,7 @@ stages:
                 $params.Add("WindowsVersion","$(osVersion)")
                 $params.Add("IsolationMode","process")
                 $params.Add("SitecoreVersion","$sitecoreVersion")
-
+                $params.Add("DemoVersion","$(tag).$(Build.BuildId)")
                 if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
                   $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION_MAIN)")
                 }
@@ -220,71 +228,22 @@ stages:
                 az acr login -n $(container.registry.short)
 
                 ./pull-build-images.ps1
-          - task: DockerCompose@0
-            displayName: "Pull Solution Image"
-            inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: "$(azure.subscription)"
-              azureContainerRegistry: "$(container.registry)"
-              dockerComposeFile: "docker-compose.build.solution.yml"
-              dockerComposeFileArgs: |
-                ISOLATION=process
-                DEMO_VERSION=$(tag).$(Build.BuildId)
-                REGISTRY=$(REGISTRY)
-                NANOSERVER_VERSION=$(nanoserverVersion)
-                SITECORE_VERSION=$(SITECORE_VERSION)
-                INTERNAL_NUGET_SOURCE=
-                SYSTEM_ACCESSTOKEN=
-              qualifyImageNames: false
-              action: "Run a Docker Compose command"
-              dockerComposeCommand: "pull"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
-          - task: DockerCompose@0
-            displayName: "Docker Compose Build"
-            inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: "$(azure.subscription)"
-              azureContainerRegistry: "$(container.registry)"
-              dockerComposeFile: "docker-compose.yml"
-              additionalDockerComposeFiles: "docker-compose.build.yml"
-              dockerComposeFileArgs: |
-                ISOLATION=process
-                DEMO_VERSION=$(tag)
-                REGISTRY=$(REGISTRY)
-                WINDOWSSERVERCORE_VERSION=$(osVersion)
-                NANOSERVER_VERSION=$(nanoserverVersion)
-                SITECORE_VERSION=$(SITECORE_VERSION)
-                SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
-                SITECORE_LICENSE=$(SITECORE_LICENSE)
-                TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
-                SITECORE_ID_CERTIFICATE=$(sitecore.id.certificate)
-              qualifyImageNames: false
-              action: "Build services"
-              additionalImageTags: "$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)"
-              arguments: "$(no.cache) --parallel"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
-          - task: DockerCompose@0
-            displayName: "Push Images"
-            inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: $(azure.subscription)
-              azureContainerRegistry: $(container.registry)
-              dockerComposeFile: "docker-compose.yml"
-              additionalDockerComposeFiles: "docker-compose.build.yml"
-              dockerComposeFileArgs: |
-                ISOLATION=process
-                REGISTRY=$(REGISTRY)
-                DEMO_VERSION=$(tag)
-                WINDOWSSERVERCORE_VERSION=$(osVersion)
-                NANOSERVER_VERSION=$(nanoserverVersion)
-                SITECORE_VERSION=$(SITECORE_VERSION)
-                SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
-                SITECORE_LICENSE=$(SITECORE_LICENSE)
-                TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
-                SITECORE_ID_CERTIFICATE=$(sitecore.id.certificate)
-              action: "Push services"
-              additionalImageTags: "$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
+
+                docker-compose -f docker-compose.build.solution.yml pull
+
+                $params.DemoVersion = "$(tag)"
+
+                ./init-ci.ps1 @params
+
+                docker-compose -f docker-compose.yml -f docker-compose.build.yml build --parallel
+                docker-compose -f docker-compose.yml -f docker-compose.build.yml push
+
+                $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
+                if ($primaryBuild) {
+                  $env:DEMO_VERSION = "$(additionalImageTags)"
+                  docker-compose -f docker-compose.yml -f docker-compose.build.yml build --parallel
+                  docker-compose -f docker-compose.yml -f docker-compose.build.yml push
+                }
   - stage: Docker_Linux
     dependsOn: Build_Solution
     displayName: "Build Linux Images"
@@ -355,66 +314,6 @@ stages:
               action: "Push services"
               additionalImageTags: "$(SITECORE_VERSION)-linux-$(additionalImageTags)"
               currentWorkingDirectory: "$(Build.SourcesDirectory)"
-  - stage: Release_Notes
-    displayName: "Create Release Notes"
-    dependsOn:
-      - Docker_Windows
-      - Docker_Linux
-    condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
-    jobs:
-      - job: Generate_Release_Notes
-        pool:
-          vmImage: "windows-latest"
-        displayName: "Generate Release Notes"
-        steps:
-          - template: version.yml
-          - task: AzureCLI@2
-            displayName: "Download existing release notes"
-            inputs:
-              azureSubscription: "$(azure.subscription)"
-              scriptType: "pscore"
-              scriptLocation: "inlineScript"
-              inlineScript: |
-                $result = (az storage file exists --account-name dockerassets  --share-name release-notes --path releasenotes-$(additionalImageTags).md --account-key $(dockerassets.storage.accountkey)) | ConvertFrom-Json
-                if ($result.exists) {
-                  az storage file download --account-name dockerassets  --share-name release-notes --path releasenotes-$(additionalImageTags).md --account-key $(dockerassets.storage.accountkey) --dest '$(Build.ArtifactStagingDirectory)/releasenotes-$(additionalImageTags).md'
-                }
-              powerShellErrorActionPreference: "silentlyContinue"
-          - task: XplatGenerateReleaseNotes@3
-            inputs:
-              outputfile: "$(Build.ArtifactStagingDirectory)/releasenotes-$(SITECORE_VERSION)-$(additionalImageTags).md"
-              templateLocation: "File"
-              templatefile: "release-notes-template.hb"
-              dumpPayloadToConsole: false
-              dumpPayloadToFile: false
-              replaceFile: false
-              appendToFile: true
-              getParentsAndChildren: False
-              sortWi: true
-          - task: replacetokens@3
-            inputs:
-              targetFiles: "$(Build.ArtifactStagingDirectory)/releasenotes-$(SITECORE_VERSION)-$(additionalImageTags).md"
-              encoding: "auto"
-              writeBOM: false
-              verbosity: "detailed"
-              actionOnMissing: "warn"
-              keepToken: false
-              tokenPrefix: "@@"
-              tokenSuffix: "@@"
-              useLegacyPattern: true
-              enableTelemetry: true
-          - task: PublishPipelineArtifact@1
-            inputs:
-              targetPath: "$(Build.ArtifactStagingDirectory)/releasenotes-$(SITECORE_VERSION)-$(additionalImageTags).md"
-              artifact: "Release Notes"
-              publishLocation: "pipeline"
-          - task: AzureCLI@2
-            displayName: "Upload release notes"
-            inputs:
-              azureSubscription: "$(azure.subscription)"
-              scriptType: "pscore"
-              scriptLocation: "inlineScript"
-              inlineScript: "az storage file upload --account-name dockerassets  --share-name release-notes --source $(Build.ArtifactStagingDirectory)/releasenotes-$(SITECORE_VERSION)-$(additionalImageTags).md --account-key $(dockerassets.storage.accountkey) --path releasenotes-$(SITECORE_VERSION)-$(additionalImageTags).md"
   - stage: Update_Portal_Databases_Nightly
     displayName: "Update 'nightly' version in portal databases"
     dependsOn:
