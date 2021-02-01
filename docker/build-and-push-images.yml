@@ -122,8 +122,9 @@ stages:
 
                 az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
                 az acr login -n $(container.registry.short)
-                $env:DEMO_VERSION="$(tag).$(Build.BuildId)"
+                $env:DEMO_VERSION="$(tag)"
                 $env:REGISTRY="$(REGISTRY)"
+                $env:NANOSERVER_VERSION="$(nanoserverVersion)"
                 $env:LTSC_NANOSERVER_VERSION="1809"
                 $env:SITECORE_VERSION="$(SITECORE_VERSION)"
                 docker-compose -f docker/docker-compose.copy.solution.yml build
@@ -136,13 +137,19 @@ stages:
         variables:
           nanoserverVersion: "1809"
         steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: "sdk"
+              version: "3.1.x"
+              installationPath: "c:/program files/dotnet"
+              performMultiLevelLookup: true
           - template: version.yml
           - task: PowerShell@2
             displayName: "Copy output from container to Artifacts"
             inputs:
               targetType: "inline"
               script: |
-                docker container create --name dacpac$(tag) $(REGISTRY)build/lighthouse-solution:$(SITECORE_VERSION)-$(nanoserverVersion)-$(tag).$(Build.BuildId)
+                docker container create --name dacpac$(tag) $(REGISTRY)build/lighthouse-solution:$(SITECORE_VERSION)-$(nanoserverVersion)-$(tag)
                 docker container cp dacpac$(tag):/solution/db $(Build.ArtifactStagingDirectory)/dacpacs
                 docker container rm -f dacpac$(tag)
           - task: PublishPipelineArtifact@1
@@ -193,7 +200,7 @@ stages:
                 $params.Add("WindowsVersion","$(osVersion)")
                 $params.Add("IsolationMode","process")
                 $params.Add("SitecoreVersion","$sitecoreVersion")
-                $params.Add("DemoVersion","$(tag).$(Build.BuildId)")
+                $params.Add("DemoVersion","$(tag)")
                 if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
                   $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION_MAIN)")
                 }
@@ -304,6 +311,12 @@ stages:
       - job: Update_Tags
         displayName: "Update Tags"
         steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: "sdk"
+              version: "3.1.x"
+              installationPath: "c:/program files/dotnet"
+              performMultiLevelLookup: true
           - template: version.yml
           - task: PowerShell@2
             inputs:
@@ -322,6 +335,12 @@ stages:
       - job: Update_Dev_Database
         displayName: "Update Dev Database"
         steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: "sdk"
+              version: "3.1.x"
+              installationPath: "c:/program files/dotnet"
+              performMultiLevelLookup: true
           - template: version.yml
           - task: PowerShell@2
             inputs:
@@ -339,13 +358,18 @@ stages:
       - job: Update_Production_Database
         displayName: "Update Production Database"
         steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: "sdk"
+              version: "3.1.x"
+              installationPath: "c:/program files/dotnet"
+              performMultiLevelLookup: true
           - template: version.yml
           - task: PowerShell@2
             inputs:
               targetType: "inline"
               script: |
                 Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
-
       - deployment: Update_Production_Database_Deployment
         displayName: "Update Production Database Deployment"
         environment: Production Portal Database
@@ -360,6 +384,12 @@ stages:
       - job: Harbor_Push
         displayName: "Harbor Push"
         steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: "sdk"
+              version: "3.1.x"
+              installationPath: "c:/program files/dotnet"
+              performMultiLevelLookup: true
           - template: version.yml
           - task: TriggerBuild@3
             displayName: "Trigger Harbor Push"
