@@ -70,7 +70,7 @@ stages:
                 $params.Add("DemoTeamRegistry","$(REGISTRY)")
                 $params.Add("WindowsVersion","$(osVersion)")
                 $params.Add("SitecoreVersion","$sitecoreVersion")
-                $params.Add("DemoVersion", "$(tag)")
+                $params.Add("SolutionVersion", "$(tag)")
                 $params.add("Prerelease", $preRelease)
 
                 if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
@@ -122,7 +122,7 @@ stages:
 
                 az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
                 az acr login -n $(container.registry.short)
-                $env:DEMO_VERSION="$(tag)"
+                $env:SOLUTION_VERSION="$(tag)"
                 $env:REGISTRY="$(REGISTRY)"
                 $env:NANOSERVER_VERSION="$(nanoserverVersion)"
                 $env:LTSC_NANOSERVER_VERSION="1809"
@@ -201,6 +201,7 @@ stages:
                 $params.Add("IsolationMode","process")
                 $params.Add("SitecoreVersion","$sitecoreVersion")
                 $params.Add("DemoVersion","$(tag)")
+                $params.Add("SolutionVersion","$(tag)")
                 if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
                   $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION_MAIN)")
                 }

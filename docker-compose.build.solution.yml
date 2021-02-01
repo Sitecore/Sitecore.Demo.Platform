@@ -2,7 +2,7 @@ version: "2.4"
 
 services:
   solution:
-    image: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
+    image: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
     isolation: ${ISOLATION}
     build:
       context: .
