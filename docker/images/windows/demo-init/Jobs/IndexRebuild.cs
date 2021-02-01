@@ -28,7 +28,7 @@ namespace Sitecore.Demo.Init.Jobs
 			Log.LogInformation($"IndexRebuild() started {hostCM}");
 
 			using var client = new HttpClient { BaseAddress = new Uri(hostCM) };
-			var indexes = new List<string>() { "sitecore_sxa_web_index", "sitecore_sxa_master_index", "sitecore_master_index", "sitecore_web_index", "sitecore_marketingdefinitions_master", "sitecore_marketingdefinitions_web", "sitecore_testing_index" };
+			var indexes = new List<string>() { "sitecore_sxa_web_index", "sitecore_sxa_master_index", "sitecore_master_index", "sitecore_web_index", "sitecore_marketingdefinitions_master", "sitecore_marketingdefinitions_web", "sitecore_testing_index", "sitecore_personalization_index" };
 
 			if (AreCoveoEnvironmentVariablesSet())
 			{
