@@ -4,14 +4,14 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Sitecore.Demo.Init.Model;
 using Sitecore.Demo.Init.Services;
-using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	class ActivateCoveo : TaskBase
+	class ActivateCoveo : CoveoTaskBase
 	{
 		private readonly WaitForSitecoreToStart waitForSitecoreToStart;
 
@@ -23,35 +23,41 @@ namespace Sitecore.Demo.Init.Jobs
 
 		public async Task Run()
 		{
-			await Start(nameof(ActivateCoveo));
-
-			if (!AreCoveoEnvironmentVariablesSet())
+			if (this.IsCompleted() && !this.HaveSettingsChanged())
 			{
-				await StopTaskWithSuccess("ActivateCoveo() skipped as COVEO_* environment variables are not configured.");
+				Log.LogWarning($"{TaskName} is already complete and settings have not changed. It will not execute this time.");
 				return;
 			}
 
+			if (!AreCoveoEnvironmentVariablesSet())
+			{
+				Log.LogWarning($"{TaskName} skipped as COVEO_* environment variables are not configured.");
+				return;
+			}
+
+			await Start(TaskName);
+
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 
-			Log.LogInformation($"ActivateCoveo() started on {hostCM}");
+			Log.LogInformation($"{TaskName}() started on {hostCM}");
 
 			await waitForSitecoreToStart.Run();
 
 			var authenticatedClient = await GetAuthenticatedClient(hostCM);
 
+			bool configurationSucceded = await ConfigureCm(hostCM, authenticatedClient);
+			if (!configurationSucceded)
+			{
+				Log.LogError($"{TaskName}() failed while configuring the CM.");
+				return;
+			}
+
 			if (await IsCoveoActivatedOnCm(hostCM, authenticatedClient) == false)
 			{
-				bool configurationSucceded = await ConfigureCm(hostCM, authenticatedClient);
-				if (!configurationSucceded)
-				{
-					await StopTaskWithError("ActivateCoveo() failed while configuring the CM.");
-					return;
-				}
-
 				bool activationSucceded = await ActivateCm(hostCM, authenticatedClient);
 				if (!activationSucceded)
 				{
-					await StopTaskWithError("ActivateCoveo() failed while activating the CM.");
+					Log.LogError($"{TaskName}() failed while activating the CM.");
 					return;
 				}
 
@@ -60,76 +66,73 @@ namespace Sitecore.Demo.Init.Jobs
 				bool customizationActivationSucceded = await ActivateCoveoCustomizations(hostCM);
 				if (!customizationActivationSucceded)
 				{
-					await StopTaskWithError("ActivateCoveo() failed while activating the CM customizations.");
+					Log.LogError($"{TaskName}() failed while activating the CM customizations.");
 					return;
 				}
 
-				Log.LogInformation($"ActivateCoveo() finished on {hostCM}.");
+				Log.LogInformation($"{TaskName}() finished on {hostCM}.");
 			}
 			else
 			{
-				Log.LogInformation($"ActivateCoveo() finished on {hostCM}. Coveo is already activated on CM.");
+				Log.LogInformation($"{TaskName}() finished on {hostCM}. Coveo is already activated on CM.");
 			}
 
 			if (!ShouldActivateCoveoOnCd())
 			{
-				await StopTaskWithSuccess("ActivateCoveo() complete");
+				await StopTaskWithSuccess($"{TaskName}() complete. There is no CD to configure and activate.");
 				return;
 			}
 
 			var hostCD = Environment.GetEnvironmentVariable("HOST_CD");
 
-			Log.LogInformation($"ActivateCoveo() started on {hostCD}");
+			Log.LogInformation($"{TaskName}() started on {hostCD}");
+
+			// Wait for the CM to shut down and restart so the next waitForSitecoreToStart is not executed by the process that is shutting down.
+			await Task.Delay(TimeSpan.FromSeconds(10));
+
+			await waitForSitecoreToStart.Run();
+
+			CoveoConfigurationResponse cmConfiguration = await GetCmConfiguration(hostCM, authenticatedClient);
+			if (cmConfiguration == null)
+			{
+				Log.LogError($"{TaskName}() failed while getting the CM contiguration.");
+				return;
+			}
+
+			await waitForSitecoreToStart.RunCD();
+
+			configurationSucceded = await ConfigureAndActivateCd(hostCD, cmConfiguration);
+			if (!configurationSucceded)
+			{
+				Log.LogError($"{TaskName}() failed while configuring and activating the CD.");
+				return;
+			}
 
 			await waitForSitecoreToStart.RunCD();
 
 			if (await IsCoveoActivatedOnCd(hostCD) == false)
 			{
-				await waitForSitecoreToStart.Run();
-
-				CoveoConfigurationResponse cmConfiguration = await GetCmConfiguration(hostCM, authenticatedClient);
-
-				bool configurationSucceded = await ConfigureAndActivateCd(hostCD, cmConfiguration);
-				if (!configurationSucceded)
-				{
-					await StopTaskWithError("ActivateCoveo() failed while configuring and activating the CD.");
-					return;
-				}
-
-				await waitForSitecoreToStart.RunCD();
-
 				bool customizationActivationSucceded = await ActivateCoveoCustomizations(hostCD);
 				if (!customizationActivationSucceded)
 				{
-					await StopTaskWithError("ActivateCoveo() failed while activating the CD customizations.");
+					Log.LogError($"{TaskName}() failed while activating the CD customizations.");
 					return;
 				}
 
-				Log.LogInformation($"ActivateCoveo() finished on {hostCD}.");
+				Log.LogInformation($"{TaskName}() finished on {hostCD}.");
 			}
 			else
 			{
-				Log.LogInformation($"ActivateCoveo() finished on {hostCD}. Coveo is already activated on CD.");
+				Log.LogInformation($"{TaskName}() finished on {hostCD}. Coveo is already activated on CD.");
 			}
 
-			await StopTaskWithSuccess("ActivateCoveo() complete");
-		}
-
-		private async Task StopTaskWithError(string message)
-		{
-			await StopTask();
-			Log.LogError(message);
+			await StopTaskWithSuccess($"{TaskName}() complete");
 		}
 
 		private async Task StopTaskWithSuccess(string message)
 		{
-			await StopTask();
+			await Stop(TaskName);
 			Log.LogInformation(message);
-		}
-
-		private async Task StopTask()
-		{
-			await Stop(nameof(ActivateCoveo));
 		}
 
 		private async Task<WebClient> GetAuthenticatedClient(string hostCM)
@@ -153,29 +156,24 @@ namespace Sitecore.Demo.Init.Jobs
 		{
 			Log.LogInformation("Starting Coveo CM configuration...");
 
-			var organizationId = Environment.GetEnvironmentVariable("COVEO_ORGANIZATION_ID");
-			var apiKey = Environment.GetEnvironmentVariable("COVEO_API_KEY");
-			var searchApiKey = Environment.GetEnvironmentVariable("COVEO_SEARCH_API_KEY");
-			var farmName = Environment.GetEnvironmentVariable("COVEO_FARM_NAME");
-			var coveoAdminUserName = Environment.GetEnvironmentVariable("COVEO_ADMIN_USER_NAME").Replace("\\", "\\\\");
-			var coveoAdminPassword = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
+			var coveoAdminUserName = CoveoAdminUserName.Replace("\\", "\\\\");
 
 			string requestBody = $"{{" +
 				$"  \"Organization\": {{" +
-				$"    \"OrganizationId\": \"{organizationId}\"," +
-				$"    \"ApiKey\": \"{apiKey}\"," +
-				$"    \"SearchApiKey\": \"{searchApiKey}\"" +
+				$"    \"OrganizationId\": \"{CoveoOrganizationId}\"," +
+				$"    \"ApiKey\": \"{CoveoApiKey}\"," +
+				$"    \"SearchApiKey\": \"{CoveoSearchApiKey}\"" +
 				$"  }}," +
 				$"  \"SitecoreCredentials\": {{" +
 				$"    \"Username\": \"{coveoAdminUserName}\"," +
-				$"    \"Password\": \"{coveoAdminPassword}\"" +
+				$"    \"Password\": \"{CoveoAdminPassword}\"" +
 				$"  }}," +
 				$"  \"DocumentOptions\": {{" +
 				$"    \"BodyIndexing\": \"Rich\"," +
 				$"    \"IndexPermissions\": false" +
 				$"  }}," +
 				$"  \"Farm\": {{" +
-				$"    \"Name\": \"{farmName}\"" +
+				$"    \"Name\": \"{CoveoFarmName}\"" +
 				$"  }}" +
 				$"}}";
 
@@ -248,7 +246,7 @@ namespace Sitecore.Demo.Init.Jobs
 		private bool ShouldActivateCoveoOnCd()
 		{
 			var skipWarmupCd = Environment.GetEnvironmentVariable("SKIP_WARMUP_CD");
-			return skipWarmupCd == "false";
+			return skipWarmupCd != "true";
 		}
 
 		private async Task<bool> IsCoveoActivatedOnCd(string hostCD)
@@ -274,6 +272,12 @@ namespace Sitecore.Demo.Init.Jobs
 			var response = await authenticatedClient.DownloadStringTaskAsync($"{hostCM}/Utilities/GetCoveoConfiguration.aspx");
 			Log.LogInformation($"{response}");
 			CoveoConfigurationResponse configuration = (CoveoConfigurationResponse)JsonConvert.DeserializeObject(response, typeof(CoveoConfigurationResponse));
+
+			if (string.IsNullOrEmpty(configuration.EncryptedApiKey) || string.IsNullOrEmpty(configuration.EncryptedSearchApiKey) || string.IsNullOrEmpty(configuration.EncryptedSitecorePassword))
+			{
+				return null;
+			}
+
 			return configuration;
 		}
 
@@ -281,11 +285,11 @@ namespace Sitecore.Demo.Init.Jobs
 		{
 			Log.LogInformation("Starting Coveo CD configuration and activation...");
 
-			var organizationId = HttpUtility.UrlEncode(Environment.GetEnvironmentVariable("COVEO_ORGANIZATION_ID"));
+			var organizationId = HttpUtility.UrlEncode(CoveoOrganizationId);
 			var apiKey = HttpUtility.UrlEncode(cmConfiguration.EncryptedApiKey);
 			var searchApiKey = HttpUtility.UrlEncode(cmConfiguration.EncryptedSearchApiKey);
-			var farmName = HttpUtility.UrlEncode(Environment.GetEnvironmentVariable("COVEO_FARM_NAME"));
-			var coveoAdminUsername = HttpUtility.UrlEncode(Environment.GetEnvironmentVariable("COVEO_ADMIN_USER_NAME"));
+			var farmName = HttpUtility.UrlEncode(CoveoFarmName);
+			var coveoAdminUsername = HttpUtility.UrlEncode(CoveoAdminUserName);
 			var coveoAdminPassword = HttpUtility.UrlEncode(cmConfiguration.EncryptedSitecorePassword);
 
 			using var client = new HttpClient { BaseAddress = new Uri(hostCD) };

@@ -20,9 +20,6 @@ FROM npm as frontend
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-ARG INTERNAL_NUGET_SOURCE
-ARG SYSTEM_ACCESSTOKEN
-
 COPY FrontEnd/Lighthouse/.npmrc ./FrontEnd/Lighthouse/
 COPY FrontEnd/Lighthouse/package.json ./FrontEnd/Lighthouse/
 COPY FrontEnd/Lighthouse/npm-shrinkwrap.template.json ./FrontEnd/Lighthouse/npm-shrinkwrap.json
@@ -58,7 +55,9 @@ RUN .\packaging\generate-update-package.ps1 -target /items -output /out/db
 FROM ${BUILD_IMAGE} as build
 
 ARG INTERNAL_NUGET_SOURCE
-ARG SYSTEM_ACCESSTOKEN
+ARG INTERNAL_NUGET_SOURCE_USERNAME="VSTS"
+ARG INTERNAL_NUGET_SOURCE_PASSWORD
+ARG PRERELEASE="$false"
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
@@ -67,18 +66,23 @@ COPY cake-config-container.json ./cake-config.json
 COPY --from=coveo_assets /module/cm/content/bin/Coveo.AbstractLayer.dll /module/cm/content/bin/Coveo.Framework.dll /module/cm/content/bin/Coveo.SearchProvider.Rest.dll /module/cm/content/bin/Coveo.SearchProviderBase.dll /lib/
 COPY src/ ./src
 COPY FrontEnd/ ./FrontEnd
+
 RUN Copy-Item ./build/* .
 
-RUN .\build.ps1 -DeploymentTarget DockerBuild -Target Content-Management
+RUN .\build.ps1 -DeploymentTarget DockerBuild -Target Content-Management -Prerelease:$($env:PRERELEASE)
 
 FROM ${BUILD_IMAGE} as xconnect
 
+ARG INTERNAL_NUGET_SOURCE
+ARG INTERNAL_NUGET_SOURCE_USERNAME="VSTS"
+ARG INTERNAL_NUGET_SOURCE_PASSWORD
+
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-ARG INTERNAL_NUGET_SOURCE
-ARG SYSTEM_ACCESSTOKEN
 WORKDIR /src
 COPY src/Project/xConnect .
+COPY nuget.config .
+RUN dotnet nuget add source "$($env:INTERNAL_NUGET_SOURCE)" --name "sc-internal-package-feed" --username "$($env:INTERNAL_NUGET_SOURCE_USERNAME)" --password "$($env:INTERNAL_NUGET_SOURCE_PASSWORD)" --configfile "nuget.config" --store-password-in-clear-text
 
 RUN msbuild /m:1 /v:minimal /p:Configuration="Debug" /p:Platform=AnyCPU /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=false /p:publishUrl=C:\out\demo-xconnect /p:BuildProjectReferences=false /target:Build "code/Sitecore.Demo.Platform.XConnect.csproj"
 

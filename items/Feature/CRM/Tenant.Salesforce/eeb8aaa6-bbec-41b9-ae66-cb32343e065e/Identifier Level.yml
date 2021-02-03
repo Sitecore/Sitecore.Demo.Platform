@@ -1,0 +1,33 @@
+﻿---
+ID: "9d475a0c-a52d-4c09-b11a-7345c3153e99"
+Parent: "eeb8aaa6-bbec-41b9-ae66-cb32343e065e"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: /sitecore/content/Salesforce CRM Tenant/Value Mapping Sets/Salesforce to xConnect Contact Mappings/Salesforce Contact Email to xConnect Contact Identifier Constructor/Identifier Level
+DB: master
+BranchID: "200ef76c-dd0f-4845-9863-b0d4ee1eb36f"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{46ACF6A9-7918-4F3D-8B4D-072F9D6445E4}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{F2F56B27-DEAB-4BE8-A884-B717A24353FA}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{5ACBF674-3F40-4392-901F-5F7CA6FB2352}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210111T115520Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

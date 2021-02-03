@@ -77,12 +77,12 @@ namespace Sitecore.Demo.Platform.Feature.Forms.SubmitActions
 
             if (!string.IsNullOrEmpty(contactFacetData.PhoneNumber))
             {
-                contactFacetData.PhoneKey = "Work Phone";
+                contactFacetData.PhoneKey = "Preferred Phone";
             }
 
             if (!string.IsNullOrEmpty(contactFacetData.EmailAddress))
             {
-                contactFacetData.EmailKey = "Work Email";
+                contactFacetData.EmailKey = "Preferred Email";
                 _trackerService.IdentifyContact(Context.Site.Domain.Name, contactFacetData.EmailAddress);
             }
             
