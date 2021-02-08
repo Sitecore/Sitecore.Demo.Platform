@@ -125,18 +125,6 @@ if ((Test-Path $PSScriptRoot) -and !(Test-Path $TOOLS_DIR)) {
     New-Item -Path $TOOLS_DIR -Type directory | out-null
 }
 
-# Make sure that packages.config exist.
-if (!(Test-Path $PACKAGES_CONFIG)) {
-    Write-Verbose -Message "Downloading packages.config..."
-    try {
-        (New-Object System.Net.WebClient).DownloadFile("https://cakebuild.net/download/bootstrapper/packages", $PACKAGES_CONFIG);
-    }
-    catch [Exception] {
-        Write-Host ($_ | ConvertTo-Json)
-        Throw "Could not download packages.config."
-    }
-}
-
 # Try find NuGet.exe in path if not exists
 if (!(Test-Path $NUGET_EXE)) {
     Write-Verbose -Message "Trying to find nuget.exe in PATH..."
