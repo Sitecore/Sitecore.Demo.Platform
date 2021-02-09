@@ -66,6 +66,7 @@ COPY cake-config-container.json ./cake-config.json
 COPY --from=coveo_assets /module/cm/content/bin/Coveo.AbstractLayer.dll /module/cm/content/bin/Coveo.Framework.dll /module/cm/content/bin/Coveo.SearchProvider.Rest.dll /module/cm/content/bin/Coveo.SearchProviderBase.dll /lib/
 COPY src/ ./src
 COPY FrontEnd/ ./FrontEnd
+COPY tools/ ./tools
 
 RUN Copy-Item ./build/* .
 
