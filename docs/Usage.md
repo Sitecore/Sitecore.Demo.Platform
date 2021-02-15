@@ -129,7 +129,7 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 
 There is an optional Coveo for Sitecore integration in the Lighthouse Demo.
 
-Once Sitecore is up and running, you can [setup Coveo for Sitecore](/Setup-coveo.md) on your instance.
+Once Sitecore is up and running, you can [setup Coveo for Sitecore](/docs/Setup-coveo.md) on your instance.
 
 ## Stopping the demo
 

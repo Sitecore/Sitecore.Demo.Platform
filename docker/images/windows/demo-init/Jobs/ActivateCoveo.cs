@@ -54,8 +54,8 @@ namespace Sitecore.Demo.Init.Jobs
 
 			if (await IsCoveoActivatedOnCm(hostCM, authenticatedClient) == false)
 			{
-				bool activationSucceded = await ActivateCm(hostCM, authenticatedClient);
-				if (!activationSucceded)
+				bool cmActivationSucceded = await ActivateCm(hostCM, authenticatedClient);
+				if (!cmActivationSucceded)
 				{
 					Log.LogError($"{TaskName}() failed while activating the CM.");
 					return;
@@ -87,8 +87,9 @@ namespace Sitecore.Demo.Init.Jobs
 
 			Log.LogInformation($"{TaskName}() started on {hostCD}");
 
-			// Wait for the CM to shut down and restart so the next waitForSitecoreToStart is not executed by the process that is shutting down.
-			await Task.Delay(TimeSpan.FromSeconds(10));
+			await waitForSitecoreToStart.RunCD();
+
+			bool isCoveoAlreadyActivatedOnCd = await IsCoveoActivatedOnCd(hostCD);
 
 			await waitForSitecoreToStart.Run();
 
@@ -99,19 +100,17 @@ namespace Sitecore.Demo.Init.Jobs
 				return;
 			}
 
-			await waitForSitecoreToStart.RunCD();
-
-			configurationSucceded = await ConfigureAndActivateCd(hostCD, cmConfiguration);
-			if (!configurationSucceded)
+			bool cdActivationSucceded = await ConfigureAndActivateCd(hostCD, cmConfiguration);
+			if (!cdActivationSucceded)
 			{
 				Log.LogError($"{TaskName}() failed while configuring and activating the CD.");
 				return;
 			}
 
-			await waitForSitecoreToStart.RunCD();
-
-			if (await IsCoveoActivatedOnCd(hostCD) == false)
+			if (!isCoveoAlreadyActivatedOnCd)
 			{
+				await waitForSitecoreToStart.RunCD();
+
 				bool customizationActivationSucceded = await ActivateCoveoCustomizations(hostCD);
 				if (!customizationActivationSucceded)
 				{
@@ -123,7 +122,7 @@ namespace Sitecore.Demo.Init.Jobs
 			}
 			else
 			{
-				Log.LogInformation($"{TaskName}() finished on {hostCD}. Coveo is already activated on CD.");
+				Log.LogInformation($"{TaskName}() finished on {hostCD}. Coveo customizations are already activated on CD.");
 			}
 
 			await StopTaskWithSuccess($"{TaskName}() complete");
@@ -162,7 +161,10 @@ namespace Sitecore.Demo.Init.Jobs
 				$"  \"Organization\": {{" +
 				$"    \"OrganizationId\": \"{CoveoOrganizationId}\"," +
 				$"    \"ApiKey\": \"{CoveoApiKey}\"," +
-				$"    \"SearchApiKey\": \"{CoveoSearchApiKey}\"" +
+				$"    \"SearchApiKey\": \"{CoveoSearchApiKey}\"," +
+				$"    \"PlatformEndpointUrl\": \"{CoveoPlatformEndpointUrl}\"," +
+				$"    \"IndexingEndpointUrl\": \"{CoveoIndexingEndpointUrl}\"," +
+				$"    \"UsageAnalyticsEndpointUrl \": \"{CoveoUsageAnalyticsEndpointUrl}\"" +
 				$"  }}," +
 				$"  \"SitecoreCredentials\": {{" +
 				$"    \"Username\": \"{coveoAdminUserName}\"," +
@@ -291,11 +293,14 @@ namespace Sitecore.Demo.Init.Jobs
 			var farmName = HttpUtility.UrlEncode(CoveoFarmName);
 			var coveoAdminUsername = HttpUtility.UrlEncode(CoveoAdminUserName);
 			var coveoAdminPassword = HttpUtility.UrlEncode(cmConfiguration.EncryptedSitecorePassword);
+			var coveoPlatformEndpointUrl = HttpUtility.UrlEncode(CoveoPlatformEndpointUrl);
+			var coveoIndexingEndpointUrl = HttpUtility.UrlEncode(CoveoIndexingEndpointUrl);
+			var coveoUsageAnalyticsEndpointUrl = HttpUtility.UrlEncode(CoveoUsageAnalyticsEndpointUrl);
 
 			using var client = new HttpClient { BaseAddress = new Uri(hostCD) };
 			CoveoIsActivatedStatus isActivatedStatus;
 
-			using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"/Utilities/ConfigureCdAndActivateCoveo.aspx?organizationId={organizationId}&apiKey={apiKey}&searchApiKey={searchApiKey}&farmName={farmName}&adminUsername={coveoAdminUsername}&adminPassword={coveoAdminPassword}"))
+			using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"/Utilities/ConfigureCdAndActivateCoveo.aspx?organizationId={organizationId}&apiKey={apiKey}&searchApiKey={searchApiKey}&farmName={farmName}&adminUsername={coveoAdminUsername}&adminPassword={coveoAdminPassword}&platformEndpointUrl={coveoPlatformEndpointUrl}&indexingEndpointUrl={coveoIndexingEndpointUrl}&usageAnalyticsEndpointUrl={coveoUsageAnalyticsEndpointUrl}"))
 			{
 				using (var response = await client.SendAsync(request))
 				{

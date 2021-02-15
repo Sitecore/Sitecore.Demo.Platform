@@ -38,8 +38,8 @@ namespace Sitecore.Demo.Init.Services
 				var experienceGeneratorAsyncJob = new ExperienceGenerator(initContext);
 
 				await new WaitForContextDatabase(initContext).Run();
-				await new ActivateCoveo(initContext).Run();
 				await new PublishItems(initContext).Run();
+				await new ActivateCoveo(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
 				await Task.WhenAll(new RemoveItems(initContext).Run());
 				await Task.WhenAll(new UpdateFieldValues(initContext).Run(), deployMarketingDefinitionsAsyncJob.Run(), rebuildLinkDatabaseAsyncJob.Run());

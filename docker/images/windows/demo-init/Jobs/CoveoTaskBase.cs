@@ -4,10 +4,63 @@ namespace Sitecore.Demo.Init.Jobs
 {
 	public class CoveoTaskBase : TaskBase
 	{
+		private const string USA_COVEO_REGION = "usa";
+		private const string EUROPE_COVEO_REGION = "europe";
+		private const string AUSTRALIA_COVEO_REGION = "australia";
+
 		public string CoveoOrganizationId
 		{
-			get {
+			get
+			{
 				return Environment.GetEnvironmentVariable("COVEO_ORGANIZATION_ID");
+			}
+		}
+
+		public string CoveoRegion
+		{
+			get
+			{
+				// This environment variable will not always be set for older deployments where only USA was supported.
+				return Environment.GetEnvironmentVariable("COVEO_REGION");
+			}
+		}
+
+		private string RegionUrlSuffix
+		{
+			get {
+				switch (CoveoRegion?.ToLower()) {
+					case EUROPE_COVEO_REGION:
+						return "-eu";
+					case AUSTRALIA_COVEO_REGION:
+						return "-au";
+					case USA_COVEO_REGION:
+					default: // To also support older deployments that did not have a region
+						return "";
+				}
+			}
+		}
+
+		public string CoveoPlatformEndpointUrl
+		{
+			get
+			{
+				return $"https://platform{RegionUrlSuffix}.cloud.coveo.com";
+			}
+		}
+
+		public string CoveoIndexingEndpointUrl
+		{
+			get
+			{
+				return $"https://api{RegionUrlSuffix}.cloud.coveo.com/push";
+			}
+		}
+
+		public string CoveoUsageAnalyticsEndpointUrl
+		{
+			get
+			{
+				return $"https://platform{RegionUrlSuffix}.cloud.coveo.com/rest/ua";
 			}
 		}
 
@@ -63,11 +116,12 @@ namespace Sitecore.Demo.Init.Jobs
 				return base.ComputeSettingsHash();
 			}
 
-			return CoveoOrganizationId + CoveoApiKey + CoveoSearchApiKey + CoveoFarmName + CoveoAdminUserName + CoveoAdminPassword;
+			return CoveoOrganizationId + CoveoApiKey + CoveoSearchApiKey + CoveoFarmName + CoveoAdminUserName + CoveoAdminPassword + CoveoRegion;
 		}
 
 		protected bool AreCoveoEnvironmentVariablesSet()
 		{
+			// Do not add CoveoRegion to this condition to allow existing deployments (without region) to be redeployed using newer Docker images without being forced to edit on the portal and select a region.
 			return !string.IsNullOrEmpty(CoveoOrganizationId) &&
 			       !string.IsNullOrEmpty(CoveoApiKey) &&
 			       !string.IsNullOrEmpty(CoveoSearchApiKey) &&
