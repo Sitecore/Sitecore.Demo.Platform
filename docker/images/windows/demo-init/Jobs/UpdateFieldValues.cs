@@ -19,8 +19,6 @@ namespace Sitecore.Demo.Init.Jobs
 
 		public async Task Run()
 		{
-			await Start(nameof(UpdateFieldValues));
-
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			var user = Environment.GetEnvironmentVariable("ADMIN_USER_NAME").Replace("sitecore\\", string.Empty);
 			var password = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
@@ -42,7 +40,7 @@ namespace Sitecore.Demo.Init.Jobs
 			UpdateValues(hostCM, damUrl, token);
 
 			Log.LogInformation($"{response.StatusCode} {contents}");
-			await Stop(nameof(UpdateFieldValues));
+			await Complete();
 			Log.LogInformation("UpdateFieldValues() complete");
 		}
 

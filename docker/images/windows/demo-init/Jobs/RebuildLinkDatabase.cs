@@ -21,7 +21,6 @@ namespace Sitecore.Demo.Init.Jobs
 				return;
 			}
 
-			await Start(nameof(RebuildLinkDatabase));
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			Log.LogInformation($"RebuildLinkDatabase() started {hostCM}");
 

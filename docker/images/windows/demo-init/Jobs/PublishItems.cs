@@ -25,11 +25,9 @@ namespace Sitecore.Demo.Init.Jobs
 			if (this.IsCompleted())
 			{
 				Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
-				await Stop(nameof(PublishItems));
 				return;
 			}
 
-			await Start(nameof(PublishItems));
 			await waitForPublishingServiceToStart.Run();
 
 			var hostPS = Environment.GetEnvironmentVariable("HOST_PS");
@@ -51,7 +49,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 			Log.LogInformation($"{response.StatusCode} {contents}");
 
-			await Stop(nameof(PublishItems));
+			await Complete();
 
 			Log.LogInformation("PublishItems() complete");
 		}

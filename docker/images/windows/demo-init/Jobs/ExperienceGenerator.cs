@@ -23,8 +23,6 @@ namespace Sitecore.Demo.Init.Jobs
 				return;
 			}
 
-			await Start(nameof(ExperienceGenerator));
-
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 
 			Log.LogInformation($"RunExperienceGenerator() started on {hostCM}");

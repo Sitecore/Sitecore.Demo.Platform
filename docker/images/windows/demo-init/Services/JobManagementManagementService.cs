@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,12 +16,14 @@ namespace Sitecore.Demo.Init.Services
 	{
 		private readonly ILogger<JobManagementManagementService> logger;
 		private readonly InitContext initContext;
+		private readonly IStateService stateService;
 
-		public JobManagementManagementService(ILoggerFactory logFactory, ILogger<JobManagementManagementService> logger, InitContext initContext)
+		public JobManagementManagementService(ILoggerFactory logFactory, ILogger<JobManagementManagementService> logger, InitContext initContext, IStateService stateService)
 		{
 			ApplicationLogging.LoggerFactory = logFactory;
 			this.logger = logger;
 			this.initContext = initContext;
+			this.stateService = stateService;
 		}
 
 		protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -31,6 +32,7 @@ namespace Sitecore.Demo.Init.Services
 			{
 				var startTime = DateTime.UtcNow;
 				logger.LogInformation($"{DateTime.UtcNow} Init started.");
+				await stateService.SetState(InstanceState.Initializing);
 
 				var deployMarketingDefinitionsAsyncJob = new DeployMarketingDefinitions(initContext);
 				var rebuildLinkDatabaseAsyncJob = new RebuildLinkDatabase(initContext);
@@ -43,7 +45,11 @@ namespace Sitecore.Demo.Init.Services
 				await new WaitForSitecoreToStart(initContext).Run();
 				await Task.WhenAll(new RemoveItems(initContext).Run());
 				await Task.WhenAll(new UpdateFieldValues(initContext).Run(), deployMarketingDefinitionsAsyncJob.Run(), rebuildLinkDatabaseAsyncJob.Run());
+
+				await stateService.SetState(InstanceState.WarmingUp);
 				await Task.WhenAll(new WarmupCM(initContext).Run(), new WarmupCD(initContext).Run());
+
+				await stateService.SetState(InstanceState.Preparing);
 				await Task.WhenAll(indexRebuildAsyncJob.Run(), experienceGeneratorAsyncJob.Run());
 
 				logger.LogInformation($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below.");
@@ -57,37 +63,31 @@ namespace Sitecore.Demo.Init.Services
 					                   experienceGeneratorAsyncJob
 				                   };
 
-				while (true)
+				var runningJobs = await CheckAsyncJobsStatus();
+				while (runningJobs.Any())
 				{
-					var statusDirectory = Path.Combine(Directory.GetCurrentDirectory(), "status");
-					List<SitecoreJobStatus> runningJobs = await CheckAsyncJobsStatus();
-					if (runningJobs != null)
+					var completedJobs = asyncJobList.Where(
+						asyncJob => runningJobs.All(runningJob => runningJob.Title != asyncJob.TaskName)).ToList();
+					foreach (var completedJob in completedJobs)
 					{
-						var completedJobs = asyncJobList.Where(asyncJob => runningJobs.All(runningJob => runningJob.Title != asyncJob.TaskName)).ToList();
-						foreach (var completedJob in completedJobs)
-						{
-							await LogCompletedJob(completedJob, statusDirectory);
-							asyncJobList.Remove(completedJob);
-						}
-					}
-					// the common case where we need to clean up our asyncJobsList if no running jobs were found.
-					// ie: what happens when runningJobs doesn't return any running jobs?
-					else if (asyncJobList.Count > 0)
-					{
-						foreach (var job in asyncJobList)
-						{
-							await LogCompletedJob(job, statusDirectory);
-						}
-
-						return;
-					}
-					else
-					{
-						return;
+						await LogCompletedJob(completedJob);
+						asyncJobList.Remove(completedJob);
 					}
 
 					await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+					runningJobs = await CheckAsyncJobsStatus();
 				}
+
+				if (asyncJobList.Any())
+				{
+					foreach (var job in asyncJobList)
+					{
+						await LogCompletedJob(job);
+					}
+				}
+
+				logger.LogInformation($"{DateTime.UtcNow} No jobs are running. Monitoring stopped.");
+				await stateService.SetState(InstanceState.Ready);
 			}
 			catch (Exception ex)
 			{
@@ -95,10 +95,10 @@ namespace Sitecore.Demo.Init.Services
 			}
 		}
 
-		private async Task LogCompletedJob(TaskBase completedJob, string statusDirectory)
+		private async Task LogCompletedJob(TaskBase completedJob)
 		{
 			logger.LogInformation($"Writing job complete file to disk - {completedJob.TaskName}");
-			await completedJob.Stop(completedJob.TaskName);
+			await completedJob.Complete();
 		}
 
 		private async Task<List<SitecoreJobStatus>> CheckAsyncJobsStatus()
@@ -107,23 +107,17 @@ namespace Sitecore.Demo.Init.Services
 			{
 				logger.LogInformation($"{DateTime.UtcNow} Job status:");
 				var jobs = await JobStatus.Run();
-				if (jobs.Any())
+				foreach (var job in jobs)
 				{
-					foreach (var job in jobs)
-					{
-						logger.LogInformation($"{job.Title} {job.Added} - {job.Progress}");
-					}
-
-					return jobs;
+					logger.LogInformation($"{job.Title} {job.Added} - {job.Progress}");
 				}
 
-				logger.LogInformation("No jobs are running. Monitoring stopped.");
-				return null;
+				return jobs;
 			}
 			catch (Exception ex)
 			{
-				logger.LogInformation("Failed to retrieve running jobs. " + ex);
-				return null;
+				logger.LogError("Failed to retrieve running jobs. ", ex);
+				return new List<SitecoreJobStatus>();
 			}
 		}
 	}

@@ -35,8 +35,6 @@ namespace Sitecore.Demo.Init.Jobs
 				return;
 			}
 
-			await Start(TaskName);
-
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 
 			Log.LogInformation($"{TaskName}() started on {hostCM}");
@@ -130,7 +128,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 		private async Task StopTaskWithSuccess(string message)
 		{
-			await Stop(TaskName);
+			await Complete();
 			Log.LogInformation(message);
 		}
 

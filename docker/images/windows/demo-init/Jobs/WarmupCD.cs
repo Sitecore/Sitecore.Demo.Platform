@@ -30,8 +30,6 @@ namespace Sitecore.Demo.Init.Jobs
 					return;
 				}
 
-				await Start(nameof(WarmupCD));
-
 				var content = File.ReadAllText("data/warmup-config.json");
 				var config = JsonConvert.DeserializeObject<WarmupConfig>(content);
 
@@ -48,7 +46,7 @@ namespace Sitecore.Demo.Init.Jobs
 					await LoadUrl(cd, entry.url, client);
 				}
 
-				await Stop(nameof(WarmupCD));
+				await Complete();
 
 				Log.LogInformation($"{DateTime.UtcNow} Warmup CD complete");
 			}

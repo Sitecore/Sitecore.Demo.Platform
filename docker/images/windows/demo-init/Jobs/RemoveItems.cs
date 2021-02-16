@@ -33,8 +33,6 @@ namespace Sitecore.Demo.Init.Jobs
 				return;
 			}
 
-			await Start(nameof(RemoveItems));
-
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			var user = Environment.GetEnvironmentVariable("ADMIN_USER_NAME").Replace("sitecore\\", string.Empty);
 			var password = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
@@ -55,7 +53,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 			DeleteItems(hostCM, token);
 
-			await Stop(nameof(RemoveItems));
+			await Complete();
 			Log.LogInformation("RemoveItems() complete");
 		}
 

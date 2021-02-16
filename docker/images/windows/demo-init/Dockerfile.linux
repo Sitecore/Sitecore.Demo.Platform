@@ -48,8 +48,4 @@ WORKDIR /app
 
 COPY --from=publish /app/publish .
 
-COPY status.sh .
-
-RUN mkdir status \
-    && chmod +x /app/status.sh
 ENTRYPOINT ["dotnet", "Sitecore.Demo.Init.dll"]
