@@ -83,7 +83,9 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 WORKDIR /src
 COPY src/Project/xConnect .
 COPY nuget.config .
-RUN dotnet nuget add source "$($env:INTERNAL_NUGET_SOURCE)" --name "sc-internal-package-feed" --username "$($env:INTERNAL_NUGET_SOURCE_USERNAME)" --password "$($env:INTERNAL_NUGET_SOURCE_PASSWORD)" --configfile "nuget.config" --store-password-in-clear-text
+COPY docker/images/windows/demo-solution/scripts/ .
+
+RUN .\Add-InternalNugetFeed.ps1
 
 RUN msbuild /m:1 /v:minimal /p:Configuration="Debug" /p:Platform=AnyCPU /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=false /p:publishUrl=C:\out\demo-xconnect /p:BuildProjectReferences=false /target:Build "code/Sitecore.Demo.Platform.XConnect.csproj"
 
