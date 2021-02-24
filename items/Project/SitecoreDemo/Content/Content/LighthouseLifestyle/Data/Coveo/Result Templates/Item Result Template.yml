@@ -36,6 +36,15 @@ SharedFields:
             <span class="CoveoFieldValue" data-field="<%= coveoFieldName("@publish date") %>" data-helper="datetime" data-text-caption="<%- translate('Published') %>:"></span>
           </div>
           <div>
+            <span class="CoveoFieldValue" data-field="<%= coveoFieldName("@resourcetype") %>" data-text-caption="<%- translate('Resource Type') %>:"></span>
+          </div>
+          <div>
+            <span class="CoveoFieldValue" data-field="<%= coveoFieldName("@resourceindustry") %>" data-split-values="true" data-text-caption="<%- translate('Industry') %>:"></span>
+          </div>
+          <div>
+            <span class="CoveoFieldValue" data-field="<%= coveoFieldName("@resourceregion") %>" data-split-values="true" data-text-caption="<%- translate('Region') %>:"></span>
+          </div>
+          <div>
             <span class="CoveoFieldValue" data-field="<%= coveoFieldName("@PageTags") %>" data-split-values="true" data-text-caption="<%- translate('Tags') %>:"></span>
           </div>
         </div>

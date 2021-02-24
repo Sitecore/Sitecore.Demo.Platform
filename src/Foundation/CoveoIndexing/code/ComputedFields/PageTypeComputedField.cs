@@ -50,30 +50,35 @@ namespace Sitecore.Demo.Platform.Foundation.CoveoIndexing.ComputedFields
 				{
 					if (templateId.ToUpper() == currentPageTemplateId)
 					{
-						string pageTypeName = pageType.Name;
-
-						string dictionaryDomain = GetAttributeValue(DICTIONARY_DOMAIN_ATTRIBUTE_NAME);
-						if (!string.IsNullOrEmpty(dictionaryDomain))
-						{
-							Language itemLanguage;
-							if (Language.TryParse(p_Indexable.Culture.Name, out itemLanguage))
-							{
-								pageTypeName = Translate.TextByLanguage(dictionaryDomain, TranslateOptions.Default, pageTypeName, itemLanguage, pageTypeName);
-							}
-						}
-
-						return pageTypeName;
+						return GetTranslatedPageType(pageType.Name, p_Indexable);
 					}
 				}
 			}
 
-			return null;
+			return GetTranslatedPageType("Page", p_Indexable);
 		}
 
 		private PageTypeMappings GetMappings()
 		{
 			string rawMappings = GetAttributeValue(MAPPINGS_ATTRIBUTE_NAME);
 			return (PageTypeMappings)JsonConvert.DeserializeObject(rawMappings, typeof(PageTypeMappings));
+		}
+
+		private string GetTranslatedPageType(string pageType, IIndexable indexableItem)
+		{
+			string translatedPageType = pageType;
+
+			string dictionaryDomain = GetAttributeValue(DICTIONARY_DOMAIN_ATTRIBUTE_NAME);
+			if (!string.IsNullOrEmpty(dictionaryDomain))
+			{
+				Language itemLanguage;
+				if (Language.TryParse(indexableItem.Culture.Name, out itemLanguage))
+				{
+					translatedPageType = Translate.TextByLanguage(dictionaryDomain, TranslateOptions.Default, pageType, itemLanguage, pageType);
+				}
+			}
+
+			return translatedPageType;
 		}
 	}
 }

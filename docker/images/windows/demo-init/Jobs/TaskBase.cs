@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Sitecore.Demo.Init.Extensions;
@@ -9,7 +8,6 @@ namespace Sitecore.Demo.Init.Jobs
 {
 	public class TaskBase
 	{
-		private static readonly string StatusDirectory = Path.Combine(Directory.GetCurrentDirectory(), "status");
 		private readonly InitContext initContext;
 
 		public string TaskName
@@ -60,21 +58,10 @@ namespace Sitecore.Demo.Init.Jobs
 			return null;
 		}
 
-		protected async Task Start(string theType)
-		{
-			if (!Directory.Exists(StatusDirectory))
-			{
-				Directory.CreateDirectory(StatusDirectory);
-			}
-
-			await File.WriteAllTextAsync(Path.Combine(StatusDirectory, $"{theType}.Started"), "Started");
-		}
-
-		public async Task Stop(string theType)
+		public async Task Complete()
 		{
 			initContext.CompletedJobs.Add(new CompletedJob(TaskName, ComputeSettingsHash()));
 			await initContext.SaveChangesAsync();
-			await File.WriteAllTextAsync(Path.Combine(StatusDirectory, $"{theType}.Ready"), "Ready");
 		}
 	}
 }

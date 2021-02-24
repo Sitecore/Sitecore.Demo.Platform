@@ -5,9 +5,18 @@ Template: "6d0fe651-03c9-43c6-8831-00a4cde05ae7"
 Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Coveo/Search Boxes/Header Global Searchbox
 DB: master
 SharedFields:
+- ID: "d39126ec-1050-459b-8d95-c02e0c8d6a63"
+  Hint: EnableQuerySyntax
+  Value: 1
 - ID: "e29c2085-1bc7-40d0-a02a-c554595a6a94"
   Hint: SearchPageUri
   Value: "{8BBAEB6B-EDBA-4FB0-82CC-BAD75FB4B6D2}"
+- ID: "e8377002-b3cc-48ac-819e-a2b2aba4b9f9"
+  Hint: EnableWildcards
+  Value: 1
+- ID: "f57f0e02-87d3-4cf6-920f-bb445599303f"
+  Hint: EnableQuestionMarks
+  Value: 1
 Languages:
 - Language: en
   Versions:

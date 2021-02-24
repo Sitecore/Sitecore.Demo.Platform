@@ -111,7 +111,7 @@
 			display: none;
 			position: relative;
 			width: 100%;
-			height: $home-carousel-nav-width;
+			height: 150px;
 
 			.component.coveo-externalcomponentssection {
 				padding: 0px;
@@ -176,7 +176,12 @@
 
 	&.normal-mode:not(.footer) {
 		.component-content-open {
-			height: $home-carousel-nav-width;
+			height: 150px;
+		}
+		&.hide-coveo {
+			.component-content-open {
+				height: 87px;
+			}
 		}
 	}
 

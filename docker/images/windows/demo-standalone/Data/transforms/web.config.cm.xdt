@@ -6,6 +6,10 @@
       See https://docs.microsoft.com/en-us/dotnet/api/system.web.configuration.httpruntimesection.requestvalidationmode?view=netframework-4.8#remarks
     -->
     <httpRuntime xdt:Transform="SetAttributes" requestValidationMode="2.0" />
+    <sessionState mode="InProc" xdt:Transform="SetAttributes" xdt:locator="Match(mode)" timeout="1440" />
+    <authentication mode="None" xdt:Transform="Replace">
+      <forms name=".ASPXAUTH" cookieless="UseCookies" timeout="1440" />
+    </authentication>
     </system.web>
       <location>
         <system.webServer>

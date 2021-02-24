@@ -21,8 +21,6 @@ namespace Sitecore.Demo.Init.Jobs
 				return;
 			}
 
-			await Start(nameof(DeployMarketingDefinitions));
-
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			var marketingDefinitionsApikey = Environment.GetEnvironmentVariable("MARKETING_DEFINITIONS_APIKEY");
 

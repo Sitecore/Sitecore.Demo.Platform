@@ -23,8 +23,6 @@ namespace Sitecore.Demo.Init.Jobs
 		{
 			try
 			{
-				await Start(nameof(WarmupCM));
-
 				var content = File.ReadAllText("data/warmup-config.json");
 				var config = JsonConvert.DeserializeObject<WarmupConfig>(content);
 
@@ -45,7 +43,7 @@ namespace Sitecore.Demo.Init.Jobs
 				client.Timeout = TimeSpan.FromMinutes(10);
 				Task.WaitAll(WarmupBackend(cm, id, user, password, config), WarmupFrontend(config, client, cm));
 
-				await Stop(nameof(WarmupCM));
+				await Complete();
 
 				Log.LogInformation($"{DateTime.UtcNow} Warmup CM complete");
 			}

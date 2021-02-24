@@ -45,8 +45,6 @@ namespace Sitecore.Demo.Init.Jobs
 				return;
 			}
 
-			await Start(TaskName);
-
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 
 			Log.LogInformation($"IndexRebuild() started {hostCM}");
