@@ -57,7 +57,7 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
       }
       ```
 
-   6. Optionally, you may want to also set DNS servers in the Docker engine configuration. See the [Issue downloading nodejs](#Issue%20downloading%20nodejs) known issue for details and inscruptions.
+   6. Optionally, you may want to also set DNS servers in the Docker engine configuration. See the [Issue downloading nodejs](#Issue%20downloading%20nodejs) known issue for details and instructions.
    7. Click the "Apply & Restart" button to restart your Windows Docker engine.
 
 ## Preparing Your Environment
@@ -100,11 +100,11 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
      - Publish the master database to the web database using Sitecore Publishing Service.
      - Warmup CM and CD pages for a fast first load.
      - Deploy Sitecore marketing definitions.
-     - Rebuild Sitecore and SXA indices.
+     - Rebuild Sitecore and SXA indexes.
      - Generate analytics data using Sitecore Experience Generator.
    - Loading the Sitecore instance before the completion of the init container may cause:
      - Marketing Automation plans may not work as Sitecore marketing definitions are not deployed.
-     - Some Content Editor features and other admin pages relying on search indices may not work.
+     - Some Content Editor features and other admin pages relying on search indexes may not work.
      - The search page and search based components may not work on the CD.
 5. Check the progress of the initialization by viewing the init container's logs:
    - `docker-compose logs -f init`
@@ -145,7 +145,7 @@ At this point you can start the demo again with `docker-compose start` to contin
 
 [top](#table-of-contents)
 
-If you want to reset all of your changes and get a fresh intsance:
+If you want to reset all of your changes and get a fresh instance:
 
 1. Run `docker-compose down`
 2. Run `.\CleanDockerData.ps1`
@@ -208,7 +208,7 @@ ERROR: Get https://<registryname>/<someimage>/manifests/<someimage>: unauthorize
 
 **Cause:**
 
-This indicates you are not logged in your registry.
+This indicates you are not logged in to your registry.
 
 **Solution:**
 
