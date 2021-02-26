@@ -55,16 +55,24 @@ namespace Sitecore.Demo.Init.Jobs
 
 		private async Task WarmupFrontend(WarmupConfig config, HttpClient client, string cm)
 		{
-			foreach (var entry in config.urls[1].xp)
+			foreach (var entry in config.xp)
 			{
 				await LoadUrl(cm, entry.url, client);
+			}
+
+			if (this.AreCoveoEnvironmentVariablesSet())
+			{
+				foreach (var entry in config.coveo)
+				{
+					await LoadUrl(cm, entry.url, client);
+				}
 			}
 		}
 
 		private async Task WarmupBackend(string cm, string id, string user, string password, WarmupConfig config)
 		{
 			var authenticatedClient = new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
-			foreach (var entry in config.urls[0].sitecore)
+			foreach (var entry in config.sitecore)
 			{
 				await LoadUrl(cm, entry.url, authenticatedClient);
 			}

@@ -79,6 +79,7 @@ services:
       HOST_CD: http://cd
       Sitecore_Publishing_Service_Url: http://ps:5000/
       COVEO_SERVER_URL: ${COVEO_SERVER_URL}
+      DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES: ${DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\items:c:\items
@@ -194,6 +195,7 @@ services:
       Sitecore_License: ${SITECORE_LICENSE}
       EXM_RENDERER_URL: http://cm
       COVEO_SERVER_URL: ${COVEO_SERVER_URL}
+      DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES: ${DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\data\cd\src:C:\src

@@ -41,9 +41,17 @@ namespace Sitecore.Demo.Init.Jobs
 
 				var client = new HttpClient();
 				client.Timeout = TimeSpan.FromMinutes(10);
-				foreach (var entry in config.urls[1].xp)
+				foreach (var entry in config.xp)
 				{
 					await LoadUrl(cd, entry.url, client);
+				}
+
+				if (this.AreCoveoEnvironmentVariablesSet())
+				{
+					foreach (var entry in config.coveo)
+					{
+						await LoadUrl(cd, entry.url, client);
+					}
 				}
 
 				await Complete();
