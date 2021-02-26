@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Threading.Tasks;
-using Sitecore.Demo.Init.Services;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
-using Sitecore.Demo.Init.Model;
 using Microsoft.Extensions.Logging;
 using Sitecore.Demo.Init.Extensions;
+using Sitecore.Demo.Init.Model;
+using Sitecore.Demo.Init.Services;
 
 namespace Sitecore.Demo.Init.Jobs
 {
@@ -20,7 +20,7 @@ namespace Sitecore.Demo.Init.Jobs
 			var user = Environment.GetEnvironmentVariable("ADMIN_USER_NAME");
 			var password = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
 			var id = Environment.GetEnvironmentVariable("HOST_ID");
-			var authenticatedClient = await new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
+			var authenticatedClient = new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
 			var status = await authenticatedClient.DownloadStringTaskAsync($"{cm}/sitecore/admin/jobs.aspx?refresh=5");
 
 			var jobsPage = new HtmlAgilityPack.HtmlDocument();
@@ -46,6 +46,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 			return results;
 		}
+
 		private static string GetJobName(string htmlJobName)
 		{
 			switch (htmlJobName)

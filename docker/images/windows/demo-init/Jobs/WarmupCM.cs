@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Sitecore.Demo.Init.Model;
 using Sitecore.Demo.Init.Services;
-using System.Net.Http;
-using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
@@ -63,7 +63,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 		private async Task WarmupBackend(string cm, string id, string user, string password, WarmupConfig config)
 		{
-			var authenticatedClient = await new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
+			var authenticatedClient = new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
 			foreach (var entry in config.urls[0].sitecore)
 			{
 				await LoadUrl(cm, entry.url, authenticatedClient);

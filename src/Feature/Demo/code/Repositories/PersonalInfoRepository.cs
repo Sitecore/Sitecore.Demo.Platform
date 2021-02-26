@@ -216,7 +216,7 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Repositories
 
         private string GetTagValue(ITag value)
         {
-            var strings = value?.Values.Select(v => v.Value).ToArray();
+            var strings = value?.Entries.Select(entry => entry.Value).ToArray();
             return strings == null ? string.Empty : string.Join(", ", strings);
         }
 

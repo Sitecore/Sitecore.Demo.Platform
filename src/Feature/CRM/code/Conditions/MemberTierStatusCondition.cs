@@ -1,13 +1,13 @@
-﻿using Sitecore.Analytics;
+﻿using System;
+using System.Linq;
+using Sitecore.Analytics;
+using Sitecore.Demo.Platform.Feature.CRM.CustomCollectionModels;
 using Sitecore.Diagnostics;
 using Sitecore.Rules;
 using Sitecore.Rules.Conditions;
-using System;
-using System.Linq;
 using Sitecore.XConnect;
 using Sitecore.XConnect.Client;
 using Sitecore.XConnect.Client.Configuration;
-using Sitecore.Demo.Platform.Feature.CRM.CustomCollectionModels;
 
 namespace Sitecore.Demo.Platform.Feature.CRM.Conditions
 {
@@ -22,16 +22,18 @@ namespace Sitecore.Demo.Platform.Feature.CRM.Conditions
                 var id = GetContactId();
                 if (id == null)
                 {
-                    return false; ;
+                    return false;
                 }
                 var contactReference = new IdentifiedContactReference(id.Source, id.Identifier);
 
                 using (var client = SitecoreXConnectClientConfiguration.GetClient())
                 {
-                    var existingContact = client.Get<XConnect.Contact>(contactReference, new ContactExpandOptions(new string[] { CustomSalesforceContactInformation.DefaultFacetKey }));
+                    var existingContact = client.Get(contactReference, new ContactExecutionOptions(new ContactExpandOptions(new string[] { CustomSalesforceContactInformation.DefaultFacetKey })));
                     CustomSalesforceContactInformation customSalesforceFacet = existingContact.GetFacet<CustomSalesforceContactInformation>(CustomSalesforceContactInformation.DefaultFacetKey);
                     if (customSalesforceFacet == null)
+                    {
                         return false;
+                    }
                     var memberTierStatusCondition = customSalesforceFacet.MemberTier;
                     return Compare(memberTierStatusCondition, MemberTierStatus);
                 }

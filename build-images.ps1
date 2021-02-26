@@ -1,27 +1,86 @@
 Param (
-  [Parameter(HelpMessage = "Skips pulling the base images used by the dockerfiles.")]
-  [switch]$SkipPull,
-
+  [Parameter(HelpMessage = "Topology. XP1 or XP0")]
+  [ValidateSet("xp0", "xp1")]
+  [string]$Topology = "xp0"
+  ,
   [Parameter(HelpMessage = "Set memory limit for the build container. Passed to the docker-compose build command as --memory <Value>")]
-  [string]$Memory,
-
+  [string]$Memory
+  ,
   [Parameter(HelpMessage = "Set Docker Compose services to build. Passed to the docker-compose build command.")]
   [string[]]$Services
+  ,
+  [Parameter(HelpMessage = "Set whether to build images in parallel ")]
+  [switch]$Parallel
+  ,
+  [Parameter(HelpMessage = "Skips pulling the base images used by the dockerfiles.")]
+  [switch]$SkipPull
+  ,
+  [Parameter(HelpMessage = "Skips pulling the base images used by the dockerfiles.")]
+  [switch]$SkipSolution
 )
 
-if ($SkipPull -eq $false) {
+function Invoke-BuildSolutionAssets {
+  # Build the images
+
+  $dockerComposeCommand = "docker-compose"
+  $dockerComposeCommand += " -f docker-compose.build.solution.yml build"
+
+  if (-not [string]::IsNullOrEmpty($Memory)) {
+    $dockerComposeCommand += " --memory $Memory"
+  }
+
+  if ($Parallel) {
+    $dockerComposeCommand += " --parallel"
+  }
+  Write-Host "Executing $dockerComposeCommand"
+
+  & ([scriptblock]::create($dockerComposeCommand))
+
+  $dockerComposeCommand = "docker-compose"
+  $dockerComposeCommand += " -f docker/docker-compose.copy.solution.yml build"
+
+  if (-not [string]::IsNullOrEmpty($Memory)) {
+    $dockerComposeCommand += " --memory $Memory"
+  }
+
+  if ($Parallel) {
+    $dockerComposeCommand += " --parallel"
+  }
+  Write-Host "Executing $dockerComposeCommand"
+
+  & ([scriptblock]::create($dockerComposeCommand))
+
+}
+
+if (-not $SkipPull) {
+  Write-Host "Pulling base images..." -ForegroundColor Green
   # Pulling the base images as a separate step because "docker-compose build --pull" fails with the "lighthouse-solution" image which is never pushed to the Docker registry.
-  .\pull-build-images.ps1
+  .\pull-build-images.ps1 -Topology $Topology
 }
 
 if ($null -eq $Services) {
   $Services = @()
 }
+if (-not $SkipSolution) {
+  Invoke-BuildSolutionAssets
+}
+
+$fileSuffix = $(if ("$Topology" -eq "xp0") { "" } else { "-xp1" })
 
 # Build the images
-if ([string]::IsNullOrEmpty($Memory)) {
-  docker-compose -f docker-compose.yml -f docker-compose.build.yml -f docker-compose.build.solution.yml build $Services
+$dockerComposeCommand = "docker-compose"
+$dockerComposeCommand += " -f docker-compose$($fileSuffix).yml -f docker-compose$fileSuffix.build.yml build"
+
+if (-not [string]::IsNullOrEmpty($Memory)) {
+  $dockerComposeCommand += " --memory $Memory"
 }
-else {
-  docker-compose -f docker-compose.yml -f docker-compose.build.yml -f docker-compose.build.solution.yml build --memory $Memory $Services
+
+if ($Parallel) {
+  $dockerComposeCommand += " --parallel"
 }
+
+$dockerComposeCommand += " $Services"
+
+Write-Host "Executing $dockerComposeCommand"
+
+& ([scriptblock]::create($dockerComposeCommand))

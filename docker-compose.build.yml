@@ -8,14 +8,14 @@ services:
   id:
     image: ${REGISTRY}demo/lighthouse-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
-      context: docker\images\windows\demo-id
+      context: .\docker\images\windows\demo-id
       args:
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-modules-base-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
 
   xdbsearchworker:
     image: ${REGISTRY}demo/lighthouse-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
-      context: docker\images\windows\demo-xdbsearchworker
+      context: .\docker\images\windows\demo-xdbsearchworker
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
@@ -25,7 +25,7 @@ services:
   mssql:
     image: ${REGISTRY}demo/lighthouse-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
-      context: docker\images\windows\demo-mssql
+      context: .\docker\images\windows\demo-mssql
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
@@ -35,26 +35,25 @@ services:
   solr:
     image: ${REGISTRY}demo/lighthouse-solr:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
-      context: docker\images\windows\demo-solr
+      context: .\docker\images\windows\demo-solr
       args:
-        BASE_IMAGE: ${REGISTRY}community/sitecore-xp0-custom-sxa-solr:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.4.0-${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
 
   ps:
     image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     isolation: ${ISOLATION}
     build:
-      context: docker\images\windows\demo-ps
+      context: .\docker\images\windows\demo-ps
       args:
-        BASE_IMAGE: ${REGISTRY}community/sitecore-custom-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-modules-base-sps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
 
   cm:
     image: ${REGISTRY}demo/lighthouse-xp0-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
-      context: docker\images\windows\demo-standalone
+      context: .\docker\images\windows\demo-standalone
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        HOTFIX_IMAGE: ${REGISTRY}demo/base/lighthouse-hotfixes:10.0.1-${NANOSERVER_VERSION}-1001.1.0
     depends_on:
       - solution
 
@@ -62,7 +61,7 @@ services:
     isolation: ${ISOLATION}
     image: ${REGISTRY}demo/lighthouse-xp0-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
-      context: docker\images\windows\demo-cd
+      context: .\docker\images\windows\demo-cd
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp1-modules-base-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
@@ -72,7 +71,7 @@ services:
   xconnect:
     image: ${REGISTRY}demo/lighthouse-xp0-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
-      context: docker\images\windows\demo-xconnect
+      context: .\docker\images\windows\demo-xconnect
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
@@ -82,7 +81,7 @@ services:
   xdbautomationworker:
     image: ${REGISTRY}demo/lighthouse-xp0-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
-      context: docker\images\windows\demo-automationengine
+      context: .\docker\images\windows\demo-automationengine
       args:
         BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
     depends_on:
@@ -91,11 +90,9 @@ services:
   authoringhost:
     image: ${REGISTRY}demo/lighthouse-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
-      context: docker\images\windows\demo-authoringhost
+      context: .\docker\images\windows\demo-authoringhost
       args:
-        BASE_IMAGE: ${REGISTRY}community/sitecore-custom-horizon-authoringhost:10.0.1-${WINDOWSSERVERCORE_VERSION}
-    depends_on:
-      - solution
+        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-modules-base-horizon:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
 
   init:
     image: ${REGISTRY}demo/lighthouse-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}

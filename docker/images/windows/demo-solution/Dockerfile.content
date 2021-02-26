@@ -1,0 +1,32 @@
+# escape=`
+
+ARG BASE_IMAGE
+ARG BUILD_IMAGE
+ARG COVEO_ASSETS_IMAGE
+
+FROM $COVEO_ASSETS_IMAGE as coveo_assets
+
+FROM ${BUILD_IMAGE} as build
+
+ARG INTERNAL_NUGET_SOURCE
+ARG INTERNAL_NUGET_SOURCE_USERNAME="VSTS"
+ARG INTERNAL_NUGET_SOURCE_PASSWORD
+ARG PRERELEASE=False
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+COPY build* nuget.config publishsettings.targets Sitecore.Demo.Platform.sln ./build/
+COPY cake-config-container.json ./cake-config.json
+COPY --from=coveo_assets /module/cm/content/bin/Coveo.AbstractLayer.dll /module/cm/content/bin/Coveo.Framework.dll /module/cm/content/bin/Coveo.SearchProvider.Rest.dll /module/cm/content/bin/Coveo.SearchProviderBase.dll /lib/
+COPY src/ ./src
+COPY FrontEnd/ ./FrontEnd
+COPY tools/ ./tools
+
+RUN Copy-Item ./build/* .
+
+RUN .\build.ps1 -DeploymentTarget DockerBuild -Target Content-Management -PreRelease:$([Boolean]$env:PRERELEASE)
+
+FROM ${BASE_IMAGE} as asset
+
+COPY --from=build /out/demo-standalone /solution/cm
+COPY --from=build /out/demo-cd /solution/cd

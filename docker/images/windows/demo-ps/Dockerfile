@@ -3,6 +3,6 @@ ARG BASE_IMAGE
 
 FROM $BASE_IMAGE as production
 
-WORKDIR /app
+WORKDIR /sps
 
 COPY ./ .

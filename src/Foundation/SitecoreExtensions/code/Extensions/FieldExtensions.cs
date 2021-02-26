@@ -1,5 +1,6 @@
 ﻿using System;
 using Sitecore.Data.Fields;
+using Sitecore.Links.UrlBuilders;
 using Sitecore.Resources.Media;
 
 namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions
@@ -19,7 +20,7 @@ namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions
                 return string.Empty;
             }
 
-            var options = MediaUrlOptions.Empty;
+            var options = MediaUrlBuilderOptions.Empty;
             int width, height;
 
             if (int.TryParse(imageField.Width, out width))
@@ -34,7 +35,7 @@ namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions
             return imageField.ImageUrl(options);
         }
 
-        public static string ImageUrl(this ImageField imageField, MediaUrlOptions options)
+        public static string ImageUrl(this ImageField imageField, MediaUrlBuilderOptions options)
         {
             if (imageField?.MediaItem == null)
             {

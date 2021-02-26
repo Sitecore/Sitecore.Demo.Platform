@@ -1,15 +1,15 @@
-﻿using Sitecore.Cintel.ContactService;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sitecore.Cintel.ContactService;
 using Sitecore.Cintel.ContactService.Model;
 using Sitecore.Cintel.Diagnostics;
+using Sitecore.DataExchange.Tools.SalesforceConnect.Facets;
+using Sitecore.Demo.Platform.Feature.CRM.CustomCollectionModels;
 using Sitecore.XConnect;
-using Sitecore.XConnect.Collection.Model;
 using Sitecore.XConnect.Client;
 using Sitecore.XConnect.Client.Configuration;
-using Sitecore.Demo.Platform.Feature.CRM.CustomCollectionModels;
-using Sitecore.DataExchange.Tools.SalesforceConnect.Facets;
+using Sitecore.XConnect.Collection.Model;
 
 namespace Sitecore.Demo.Platform.Feature.CRM.ExperienceProfile
 {
@@ -19,14 +19,14 @@ namespace Sitecore.Demo.Platform.Feature.CRM.ExperienceProfile
         {
             string[] facets = new string[8]
             {
-        "Personal",
-        "Addresses",
-        "Emails",
-        "PhoneNumbers",
-        "Classification",
-        "EngagementMeasures",
-        "SalesforceContact",
-        "CustomSalesforceContact"
+                "Personal",
+                "Addresses",
+                "Emails",
+                "PhoneNumbers",
+                "Classification",
+                "EngagementMeasures",
+                "SalesforceContact",
+                "CustomSalesforceContact"
             };
             Contact contact = this.GetContact(contactId, facets);
             PersonalInformation facet1 = this.TryGetFacet<PersonalInformation>(contact, "Personal");
@@ -37,7 +37,7 @@ namespace Sitecore.Demo.Platform.Feature.CRM.ExperienceProfile
             EngagementMeasures facet6 = this.TryGetFacet<EngagementMeasures>(contact, "EngagementMeasures");
             SalesforceContactInformation facet7 = this.TryGetFacet<SalesforceContactInformation>(contact, "SalesforceContact");
             CustomSalesforceContactInformation facet8 = this.TryGetFacet<CustomSalesforceContactInformation>(contact, "CustomSalesforceContact");
-            return (IContact)this.CreateContact(contact.Id.GetValueOrDefault(), facet5, facet6, facet1, facet3, facet4, facet2, facet7, facet8, contact.Identifiers.ToList<ContactIdentifier>());
+            return this.CreateContact(contact.Id.GetValueOrDefault(), facet5, facet6, facet1, facet3, facet4, facet2, facet7, facet8, contact.Identifiers.ToList());
         }
 
         public Contact GetContact(Guid contactId, string[] facets)
@@ -45,9 +45,11 @@ namespace Sitecore.Demo.Platform.Feature.CRM.ExperienceProfile
             using (XConnectClient client = SitecoreXConnectClientConfiguration.GetClient("xconnect/clientconfig"))
             {
                 ContactReference contactReference = new ContactReference(contactId);
-                Contact contact = facets == null || facets.Length == 0 ? client.Get<Contact>((IEntityReference<Contact>)contactReference, (ExpandOptions)new ContactExpandOptions(Array.Empty<string>())) : client.Get<Contact>((IEntityReference<Contact>)contactReference, (ExpandOptions)new ContactExpandOptions(facets));
+                Contact contact = facets == null || facets.Length == 0 ? client.Get(contactReference, new ContactExecutionOptions(new ContactExpandOptions(Array.Empty<string>()))) : client.Get(contactReference, new ContactExecutionOptions(new ContactExpandOptions(facets)));
                 if (contact == null)
-                    throw new ContactNotFoundException(string.Format("No Contact with id [{0}] found", (object)contactId));
+                {
+                    throw new ContactNotFoundException(string.Format("No Contact with id [{0}] found", contactId));
+                }
                 return contact;
             }
         }
@@ -60,7 +62,7 @@ namespace Sitecore.Demo.Platform.Feature.CRM.ExperienceProfile
             }
             catch (Exception ex)
             {
-                Logger.Error(string.Format("Could not load facet with name [{0}]", (object)facetName), ex);
+                Logger.Error(string.Format("Could not load facet with name [{0}]", facetName), ex);
             }
             return default(TFacet);
         }
@@ -83,10 +85,13 @@ namespace Sitecore.Demo.Platform.Feature.CRM.ExperienceProfile
             string customSalesforceMemberStatus = string.Empty;
             KeyValuePair<string, IAddress> preferredAddress = new KeyValuePair<string, IAddress>();
             KeyValuePair<string, IEmailAddress> preferredEmailAddress = new KeyValuePair<string, IEmailAddress>();
+#pragma warning disable CS0618 // Type or member is obsolete
+            // TODO: Replace IPhoneNumber by ReadonlyPhoneNumber when upgrading to the next Sitecore version
             KeyValuePair<string, IPhoneNumber> preferredPhoneNumber = new KeyValuePair<string, IPhoneNumber>();
-            IList<KeyValuePair<string, IAddress>> addresses = (IList<KeyValuePair<string, IAddress>>)new List<KeyValuePair<string, IAddress>>();
-            IList<KeyValuePair<string, IEmailAddress>> emailAddresses = (IList<KeyValuePair<string, IEmailAddress>>)new List<KeyValuePair<string, IEmailAddress>>();
-            IList<KeyValuePair<string, IPhoneNumber>> phoneNumbers = (IList<KeyValuePair<string, IPhoneNumber>>)new List<KeyValuePair<string, IPhoneNumber>>();
+            IList<KeyValuePair<string, IPhoneNumber>> phoneNumbers = new List<KeyValuePair<string, IPhoneNumber>>();
+#pragma warning restore CS0618 // Type or member is obsolete
+            IList<KeyValuePair<string, IAddress>> addresses = new List<KeyValuePair<string, IAddress>>();
+            IList<KeyValuePair<string, IEmailAddress>> emailAddresses = new List<KeyValuePair<string, IEmailAddress>>();
             if (classification != null)
                 classification1 = classification.OverrideClassificationLevel > 0 ? classification.OverrideClassificationLevel : classification.ClassificationLevel;
             if (engagementMeasures != null)
@@ -109,18 +114,20 @@ namespace Sitecore.Demo.Platform.Feature.CRM.ExperienceProfile
             }
             if (emailAddressList != null)
             {
-                preferredEmailAddress = emailAddressList.PreferredEmail == null || string.IsNullOrEmpty(emailAddressList.PreferredEmail.SmtpAddress) ? new KeyValuePair<string, IEmailAddress>(string.Empty, (IEmailAddress)null) : new KeyValuePair<string, IEmailAddress>(emailAddressList.PreferredKey, (IEmailAddress)new ReadonlyEmailAddress(emailAddressList.PreferredEmail));
-                emailAddresses = (IList<KeyValuePair<string, IEmailAddress>>)emailAddressList.Others.Keys.Select<string, KeyValuePair<string, IEmailAddress>>((Func<string, KeyValuePair<string, IEmailAddress>>)(key => new KeyValuePair<string, IEmailAddress>(key, (IEmailAddress)new ReadonlyEmailAddress(emailAddressList.Others[key])))).OrderBy<KeyValuePair<string, IEmailAddress>, string>((Func<KeyValuePair<string, IEmailAddress>, string>)(kvp => kvp.Key)).ToList<KeyValuePair<string, IEmailAddress>>();
+                preferredEmailAddress = emailAddressList.PreferredEmail == null || string.IsNullOrEmpty(emailAddressList.PreferredEmail.SmtpAddress) ? new KeyValuePair<string, IEmailAddress>(string.Empty, null) : new KeyValuePair<string, IEmailAddress>(emailAddressList.PreferredKey, new ReadonlyEmailAddress(emailAddressList.PreferredEmail));
+                emailAddresses = emailAddressList.Others.Keys.Select(key => new KeyValuePair<string, IEmailAddress>(key, new ReadonlyEmailAddress(emailAddressList.Others[key]))).OrderBy(kvp => kvp.Key).ToList();
             }
             if (addressList != null)
             {
-                preferredAddress = addressList.PreferredAddress == null || string.IsNullOrEmpty(addressList.PreferredKey) ? new KeyValuePair<string, IAddress>(string.Empty, (IAddress)null) : new KeyValuePair<string, IAddress>(addressList.PreferredKey, (IAddress)new ReadonlyAddress(addressList.PreferredAddress));
-                addresses = (IList<KeyValuePair<string, IAddress>>)addressList.Others.Keys.Select<string, KeyValuePair<string, IAddress>>((Func<string, KeyValuePair<string, IAddress>>)(key => new KeyValuePair<string, IAddress>(key, (IAddress)new ReadonlyAddress(addressList.Others[key])))).OrderBy<KeyValuePair<string, IAddress>, string>((Func<KeyValuePair<string, IAddress>, string>)(kvp => kvp.Key)).ToList<KeyValuePair<string, IAddress>>();
+                preferredAddress = addressList.PreferredAddress == null || string.IsNullOrEmpty(addressList.PreferredKey) ? new KeyValuePair<string, IAddress>(string.Empty, null) : new KeyValuePair<string, IAddress>(addressList.PreferredKey, new ReadonlyAddress(addressList.PreferredAddress));
+                addresses = addressList.Others.Keys.Select(key => new KeyValuePair<string, IAddress>(key, new ReadonlyAddress(addressList.Others[key]))).OrderBy(kvp => kvp.Key).ToList();
             }
             if (phoneNumberList != null)
             {
-                preferredPhoneNumber = phoneNumberList.PreferredPhoneNumber == null || string.IsNullOrEmpty(phoneNumberList.PreferredKey) ? new KeyValuePair<string, IPhoneNumber>(string.Empty, (IPhoneNumber)null) : new KeyValuePair<string, IPhoneNumber>(phoneNumberList.PreferredKey, (IPhoneNumber)new ReadonlyPhoneNumber(phoneNumberList.PreferredPhoneNumber));
-                phoneNumbers = (IList<KeyValuePair<string, IPhoneNumber>>)phoneNumberList.Others.Keys.Select<string, KeyValuePair<string, IPhoneNumber>>((Func<string, KeyValuePair<string, IPhoneNumber>>)(key => new KeyValuePair<string, IPhoneNumber>(key, (IPhoneNumber)new ReadonlyPhoneNumber(phoneNumberList.Others[key])))).OrderBy<KeyValuePair<string, IPhoneNumber>, string>((Func<KeyValuePair<string, IPhoneNumber>, string>)(kvp => kvp.Key)).ToList<KeyValuePair<string, IPhoneNumber>>();
+#pragma warning disable CS0618 // Type or member is obsolete
+                preferredPhoneNumber = phoneNumberList.PreferredPhoneNumber == null || string.IsNullOrEmpty(phoneNumberList.PreferredKey) ? new KeyValuePair<string, IPhoneNumber>(string.Empty, null) : new KeyValuePair<string, IPhoneNumber>(phoneNumberList.PreferredKey, new ReadonlyPhoneNumber(phoneNumberList.PreferredPhoneNumber));
+                phoneNumbers = phoneNumberList.Others.Keys.Select(key => new KeyValuePair<string, IPhoneNumber>(key, new ReadonlyPhoneNumber(phoneNumberList.Others[key]))).OrderBy(kvp => kvp.Key).ToList();
+#pragma warning restore CS0618 // Type or member is obsolete
             }
             if (salseforceContactInformation != null)
             {

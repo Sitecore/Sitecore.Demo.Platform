@@ -9,7 +9,7 @@ Param (
   ,
   [Parameter(
     HelpMessage = "Base Module Version - used to refer to a specific build of the base images.")]
-  [string]$BaseModuleVersion = "1001.1"
+  [string]$BaseModuleVersion = "vnext"
   ,
   [Parameter(
     HelpMessage = "Internal ACR use by the demo team")]
@@ -29,7 +29,7 @@ Param (
   ,
   [Parameter(
     HelpMessage = "Sitecore version")]
-  [string]$SitecoreVersion = "10.0.1"
+    [string]$SitecoreVersion = "10.1.0"
   ,
   [Parameter(
     HelpMessage = "Specify if the version of Sitecore is a pre-release version")]
@@ -58,7 +58,7 @@ else {
 }
 
 #Install and Import SitecoreDockerTools
-$dockerToolsVersion = "10.0.5"
+$dockerToolsVersion = "10.1.4"
 Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
 if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
   Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green

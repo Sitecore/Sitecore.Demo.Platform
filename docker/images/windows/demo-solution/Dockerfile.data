@@ -2,9 +2,6 @@
 
 ARG BASE_IMAGE
 ARG BUILD_IMAGE
-ARG COVEO_ASSETS_IMAGE
-
-FROM $COVEO_ASSETS_IMAGE as coveo_assets
 
 FROM ${BUILD_IMAGE} as npm
 
@@ -52,46 +49,6 @@ COPY --from=frontend /items /items
 RUN Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 RUN .\packaging\generate-update-package.ps1 -target /items -output /out/db
 
-FROM ${BUILD_IMAGE} as build
+FROM ${BASE_IMAGE} as asset
 
-ARG INTERNAL_NUGET_SOURCE
-ARG INTERNAL_NUGET_SOURCE_USERNAME="VSTS"
-ARG INTERNAL_NUGET_SOURCE_PASSWORD
-ARG PRERELEASE="$false"
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-COPY build* nuget.config publishsettings.targets Sitecore.Demo.Platform.sln ./build/
-COPY cake-config-container.json ./cake-config.json
-COPY --from=coveo_assets /module/cm/content/bin/Coveo.AbstractLayer.dll /module/cm/content/bin/Coveo.Framework.dll /module/cm/content/bin/Coveo.SearchProvider.Rest.dll /module/cm/content/bin/Coveo.SearchProviderBase.dll /lib/
-COPY src/ ./src
-COPY FrontEnd/ ./FrontEnd
-COPY tools/ ./tools
-
-RUN Copy-Item ./build/* .
-
-RUN .\build.ps1 -DeploymentTarget DockerBuild -Target Content-Management -Prerelease:$($env:PRERELEASE)
-
-FROM ${BUILD_IMAGE} as xconnect
-
-ARG INTERNAL_NUGET_SOURCE
-ARG INTERNAL_NUGET_SOURCE_USERNAME="VSTS"
-ARG INTERNAL_NUGET_SOURCE_PASSWORD
-
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-WORKDIR /src
-COPY src/Project/xConnect .
-COPY nuget.config .
-COPY docker/images/windows/demo-solution/scripts/ .
-
-RUN .\Add-InternalNugetFeed.ps1
-
-RUN msbuild /m:1 /v:minimal /p:Configuration="Debug" /p:Platform=AnyCPU /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=false /p:publishUrl=C:\out\demo-xconnect /p:BuildProjectReferences=false /target:Build "code/Sitecore.Demo.Platform.XConnect.csproj"
-
-FROM ${BASE_IMAGE} as solution
-
-COPY --from=build /out/demo-standalone /solution/cm
-COPY --from=build /out/demo-cd /solution/cd
 COPY --from=data /out/db /solution/db
-COPY --from=xconnect /out/demo-xconnect /solution/xconnect

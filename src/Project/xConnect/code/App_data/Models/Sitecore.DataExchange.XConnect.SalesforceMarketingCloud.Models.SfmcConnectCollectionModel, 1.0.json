@@ -1,0 +1,73 @@
+{
+  "Name": "Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Models.SfmcConnectCollectionModel",
+  "Version": "1.0",
+  "References": [
+    {
+      "Name": "XConnect",
+      "Version": "1.0"
+    },
+    {
+      "Name": "Sitecore.XConnect.Collection.Model",
+      "Version": "10.1"
+    }
+  ],
+  "Types": {
+    "Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Facets.SfmcJourneyInformation": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Facets.SfmcJourneyInformation, Sitecore.DataExchange.XConnect.SalesforceMarketingCloud, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "JourneyList": {
+          "Type": [
+            "Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Facets.SfmcJourney"
+          ]
+        }
+      }
+    },
+    "Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Facets.SfmcJourney": {
+      "Type": "Complex",
+      "ClrType": "Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Facets.SfmcJourney, Sitecore.DataExchange.XConnect.SalesforceMarketingCloud, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "Id": {
+          "Type": "String"
+        },
+        "Version": {
+          "Type": "String"
+        },
+        "Context": {
+          "Type": "String"
+        },
+        "Name": {
+          "Type": "String"
+        },
+        "StateList": {
+          "Type": [
+            "Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Facets.SfmcJourneyState"
+          ]
+        }
+      }
+    },
+    "Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Facets.SfmcJourneyState": {
+      "Type": "Complex",
+      "ClrType": "Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Facets.SfmcJourneyState, Sitecore.DataExchange.XConnect.SalesforceMarketingCloud, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "Name": {
+          "Type": "String"
+        },
+        "EntryDate": {
+          "Type": "DateTime"
+        },
+        "ExitDate": {
+          "Type": "DateTime?"
+        }
+      }
+    }
+  },
+  "Facets": [
+    {
+      "Target": "Contact",
+      "Name": "SfmcJourneyInformation",
+      "Type": "Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Facets.SfmcJourneyInformation"
+    }
+  ]
+}

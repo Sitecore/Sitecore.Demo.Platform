@@ -1,17 +1,14 @@
 # escape=`
 ARG BASE_IMAGE
 ARG SOLUTION_IMAGE
-ARG HOTFIX_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
-FROM $HOTFIX_IMAGE as hotfixes
 
 FROM $BASE_IMAGE
 
 ARG OPENCALAIS_ACCESSTOKEN
 
 COPY --from=solution /solution/cm/ /inetpub/wwwroot/
-COPY --from=hotfixes /cm/ /inetpub/wwwroot/
 
 COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
 COPY ./tools/ /tools/

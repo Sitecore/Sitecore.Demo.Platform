@@ -10,6 +10,9 @@ using Sitecore.Marketing.Definitions;
 using Sitecore.Marketing.Definitions.Goals;
 using Sitecore.Marketing.Definitions.Outcomes.Model;
 using Sitecore.Marketing.Definitions.PageEvents;
+using Sitecore.Analytics.Tracking.Identification;
+using Sitecore.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Services
 {
@@ -146,8 +149,10 @@ namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Services
             // Use default identifyAs for unknown contacts
             if (Tracker.Current.Contact.IdentificationLevel != ContactIdentificationLevel.Known)
             {
-                Tracker.Current.Session.IdentifyAs(source, identifier);
-                return;
+	            var contactIdentificationManager =
+	                ServiceLocator.ServiceProvider.GetRequiredService<IContactIdentificationManager>();
+                contactIdentificationManager.IdentifyAs(new KnownContactIdentifier(source, identifier));
+				return;
             }
         }
     }

@@ -185,6 +185,7 @@ $accessToken = (& { if ([string]::IsNullOrEmpty("$env:INTERNAL_NUGET_SOURCE_PASS
 $internalFeed = $env:INTERNAL_NUGET_SOURCE
 $userName = $env:INTERNAL_NUGET_SOURCE_USERNAME
 if ($accessToken -and $internalFeed -and $userName -and $PreRelease) {
+    Write-Host "Adding the internal NuGet source '$internalFeed'..."
     & "$NUGET_EXE" sources add -name "sc-internal-package-feed" -source $internalFeed -username $userName -password $accessToken -ConfigFile (Join-Path $PWD nuget.config) -StorePasswordInClearText | Out-Null
     & "$NUGET_EXE" sources update -name "sc-internal-package-feed" -source $internalFeed -username $userName -password $accessToken -ConfigFile (Join-Path $PWD nuget.config) -StorePasswordInClearText
 }

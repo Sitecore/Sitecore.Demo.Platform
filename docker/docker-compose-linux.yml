@@ -40,7 +40,7 @@ services:
       ADMIN_USER_NAME: "superuser"
       HOST_CD: "http://cd"
       HOST_CM: "http://cm"
-      HOST_PS: "http://ps"
+      HOST_PS: "http://ps:5000"
       HOST_ID: "http://id"
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
       COVEO_ORGANIZATION_ID: ${COVEO_ORGANIZATION_ID}
@@ -52,7 +52,7 @@ services:
     image: ${REGISTRY}demo/lighthouse-solr:${SITECORE_VERSION}-linux-${DEMO_VERSION}
     isolation: default
     build:
-      context: ./images/linux/demo-xp-solr
+      context: ./images/linux/demo-solr
       dockerfile: Dockerfile
       args:
         BASE_IMAGE: solr:8.4.0-slim

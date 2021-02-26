@@ -52,7 +52,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
                 {
                     try
                     {
-                        var contact = client.Get(contactReference, new ContactExpandOptions(this.facetsToUpdate));
+                        var contact = client.Get(contactReference, new ContactExecutionOptions(new ContactExpandOptions(this.facetsToUpdate)));
 
                         if (contact != null)
                         {
@@ -111,7 +111,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             {
                 try
                 {
-                    var contact = client.Get(contactReference, new ContactExpandOptions(this.facetsToUpdate));
+                    var contact = client.Get(contactReference, new ContactExecutionOptions(new ContactExpandOptions(this.facetsToUpdate)));
                     if (contact == null)
                     {
                         return;
@@ -134,7 +134,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
                 }
             }
         }
-        
+
         public string ExportContactData()
         {
             var contactReference = this.GetContactId();
@@ -151,14 +151,14 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
 
                     var interactionFacets = client.Model.Facets.Where(c => c.Target == EntityType.Interaction).Select(x => x.Name);
 
-                    var contact = client.Get(contactReference, new ContactExpandOptions(contactFacets.ToArray())
+                    var contact = client.Get(contactReference, new ContactExecutionOptions(new ContactExpandOptions(contactFacets.ToArray())
                     {
                         Interactions = new RelatedInteractionsExpandOptions(interactionFacets.ToArray())
                         {
                             EndDateTime = DateTime.MaxValue,
                             StartDateTime = DateTime.MinValue
                         }
-                    });
+                    }));
 
                     if (contact == null)
                     {
@@ -203,7 +203,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             {
                 try
                 {
-                    var contact = client.Get(contactReference, new Sitecore.XConnect.ContactExpandOptions() { });
+                    var contact = client.Get(contactReference, new ContactExecutionOptions(new ContactExpandOptions()));
 
                     if (contact == null)
                     {
@@ -224,7 +224,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             }
         }
 
-        private bool SetAvatar(ContactFacetData data, XConnect.Contact contact, XConnectClient client)
+        private bool SetAvatar(ContactFacetData data, Contact contact, XConnectClient client)
         {
             var url = data.AvatarUrl;
             var mimeType = data.AvatarMimeType;
@@ -258,7 +258,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             }
         }
 
-        private bool SetEmail(ContactFacetData data, XConnect.Contact contact, XConnectClient client)
+        private bool SetEmail(ContactFacetData data, Contact contact, XConnectClient client)
         {
             var email = data.EmailAddress;
             var emailKey = data.EmailKey;
@@ -281,7 +281,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             return true;
         }
 
-        private bool SetPhone(ContactFacetData data, XConnect.Contact contact, XConnectClient client)
+        private bool SetPhone(ContactFacetData data, Contact contact, XConnectClient client)
         {
             var phoneNumber = data.PhoneNumber;
             var phoneKey = data.PhoneKey;
@@ -292,7 +292,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
 
             if (contact.PhoneNumbers() != null)
             {
-                contact.PhoneNumbers().PreferredPhoneNumber = new Sitecore.XConnect.Collection.Model.PhoneNumber(string.Empty, phoneNumber);
+                contact.PhoneNumbers().PreferredPhoneNumber = new PhoneNumber(string.Empty, phoneNumber);
                 contact.PhoneNumbers().PreferredKey = phoneKey;
                 client.SetFacet(contact, PhoneNumberList.DefaultFacetKey, contact.PhoneNumbers());
             }
@@ -304,7 +304,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             return true;
         }
 
-        private static bool SetPersonalInfo(ContactFacetData data, XConnect.Contact contact, XConnectClient client)
+        private static bool SetPersonalInfo(ContactFacetData data, Contact contact, XConnectClient client)
         {
             var changed = false;
 
@@ -321,7 +321,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             return true;
         }
 
-        private static bool SetSportsInterests(ContactFacetData data, XConnect.Contact contact, XConnectClient client)
+        private static bool SetSportsInterests(ContactFacetData data, Contact contact, XConnectClient client)
         {
             bool changed = false;
 
@@ -354,7 +354,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             {
                 client.SetFacet(contact, SportType.DefaultKey, new SportType { Value = data.SportType });
             }
-            
+
             return changed;
         }
 
@@ -381,17 +381,17 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
         private static bool SetName(ContactFacetData data, PersonalInformation personalInfo)
         {
             var changed = false;
-            if (personalInfo.FirstName != data.FirstName && !String.IsNullOrWhiteSpace(data.FirstName))
+            if (personalInfo.FirstName != data.FirstName && !string.IsNullOrWhiteSpace(data.FirstName))
             {
                 personalInfo.FirstName = data.FirstName;
                 changed = true;
             }
-            if (personalInfo.MiddleName != data.MiddleName && !String.IsNullOrWhiteSpace(data.MiddleName))
+            if (personalInfo.MiddleName != data.MiddleName && !string.IsNullOrWhiteSpace(data.MiddleName))
             {
                 personalInfo.MiddleName = data.MiddleName;
                 changed = true;
             }
-            if (personalInfo.LastName != data.LastName && !String.IsNullOrWhiteSpace(data.LastName))
+            if (personalInfo.LastName != data.LastName && !string.IsNullOrWhiteSpace(data.LastName))
             {
                 personalInfo.LastName = data.LastName;
                 changed = true;
