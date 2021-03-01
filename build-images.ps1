@@ -53,7 +53,6 @@ function Invoke-BuildSolutionAssets {
 }
 
 if (-not $SkipPull) {
-  Write-Host "Pulling base images..." -ForegroundColor Green
   # Pulling the base images as a separate step because "docker-compose build --pull" fails with the "lighthouse-solution" image which is never pushed to the Docker registry.
   .\pull-build-images.ps1 -Topology $Topology
 }
