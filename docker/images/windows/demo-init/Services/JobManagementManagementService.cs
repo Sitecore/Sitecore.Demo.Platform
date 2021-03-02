@@ -38,13 +38,14 @@ namespace Sitecore.Demo.Init.Services
 				var rebuildLinkDatabaseAsyncJob = new RebuildLinkDatabase(initContext);
 				var indexRebuildAsyncJob = new IndexRebuild(initContext);
 				var experienceGeneratorAsyncJob = new ExperienceGenerator(initContext);
+				var populateManagedSchema = new PopulateManagedSchema(initContext);
 
 				await new WaitForContextDatabase(initContext).Run();
 				await new PublishItems(initContext).Run();
 				await new ActivateCoveo(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
 				await Task.WhenAll(new RemoveItems(initContext).Run());
-				await Task.WhenAll(new UpdateFieldValues(initContext).Run(), deployMarketingDefinitionsAsyncJob.Run(), rebuildLinkDatabaseAsyncJob.Run());
+				await Task.WhenAll(deployMarketingDefinitionsAsyncJob.Run(), rebuildLinkDatabaseAsyncJob.Run(), populateManagedSchema.Run());
 
 				await stateService.SetState(InstanceState.WarmingUp);
 				await Task.WhenAll(new WarmupCM(initContext).Run(), new WarmupCD(initContext).Run());
@@ -60,8 +61,9 @@ namespace Sitecore.Demo.Init.Services
 					                   deployMarketingDefinitionsAsyncJob,
 					                   rebuildLinkDatabaseAsyncJob,
 					                   indexRebuildAsyncJob,
-					                   experienceGeneratorAsyncJob
-				                   };
+					                   experienceGeneratorAsyncJob,
+					                   populateManagedSchema
+								   };
 
 				var runningJobs = await CheckAsyncJobsStatus();
 				while (runningJobs.Any())

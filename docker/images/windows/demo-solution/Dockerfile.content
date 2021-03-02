@@ -24,7 +24,7 @@ COPY tools/ ./tools
 
 RUN Copy-Item ./build/* .
 
-RUN .\build.ps1 -DeploymentTarget DockerBuild -Target Content-Management -PreRelease:$([Boolean]$env:PRERELEASE)
+RUN .\build.ps1 -DeploymentTarget DockerBuild -Target Content-Management -PreRelease:$([System.Convert]::ToBoolean($env:PRERELEASE))
 
 FROM ${BASE_IMAGE} as asset
 
