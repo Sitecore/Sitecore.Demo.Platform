@@ -123,6 +123,7 @@
     <Content Include="Utilities\Installation\poststeps\1_Smart_Publish.poststep" />
     <Content Include="Utilities\Installation\poststeps\2_Index_Deploy_Marketing_Definitions.poststep" />
     <Content Include="Utilities\Installation\poststeps\3_Index_Rebuild.poststep" />
+    <Content Include="Utilities\Restart.aspx" />
     <Content Include="Utilities\RebuildLinkDatabase.aspx" />
     <Content Include="web.config.xdt" />
     <Content Include="App_Config\ConnectionStrings.config.xdt" />
@@ -160,6 +161,13 @@
     <Compile Include="Utilities\Installation\IndexRebuildPostStep.cs" />
     <Compile Include="Utilities\Installation\SmartPublishPostStep.cs" />
     <Compile Include="Utilities\Installation\UpdateHostnamePostStep.cs" />
+    <Compile Include="Utilities\Restart.aspx.cs">
+      <DependentUpon>Restart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Restart.aspx.designer.cs">
+      <DependentUpon>Restart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\RebuildLinkDatabase.aspx.cs">
       <DependentUpon>RebuildLinkDatabase.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

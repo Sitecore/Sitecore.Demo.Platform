@@ -42,6 +42,7 @@ namespace Sitecore.Demo.Init.Services
 
 				await new WaitForContextDatabase(initContext).Run();
 				await new PublishItems(initContext).Run();
+				await new RestartSitecore(initContext).Run();
 				await new ActivateCoveo(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
 				await Task.WhenAll(new RemoveItems(initContext).Run());
