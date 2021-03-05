@@ -1,19 +1,16 @@
 ﻿---
-ID: "5d1327e0-2bc9-4b0c-9b04-133784b1db24"
-Parent: "602e4f4d-11e2-44e9-a8ac-12ae5e05a1a4"
+ID: "1d5dfd9d-5b8d-47a6-be1e-1353cb439672"
+Parent: "cbb28acf-191e-4695-b8be-b00ad81a674d"
 Template: "bd74a392-dacd-4c23-853a-d520762b33a1"
-Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/landing-pages/sample-with-form"
+Path: /sitecore/content/Demo SXA Sites/Global/Presentation/Page Branches/Landing/Landing Page with Form/$name
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 800
 - ID: "db51d4e9-c24d-4670-af0e-62c8aa08e2b6"
   Hint: LocalData
-  Value: "{02CC26F3-ED25-41F7-BABA-ADDD3E51F7C5}"
+  Value: "{E7383342-A70B-4EC6-A694-14E79737C671}"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Type: layout
@@ -21,7 +18,8 @@ SharedFields:
     <r xmlns:p="p" xmlns:s="s"
       p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        p:after="*[1=2]">
         <r
           uid="{E36CB356-7271-4E46-BDCC-C34F0518E1E0}"
           p:before="*"
@@ -47,7 +45,7 @@ SharedFields:
           uid="{B1AF712D-53D8-4A98-801A-B1CC9C37D77E}"
           p:after="r[@uid='{D2B41184-B2CD-4074-AE79-4DADF108989B}']"
           s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
-          s:par=""
+          s:par="FieldNames&amp;Styles=%7B54C89CDD-B95D-49AA-9942-5506A54CCEAD%7D&amp;GridParameters&amp;RenderingIdentifier&amp;Reset Caching Options&amp;DynamicPlaceholderId=9"
           s:ph="/main/sxa-content-container/container-1/container-5/column-1-6" />
         <r
           uid="{D95F3757-F3FB-4EE1-B229-2F8DAFCA1C40}"
@@ -68,35 +66,26 @@ SharedFields:
           p:after="*[1=2]"
           s:ds=""
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
-          s:par="Reset Caching Options&amp;GridParameters&amp;BackgroundImage&amp;Styles=%7B28C65397-7759-49B0-B39F-AFBC6F5D508A%7D%7C%7B6640DC3B-B537-4BDA-811D-2133A9D3E8B6%7D%7C%7B7390C99D-8055-4E89-9C82-84CA91700184%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
-          s:ph="/main/sxa-content-container/container-1" />
+          s:par="Reset Caching Options&amp;GridParameters&amp;BackgroundImage&amp;Styles=%7B28C65397-7759-49B0-B39F-AFBC6F5D508A%7D%7C%7B7390C99D-8055-4E89-9C82-84CA91700184%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-content-container/container-1"
+          s:ccb="Clear on publish" />
       </d>
     </r>
-- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
-  Hint: __Originator
-  Value: "{8CF49AB7-B197-4A9E-AA48-3D2424F78EC8}"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: Sample Landing Page with Form
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20180612T142516Z
+      Value: 20210302T150905Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
-    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
-      Hint: NavigationTitle
-      Value: Sample Landing Page with Form
+      Value: "{FF509B64-B6D4-4FB7-9718-C4218B992740}"
     - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
       Hint: Content
+      Value: <br />Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
       Value: |
-        <p style="font-weight: 300; font-style: normal; font-size: 20px; font-family: ProximaNova, sans-serif;">Bacon ipsum dolor amet chicken corned beef turkey fatback spare ribs drumstick sausage ham short loin pig. Fatback sausage pastrami spare ribs, frankfurter jowl chuck flank ground round hamburger pork chop. Meatloaf drumstick venison corned beef andouille. Capicola ground round pork belly corned beef buffalo salami ribeye leberkas picanha swine sausage drumstick beef ribs ham hock tenderloin. Ham tenderloin pork tongue chicken pork chop sirloin ham hock cupim venison.</p><p style="font-weight: 300; font-style: normal; font-size: 20px; font-family: ProximaNova, sans-serif;">Shank kielbasa doner ribeye. Sirloin pork belly drumstick sausage. Leberkas tail fatback meatball pork venison chicken cupim pancetta filet mignon shoulder drumstick bresaola boudin ham hock. Spare ribs alcatra andouille fatback shank drumstick t-bone, ground round landjaeger chuck bacon turducken.&nbsp;</p>
-    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
-      Hint: Title
-      Value: Sample Landing Page with Form
+        sitecore\Admin

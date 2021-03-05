@@ -1,0 +1,45 @@
+﻿---
+ID: "fbbf64f6-f55d-4d25-9ee0-336f5f3eeb7d"
+Parent: "7cf5cd59-472d-4e09-ba4f-bfc30f3146a7"
+Template: "fbc802e5-4b9e-480f-93da-3f2a80cae5cb"
+Path: /sitecore/content/Demo SXA Sites/Global/Presentation/Page Branches/Landing
+DB: master
+SharedFields:
+- ID: "bb3391dd-f8be-4b2e-ae9f-47bb63c166ce"
+  Hint: Rule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{ACE6ABDA-C978-491C-BF23-BD67BD849BA1}">
+        <conditions>
+          <condition
+            id="{4B889F07-94D4-4371-B522-9FFE8AF0BE12}"
+            uid="838616849878438486A163F97E22AA7B"
+            operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}"
+            value="Landing" />
+        </conditions>
+        <actions>
+          <action
+            id="{D46EC8E5-7B46-47DE-B44A-4C5C30EF48D1}"
+            uid="E61198DA1E4045A4BEA6C59912ABAEE2"
+            PageBranchId="{B3E975EB-CCB7-4265-9076-AF6257AA89E9}" />
+          <action
+            id="{D46EC8E5-7B46-47DE-B44A-4C5C30EF48D1}"
+            uid="4A2A17D9F9F74935BD13074F56905B8E"
+            PageBranchId="{CBB28ACF-191E-4695-B8BE-B00AD81A674D}" />
+        </actions>
+      </rule>
+    </ruleset>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210302T150807Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
