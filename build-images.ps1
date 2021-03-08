@@ -20,7 +20,7 @@ Param (
 )
 
 function Invoke-BuildSolutionAssets {
-  # Build the images
+  # Build the solution images
 
   $dockerComposeCommand = "docker-compose"
   $dockerComposeCommand += " -f docker-compose.build.solution.yml build"
@@ -36,6 +36,8 @@ function Invoke-BuildSolutionAssets {
 
   & ([scriptblock]::create($dockerComposeCommand))
 
+  $LASTEXITCODE -ne 0 | Where-Object { $_ } | ForEach-Object { throw "Failed." }
+
   $dockerComposeCommand = "docker-compose"
   $dockerComposeCommand += " -f docker/docker-compose.copy.solution.yml build"
 
@@ -50,6 +52,7 @@ function Invoke-BuildSolutionAssets {
 
   & ([scriptblock]::create($dockerComposeCommand))
 
+  $LASTEXITCODE -ne 0 | Where-Object { $_ } | ForEach-Object { throw "Failed." }
 }
 
 if (-not $SkipPull) {
@@ -66,7 +69,7 @@ if (-not $SkipSolution) {
 
 $fileSuffix = $(if ("$Topology" -eq "xp0") { "" } else { "-xp1" })
 
-# Build the images
+# Build the service images
 $dockerComposeCommand = "docker-compose"
 $dockerComposeCommand += " -f docker-compose$($fileSuffix).yml -f docker-compose$fileSuffix.build.yml build"
 

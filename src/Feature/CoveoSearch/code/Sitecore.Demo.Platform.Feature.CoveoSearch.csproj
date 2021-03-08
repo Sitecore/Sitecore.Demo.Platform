@@ -17,6 +17,7 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -49,18 +50,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.AspNet.Razor">
       <Version>3.2.4</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.WebApi">
-      <Version>5.2.4</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.WebApi.Client">
-      <Version>5.2.4</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.WebApi.Core">
-      <Version>5.2.4</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost">
-      <Version>5.2.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNet.WebPages">
       <Version>3.2.4</Version>
