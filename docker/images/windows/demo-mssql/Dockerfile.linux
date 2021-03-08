@@ -26,7 +26,6 @@ RUN mkdir -p /install \
 	&& chmod +x /opt/install-databases.sh \
 	&& /opt/attach-databases.sh /install \
     && /opt/install-databases.sh /opt/src/data/data \
-    && /opt/install-databases.sh /opt/src/data/z.descendants \
     && /opt/install-databases.sh /opt/src/data/security
 
 FROM $BASE_IMAGE as production
