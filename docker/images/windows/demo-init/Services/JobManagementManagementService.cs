@@ -45,7 +45,6 @@ namespace Sitecore.Demo.Init.Services
 				await new RestartSitecore(initContext).Run();
 				await new ActivateCoveo(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
-				await Task.WhenAll(new RemoveItems(initContext).Run());
 				await Task.WhenAll(deployMarketingDefinitionsAsyncJob.Run(), rebuildLinkDatabaseAsyncJob.Run(), populateManagedSchema.Run());
 
 				await stateService.SetState(InstanceState.WarmingUp);
