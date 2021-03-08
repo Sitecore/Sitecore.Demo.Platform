@@ -1,0 +1,88 @@
+﻿---
+ID: "e103e1f6-38cb-4b8a-9264-c269d0b5a473"
+Parent: "304c042b-2866-47f8-9605-95b095642d36"
+Template: "d9bdf22f-6e17-47f3-ab64-49c717ba92da"
+Path: "/sitecore/system/Marketing Control Panel/Marketing Definition Mapping/Rules/Sub Page Profile Mapping - Health Location"
+DB: master
+SharedFields:
+- ID: "908ef45d-4940-4b6a-857d-3739ba4acf8f"
+  Hint: Rule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{BD67EC3E-C260-495A-BE84-B7EEF279037D}"
+        name="On The Go - Profile Mapping">
+        <conditions>
+          <condition
+            id="{7D5DA661-BEF9-441C-B1F7-D80DE3E0972F}"
+            uid="467525B8DCAD4745BEFEA6481687FEDE"
+            itemid="{DC2D421A-6AB9-4907-8E1E-8C4F36BA4259}" />
+        </conditions>
+        <actions>
+          <action
+            id="{958F5E8A-3AC9-4E5B-A2D7-A70FFF1F028E}"
+            uid="62ECE250C21C465D9A00842276B943D3"
+            Cards="{5D9CBB5B-BFF9-4A7B-883D-9BAC97CA0244}" />
+        </actions>
+      </rule>
+      <rule
+        uid="{2C08F5E7-788E-48FA-BBE8-CE28E5927BA2}"
+        name="At Home - Profile Mapping">
+        <conditions>
+          <condition
+            id="{7D5DA661-BEF9-441C-B1F7-D80DE3E0972F}"
+            uid="A09E33F78C0F42E6A9308E2CF7F1AE18"
+            itemid="{AD4D460B-511B-48D4-9B8D-648C5CAF59B1}" />
+        </conditions>
+        <actions>
+          <action
+            id="{958F5E8A-3AC9-4E5B-A2D7-A70FFF1F028E}"
+            uid="9B7598E606E9438E8C8F955E0DA269C9"
+            Cards="{FB81A757-6390-4904-94C7-806A5F9C877D}" />
+        </actions>
+      </rule>
+      <rule
+        uid="{6C6DB1A4-15FC-4BD7-BD27-BB9A6D8CA8B0}"
+        name="At Work - Profile Mapping">
+        <conditions>
+          <condition
+            id="{7D5DA661-BEF9-441C-B1F7-D80DE3E0972F}"
+            uid="EEC177D572B84E4DA94E2920D27F3D38"
+            itemid="{BDB1B27D-E7CD-45DB-9612-96682BD123BD}" />
+        </conditions>
+        <actions>
+          <action
+            id="{958F5E8A-3AC9-4E5B-A2D7-A70FFF1F028E}"
+            uid="D81FC281BF254F74BFEB55EE7857026F"
+            Cards="{86952044-4237-45C4-B28C-6A594BAE51BE}" />
+        </actions>
+      </rule>
+      <rule
+        uid="{3B801730-A4AD-4B78-B6DA-5B18871D92D1}"
+        name="Work From Home">
+        <conditions>
+          <condition
+            id="{7D5DA661-BEF9-441C-B1F7-D80DE3E0972F}"
+            uid="DA87295703F049D8AE25A4C88E0572FA"
+            itemid="{A51B2D25-C268-43D8-931A-30A6B448292D}" />
+        </conditions>
+        <actions>
+          <action
+            id="{958F5E8A-3AC9-4E5B-A2D7-A70FFF1F028E}"
+            uid="1F74BE6566074797A71D1D2D71AEE863"
+            Cards="{FB81A757-6390-4904-94C7-806A5F9C877D}" />
+        </actions>
+      </rule>
+    </ruleset>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210301T123537Z
+    - ID: "45cf9130-802a-41be-b3eb-c02f657dcc2e"
+      Hint: Name
+      Value: Sub Page Profile Mapping
