@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Sitecore.Demo.Init.Services;
@@ -33,6 +34,17 @@ namespace Sitecore.Demo.Init.Jobs
 			// Run PopulateManagedSchema second time as sometimes it does not update Solr properly from the first time
 			status = await authenticatedClient.DownloadStringTaskAsync($"{cm}/sitecore/admin/PopulateManagedSchema.aspx?indexes=all");
 			Log.LogInformation($"PopulateManagedSchema() status: {status}");
+
+			// Wait for PopulateManagedSchema to complete before restarting the sites
+			var jobs = await JobStatus.Run();
+			while (jobs.Any())
+			{
+				Log.LogInformation($"PopulateManagedSchema still running: {DateTime.UtcNow}");
+				await Task.Delay(TimeSpan.FromMinutes(1));
+				jobs = await JobStatus.Run();
+			}
+
+			await Complete();
 		}
 	}
 }
