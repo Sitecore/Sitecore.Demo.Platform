@@ -188,19 +188,87 @@ SharedFields:
             <ruleset
               s:pet="false">
               <rule
-                uid="{0316D39B-73A1-4A9C-876A-209718FEE66D}"
-                s:name="Already Visited">
+                uid="{FA34469B-8F9B-4263-B349-94BB80558C81}"
+                s:name="Use automated personalization - Japanese">
                 <conditions>
-                  <condition
-                    uid="B9CCEA7C0E8A490E8D8EC72F2BE439D4"
-                    s:id="{BE334DF8-9A0F-4FF3-A6D8-C396EC713809}"
-                    s:PageId="{C9D2D5F3-E258-4483-AF1C-CE18B7857BEA}" />
+                  <and
+                    uid="{63580F15-8EBC-4979-8E64-51D43294BC5B}">
+                    <condition
+                      uid="249AA7367FEB4769864D30ED5A72157A"
+                      s:id="{4F59DE1D-EA1D-4745-99AB-A846452E5532}"
+                      s:operatorid="{10537C58-1684-4CAB-B4C0-40C10907CE31}"
+                      s:value="ja-JP" />
+                    <condition
+                      uid="{4E98396E-30FD-4D72-AEEF-D097F2C2AB17}"
+                      s:id="{A091A593-36F6-4EA3-886C-5BBB2626BB58}" />
+                  </and>
                 </conditions>
                 <actions>
                   <action
-                    uid="2D2921CE6810415B8A1246BB26B958A9"
-                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
-                    s:DataSource="local:/Data/CTA - Automate Dinner" />
+                    uid="{7AEF0D98-2316-428C-A3D6-9117987862D4}"
+                    s:id="{FE6C97B9-3ABE-4BC8-8C68-67A60E699880}"
+                    s:DataSource="{3209696F-F313-44B8-BDCF-CB1543F7592A}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{A3429205-A17B-40DA-980A-DE6F3A835B60}"
+                s:name="Use automated personalization - French">
+                <conditions>
+                  <and
+                    uid="{6E7AC078-B977-4933-9036-D235FFAFED88}">
+                    <condition
+                      uid="CA94842BA4F043F99D36BE8A4678CD54"
+                      s:id="{4F59DE1D-EA1D-4745-99AB-A846452E5532}"
+                      s:operatorid="{10537C58-1684-4CAB-B4C0-40C10907CE31}"
+                      s:value="fr-CA" />
+                    <condition
+                      uid="{A80369E2-ABD8-45E2-AB62-BCC03E9455B2}"
+                      s:id="{A091A593-36F6-4EA3-886C-5BBB2626BB58}" />
+                  </and>
+                </conditions>
+                <actions>
+                  <action
+                    uid="{187B96E5-34F3-4633-BB50-019635BDBAD6}"
+                    s:id="{FE6C97B9-3ABE-4BC8-8C68-67A60E699880}"
+                    s:DataSource="{3209696F-F313-44B8-BDCF-CB1543F7592A}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{89A72466-A891-4679-95AE-4C8F660C72A8}"
+                s:name="Use automated personalization - On the Go Profile">
+                <conditions>
+                  <and
+                    uid="{D3652D43-BE71-405A-BA0D-51D4E69C1F08}">
+                    <condition
+                      uid="E70C021144404FF286EDFD8AA0F555EA"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Location"
+                      s:PatternName="On the Go" />
+                    <condition
+                      uid="{AAF501DB-DC89-4413-85F5-E1469630D2F6}"
+                      s:id="{A091A593-36F6-4EA3-886C-5BBB2626BB58}" />
+                  </and>
+                </conditions>
+                <actions>
+                  <action
+                    uid="{ABC27D02-0EBF-4C50-8189-03E18A2FDC4F}"
+                    s:id="{FE6C97B9-3ABE-4BC8-8C68-67A60E699880}"
+                    s:DataSource="{3209696F-F313-44B8-BDCF-CB1543F7592A}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{1D831CFE-C8EB-4FD0-87FF-BF2172B20C15}"
+                s:name="Use automated personalization score">
+                <conditions>
+                  <condition
+                    uid="{B5EE6CD4-F791-4192-B8BC-12A3B501AE67}"
+                    s:id="{A091A593-36F6-4EA3-886C-5BBB2626BB58}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="{83C030F4-1950-43D6-A663-2718546C543F}"
+                    s:id="{FE6C97B9-3ABE-4BC8-8C68-67A60E699880}"
+                    s:DataSource="{3209696F-F313-44B8-BDCF-CB1543F7592A}" />
                 </actions>
               </rule>
               <rule
