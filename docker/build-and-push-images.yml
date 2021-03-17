@@ -14,7 +14,7 @@ variables:
   # Base module version used when building 'develop' and all other branches except 'main'
   BASE_MODULE_VERSION: "vnext"
   # Base module version used when building 'main' branch
-  BASE_MODULE_VERSION_MAIN: "1010.0"
+  BASE_MODULE_VERSION_MAIN: "vnext"
   GitVersion.PreReleaseLabel: ""
   tag: "$(GitVersion.SemVer)"
   additionalImageTags: ""
