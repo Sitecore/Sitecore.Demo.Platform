@@ -20,17 +20,29 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          uid="{324537DF-4151-48B6-AE43-61ACD217BF26}"
+          uid="{8353EBFD-E8E3-48E2-91C6-293544804B2F}"
           p:before="*"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="main" />
+        <r
+          uid="{324537DF-4151-48B6-AE43-61ACD217BF26}"
+          p:after="r[@uid='{8353EBFD-E8E3-48E2-91C6-293544804B2F}']"
           s:ds=""
           s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
           s:par="Reset Caching Options&amp;GridParameters=%7B1E34DFC6-3B3F-4AC0-AC85-6B8F577C6587%7D&amp;FieldNames=%7BA1210970-E200-46E7-8D12-D29ED93056AB%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
           s:ph="/main/container-2" />
         <r
-          uid="{5F34C7FD-0261-4F85-8D68-AF53D584D4C7}"
-          p:after="*[1=2]"
+          uid="{94C1D2E2-BFEE-4ACF-A8E8-8FB16599C40F}"
+          p:after="r[@uid='{324537DF-4151-48B6-AE43-61ACD217BF26}']"
           s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
           s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="main" />
+        <r
+          uid="{B227AD89-E0DE-4BDD-9916-487F02B1518A}"
+          p:after="*[1=2]"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
           s:ph="main" />
       </d>
     </r>

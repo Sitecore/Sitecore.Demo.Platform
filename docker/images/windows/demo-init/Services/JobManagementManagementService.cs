@@ -38,13 +38,17 @@ namespace Sitecore.Demo.Init.Services
 				var rebuildLinkDatabaseAsyncJob = new RebuildLinkDatabase(initContext);
 				var indexRebuildAsyncJob = new IndexRebuild(initContext);
 				var experienceGeneratorAsyncJob = new ExperienceGenerator(initContext);
+				var restartCD = new RestartCD(initContext);
+				var restartCM = new RestartCM(initContext);
 
 				await new WaitForContextDatabase(initContext).Run();
 				await new PublishItems(initContext).Run();
+				await new PopulateManagedSchema(initContext).Run();
+				await Task.WhenAll(restartCD.Run(), restartCM.Run());
 				await new ActivateCoveo(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
-				await Task.WhenAll(new RemoveItems(initContext).Run());
-				await Task.WhenAll(new UpdateFieldValues(initContext).Run(), deployMarketingDefinitionsAsyncJob.Run(), rebuildLinkDatabaseAsyncJob.Run());
+				await Task.WhenAll(new UpdateDatasourceRestrictions(initContext).Run());
+				await Task.WhenAll(deployMarketingDefinitionsAsyncJob.Run(), rebuildLinkDatabaseAsyncJob.Run());
 
 				await stateService.SetState(InstanceState.WarmingUp);
 				await Task.WhenAll(new WarmupCM(initContext).Run(), new WarmupCD(initContext).Run());
@@ -60,29 +64,31 @@ namespace Sitecore.Demo.Init.Services
 					                   deployMarketingDefinitionsAsyncJob,
 					                   rebuildLinkDatabaseAsyncJob,
 					                   indexRebuildAsyncJob,
-					                   experienceGeneratorAsyncJob
-				                   };
+					                   experienceGeneratorAsyncJob,
+								   };
 
-				var runningJobs = await CheckAsyncJobsStatus();
+				var runningJobs = await JobStatus.Run();
 				while (runningJobs.Any())
 				{
 					var completedJobs = asyncJobList.Where(
 						asyncJob => runningJobs.All(runningJob => runningJob.Title != asyncJob.TaskName)).ToList();
 					foreach (var completedJob in completedJobs)
 					{
-						await LogCompletedJob(completedJob);
+						logger.LogInformation($"Writing job complete file to disk - {completedJob.TaskName}");
+						await completedJob.Complete();
 						asyncJobList.Remove(completedJob);
 					}
 
 					await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
-					runningJobs = await CheckAsyncJobsStatus();
+					runningJobs = await JobStatus.Run();
 				}
 
 				if (asyncJobList.Any())
 				{
 					foreach (var job in asyncJobList)
 					{
-						await LogCompletedJob(job);
+						logger.LogInformation($"Writing job complete file to disk - {job.TaskName}");
+						await job.Complete();
 					}
 				}
 
@@ -92,32 +98,6 @@ namespace Sitecore.Demo.Init.Services
 			catch (Exception ex)
 			{
 				logger.LogError(ex, "An error has occurred when running JobManagementManagementService");
-			}
-		}
-
-		private async Task LogCompletedJob(TaskBase completedJob)
-		{
-			logger.LogInformation($"Writing job complete file to disk - {completedJob.TaskName}");
-			await completedJob.Complete();
-		}
-
-		private async Task<List<SitecoreJobStatus>> CheckAsyncJobsStatus()
-		{
-			try
-			{
-				logger.LogInformation($"{DateTime.UtcNow} Job status:");
-				var jobs = await JobStatus.Run();
-				foreach (var job in jobs)
-				{
-					logger.LogInformation($"{job.Title} {job.Added} - {job.Progress}");
-				}
-
-				return jobs;
-			}
-			catch (Exception ex)
-			{
-				logger.LogError("Failed to retrieve running jobs. ", ex);
-				return new List<SitecoreJobStatus>();
 			}
 		}
 	}

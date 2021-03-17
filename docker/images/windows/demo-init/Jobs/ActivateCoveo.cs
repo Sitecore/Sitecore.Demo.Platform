@@ -41,7 +41,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 			await waitForSitecoreToStart.Run();
 
-			var authenticatedClient = await GetAuthenticatedClient(hostCM);
+			var authenticatedClient = GetAuthenticatedClient(hostCM);
 
 			bool configurationSucceded = await ConfigureCm(hostCM, authenticatedClient);
 			if (!configurationSucceded)
@@ -132,13 +132,13 @@ namespace Sitecore.Demo.Init.Jobs
 			Log.LogInformation(message);
 		}
 
-		private async Task<WebClient> GetAuthenticatedClient(string hostCM)
+		private WebClient GetAuthenticatedClient(string hostCM)
 		{
 			var hostID = Environment.GetEnvironmentVariable("HOST_ID");
 			var sitecoreAdminUserName = Environment.GetEnvironmentVariable("ADMIN_USER_NAME").Replace("sitecore\\", string.Empty);
 			var sitecoreAdminPassword = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
 
-			return await new SitecoreLoginService(Log).GetSitecoreClient(hostCM, hostID, sitecoreAdminUserName, sitecoreAdminPassword);
+			return new SitecoreLoginService(Log).GetSitecoreClient(hostCM, hostID, sitecoreAdminUserName, sitecoreAdminPassword);
 		}
 
 		private async Task<bool> IsCoveoActivatedOnCm(string hostCM, WebClient authenticatedClient)

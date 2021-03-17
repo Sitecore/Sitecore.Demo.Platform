@@ -3,7 +3,6 @@ using System.Net;
 using System.Text;
 using System.Web;
 using Sitecore.Demo.Init.Extensions;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Services
@@ -17,7 +16,7 @@ namespace Sitecore.Demo.Init.Services
 			this.logger = logger;
 		}
 
-		public async Task<WebClient> GetSitecoreClient(string baseUrl, string idBaseUrl, string user, string password)
+		public WebClient GetSitecoreClient(string baseUrl, string idBaseUrl, string user, string password)
 		{
 			string uri = string.Format(
 				"{0}/identity/externallogin?authenticationType=SitecoreIdentityServer&ReturnUrl=%2fidentity%2fexternallogincallback%3fReturnUrl%3d%26sc_site%3dshell%26authenticationSource%3dDefault&sc_site=shell",

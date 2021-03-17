@@ -1,0 +1,75 @@
+﻿---
+ID: "ade96017-317b-46bd-9c32-0d73685a0291"
+Parent: "304c042b-2866-47f8-9605-95b095642d36"
+Template: "d9bdf22f-6e17-47f3-ab64-49c717ba92da"
+Path: "/sitecore/system/Marketing Control Panel/Marketing Definition Mapping/Rules/Resource Profile Mapping - Health Focus"
+DB: master
+SharedFields:
+- ID: "908ef45d-4940-4b6a-857d-3739ba4acf8f"
+  Hint: Rule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{776A72C1-9C9D-42F6-95CB-E6F45462AFF2}"
+        name="Fitness - Profile Mapping">
+        <conditions>
+          <condition
+            id="{19FB7F88-C111-427C-AF35-E1722E5637A3}"
+            uid="F8EC1F7297A34A99AD57E3CE15D2B354"
+            TagId="{11F5D989-F2EE-4D71-9811-4A67E5325A91}" />
+        </conditions>
+        <actions>
+          <action
+            id="{958F5E8A-3AC9-4E5B-A2D7-A70FFF1F028E}"
+            uid="75EC9AEA83E541968B6687E3A8E3D96B"
+            Cards="{26CD967F-C803-468D-A4C8-12E7C618FC05}" />
+        </actions>
+      </rule>
+      <rule
+        uid="{51944FDF-9245-4F64-BCC8-299DCD2C6247}"
+        name="Foodie - Profile Mapping">
+        <conditions>
+          <condition
+            id="{19FB7F88-C111-427C-AF35-E1722E5637A3}"
+            uid="7C801F8FBABE420E996E11D02E5C96E1"
+            TagId="{EADD4822-ACE6-4DB9-8EF5-D773A52AFC53}" />
+        </conditions>
+        <actions>
+          <action
+            id="{958F5E8A-3AC9-4E5B-A2D7-A70FFF1F028E}"
+            uid="F0DB9906B8E84BC7B0020D0D84D6228E"
+            Cards="{0C5509C5-B499-4A70-87F2-AB474601B871}" />
+        </actions>
+      </rule>
+      <rule
+        uid="{D74343B4-8874-41FD-B541-AC293984F6B2}"
+        name="Everyday Health - Profile Mapping">
+        <conditions>
+          <condition
+            id="{19FB7F88-C111-427C-AF35-E1722E5637A3}"
+            uid="2F975C40AFC3424FB40380A7EA972065"
+            TagId="{E1C52082-CAFE-4C9C-987A-62D4A16220FF}" />
+        </conditions>
+        <actions>
+          <action
+            id="{958F5E8A-3AC9-4E5B-A2D7-A70FFF1F028E}"
+            uid="97535DD9BBEA489FBD74346CD3C3EA8E"
+            Cards="{850C6103-39CC-461F-A9EB-737230BB94A3}" />
+        </actions>
+      </rule>
+    </ruleset>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210301T120642Z
+    - ID: "45cf9130-802a-41be-b3eb-c02f657dcc2e"
+      Hint: Name
+      Value: Resource Profile Mapping

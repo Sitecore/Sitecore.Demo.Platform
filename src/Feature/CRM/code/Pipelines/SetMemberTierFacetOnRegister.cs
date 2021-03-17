@@ -1,14 +1,10 @@
 ﻿using Sitecore.Demo.Platform.Feature.CRM.CustomCollectionModels;
-using Sitecore.XConnect.Client.Configuration;
-using Sitecore.XConnect;
-using Sitecore.Diagnostics;
-using Sitecore.Analytics;
-using Sitecore.Analytics.Model;
-using Sitecore.XConnect.Client;
-using System.Linq;
 using Sitecore.Demo.Platform.Foundation.Accounts.Pipelines;
-using Sitecore.Demo.Platform.Foundation.Accounts.Providers;
 using Sitecore.Demo.Platform.Foundation.Accounts.Services;
+using Sitecore.Diagnostics;
+using Sitecore.XConnect;
+using Sitecore.XConnect.Client;
+using Sitecore.XConnect.Client.Configuration;
 
 namespace Sitecore.Demo.Platform.Feature.CRM.Pipelines
 {
@@ -18,12 +14,9 @@ namespace Sitecore.Demo.Platform.Feature.CRM.Pipelines
             CustomSalesforceContactInformation.DefaultFacetKey
         };
 
-        private readonly IContactFacetsProvider contactFacetsProvider;
-        private readonly IExportFileService exportFileService;
-
         public void Process(AccountsPipelineArgs args)
         {
-            var contactFacetService = new ContactFacetService(contactFacetsProvider, exportFileService);
+            var contactFacetService = new ContactFacetService(null, null);
             var contactReference = contactFacetService.GetContactId();
 
             if (contactReference == null)
@@ -35,7 +28,7 @@ namespace Sitecore.Demo.Platform.Feature.CRM.Pipelines
             {
                 try
                 {
-                    var contact = client.Get(contactReference, new ContactExpandOptions(this.facetsToUpdate));
+                    var contact = client.Get(contactReference, new ContactExecutionOptions(new ContactExpandOptions(this.facetsToUpdate)));
                     if (contact == null)
                     {
                         return;

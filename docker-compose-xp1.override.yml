@@ -1,0 +1,208 @@
+version: "2.4"
+services:
+  traefik:
+    ports:
+      - "80:80"
+    volumes:
+      - ./data/traefik:C:/etc/traefik
+    networks:
+      - demo
+  redis:
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-redis:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    networks:
+      - demo
+  mssql:
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/mssql-developer:2017-${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    isolation: ${ISOLATION}
+    volumes:
+    - type: bind
+      source: .\data\mssql-data
+      target: c:\data
+    networks:
+      - demo
+  mssql-init:
+    image: ${REGISTRY}demo/lighthouse-xp1-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    environment:
+      INSTALL_MODULE_PATH: c:\\install-module
+      SA_PASSWORD: ${SQL_SA_PASSWORD}
+      SQL_SERVER: mssql
+      SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+    depends_on:
+      mssql:
+        condition: service_healthy
+    ports:
+      - "14331:1433"
+    networks:
+      - demo
+  solr:
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.4.0-${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - type: bind
+        source: .\data\solr-data
+        target: c:\data
+    networks:
+      - demo
+  solr-init:
+    image: ${REGISTRY}community/sitecore-xp1-custom-sxa-solr-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    networks:
+      - demo
+  id:
+    image: ${REGISTRY}demo/lighthouse-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  cd:
+    image: ${REGISTRY}demo/lighthouse-xp1-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('Web.config'); }"
+    volumes:
+      - .\data\cd\src:C:\src
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      Sitecore_ConnectionStrings_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
+      SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
+      SITECORE_APPSETTINGS_ENV:DEFINE: Docker
+      SITECORE_APPSETTINGS_UNICORN:DEFINE: Disabled
+      SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: Disabled
+      SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: None
+    networks:
+      demo:
+        aliases:
+          - "${CD_HOST}"
+  cm:
+    image: ${REGISTRY}demo/lighthouse-xp1-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('C:\\src\\Web.config'); }"
+    volumes:
+      - .\data\cm\src:C:\src
+      - .\items:c:\items
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_CONNECTIONSTRINGS_CMP.ContentHub: ${CMP_CONTENTHUB}
+      SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusEntityPathIn: ${CMP_SERVICEBUSENTITYPATHIN}
+      SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusSubscription: ${CMP_SERVICEBUSSUBSCRIPTION}
+      SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusEntityPathOut: ${CMP_SERVICEBUSENTITYPATHOUT}
+      SITECORE_CONNECTIONSTRINGS_SFMC: ${SFMC_CONNECTIONSTRING}
+      SITECORE_CONNECTIONSTRINGS_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
+    networks:
+      demo:
+        aliases:
+          - "${CM_HOST}"
+  prc:
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp1-prc:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  xdbcollection:
+    image: ${REGISTRY}demo/lighthouse-xp1-xdbcollection:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  xdbsearch:
+    image: ${REGISTRY}demo/lighthouse-xp1-xdbsearch:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  xdbautomation:
+    image: ${REGISTRY}demo/lighthouse-xp1-xdbautomation:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  xdbautomationrpt:
+    image: ${REGISTRY}demo/lighthouse-xp1-xdbautomationrpt:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  cortexprocessing:
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp1-cortexprocessing:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  cortexprocessingworker:
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp1-cortexprocessingworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  cortexreporting:
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp1-cortexreporting:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  xdbrefdata:
+    image: ${REGISTRY}demo/lighthouse-xp1-xdbrefdata:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  xdbsearchworker:
+    image: ${REGISTRY}demo/lighthouse-xp1-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+  xdbautomationworker:
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp1-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+    networks:
+      - demo
+
+  ps:
+    healthcheck:
+      test: ["CMD", "powershell", "ps"]
+    image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    isolation: ${ISOLATION}
+    restart: unless-stopped
+    environment:
+      CONN_STRING_CORE: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
+      CONN_STRING_MASTER: Data Source=mssql;Initial Catalog=Sitecore.Master;User ID=sa;Password=${SQL_SA_PASSWORD}
+      CONN_STRING_WEB: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
+    depends_on:
+      mssql:
+        condition: service_healthy
+      # mssql-init:
+      #   condition: service_healthy
+    ports:
+      - "44015:80"
+    networks:
+      - demo
+
+networks:
+  demo:
+    external:
+      name: nat

@@ -17,6 +17,18 @@ steps:
     script: 'echo "##vso[task.setvariable variable=tag]$(GitVersion.MajorMinorPatch)"'
   condition: eq(variables['GitVersion.PreReleaseLabel'], '')
 - task: PowerShell@2
+  displayName: 'Tag the upgrade branches'
+  inputs:
+    targetType: 'inline'
+    script: 'echo "##vso[task.setvariable variable=tag]$(GitVersion.PreReleaseLabel)"'
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/upgrade'))
+- task: PowerShell@2
+  displayName: 'Tag the upgrade branches'
+  inputs:
+    targetType: 'inline'
+    script: 'echo "##vso[task.setvariable variable=additionalImageTags]$(GitVersion.PreReleaseLabel)"'
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/upgrade'))
+- task: PowerShell@2
   displayName: 'Tag the PR without the version number'
   inputs:
     targetType: 'inline'

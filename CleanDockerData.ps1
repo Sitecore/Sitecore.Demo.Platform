@@ -2,8 +2,8 @@
 Param(
     [string[]]$Folders = @(
         ".\data\indexworker\src",
-        ".\data\sql",
-        ".\data\solr",
+        ".\data\mssql-data",
+        ".\data\solr-data",
         ".\data\cm\src",
         ".\data\cm\backup",
         ".\data\cd\src",

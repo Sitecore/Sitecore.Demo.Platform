@@ -9,14 +9,14 @@ using Sitecore.Demo.Platform.Feature.Demo.Models;
 using Sitecore.Demo.Platform.Foundation.DependencyInjection;
 using Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions;
 using Sitecore.Diagnostics;
-using Sitecore.Resources.Media;
+using Sitecore.Links.UrlBuilders;
 
 namespace Sitecore.Demo.Platform.Feature.Demo.Services
 {
     [Service(typeof(IProfileProvider))]
     public class ProfileProvider : IProfileProvider
     {
-        #pragma warning disable 0618
+#pragma warning disable CS0618 // Type or member is obsolete
         public IEnumerable<ProfileItem> GetSiteProfiles()
         {
             var settingsItem = Context.Site.GetContextItem(Templates.ProfilingSettings.ID);
@@ -74,12 +74,12 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Services
 
         private static string GetPatternImageUrl(KeyValuePair<PatternCardItem, double> patternKeyValuePair)
         {
-            return patternKeyValuePair.Key.Image?.MediaItem == null ? string.Empty : patternKeyValuePair.Key.Image.ImageUrl(new MediaUrlOptions
+            return patternKeyValuePair.Key.Image?.MediaItem == null ? string.Empty : patternKeyValuePair.Key.Image.ImageUrl(new MediaUrlBuilderOptions
             {
                 Width = 50,
                 MaxWidth = 50
             });
         }
-        #pragma warning restore 0618
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 }

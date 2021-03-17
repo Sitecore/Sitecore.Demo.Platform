@@ -10,6 +10,7 @@ using Sitecore.Demo.Platform.Foundation.Accounts.Providers;
 using Sitecore.Demo.Platform.Foundation.DependencyInjection;
 using Sitecore.Demo.Platform.Foundation.Dictionary.Repositories;
 using Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions;
+using Sitecore.EmailCampaign.Extensions;
 using Sitecore.XConnect.Collection.Model;
 
 namespace Sitecore.Demo.Platform.Feature.Demo.Repositories
@@ -96,9 +97,11 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Repositories
             if (!this.contactFacetsProvider.IsKnown)
                 yield break;
 
-            yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Do Not Market", "Do not market"), this.contactFacetsProvider.CommunicationProfile.DoNotMarket ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
-            yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Consent Revoked", "Consent revoked"), this.contactFacetsProvider.CommunicationProfile.ConsentRevoked ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
+            yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Do Not Market", "Do not market"), this.contactFacetsProvider.CommunicationProfile.IsDoNotMarket() ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
+            yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Consent Revoked", "Consent revoked"), this.contactFacetsProvider.CommunicationProfile.IsConsentRevoked() ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
+#pragma warning disable CS0618 // ExecutedRightToBeForgotten member is obsolete
             yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Executed Right To Be Forgotten", "Executed right to be forgotten"), this.contactFacetsProvider.CommunicationProfile.ExecutedRightToBeForgotten ? DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Yes", "Yes") : DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/No", "No"));
+#pragma warning restore CS0618 // ExecutedRightToBeForgotten member is obsolete
             if (!string.IsNullOrEmpty(this.contactFacetsProvider.PersonalInfo?.PreferredLanguage))
             {
                 yield return new KeyValuePair<string, string>(DictionaryPhraseRepository.Current.Get("/Demo/Personal Info/Preferred Language", "Preferred Language"), this.contactFacetsProvider.PersonalInfo.PreferredLanguage);
@@ -216,7 +219,7 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Repositories
 
         private string GetTagValue(ITag value)
         {
-            var strings = value?.Values.Select(v => v.Value).ToArray();
+            var strings = value?.Entries.Select(entry => entry.Value).ToArray();
             return strings == null ? string.Empty : string.Join(", ", strings);
         }
 

@@ -21,9 +21,9 @@ services:
         type: npipe
       - ./traefik:C:/etc/traefik
     depends_on:
-      cm:
-        condition: service_healthy
       id:
+        condition: service_healthy
+      cm:
         condition: service_healthy
   mssql:
     isolation: ${ISOLATION}
@@ -41,13 +41,24 @@ services:
         target: c:\data
   solr:
     isolation: ${ISOLATION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.4.0-${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
     ports:
       - "8984:8983"
-    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-solr:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
     volumes:
       - type: bind
         source: .\solr-data
         target: c:\data
+    environment:
+      SOLR_MODE: solrcloud
+  solr-init:
+    isolation: ${ISOLATION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-solr-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    environment:
+      SITECORE_SOLR_CONNECTION_STRING: http://solr:8983/solr
+      SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
+    depends_on:
+      solr:
+        condition: service_healthy
   id:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
@@ -92,7 +103,7 @@ services:
       Sitecore_ConnectionStrings_Exm.Master: Data Source=mssql;Initial Catalog=Sitecore.Exm.master;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Reporting: Data Source=mssql;Initial Catalog=Sitecore.Reporting;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Sitecore.Reporting.Client: http://xconnect
-      Sitecore_ConnectionStrings_Solr.Search: http://solr:8983/solr
+      Sitecore_ConnectionStrings_Solr.Search: http://solr:8983/solr;solrCloud=true
       Sitecore_ConnectionStrings_SitecoreIdentity.Secret:  ${SITECORE_IDSECRET}
       Sitecore_ConnectionStrings_XConnect.Collection: http://xconnect
       Sitecore_ConnectionStrings_Xdb.MarketingAutomation.Operations.Client: http://xconnect
@@ -103,6 +114,8 @@ services:
       Sitecore_Identity_Server_InternalAuthority: http://id
       Sitecore_Identity_Server_CallbackAuthority: https://${CM_HOST}
       Sitecore_Identity_Server_Require_Https: "false"
+      SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
+      MEDIA_REQUEST_PROTECTION_SHARED_SECRET: ${MEDIA_REQUEST_PROTECTION_SHARED_SECRET}
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
       timeout: 300s
@@ -122,7 +135,7 @@ services:
     depends_on:
       mssql:
         condition: service_healthy
-      solr:
+      solr-init:
         condition: service_started
     environment:
       Sitecore_License: ${SITECORE_LICENSE}
@@ -133,7 +146,7 @@ services:
       Sitecore_ConnectionStrings_Xdb.Processing.Pools: Data Source=mssql;Initial Catalog=Sitecore.Processing.pools;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Xdb.Referencedata: Data Source=mssql;Initial Catalog=Sitecore.Referencedata;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Collection: Data Source=mssql;Initial Catalog=Sitecore.Xdb.Collection.ShardMapManager;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_ConnectionStrings_SolrCore: http://solr:8983/solr/sitecore_xdb
+      Sitecore_ConnectionStrings_SolrCore: http://solr:8983/solr/${SOLR_CORE_PREFIX_NAME}_xdb;solrCloud=true
       Sitecore_Sitecore:XConnect:CollectionSearch:Services:Solr.SolrReaderSettings:Options:RequireHttps: 'false'
       Sitecore_Sitecore:XConnect:CollectionSearch:Services:XConnectSolrHealthCheckServicesConfiguration:Options:RequireHttps: 'false'
       Sitecore_Sitecore:XConnect:SearchIndexer:Services:Solr.SolrReaderSettings:Options:RequireHttps: 'false'
@@ -150,7 +163,7 @@ services:
     restart: unless-stopped
     environment:
       Sitecore_ConnectionStrings_Collection: Data Source=mssql;Initial Catalog=Sitecore.Xdb.Collection.ShardMapManager;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_ConnectionStrings_SolrCore: http://solr:8983/solr/sitecore_xdb
+      Sitecore_ConnectionStrings_SolrCore: http://solr:8983/solr/${SOLR_CORE_PREFIX_NAME}_xdb;solrCloud=true
       Sitecore_License: ${SITECORE_LICENSE}
       Sitecore_Sitecore:XConnect:SearchIndexer:Services:Solr.SolrReaderSettings:Options:RequireHttps: 'false'
       Sitecore_Sitecore:XConnect:SearchIndexer:Services:Solr.SolrWriterSettings:Options:RequireHttps: 'false'

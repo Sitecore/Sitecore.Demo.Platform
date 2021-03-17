@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Sitecore.Demo.Init.Model;
 using Sitecore.Demo.Init.Services;
-using System.Net.Http;
-using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
@@ -55,16 +55,24 @@ namespace Sitecore.Demo.Init.Jobs
 
 		private async Task WarmupFrontend(WarmupConfig config, HttpClient client, string cm)
 		{
-			foreach (var entry in config.urls[1].xp)
+			foreach (var entry in config.xp)
 			{
 				await LoadUrl(cm, entry.url, client);
+			}
+
+			if (this.AreCoveoEnvironmentVariablesSet())
+			{
+				foreach (var entry in config.coveo)
+				{
+					await LoadUrl(cm, entry.url, client);
+				}
 			}
 		}
 
 		private async Task WarmupBackend(string cm, string id, string user, string password, WarmupConfig config)
 		{
-			var authenticatedClient = await new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
-			foreach (var entry in config.urls[0].sitecore)
+			var authenticatedClient = new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
+			foreach (var entry in config.sitecore)
 			{
 				await LoadUrl(cm, entry.url, authenticatedClient);
 			}

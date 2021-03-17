@@ -2,7 +2,7 @@ assembly-versioning-scheme: MajorMinorPatch
 mode: mainline
 continuous-delivery-fallback-tag: ''
 tag-prefix: '[vV]'
-next-version: 1001.1.0
+next-version: 1010.0.0
 major-version-bump-message: '\+semver:\s?(dotnotuse)'
 minor-version-bump-message: '\+semver:\s?(breaking|major)'
 patch-version-bump-message: '\+semver:\s?(feature|minor)'
@@ -12,6 +12,7 @@ branches:
     tag: beta
     increment: Patch
     prevent-increment-of-merged-branch-version: false
+    is-mainline: true
   master:
     tag: ''
     increment: Patch
@@ -30,7 +31,15 @@ branches:
     tag: pull
     tag-number-pattern: '[/-](?<number>\d+)[-/]'
   release:
-    tag: rc
+    tag: ''
     is-release-branch: true
     increment: Inherit
+    is-mainline: true
+  upgrade:
+    tag: vnext
+    regex: ^upgrade.*
+    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+    source-branches:
+    - develop
+    is-mainline: true
 merge-message-formats: {}

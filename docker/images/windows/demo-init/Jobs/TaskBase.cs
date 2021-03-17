@@ -36,7 +36,7 @@ namespace Sitecore.Demo.Init.Jobs
 			return initContext.CompletedJobs.Where(completedJob => completedJob.Name == TaskName).OrderByDescending(completedJob => completedJob.Id).FirstOrDefault();
 		}
 
-		protected bool IsCompleted()
+		public bool IsCompleted()
 		{
 			var completedJob = GetLastCompletedJob();
 			return completedJob != null;
