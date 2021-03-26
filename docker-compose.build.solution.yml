@@ -31,7 +31,7 @@ services:
     isolation: ${ISOLATION}
     build:
       context: .
-      dockerfile: .\docker\images\windows\demo-solution\Dockerfile.xconnect
+      dockerfile: .\docker\images\windows\demo-solution\Dockerfile.xConnect
       args:
         BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
         BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${LTSC_NANOSERVER_VERSION}
