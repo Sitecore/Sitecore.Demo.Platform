@@ -6,16 +6,12 @@ FROM ${SOLUTION_IMAGE} as solution
 
 FROM $BASE_IMAGE
 
-ARG OPENCALAIS_ACCESSTOKEN
-
 COPY --from=solution /solution/cm/ /inetpub/wwwroot/
 
 COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
 COPY ./tools/ /tools/
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
-RUN (Get-Content /inetpub/wwwroot/App_Config/Include/Feature/Sitecore.Demo.Platform.Feature.ContentTagging.config).replace('{calaisAccessToken}', $env:OPENCALAIS_ACCESSTOKEN) | Set-Content /inetpub/wwwroot/App_Config/Include/Feature/Sitecore.Demo.Platform.Feature.ContentTagging.config -Verbose
 
 # Enable GraphQL enpoints for Sitecore databases from example config files - Requires JSS to be installed
 RUN Rename-Item -Path 'C:\\inetpub\\wwwroot\\App_Config\\Sitecore\\Services.GraphQL\\Sitecore.Services.GraphQL.Content.Core.config.example' -NewName 'Sitecore.Services.GraphQL.Content.Core.config'
