@@ -258,7 +258,6 @@ services:
       HOST_ID: "http://id"
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
       SKIP_WARMUP_CD: ${SKIP_WARMUP_CD}
-      DAM_URL: ${DAM_URL}
       INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
       COVEO_ORGANIZATION_ID: ${COVEO_ORGANIZATION_ID}
       COVEO_REGION: ${COVEO_REGION}

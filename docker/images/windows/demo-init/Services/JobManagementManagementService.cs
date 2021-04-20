@@ -48,6 +48,7 @@ namespace Sitecore.Demo.Init.Services
 				await new ActivateCoveo(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
 				await Task.WhenAll(new UpdateDatasourceRestrictions(initContext).Run());
+				await new UpdateDamUri(initContext).Run();
 				await Task.WhenAll(deployMarketingDefinitionsAsyncJob.Run(), rebuildLinkDatabaseAsyncJob.Run());
 
 				await stateService.SetState(InstanceState.WarmingUp);
