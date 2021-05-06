@@ -29,17 +29,15 @@ namespace Sitecore.Demo.Init.Jobs
 			//Alberta
 			"667FB3A0-CCB7-43C5-B814-798F7B1456E0",
 			"6AB77073-7D7A-4907-9A40-03938B18B116",
-			"C3786E30-3001-4341-AED6-316ACEDBF1A3",
-			"134DCA8A-599F-4607-A650-A271D4AEB34D",
-			"7E081A40-C9C7-4DAF-B731-5402E4EC47D9",
-			"CCEFDAF8-69F1-4161-AF68-A4982E93CEF2",
-			"DF1FA910-DB11-40A5-BDA7-63FC2928BEF1",
-			"5889016D-844F-4D69-9B73-8FB04F55A035",
+			"4CCD011A-5B82-4E0F-A180-08EDA3B031B6",
+			"46F73521-5D1B-47D5-A684-F34C433FF2DB",
+			"6C0568FE-9674-46B3-8A70-A06D030A5672",
+			"DE2A0CC5-BCB7-4012-AA92-80F5D55DB0C4",
+			"069A1AEC-0179-48E1-BA89-320A6378D961",
+			"FD4750FE-DF77-40E4-AC61-5E1C69D8A963",
 			"D6ACFB43-2012-4E63-9AED-4094BA4C2085",
 			"C89054E8-1C39-4B88-9608-DE9DC94664EA",
 			"BD44196C-1962-476A-AB90-FAAB0F8C78A5",
-			"1CEDC0A5-3873-4CF5-BC5A-87E562132E73",
-			"E4B8D26F-0E81-4522-9E1A-0A6318D8B4F0",
 			"DC596A7E-D5E6-49A2-A018-EB7DEC69CC99",
 			"0B77FA28-6202-442B-9A24-65D720E4D961",
 			"AC39F140-95D0-4B3A-A7D1-B8CFF3C3614B",
@@ -87,7 +85,6 @@ namespace Sitecore.Demo.Init.Jobs
 			"AE041ED0-99D5-4EE3-B2F6-AA3234F44EEF",
 			"BBB0F0E9-6BBD-45D8-91CF-E51923B325CE",
 			"BADEAE9B-1DA8-4398-9A2E-888A1BFBCB6D",
-			"740228A5-9F80-451E-B458-7C256D4451E9",
 			"DBA8BB2E-9374-4B51-8D7D-8B44C4BF754F",
 			"2AA39C39-8A45-46C7-8695-D19A6E76B2A4",
 			"7917921C-868A-4F47-A7DB-8196639DE0FF",
@@ -182,19 +179,19 @@ namespace Sitecore.Demo.Init.Jobs
 			await Complete();
 		}
 
-		private static void UpdateValues(string hostCM, string token)
+		private void UpdateValues(string hostCM, string token)
 		{
 			foreach (var itemId in itemIdList)
 			{
 				var existingFieldValue = ReadItemField(hostCM, token, itemId);
 
 				if (string.IsNullOrWhiteSpace(existingFieldValue))
-					return;
+					continue;
 
 				var updatedDamHost = GetUpdatedDamHost(existingFieldValue);
 
 				if (string.IsNullOrWhiteSpace(updatedDamHost))
-					return;
+					continue;
 
 				var escapedUpdatedDamHost = updatedDamHost.Replace("\"", "\\\"");
 
@@ -202,21 +199,29 @@ namespace Sitecore.Demo.Init.Jobs
 			}
 		}
 
-		private static string ReadItemField(string hostCM, string token, string itemId)
+		private string ReadItemField(string hostCM, string token, string itemId)
 		{	
-			var cookieClient = new CookieWebClient();
-			cookieClient.Encoding = System.Text.Encoding.UTF8;
-			cookieClient.Headers.Add("token", token);
-			cookieClient.Headers.Add("Content-Type", "application/json");
+			try
+            {
+				var cookieClient = new CookieWebClient();
+				cookieClient.Encoding = System.Text.Encoding.UTF8;
+				cookieClient.Headers.Add("token", token);
+				cookieClient.Headers.Add("Content-Type", "application/json");
 
-			var stringResponse = cookieClient.DownloadString(
-				new Uri(hostCM + $"/sitecore/api/ssc/item/{itemId}?database=master&fields=image"));
+				var stringResponse = cookieClient.DownloadString(
+					new Uri(hostCM + $"/sitecore/api/ssc/item/{itemId}?database=master&fields=image"));
 
-			var jsonDictionarySet = JsonConvert.DeserializeObject<Dictionary<String, String>>(stringResponse);
-			return jsonDictionarySet?.FirstOrDefault(x => x.Key == "image").Value;
+				var jsonDictionarySet = JsonConvert.DeserializeObject<Dictionary<String, String>>(stringResponse);
+				return jsonDictionarySet?.FirstOrDefault(x => x.Key == "image").Value;
+			}
+            catch (Exception ex)
+            {
+                Log.LogError($"Failed to read item field, itemId: {itemId}", ex);
+                return null;
+            }
   		}
 
-		private static string GetUpdatedDamHost(string existingFieldValue)
+		private string GetUpdatedDamHost(string existingFieldValue)
 		{	
 			if (string.IsNullOrWhiteSpace(existingFieldValue) || !existingFieldValue.Contains("stylelabs-content-id"))
 				return string.Empty;	
@@ -245,17 +250,24 @@ namespace Sitecore.Demo.Init.Jobs
 			return existingFieldValue?.Replace(imageSrcHost, damHost);
 		}
 
-		private static void UpdateItemField(string hostCM, string token, string itemId, string escapedUpdatedDamHost)
+		private void UpdateItemField(string hostCM, string token, string itemId, string escapedUpdatedDamHost)
 		{	
-			var cookieClient = new CookieWebClient();
-			cookieClient.Encoding = System.Text.Encoding.UTF8;
-			cookieClient.Headers.Add("token", token);
-			cookieClient.Headers.Add("Content-Type", "application/json");
+			try
+            {
+				var cookieClient = new CookieWebClient();
+				cookieClient.Encoding = System.Text.Encoding.UTF8;
+				cookieClient.Headers.Add("token", token);
+				cookieClient.Headers.Add("Content-Type", "application/json");
 
-		  	cookieClient.UploadDataAsync(
-		  		new Uri(hostCM + $"/sitecore/api/ssc/item/{itemId}?database=master"),
-		  		"PATCH",
-		  		System.Text.Encoding.UTF8.GetBytes($"{{\"image\": \"{escapedUpdatedDamHost}\" }}"));
+				cookieClient.UploadDataAsync(
+					new Uri(hostCM + $"/sitecore/api/ssc/item/{itemId}?database=master"),
+					"PATCH",
+					System.Text.Encoding.UTF8.GetBytes($"{{\"image\": \"{escapedUpdatedDamHost}\" }}"));
+			}
+            catch (Exception ex)
+            {
+				Log.LogError($"Failed to update item field, itemId: {itemId}", ex);
+            }
 		}
 	}
 }
