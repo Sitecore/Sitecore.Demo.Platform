@@ -64,7 +64,6 @@ services:
       SITECORE_APPSETTINGS_ENV:DEFINE: Docker
       SITECORE_APPSETTINGS_UNICORN:DEFINE: Enabled
       SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: Enabled
-      SOLR_CORE_PREFIX_NAME: sitecore
       SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: Salesforce
       SITECORE_APPSETTINGS_CONTENTHUB:DEFINE: Enabled
       SITECORE_CONNECTIONSTRINGS_CMP.ContentHub: ${CMP_CONTENTHUB}
@@ -185,7 +184,7 @@ services:
       SITECORE_APPSETTINGS_ENV:DEFINE: Docker
       SITECORE_APPSETTINGS_UNICORN:DEFINE: Disabled
       SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: Disabled
-      SOLR_CORE_PREFIX_NAME: sitecore
+      SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
       SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: Salesforce
       Sitecore_ConnectionStrings_Security: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Web: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
