@@ -42,23 +42,24 @@ namespace Sitecore.Demo.Init.Jobs
 			var contents = await response.Content.ReadAsStringAsync();
 			var token = JsonConvert.DeserializeObject<SscLoginResponse>(contents).Token;
 
-			UpdateValues(hostCM, token);
+			UpdateValues(hostCM, token, "B039EBE1-5813-4243-81AE-EA55B2352D80", "master", "Fallback device", string.Empty);
+			UpdateValues(hostCM, token, "B039EBE1-5813-4243-81AE-EA55B2352D80", "master", "Agent", string.Empty);
 
 			Log.LogInformation($"{response.StatusCode} {contents}");
 			Log.LogInformation($"{this.GetType().Name} complete");
 			await Complete();
 		}
 
-		private static void UpdateValues(string hostCM, string token)
+		private void UpdateValues(string hostCM, string token, string itemId, string dbName, string itemFieldName, string itemFieldValue)
 		{
 			var client = new CookieWebClient();
 			client.Encoding = System.Text.Encoding.UTF8;
 			client.Headers.Add("token", token);
 			client.Headers.Add("Content-Type", "application/json");
 			client.UploadData(
-				new Uri(hostCM + "/sitecore/api/ssc/item/B039EBE1-5813-4243-81AE-EA55B2352D80?database=master"),
+				new Uri(hostCM + $"/sitecore/api/ssc/item/{itemId}?database={dbName}"),
 				"PATCH",
-				System.Text.Encoding.UTF8.GetBytes($"{{\"Fallback device\": \"{string.Empty}\" }}"));
+				System.Text.Encoding.UTF8.GetBytes($"{{\"{itemFieldName}\": \"{itemFieldValue}\" }}"));
 		}
 	}
 }
