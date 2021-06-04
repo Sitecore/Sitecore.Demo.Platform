@@ -41,16 +41,16 @@ steps:
     script: 'echo "##vso[task.setvariable variable=additionalImageTags]$(GitVersion.PreReleaseLabel)"'
   condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
 - task: PowerShell@2
-  displayName: 'Set :latest tag'
+  displayName: 'Set beta short tag'
   inputs:
     targetType: 'inline'
-    script: 'echo "##vso[task.setvariable variable=additionalImageTags]latest"'
+    script: 'echo "##vso[task.setvariable variable=additionalImageTags]$(Gitversion.Major).$(GitVersion.Minor)-beta"'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
 - task: PowerShell@2
-  displayName: 'Set :stable tag'
+  displayName: 'Set short tag'
   inputs:
     targetType: 'inline'
-    script: 'echo "##vso[task.setvariable variable=additionalImageTags]stable"'
+    script: 'echo "##vso[task.setvariable variable=additionalImageTags]$(Gitversion.Major).$(GitVersion.Minor)"'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
 - task: PowerShell@2
   displayName: 'Update version transform'
