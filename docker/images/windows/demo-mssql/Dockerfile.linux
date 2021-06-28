@@ -1,5 +1,31 @@
 ARG BASE_IMAGE
 
+ARG SPE_ASSETS
+ARG SXA_ASSETS
+ARG HEADLESS_ASSETS
+ARG DEF_ASSETS
+ARG SFCRM_ASSETS
+ARG SFMCBDE_ASSETS
+ARG SFMCCE_ASSETS
+ARG CMP_ASSETS
+ARG XGEN_ASSETS
+ARG HORIZON_INTEGRATION_ASSETS
+ARG SITECORE_AI_ASSETS
+ARG SITECORE_AI_DASHBOARD_ASSETS
+
+FROM ${SPE_ASSETS} as spe_assets
+FROM ${SXA_ASSETS} as sxa_assets
+FROM ${HEADLESS_ASSETS} as headless_assets
+FROM ${DEF_ASSETS} as def_assets
+FROM ${SFCRM_ASSETS} as sfcrm_assets
+FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
+FROM ${SFMCCE_ASSETS} as sfmcce_assets
+FROM ${CMP_ASSETS} as cmp_assets
+FROM ${XGEN_ASSETS} as xgen_assets
+FROM ${HORIZON_INTEGRATION_ASSETS} as horizon_integration_assets
+FROM ${SITECORE_AI_ASSETS} as sitecore_ai_assets
+FROM ${SITECORE_AI_DASHBOARD_ASSETS} as sitecore_ai_dashboard_assets
+
 FROM ${BASE_IMAGE} as builder
 
 USER root
@@ -11,6 +37,26 @@ RUN apt-get -y update \
     && unzip -qq sqlpackage.zip -d /opt/sqlpackage \
     && chmod +x /opt/sqlpackage/sqlpackage
 
+# install pwsh
+RUN wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb \
+    && dpkg -i packages-microsoft-prod.deb \
+    && apt-get update \
+    && apt-get install -y powershell \
+    && pwsh -command "Set-PackageSource -Name PSGallery -Trusted ; Install-Module -Name SqlServer"
+
+# copy module files
+COPY --from=spe_assets /module/db /opt/wdp/spe
+COPY --from=sxa_assets /module/db /opt/wdp/sxa
+COPY --from=headless_assets /module/db /opt/wdp/headless
+COPY --from=def_assets /module/db /opt/wdp/def
+COPY --from=sfcrm_assets /module/db /opt/wdp/sfcrm
+COPY --from=sfmcbde_assets /module/db /opt/wdp/sfmcde
+COPY --from=sfmcce_assets /module/db /opt/wdp/sfmcce
+COPY --from=cmp_assets /module/db /opt/wdp/cmp
+COPY --from=xgen_assets /module/db /opt/wdp/xgen
+COPY --from=horizon_integration_assets /module/db /opt/wdp/horizon
+COPY --from=sitecore_ai_assets /module/db /opt/wdp/sitecore_ai_assets
+COPY --from=sitecore_ai_dashboard_assets /module/db /opt/wdp/sitecore_ai_dashboard_assets
 # copy solution dacpac
 COPY ./data/ /opt/src/data/
 COPY ./install-databases.sh /opt
@@ -25,6 +71,18 @@ RUN mkdir -p /install \
     && chmod +x /opt/attach-databases.sh \
 	&& chmod +x /opt/install-databases.sh \
 	&& /opt/attach-databases.sh /install \
+    && ./opt/install-databases.sh /opt/wdp/spe \
+    && ./opt/install-databases.sh /opt/wdp/sxa \
+    && ./opt/install-databases.sh /opt/wdp/headless \
+    && ./opt/install-databases.sh /opt/wdp/def \
+    && ./opt/install-databases.sh /opt/wdp/cmp \
+    && ./opt/install-databases.sh /opt/wdp/sfcrm \
+    && ./opt/install-databases.sh /opt/wdp/sfmcde \
+    && ./opt/install-databases.sh /opt/wdp/sfmcce \
+    && ./opt/install-databases.sh /opt/wdp/xgen \
+    && ./opt/install-databases.sh /opt/wdp/horizon \
+    && ./opt/install-databases.sh /opt/wdp/sitecore_ai_assets \
+    && ./opt/install-databases.sh /opt/wdp/sitecore_ai_dashboard_assets \
     && /opt/install-databases.sh /opt/src/data/data \
     && /opt/install-databases.sh /opt/src/data/security
 
@@ -41,6 +99,13 @@ ENV BOOT_OVERRIDE_SCRIPTS="Demo-Boot-Platform-Linux.ps1"
 ENV COVEO_ADMIN_USER_NAME="sitecore\coveoadmin"
 
 COPY --from=builder ["/install/*", "/clean/"]
+
+# install pwsh
+RUN wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb \
+    && dpkg -i packages-microsoft-prod.deb \
+    && apt-get update \
+    && apt-get install -y powershell \
+    && pwsh -command "Set-PackageSource -Name PSGallery -Trusted ; Install-Module -Name SqlServer"
 
 # start-up scripts for demo
 COPY ./sql /sql

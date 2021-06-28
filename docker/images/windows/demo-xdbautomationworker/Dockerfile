@@ -18,3 +18,6 @@ COPY --from=tools /tools/ /tools/
 COPY --from=def_assets /module/xdbautomationworker/content /service
 COPY --from=sfmcbde_assets /module/xdbautomationworker/content /service
 COPY --from=sitecore_ai_assets /module/xconnect /service
+#COPY --from=sfmcbde_assets /module/xdttransform/xdbautomationworker/transforms /inetpub/wwwroot/transforms/
+
+#TODO apply transforms if needed

@@ -1,10 +1,71 @@
 # escape=`
 ARG BASE_IMAGE
 ARG SOLUTION_IMAGE
+ARG TOOLS_ASSETS
+
+ARG SPE_ASSETS
+ARG SXA_ASSETS
+ARG HEADLESS_ASSETS
+ARG SPS_ASSETS
+
+ARG DEF_ASSETS
+ARG SFCRM_ASSETS
+ARG SFMCBDE_ASSETS
+ARG SFMCCE_ASSETS
+ARG CMP_ASSETS
+ARG HORIZON_INTEGRATION_ASSETS
+ARG XGEN_ASSETS
+ARG SITECORE_AI_ASSETS
+
+FROM ${TOOLS_ASSETS} as tools
+
+FROM ${SPE_ASSETS} as spe_assets
+FROM ${SXA_ASSETS} as sxa_assets
+FROM ${HEADLESS_ASSETS} as headless_assets
+FROM ${SPS_ASSETS} as sps_assets
+
+FROM ${DEF_ASSETS} as def_assets
+FROM ${SFCRM_ASSETS} as sfcrm_assets
+FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
+FROM ${SFMCCE_ASSETS} as sfmcce_assets
+FROM ${CMP_ASSETS} as cmp_assets
+FROM ${HORIZON_INTEGRATION_ASSETS} as horizon_integration_assets
+FROM ${XGEN_ASSETS} as xgen_assets
+FROM ${SITECORE_AI_ASSETS} as sitecore_ai_assets
 
 FROM ${SOLUTION_IMAGE} as solution
 
-FROM $BASE_IMAGE
+FROM ${BASE_IMAGE} as modules
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+COPY --from=tools /tools/ /tools/
+
+COPY --from=spe_assets /module/cm/content /inetpub/wwwroot
+
+COPY --from=sxa_assets /module/cm/content /inetpub/wwwroot
+COPY --from=sxa_assets /module/tools /module/sxa/tools
+RUN /module/sxa/tools/Initialize-Content.ps1 -TargetPath /inetpub/wwwroot; `
+    Remove-Item -Path /module -Recurse -Force;
+
+COPY --from=headless_assets /module/cm/content /inetpub/wwwroot
+COPY --from=sps_assets /module/cm/content /inetpub/wwwroot
+
+COPY --from=def_assets /module/cm/content /inetpub/wwwroot
+COPY --from=sfcrm_assets /module/cm/content /inetpub/wwwroot
+COPY --from=sfmcbde_assets /module/cm/content /inetpub/wwwroot
+COPY --from=sfmcce_assets /module/cm/content /inetpub/wwwroot
+COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
+COPY --from=horizon_integration_assets /module/cm/content /inetpub/wwwroot
+COPY --from=xgen_assets /module/cm/content /inetpub/wwwroot
+COPY --from=sitecore_ai_assets /module/cm/content /inetpub/wwwroot
+
+# https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls
+# (OI) = directories object inherit, (CI) = directories container inherit, F = Full access
+RUN icacls 'C:\inetpub\wwwroot' /grant 'IIS_IUSRS:(OI)(CI)F' /t | Out-Null
+
+
+FROM modules as production
 
 COPY --from=solution /solution/cm/ /inetpub/wwwroot/
 

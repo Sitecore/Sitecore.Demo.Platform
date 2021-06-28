@@ -39,6 +39,7 @@ function Invoke-BuildSolutionAssets {
   $LASTEXITCODE -ne 0 | Where-Object { $_ } | ForEach-Object { throw "Failed." }
 
   $dockerComposeCommand = "docker-compose"
+  $dockerComposeCommand += " --env-file .env"
   $dockerComposeCommand += " -f docker/docker-compose.copy.solution.yml build"
 
   if (-not [string]::IsNullOrEmpty($Memory)) {
