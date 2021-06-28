@@ -10,7 +10,9 @@ services:
     build:
       context: .\docker\images\windows\demo-id
       args:
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-modules-base-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+
 
   xdbsearchworker:
     image: ${REGISTRY}demo/lighthouse-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
@@ -18,7 +20,11 @@ services:
       context: .\docker\images\windows\demo-xdbsearchworker
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SITECORE_AI_ASSETS: adoprog/custom-sitecore-ai-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
+        SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp0-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+
     depends_on:
       - solution
 
@@ -28,7 +34,20 @@ services:
       context: .\docker\images\windows\demo-mssql
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-mssql:10.1.0-${WINDOWSSERVERCORE_VERSION}
+        SPE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        HEADLESS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xp1-assets:16.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sps-integration-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        DEF_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-def-xp0-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SFCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfcrm-xp0-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp0-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SFMCCE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcce-xp0-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        CMP_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xp1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        HORIZON_INTEGRATION_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/horizon-integration-xp1-assets:2.26-${SITECORE_ASSET_NANOSERVER_VERSION}
+        XGEN_ASSETS:  adoprog/custom-xgenerator-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
+        SITECORE_AI_ASSETS: adoprog/custom-sitecore-ai-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
+        SITECORE_AI_DASHBOARD_ASSETS: adoprog/custom-sitecore-ai-dashboard-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
     depends_on:
       - solution
 
@@ -45,15 +64,30 @@ services:
     build:
       context: .\docker\images\windows\demo-ps
       args:
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-modules-base-sps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sps:5.0.0-${WINDOWSSERVERCORE_VERSION}
+        TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+
 
   cm:
     image: ${REGISTRY}demo/lighthouse-xp0-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
       context: .\docker\images\windows\demo-standalone
       args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-cm:10.1.0-${WINDOWSSERVERCORE_VERSION}
+        TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        HEADLESS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xp1-assets:16.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sps-integration-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        DEF_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-def-xp1-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SFCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfcrm-xp1-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp1-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SFMCCE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcce-xp1-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        CMP_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xp1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        XGEN_ASSETS:  adoprog/custom-xgenerator-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
+        HORIZON_INTEGRATION_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/horizon-integration-xp1-assets:2.26-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SITECORE_AI_ASSETS: adoprog/custom-sitecore-ai-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
     depends_on:
       - solution
 
@@ -64,7 +98,15 @@ services:
       context: .\docker\images\windows\demo-cd
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp1-modules-base-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp1-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        SPE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        HEADLESS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xp1-assets:16.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sps-integration-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        CMP_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xp1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SFCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfcrm-xp0-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SITECORE_AI_ASSETS: adoprog/custom-sitecore-ai-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
     depends_on:
       - solution
 
@@ -74,7 +116,9 @@ services:
       context: .\docker\images\windows\demo-xconnect
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SITECORE_AI_ASSETS: adoprog/custom-sitecore-ai-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
     depends_on:
       - solution
 
@@ -83,7 +127,9 @@ services:
     build:
       context: .\docker\images\windows\demo-automationengine
       args:
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xdbautomationworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SITECORE_AI_ASSETS: adoprog/custom-sitecore-ai-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
     depends_on:
       - solution
 
@@ -92,7 +138,7 @@ services:
     build:
       context: .\docker\images\windows\demo-authoringhost
       args:
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-modules-base-horizon:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-horizon:2.26.0-${LEGACY_WINDOWSSERVERCORE_VERSION}
 
   init:
     image: ${REGISTRY}demo/lighthouse-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}

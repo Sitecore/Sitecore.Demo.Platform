@@ -177,7 +177,8 @@ services:
     isolation: ${ISOLATION}
     image: ${REGISTRY}demo/lighthouse-xp0-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('Web.config'); }"
-    scale: ${CD_CONTAINERS_COUNT}
+    deploy:
+      replicas: ${CD_CONTAINERS_COUNT}
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
@@ -241,7 +242,8 @@ services:
       - "44026:80"
     networks:
       - demo
-    scale: ${SMTP_CONTAINERS_COUNT}
+    deploy:
+      replicas: ${SMTP_CONTAINERS_COUNT}
 
   init:
     healthcheck:
@@ -316,5 +318,5 @@ services:
           - ${SH_HOST}
 networks:
   demo:
-    external:
-      name: nat
+    external: true
+    name: nat

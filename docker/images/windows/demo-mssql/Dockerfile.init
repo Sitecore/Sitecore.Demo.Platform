@@ -2,8 +2,58 @@
 ARG BASE_IMAGE
 ARG SOLUTION_IMAGE
 
+ARG SPE_ASSETS
+ARG SXA_ASSETS
+ARG HEADLESS_ASSETS
+ARG SPS_ASSETS
+
+ARG DEF_ASSETS
+ARG SFCRM_ASSETS
+ARG SFMCBDE_ASSETS
+ARG SFMCCE_ASSETS
+ARG CMP_ASSETS
+ARG XGEN_ASSETS
+ARG HORIZON_INTEGRATION_ASSETS
+ARG SITECORE_AI_ASSETS
+ARG SITECORE_AI_DASHBOARD_ASSETS
+
+FROM ${SPE_ASSETS} as spe_assets
+FROM ${SXA_ASSETS} as sxa_assets
+FROM ${HEADLESS_ASSETS} as headless_assets
+FROM ${SPS_ASSETS} as sps_assets
+
+FROM ${DEF_ASSETS} as def_assets
+FROM ${SFCRM_ASSETS} as sfcrm_assets
+FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
+FROM ${SFMCCE_ASSETS} as sfmcce_assets
+FROM ${CMP_ASSETS} as cmp_assets
+FROM ${HORIZON_INTEGRATION_ASSETS} as horizon_integration_assets
+FROM ${XGEN_ASSETS} as xgen_assets
+FROM ${SITECORE_AI_ASSETS} as sitecore_ai_assets
+FROM ${SITECORE_AI_DASHBOARD_ASSETS} as sitecore_ai_dashboard_assets
+
 FROM ${SOLUTION_IMAGE} as solution
-FROM ${BASE_IMAGE} as data
+
+FROM ${BASE_IMAGE} as modules
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+COPY --from=spe_assets /module/db /module_data/spe_assets
+COPY --from=sxa_assets /module/db /module_data/sxa_assets
+COPY --from=headless_assets /module/db /module_data/headless_assets
+COPY --from=sps_assets /module/db /module_data/sps_assets
+
+COPY --from=def_assets /module/db /module_data/def_assets
+COPY --from=sfcrm_assets /module/db /module_data/sfcrm_assets
+COPY --from=sfmcbde_assets /module/db /module_data/sfmcbde_assets
+COPY --from=sfmcce_assets /module/db /module_data/sfmcce_assets
+COPY --from=cmp_assets /module/db /module_data/cmp_assets
+COPY --from=horizon_integration_assets /module/db /module_data/horizon_integration_assets
+COPY --from=xgen_assets /module/db /module_data/xgen_assets
+COPY --from=sitecore_ai_assets /module/db /module_data/sitecore_ai_assets
+COPY --from=sitecore_ai_dashboard_assets /module/db /module_data/sitecore_ai_dashboard_assets
+
+FROM modules as data
 
 ARG INSTALL_MODULE_PATH='c:\\install-module'
 
@@ -61,7 +111,6 @@ COPY ./sql /sql
 
 COPY ./HashPassword.ps1 /
 
-COPY ./DeployDatabases.ps1  /
 COPY ./StartInit.ps1  /
 
 

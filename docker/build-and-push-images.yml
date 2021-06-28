@@ -289,14 +289,14 @@ stages:
 
                 ./init-ci.ps1 @params
 
-                docker-compose -f docker-compose.yml -f docker-compose.build.yml build --parallel
-                docker-compose -f docker-compose.yml -f docker-compose.build.yml push
+                docker-compose -f $(docker-compose) -f $(docker-compose-build) build --parallel
+                docker-compose -f $(docker-compose) -f $(docker-compose-build) push
 
                 $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
                 if ($primaryBuild) {
                   $env:DEMO_VERSION = "$(additionalImageTags)"
-                  docker-compose -f docker-compose.yml -f docker-compose.build.yml build --parallel
-                  docker-compose -f docker-compose.yml -f docker-compose.build.yml push
+                  docker-compose -f $(docker-compose) -f $(docker-compose-build) build --parallel
+                  docker-compose -f $(docker-compose) -f $(docker-compose-build) push
                 }
   - stage: Docker_Linux
     dependsOn: Build_Solution
