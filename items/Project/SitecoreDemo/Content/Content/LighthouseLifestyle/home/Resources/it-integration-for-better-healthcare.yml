@@ -2,7 +2,7 @@
 ID: "af4e6052-3c4f-44cb-8407-7c85451a0403"
 Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
 Template: "cc9b9eef-1345-4db4-8a36-a002ec113419"
-Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/it-integration-for-better-healthcare"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/resources/it-integration-for-better-healthcare"
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -62,6 +62,10 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{05EC6F52-5920-4A19-B235-DD9B64D2CA44}" />
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: "{E1C52082-CAFE-4C9C-987A-62D4A16220FF}"
     - ID: "c6fb3110-7b58-41d0-83e3-9c61b6a28521"
       Hint: Link
       Value: "<link text='Email our IT Depertment' linktype='mailto' style='' url='mailto:it@lighthouse.com'  title='' />"

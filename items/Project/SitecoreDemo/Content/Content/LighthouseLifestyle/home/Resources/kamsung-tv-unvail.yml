@@ -2,7 +2,7 @@
 ID: "602febb4-5172-406f-9758-653e7a4ecb15"
 Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
 Template: "45895139-6f97-4981-a720-81994fd68a44"
-Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/kamsung-tv-unvail"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/resources/kamsung-tv-unvail"
 DB: master
 SharedFields:
 - ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
@@ -68,6 +68,10 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{FA930683-0652-41B3-B879-65F9F05F641D}" />
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: "{11F5D989-F2EE-4D71-9811-4A67E5325A91}"
     - ID: "a9ef4941-7e4a-43c7-b6c2-9e29a49a02a9"
       Hint: Additional Content
       Value: |

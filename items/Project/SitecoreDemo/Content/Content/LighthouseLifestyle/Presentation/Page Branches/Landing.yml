@@ -1,0 +1,44 @@
+﻿---
+ID: "fbbf64f6-f55d-4d25-9ee0-336f5f3eeb7d"
+Parent: "ca4e7073-0c79-4e8a-92bb-e3b4e97ab4c4"
+Template: "fbc802e5-4b9e-480f-93da-3f2a80cae5cb"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Presentation/Page Branches/Landing
+DB: master
+SharedFields:
+- ID: "bb3391dd-f8be-4b2e-ae9f-47bb63c166ce"
+  Hint: Rule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{ACE6ABDA-C978-491C-BF23-BD67BD849BA1}">
+        <conditions>
+          <condition
+            id="{7D5DA661-BEF9-441C-B1F7-D80DE3E0972F}"
+            uid="98035E62B74145B58866EB879F89742F"
+            itemid="{602E4F4D-11E2-44E9-A8AC-12AE5E05A1A4}" />
+        </conditions>
+        <actions>
+          <action
+            id="{D46EC8E5-7B46-47DE-B44A-4C5C30EF48D1}"
+            uid="E61198DA1E4045A4BEA6C59912ABAEE2"
+            PageBranchId="{B3E975EB-CCB7-4265-9076-AF6257AA89E9}" />
+          <action
+            id="{D46EC8E5-7B46-47DE-B44A-4C5C30EF48D1}"
+            uid="4A2A17D9F9F74935BD13074F56905B8E"
+            PageBranchId="{CBB28ACF-191E-4695-B8BE-B00AD81A674D}" />
+        </actions>
+      </rule>
+    </ruleset>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210302T150807Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin

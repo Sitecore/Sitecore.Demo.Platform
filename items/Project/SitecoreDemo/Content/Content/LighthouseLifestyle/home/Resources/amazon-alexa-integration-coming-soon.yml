@@ -2,7 +2,7 @@
 ID: "7e98631c-ff81-425e-9015-e3bf91d5d977"
 Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
 Template: "2479b730-e575-4600-baac-a22cf2d1e335"
-Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/amazon-alexa-integration-coming-soon"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/resources/amazon-alexa-integration-coming-soon"
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -57,6 +57,10 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{82168AD7-3F35-4E6D-8EC0-41778986545C}" />
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: "{E1C52082-CAFE-4C9C-987A-62D4A16220FF}"
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: Amazon Alexa Integration Coming Soon

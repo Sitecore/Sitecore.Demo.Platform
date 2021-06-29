@@ -30,8 +30,6 @@ namespace Sitecore.Demo.Init.Jobs
 					return;
 				}
 
-				await Start(nameof(WarmupCD));
-
 				var content = File.ReadAllText("data/warmup-config.json");
 				var config = JsonConvert.DeserializeObject<WarmupConfig>(content);
 
@@ -43,12 +41,20 @@ namespace Sitecore.Demo.Init.Jobs
 
 				var client = new HttpClient();
 				client.Timeout = TimeSpan.FromMinutes(10);
-				foreach (var entry in config.urls[1].xp)
+				foreach (var entry in config.xp)
 				{
 					await LoadUrl(cd, entry.url, client);
 				}
 
-				await Stop(nameof(WarmupCD));
+				if (this.AreCoveoEnvironmentVariablesSet())
+				{
+					foreach (var entry in config.coveo)
+					{
+						await LoadUrl(cd, entry.url, client);
+					}
+				}
+
+				await Complete();
 
 				Log.LogInformation($"{DateTime.UtcNow} Warmup CD complete");
 			}

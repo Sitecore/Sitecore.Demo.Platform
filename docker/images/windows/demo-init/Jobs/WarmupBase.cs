@@ -6,7 +6,7 @@
 	using System.Threading.Tasks;
 	using Microsoft.Extensions.Logging;
 
-	public class WarmupBase: TaskBase
+	public class WarmupBase: CoveoTaskBase
 	{
 		public WarmupBase(InitContext initContext)
 			: base(initContext)

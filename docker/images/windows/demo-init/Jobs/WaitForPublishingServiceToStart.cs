@@ -16,8 +16,6 @@ namespace Sitecore.Demo.Init.Jobs
 
 		public async Task Run()
 		{
-			await Start(nameof(WaitForPublishingServiceToStart));
-
 			var hostPS = Environment.GetEnvironmentVariable("HOST_PS");
 
 			Log.LogInformation($"WaitForPublishingServiceToStart() started on {hostPS}");
@@ -46,7 +44,7 @@ namespace Sitecore.Demo.Init.Jobs
 				await Task.Delay(5000);
 			}
 
-			await Stop(nameof(WaitForPublishingServiceToStart));
+			await Complete();
 
 			Log.LogInformation("WaitForPublishingServiceToStart() complete");
 		}

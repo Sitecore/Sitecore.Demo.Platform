@@ -1,16 +1,42 @@
 version: "2.4"
 
 services:
-  solution:
-    image: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
+  solution-content:
+    image: ${REGISTRY}build/lighthouse-solution-content:${SITECORE_VERSION}-${LTSC_NANOSERVER_VERSION}-${SOLUTION_VERSION}
     isolation: ${ISOLATION}
     build:
       context: .
-      target: solution
-      dockerfile: .\docker\images\windows\demo-solution\Dockerfile
+      dockerfile: .\docker\images\windows\demo-solution\Dockerfile.content
       args:
         BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
-        BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}
-        COVEO_ASSETS_IMAGE: ${REGISTRY}community/modules/custom-coveo${COVEO_VERSION}-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
+        BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${LTSC_NANOSERVER_VERSION}
+        COVEO_ASSETS_IMAGE: ${REGISTRY}community/modules/custom-coveo${COVEO_VERSION}-assets:10.0.1-${NANOSERVER_VERSION}
         INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
-        SYSTEM_ACCESSTOKEN: ${SYSTEM_ACCESSTOKEN}
+        INTERNAL_NUGET_SOURCE_USERNAME: ${INTERNAL_NUGET_SOURCE_USERNAME}
+        INTERNAL_NUGET_SOURCE_PASSWORD: ${INTERNAL_NUGET_SOURCE_PASSWORD}
+        PRERELEASE: ${PRERELEASE}
+
+  solution-data:
+    image: ${REGISTRY}build/lighthouse-solution-data:${SITECORE_VERSION}-${LTSC_NANOSERVER_VERSION}-${SOLUTION_VERSION}
+    isolation: ${ISOLATION}
+    build:
+      context: .
+      dockerfile: .\docker\images\windows\demo-solution\Dockerfile.data
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${LTSC_NANOSERVER_VERSION}
+
+  solution-xconnect:
+    image: ${REGISTRY}build/lighthouse-solution-xconnect:${SITECORE_VERSION}-${LTSC_NANOSERVER_VERSION}-${SOLUTION_VERSION}
+    isolation: ${ISOLATION}
+    build:
+      context: .
+      dockerfile: .\docker\images\windows\demo-solution\Dockerfile.xConnect
+      args:
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${LTSC_NANOSERVER_VERSION}
+        INTERNAL_NUGET_SOURCE: ${INTERNAL_NUGET_SOURCE}
+        INTERNAL_NUGET_SOURCE_USERNAME: ${INTERNAL_NUGET_SOURCE_USERNAME}
+        INTERNAL_NUGET_SOURCE_PASSWORD: ${INTERNAL_NUGET_SOURCE_PASSWORD}
+        PRERELEASE: ${PRERELEASE}
+

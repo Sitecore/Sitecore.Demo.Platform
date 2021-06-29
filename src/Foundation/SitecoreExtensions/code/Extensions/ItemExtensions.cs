@@ -10,13 +10,14 @@ using Sitecore.Data.Managers;
 using Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Services;
 using Sitecore.Diagnostics;
 using Sitecore.Links;
+using Sitecore.Links.UrlBuilders;
 using Sitecore.Resources.Media;
 
 namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions
 {
     public static class ItemExtensions
     {
-        public static string Url(this Item item, UrlOptions options = null)
+        public static string Url(this Item item, ItemUrlBuilderOptions options = null)
         {
             if (item == null)
             {
@@ -30,7 +31,7 @@ namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions
             return !item.Paths.IsMediaItem ? LinkManager.GetItemUrl(item) : MediaManager.GetMediaUrl(item);
         }
 
-        public static string ImageUrl(this Item item, ID imageFieldId, MediaUrlOptions options = null)
+        public static string ImageUrl(this Item item, ID imageFieldId, MediaUrlBuilderOptions options = null)
         {
             if (item == null)
             {
@@ -48,7 +49,7 @@ namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions
                 throw new ArgumentNullException(nameof(mediaItem));
             }
 
-            var options = new MediaUrlOptions { Height = height, Width = width };
+            var options = new MediaUrlBuilderOptions { Height = height, Width = width };
             var url = MediaManager.GetMediaUrl(mediaItem, options);
             var cleanUrl = StringUtil.EnsurePrefix('/', url);
             var hashedUrl = HashingUtils.ProtectAssetUrl(cleanUrl);
@@ -70,7 +71,7 @@ namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Extensions
             return ((LinkField)item.Fields[linkFieldId]).TargetItem ?? ((ReferenceField)item.Fields[linkFieldId]).TargetItem;
         }
 
-        public static string MediaUrl(this Item item, ID mediaFieldId, MediaUrlOptions options = null)
+        public static string MediaUrl(this Item item, ID mediaFieldId, MediaUrlBuilderOptions options = null)
         {
             var targetItem = item.TargetItem(mediaFieldId);
             return targetItem == null ? string.Empty : (MediaManager.GetMediaUrl(targetItem) ?? string.Empty);

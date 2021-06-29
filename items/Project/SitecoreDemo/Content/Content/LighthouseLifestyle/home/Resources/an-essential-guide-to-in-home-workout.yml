@@ -2,7 +2,7 @@
 ID: "11e359c3-784c-473d-8f27-22931194621b"
 Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
 Template: "cc9b9eef-1345-4db4-8a36-a002ec113419"
-Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/an-essential-guide-to-in-home-workout"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/resources/an-essential-guide-to-in-home-workout"
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -62,6 +62,10 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{AE5A39C6-EADC-47B5-97AA-E5AC4293AAED}" />
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: "{11F5D989-F2EE-4D71-9811-4A67E5325A91}"
     - ID: "c6fb3110-7b58-41d0-83e3-9c61b6a28521"
       Hint: Link
       Value: |

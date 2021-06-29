@@ -46,17 +46,16 @@ Param(
     [Alias("WhatIf", "Noop")]
     [switch]$DryRun,
     [switch]$SkipToolPackageRestore,
-    [Parameter(Position=0,Mandatory=$false,ValueFromRemainingArguments=$true)]
+    [Parameter(Position = 0, Mandatory = $false, ValueFromRemainingArguments = $true)]
     [string[]]$ScriptArgs,
     [ValidateSet("IIS", "Docker", "DockerBuild")]
     [string]$DeploymentTarget,
-    [switch]$PublicFeedsOnly
+    [switch]$PreRelease
 )
 
 # Check if PowerShell is running in Admministrative mode and exit if not:
 
-If (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator"))
-{
+If (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
     Write-Warning "You do not have Administrator rights to run this script!`nPlease re-run this script as an Administrator!"
     Break
 }
@@ -70,37 +69,32 @@ try {
     # exist in .NET 4.0, even though they are addressable if .NET 4.5+ is
     # installed (.NET 4.5 is an in-place upgrade).
     [System.Net.ServicePointManager]::SecurityProtocol = 3072 -bor 768 -bor 192 -bor 48
-  } catch {
+}
+catch {
     Write-Output 'Unable to set PowerShell to use TLS 1.2 and TLS 1.1 due to old .NET Framework installed. If you see underlying connection closed or trust errors, you may need to upgrade to .NET Framework 4.5+ and PowerShell v3'
-  }
+}
 
 [Reflection.Assembly]::LoadWithPartialName("System.Security") | Out-Null
-function MD5HashFile([string] $filePath)
-{
-    if ([string]::IsNullOrEmpty($filePath) -or !(Test-Path $filePath -PathType Leaf))
-    {
+function MD5HashFile([string] $filePath) {
+    if ([string]::IsNullOrEmpty($filePath) -or !(Test-Path $filePath -PathType Leaf)) {
         return $null
     }
 
     [System.IO.Stream] $file = $null;
     [System.Security.Cryptography.MD5] $md5 = $null;
-    try
-    {
+    try {
         $md5 = [System.Security.Cryptography.MD5]::Create()
         $file = [System.IO.File]::OpenRead($filePath)
         return [System.BitConverter]::ToString($md5.ComputeHash($file))
     }
-    finally
-    {
-        if ($null -ne $file)
-        {
+    finally {
+        if ($null -ne $file) {
             $file.Dispose()
         }
     }
 }
 
-function GetProxyEnabledWebClient
-{
+function GetProxyEnabledWebClient {
     $wc = New-Object System.Net.WebClient
     $proxy = [System.Net.WebRequest]::GetSystemWebProxy()
     $proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
@@ -110,7 +104,7 @@ function GetProxyEnabledWebClient
 
 Write-Host "Preparing to run build script..."
 
-if(!$PSScriptRoot){
+if (!$PSScriptRoot) {
     $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent
 }
 
@@ -131,17 +125,6 @@ if ((Test-Path $PSScriptRoot) -and !(Test-Path $TOOLS_DIR)) {
     New-Item -Path $TOOLS_DIR -Type directory | out-null
 }
 
-# Make sure that packages.config exist.
-if (!(Test-Path $PACKAGES_CONFIG)) {
-    Write-Verbose -Message "Downloading packages.config..."
-    try {
-        (New-Object System.Net.WebClient).DownloadFile("https://cakebuild.net/download/bootstrapper/packages", $PACKAGES_CONFIG);
-    } catch [Exception] {
-        Write-Host ($_ | ConvertTo-Json)
-        Throw "Could not download packages.config."
-    }
-}
-
 # Try find NuGet.exe in path if not exists
 if (!(Test-Path $NUGET_EXE)) {
     Write-Verbose -Message "Trying to find nuget.exe in PATH..."
@@ -159,7 +142,8 @@ if (!(Test-Path $NUGET_EXE)) {
     try {
         $wc = GetProxyEnabledWebClient
         $wc.DownloadFile($NUGET_URL, $NUGET_EXE)
-    } catch {
+    }
+    catch {
         Throw "Could not download NuGet.exe."
     }
 }
@@ -168,16 +152,16 @@ if (!(Test-Path $NUGET_EXE)) {
 $ENV:NUGET_EXE = $NUGET_EXE
 
 # Restore tools from NuGet?
-if(-Not $SkipToolPackageRestore.IsPresent) {
+if (-Not $SkipToolPackageRestore.IsPresent) {
     Push-Location
     Set-Location $TOOLS_DIR
 
     # Check for changes in packages.config and remove installed tools if true.
     [string] $md5Hash = MD5HashFile($PACKAGES_CONFIG)
-    if((!(Test-Path $PACKAGES_CONFIG_MD5)) -Or
-      ($md5Hash -ne (Get-Content $PACKAGES_CONFIG_MD5 ))) {
+    if ((!(Test-Path $PACKAGES_CONFIG_MD5)) -Or
+        ($md5Hash -ne (Get-Content $PACKAGES_CONFIG_MD5 ))) {
         Write-Verbose -Message "Missing or changed package.config hash..."
-        Get-ChildItem -Exclude packages.config,nuget.exe,Cake.Bakery |
+        Get-ChildItem -Exclude packages.config, nuget.exe, Cake.Bakery |
         Remove-Item -Recurse
     }
 
@@ -187,8 +171,7 @@ if(-Not $SkipToolPackageRestore.IsPresent) {
     if ($LASTEXITCODE -ne 0) {
         Throw "An error occurred while restoring NuGet tools."
     }
-    else
-    {
+    else {
         $md5Hash | Out-File $PACKAGES_CONFIG_MD5 -Encoding "ASCII"
     }
     Write-Verbose -Message ($NuGetOutput | out-string)
@@ -197,12 +180,14 @@ if(-Not $SkipToolPackageRestore.IsPresent) {
 }
 
 # Automatically add additional NuGet source to local feed at build time. Requires environment variables.
-$accessToken = $env:SYSTEM_ACCESSTOKEN
+
+$accessToken = (& { if ([string]::IsNullOrEmpty("$env:INTERNAL_NUGET_SOURCE_PASSWORD")) { "$env:SYSTEM_ACCESSTOKEN" } else { "$env:INTERNAL_NUGET_SOURCE_PASSWORD" } })
 $internalFeed = $env:INTERNAL_NUGET_SOURCE
-if($accessToken -and $internalFeed -and -not $PublicFeedsOnly)
-{
-  & "$NUGET_EXE" sources add -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken -ConfigFile (Join-Path $PWD nuget.config) -StorePasswordInClearText | Out-Null
-  & "$NUGET_EXE" sources update -name "sc-demo-packages-internal" -source $internalFeed -username "VSTS" -password $accessToken -ConfigFile (Join-Path $PWD nuget.config) -StorePasswordInClearText
+$userName = $env:INTERNAL_NUGET_SOURCE_USERNAME
+if ($accessToken -and $internalFeed -and $userName -and $PreRelease) {
+    Write-Host "Adding the internal NuGet source '$internalFeed'..."
+    & "$NUGET_EXE" sources add -name "sc-internal-package-feed" -source $internalFeed -username $userName -password $accessToken -ConfigFile (Join-Path $PWD nuget.config) -StorePasswordInClearText | Out-Null
+    & "$NUGET_EXE" sources update -name "sc-internal-package-feed" -source $internalFeed -username $userName -password $accessToken -ConfigFile (Join-Path $PWD nuget.config) -StorePasswordInClearText
 }
 
 # Restore addins from NuGet
@@ -247,7 +232,7 @@ if (!(Test-Path $CAKE_EXE)) {
 # Build Cake arguments
 $cakeArguments = @("$Script");
 if ($Target) { $cakeArguments += "-target=$Target" }
-if ($DeploymentTarget) {$cakeArguments += "-deploymentTarget=$DeploymentTarget" }
+if ($DeploymentTarget) { $cakeArguments += "-deploymentTarget=$DeploymentTarget" }
 if ($Configuration) { $cakeArguments += "-configuration=$Configuration" }
 if ($Verbosity) { $cakeArguments += "-verbosity=$Verbosity" }
 if ($ShowDescription) { $cakeArguments += "-showdescription" }

@@ -2,7 +2,7 @@
 ID: "fe9f6ff0-7a8f-4367-9cd5-fde54f3ad771"
 Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
 Template: "37ecc079-3b98-444a-af72-fc5c487a2c4c"
-Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/nigerias-techpreneurs-are-using-technology"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/resources/nigerias-techpreneurs-are-using-technology"
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -85,6 +85,10 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{76B0C11C-993B-4C48-AA88-0253E95434D2}" />
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: "{E1C52082-CAFE-4C9C-987A-62D4A16220FF}"
     - ID: "a9ef4941-7e4a-43c7-b6c2-9e29a49a02a9"
       Hint: Additional Content
       Value: 

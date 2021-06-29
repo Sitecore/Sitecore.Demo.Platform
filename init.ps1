@@ -53,7 +53,7 @@ else
 }
 
 #Install and Import SitecoreDockerTools
-$dockerToolsVersion = "10.0.5"
+$dockerToolsVersion = "10.1.4"
 Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
 if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
     Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
@@ -126,7 +126,7 @@ if ($InitEnv) {
 
     # ID_HOST
     Set-DockerComposeEnvFileVariable "ID_HOST" -Value "id.lighthouse.localhost"
-    
+
     # SH_HOST
     Set-DockerComposeEnvFileVariable "SH_HOST" -Value "sh.lighthouse.localhost"
 
@@ -158,6 +158,9 @@ if ($InitEnv) {
 
     # SITECORE_SERVICES_TOKEN_SECURITYKEY = random 32 chars
     Set-DockerComposeEnvFileVariable "SITECORE_SERVICES_TOKEN_SECURITYKEY" -Value (Get-SitecoreRandomString 32 -DisallowSpecial)
+
+    # MEDIA_REQUEST_PROTECTION_SHARED_SECRET = random 64 chars
+    Set-DockerComposeEnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
 }
 
 Write-Host "Done!" -ForegroundColor Green

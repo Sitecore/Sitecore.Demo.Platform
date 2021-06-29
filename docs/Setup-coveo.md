@@ -31,7 +31,7 @@
 7. Fill the form with the following information:
    * Organization Name: Choose a distinctive name for your demo needs.
    * Organization Type: Test Organization. (This is valid for 90 days from the day you are creating it.)
-   * Organization Region: Choose the one closer to you.
+   * Organization Region: The region of your choice.
 
    ![Create a new Coveo Cloud organization screen](images/22_new_org.png)
 
@@ -151,7 +151,7 @@ When your current Coveo Cloud organization is about to expire, you have two choi
 7. Fill the "Create a new organization" form with the following information:
    * Organization Name: Choose a new distinctive name for your demo needs.
    * Organization Type: Test Organization. (This is valid for 90 days from the day you are creating it.)
-   * Organization Region: Choose the one closer to you.
+   * Organization Region: The region of your choice.
 
    ![Create a new Coveo Cloud organization screen](images/coveo_cloud_organization-20-new_org.png)
 

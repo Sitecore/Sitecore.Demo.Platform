@@ -11,7 +11,7 @@ if (Test-Path c:\backup -PathType Container) {
     $BackupDirectoryParameters = @{
         Path               = 'c:\inetpub\wwwroot'
         Destination        = 'c:\backup'
-        ExcludeDirectories = @('logs', 'mediacache', 'FrontEnd', 'packages', 'poststeps')
+        ExcludeDirectories = @('logs', 'mediacache', 'FrontEnd', 'poststeps')
         ExcludeFiles       = @('DeviceDetectionDB*')
     }
 

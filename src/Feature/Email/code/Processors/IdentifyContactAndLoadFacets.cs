@@ -6,6 +6,9 @@ using Sitecore.Framework.Conditions;
 using Sitecore.Modules.EmailCampaign.Core.Gateways;
 using Sitecore.XConnect;
 using Sitecore.XConnect.Client;
+using Microsoft.Extensions.DependencyInjection;
+using Sitecore.DependencyInjection;
+using Sitecore.Analytics.Tracking.Identification;
 using System;
 
 namespace Sitecore.Demo.Platform.Feature.Email.Processors
@@ -42,7 +45,9 @@ namespace Sitecore.Demo.Platform.Feature.Email.Processors
           {
                Condition.Requires<ContactIdentifier>(contactIdentifier, nameof(contactIdentifier)).IsNotNull<ContactIdentifier>();
                Condition.Requires<ITracker>(Tracker.Current, "Current").IsNotNull<ITracker>();
-               Tracker.Current.Session.IdentifyAs(contactIdentifier.Source, contactIdentifier.Identifier);
-          }
+			   var contactIdentificationManager =
+			   	ServiceLocator.ServiceProvider.GetRequiredService<IContactIdentificationManager>();
+			   contactIdentificationManager.IdentifyAs(new KnownContactIdentifier(contactIdentifier.Source, contactIdentifier.Identifier));
+		}
     }
 }

@@ -4,8 +4,12 @@ Param (
   [string]$DemoVersion = "latest"
   ,
   [Parameter(
+    HelpMessage = "Solution image version.")]
+  [string]$SolutionVersion = "latest"
+  ,
+  [Parameter(
     HelpMessage = "Base Module Version - used to refer to a specific build of the base images.")]
-  [string]$BaseModuleVersion = "1001.1"
+  [string]$BaseModuleVersion = "1010.0"
   ,
   [Parameter(
     HelpMessage = "Internal ACR use by the demo team")]
@@ -25,7 +29,11 @@ Param (
   ,
   [Parameter(
     HelpMessage = "Sitecore version")]
-  [string]$SitecoreVersion = "10.0.1"
+    [string]$SitecoreVersion = "10.1.0"
+  ,
+  [Parameter(
+    HelpMessage = "Specify if the version of Sitecore is a pre-release version")]
+  [switch]$Prerelease
 )
 
 $ErrorActionPreference = "Stop";
@@ -44,14 +52,13 @@ if (-not $SitecoreGallery) {
   Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted -Verbose
   $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
 }
-else
-{
+else {
   Write-Host "Updating Sitecore PowerShell Gallery url..." -ForegroundColor Yellow
   Set-PSRepository -Name $SitecoreGallery.Name -Source "https://sitecore.myget.org/F/sc-powershell/api/v2"
 }
 
 #Install and Import SitecoreDockerTools
-$dockerToolsVersion = "10.0.5"
+$dockerToolsVersion = "10.1.4"
 Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
 if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
   Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
@@ -85,14 +92,19 @@ if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
 }
 $NanoserverVersion = $(if ($WindowsVersion -eq "ltsc2019") { "1809" } else { $WindowsVersion })
 
+$LegacyWindowsServerCoreVersion = $(if ($WindowsVersion -eq "20H2") { "2009" } else { $WindowsVersion })
+
+Set-DockerComposeEnvFileVariable "LEGACY_WINDOWSSERVERCORE_VERSION" -Value $LegacyWindowsServerCoreVersion
 Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
 Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
 Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
+Set-DockerComposeEnvFileVariable "SOLUTION_VERSION" -Value $SolutionVersion
 Set-DockerComposeEnvFileVariable "BASE_MODULE_VERSION" -Value $BaseModuleVersion
 Set-DockerComposeEnvFileVariable "SMTP_CONTAINERS_COUNT" -Value 0
 Set-DockerComposeEnvFileVariable "ISOLATION" -Value $IsolationMode
 Set-DockerComposeEnvFileVariable "WINDOWSSERVERCORE_VERSION" -Value $WindowsVersion
 Set-DockerComposeEnvFileVariable "NANOSERVER_VERSION" -Value $NanoserverVersion
 Set-DockerComposeEnvFileVariable "SITECORE_VERSION" -Value $SitecoreVersion
+if ($Prerelease) { Set-DockerComposeEnvFileVariable "PRERELEASE" -Value $true }
 
 Write-Host "Done!" -ForegroundColor Green

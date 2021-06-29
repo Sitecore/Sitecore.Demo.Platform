@@ -1,0 +1,25 @@
+# escape=`
+
+ARG BASE_IMAGE
+ARG BUILD_IMAGE
+
+FROM ${BUILD_IMAGE} as xconnect
+
+ARG INTERNAL_NUGET_SOURCE
+ARG INTERNAL_NUGET_SOURCE_USERNAME="VSTS"
+ARG INTERNAL_NUGET_SOURCE_PASSWORD
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+WORKDIR /src
+COPY src/Project/xConnect .
+COPY nuget.config .
+COPY docker/images/windows/demo-solution/scripts/ .
+
+RUN .\Add-InternalNugetFeed.ps1
+
+RUN msbuild /m:1 /v:minimal /p:Configuration="Debug" /p:Platform=AnyCPU /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=false /p:publishUrl=C:\out\demo-xconnect /p:BuildProjectReferences=false /target:Build "code/Sitecore.Demo.Platform.XConnect.csproj"
+
+FROM ${BASE_IMAGE} as asset
+
+COPY --from=xconnect /out/demo-xconnect /solution/xconnect

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+    <Sitecore>
+        <XConnect>
+            <Collection>
+                <Services>
+                    <!-- Switching back to the old Contact Behavior Profile behavior as described in documentation because personalization is no longer working after session end: https://doc.sitecore.com/developers/101/sitecore-experience-platform/en/contact-behavior-profile.html -->
+                    <ICalculatedFacetHandler.AggregatingContactBehaviorProfileHandler xdt:Transform="Remove">
+                        <Type>Sitecore.XConnect.Collection.Model.Plugins.AggregatingContactBehaviorProfileHandler, Sitecore.XConnect.Collection.Model.Plugins</Type>
+                        <As>Sitecore.XConnect.Service.ICalculatedFacetHandler, Sitecore.XConnect.Service</As>
+                        <LifeTime>Singleton</LifeTime>
+                    </ICalculatedFacetHandler.AggregatingContactBehaviorProfileHandler>
+                    <ICalculatedFacetHandler.ContactBehaviorProfileHandler xdt:Transform="InsertIfMissing">
+                        <Type>Sitecore.XConnect.Collection.Model.Plugins.ContactBehaviorProfileHandler, Sitecore.XConnect.Collection.Model.Plugins</Type>
+                        <As>Sitecore.XConnect.Service.ICalculatedFacetHandler, Sitecore.XConnect.Service</As>
+                        <LifeTime>Singleton</LifeTime>
+                    </ICalculatedFacetHandler.ContactBehaviorProfileHandler>
+                    <IContactMergeHandler.AggregatingContactBehaviorProfileHandler xdt:Transform="Remove">
+                        <Type>Sitecore.XConnect.Collection.Model.Plugins.AggregatingContactBehaviorProfileHandler, Sitecore.XConnect.Collection.Model.Plugins</Type>
+                        <As>Sitecore.XConnect.Service.IContactMergeHandler, Sitecore.XConnect.Service</As>
+                        <LifeTime>Singleton</LifeTime>
+                    </IContactMergeHandler.AggregatingContactBehaviorProfileHandler>
+                    <IContactMergeHandler.ContactBehaviorProfileHandler xdt:Transform="InsertIfMissing">
+                        <Type>Sitecore.XConnect.Collection.Model.Plugins.ContactBehaviorProfileHandler, Sitecore.XConnect.Collection.Model.Plugins</Type>
+                        <As>Sitecore.XConnect.Service.IContactMergeHandler, Sitecore.XConnect.Service</As>
+                        <LifeTime>Singleton</LifeTime>
+                    </IContactMergeHandler.ContactBehaviorProfileHandler>
+                </Services>
+            </Collection>
+        </XConnect>
+    </Sitecore>
+</Settings>

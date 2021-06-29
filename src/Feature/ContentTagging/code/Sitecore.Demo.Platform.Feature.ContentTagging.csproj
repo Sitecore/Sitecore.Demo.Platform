@@ -16,6 +16,7 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -42,11 +43,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
+    <PackageReference Include="Sitecore.Kernel" Version="10.1.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.ContentSearch" Version="10.0.*-*">
+    <PackageReference Include="Sitecore.ContentSearch" Version="10.1.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>

@@ -17,6 +17,7 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -44,27 +45,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Sitecore.Kernel" Version="10.0.*-*">
+    <PackageReference Include="Sitecore.Kernel" Version="10.1.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Logging" Version="10.0.*-*">
+    <PackageReference Include="Sitecore.Logging" Version="10.1.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Mvc.Analytics" Version="10.0.*-*">
+    <PackageReference Include="Sitecore.Mvc.Analytics" Version="10.1.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Mvc" Version="10.0.*-*">
+    <PackageReference Include="Sitecore.Mvc" Version="10.1.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Update" Version="10.0.*-*">
+    <PackageReference Include="Sitecore.Update" Version="10.1.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Zip" Version="10.0.*-*">
+    <PackageReference Include="Sitecore.Zip" Version="10.1.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
@@ -96,6 +97,7 @@
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Indexing.config" />
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.CoveoIndexing.config.demo" />
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Horizon.Patch.Delete.Hotfix.config" />
+    <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Serialization.Training.config" />
     <None Include="sitecore.demo.platform.version.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

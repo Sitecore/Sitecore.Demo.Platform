@@ -2,7 +2,7 @@
 ID: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
 Parent: "10083ca0-5093-4d67-99db-2579abb421d3"
 Template: "b9795aa6-4298-438a-becf-59114b3e8196"
-Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/resources
 DB: master
 SharedFields:
 - ID: "1fbc6a49-6281-48ee-87e9-a3970b145adb"
@@ -17,6 +17,10 @@ SharedFields:
   Value: 950
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Resources
   Versions:
   - Version: 1
     Fields:

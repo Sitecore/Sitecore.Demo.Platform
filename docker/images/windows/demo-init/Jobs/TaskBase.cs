@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Sitecore.Demo.Init.Extensions;
@@ -10,8 +8,15 @@ namespace Sitecore.Demo.Init.Jobs
 {
 	public class TaskBase
 	{
-		private static readonly string StatusDirectory = Path.Combine(Directory.GetCurrentDirectory(), "status");
 		private readonly InitContext initContext;
+
+		public string TaskName
+		{
+			get
+			{
+				return GetType().Name;
+			}
+		}
 
 		public TaskBase(InitContext initContext)
 		{
@@ -22,42 +27,41 @@ namespace Sitecore.Demo.Init.Jobs
 		{
 			get
 			{
-				return ApplicationLogging.CreateLogger(this.GetType().Name);
+				return ApplicationLogging.CreateLogger(TaskName);
 			}
 		}
 
-		protected bool IsCompleted()
+		protected CompletedJob GetLastCompletedJob()
 		{
-			var completedJobs = initContext.CompletedJobs.Where(x => x.Name == this.GetType().Name);
-			if (completedJobs.Any())
+			return initContext.CompletedJobs.Where(completedJob => completedJob.Name == TaskName).OrderByDescending(completedJob => completedJob.Id).FirstOrDefault();
+		}
+
+		public bool IsCompleted()
+		{
+			var completedJob = GetLastCompletedJob();
+			return completedJob != null;
+		}
+
+		protected bool HaveSettingsChanged()
+		{
+			var completedJob = GetLastCompletedJob();
+			if (completedJob == null)
 			{
 				return true;
 			}
 
-			return false;
+			return completedJob.SettingsHash != ComputeSettingsHash();
 		}
 
-		protected async Task Start(string theType)
+		public virtual string ComputeSettingsHash()
 		{
-			if (!Directory.Exists(StatusDirectory))
-			{
-				Directory.CreateDirectory(StatusDirectory);
-			}
-
-			await File.WriteAllTextAsync(Path.Combine(StatusDirectory, $"{theType}.Started"), "Started");
+			return null;
 		}
 
-		protected async Task Stop(string theType)
+		public async Task Complete()
 		{
-			initContext.CompletedJobs.Add(new CompletedJob(this.GetType().Name));
+			initContext.CompletedJobs.Add(new CompletedJob(TaskName, ComputeSettingsHash()));
 			await initContext.SaveChangesAsync();
-			await File.WriteAllTextAsync(Path.Combine(StatusDirectory, $"{theType}.Ready"), "Ready");
-		}
-
-		protected bool AreCoveoEnvironmentVariablesSet()
-		{
-			var organizationId = Environment.GetEnvironmentVariable("COVEO_ORGANIZATION_ID");
-			return !string.IsNullOrEmpty(organizationId);
 		}
 	}
 }

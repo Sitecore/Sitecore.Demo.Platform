@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	class IndexRebuild : TaskBase
+	class IndexRebuild : CoveoTaskBase
 	{
 		public IndexRebuild(InitContext initContext)
 			: base(initContext)
@@ -15,26 +15,41 @@ namespace Sitecore.Demo.Init.Jobs
 
 		public async Task Run()
 		{
-			if (this.IsCompleted())
+			var indexes = new List<string>();
+
+			if (!this.IsCompleted())
 			{
-				Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
-				return;
+				indexes.AddRange(new List<string>() {
+					"sitecore_sxa_web_index",
+					"sitecore_sxa_master_index",
+					"sitecore_master_index",
+					"sitecore_web_index",
+					"sitecore_marketingdefinitions_master",
+					"sitecore_marketingdefinitions_web",
+					"sitecore_testing_index",
+					"sitecore_personalization_index"
+				});
 			}
 
-			await Start(nameof(IndexRebuild));
+			if (this.AreCoveoEnvironmentVariablesSet() && this.HaveSettingsChanged())
+			{
+				indexes.AddRange(new List<string>() {
+					"Coveo_master_index",
+					"Coveo_web_index"
+				});
+			}
+
+			if (indexes.Count == 0)
+			{
+				Log.LogWarning($"{TaskName} is already complete, it will not execute this time");
+				return;
+			}
 
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 
 			Log.LogInformation($"IndexRebuild() started {hostCM}");
 
 			using var client = new HttpClient { BaseAddress = new Uri(hostCM) };
-			var indexes = new List<string>() { "sitecore_sxa_web_index", "sitecore_sxa_master_index", "sitecore_master_index", "sitecore_web_index", "sitecore_marketingdefinitions_master", "sitecore_marketingdefinitions_web", "sitecore_testing_index" };
-
-			if (AreCoveoEnvironmentVariablesSet())
-			{
-				indexes.Add("Coveo_master_index");
-				indexes.Add("Coveo_web_index");
-			}
 
 			foreach (var index in indexes)
 			{

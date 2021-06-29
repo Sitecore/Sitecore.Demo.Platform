@@ -1,0 +1,135 @@
+# escape=`
+ARG BASE_IMAGE
+ARG SOLUTION_IMAGE
+
+ARG SPE_ASSETS
+ARG SXA_ASSETS
+ARG HEADLESS_ASSETS
+ARG SPS_ASSETS
+
+ARG DEF_ASSETS
+ARG SFCRM_ASSETS
+ARG SFMCBDE_ASSETS
+ARG SFMCCE_ASSETS
+ARG CMP_ASSETS
+ARG XGEN_ASSETS
+ARG HORIZON_INTEGRATION_ASSETS
+ARG SITECORE_AI_ASSETS
+ARG SITECORE_AI_DASHBOARD_ASSETS
+
+FROM ${SPE_ASSETS} as spe_assets
+FROM ${SXA_ASSETS} as sxa_assets
+FROM ${HEADLESS_ASSETS} as headless_assets
+FROM ${SPS_ASSETS} as sps_assets
+
+FROM ${DEF_ASSETS} as def_assets
+FROM ${SFCRM_ASSETS} as sfcrm_assets
+FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
+FROM ${SFMCCE_ASSETS} as sfmcce_assets
+FROM ${CMP_ASSETS} as cmp_assets
+FROM ${HORIZON_INTEGRATION_ASSETS} as horizon_integration_assets
+FROM ${XGEN_ASSETS} as xgen_assets
+FROM ${SITECORE_AI_ASSETS} as sitecore_ai_assets
+FROM ${SITECORE_AI_DASHBOARD_ASSETS} as sitecore_ai_dashboard_assets
+
+FROM ${SOLUTION_IMAGE} as solution
+
+FROM ${BASE_IMAGE} as modules
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+COPY --from=spe_assets /module/db /module_data/spe_assets
+COPY --from=sxa_assets /module/db /module_data/sxa_assets
+COPY --from=headless_assets /module/db /module_data/headless_assets
+COPY --from=sps_assets /module/db /module_data/sps_assets
+
+COPY --from=def_assets /module/db /module_data/def_assets
+COPY --from=sfcrm_assets /module/db /module_data/sfcrm_assets
+COPY --from=sfmcbde_assets /module/db /module_data/sfmcbde_assets
+COPY --from=sfmcce_assets /module/db /module_data/sfmcce_assets
+COPY --from=cmp_assets /module/db /module_data/cmp_assets
+COPY --from=horizon_integration_assets /module/db /module_data/horizon_integration_assets
+COPY --from=xgen_assets /module/db /module_data/xgen_assets
+COPY --from=sitecore_ai_assets /module/db /module_data/sitecore_ai_assets
+COPY --from=sitecore_ai_dashboard_assets /module/db /module_data/sitecore_ai_dashboard_assets
+
+FROM modules as data
+
+ARG INSTALL_MODULE_PATH='c:\\install-module'
+
+ENV RESOURCES_PATH='C:\resources\' `
+    INSTALL_MODULE_PATH='c:\\install-module' `
+    SQL_SERVER='mssql' `
+    SQL_ADMIN_LOGIN='sa' `
+    SA_PASSWORD='Password12345' `
+    SITECORE_ADMIN_PASSWORD='Password12345'
+
+# ACCEPT_EULA='Y'
+# ADMIN_USER_NAME="sitecore\superuser"
+# DISABLE_DEFAULT_ADMIN=FALSE
+# EXM_BASE_URL=http://cd
+
+# setting default db passwords
+ENV Master_Database_Username='masteruser' `
+    Master_Database_Password=${SA_PASSWORD} `
+    Core_Database_Username='coreuser' `
+    Core_Database_Password=${SA_PASSWORD} `
+    Web_Database_Username='webuser' `
+    Web_Database_Password=${SA_PASSWORD} `
+    Forms_Database_Username='formsuser' `
+    Forms_Database_Password=${SA_PASSWORD} `
+    Exm_Master_Database_Username='exmuser' `
+    Exm_Master_Database_Password=${SA_PASSWORD} `
+    Marketing_Automation_Database_Username='mauser' `
+    Marketing_Automation_Database_Password=${SA_PASSWORD} `
+    Messaging_Database_Username='messaginguser' `
+    Messaging_Database_Password=${SA_PASSWORD} `
+    Reporting_Database_Username='reportinguser' `
+    Reporting_Database_Password=${SA_PASSWORD} `
+    Reference_Data_Database_Username='refdatauser' `
+    Reference_Data_Database_Password=${SA_PASSWORD} `
+    Processing_Pools_Database_Username='processingpoolsuser' `
+    Processing_Pools_Database_Password=${SA_PASSWORD} `
+    Processing_Engine_Tasks_Database_Username='processingengineuser' `
+    Processing_Engine_Tasks_Database_Password=${SA_PASSWORD} `
+    Processing_Engine_Storage_Database_Username='processingenginestorageuser' `
+    Processing_Engine_Storage_Database_Password=${SA_PASSWORD} `
+    Processing_Tasks_Database_Username='processingtasksuser' `
+    Processing_Tasks_Database_Password=${SA_PASSWORD} `
+    Collection_ShardMapManager_Database_Username='shardmapmanageruser' `
+    Collection_ShardMapManager_Database_Password=${SA_PASSWORD}
+
+RUN Install-PackageProvider -Name NuGet -Force; `
+    Set-PackageSource -Name PSGallery -Trusted ; `
+    Install-Module -Name SqlServer;
+
+COPY --from=solution /solution/db ${INSTALL_MODULE_PATH}
+
+COPY ./data/ ${INSTALL_MODULE_PATH}
+
+COPY ./sql /sql
+
+COPY ./HashPassword.ps1 /
+
+COPY ./StartInit.ps1  /
+
+
+ENTRYPOINT .\StartInit.ps1 -ResourcesDirectory $env:RESOURCES_PATH -InstallModulePath $env:INSTALL_MODULE_PATH -SqlServer $env:SQL_SERVER -SqlAdminUser $env:SQL_ADMIN_LOGIN -SqlAdminPassword $env:SA_PASSWORD -SitecoreAdminPassword $env:SITECORE_ADMIN_PASSWORD -SqlElasticPoolName $env:SQL_ELASTIC_POOL_NAME `
+    -DatabaseUsers @( `
+    @{'databaseName' = 'Sitecore.Master'; 'username' = $env:Master_Database_Username; 'password' = $env:Master_Database_Password}, `
+    @{'databaseName' = 'Sitecore.Core'; 'username' = $env:Core_Database_Username; 'password' = $env:Core_Database_Password}, `
+    @{'databaseName' = 'Sitecore.Web'; 'username' = $env:Web_Database_Username; 'password' = $env:Web_Database_Password}, `
+    @{'databaseName' = 'Sitecore.Experienceforms'; 'username' = $env:Forms_Database_Username; 'password' = $env:Forms_Database_Password}, `
+    @{'databaseName' = 'Sitecore.Exm.master'; 'username' = $env:Exm_Master_Database_Username; 'password' = $env:Exm_Master_Database_Password}, `
+    @{'databaseName' = 'Sitecore.Marketingautomation'; 'username' = $env:Marketing_Automation_Database_Username; 'password' = $env:Marketing_Automation_Database_Password}, `
+    @{'databaseName' = 'Sitecore.Messaging'; 'username' = $env:Messaging_Database_Username; 'password' = $env:Messaging_Database_Password }, `
+    @{'databaseName' = 'Sitecore.Reporting'; 'username' = $env:Reporting_Database_Username; 'password' = $env:Reporting_Database_Password }, `
+    @{'databaseName' = 'Sitecore.Referencedata'; 'username' = $env:Reference_Data_Database_Username; 'password' = $env:Reference_Data_Database_Password }, `
+    @{'databaseName' = 'Sitecore.Processing.Pools'; 'username' = $env:Processing_Pools_Database_Username; 'password' = $env:Processing_Pools_Database_Password }, `
+    @{'databaseName' = 'Sitecore.Processing.Tasks'; 'username' = $env:Processing_Tasks_Database_Username; 'password' = $env:Processing_Tasks_Database_Password }, `
+    @{'databaseName' = 'Sitecore.Processing.Engine.Tasks'; 'username' = $env:Processing_Engine_Tasks_Database_Username; 'password' = $env:Processing_Engine_Tasks_Database_Password }, `
+    @{'databaseName' = 'Sitecore.Processing.Engine.Storage'; 'username' = $env:Processing_Engine_Storage_Database_Username; 'password' = $env:Processing_Engine_Storage_Database_Password }, `
+    @{'databaseName' = 'Sitecore.Xdb.Collection.ShardMapManager'; 'username' = $env:Collection_ShardMapManager_Database_Username; 'password' = $env:Collection_ShardMapManager_Database_Password }, `
+    @{'databaseName' = 'Sitecore.Xdb.Collection.Shard0'; 'username' = $env:Collection_ShardMapManager_Database_Username; 'password' = $env:Collection_ShardMapManager_Database_Password }, `
+    @{'databaseName' = 'Sitecore.Xdb.Collection.Shard1'; 'username' = $env:Collection_ShardMapManager_Database_Username; 'password' = $env:Collection_ShardMapManager_Database_Password } `
+    )

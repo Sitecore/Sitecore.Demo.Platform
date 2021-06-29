@@ -34,6 +34,7 @@ ENV MARKETING_DEFINITIONS_APIKEY=placeholder
 ENV ADMIN_USER_NAME=placeholder
 ENV ADMIN_PASSWORD=placeholder
 ENV COVEO_ORGANIZATION_ID=
+ENV COVEO_REGION=
 ENV COVEO_API_KEY=
 ENV COVEO_SEARCH_API_KEY=
 ENV COVEO_FARM_NAME=
@@ -47,8 +48,4 @@ WORKDIR /app
 
 COPY --from=publish /app/publish .
 
-COPY status.sh .
-
-RUN mkdir status \
-    && chmod +x /app/status.sh
 ENTRYPOINT ["dotnet", "Sitecore.Demo.Init.dll"]

@@ -146,10 +146,18 @@ namespace Sitecore.Demo.Platform.Foundation.DependencyInjection
 
         private static Assembly[] GetAssemblies(IEnumerable<string> assemblyFilters)
         {
+            IList<string> ignoredAssemblies = Environment.GetEnvironmentVariable("DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES")?.Split(new string[] { ",", ";", " " }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            if (ignoredAssemblies == null) {
+                ignoredAssemblies = new List<string>();
+            }
+
             var assemblies = new List<Assembly>();
             foreach (var assemblyFilter in assemblyFilters)
             {
-                assemblies.AddRange(AppDomain.CurrentDomain.GetAssemblies().Where(assembly => IsWildcardMatch(assembly.GetName().Name, assemblyFilter)).ToArray());
+                assemblies.AddRange(AppDomain.CurrentDomain.GetAssemblies().Where(assembly => {
+                    var assemblyName = assembly.GetName().Name;
+                    return IsWildcardMatch(assemblyName, assemblyFilter) && !ignoredAssemblies.Contains(assemblyName);
+                }).ToArray());
             }
             return assemblies.ToArray();
         }

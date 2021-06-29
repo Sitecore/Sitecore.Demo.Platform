@@ -21,8 +21,7 @@
       <GridPanel Width="100%" Height="100%">
         <Scrollbox Padding="0px" Class="scScrollbox scFixSize scFixSize4" Height="100%" Width="100%" GridPanel.Height="100%" ID="RulesContainer" />
       </GridPanel>
-
-      <!--Customization: #4770 Do not set "Track Personalization Effect" by default -->
+      <!-- DEMO TEAM CUSTOMIZATION: #4770 Do not set "Track Personalization Effect" by default -->
       <Checkbox ID="PersonalizationTracking" Header='${Translate.Text(Texts.PersonalizationTracking)}' Visible='false' Disabled='true' def:placeholder="Buttons" Checked="false" />
     </FormDialog>
   </Sitecore.Shell.Applications.WebEdit.Dialogs.Personalization>

@@ -14,7 +14,12 @@ namespace Sitecore.Demo.Platform.Foundation.SitecoreExtensions.Pipelines
 
         public virtual void Process(PipelineArgs args)
         {
-            string filePath = Sitecore.Context.Request.FilePath.ToLower();
+            var filePath = Sitecore.Context.Request?.FilePath?.ToLower();
+            if (string.IsNullOrEmpty(filePath))
+            {
+				return;
+            }
+
             foreach (var url in _urls)
             {
                 if (filePath.Contains(url))

@@ -12,6 +12,9 @@
 				<fieldMap>
 					<fieldNames hint="raw:AddFieldByFieldName">
 						<fieldType fieldName="PageAuthor" isFacet="true" settingType="Coveo.Framework.Configuration.FieldConfiguration, Coveo.Framework"/>
+						<fieldType fieldName="ResourceRegion" isMultiValue="true" settingType="Coveo.Framework.Configuration.FieldConfiguration, Coveo.Framework"/>
+						<fieldType fieldName="ResourceIndustry" isMultiValue="true" settingType="Coveo.Framework.Configuration.FieldConfiguration, Coveo.Framework"/>
+						<fieldType fieldName="ResourceType" isFacet="true" settingType="Coveo.Framework.Configuration.FieldConfiguration, Coveo.Framework"/>
 					</fieldNames>
 				</fieldMap>
 				<documentOptions>
@@ -20,6 +23,9 @@
 					</include>
 					<fields hint="raw:AddComputedIndexField">
 						<field fieldName="PageAuthor" sourceField="Author" referencedFieldName="Author Name">Coveo.SearchProvider.ComputedFields.ReferencedFieldComputedField, Coveo.SearchProviderBase</field>
+						<field fieldName="ResourceRegion" sourceField="Region" referencedFieldName="Title">Coveo.SearchProvider.ComputedFields.ReferencedFieldComputedField, Coveo.SearchProviderBase</field>
+						<field fieldName="ResourceIndustry" sourceField="Industry" referencedFieldName="Title">Coveo.SearchProvider.ComputedFields.ReferencedFieldComputedField, Coveo.SearchProviderBase</field>
+						<field fieldName="ResourceType" sourceField="ResourceType" referencedFieldName="Title">Coveo.SearchProvider.ComputedFields.ReferencedFieldComputedField, Coveo.SearchProviderBase</field>
 					</fields>
 				</documentOptions>
 			</defaultIndexConfiguration>

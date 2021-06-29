@@ -22,6 +22,9 @@ namespace Sitecore.Demo.Platform.Foundation.CoveoIndexing.Utilities
 		public string FarmName { get; set; }
 		public string SitecoreUsername { get; set; }
 		public string EncryptedSitecorePassword { get; set; }
+		public string PlatformEndpointUrl { get; set; }
+		public string IndexingEndpointUrl { get; set; }
+		public string UsageAnalyticsEndpointUrl { get; set; }
 	}
 
 	public partial class PostCmCoveoActivation : System.Web.UI.Page
@@ -73,21 +76,30 @@ namespace Sitecore.Demo.Platform.Foundation.CoveoIndexing.Utilities
 			string apiKeyXPath = $"{cloudPlatformConfigurationXPath}/apiKey";
 			string searchApiKeyXPath = $"{cloudPlatformConfigurationXPath}/searchApiKey";
 			string organizationIdXPath = $"{cloudPlatformConfigurationXPath}/organizationId";
+			string indexingEndpointUrlXPath = $"{cloudPlatformConfigurationXPath}/indexingEndpointUri";
+			string platformEndpointUrlXPath = $"{cloudPlatformConfigurationXPath}/cloudPlatformUri";
 
 			string defaultIndexConfigurationXPath = "coveo/defaultIndexConfiguration";
 			string farmNameXPath = $"{defaultIndexConfigurationXPath}/farmName";
 			string sitecoreUsernameXPath = $"{defaultIndexConfigurationXPath}/sitecoreUsername";
 			string sitecorePasswordXPath = $"{defaultIndexConfigurationXPath}/sitecorePassword";
 
+			string restEndpointConfigurationXPath = "coveo/restEndpointConfiguration";
+			string usageAnalyticsEndpointUrlXPath = $"{restEndpointConfigurationXPath}/analyticsUri";
+
 			XmlNode apiKeyNode = Factory.GetConfigNode(apiKeyXPath);
 			XmlNode searchApiKeyNode = Factory.GetConfigNode(searchApiKeyXPath);
 			XmlNode organizationIdNode = Factory.GetConfigNode(organizationIdXPath);
+			XmlNode indexingEndpointUrlNode = Factory.GetConfigNode(indexingEndpointUrlXPath);
+			XmlNode platformEndpointUrlNode = Factory.GetConfigNode(platformEndpointUrlXPath);
 
 			XmlNode farmNameNode = Factory.GetConfigNode(farmNameXPath);
 			XmlNode sitecoreUsernameNode = Factory.GetConfigNode(sitecoreUsernameXPath);
 			XmlNode sitecorePasswordNode = Factory.GetConfigNode(sitecorePasswordXPath);
 
-			if (apiKeyNode == null || searchApiKeyNode == null || organizationIdNode == null || farmNameNode == null || sitecoreUsernameNode == null || sitecorePasswordNode == null)
+			XmlNode usageAnalyticsEndpointUrlNode = Factory.GetConfigNode(usageAnalyticsEndpointUrlXPath);
+
+			if (apiKeyNode == null || searchApiKeyNode == null || organizationIdNode == null || indexingEndpointUrlNode == null || platformEndpointUrlNode == null || farmNameNode == null || sitecoreUsernameNode == null || sitecorePasswordNode == null || usageAnalyticsEndpointUrlNode == null)
 			{
 				return null;
 			}
@@ -98,7 +110,10 @@ namespace Sitecore.Demo.Platform.Foundation.CoveoIndexing.Utilities
 				OrganizationId = organizationIdNode.InnerText,
 				FarmName = farmNameNode.InnerText,
 				SitecoreUsername = sitecoreUsernameNode.InnerText,
-				EncryptedSitecorePassword = sitecorePasswordNode.InnerText
+				EncryptedSitecorePassword = sitecorePasswordNode.InnerText,
+				PlatformEndpointUrl = platformEndpointUrlNode.InnerText,
+				IndexingEndpointUrl = indexingEndpointUrlNode.InnerText,
+				UsageAnalyticsEndpointUrl = usageAnalyticsEndpointUrlNode.InnerText
 			};
 		}
 
@@ -112,11 +127,14 @@ namespace Sitecore.Demo.Platform.Foundation.CoveoIndexing.Utilities
 			var farmName = HttpUtility.UrlEncode(cmConfiguration.FarmName);
 			var coveoAdminUsername = HttpUtility.UrlEncode(cmConfiguration.SitecoreUsername);
 			var coveoAdminPassword = HttpUtility.UrlEncode(cmConfiguration.EncryptedSitecorePassword);
+			var coveoPlatformEndpointUrl = HttpUtility.UrlEncode(cmConfiguration.PlatformEndpointUrl);
+			var coveoIndexingEndpointUrl = HttpUtility.UrlEncode(cmConfiguration.IndexingEndpointUrl);
+			var coveoUsageAnalyticsEndpointUrl = HttpUtility.UrlEncode(cmConfiguration.UsageAnalyticsEndpointUrl);
 
 			var client = new HttpClient { BaseAddress = new Uri(hostCD) };
 			CoveoIsActivatedStatus isActivatedStatus;
 
-			using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"/Utilities/ConfigureCdAndActivateCoveo.aspx?organizationId={organizationId}&apiKey={apiKey}&searchApiKey={searchApiKey}&farmName={farmName}&adminUsername={coveoAdminUsername}&adminPassword={coveoAdminPassword}"))
+			using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"/Utilities/ConfigureCdAndActivateCoveo.aspx?organizationId={organizationId}&apiKey={apiKey}&searchApiKey={searchApiKey}&farmName={farmName}&adminUsername={coveoAdminUsername}&adminPassword={coveoAdminPassword}&platformEndpointUrl={coveoPlatformEndpointUrl}&indexingEndpointUrl={coveoIndexingEndpointUrl}&usageAnalyticsEndpointUrl={coveoUsageAnalyticsEndpointUrl}"))
 			{
 				using (var response = await client.SendAsync(request).ConfigureAwait(false))
 				{

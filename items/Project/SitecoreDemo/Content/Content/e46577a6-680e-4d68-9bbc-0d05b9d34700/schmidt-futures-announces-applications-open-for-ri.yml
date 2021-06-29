@@ -2,7 +2,7 @@
 ID: "554171d4-f3ee-4544-8e9c-5123815a34af"
 Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
 Template: "37ecc079-3b98-444a-af72-fc5c487a2c4c"
-Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/schmidt-futures-announces-applications-open-for-rise"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/resources/schmidt-futures-announces-applications-open-for-rise"
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -82,6 +82,10 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{821BA196-A6B4-4489-93B6-6A8A35820C90}" />
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: "{E1C52082-CAFE-4C9C-987A-62D4A16220FF}"
     - ID: "a9ef4941-7e4a-43c7-b6c2-9e29a49a02a9"
       Hint: Additional Content
       Value: 

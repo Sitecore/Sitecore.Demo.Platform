@@ -9,7 +9,19 @@ services:
       context: ./images/windows/demo-mssql
       dockerfile: Dockerfile.linux
       args:
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp0-modules-base-mssql:${SITECORE_VERSION}-linux-${BASE_MODULE_VERSION}
+        BASE_IMAGE: ${REGISTRY}community/sitecore-xp0-custom-mssql:${SITECORE_VERSION}-linux
+        SPE_ASSETS: ${REGISTRY}community/modules/custom-spe-assets:6.2-linux
+        SXA_ASSETS: ${REGISTRY}community/modules/custom-sxa-xp1-assets:${SITECORE_VERSION}-linux
+        HEADLESS_ASSETS: ${REGISTRY}community/modules/custom-sitecore-headless-services-xp1-assets:16.0.0-linux
+        DEF_ASSETS: ${REGISTRY}community/modules/custom-def-xp0-assets:6.0.0-linux
+        SFCRM_ASSETS: ${REGISTRY}community/modules/custom-sfcrm-xp0-assets:6.0.0-linux
+        SFMCBDE_ASSETS: ${REGISTRY}community/modules/custom-sfmcbde-xp0-assets:6.0.0-linux
+        SFMCCE_ASSETS: ${REGISTRY}community/modules/custom-sfmcce-xp0-assets:6.0.0-linux
+        CMP_ASSETS: ${REGISTRY}community/modules/custom-cmp-xp1-assets:4.0.0-linux
+        HORIZON_INTEGRATION_ASSETS: ${REGISTRY}community/modules/custom-horizon-integration-xp1-assets:2.25-linux
+        XGEN_ASSETS:  ${REGISTRY}community/modules/custom-xgenerator-assets:${SITECORE_VERSION}-linux
+        SITECORE_AI_ASSETS: ${REGISTRY}community/modules/custom-sitecore-ai-assets:${SITECORE_VERSION}-linux
+        SITECORE_AI_DASHBOARD_ASSETS: ${REGISTRY}community/modules/custom-sitecore-ai-dashboard-assets:${SITECORE_VERSION}-linux
     volumes:
       - .\data\sql:/var/opt/mssql/data
     mem_limit: 2GB
@@ -40,7 +52,7 @@ services:
       ADMIN_USER_NAME: "superuser"
       HOST_CD: "http://cd"
       HOST_CM: "http://cm"
-      HOST_PS: "http://ps"
+      HOST_PS: "http://ps:5000"
       HOST_ID: "http://id"
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
       COVEO_ORGANIZATION_ID: ${COVEO_ORGANIZATION_ID}
@@ -48,19 +60,3 @@ services:
       COVEO_SEARCH_API_KEY: ${COVEO_SEARCH_API_KEY}
       COVEO_FARM_NAME: ${COVEO_FARM_NAME}
       COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
-  solr:
-    image: ${REGISTRY}demo/lighthouse-solr:${SITECORE_VERSION}-linux-${DEMO_VERSION}
-    isolation: default
-    build:
-      context: ./images/linux/demo-xp-solr
-      dockerfile: Dockerfile
-      args:
-        BASE_IMAGE: solr:8.4.0-slim
-        CORE_NAMES: "sitecore_core_index, sitecore_master_index, sitecore_web_index, sitecore_marketingdefinitions_master, sitecore_marketingdefinitions_web, sitecore_marketing_asset_index_master, sitecore_marketing_asset_index_web, sitecore_testing_index, sitecore_suggested_test_index, sitecore_fxm_master_index, sitecore_fxm_web_index, sitecore_personalization_index, sitecore_xdb, sitecore_xdb_rebuild, sitecore_sxa_master_index, sitecore_sxa_web_index"
-        MANAGED_SCHEMA_DEFAULT_NAME: "managed-schema.default.1000"
-        MANAGED_SCHEMA_XDB_NAME: "managed-schema.xdb.1000"
-    volumes:
-      - ./data/solr:/data
-    mem_limit: 1GB
-    ports:
-      - "44011:8983"

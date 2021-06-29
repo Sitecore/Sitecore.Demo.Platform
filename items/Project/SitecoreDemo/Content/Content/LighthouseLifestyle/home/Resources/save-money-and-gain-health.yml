@@ -2,7 +2,7 @@
 ID: "97ee017b-763a-428a-89d1-66a19c2bfbba"
 Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
 Template: "cc9b9eef-1345-4db4-8a36-a002ec113419"
-Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/save-money-and-gain-health"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/resources/save-money-and-gain-health"
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -54,6 +54,10 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{4537DF48-750A-4607-BD70-E330A9AF41B1}" />
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: "{E1C52082-CAFE-4C9C-987A-62D4A16220FF}"
     - ID: "c6fb3110-7b58-41d0-83e3-9c61b6a28521"
       Hint: Link
       Value: |

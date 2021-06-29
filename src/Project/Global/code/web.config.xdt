@@ -1,65 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-    <appSettings>
-        <!-- SUPPORTED ENVIRONMENTS
-                                         Local
-                                         Production
-                                    Default value: Production
-                                    -->
-        <add
-        key="env:define" value="Production" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+	<appSettings>
+		<!-- SUPPORTED ENVIRONMENTS
+										 Local
+										 Production
+									Default value: Production
+									-->
+		<add key="env:define" value="Production" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 
-        <!-- UNICORN MODE SUPPORTED VALUES
-                                         On
-                                         Off
-                                    Default value: On
-                                    -->
-        <add
-        key="unicorn:define" value="Disabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+		<!-- UNICORN MODE SUPPORTED VALUES
+										 On
+										 Off
+									Default value: On
+									-->
+		<add key="unicorn:define" value="Disabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 
-        <!-- PUBLISHING SERVICE MODE SUPPORTED VALUES
-                                         Enabled
-                                         Disabled
-                                    Default value: Enabled
-                                    -->
-        <add
-        key="publishingservice:define" value="Enabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+		<!-- PUBLISHING SERVICE MODE SUPPORTED VALUES
+										 Enabled
+										 Disabled
+									Default value: Enabled
+									-->
+		<add key="publishingservice:define" value="Enabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 
-        <!-- CONTENT HUB MODE SUPPORTED VALUES
-                                         Enabled
-                                         Disabled
-                                     Default value: Disabled
-                                    -->
-        <add
-        key="contenthub:define" value="Disabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+		<!-- CONTENT HUB MODE SUPPORTED VALUES
+										 Enabled
+										 Disabled
+									 Default value: Disabled
+									-->
+		<add key="contenthub:define" value="Disabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 
-        <!-- THIRD PARTY INTEGRATIONS: SUPPORTED VALUES
-                                         None (disables all)
-                                         Dynamics (CRM integration with Data Exchange Framework)
-                                         Salesforce (CRM integration with Data Exchange Framework)
-                                         Facebook (Fed Auth with Facebook)
-                                         MS (Fed Auth with Microsoft)
-                                         example: <add key="integrations:define" value="Dynamics,Salesforce,Facebook,MS" />
+		<!-- THIRD PARTY INTEGRATIONS: SUPPORTED VALUES
+										 None (disables all)
+										 Dynamics (CRM integration with Data Exchange Framework)
+										 Salesforce (CRM integration with Data Exchange Framework)
+										 Facebook (Fed Auth with Facebook)
+										 MS (Fed Auth with Microsoft)
+										 example: <add key="integrations:define" value="Dynamics,Salesforce,Facebook,MS" />
 
-                                   Default value: None
-                                    -->
-        <add key="integrations:define" value="None" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+								   Default value: None
+									-->
+		<add key="integrations:define" value="None" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 
-    </appSettings>
+	</appSettings>
 
-    <location>
-        <system.webServer>
-            <httpProtocol>
-                <customHeaders>
-                    <add name="X-Robots-Tag" xdt:Transform="Insert" value="noindex"/>
-                    <add name="X-Demo-Version" xdt:Transform="Insert" value="{version}"/>
-                </customHeaders>
-            </httpProtocol>
-        </system.webServer>
-    </location>
+	<location>
+		<system.webServer>
+			<httpProtocol>
+				<customHeaders>
+					<add name="X-Robots-Tag" xdt:Transform="Insert" value="noindex"/>
+					<add name="X-Demo-Version" xdt:Transform="Insert" value="{version}"/>
+				</customHeaders>
+			</httpProtocol>
+		</system.webServer>
+	</location>
 
-    <system.web>
-        <!-- Change the hash algorithm for password encryption - https://doc.sitecore.com/developers/91/platform-administration-and-architecture/en/change-the-hash-algorithm-for-password-encryption.html -->
-        <membership xdt:Transform="SetAttributes" xdt:Locator="Match(defaultProvider)" defaultProvider="sitecore" hashAlgorithmType="SHA512"/>
-    </system.web>
+	<system.web>
+		<!-- Change the hash algorithm for password encryption - https://doc.sitecore.com/developers/91/platform-administration-and-architecture/en/change-the-hash-algorithm-for-password-encryption.html -->
+		<membership xdt:Transform="SetAttributes" xdt:Locator="Match(defaultProvider)" defaultProvider="sitecore" hashAlgorithmType="SHA512"/>
+
+		<!-- Disable custom errors to see the root cause of the issues -->
+		<customErrors mode="Off" xdt:Transform="Replace" />
+	</system.web>
+	<runtime>
+		<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+			<dependentAssembly xdt:Transform="InsertIfMissing" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='System.Diagnostics.DiagnosticSource')">
+				<assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral"/>
+				<bindingRedirect oldVersion="0.0.0.0-4.0.3.0" newVersion="4.0.2.1"/>
+			</dependentAssembly>
+		</assemblyBinding>
+	</runtime>
 </configuration>

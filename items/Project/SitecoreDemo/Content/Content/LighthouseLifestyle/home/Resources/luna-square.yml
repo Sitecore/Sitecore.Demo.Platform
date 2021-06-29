@@ -2,7 +2,7 @@
 ID: "c61ec9b4-f286-4017-9c7d-2c4616ccedc8"
 Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
 Template: "2479b730-e575-4600-baac-a22cf2d1e335"
-Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/luna-square"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/resources/luna-square"
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -65,6 +65,10 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{6AEC1BED-11C8-4C73-85EC-AD088AA5D254}" />
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: "{E1C52082-CAFE-4C9C-987A-62D4A16220FF}"
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: Luna Square Is Now Available on Amazon

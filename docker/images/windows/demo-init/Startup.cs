@@ -18,17 +18,19 @@ namespace Sitecore.Demo.Init
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddLogging(loggingBuilder => {
-				loggingBuilder.AddFile("app.log", false);
-				loggingBuilder.AddConsole();
-				loggingBuilder.AddFilter("Microsoft.EntityFrameworkCore.Database.Command", LogLevel.Warning);
-			});
-			
+			services.AddLogging(
+				loggingBuilder =>
+				{
+					loggingBuilder.AddFile("app.log", false);
+					loggingBuilder.AddConsole();
+					loggingBuilder.AddFilter("Microsoft.EntityFrameworkCore.Database.Command", LogLevel.Warning);
+				});
+
 			string connectionString = Configuration["INIT_CONTEXT"];
-			services.AddDbContext<InitContext>(options =>
-				options.UseSqlServer(connectionString));
+			services.AddDbContext<InitContext>(options => options.UseSqlServer(connectionString));
 
 			services.AddHostedService<JobManagementManagementService>();
+			services.AddTransient<IStateService, StateService>();
 		}
 	}
 }

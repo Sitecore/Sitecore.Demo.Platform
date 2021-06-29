@@ -2,7 +2,7 @@
 ID: "82c88d53-5c04-4bd0-a0be-fdf677805173"
 Parent: "e46577a6-680e-4d68-9bbc-0d05b9d34700"
 Template: "52db32bb-ad15-40cc-8264-f18eeb7c2e89"
-Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/Resources/healthy-eating-resources"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/resources/healthy-eating-resources"
 DB: master
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -63,6 +63,10 @@ Languages:
       Hint: Image
       Value: |
         <image mediaid="{C572C422-19D2-4F46-812C-659196B6D15A}" />
+    - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
+      Hint: __Semantics
+      Type: Multilist with Search
+      Value: "{EADD4822-ACE6-4DB9-8EF5-D773A52AFC53}"
     - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
       Hint: Title
       Value: Healthy Eating Resources
