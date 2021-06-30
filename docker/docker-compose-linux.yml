@@ -13,6 +13,7 @@ services:
         SPE_ASSETS: ${REGISTRY}community/modules/custom-spe-assets:6.2-linux
         SXA_ASSETS: ${REGISTRY}community/modules/custom-sxa-xp1-assets:${SITECORE_VERSION}-linux
         HEADLESS_ASSETS: ${REGISTRY}community/modules/custom-sitecore-headless-services-xp1-assets:16.0.0-linux
+        SPS_ASSETS: ${REGISTRY}community/modules/custom-sps-integration-xm1-assets:${SITECORE_VERSION}-linux
         DEF_ASSETS: ${REGISTRY}community/modules/custom-def-xp0-assets:6.0.0-linux
         SFCRM_ASSETS: ${REGISTRY}community/modules/custom-sfcrm-xp0-assets:6.0.0-linux
         SFMCBDE_ASSETS: ${REGISTRY}community/modules/custom-sfmcbde-xp0-assets:6.0.0-linux

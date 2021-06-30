@@ -3,6 +3,8 @@ ARG BASE_IMAGE
 ARG SPE_ASSETS
 ARG SXA_ASSETS
 ARG HEADLESS_ASSETS
+ARG SPS_ASSETS
+
 ARG DEF_ASSETS
 ARG SFCRM_ASSETS
 ARG SFMCBDE_ASSETS
@@ -16,6 +18,8 @@ ARG SITECORE_AI_DASHBOARD_ASSETS
 FROM ${SPE_ASSETS} as spe_assets
 FROM ${SXA_ASSETS} as sxa_assets
 FROM ${HEADLESS_ASSETS} as headless_assets
+FROM ${SPS_ASSETS} as sps_assets
+
 FROM ${DEF_ASSETS} as def_assets
 FROM ${SFCRM_ASSETS} as sfcrm_assets
 FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
@@ -48,6 +52,8 @@ RUN wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsof
 COPY --from=spe_assets /module/db /opt/wdp/spe
 COPY --from=sxa_assets /module/db /opt/wdp/sxa
 COPY --from=headless_assets /module/db /opt/wdp/headless
+COPY --from=sps_assets /module/db /opt/wdp/sps_assets
+
 COPY --from=def_assets /module/db /opt/wdp/def
 COPY --from=sfcrm_assets /module/db /opt/wdp/sfcrm
 COPY --from=sfmcbde_assets /module/db /opt/wdp/sfmcde
@@ -74,6 +80,7 @@ RUN mkdir -p /install \
     && ./opt/install-databases.sh /opt/wdp/spe \
     && ./opt/install-databases.sh /opt/wdp/sxa \
     && ./opt/install-databases.sh /opt/wdp/headless \
+    && ./opt/install-databases.sh /opt/wdp/sps_assets \
     && ./opt/install-databases.sh /opt/wdp/def \
     && ./opt/install-databases.sh /opt/wdp/cmp \
     && ./opt/install-databases.sh /opt/wdp/sfcrm \
