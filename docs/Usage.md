@@ -263,23 +263,28 @@ Ensure the Windows Docker engine has DNS servers configured:
 6. Click the "Apply & Restart" button to restart your Windows Docker engine.
 7. Retry the command that resulted in the error.
 
-### Windows Containers Unhealthy after compose
+### Windows Containers Unhealthy After Compose
 
 **Problem:**
 
-Sitecore runs base images with IIS and ServiceMonitor in Hyper-V isolation.  
+Sitecore runs base images with IIS and ServiceMonitor in Hyper-V isolation.
 
 **Cause:**
 
 The APPCMD process is what fails during compose.
 
-In IISConfigUtil.cpp line 231 there is a 5-second timeout for APPCMD to complete. Containers that run only IIS may achieve this, but with Sitecore, this time limit is quite optimistic
+In IISConfigUtil.cpp line 231 there is a 5-second timeout for APPCMD to complete. Containers that run only IIS may achieve this, but with Sitecore, this time limit is quite optimistic.
 
 [https://github.com/microsoft/IIS.ServiceMonitor](https://github.com/microsoft/IIS.ServiceMonitor)
 
 **Solution:**
 
-1. Find your Windows build number using Powershell `[Environment]::OSVersion.Version`
+1. Find your Windows build number using Powershell:
+
+   ```powershell
+   [Environment]::OSVersion.Version
+   ```
+
 2. Use this [table](https://en.wikipedia.org/wiki/Windows_10_version_history) to get the version
 
    | Build | Version | Release Date |
@@ -291,11 +296,12 @@ In IISConfigUtil.cpp line 231 there is a 5-second timeout for APPCMD to complete
    | 19042 | 20H2 | October 20, 2020 |
    | 19043 | 21H1 | TBA |
 
-3. `docker-compose down`  
-4. Change the `WINDOWSSERVERCORE_VERSION` variable in `.env` to the version that matches your host system version
-5. Change the `ISOLATION` variable to `process ` in the `.env` file
-6. `docker-compose pull`
-7. `docker-compose up -d`
+3. `docker-compose down`
+4. In `.env` file:
+   1. Change the `WINDOWSSERVERCORE_VERSION` variable value to the version that matches your host system version.
+   2. Change the `ISOLATION` variable value to `process`
+5. `docker-compose pull`
+6. `docker-compose up -d`
 
 ## Additional Settings
 
