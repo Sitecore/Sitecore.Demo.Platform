@@ -102,16 +102,16 @@ namespace Sitecore.Demo.Platform.Foundation.Workflow.Actions
 			text = text.Replace("$itemVersion$", args.DataItem.Version.ToString());
 			text = text.Replace("$hostname$", HttpContext.Current.Request.Url.Host);
 			text = text.Replace("$comment$", args.CommentFields["Comments"]);
-			text = text.Replace("$actionedby$", User.Current.Name);
+			text = text.Replace("$actionedBy$", User.Current.Name);
 
 			return text;
 		}
 
-		public static MailMessage AddRecipientsToMail(MailMessage mailMessage, string roleName)
+		public static MailMessage AddRecipientsToMail(MailMessage mailMessage, string principalName)
 		{
-			if (Role.Exists(roleName))
+			if (Role.Exists(principalName))
 			{
-				Role role = Role.FromName(roleName);
+				Role role = Role.FromName(principalName);
 				List<User> users = RolesInRolesManager.GetUsersInRole(role, true)
 					.Where(x => x.IsInRole(role))
 					.Where(user => !string.IsNullOrEmpty(user.Profile.Email))
@@ -122,14 +122,17 @@ namespace Sitecore.Demo.Platform.Foundation.Workflow.Actions
 					mailMessage.To.Add(user.Profile.Email);
 				}
 			}
-			else if (User.Exists(roleName))
+			else if (User.Exists(principalName))
 			{
-				User user = User.FromName(roleName, false);
-				mailMessage.To.Add(user.Profile.Email);
+				User user = User.FromName(principalName, false);
+				if (!string.IsNullOrEmpty(user.Profile.Email))
+				{
+					mailMessage.To.Add(user.Profile.Email);
+				}
 			}
 			else
 			{
-				Log.Error($"No Users with valid email addresses found in role {roleName}", typeof(SubmissionNotification));
+				Log.Error($"No Users with valid email addresses found in role {principalName}", typeof(SubmissionNotification));
 			}
 
 			return mailMessage;
