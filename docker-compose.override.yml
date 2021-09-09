@@ -236,7 +236,7 @@ services:
   smtp:
     image: maildev/maildev
     command: ["--smtp", "25", "--web", "80"]
-    isolation: ${ISOLATION}
+    isolation: ${SMTP_ISOLATION}
     ports:
       - "44025:25"
       - "44026:80"
