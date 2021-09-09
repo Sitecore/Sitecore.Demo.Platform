@@ -10,124 +10,129 @@ using Sitecore.Workflows.Simple;
 
 namespace Sitecore.Demo.Platform.Foundation.Workflow.Actions
 {
-    public class SubmissionNotification
-    {       
-        /// <summary>
-        /// Runs the processor.
-        /// </summary>
-        /// <param name="args">The arguments.</param>
-        public void Process(WorkflowPipelineArgs args)
-        {
-            Assert.ArgumentNotNull(args, "args");
-            ProcessorItem processorItem = args.ProcessorItem;
-            if (processorItem == null)
-            {
-                return;
-            }
+	public class SubmissionNotification
+	{
+		/// <summary>
+		/// Runs the processor.
+		/// </summary>
+		/// <param name="args">The arguments.</param>
+		public void Process(WorkflowPipelineArgs args)
+		{
+			Assert.ArgumentNotNull(args, "args");
+			ProcessorItem processorItem = args.ProcessorItem;
+			if (processorItem == null)
+			{
+				return;
+			}
 
-            Item innerItem = processorItem.InnerItem;
-                                                                  
-            string fromAddress = this.GetText(innerItem, "from", args);   
-            string mailServer = this.GetText(innerItem, "mail server", args);
-            string subject = this.GetText(innerItem, "subject", args);
-            string message = this.GetText(innerItem, "message", args);
-            string approversRole = GetText(innerItem, "approvers role", args);                                                                
+			Item innerItem = processorItem.InnerItem;
 
-            string actionPath = innerItem.Paths.FullPath;
-            Error.Assert(fromAddress.Length > 0, "The 'From' field is not specified in the mail action item: " + actionPath);
-            Error.Assert(subject.Length > 0, "The 'Subject' field is not specified in the mail action item: " + actionPath);
-            Error.Assert(mailServer.Length > 0, "The 'Mail server' field is not specified in the mail action item: " + actionPath);
-                                                             
-            message = ReplaceVariables(message, args);
+			string fromAddress = this.GetText(innerItem, "from", args);
+			string mailServer = this.GetText(innerItem, "mail server", args);
+			string subject = this.GetText(innerItem, "subject", args);
+			string message = this.GetText(innerItem, "message", args);
+			string approversRole = GetText(innerItem, "approvers role", args);
 
-            MailMessage mailMessage = new MailMessage
-            {
-                From = new MailAddress(fromAddress),
-                Subject = subject,
-                Body = message,
-                IsBodyHtml = true
-            };
+			string actionPath = innerItem.Paths.FullPath;
+			Error.Assert(fromAddress.Length > 0, "The 'From' field is not specified in the mail action item: " + actionPath);
+			Error.Assert(subject.Length > 0, "The 'Subject' field is not specified in the mail action item: " + actionPath);
+			Error.Assert(mailServer.Length > 0, "The 'Mail server' field is not specified in the mail action item: " + actionPath);
 
-            AddRecipientsToMail(mailMessage, approversRole);
+			message = ReplaceVariables(message, args);
 
-            try
-            {
-                SmtpClient smtpClient = new SmtpClient(mailServer);
-                smtpClient.Send(mailMessage);
-            }
-            catch (Exception ex)
-            {                      
-                Log.Error($"Failed to send mail: {ex.Message}", ex, typeof(SubmissionNotification));
-            }
-        }
+			MailMessage mailMessage = new MailMessage
+			{
+				From = new MailAddress(fromAddress),
+				Subject = subject,
+				Body = message,
+				IsBodyHtml = true
+			};
 
-        /// <summary>
-        /// Gets the text.
-        /// </summary>
-        /// <param name="commandItem">The command item.</param>
-        /// <param name="field">The field.</param>
-        /// <param name="args">The arguments.</param>
-        /// <returns></returns>
-        private string GetText(Item commandItem, string field, WorkflowPipelineArgs args)
-        {
-            string text = commandItem[field];
-            if (text.Length > 0)
-            {
-                return this.ReplaceVariables(text, args);
-            }
-            return string.Empty;
-        }
+			AddRecipientsToMail(mailMessage, approversRole);
 
-        /// <summary>
-        /// Replaces the variables.
-        /// </summary>
-        /// <param name="text">The text.</param>
-        /// <param name="args">The arguments.</param>
-        /// <returns></returns>
-        private string ReplaceVariables(string text, WorkflowPipelineArgs args)
-        {
-            Item contentItem = args.DataItem;
+			try
+			{
+				SmtpClient smtpClient = new SmtpClient(mailServer);
+				smtpClient.Send(mailMessage);
+			}
+			catch (Exception ex)
+			{
+				Log.Error($"Failed to send mail: {ex.Message}", ex, typeof(SubmissionNotification));
+			}
+		}
 
-            var contentWorkflow = contentItem.Database.WorkflowProvider.GetWorkflow(contentItem);
-            var contentHistory = contentWorkflow.GetHistory(contentItem);
+		/// <summary>
+		/// Gets the text.
+		/// </summary>
+		/// <param name="commandItem">The command item.</param>
+		/// <param name="field">The field.</param>
+		/// <param name="args">The arguments.</param>
+		/// <returns></returns>
+		private string GetText(Item commandItem, string field, WorkflowPipelineArgs args)
+		{
+			string text = commandItem[field];
+			if (text.Length > 0)
+			{
+				return this.ReplaceVariables(text, args);
+			}
+			return string.Empty;
+		}
 
-            if (contentHistory.Length > 0)
-            {
-                var lastUser = contentHistory.Last().User;
-                text = text.Replace("$submitter$", lastUser);
-            }
+		/// <summary>
+		/// Replaces the variables.
+		/// </summary>
+		/// <param name="text">The text.</param>
+		/// <param name="args">The arguments.</param>
+		/// <returns></returns>
+		private string ReplaceVariables(string text, WorkflowPipelineArgs args)
+		{
+			Item contentItem = args.DataItem;
 
-            text = text.Replace("$itemPath$", args.DataItem.Paths.FullPath);
-            text = text.Replace("$itemLanguage$", args.DataItem.Language.ToString());
-            text = text.Replace("$itemVersion$", args.DataItem.Version.ToString());
-            text = text.Replace("$hostname$", HttpContext.Current.Request.Url.Host);
-            text = text.Replace ( "$comment$" , args.CommentFields[ "Comments" ] );
+			var contentWorkflow = contentItem.Database.WorkflowProvider.GetWorkflow(contentItem);
+			var contentHistory = contentWorkflow.GetHistory(contentItem);
 
+			if (contentHistory.Length > 0)
+			{
+				var lastUser = contentHistory.Last().User;
+				text = text.Replace("$submitter$", lastUser);
+			}
 
-            return text;
-        }
+			text = text.Replace("$itemPath$", args.DataItem.Paths.FullPath);
+			text = text.Replace("$itemLanguage$", args.DataItem.Language.ToString());
+			text = text.Replace("$itemVersion$", args.DataItem.Version.ToString());
+			text = text.Replace("$hostname$", HttpContext.Current.Request.Url.Host);
+			text = text.Replace("$comment$", args.CommentFields["Comments"]);
+			text = text.Replace("$actionedby$", User.Current.Name);
 
-        public static MailMessage AddRecipientsToMail(MailMessage mailMessage, string roleName)
-        {      
-            if (Role.Exists(roleName))
-            {
-                Role role = Role.FromName(roleName);
-                List<User> users = RolesInRolesManager.GetUsersInRole(role, true)
-                    .Where(x => x.IsInRole(role))
-                    .Where(user => !string.IsNullOrEmpty(user.Profile.Email))
-                    .ToList();
+			return text;
+		}
 
-                foreach (User user in users)
-                {
-                    mailMessage.To.Add(user.Profile.Email);
-                }
-            }
-            else
-            {
-                Log.Error($"No Users with valid email addresses found in role {roleName}", typeof(SubmissionNotification));
-            }
+		public static MailMessage AddRecipientsToMail(MailMessage mailMessage, string roleName)
+		{
+			if (Role.Exists(roleName))
+			{
+				Role role = Role.FromName(roleName);
+				List<User> users = RolesInRolesManager.GetUsersInRole(role, true)
+					.Where(x => x.IsInRole(role))
+					.Where(user => !string.IsNullOrEmpty(user.Profile.Email))
+					.ToList();
 
-            return mailMessage;
-        }
-    }
+				foreach (User user in users)
+				{
+					mailMessage.To.Add(user.Profile.Email);
+				}
+			}
+			else if (User.Exists(roleName))
+			{
+				User user = User.FromName(roleName, false);
+				mailMessage.To.Add(user.Profile.Email);
+			}
+			else
+			{
+				Log.Error($"No Users with valid email addresses found in role {roleName}", typeof(SubmissionNotification));
+			}
+
+			return mailMessage;
+		}
+	}
 }
