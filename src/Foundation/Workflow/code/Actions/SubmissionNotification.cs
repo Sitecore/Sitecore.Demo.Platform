@@ -11,7 +11,7 @@ using Sitecore.Workflows.Simple;
 namespace Sitecore.Demo.Platform.Foundation.Workflow.Actions
 {
     public class SubmissionNotification
-    {       
+    {
         /// <summary>
         /// Runs the processor.
         /// </summary>
@@ -26,18 +26,18 @@ namespace Sitecore.Demo.Platform.Foundation.Workflow.Actions
             }
 
             Item innerItem = processorItem.InnerItem;
-                                                                  
-            string fromAddress = this.GetText(innerItem, "from", args);   
+
+            string fromAddress = this.GetText(innerItem, "from", args);
             string mailServer = this.GetText(innerItem, "mail server", args);
             string subject = this.GetText(innerItem, "subject", args);
             string message = this.GetText(innerItem, "message", args);
-            string approversRole = GetText(innerItem, "approvers role", args);                                                                
+            string approversRole = GetText(innerItem, "approvers role", args);
 
             string actionPath = innerItem.Paths.FullPath;
             Error.Assert(fromAddress.Length > 0, "The 'From' field is not specified in the mail action item: " + actionPath);
             Error.Assert(subject.Length > 0, "The 'Subject' field is not specified in the mail action item: " + actionPath);
             Error.Assert(mailServer.Length > 0, "The 'Mail server' field is not specified in the mail action item: " + actionPath);
-                                                             
+
             message = ReplaceVariables(message, args);
 
             MailMessage mailMessage = new MailMessage
@@ -56,7 +56,7 @@ namespace Sitecore.Demo.Platform.Foundation.Workflow.Actions
                 smtpClient.Send(mailMessage);
             }
             catch (Exception ex)
-            {                      
+            {
                 Log.Error($"Failed to send mail: {ex.Message}", ex, typeof(SubmissionNotification));
             }
         }
@@ -101,17 +101,17 @@ namespace Sitecore.Demo.Platform.Foundation.Workflow.Actions
             text = text.Replace("$itemLanguage$", args.DataItem.Language.ToString());
             text = text.Replace("$itemVersion$", args.DataItem.Version.ToString());
             text = text.Replace("$hostname$", HttpContext.Current.Request.Url.Host);
-            text = text.Replace ( "$comment$" , args.CommentFields[ "Comments" ] );
-
+            text = text.Replace("$comment$", args.CommentFields["Comments"]);
+            text = text.Replace("$actionedBy$", User.Current.Name);
 
             return text;
         }
 
-        public static MailMessage AddRecipientsToMail(MailMessage mailMessage, string roleName)
-        {      
-            if (Role.Exists(roleName))
+        public static MailMessage AddRecipientsToMail(MailMessage mailMessage, string principalName)
+        {
+            if (Role.Exists(principalName))
             {
-                Role role = Role.FromName(roleName);
+                Role role = Role.FromName(principalName);
                 List<User> users = RolesInRolesManager.GetUsersInRole(role, true)
                     .Where(x => x.IsInRole(role))
                     .Where(user => !string.IsNullOrEmpty(user.Profile.Email))
@@ -122,9 +122,17 @@ namespace Sitecore.Demo.Platform.Foundation.Workflow.Actions
                     mailMessage.To.Add(user.Profile.Email);
                 }
             }
+            else if (User.Exists(principalName))
+            {
+                User user = User.FromName(principalName, false);
+                if (!string.IsNullOrEmpty(user.Profile.Email))
+                {
+                    mailMessage.To.Add(user.Profile.Email);
+                }
+            }
             else
             {
-                Log.Error($"No Users with valid email addresses found in role {roleName}", typeof(SubmissionNotification));
+                Log.Error($"No users with valid email addresses found in security principal {principalName}", typeof(SubmissionNotification));
             }
 
             return mailMessage;
