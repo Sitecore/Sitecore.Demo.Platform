@@ -32,7 +32,6 @@ services:
         TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         SITECORE_AI_ASSETS: adoprog/custom-sitecore-ai-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
         SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp0-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-
     depends_on:
       - solution
 
@@ -113,6 +112,7 @@ services:
         SPS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sps-integration-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         CMP_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xp1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         SFCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfcrm-xp0-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp1-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         SITECORE_AI_ASSETS: adoprog/custom-sitecore-ai-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
     depends_on:
@@ -156,3 +156,11 @@ services:
       args:
         BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
         BASE_IMAGE: mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-${NANOSERVER_VERSION}
+
+  tenantservice:
+    image: ${REGISTRY}demo/lighthouse-xp0-tenant-service:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    build:
+      context: .\docker\images\windows\demo-tenantservice
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-tenant-service:6.0.0-${WINDOWSSERVERCORE_VERSION}
+        SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp0-assets:6.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}

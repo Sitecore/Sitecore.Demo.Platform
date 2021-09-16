@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense">
+  <Sitecore.Shell.Applications.Dialogs.JourneySelector>
+    <FormDialog Header="Salesforce Marketing Cloud Journey List" Text="Select a Journey." Icon="People/32x32/clock.png">
+      <CodeBeside Type="Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.Dialogs.JourneyListDialog, Sitecore.DataExchange.XConnect.SalesforceMarketingCloud" />
+
+      <div style="text-align: center;">
+        <Edit ID="HtmlInputHiddenPostValue" Value="" />
+        <Edit ID="PageNumberHidden" Value="1" />
+        <Literal ID="NoDataLiteral" class="scFieldLabel sc-text-title" style="display:none;" Text="No data." />
+        <Listview ID="ListView" View="Details" style="overflow:inherit;height:auto;"></Listview>
+      </div>
+      <div style="text-align: center; margin-top:10px">
+        <Button ID="PrevPageButton" style="float:left;">Previous Page</Button>
+        <span style="width:70%;"></span>
+        <Button ID="NextPageButton" style="float:right;">Next Page</Button>
+      </div>
+
+    </FormDialog>
+  </Sitecore.Shell.Applications.Dialogs.JourneySelector>
+</control>

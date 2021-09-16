@@ -1,0 +1,29 @@
+﻿---
+ID: "9e22ffd6-1db1-438c-b3e1-85cfaf6558bf"
+Parent: "c6a3a47d-359d-4a9a-bb4b-23d931bed193"
+Template: "f18e6413-ec6b-483a-b251-7160fb1ad966"
+Path: /sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Object Definitions/Data Extension Templates/Email Studio Template/Country Code
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "3bf98af6-a4cd-433d-a28e-494bfcc4c7ce"
+  Hint: Length
+  Value: 50
+- ID: "70fd8b01-1c07-4afa-86de-231f145505dc"
+  Hint: Name
+  Value: countryCode
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{9E22FFD6-1DB1-438C-B3E1-85CFAF6558BF}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123929Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

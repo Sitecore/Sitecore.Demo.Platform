@@ -1,0 +1,39 @@
+﻿---
+ID: "dea38990-25f4-4019-b713-fd0c6eb96d53"
+Parent: "eb2dc33d-4860-4710-b1b5-6a9f41ced87c"
+Template: "50f8d545-6d71-49b8-8e6c-3df66887e8a7"
+Path: /sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Requests/Data Folders/Retrieve Data Folders
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "10320ff8-d7f5-448d-bab7-1ad835e3184a"
+  Hint: BaseUri
+  Value: "{FDAED2A4-8B8B-4B0D-817F-E54793B7CDC4}"
+- ID: "1a99ac2f-43a9-46d7-9a0d-fed96dd04558"
+  Hint: Content
+  Value: "{4B2A57E2-754C-4A4E-A3B0-F27003A3C182}"
+- ID: "97dfbbbc-56ca-4881-acf7-d11aa300cc2f"
+  Hint: Headers
+  Type: Treelist
+  Value: "{C73AC9AA-D41E-4CA0-AB93-D3A0A34FF9D3}"
+- ID: "a00ef673-63c4-4ee6-8260-7a6c278b3635"
+  Hint: Path
+  Value: Service.asmx
+- ID: "dde3586e-85e4-4b33-8662-94062fb85298"
+  Hint: HttpMethod
+  Value: POST
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{DEA38990-25F4-4019-B713-FD0C6EB96D53}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123939Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,0 +1,35 @@
+﻿---
+ID: "7e1c6fbc-5f3b-4409-ac41-dfebca255824"
+Parent: "0fe33be6-ae6f-47d6-96f6-1797a6920a8d"
+Template: "92c0bd17-0742-41e3-b9f4-5ca146825f32"
+Path: "/sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Contents/Data Extension Records/Execute Queue - xDB Contacts For Removal"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "31bf9e6f-9dab-483d-a810-8866d4432060"
+  Hint: DataExtension
+  Value: "{343D6D89-F752-4FB9-9FD5-806547FBE8E9}"
+- ID: "3bd83629-b06f-4a92-868e-6c3197cea5c7"
+  Hint: HeaderXElementBuilder
+  Value: "{0CA0BAC2-87F9-4B50-B984-189A5493A03C}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 850
+- ID: "f5c47a01-b54c-46a6-b816-17268eba56d9"
+  Hint: QueueKey
+  Value: xdb_contacts_for_removal
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{7E1C6FBC-5F3B-4409-AC41-DFEBCA255824}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123925Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

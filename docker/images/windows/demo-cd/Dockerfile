@@ -9,6 +9,7 @@ ARG SPS_ASSETS
 
 ARG CMP_ASSETS
 ARG SFCRM_ASSETS
+ARG SFMCBDE_ASSETS
 ARG SITECORE_AI_ASSETS
 ARG SOLUTION_IMAGE
 
@@ -20,6 +21,7 @@ FROM ${SPS_ASSETS} as sps_assets
 
 FROM ${CMP_ASSETS} as cmp_assets
 FROM ${SFCRM_ASSETS} as sfcrm_assets
+FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
 FROM ${SITECORE_AI_ASSETS} as sitecore_ai_assets
 
 FROM ${SOLUTION_IMAGE} as solution
@@ -46,6 +48,8 @@ COPY --from=sps_assets /module/cm/content /inetpub/wwwroot
 
 COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
 COPY --from=sfcrm_assets /module/cm/content /inetpub/wwwroot
+COPY --from=sfmcbde_assets /module/cm/content/App_Config/Sitecore/DataExchange/SalesforceMarketingCloud /inetpub/wwwroot/App_Config/Sitecore/DataExchange/SalesforceMarketingCloud
+COPY --from=sfmcbde_assets /module/cm/content/bin/Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.dll /inetpub/wwwroot/bin
 COPY --from=sitecore_ai_assets /module/cm/content /inetpub/wwwroot
 
 # https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls

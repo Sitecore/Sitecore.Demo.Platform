@@ -1,0 +1,41 @@
+﻿---
+ID: "c4bc4891-f001-4df5-8318-6a74a8c6fe1a"
+Parent: "4122bb2b-3b7d-4b10-9ac8-f783bc808a2d"
+Template: "1ac944b3-994d-48e0-87c3-baed7f0fe666"
+Path: /sitecore/content/SFMC Tenant/Pipelines/SFMC To Sitecore Sync/Push SFMC Contact Status To XConnect And Journey Reference Data/Add xDB Journey Reference Data Client
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "549d7f4e-ffdb-475d-a2fe-a97606f8020a"
+  Hint: BatchEntryStoragePluginLocation
+  Value: "{ADDE6B1E-20CD-4DE7-BFFA-14426395BA91}"
+- ID: "710d2e83-b83a-41c7-a170-6b6a7eac62e9"
+  Hint: Endpoint
+  Value: "{275E918F-F53C-4E57-9BD3-9FCDC93D1FB8}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: "-350"
+- ID: "db8eb53d-375b-4b60-b06b-6669b8f56d32"
+  Hint: DefinitionTypeName
+  Value: Salesforce Marketing Journey
+- ID: "de77131a-9ecb-42a4-bd30-be0c58a0cd93"
+  Hint: CommonDataType
+  Value: "{7DE8920B-A6AE-4AB9-B877-06469D5C9D6E}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{C4BC4891-F001-4DF5-8318-6A74A8C6FE1A}"
+- ID: "fa79cd0e-c81f-4e93-bbbb-309487169957"
+  Hint: CultureDataType
+  Value: "{7DE8920B-A6AE-4AB9-B877-06469D5C9D6E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123915Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

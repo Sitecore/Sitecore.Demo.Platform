@@ -1,0 +1,29 @@
+﻿---
+ID: "60027ba8-a3a1-47a9-9586-fccc9bf61657"
+Parent: "4b43aa1c-4d82-41e0-9e45-671c856e236c"
+Template: "f126adfc-cad9-43c0-b7c6-a6ee9aab8711"
+Path: "/sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Conditions/Data Extension Records/Is Queue Full - Outdated Dynamic Memberships For Removal"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 850
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{60027BA8-A3A1-47A9-9586-FCCC9BF61657}"
+- ID: "f9a6a9f2-bbd5-409f-b02a-0dc058206ef8"
+  Hint: QueueKey
+  Value: outdated_dynamic_memberships_removal
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123922Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous
