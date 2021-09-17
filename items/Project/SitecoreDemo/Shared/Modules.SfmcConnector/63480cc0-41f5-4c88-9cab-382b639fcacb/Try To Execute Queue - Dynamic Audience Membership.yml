@@ -1,0 +1,36 @@
+﻿---
+ID: "12d2f117-66da-432d-bbba-64e8ff843eba"
+Parent: "63480cc0-41f5-4c88-9cab-382b639fcacb"
+Template: "587f891a-8df6-444c-89d1-b3ab83cffb63"
+Path: "/sitecore/content/SFMC Tenant/Pipelines/Email Studio/Process Single Audience Membership/Try To Execute Queue - Dynamic Audience Memberships Upsert"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "7914afe0-3f94-4029-8997-d7740c2ff1dc"
+  Hint: Endpoint
+  Value: "{B5518E03-2F1C-4A6B-80DB-119D93577429}"
+- ID: "9b1aedfc-7599-4040-9e5e-32debc185592"
+  Hint: Conditions
+  Type: Treelist
+  Value: "{C8D5BDA2-BC83-432E-8DD4-0DF9680CF338}"
+- ID: "b03c77b6-da59-451b-ac78-7a260f2840f2"
+  Hint: Request
+  Value: "{1E701733-0FF5-46E8-B878-49F535BAAE27}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{12D2F117-66DA-432D-BBBA-64E8FF843EBA}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123903Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

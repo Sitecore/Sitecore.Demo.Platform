@@ -1,0 +1,54 @@
+﻿---
+ID: "cb02a388-6e08-4ecf-9948-526f6f69d129"
+Parent: "0fe33be6-ae6f-47d6-96f6-1797a6920a8d"
+Template: "76f89f7a-7a02-4f20-9183-cb79e8b81c37"
+Path: "/sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Contents/Data Extension Records/Retrieve Outdated Records - Dynamic Memberships"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "1534f6e5-616e-47c8-bf2e-1c3cd67ffcaa"
+  Hint: IncludePrimaryKeyFields
+  Type: Checkbox
+  Value: 1
+- ID: "31bf9e6f-9dab-483d-a810-8866d4432060"
+  Hint: DataExtension
+  Value: "{C6A3A47D-359D-4A9A-BB4B-23D931BED193}"
+- ID: "3bacc38e-49a2-48c1-bf6c-47ccad989448"
+  Hint: CompareToObjectLocationId
+  Value: "{252FC7D6-BF86-445F-A952-7B9268A47FDA}"
+- ID: "3bd83629-b06f-4a92-868e-6c3197cea5c7"
+  Hint: HeaderXElementBuilder
+  Value: "{0CA0BAC2-87F9-4B50-B984-189A5493A03C}"
+- ID: "41258a5f-7508-4b79-a9a8-e2f40e4b059f"
+  Hint: CompareToObjectValueAccessor
+  Value: "{FD6ACC1A-F744-485D-A6D6-F42A5A58A66B}"
+- ID: "45b0ef79-6403-4103-b14b-a9422960a064"
+  Hint: DataExtensionFilterField
+  Value: "{09CA21CB-7B75-4941-A235-FA87EF0D9E3F}"
+- ID: "5302a704-42f3-4923-b1cd-bcb9e0d3c2be"
+  Hint: CustomerKeyAttributeValueAccessor
+  Value: "{5C14758A-B1AA-46D8-89A2-C9B443A06E28}"
+- ID: "5470c3a4-a9c3-4560-a347-0ff28fee50ab"
+  Hint: ObjectLocation
+  Value: "{17DF1143-A38D-4C77-A933-E66B5ED21E9A}"
+- ID: "a4c5ad6d-17e1-4d4c-bedf-80d641fbc534"
+  Hint: FilterOperation
+  Value: lessThan
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1300
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{CB02A388-6E08-4ECF-9948-526F6F69D129}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123927Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

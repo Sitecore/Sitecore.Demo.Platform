@@ -1,0 +1,32 @@
+﻿---
+ID: "8a525ce8-f781-47c1-ab74-70975f5b0269"
+Parent: "c3fa1519-8f23-44d1-ad6b-cb0d5748a4f0"
+Template: "2703d110-40e4-48a7-8c02-4bf52a4c3f66"
+Path: /sitecore/content/SFMC Tenant/Pipelines/Email Studio/Clean Outdated Audience Definitions/Calculate Removed Marketing Lists
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "6533ffbf-e2c2-40a8-bb39-0826e32293b2"
+  Hint: DataExtensionTemplate
+  Value: "{C6A3A47D-359D-4A9A-BB4B-23D931BED193}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "eab94e93-058c-4506-93b4-e4aa882566d3"
+  Hint: WriteToLocationId
+  Value: "{84F3ABCC-1E40-489C-9DA4-16BABC820091}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{8A525CE8-F781-47C1-AB74-70975F5B0269}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123903Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

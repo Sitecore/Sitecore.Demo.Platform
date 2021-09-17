@@ -1,0 +1,36 @@
+﻿---
+ID: "95ba7e8d-1841-4ef0-85d5-c0a5f22cc4a4"
+Parent: "90f9cbde-d656-4c66-9b17-aa593e302a96"
+Template: "75ac60b4-2e0d-4a16-ac6b-35b8c0311032"
+Path: /sitecore/content/SFMC Tenant/Tenant Service Endpoints/Push MA Contact to SFMC
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "3460927e-d33b-4c09-8b9b-c074b3f6cd10"
+  Hint: PipelineContextBuilder
+  Value: "{CF1D13AD-0D42-4A0E-AAA8-B59D5AD7C0F2}"
+- ID: "506bad49-3da6-474c-acb5-7bcb509bfbd7"
+  Hint: Enabled
+  Type: Checkbox
+  Value: 1
+- ID: "51a235b2-509a-4be6-8e96-84eecc0babbb"
+  Hint: Pipeline
+  Value: "{97CABB88-3DE6-447F-A23B-B26E45EC15CB}"
+- ID: "a98238ed-11ba-4d63-967e-2533be39f40a"
+  Hint: RequestValueReader
+  Value: "{7ED41FC5-BC0B-41A1-B915-4AEE7A38AD24}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{95BA7E8D-1841-4EF0-85D5-C0A5F22CC4A4}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123955Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

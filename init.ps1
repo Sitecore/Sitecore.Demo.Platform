@@ -105,6 +105,7 @@ Add-HostsEntry "cm.lighthouse.localhost"
 Add-HostsEntry "cd.lighthouse.localhost"
 Add-HostsEntry "id.lighthouse.localhost"
 Add-HostsEntry "sh.lighthouse.localhost"
+Add-HostsEntry "ts.lighthouse.localhost"
 Add-HostsEntry "www.lighthouse.localhost"
 
 
@@ -129,6 +130,9 @@ if ($InitEnv) {
 
     # SH_HOST
     Set-DockerComposeEnvFileVariable "SH_HOST" -Value "sh.lighthouse.localhost"
+
+    # TS_HOST
+    Set-DockerComposeEnvFileVariable "TS_HOST" -Value "ts.lighthouse.localhost"
 
     # RENDERING_HOST
     Set-DockerComposeEnvFileVariable "RENDERING_HOST" -Value "www.lighthouse.localhost"
@@ -161,6 +165,9 @@ if ($InitEnv) {
 
     # MEDIA_REQUEST_PROTECTION_SHARED_SECRET = random 64 chars
     Set-DockerComposeEnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
+
+    # SITECORE_CLIENT_SECRET = random 64 chars
+    Set-DockerComposeEnvFileVariable "SITECORE_CLIENT_SECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
 }
 
 Write-Host "Done!" -ForegroundColor Green

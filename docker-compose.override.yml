@@ -51,6 +51,7 @@ services:
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup2: https://${SH_HOST}|http://${SH_HOST}
+      Sitecore_Sitecore__IdentityServer__Clients__CredentialsClient__ClientSecrets__TenantService: ${SITECORE_CLIENT_SECRET}
     networks:
       - demo
 
@@ -75,6 +76,7 @@ services:
       SITECORE_CONNECTIONSTRINGS_SFMC: ${SFMC_CONNECTIONSTRING}
       SITECORE_CONNECTIONSTRINGS_SFDC: ${SFDC_CONNECTIONSTRING}
       SITECORE_CONNECTIONSTRINGS_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
+      SITECORE_CONNECTIONSTRINGS_tenantservice: http://tenantservice
       EXM_RENDERER_URL: http://cm
       Sitecore_Horizon_ClientHost: https://${SH_HOST}
       HOST_CD: http://cd
@@ -110,7 +112,7 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\data\xconnect\src:C:\src
     environment:
-      SITECORE_LICENSE_LOCATION: ${HOST_LICENSE_FOLDER}
+      SITECORE_LICENSE_LOCATION: c:\license
     depends_on:
       mssql:
         condition: service_healthy
@@ -126,7 +128,7 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\data\indexworker\src:C:\src
     environment:
-      SITECORE_LICENSE_LOCATION: ${HOST_LICENSE_FOLDER}
+      SITECORE_LICENSE_LOCATION: c:\license
     networks:
       - demo
 
@@ -135,7 +137,7 @@ services:
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
-      SITECORE_LICENSE_LOCATION: ${HOST_LICENSE_FOLDER}
+      SITECORE_LICENSE_LOCATION: c:\license
     networks:
       - demo
 
@@ -236,7 +238,7 @@ services:
   smtp:
     image: maildev/maildev
     command: ["--smtp", "25", "--web", "80"]
-    isolation: ${ISOLATION}
+    isolation: ${SMTP_ISOLATION}
     ports:
       - "44025:25"
       - "44026:80"
@@ -316,6 +318,35 @@ services:
       demo:
         aliases:
           - ${SH_HOST}
+
+  tenantservice:
+    image: ${REGISTRY}demo/lighthouse-xp0-tenant-service:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    depends_on:
+      id:
+        condition: service_healthy
+      cm:
+        condition: service_healthy
+    environment:
+      TenantService_ConnectionStrings_sitecore: database=master;tenant id=${SITECORE_TENANT_ID};host=http://cm;timeout=20;auth endpoint=http://id/;client secret=${SITECORE_CLIENT_SECRET};client id=${SITECORE_CLIENT_ID}
+      TenantService_ConnectionStrings_xconnect.collection: http://xconnect
+      TenantService_ConnectionStrings_Xdb.ReferenceData.Client: http://xconnect
+      TenantService_ConnectionStrings_sfmc: ${SFMC_CONNECTIONSTRING}
+      TenantService_SfmcJourney_ExecuteUrl: ${TENANT_SERVICE_CONFIG_EXECUTE_URL}
+    healthcheck:
+      test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
+      timeout: 300s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
+      - "traefik.http.routers.ts-secure.entrypoints=websecure"
+      - "traefik.http.routers.ts-secure.rule=Host(`${TS_HOST}`)"
+      - "traefik.http.routers.ts-secure.tls=true"
+      - "traefik.http.routers.ts-secure.middlewares=force-STS-Header"
+      - "traefik.http.services.ts.loadbalancer.server.port=80"
+    networks:
+      - demo
+
 networks:
   demo:
     external: true

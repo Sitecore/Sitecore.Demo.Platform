@@ -4,7 +4,29 @@
     <IdentityServer>
       <SitecoreMembershipOptions>
         <PasswordHashAlgorithm xdt:Transform="Replace">SHA512</PasswordHashAlgorithm>
-      </SitecoreMembershipOptions> 
+      </SitecoreMembershipOptions>
+
+      <Clients>
+        <CredentialsClient xdt:Transform="InsertIfMissing">
+          <ClientId>SitecoreCredentials</ClientId>
+          <ClientName>SitecoreCredentials</ClientName>
+          <AccessTokenLifetimeInSeconds>3600</AccessTokenLifetimeInSeconds>
+          <IdentityTokenLifetimeInSeconds>3600</IdentityTokenLifetimeInSeconds>
+          <AllowAccessTokensViaBrowser>true</AllowAccessTokensViaBrowser>
+          <RequireClientSecret>true</RequireClientSecret>
+          <AllowedGrantTypes>
+            <AllowedGrantType1>client_credentials</AllowedGrantType1>
+          </AllowedGrantTypes>
+          <AllowedCorsOrigins>
+          </AllowedCorsOrigins>
+          <AllowedScopes>
+            <AllowedScope1>sitecore.profile.api</AllowedScope1>
+          </AllowedScopes>
+          <ClientSecrets>
+            <TenantService></TenantService>
+          </ClientSecrets>
+        </CredentialsClient>
+      </Clients>
     </IdentityServer>
   </Sitecore>
 </Settings>

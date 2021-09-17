@@ -1,0 +1,30 @@
+﻿---
+ID: "d2cda332-60f7-4d7c-8915-3e3bbb9a2bb7"
+Parent: "697afb78-c369-418c-948f-327d1d5791e1"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: "/sitecore/content/SFMC Tenant/Value Mapping Sets/MA Json Contact to SFMC/MA Json Event Details - To Flat Object/Event Definition Key"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{F9C9350B-D3DD-4055-B311-6AA65CD87847}"
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{EB656A4E-2A80-4555-A448-F1F3DF24D242}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D2CDA332-60F7-4D7C-8915-3E3BBB9A2BB7}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123955Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

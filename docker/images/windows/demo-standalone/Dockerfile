@@ -72,6 +72,9 @@ COPY --from=solution /solution/cm/ /inetpub/wwwroot/
 COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
 COPY ./tools/ /tools/
 
+# Fix for missing file in asset image
+COPY JourneyListDialog.xml /inetpub/wwwroot/sitecore/shell/Applications/Dialogs/DataExchangeFramework/JourneyListDialog.xml
+
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # Enable GraphQL enpoints for Sitecore databases from example config files - Requires JSS to be installed

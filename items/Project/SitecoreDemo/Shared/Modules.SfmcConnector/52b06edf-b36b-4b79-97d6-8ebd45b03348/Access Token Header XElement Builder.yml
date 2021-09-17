@@ -1,0 +1,36 @@
+﻿---
+ID: "0ca0bac2-87f9-4b50-b984-189a5493a03c"
+Parent: "52b06edf-b36b-4b79-97d6-8ebd45b03348"
+Template: "2dcd8201-7a88-4b3c-b18a-29ab44ce7acb"
+Path: /sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/XElements/Headers/Access Token Header XElement Builder
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "7914afe0-3f94-4029-8997-d7740c2ff1dc"
+  Hint: Endpoint
+  Value: "{B5518E03-2F1C-4A6B-80DB-119D93577429}"
+- ID: "9b1aedfc-7599-4040-9e5e-32debc185592"
+  Hint: Conditions
+  Type: Treelist
+  Value: "{E6CB7485-FB36-46A4-B2AF-89B2A7F8A285}"
+- ID: "b03c77b6-da59-451b-ac78-7a260f2840f2"
+  Hint: Request
+  Value: "{73510216-B24C-4267-B83C-7025D5B6C813}"
+- ID: "c4b3f904-3654-4899-af67-0629628c1ef9"
+  Hint: ResponseHandler
+  Value: "{907872E2-8EDA-472F-A2BC-B40ADD7BB463}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{0CA0BAC2-87F9-4B50-B984-189A5493A03C}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123942Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

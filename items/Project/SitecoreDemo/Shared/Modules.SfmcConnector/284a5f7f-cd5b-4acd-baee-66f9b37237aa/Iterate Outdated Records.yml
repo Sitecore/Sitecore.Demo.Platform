@@ -1,0 +1,30 @@
+﻿---
+ID: "2d8d1f7c-dfba-4d7a-a6f2-0fe8444f497f"
+Parent: "284a5f7f-cd5b-4acd-baee-66f9b37237aa"
+Template: "0fd90877-c5a1-4a9a-b7d5-a8469cfa89b1"
+Path: /sitecore/content/SFMC Tenant/Pipelines/Email Studio/Process Single List To Clean Outdated Memberships/Iterate Outdated Records
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "585fe5a4-68d8-4c1e-8056-635f3d73d723"
+  Hint: Pipelines
+  Type: Treelist
+  Value: "{883D2A22-D1B7-40E0-97CE-E2B52539E152}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 350
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{2D8D1F7C-DFBA-4D7A-A6F2-0FE8444F497F}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123906Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

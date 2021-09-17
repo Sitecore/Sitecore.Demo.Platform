@@ -22,7 +22,7 @@ $coveoVersion = Get-VariableValue -List $envFile -VariableName "COVEO_VERSION"
 $sitecoreVersion = Get-VariableValue -List $envFile -VariableName "SITECORE_VERSION"
 $nanoserverVersion = Get-VariableValue -List $envFile -VariableName "NANOSERVER_VERSION"
 
-$imageName = "${registry}community/modules/custom-coveo${coveoVersion}-assets:${sitecoreVersion}-${nanoserverVersion}"
+$imageName = "${registry}community/modules/custom-coveo${coveoVersion}-assets:10.0.1-${nanoserverVersion}"
 $containerName = "coveo_assets"
 $sourceFolder = "/module/cm/content/bin"
 $destination = "./lib"
