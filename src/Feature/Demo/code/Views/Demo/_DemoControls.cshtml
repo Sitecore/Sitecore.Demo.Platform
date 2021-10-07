@@ -1,0 +1,31 @@
+﻿@using Sitecore.Demo.Platform.Foundation.Dictionary.Extensions
+@model Sitecore.Demo.Platform.Feature.Demo.Models.DemoControls
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a type="button" href="#demoControlsPanel" class="panel-title" data-parent="#experiencedata">
+				<span class="fa fa-cog"></span>
+				@Html.Sitecore().DictionaryField("/Demo/Demo Controls/Demo Controls", "Demo Controls")
+				<i class="fa fa-chevron-down pull-right" aria-hidden="true"></i>
+			</a>
+		</h3>
+	</div>
+	<div id="demoControlsPanel" class="panel-collapse">
+		<div class="panel-body">
+			<div class="media">
+				<div class="media-left">
+					<span class="fa fa-users"></span>
+				</div>
+				<div class="media-body ">
+					<h4 class="media-title">
+						@Html.Sitecore().DictionaryField("/Demo/Demo Controls/Personalization", "Personalization")
+						<label class="switch pull-right">
+							@Html.CheckBoxFor(model => model.TogglePersonalization)
+							<span class="slider round"></span>
+						</label>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
