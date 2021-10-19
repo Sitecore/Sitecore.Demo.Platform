@@ -103,14 +103,6 @@ stages:
               poolName: "docker-ltsc2019-agents"
               osVersion: "ltsc2019"
               nanoserverVersion: "1809"
-            windows2004:
-              poolName: "docker-2004-agents"
-              osVersion: "2004"
-              nanoserverVersion: "2004"
-            20H2:
-              poolName: "docker-20H2-agents"
-              osVersion: "20H2"
-              nanoserverVersion: "20H2"
         workspace:
           clean: all
         pool:
@@ -187,13 +179,6 @@ stages:
       - job: Build_Platform
         strategy:
           matrix:
-            windows2004-xp0:
-              poolName: "docker-2004-agents"
-              osVersion: "2004"
-              nanoserverVersion: "2004"
-              docker-compose: 'docker-compose.yml'
-              docker-compose-build: 'docker-compose.build.yml'
-              topology: 'xp0'
             ltsc2019-xp0:
               poolName: "docker-ltsc2019-agents"
               osVersion: "ltsc2019"
@@ -201,31 +186,10 @@ stages:
               docker-compose: 'docker-compose.yml'
               docker-compose-build: 'docker-compose.build.yml'
               topology: 'xp0'
-            20H2-xp0:
-              poolName: "docker-20H2-agents"
-              osVersion: "20H2"
-              nanoserverVersion: "20H2"
-              docker-compose: 'docker-compose.yml'
-              docker-compose-build: 'docker-compose.build.yml'
-              topology: 'xp0'
-            windows2004-xp1:
-              poolName: "docker-2004-agents"
-              osVersion: "2004"
-              nanoserverVersion: "2004"
-              docker-compose: 'docker-compose-xp1.yml'
-              docker-compose-build: 'docker-compose-xp1.build.yml'
-              topology: 'xp1'
             ltsc2019-xp1:
               poolName: "docker-ltsc2019-agents"
               osVersion: "ltsc2019"
               nanoserverVersion: "1809"
-              docker-compose: 'docker-compose-xp1.yml'
-              docker-compose-build: 'docker-compose-xp1.build.yml'
-              topology: 'xp1'
-            20H2-xp1:
-              poolName: "docker-20H2-agents"
-              osVersion: "20H2"
-              nanoserverVersion: "20H2"
               docker-compose: 'docker-compose-xp1.yml'
               docker-compose-build: 'docker-compose-xp1.build.yml'
               topology: 'xp1'
