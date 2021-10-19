@@ -10,6 +10,7 @@ ARG SPS_ASSETS
 
 ARG DEF_ASSETS
 ARG SFCRM_ASSETS
+ARG DCRM_ASSETS
 ARG SFMCBDE_ASSETS
 ARG SFMCCE_ASSETS
 ARG CMP_ASSETS
@@ -25,6 +26,7 @@ FROM ${SPS_ASSETS} as sps_assets
 
 FROM ${DEF_ASSETS} as def_assets
 FROM ${SFCRM_ASSETS} as sfcrm_assets
+FROM ${DCRM_ASSETS} as dcrm_assets
 FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
 FROM ${SFMCCE_ASSETS} as sfmcce_assets
 FROM ${CMP_ASSETS} as cmp_assets
@@ -46,6 +48,7 @@ COPY --from=sps_assets /module/db /module_data/sps_assets
 
 COPY --from=def_assets /module/db /module_data/def_assets
 COPY --from=sfcrm_assets /module/db /module_data/sfcrm_assets
+COPY --from=dcrm_assets /module/db /module_data/dcrm_assets
 COPY --from=sfmcbde_assets /module/db /module_data/sfmcbde_assets
 COPY --from=sfmcce_assets /module/db /module_data/sfmcce_assets
 COPY --from=cmp_assets /module/db /module_data/cmp_assets
@@ -54,7 +57,10 @@ COPY --from=xgen_assets /module/db /module_data/xgen_assets
 COPY --from=sitecore_ai_assets /module/db /module_data/sitecore_ai_assets
 COPY --from=sitecore_ai_dashboard_assets /module/db /module_data/sitecore_ai_dashboard_assets
 
-RUN $modules = @('spe_assets','sxa_assets','headless_assets','sps_assets','def_assets', 'sfcrm_assets', 'sfmcbde_assets', 'sfmcce_assets', 'cmp_assets', 'horizon_integration_assets', 'xgen_assets', 'sitecore_ai_assets', 'sitecore_ai_dashboard_assets'); `
+# Additional DBs
+COPY ./db /module_data/db
+
+RUN $modules = @('spe_assets','sxa_assets','headless_assets','sps_assets','def_assets', 'sfcrm_assets', 'dcrm_assets', 'sfmcbde_assets', 'sfmcce_assets', 'cmp_assets', 'horizon_integration_assets', 'xgen_assets', 'sitecore_ai_assets', 'sitecore_ai_dashboard_assets', 'db'); `
     foreach($module in $modules) { C:\DeployDatabases.ps1 -ResourcesDirectory /module_data/$module; Remove-Item -Path /module_data/$module -Recurse -Force; }
 
 FROM modules as data

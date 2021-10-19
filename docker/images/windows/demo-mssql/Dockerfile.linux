@@ -7,6 +7,7 @@ ARG SPS_ASSETS
 
 ARG DEF_ASSETS
 ARG SFCRM_ASSETS
+ARG DCRM_ASSETS
 ARG SFMCBDE_ASSETS
 ARG SFMCCE_ASSETS
 ARG CMP_ASSETS
@@ -22,6 +23,7 @@ FROM ${SPS_ASSETS} as sps_assets
 
 FROM ${DEF_ASSETS} as def_assets
 FROM ${SFCRM_ASSETS} as sfcrm_assets
+FROM ${DCRM_ASSETS} as dcrm_assets
 FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
 FROM ${SFMCCE_ASSETS} as sfmcce_assets
 FROM ${CMP_ASSETS} as cmp_assets
@@ -56,6 +58,7 @@ COPY --from=sps_assets /module/db /opt/wdp/sps_assets
 
 COPY --from=def_assets /module/db /opt/wdp/def
 COPY --from=sfcrm_assets /module/db /opt/wdp/sfcrm
+COPY --from=dcrm_assets /module/db /opt/wdp/dcrm
 COPY --from=sfmcbde_assets /module/db /opt/wdp/sfmcde
 COPY --from=sfmcce_assets /module/db /opt/wdp/sfmcce
 COPY --from=cmp_assets /module/db /opt/wdp/cmp
@@ -84,6 +87,7 @@ RUN mkdir -p /install \
     && ./opt/install-databases.sh /opt/wdp/def \
     && ./opt/install-databases.sh /opt/wdp/cmp \
     && ./opt/install-databases.sh /opt/wdp/sfcrm \
+    && ./opt/install-databases.sh /opt/wdp/dcrm \
     && ./opt/install-databases.sh /opt/wdp/sfmcde \
     && ./opt/install-databases.sh /opt/wdp/sfmcce \
     && ./opt/install-databases.sh /opt/wdp/xgen \
