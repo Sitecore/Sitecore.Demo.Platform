@@ -265,7 +265,6 @@ stages:
   - stage: Docker_Linux
     dependsOn: Build_Solution
     displayName: "Build Linux Images"
-
     jobs:
       - job: Build_Linux_Images
         displayName: "Build Linux Images"
@@ -367,6 +366,8 @@ stages:
     dependsOn:
       - Release_Notes
     condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    pool:
+      vmImage: 'ubuntu-latest'
     jobs:
       - job: Update_Tags
         displayName: "Update Tags"
@@ -390,6 +391,8 @@ stages:
     dependsOn:
       - Release_Notes
     condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    pool:
+      vmImage: 'ubuntu-latest'
     jobs:
       - job: Update_Dev_Database
         displayName: "Update Dev Database"
@@ -412,6 +415,8 @@ stages:
     dependsOn:
       - Release_Notes
     condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    pool:
+      vmImage: 'ubuntu-latest'
     jobs:
       - job: Update_Production_Database
         displayName: "Update Production Database"
@@ -438,6 +443,8 @@ stages:
       - Docker_Windows
       - Docker_Linux
     condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
+    pool:
+      vmImage: 'ubuntu-latest'
     jobs:
       - job: Harbor_Push
         displayName: "Harbor Push"
@@ -477,6 +484,8 @@ stages:
       - Docker_Windows
       - Docker_Linux
     condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
+    pool:
+      vmImage: 'ubuntu-latest'
     jobs:
       - job: Generate_Release_Notes
         pool:
