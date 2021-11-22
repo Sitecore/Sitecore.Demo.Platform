@@ -27,7 +27,8 @@ namespace Sitecore.Demo.Init.Jobs
 					"sitecore_marketingdefinitions_master",
 					"sitecore_marketingdefinitions_web",
 					"sitecore_testing_index",
-					"sitecore_personalization_index"
+					"sitecore_personalization_index",
+					"sitecore_horizon_index"
 				});
 			}
 
