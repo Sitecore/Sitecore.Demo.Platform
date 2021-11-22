@@ -10,6 +10,7 @@ ARG SPS_ASSETS
 
 ARG DEF_ASSETS
 ARG SFCRM_ASSETS
+ARG DCRM_ASSETS
 ARG SFMCBDE_ASSETS
 ARG SFMCCE_ASSETS
 ARG CMP_ASSETS
@@ -26,6 +27,7 @@ FROM ${SPS_ASSETS} as sps_assets
 
 FROM ${DEF_ASSETS} as def_assets
 FROM ${SFCRM_ASSETS} as sfcrm_assets
+FROM ${DCRM_ASSETS} as dcrm_assets
 FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
 FROM ${SFMCCE_ASSETS} as sfmcce_assets
 FROM ${CMP_ASSETS} as cmp_assets
@@ -53,6 +55,7 @@ COPY --from=sps_assets /module/cm/content /inetpub/wwwroot
 
 COPY --from=def_assets /module/cm/content /inetpub/wwwroot
 COPY --from=sfcrm_assets /module/cm/content /inetpub/wwwroot
+COPY --from=dcrm_assets /module/cm/content /inetpub/wwwroot
 COPY --from=sfmcbde_assets /module/cm/content /inetpub/wwwroot
 COPY --from=sfmcce_assets /module/cm/content /inetpub/wwwroot
 COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
@@ -70,6 +73,8 @@ FROM modules as production
 COPY --from=solution /solution/cm/ /inetpub/wwwroot/
 
 COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
+COPY --from=dcrm_assets /module/transforms/cm/Web.config.xdt /inetpub/wwwroot/transforms/Web.dcrm.config.xdt
+COPY --from=dcrm_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.dcrm.config.xdt
 COPY ./tools/ /tools/
 
 # Fix for missing file in asset image
