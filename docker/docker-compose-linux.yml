@@ -16,6 +16,7 @@ services:
         SPS_ASSETS: ${REGISTRY}community/modules/custom-sps-integration-xm1-assets:${SITECORE_VERSION}-linux
         DEF_ASSETS: ${REGISTRY}community/modules/custom-def-xp0-assets:6.0.0-linux
         SFCRM_ASSETS: ${REGISTRY}community/modules/custom-sfcrm-xp0-assets:6.0.0-linux
+        DCRM_ASSETS: ${REGISTRY}community/modules/custom-dcrmcnn-xp0-assets:6.0.0-linux
         SFMCBDE_ASSETS: ${REGISTRY}community/modules/custom-sfmcbde-xp0-assets:6.0.0-linux
         SFMCCE_ASSETS: ${REGISTRY}community/modules/custom-sfmcce-xp0-assets:6.0.0-linux
         CMP_ASSETS: ${REGISTRY}community/modules/custom-cmp-xp1-assets:4.0.0-linux

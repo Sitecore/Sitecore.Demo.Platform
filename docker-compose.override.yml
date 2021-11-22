@@ -77,6 +77,8 @@ services:
       SITECORE_CONNECTIONSTRINGS_SFDC: ${SFDC_CONNECTIONSTRING}
       SITECORE_CONNECTIONSTRINGS_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
       SITECORE_CONNECTIONSTRINGS_tenantservice: http://tenantservice
+      SITECORE_CONNECTIONSTRINGS_DCRM: ${DCRM_CONNECTIONSTRING}
+      SITECORE_CONNECTIONSTRINGS_Sitecore.DataExchange.Staging: Data Source=mssql;Initial Catalog=Sitecore.DataExchange.Staging;User ID=sa;Password=${SQL_SA_PASSWORD}
       EXM_RENDERER_URL: http://cm
       Sitecore_Horizon_ClientHost: https://${SH_HOST}
       HOST_CD: http://cd
