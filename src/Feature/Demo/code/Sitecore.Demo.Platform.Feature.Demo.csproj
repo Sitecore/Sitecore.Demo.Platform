@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -126,6 +126,12 @@
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
+    <PackageReference Include="Sitecore.Personalization">
+      <Version>10.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Personalization.Mvc">
+      <Version>10.1.1</Version>
+    </PackageReference>
     <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="10.1.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
@@ -188,6 +194,8 @@
     <Content Include="Views\Demo\_OnsiteBehavior.cshtml" />
     <Content Include="Views\Demo\_OnsiteBehaviorProfiling.cshtml" />
     <Content Include="Views\Demo\_Referral.cshtml" />
+    <Content Include="Views\Demo\_DemoControls.cshtml" />
+    <Content Include="App_Config\Include\z.Overrides\z.Personalization.config" />
     <None Include="Views\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -200,10 +208,12 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Models\Campaign.cs" />
     <Compile Include="Models\DemoContent.cs" />
     <Compile Include="Models\Device.cs" />
+    <Compile Include="Models\DemoControls.cs" />
     <Compile Include="Models\EngagementPlanState.cs" />
     <Compile Include="Models\ExperienceData.cs" />
     <Compile Include="Models\Goal.cs" />
@@ -214,6 +224,7 @@
     <Compile Include="Models\PatternMatch.cs" />
     <Compile Include="Models\PersonalInfo.cs" />
     <Compile Include="Models\ProfilingTypes.cs" />
+    <Compile Include="Pipelines\TogglePersonalization.cs" />
     <Compile Include="Pipelines\RegisterWebApiRoutes.cs" />
     <Compile Include="Repositories\CampaignRepository.cs" />
     <Compile Include="Repositories\DeviceRepository.cs" />
@@ -273,6 +284,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
