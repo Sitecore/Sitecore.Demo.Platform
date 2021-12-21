@@ -76,6 +76,8 @@ catch {
 
 Copy-Item "C:\Program Files (x86)\Microsoft Visual Studio\2022\" "C:\Program Files (x86)\Microsoft Visual Studio\2019\" -Recurse -Force
 
+$env:NUGET_EXPERIMENTAL_CHAIN_BUILD_RETRY_POLICY="10,100"
+
 [Reflection.Assembly]::LoadWithPartialName("System.Security") | Out-Null
 function MD5HashFile([string] $filePath) {
     if ([string]::IsNullOrEmpty($filePath) -or !(Test-Path $filePath -PathType Leaf)) {
