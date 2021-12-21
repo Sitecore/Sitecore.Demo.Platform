@@ -10,7 +10,7 @@ services:
     build:
       context: .\docker\images\windows\demo-id
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id6:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
 
   solr-init:
