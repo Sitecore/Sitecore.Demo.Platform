@@ -10,7 +10,7 @@ resources:
 
 variables:
   GitVersion.SemVer: ""
-  SITECORE_VERSION: "10.1.0"
+  SITECORE_VERSION: "10.1"
   # Base module version used when building 'develop' and all other branches except 'main'
   BASE_MODULE_VERSION: "1010.0"
   # Base module version used when building 'main' branch
@@ -54,13 +54,17 @@ stages:
               script: |
                 $sitecoreRegistry = "$(sitecore.container.registry)"
                 $sitecoreVersion = "$(SITECORE_VERSION)"
-                $preRelease = $false
+                # Pre-release build is required for hotfix
+                $preRelease = $true
 
                 az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
 
                 if ("$(Build.SourceBranch)" -match "upgrade/(?<version>\d+\.\d+\.\d+)") {
-                    $sitecoreRegistry = "$(sitecore.internal.container.registry)"
                     $preRelease = $true
+                }
+
+                if ($preRelease) {
+                    $sitecoreRegistry = "$(sitecore.internal.container.registry)"
                 }
 
                 if ("$sitecoreRegistry" -ne "scr.sitecore.com/"){

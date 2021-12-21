@@ -61,6 +61,7 @@ RUN icacls 'C:\inetpub\wwwroot' /grant 'IIS_IUSRS:(OI)(CI)F' /t | Out-Null
 
 FROM modules as production
 
+COPY ./hotfix/ /inetpub/wwwroot/
 COPY --from=solution /solution/cd/ /inetpub/wwwroot/
 COPY ./data/transforms/ /inetpub/wwwroot/transforms/
 COPY ./tools/ /tools/

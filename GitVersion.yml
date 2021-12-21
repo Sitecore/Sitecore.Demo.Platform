@@ -2,7 +2,6 @@ assembly-versioning-scheme: MajorMinorPatch
 mode: mainline
 continuous-delivery-fallback-tag: ''
 tag-prefix: '[vV]'
-next-version: 1010.0.7
 major-version-bump-message: '\+semver:\s?(dotnotuse)'
 minor-version-bump-message: '\+semver:\s?(breaking|major)'
 patch-version-bump-message: '\+semver:\s?(feature|minor)'
@@ -12,7 +11,7 @@ branches:
     tag: beta
     increment: Patch
     prevent-increment-of-merged-branch-version: false
-    is-mainline: true
+    is-mainline: false
   master:
     tag: ''
     increment: Patch
