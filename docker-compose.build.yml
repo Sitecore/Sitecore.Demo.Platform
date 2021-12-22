@@ -41,7 +41,7 @@ services:
       context: .\docker\images\windows\demo-mssql
       args:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-mssql:10.1.0-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         SPE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
         SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xp1-assets:16.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
@@ -81,7 +81,7 @@ services:
     build:
       context: .\docker\images\windows\demo-standalone
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-cm:10.1.0-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         SPE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
         SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}

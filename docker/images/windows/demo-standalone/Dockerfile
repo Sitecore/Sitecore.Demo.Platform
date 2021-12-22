@@ -72,6 +72,7 @@ FROM modules as production
 
 COPY --from=solution /solution/cm/ /inetpub/wwwroot/
 
+COPY ./hotfix/ /inetpub/wwwroot/
 COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
 COPY --from=dcrm_assets /module/transforms/cm/Web.config.xdt /inetpub/wwwroot/transforms/Web.dcrm.config.xdt
 COPY --from=dcrm_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.dcrm.config.xdt
