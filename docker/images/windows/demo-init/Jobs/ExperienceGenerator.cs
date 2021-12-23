@@ -29,7 +29,7 @@ namespace Sitecore.Demo.Init.Jobs
 			using var client = new HttpClient { BaseAddress = new Uri(hostCM) };
 			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-			var content = File.ReadAllText("data/xGenerator.json").Replace("{HOST_CM}", hostCM);
+			var content = File.ReadAllText("data/xGenerator.json");
 			content = content.Replace("{START_DATE}", DateTime.UtcNow.AddYears(-1).ToString("u"));
 			content = content.Replace("{END_DATE}", DateTime.UtcNow.ToString("u"));
 
