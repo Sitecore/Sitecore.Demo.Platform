@@ -1,0 +1,76 @@
+﻿---
+ID: "88e79312-2c3d-4d45-9a10-befe04ddf402"
+Parent: "08a28434-3d0e-4cd7-8afb-f6cea64646ed"
+Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseHealthcare/Presentation/Rendering Variants/Navigation/Megadrop Navigation/SCW/IW/SML2-Anon"
+DB: master
+SharedFields:
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Type: Rules
+  Value: |
+    <ruleset>
+      <rule
+        uid="{513B09A2-E41F-4719-ACDD-343BA051CF9E}">
+        <conditions>
+          <and
+            uid="EAF9C1D4A41B40F09638D05A976E0273">
+            <condition
+              id="{5DE6D53E-EA62-4D17-8BDD-FEBCD80AC07B}"
+              uid="0CAABBBDAF984D62B2637695A21A2235"
+              templateid="{E3B950BB-1B55-4CDD-819F-031B3BE1A66C}" />
+            <condition
+              id="{EA0642FA-500B-4B2F-B264-765E771C516F}"
+              uid="06EC0C38790B4597B6BCEB225400F961" />
+          </and>
+        </conditions>
+      </rule>
+    </ruleset>
+- ID: "a4d004e6-2a4b-4c53-a4f3-9c481df71cdc"
+  Hint: Tag
+  Value: "{B2EA310B-EB7F-48C9-82AB-B8F76B658596}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
+  Hint: CssClass
+  Value: "megadrop-secondary-main"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Secondary Menu Level 2 - Anonymous"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171117T212748Z
+  - Version: 2
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171117T212748Z
+  - Version: 3
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171117T212748Z
+  - Version: 4
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171117T212748Z
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Secondary Menu Level 2 - Anonymous"
+  Versions:
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Secondary Menu Level 2 - Anonymous"
+  Versions:

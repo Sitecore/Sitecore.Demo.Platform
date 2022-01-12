@@ -79,11 +79,18 @@ $paramsExmRoot = $itemParamExmRoot, $fieldParamExmRoot, $valueParamExmRoot
 Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsExmRoot
 Write-Verbose "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
 
-# /sitecore/content/Demo SXA Sites/LighthouseFinancial/zLighthouseFinancial Emails
+# /sitecore/content/Demo SXA Sites/LighthouseFinancial/LighthouseFinancial Emails
 $itemParamExmRootFinancial = ("ItemId='422A7377-107D-43BC-99DE-C6F14C3FBF0E'")
 $paramsExmRootFinancial = $itemParamExmRootFinancial, $fieldParamExmRoot, $valueParamExmRoot
 
 Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsExmRootFinancial
+Write-Verbose "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
+
+# /sitecore/content/Demo SXA Sites/LighthouseHealthcare/LighthouseHealthcare Emails
+$itemParamExmRootHealthcare = ("ItemId='F8BA8B00-F363-43FC-B902-D532DD385042'")
+$paramsExmRootHealthcare = $itemParamExmRootHealthcare, $fieldParamExmRoot, $valueParamExmRoot
+
+Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsExmRootHealthcare
 Write-Verbose "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
 
 Write-Host "$(Get-Date -Format $timeFormat): Demo team Platform boot override complete."

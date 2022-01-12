@@ -92,12 +92,20 @@ $command = Join-Path $sql_scripts "SetSharedFieldValue.sql"
 Invoke-Sqlcmd -InputFile $command -Variable $paramsExmRoot -HostName $SqlHostname -Username sa -Password $env:SA_PASSWORD
 Write-Verbose "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
 
-# /sitecore/content/Demo SXA Sites/LighthouseFinancial/zLighthouseFinancial Emails
+# /sitecore/content/Demo SXA Sites/LighthouseFinancial/LighthouseFinancial Emails
 $itemParamExmRootFinancial = ("ItemId='422A7377-107D-43BC-99DE-C6F14C3FBF0E'")
 $paramsExmRootFinancial = $itemParamExmRootFinancial, $fieldParamExmRoot, $valueParamExmRoot
 
 $command = Join-Path $sql_scripts "SetSharedFieldValue.sql"
 Invoke-Sqlcmd -InputFile $command -Variable $paramsExmRootFinancial -HostName $SqlHostname -Username sa -Password $env:SA_PASSWORD
+Write-Verbose "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
+
+# /sitecore/content/Demo SXA Sites/LighthouseHealthcare/LighthouseHealthcare Emails
+$itemParamExmRootHealthcare = ("ItemId='F8BA8B00-F363-43FC-B902-D532DD385042'")
+$paramsExmRootHealthcare = $itemParamExmRootHealthcare, $fieldParamExmRoot, $valueParamExmRoot
+
+$command = Join-Path $sql_scripts "SetSharedFieldValue.sql"
+Invoke-Sqlcmd -InputFile $command -Variable $paramsExmRootHealthcare -HostName $SqlHostname -Username sa -Password $env:SA_PASSWORD
 Write-Verbose "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
 
 Write-Host "$(Get-Date -Format $timeFormat): Demo team Platform boot override complete."

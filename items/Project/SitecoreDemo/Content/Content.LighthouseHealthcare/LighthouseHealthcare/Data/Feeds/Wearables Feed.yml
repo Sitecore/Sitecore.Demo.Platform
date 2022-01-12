@@ -1,0 +1,64 @@
+﻿---
+ID: "60726283-4032-41fb-9202-cbd08c18df8d"
+Parent: "a1bf34d2-b392-459c-9eb6-88a5ba1fec97"
+Template: "b7f764a3-ad45-4666-a169-0c5a836d8ae2"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Data/Feeds/Wearables Feed
+DB: master
+SharedFields:
+- ID: "ce0fae5a-7e2c-48be-aa15-12f0d55c582f"
+  Hint: ItemsNumber
+  Value: 6
+- ID: "ed0adccf-7ed0-407e-b42a-f3f8766ae53f"
+  Hint: CacheInterval
+  Value: 15
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200519T202536Z
+    - ID: "2d52a3f9-29c6-4ac1-a0a4-5693acb3db48"
+      Hint: FeedUrl
+      Value: |
+        <link linktype="external" url="http://wareable.com/rss" anchor="" target="" />
+    - ID: "fefb37df-0883-4714-b7fc-607b5ada8908"
+      Hint: Title
+      Value: Wearables News Feed
+  - Version: 2
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200519T202536Z
+    - ID: "2d52a3f9-29c6-4ac1-a0a4-5693acb3db48"
+      Hint: FeedUrl
+      Value: |
+        <link linktype="external" url="http://wareable.com/rss" anchor="" target="" />
+    - ID: "fefb37df-0883-4714-b7fc-607b5ada8908"
+      Hint: Title
+      Value: Wearables News Feed
+  - Version: 3
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200519T202536Z
+    - ID: "2d52a3f9-29c6-4ac1-a0a4-5693acb3db48"
+      Hint: FeedUrl
+      Value: |
+        <link linktype="external" url="blog.myfitnesspal.com/feed" anchor="" target="" />
+    - ID: "fefb37df-0883-4714-b7fc-607b5ada8908"
+      Hint: Title
+      Value: Fitness News Feed
+  - Version: 4
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200519T202536Z
+    - ID: "2d52a3f9-29c6-4ac1-a0a4-5693acb3db48"
+      Hint: FeedUrl
+      Value: |
+        <link linktype="external" url="http://blog.myfitnesspal.com/feed" anchor="" target="" />
+    - ID: "fefb37df-0883-4714-b7fc-607b5ada8908"
+      Hint: Title
+      Value: Fitness News Feed

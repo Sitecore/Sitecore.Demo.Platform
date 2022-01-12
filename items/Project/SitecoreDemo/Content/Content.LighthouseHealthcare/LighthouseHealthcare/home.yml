@@ -1,0 +1,1560 @@
+﻿---
+ID: "174cdf1f-414f-4e60-841b-301bb2c5de40"
+Parent: "dd8d4782-fc05-4252-b507-bfcbf9a77cd9"
+Template: "2c6679f9-65b4-4437-8a4c-be4c790b16e0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/home
+DB: master
+SharedFields:
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{59D08445-AFFF-466B-94C3-CE835EFC8FD5}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "db51d4e9-c24d-4670-af0e-62c8aa08e2b6"
+  Hint: LocalData
+  Value: "{BB9F5158-58CF-4525-AF84-8C3EEB3E10F2}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{96440B7A-F411-4281-B690-302C5468E355}"
+          p:before="*"
+          s:ds="{325005DE-1269-4EAF-BFB0-A7450A980935}"
+          s:id="{5A21C781-8E74-4DD0-8261-8CCDA1BF0454}"
+          s:par="RenderingIdentifier&amp;Styles=%7b5F1937B9-3A84-4F4B-A96E-C60419A06667%7d&amp;Reset Caching Options&amp;PauseOnHover=1&amp;Timeout=3500&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;Navigation=%7bF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7d&amp;DynamicPlaceholderId=13&amp;Transition=%7bB0EFE255-B28D-452F-9C89-791D6C014D18%7d"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{B3EE3027-9A67-4696-800B-2F7B4D619DD4}"
+                s:name="Foodie">
+                <conditions>
+                  <or
+                    uid="14B9D474CB2F42008B6744A07CB6FDEF">
+                    <or
+                      uid="160F0F8691BE4A459B2E830A8A284B90">
+                      <condition
+                        uid="73058D8C9428448DACD02E3D6D630283"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="21A4C1FE5B7145069C0B322AD2936B82"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="2F6C4E83E71F4D698B52B6EA1242EB00"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="EB19DB65DA0A4273B21828B383D0B574"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{9DE4FEA8-09A8-481D-9B2A-6DDA84B6B51C}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{240EE7CC-91A4-4B98-BEDE-04E8FEFF6A3A}"
+                s:name="Fitness">
+                <conditions>
+                  <or
+                    uid="CBB717BB8B7C4B83AD05B51F4E305D74">
+                    <or
+                      uid="4229664389EE4B1A8A47759A4CBE12CD">
+                      <condition
+                        uid="1C3861C3015C455BA1F3C6B1D59D58BE"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="0BCFE743AEA64EA79CC230E65828F7DD"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{38D5EEFC-52CB-4DD8-8B4A-75F0CA461E9E}" />
+                    </or>
+                    <condition
+                      uid="D83E668781A6431A9B41B33DA78A41BF"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Fitness Fanatic" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="B8C715E32AC2409C894ECF387393C11F"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{231DDDDE-D466-4A83-B7EB-4617AED3E645}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="BBF68A5C3CD945C19DF62D9294C74DF5"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="DA202CB68CCF44E49BE4412B3560ABDE"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{325005DE-1269-4EAF-BFB0-A7450A980935}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{1C0F3249-32A1-475D-8E69-8B2111ED267D}"
+          p:after="r[@uid='{96440B7A-F411-4281-B690-302C5468E355}']"
+          s:ds="local:/Data/Trainer Finder Promo"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames=%7B184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/main/sxa-content-container/container-1/container-10"
+          s:ccb="Clear on publish">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{F70150C0-5E7A-4665-AE38-C6C05376BFE4}"
+                s:name="Smart Headline">
+                <actions>
+                  <action
+                    uid="F84CAE4656A94CD8862668257F019956"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/CTA - Mental Health" />
+                </actions>
+                <conditions>
+                  <or
+                    uid="1E87CF30E2A24DF8BB05D0A418271E13">
+                    <or
+                      uid="DD9C1C25DE9448ABA2BF1E23ACDBCB9C">
+                      <or
+                        uid="CEE764841CC846C5AE4BBB5D9A1E00CC">
+                        <condition
+                          uid="61EA4CA81B9343E9B5E9DFA435C9EA63"
+                          s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                          s:PatternList="{8081BDDC-43F8-4711-B572-63D867A26BFB}|{BED51639-E336-48DB-A68E-968A71CB7A89}|{87E34899-445A-49A1-831B-C0A04B2504B5}" />
+                        <condition
+                          uid="F47A615D1A6D4DEF9B41EB69B8FA4DF2"
+                          s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                          s:ProfileName="Stage of Life"
+                          s:PatternName="Retired" />
+                      </or>
+                      <condition
+                        uid="43E986B596FF452684E62320DB4F14D9"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Stage of Life"
+                        s:PatternName="Empty Nester" />
+                    </or>
+                    <condition
+                      uid="3E2A12892C814D20AC925508AFAEAB6D"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Stage of Life"
+                      s:PatternName="Family with Kids" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="D5C8D92080AC4CECADCC2B29DCB02A68"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{E1FA64CF-6A5A-4364-9830-C32D63D64B58}"
+          p:after="r[@uid='{1C0F3249-32A1-475D-8E69-8B2111ED267D}']"
+          s:ds="{9120EAE1-4BF7-40EA-8223-532DD5A2E894}"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames=%7B184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/main/sxa-content-container/container-1/container-9">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{0316D39B-73A1-4A9C-876A-209718FEE66D}"
+                s:name="Already Visited">
+                <conditions>
+                  <condition
+                    uid="B9CCEA7C0E8A490E8D8EC72F2BE439D4"
+                    s:id="{BE334DF8-9A0F-4FF3-A6D8-C396EC713809}"
+                    s:PageId="{E527FA10-F8DC-4E62-906C-C65AB4B2F2CE}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="2D2921CE6810415B8A1246BB26B958A9"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/CTA - Automate Dinner" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="81095E09E7434661AF801DB1DE8B6800"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}"
+          p:after="r[@uid='{E1FA64CF-6A5A-4364-9830-C32D63D64B58}']"
+          s:ds="local:/Data/Trainer Finder Promo"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-content-container/container-1"
+          s:ccb="Clear on publish">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{75829464-687D-4799-AC69-832D3328FBB6}"
+                s:name="Content Finder Complete">
+                <conditions>
+                  <condition
+                    uid="1804B69F9ADF45F680CA9AFEADECE5C6"
+                    s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
+                    s:GoalId="{596FDFA9-9E21-4B9D-9B54-EB97F724E1DA}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="BA950A4DDA0B4C4CA6A5B4F834FDA493"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo - Start Over Content Finder" />
+                </actions>
+              </rule>
+              <rule
+                uid="{807C38A7-ED29-40B8-AD6E-90E8F0105531}"
+                s:name="Fitness">
+                <conditions>
+                  <or
+                    uid="0E91A6D969BA4BE298217D0F8CCD9AC1">
+                    <or
+                      uid="114E5E5B60144B6087C1F7F32E42DAE4">
+                      <condition
+                        uid="6457F8C200F1487E94B969D90A60A454"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="4831F1C97DBB48A6BB00AF5C7660222A"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{38D5EEFC-52CB-4DD8-8B4A-75F0CA461E9E}" />
+                    </or>
+                    <condition
+                      uid="DDD03C87C7C3474D86ED76B25EB30557"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Fitness Fanatic" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="2B6B7F1D4F314439949626223CF95A5E"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Trainer Finder Promo" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="6F1B3266994941FA88A9E6B720181EF1"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{88B380C7-B863-4D92-BAE9-DF326B9E7685}"
+          p:after="r[@uid='{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="RenderingIdentifier&amp;Styles=%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=10&amp;BackgroundImage&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{6B1C256F-3488-4908-BB96-B7746E471A36}"
+          p:after="r[@uid='{88B380C7-B863-4D92-BAE9-DF326B9E7685}']"
+          s:ds="local:/Data/Promo - Cold and Flu"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          s:ph="/main/sxa-content-container/container-1"
+          s:ccb="Clear on publish">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{6F0818B1-AD63-413E-8926-B308503D5DF7}"
+                s:name="At Home">
+                <conditions>
+                  <condition
+                    uid="00C9D02E9C3F4EF1A0FA1A456AB95291"
+                    s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
+                    s:GoalId="{A81FC0A2-BFBA-439B-B412-EE6F07379F14}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="690D00C9AF404E599D573E1B4782D3E7"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo - At Home Workouts" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="89F847B70B2A454DABC57E642E692061"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{C03747C0-B0DC-467F-AA8D-126A4FFFABE9}"
+          p:after="r[@uid='{6B1C256F-3488-4908-BB96-B7746E471A36}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="RenderingIdentifier&amp;Styles=%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=9&amp;BackgroundImage&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{2A66CABB-78E4-439C-8334-BBF2FBFFCAEE}"
+          p:after="r[@uid='{C03747C0-B0DC-467F-AA8D-126A4FFFABE9}']"
+          s:ds="{7AB423FD-3220-40FA-BB8C-C1DDC36B3D7D}"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=14&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{032168D5-A31E-49AF-8CF1-F8231151D8EA}"
+                s:name="Specify name...">
+                <actions>
+                  <action
+                    uid="ED0AAFD85E3440B0A22BCC7BBAC9B3D1"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+                <conditions>
+                  <condition
+                    uid="BA26C564AEF041D18C811D278B4384E3"
+                    s:id="{EA0642FA-500B-4B2F-B264-765E771C516F}"
+                    s:except="true" />
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="10B3E05B7E714EDA8CE3721A12014959"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{81BDD83F-35B1-49D1-9B7C-8C0BE1189F83}"
+          p:after="r[@uid='{2A66CABB-78E4-439C-8334-BBF2FBFFCAEE}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b9CB76B6C-2B77-4728-8508-CF7041C7B69C%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=11&amp;BackgroundImage&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}"
+          p:after="*[1=2]"
+          s:ds="{7D04E838-2DC1-410B-BB1C-9C6395F5B532}"
+          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=12&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1/container-11" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{92EB9EFB-88D4-4089-82BE-AAD92D4FA24E}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Home
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{AC1741DC-AFF1-4D51-BD49-DB6BC6058283}"
+              p:before="*"
+              s:ds=""
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="RenderingIdentifier&amp;Styles=%7b3D999B16-D69D-4B5D-AC03-77987905060F%7d%7c%7bD3CC7A7D-1C3D-48CD-9B01-55DDBA9C5013%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7bFC6A1A4D-91C6-4908-9B94-DF03ED671FD8%7d&amp;DynamicPlaceholderId=15&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options"
+              s:ph="/main/sxa-content-container/container-1/container-9" />
+            <r
+              uid="{96440B7A-F411-4281-B690-302C5468E355}"
+              s:par="RenderingIdentifier&amp;Styles=%7b5F1937B9-3A84-4F4B-A96E-C60419A06667%7d&amp;Reset Caching Options&amp;PauseOnHover=1&amp;Timeout=3500&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;Navigation=%7bF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7d&amp;DynamicPlaceholderId=13&amp;CacheClearingBehavior=Clear+on+publish&amp;Transition=%7bB0EFE255-B28D-452F-9C89-791D6C014D18%7d">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{B3EE3027-9A67-4696-800B-2F7B4D619DD4}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{1C0F3249-32A1-475D-8E69-8B2111ED267D}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters&amp;FieldNames=%7b184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7d&amp;DynamicPlaceholderId=3&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{E1FA64CF-6A5A-4364-9830-C32D63D64B58}">
+              <p:d />
+            </r>
+            <r
+              uid="{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}"
+              s:par="RenderingIdentifier&amp;Styles&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=5&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{88B380C7-B863-4D92-BAE9-DF326B9E7685}"
+              s:par="RenderingIdentifier&amp;Styles=%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=10&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{6B1C256F-3488-4908-BB96-B7746E471A36}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=2&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{C03747C0-B0DC-467F-AA8D-126A4FFFABE9}"
+              s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=9&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{2A66CABB-78E4-439C-8334-BBF2FBFFCAEE}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=14&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{81BDD83F-35B1-49D1-9B7C-8C0BE1189F83}"
+              s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b9CB76B6C-2B77-4728-8508-CF7041C7B69C%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=11&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=12&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T190501Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Lighthouse Healthcare
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Helping patients one person at a time
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Lighthouse Healthcare
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Helping patients one person at a time
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Helping patients one person at a time
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Lighthouse Healthcare
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Lighthouse Healthcare
+  - Version: 2
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{AC1741DC-AFF1-4D51-BD49-DB6BC6058283}"
+              p:before="*"
+              s:ds=""
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="RenderingIdentifier&amp;Styles=%7b3D999B16-D69D-4B5D-AC03-77987905060F%7d%7c%7bD3CC7A7D-1C3D-48CD-9B01-55DDBA9C5013%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7bFC6A1A4D-91C6-4908-9B94-DF03ED671FD8%7d&amp;DynamicPlaceholderId=15&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options"
+              s:ph="/main/sxa-content-container/container-1/container-9" />
+            <r
+              uid="{96440B7A-F411-4281-B690-302C5468E355}"
+              s:par="RenderingIdentifier&amp;Styles=%7b5F1937B9-3A84-4F4B-A96E-C60419A06667%7d&amp;Reset Caching Options&amp;PauseOnHover=1&amp;Timeout=3500&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;Navigation=%7bF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7d&amp;DynamicPlaceholderId=13&amp;CacheClearingBehavior=Clear+on+publish&amp;Transition=%7bB0EFE255-B28D-452F-9C89-791D6C014D18%7d">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{B3EE3027-9A67-4696-800B-2F7B4D619DD4}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{1C0F3249-32A1-475D-8E69-8B2111ED267D}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters&amp;FieldNames=%7b184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7d&amp;DynamicPlaceholderId=3&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{E1FA64CF-6A5A-4364-9830-C32D63D64B58}">
+              <p:d />
+            </r>
+            <r
+              uid="{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}"
+              s:par="RenderingIdentifier&amp;Styles&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=5&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{88B380C7-B863-4D92-BAE9-DF326B9E7685}"
+              s:par="RenderingIdentifier&amp;Styles=%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=10&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{6B1C256F-3488-4908-BB96-B7746E471A36}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=2&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{C03747C0-B0DC-467F-AA8D-126A4FFFABE9}"
+              s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=9&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{2A66CABB-78E4-439C-8334-BBF2FBFFCAEE}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=14&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{81BDD83F-35B1-49D1-9B7C-8C0BE1189F83}"
+              s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b9CB76B6C-2B77-4728-8508-CF7041C7B69C%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=11&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=12&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T190501Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Lighthouse Healthcare
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Helping patients one person at a time
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Lighthouse Healthcare
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Helping patients one person at a time
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Helping patients one person at a time
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Lighthouse Healthcare
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Lighthouse Healthcare
+  - Version: 3
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{AC1741DC-AFF1-4D51-BD49-DB6BC6058283}"
+              p:before="*"
+              s:ds=""
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="RenderingIdentifier&amp;Styles=%7b3D999B16-D69D-4B5D-AC03-77987905060F%7d%7c%7bD3CC7A7D-1C3D-48CD-9B01-55DDBA9C5013%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7bFC6A1A4D-91C6-4908-9B94-DF03ED671FD8%7d&amp;DynamicPlaceholderId=15&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options"
+              s:ph="/main/sxa-content-container/container-1/container-9" />
+            <r
+              uid="{96440B7A-F411-4281-B690-302C5468E355}"
+              s:par="RenderingIdentifier&amp;Styles=%7b5F1937B9-3A84-4F4B-A96E-C60419A06667%7d&amp;Reset Caching Options&amp;PauseOnHover=1&amp;Timeout=3500&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;Navigation=%7bF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7d&amp;DynamicPlaceholderId=13&amp;CacheClearingBehavior=Clear+on+publish&amp;Transition=%7bB0EFE255-B28D-452F-9C89-791D6C014D18%7d">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{B3EE3027-9A67-4696-800B-2F7B4D619DD4}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{1C0F3249-32A1-475D-8E69-8B2111ED267D}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters&amp;FieldNames=%7b184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7d&amp;DynamicPlaceholderId=3&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{E1FA64CF-6A5A-4364-9830-C32D63D64B58}">
+              <p:d />
+            </r>
+            <r
+              uid="{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}"
+              s:par="RenderingIdentifier&amp;Styles&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=5&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{88B380C7-B863-4D92-BAE9-DF326B9E7685}"
+              s:par="RenderingIdentifier&amp;Styles=%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=10&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{6B1C256F-3488-4908-BB96-B7746E471A36}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=2&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{C03747C0-B0DC-467F-AA8D-126A4FFFABE9}"
+              s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=9&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{2A66CABB-78E4-439C-8334-BBF2FBFFCAEE}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=14&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{81BDD83F-35B1-49D1-9B7C-8C0BE1189F83}"
+              s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b9CB76B6C-2B77-4728-8508-CF7041C7B69C%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=11&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=12&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T190501Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Lighthouse Healthcare
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Helping patients one person at a time
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Lighthouse Healthcare
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Helping patients one person at a time
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Helping patients one person at a time
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Lighthouse Healthcare
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Lighthouse Healthcare
+  - Version: 4
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{AC1741DC-AFF1-4D51-BD49-DB6BC6058283}"
+              p:before="*"
+              s:ds=""
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="RenderingIdentifier&amp;Styles=%7b3D999B16-D69D-4B5D-AC03-77987905060F%7d%7c%7bD3CC7A7D-1C3D-48CD-9B01-55DDBA9C5013%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7bFC6A1A4D-91C6-4908-9B94-DF03ED671FD8%7d&amp;DynamicPlaceholderId=15&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options"
+              s:ph="/main/sxa-content-container/container-1/container-9" />
+            <r
+              uid="{96440B7A-F411-4281-B690-302C5468E355}"
+              s:par="RenderingIdentifier&amp;Styles=%7b5F1937B9-3A84-4F4B-A96E-C60419A06667%7d&amp;Reset Caching Options&amp;PauseOnHover=1&amp;Timeout=3500&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;Navigation=%7bF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7d&amp;DynamicPlaceholderId=13&amp;CacheClearingBehavior=Clear+on+publish&amp;Transition=%7bB0EFE255-B28D-452F-9C89-791D6C014D18%7d">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{B3EE3027-9A67-4696-800B-2F7B4D619DD4}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{1C0F3249-32A1-475D-8E69-8B2111ED267D}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters&amp;FieldNames=%7b184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7d&amp;DynamicPlaceholderId=3&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{E1FA64CF-6A5A-4364-9830-C32D63D64B58}">
+              <p:d />
+            </r>
+            <r
+              uid="{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}"
+              s:par="RenderingIdentifier&amp;Styles&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=5&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{88B380C7-B863-4D92-BAE9-DF326B9E7685}"
+              s:par="RenderingIdentifier&amp;Styles=%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=10&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{6B1C256F-3488-4908-BB96-B7746E471A36}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=2&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{C03747C0-B0DC-467F-AA8D-126A4FFFABE9}"
+              s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=9&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{2A66CABB-78E4-439C-8334-BBF2FBFFCAEE}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=14&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{81BDD83F-35B1-49D1-9B7C-8C0BE1189F83}"
+              s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b9CB76B6C-2B77-4728-8508-CF7041C7B69C%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=11&amp;BackgroundImage&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+            <r
+              uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}"
+              s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=12&amp;CacheClearingBehavior=Clear+on+publish&amp;Reset Caching Options" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T190501Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Lighthouse Healthcare
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Helping patients one person at a time
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Lighthouse Healthcare
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Helping patients one person at a time
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Helping patients one person at a time
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Lighthouse Healthcare
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Lighthouse Healthcare
+  - Version: 5
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{DC7836FD-6BA6-48B3-AE6E-89DB6DDDAF5E}"
+              p:before="*"
+              s:ds="{D3A2AD3B-26FF-41CC-9BF8-11EC4D923508}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=19"
+              s:ph="/main/sxa-content-container/container-1/container-11/column-2-17" />
+            <r
+              uid="{8E522D67-CCB2-4667-A3CF-CC8D74BC6E27}"
+              p:after="r[@uid='{DC7836FD-6BA6-48B3-AE6E-89DB6DDDAF5E}']"
+              s:ds="{0667F348-6DE0-4C89-8183-086C2574D485}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=18"
+              s:ph="/main/sxa-content-container/container-1/container-11/column-1-17" />
+            <r
+              uid="{11B288B4-40F6-4517-98E9-08436FFE52F7}"
+              p:after="r[@uid='{8E522D67-CCB2-4667-A3CF-CC8D74BC6E27}']"
+              s:ds=""
+              s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+              s:par="ColumnWidth1=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth2=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=17"
+              s:ph="/main/sxa-content-container/container-1/container-11" />
+            <r
+              uid="{AC1741DC-AFF1-4D51-BD49-DB6BC6058283}"
+              p:after="r[@uid='{11B288B4-40F6-4517-98E9-08436FFE52F7}']"
+              s:ds="{9120EAE1-4BF7-40EA-8223-532DD5A2E894}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B6C6DCD16-6835-4C2B-BC30-B19AF38AAB21%7D&amp;Styles=%7B3D999B16-D69D-4B5D-AC03-77987905060F%7D%7C%7BD3CC7A7D-1C3D-48CD-9B01-55DDBA9C5013%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=15"
+              s:ph="/main/sxa-content-container/container-1/container-9" />
+            <r
+              uid="{96440B7A-F411-4281-B690-302C5468E355}"
+              s:par="Navigation=%7BF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7D&amp;Transition=%7BB0EFE255-B28D-452F-9C89-791D6C014D18%7D&amp;Timeout=3500&amp;PauseOnHover=1&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B5F1937B9-3A84-4F4B-A96E-C60419A06667%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=13">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{B3EE3027-9A67-4696-800B-2F7B4D619DD4}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{D1C9FD20-F06E-4130-87D7-B13299AB7036}"
+                    p:before="*"
+                    s:name="Orthopedic Specialty">
+                    <conditions>
+                      <or
+                        uid="A7FE04CEAED949078C3640426A734FD8">
+                        <or
+                          uid="7BC1943A9915442F99F516013D2104B3">
+                          <condition
+                            uid="9FFC30F9DC524123BC81C12E53595F5B"
+                            s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                            s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                            s:ExpectedAncestorTaxonId="{4E93CC73-47A7-4E80-96EB-EF329185B36D}" />
+                          <condition
+                            uid="9A098A36182D455280101C9A5E366681"
+                            s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                            s:PatternList="{85F9EAC7-4271-4FB6-99D8-7245423C7281}" />
+                        </or>
+                        <condition
+                          uid="E34E15B0BB9D41739C2EFDADE6745911"
+                          s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                          s:ProfileName="Lighthouse Healthcare Topic Interest"
+                          s:PatternName="Knee Surgery Candidate" />
+                      </or>
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="462AB4B73011455389FE2F351AD03E30"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{9DE4FEA8-09A8-481D-9B2A-6DDA84B6B51C}" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{1C0F3249-32A1-475D-8E69-8B2111ED267D}"
+              s:ds="{25769385-7E00-4EA1-B6B8-A06C738F9733}"
+              s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames=%7B184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3" />
+            <r
+              uid="{E1FA64CF-6A5A-4364-9830-C32D63D64B58}">
+              <p:d />
+            </r>
+            <r
+              uid="{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}"
+              s:par="DynamicPlaceholderId=5&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="F46D9DDD6777494A85C84D65EE454002"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Trainer Finder Promo" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{88B380C7-B863-4D92-BAE9-DF326B9E7685}"
+              s:par="Styles=%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=10&amp;BackgroundImage" />
+            <r
+              uid="{6B1C256F-3488-4908-BB96-B7746E471A36}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2" />
+            <r
+              uid="{C03747C0-B0DC-467F-AA8D-126A4FFFABE9}"
+              s:par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=9&amp;BackgroundImage" />
+            <r
+              uid="{2A66CABB-78E4-439C-8334-BBF2FBFFCAEE}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=14" />
+            <r
+              uid="{81BDD83F-35B1-49D1-9B7C-8C0BE1189F83}"
+              s:par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B9CB76B6C-2B77-4728-8508-CF7041C7B69C%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=11" />
+            <r
+              uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}">
+              <p:d />
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T190501Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Lighthouse Healthcare
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Helping patients one person at a time
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Lighthouse Healthcare
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Helping patients one person at a time
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Helping patients one person at a time
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Lighthouse Healthcare
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Lighthouse Healthcare
+  - Version: 6
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{DC7836FD-6BA6-48B3-AE6E-89DB6DDDAF5E}"
+              p:before="*"
+              s:ds="{D3A2AD3B-26FF-41CC-9BF8-11EC4D923508}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=19"
+              s:ph="/main/sxa-content-container/container-1/container-11/column-2-17" />
+            <r
+              uid="{8E522D67-CCB2-4667-A3CF-CC8D74BC6E27}"
+              p:after="r[@uid='{DC7836FD-6BA6-48B3-AE6E-89DB6DDDAF5E}']"
+              s:ds="{0667F348-6DE0-4C89-8183-086C2574D485}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=18"
+              s:ph="/main/sxa-content-container/container-1/container-11/column-1-17" />
+            <r
+              uid="{11B288B4-40F6-4517-98E9-08436FFE52F7}"
+              p:after="r[@uid='{8E522D67-CCB2-4667-A3CF-CC8D74BC6E27}']"
+              s:ds=""
+              s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+              s:par="ColumnWidth1=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth2=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=17"
+              s:ph="/main/sxa-content-container/container-1/container-11" />
+            <r
+              uid="{AC1741DC-AFF1-4D51-BD49-DB6BC6058283}"
+              p:after="r[@uid='{11B288B4-40F6-4517-98E9-08436FFE52F7}']"
+              s:ds="{9120EAE1-4BF7-40EA-8223-532DD5A2E894}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B6C6DCD16-6835-4C2B-BC30-B19AF38AAB21%7D&amp;Styles=%7B3D999B16-D69D-4B5D-AC03-77987905060F%7D%7C%7BD3CC7A7D-1C3D-48CD-9B01-55DDBA9C5013%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=15"
+              s:ph="/main/sxa-content-container/container-1/container-9" />
+            <r
+              uid="{96440B7A-F411-4281-B690-302C5468E355}"
+              s:par="Navigation=%7BF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7D&amp;Transition=%7BB0EFE255-B28D-452F-9C89-791D6C014D18%7D&amp;Timeout=3500&amp;PauseOnHover=1&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B5F1937B9-3A84-4F4B-A96E-C60419A06667%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=13">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{B3EE3027-9A67-4696-800B-2F7B4D619DD4}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{D1C9FD20-F06E-4130-87D7-B13299AB7036}"
+                    p:before="*"
+                    s:name="Orthopedic Specialty">
+                    <conditions>
+                      <or
+                        uid="A7FE04CEAED949078C3640426A734FD8">
+                        <or
+                          uid="7BC1943A9915442F99F516013D2104B3">
+                          <condition
+                            uid="9FFC30F9DC524123BC81C12E53595F5B"
+                            s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                            s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                            s:ExpectedAncestorTaxonId="{4E93CC73-47A7-4E80-96EB-EF329185B36D}" />
+                          <condition
+                            uid="9A098A36182D455280101C9A5E366681"
+                            s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                            s:PatternList="{85F9EAC7-4271-4FB6-99D8-7245423C7281}" />
+                        </or>
+                        <condition
+                          uid="E34E15B0BB9D41739C2EFDADE6745911"
+                          s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                          s:ProfileName="Lighthouse Healthcare Topic Interest"
+                          s:PatternName="Knee Surgery Candidate" />
+                      </or>
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="462AB4B73011455389FE2F351AD03E30"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{9DE4FEA8-09A8-481D-9B2A-6DDA84B6B51C}" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{1C0F3249-32A1-475D-8E69-8B2111ED267D}"
+              s:ds="{25769385-7E00-4EA1-B6B8-A06C738F9733}"
+              s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames=%7B184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3" />
+            <r
+              uid="{E1FA64CF-6A5A-4364-9830-C32D63D64B58}">
+              <p:d />
+            </r>
+            <r
+              uid="{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}"
+              s:par="DynamicPlaceholderId=5&amp;Caching=0%7C0%7C0%7C0%7C0%7C0%7C0%7C0&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="F46D9DDD6777494A85C84D65EE454002"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Trainer Finder Promo" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{88B380C7-B863-4D92-BAE9-DF326B9E7685}"
+              s:par="Styles=%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=10&amp;BackgroundImage" />
+            <r
+              uid="{6B1C256F-3488-4908-BB96-B7746E471A36}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2" />
+            <r
+              uid="{C03747C0-B0DC-467F-AA8D-126A4FFFABE9}"
+              s:par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=9&amp;BackgroundImage" />
+            <r
+              uid="{2A66CABB-78E4-439C-8334-BBF2FBFFCAEE}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=14" />
+            <r
+              uid="{81BDD83F-35B1-49D1-9B7C-8C0BE1189F83}"
+              s:par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B9CB76B6C-2B77-4728-8508-CF7041C7B69C%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=11" />
+            <r
+              uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}">
+              <p:d />
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T190501Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Lighthouse Healthcare
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Helping patients one person at a time
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Lighthouse Healthcare
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Helping patients one person at a time
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Helping patients one person at a time
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Lighthouse Healthcare
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Lighthouse Healthcare
+  - Version: 7
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{DC7836FD-6BA6-48B3-AE6E-89DB6DDDAF5E}"
+              p:before="*"
+              s:ds="{D3A2AD3B-26FF-41CC-9BF8-11EC4D923508}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=19"
+              s:ph="/main/sxa-content-container/container-1/container-11/column-2-17" />
+            <r
+              uid="{8E522D67-CCB2-4667-A3CF-CC8D74BC6E27}"
+              p:after="r[@uid='{DC7836FD-6BA6-48B3-AE6E-89DB6DDDAF5E}']"
+              s:ds="{0667F348-6DE0-4C89-8183-086C2574D485}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=18"
+              s:ph="/main/sxa-content-container/container-1/container-11/column-1-17" />
+            <r
+              uid="{11B288B4-40F6-4517-98E9-08436FFE52F7}"
+              p:after="r[@uid='{8E522D67-CCB2-4667-A3CF-CC8D74BC6E27}']"
+              s:ds=""
+              s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+              s:par="ColumnWidth1=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth2=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=17"
+              s:ph="/main/sxa-content-container/container-1/container-11" />
+            <r
+              uid="{AC1741DC-AFF1-4D51-BD49-DB6BC6058283}"
+              p:after="r[@uid='{11B288B4-40F6-4517-98E9-08436FFE52F7}']"
+              s:ds="{9120EAE1-4BF7-40EA-8223-532DD5A2E894}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B6C6DCD16-6835-4C2B-BC30-B19AF38AAB21%7D&amp;Styles=%7B3D999B16-D69D-4B5D-AC03-77987905060F%7D%7C%7BD3CC7A7D-1C3D-48CD-9B01-55DDBA9C5013%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=15"
+              s:ph="/main/sxa-content-container/container-1/container-9" />
+            <r
+              uid="{96440B7A-F411-4281-B690-302C5468E355}"
+              s:par="Navigation=%7BF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7D&amp;Transition=%7BB0EFE255-B28D-452F-9C89-791D6C014D18%7D&amp;Timeout=3500&amp;PauseOnHover=1&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B5F1937B9-3A84-4F4B-A96E-C60419A06667%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=13">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{B3EE3027-9A67-4696-800B-2F7B4D619DD4}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{D1C9FD20-F06E-4130-87D7-B13299AB7036}"
+                    p:before="*"
+                    s:name="Orthopedic Specialty">
+                    <conditions>
+                      <or
+                        uid="A7FE04CEAED949078C3640426A734FD8">
+                        <or
+                          uid="7BC1943A9915442F99F516013D2104B3">
+                          <condition
+                            uid="9FFC30F9DC524123BC81C12E53595F5B"
+                            s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                            s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                            s:ExpectedAncestorTaxonId="{4E93CC73-47A7-4E80-96EB-EF329185B36D}" />
+                          <condition
+                            uid="9A098A36182D455280101C9A5E366681"
+                            s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                            s:PatternList="{85F9EAC7-4271-4FB6-99D8-7245423C7281}" />
+                        </or>
+                        <condition
+                          uid="E34E15B0BB9D41739C2EFDADE6745911"
+                          s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                          s:ProfileName="Lighthouse Healthcare Topic Interest"
+                          s:PatternName="Knee Surgery Candidate" />
+                      </or>
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="462AB4B73011455389FE2F351AD03E30"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{9DE4FEA8-09A8-481D-9B2A-6DDA84B6B51C}" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{1C0F3249-32A1-475D-8E69-8B2111ED267D}"
+              s:ds="{25769385-7E00-4EA1-B6B8-A06C738F9733}" />
+            <r
+              uid="{E1FA64CF-6A5A-4364-9830-C32D63D64B58}">
+              <p:d />
+            </r>
+            <r
+              uid="{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B0D7BE8C8-8041-43F7-BEE5-C78AF07D0692%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{75829464-687D-4799-AC69-832D3328FBB6}"
+                    s:name="Trainer Finder Complete">
+                    <conditions>
+                      <condition
+                        uid="1804B69F9ADF45F680CA9AFEADECE5C6">
+                        <p:d />
+                      </condition>
+                      <or
+                        uid="BBA140255303407FB14B870BD33E2A4A">
+                        <condition
+                          uid="1804B69F9ADF45F680CA9AFEADECE5C6"
+                          s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
+                          s:GoalId="{A39866FF-6B67-49A1-9D42-34890ABB4815}" />
+                        <condition
+                          uid="D48C76B2B3624ED5865A1C2213B82AA6"
+                          s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                          s:ProfileName="Health Focus"
+                          s:PatternName="Fitness Fanatic" />
+                      </or>
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="BA950A4DDA0B4C4CA6A5B4F834FDA493"
+                        s:DataSource="local:/Data/Promo - Start Over Trainer Finder" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{807C38A7-ED29-40B8-AD6E-90E8F0105531}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    p:after="*[1=2]">
+                    <actions>
+                      <action
+                        uid="F46D9DDD6777494A85C84D65EE454002"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Trainer Finder Promo" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{88B380C7-B863-4D92-BAE9-DF326B9E7685}"
+              s:par="Styles=%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=10&amp;BackgroundImage" />
+            <r
+              uid="{6B1C256F-3488-4908-BB96-B7746E471A36}"
+              s:ccb="Clear on publish"
+              s:ds="local:/Data/Promo - Weekly Class Promo"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{6F0818B1-AD63-413E-8926-B308503D5DF7}"
+                    s:name="Find a Doctor">
+                    <conditions>
+                      <condition
+                        uid="00C9D02E9C3F4EF1A0FA1A456AB95291"
+                        s:GoalId="{40191969-B308-49CE-B15D-799BCAD0BC0A}" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="690D00C9AF404E599D573E1B4782D3E7"
+                        s:DataSource="{C2E3B9B3-0A1A-44D0-A3BA-8D11D425B0E6}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="1B98CD0B5BDD49DF9D5146FF78E83FEB"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Promo - Weekly Class Promo" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{C03747C0-B0DC-467F-AA8D-126A4FFFABE9}"
+              s:par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=9&amp;BackgroundImage" />
+            <r
+              uid="{2A66CABB-78E4-439C-8334-BBF2FBFFCAEE}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=14" />
+            <r
+              uid="{81BDD83F-35B1-49D1-9B7C-8C0BE1189F83}"
+              s:par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B9CB76B6C-2B77-4728-8508-CF7041C7B69C%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=11" />
+            <r
+              uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}">
+              <p:d />
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T190501Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Lighthouse Healthcare
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Helping patients one person at a time
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Lighthouse Healthcare
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Helping patients one person at a time
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Helping patients one person at a time
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Lighthouse Healthcare
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Lighthouse Healthcare
+  - Version: 8
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{DC7836FD-6BA6-48B3-AE6E-89DB6DDDAF5E}"
+              p:before="*"
+              s:ds="{D3A2AD3B-26FF-41CC-9BF8-11EC4D923508}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=19"
+              s:ph="/main/sxa-content-container/container-1/container-11/column-2-17" />
+            <r
+              uid="{8E522D67-CCB2-4667-A3CF-CC8D74BC6E27}"
+              p:after="r[@uid='{DC7836FD-6BA6-48B3-AE6E-89DB6DDDAF5E}']"
+              s:ds="{0667F348-6DE0-4C89-8183-086C2574D485}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=18"
+              s:ph="/main/sxa-content-container/container-1/container-11/column-1-17" />
+            <r
+              uid="{11B288B4-40F6-4517-98E9-08436FFE52F7}"
+              p:after="r[@uid='{8E522D67-CCB2-4667-A3CF-CC8D74BC6E27}']"
+              s:ds=""
+              s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+              s:par="ColumnWidth1=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth2=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=17"
+              s:ph="/main/sxa-content-container/container-1/container-11" />
+            <r
+              uid="{AC1741DC-AFF1-4D51-BD49-DB6BC6058283}"
+              p:after="r[@uid='{11B288B4-40F6-4517-98E9-08436FFE52F7}']"
+              s:ds="{9120EAE1-4BF7-40EA-8223-532DD5A2E894}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames=%7BF8C8F184-053D-4947-840B-A96495DB434C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=15&amp;CacheClearingBehavior=Clear%20on%20publish"
+              s:ph="/main/sxa-content-container/container-1/container-9" />
+            <r
+              uid="{96440B7A-F411-4281-B690-302C5468E355}"
+              s:par="Navigation=%7BF5A400A0-C183-4A46-892A-F4DE38A5ECDE%7D&amp;Transition=%7BB0EFE255-B28D-452F-9C89-791D6C014D18%7D&amp;Timeout=3500&amp;PauseOnHover=1&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B5F1937B9-3A84-4F4B-A96E-C60419A06667%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=13">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{B3EE3027-9A67-4696-800B-2F7B4D619DD4}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{D1C9FD20-F06E-4130-87D7-B13299AB7036}"
+                    p:before="*"
+                    s:name="Orthopedic Specialty">
+                    <conditions>
+                      <or
+                        uid="A7FE04CEAED949078C3640426A734FD8">
+                        <or
+                          uid="7BC1943A9915442F99F516013D2104B3">
+                          <condition
+                            uid="9FFC30F9DC524123BC81C12E53595F5B"
+                            s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                            s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                            s:ExpectedAncestorTaxonId="{4E93CC73-47A7-4E80-96EB-EF329185B36D}" />
+                          <condition
+                            uid="9A098A36182D455280101C9A5E366681"
+                            s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                            s:PatternList="{85F9EAC7-4271-4FB6-99D8-7245423C7281}" />
+                        </or>
+                        <condition
+                          uid="E34E15B0BB9D41739C2EFDADE6745911"
+                          s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                          s:ProfileName="Lighthouse Healthcare Topic Interest"
+                          s:PatternName="Knee Surgery Candidate" />
+                      </or>
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="462AB4B73011455389FE2F351AD03E30"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{9DE4FEA8-09A8-481D-9B2A-6DDA84B6B51C}" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{1C0F3249-32A1-475D-8E69-8B2111ED267D}"
+              s:ds="{25769385-7E00-4EA1-B6B8-A06C738F9733}" />
+            <r
+              uid="{E1FA64CF-6A5A-4364-9830-C32D63D64B58}">
+              <p:d />
+            </r>
+            <r
+              uid="{91549E4E-85B9-46BB-B903-99BFBF5FEA4C}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B0D7BE8C8-8041-43F7-BEE5-C78AF07D0692%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{75829464-687D-4799-AC69-832D3328FBB6}"
+                    s:name="Trainer Finder Complete">
+                    <conditions>
+                      <condition
+                        uid="1804B69F9ADF45F680CA9AFEADECE5C6"
+                        s:GoalId="{EA604B31-2E90-4E64-8EC5-B1CEEAA3D633}" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="BA950A4DDA0B4C4CA6A5B4F834FDA493"
+                        s:DataSource="local:/Data/Promo - Start Over Trainer Finder" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{807C38A7-ED29-40B8-AD6E-90E8F0105531}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    p:after="*[1=2]">
+                    <actions>
+                      <action
+                        uid="F46D9DDD6777494A85C84D65EE454002"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Trainer Finder Promo" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{88B380C7-B863-4D92-BAE9-DF326B9E7685}"
+              s:par="Styles=%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=10&amp;BackgroundImage" />
+            <r
+              uid="{6B1C256F-3488-4908-BB96-B7746E471A36}"
+              s:ds="local:/Data/Promo - Weekly Class Promo">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{6F0818B1-AD63-413E-8926-B308503D5DF7}"
+                    s:name="Find a Doctor">
+                    <conditions>
+                      <condition
+                        uid="00C9D02E9C3F4EF1A0FA1A456AB95291"
+                        s:GoalId="{40191969-B308-49CE-B15D-799BCAD0BC0A}" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="690D00C9AF404E599D573E1B4782D3E7"
+                        s:DataSource="{C2E3B9B3-0A1A-44D0-A3BA-8D11D425B0E6}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="1B98CD0B5BDD49DF9D5146FF78E83FEB"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Promo - Weekly Class Promo" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{C03747C0-B0DC-467F-AA8D-126A4FFFABE9}"
+              s:par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B37959667-EE0C-4E0F-8A37-5687BB143510%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=9&amp;BackgroundImage" />
+            <r
+              uid="{2A66CABB-78E4-439C-8334-BBF2FBFFCAEE}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=14" />
+            <r
+              uid="{81BDD83F-35B1-49D1-9B7C-8C0BE1189F83}"
+              s:par="Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D%7C%7B9CB76B6C-2B77-4728-8508-CF7041C7B69C%7D&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;DynamicPlaceholderId=11" />
+            <r
+              uid="{C3B8C2EE-F9DC-44C4-8837-93681B962081}">
+              <p:d />
+            </r>
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171027T190501Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: 
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Lighthouse Healthcare
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: |
+        {"items":[]}
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Helping patients one person at a time
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Lighthouse Healthcare
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Helping patients one person at a time
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\virtualssuser
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Helping patients one person at a time
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Lighthouse Healthcare
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Lighthouse Healthcare
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Home
+  Versions:
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Home
+  Versions:
