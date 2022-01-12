@@ -11,10 +11,6 @@ resources:
 variables:
   GitVersion.SemVer: ""
   SITECORE_VERSION: "10.1"
-  # Base module version used when building 'develop' and all other branches except 'main'
-  BASE_MODULE_VERSION: "1010.0"
-  # Base module version used when building 'main' branch
-  BASE_MODULE_VERSION_MAIN: "1010.0"
   GitVersion.PreReleaseLabel: ""
   tag: "$(GitVersion.SemVer)"
   additionalImageTags: ""
@@ -81,13 +77,6 @@ stages:
                 $params.Add("SitecoreVersion","$sitecoreVersion")
                 $params.Add("SolutionVersion", "$(tag)")
                 $params.add("Prerelease", $preRelease)
-
-                if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
-                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION_MAIN)")
-                }
-                else {
-                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION)")
-                }
 
                 ./init-ci.ps1 @params
 
@@ -236,12 +225,6 @@ stages:
                 $params.Add("SitecoreVersion","$sitecoreVersion")
                 $params.Add("DemoVersion","$(tag)")
                 $params.Add("SolutionVersion","$(tag)")
-                if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
-                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION_MAIN)")
-                }
-                else {
-                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION)")
-                }
 
                 ./init-ci.ps1 @params
 
@@ -311,16 +294,6 @@ stages:
                 $params.Add("DemoTeamRegistry","$(REGISTRY)")
                 $params.Add("SitecoreRegistry","$sitecoreRegistry")
                 $params.Add("SitecoreVersion","$sitecoreVersion")
-
-                $baseModuleVersion = "$(($sitecoreVersion -replace '\.','') + '.0')"
-
-                if ("$(Build.SourceBranch)" -eq "refs/heads/develop") {
-                  $baseModuleVersion += "-beta"
-                  $params.add("BaseModuleVersion","$baseModuleVersion")
-                }
-                elseif ("$(Build.SourceBranch)" -eq "refs/heads/main") {
-                  $params.add("BaseModuleVersion","$baseModuleVersion")
-                }
 
                 ./init-ci.ps1 @params
 

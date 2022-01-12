@@ -62,8 +62,7 @@ services:
     build:
       context: .\docker\images\windows\demo-standalone
       args:
-        BASE_IMAGE: ${REGISTRY}demo/base/lighthouse-xp1-modules-base-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${BASE_MODULE_VERSION}
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp1-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp1-cm:${SITECORE_VERSION}
         TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}community/modules/custom-sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         SPE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
         SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}

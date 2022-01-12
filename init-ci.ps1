@@ -8,10 +8,6 @@ Param (
   [string]$SolutionVersion = "latest"
   ,
   [Parameter(
-    HelpMessage = "Base Module Version - used to refer to a specific build of the base images.")]
-  [string]$BaseModuleVersion = "1010.0"
-  ,
-  [Parameter(
     HelpMessage = "Internal ACR use by the demo team")]
   [string]$DemoTeamRegistry = ""
   ,
@@ -99,7 +95,6 @@ Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegi
 Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
 Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
 Set-DockerComposeEnvFileVariable "SOLUTION_VERSION" -Value $SolutionVersion
-Set-DockerComposeEnvFileVariable "BASE_MODULE_VERSION" -Value $BaseModuleVersion
 Set-DockerComposeEnvFileVariable "SMTP_CONTAINERS_COUNT" -Value 0
 Set-DockerComposeEnvFileVariable "ISOLATION" -Value $IsolationMode
 Set-DockerComposeEnvFileVariable "WINDOWSSERVERCORE_VERSION" -Value $WindowsVersion
