@@ -325,8 +325,8 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-vnext&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
-                Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-vnext&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-v2&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-v2&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
   - stage: Update_DEV_Portal_Databases_Stable
     displayName: "Update 'stable' version in the DEV portal database"
@@ -350,7 +350,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-vnext&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-v2&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
   - stage: Update_PROD_Portal_Database_Stable
     displayName: "Update 'stable' version in the PROD portal database"
@@ -374,7 +374,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-vnext&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-v2&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
       - deployment: Update_Production_Database_Deployment
         displayName: "Update Production Database Deployment"
         environment: Production Portal Database
@@ -437,7 +437,7 @@ stages:
           - template: version.yml
           - task: XplatGenerateReleaseNotes@3
             inputs:
-              outputfile: "$(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-vnext-$(GitVersion.SemVer).md"
+              outputfile: "$(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-v2-$(GitVersion.SemVer).md"
               templateLocation: "File"
               templatefile: "release-notes-template.hb"
               dumpPayloadToConsole: true
@@ -449,7 +449,7 @@ stages:
               checkStage: false
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: "$(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-vnext-$(GitVersion.SemVer).md"
+              targetPath: "$(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-v2-$(GitVersion.SemVer).md"
               artifact: "Release Notes"
               publishLocation: "pipeline"
           - task: AzureCLI@2
@@ -458,4 +458,4 @@ stages:
               azureSubscription: "$(azure.subscription)"
               scriptType: "pscore"
               scriptLocation: "inlineScript"
-              inlineScript: "az storage file upload --account-name dockerassets  --share-name release-notes --source $(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-vnext-$(GitVersion.SemVer).md"
+              inlineScript: "az storage file upload --account-name dockerassets  --share-name release-notes --source $(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-v2-$(GitVersion.SemVer).md"
