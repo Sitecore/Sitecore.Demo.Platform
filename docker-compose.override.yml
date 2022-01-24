@@ -10,28 +10,45 @@ services:
     networks:
       - demo
 
+  # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
+  # module data added. See Dockerfile for details.
   mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
     healthcheck:
-      test: ["CMD", "powershell", "ps"]
-    image: ${REGISTRY}demo/lighthouse-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    environment:
-      USER_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
-      ADMIN_USER_NAME: "sitecore\\superuser"
-      DISABLE_DEFAULT_ADMIN: "FALSE"
-      EXM_BASE_URL: "https://${CD_HOST}"
-      START_OVERRIDE_SCRIPTS: "start-override-platform-windows.ps1"
-      COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
+      test: ["CMD", "dir"]
     mem_limit: 2GB
     volumes:
       - type: bind
         source: .\data\mssql-data
-        target: c:\data
+        target: /var/opt/mssql/data
     networks:
       - demo
 
-  solr:
+  # Custom mssql init
+  mssql-init:
+    image: ${REGISTRY}demo/lighthouse-xp0-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    environment:
+      SQL_SERVER: ${SQL_SERVER}
+      SQL_ADMIN_LOGIN: ${SQL_SA_LOGIN}
+      SQL_ADMIN_PASSWORD: ${SQL_SA_PASSWORD}
+      SITECORE_ADMIN_USERNAME: "sitecore\\superuser"
+      SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      SITECORE_USER_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      POST_DEPLOYMENT_WAIT_PERIOD: 900
     healthcheck:
-      test: ["CMD", "powershell", "ps"]
+      test: ["CMD", "powershell", "-command", "if ([System.Environment]::GetEnvironmentVariable('DatabasesDeploymentStatus', 'Machine') -eq 'Complete') { exit 0 } else { exit 1}"]
+      start_period: 300s
+      interval: 30s
+      retries: 100
+    depends_on:
+      mssql:
+        condition: service_healthy
+    networks:
+      - demo
+
+  # Mount our Solr data folder and use our retagged Solr image.
+  # Some modules (like SXA) also require additions to the Solr image.
+  solr:
     volumes:
       - type: bind
         source: .\data\solr-data
@@ -39,6 +56,8 @@ services:
     networks:
       - demo
 
+  # Mount our Solr data folder and use our retagged Solr image.
+  # Some modules (like SXA) also require additions to the Solr image.
   solr-init:
     image: ${REGISTRY}demo/lighthouse-xp0-solr-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     networks:
@@ -86,9 +105,6 @@ services:
       COVEO_SERVER_URL: ${COVEO_SERVER_URL}
       OPENCALAIS_ACCESSTOKEN: ${OPENCALAIS_ACCESSTOKEN}
       DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES: ${DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES}
-      SitecoreAITenantID: ${SITECORE_AI_TENANT_ID}
-      SitecoreAIConfigServiceURL: ${SITECORE_AI_CONFIG_SERVICE_URL}
-      SitecoreAIConfigServiceJWT: ${SITECORE_AI_CONFIG_SERVICE_JWT}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
       - .\items:c:\items
@@ -116,7 +132,7 @@ services:
     environment:
       SITECORE_LICENSE_LOCATION: c:\license
     depends_on:
-      mssql:
+      mssql-init:
         condition: service_healthy
       solr:
         condition: service_healthy
@@ -148,13 +164,15 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:5000/healthz/live"]
       timeout: 300s
     image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    isolation: ${TRAEFIK_ISOLATION}
-    restart: unless-stopped
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    isolation: ${ISOLATION}
     environment:
-      ASPNETCORE_URLS: "http://*:5000"
-      SITECORE_Sitecore:Publishing:ConnectionStrings:Core: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      SITECORE_Sitecore:Publishing:ConnectionStrings:Master: Data Source=mssql;Initial Catalog=Sitecore.Master;User ID=sa;Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      SITECORE_Sitecore:Publishing:ConnectionStrings:Web: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_Publishing__ConnectionStrings__Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
     depends_on:
       - mssql
       - ps-init
@@ -164,19 +182,22 @@ services:
       - demo
 
   ps-init:
-      image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-      isolation: ${TRAEFIK_ISOLATION}
-      environment:
-        ASPNETCORE_URLS: "http://*:5000"
-        SITECORE_Sitecore:Publishing:ConnectionStrings:Core: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-        SITECORE_Sitecore:Publishing:ConnectionStrings:Master: Data Source=mssql;Initial Catalog=Sitecore.Master;User ID=sa;Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-        SITECORE_Sitecore:Publishing:ConnectionStrings:Web: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      command: schema upgrade --force
-      depends_on:
-        mssql:
-          condition: service_healthy
-      networks:
-        - demo
+    image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      SITECORE_Publishing__ConnectionStrings__Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+    command: schema upgrade --force
+    depends_on:
+      mssql-init:
+        condition: service_healthy
+    networks:
+      - demo
+
   cd:
     isolation: ${ISOLATION}
     image: ${REGISTRY}demo/lighthouse-xp0-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
@@ -202,10 +223,7 @@ services:
       Sitecore_ConnectionStrings_Xdb.MarketingAutomation.Reporting.Client: http://xconnect
       Sitecore_ConnectionStrings_Xdb.ReferenceData.Client: http://xconnect
       Sitecore_ConnectionStrings_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
-      SitecoreAITenantID: ${SITECORE_AI_TENANT_ID}
-      SitecoreAIConfigServiceURL: ${SITECORE_AI_CONFIG_SERVICE_URL}
-      SitecoreAIConfigServiceJWT: ${SITECORE_AI_CONFIG_SERVICE_JWT}
-
+      Sitecore_Publishing_Service_Url: http://ps:5000/
       EXM_RENDERER_URL: http://cm
       COVEO_SERVER_URL: ${COVEO_SERVER_URL}
       DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES: ${DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES}
@@ -214,7 +232,7 @@ services:
       - .\data\cd\src:C:\src
       - .\data\cd\backup:c:\backup
     depends_on:
-      mssql:
+      mssql-init:
         condition: service_healthy
       ps:
         condition: service_healthy
@@ -271,7 +289,7 @@ services:
       COVEO_FARM_NAME: ${COVEO_FARM_NAME}
       COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
     depends_on:
-      mssql:
+      mssql-init:
         condition: service_healthy
       ps:
         condition: service_healthy

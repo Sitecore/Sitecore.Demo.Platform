@@ -11,7 +11,6 @@ ARG CMP_ASSETS
 ARG SFCRM_ASSETS
 ARG SFMCBDE_ASSETS
 ARG DCRM_ASSETS
-ARG SITECORE_AI_ASSETS
 ARG SOLUTION_IMAGE
 
 FROM ${TOOLS_ASSETS} as tools
@@ -24,13 +23,18 @@ FROM ${CMP_ASSETS} as cmp_assets
 FROM ${SFCRM_ASSETS} as sfcrm_assets
 FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
 FROM ${DCRM_ASSETS} as dcrm_assets
-FROM ${SITECORE_AI_ASSETS} as sitecore_ai_assets
 
 FROM ${SOLUTION_IMAGE} as solution
 
 FROM ${BASE_IMAGE} as modules
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+# Install GIT
+WORKDIR C:\tools
+RUN Invoke-WebRequest 'https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe' -OutFile 'git.exe';
+RUN Start-Process "c:\tools\git.exe" -ArgumentList '/SP-', '/VERYSILENT', '/NORESTART', '/NOCANCEL', '/CLOSEAPPLICATIONS', '/RESTARTAPPLICATIONS' -Wait -NoNewWindow;
+WORKDIR C:\inetpub\wwwroot
 
 COPY --from=tools /tools/ /tools/
 
@@ -53,7 +57,6 @@ COPY --from=sfcrm_assets /module/cm/content /inetpub/wwwroot
 COPY --from=sfmcbde_assets /module/cm/content/App_Config/Sitecore/DataExchange/SalesforceMarketingCloud /inetpub/wwwroot/App_Config/Sitecore/DataExchange/SalesforceMarketingCloud
 COPY --from=sfmcbde_assets /module/cm/content/bin/Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.dll /inetpub/wwwroot/bin
 COPY --from=dcrm_assets /module/cm/content /inetpub/wwwroot
-COPY --from=sitecore_ai_assets /module/cm/content /inetpub/wwwroot
 
 # https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls
 # (OI) = directories object inherit, (CI) = directories container inherit, F = Full access

@@ -45,27 +45,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Sitecore.Kernel" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Kernel" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Logging" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Nexus.Consumption" Version="1.4.2">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Mvc.Analytics" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Logging" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Mvc" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Mvc.Analytics" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Update" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Mvc" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Zip" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Update" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>

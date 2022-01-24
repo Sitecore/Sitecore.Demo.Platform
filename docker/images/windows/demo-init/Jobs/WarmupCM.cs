@@ -23,6 +23,7 @@ namespace Sitecore.Demo.Init.Jobs
 		{
 			try
 			{
+				var watch = System.Diagnostics.Stopwatch.StartNew();
 				var content = File.ReadAllText("data/warmup-config.json");
 				var config = JsonConvert.DeserializeObject<WarmupConfig>(content);
 
@@ -41,11 +42,12 @@ namespace Sitecore.Demo.Init.Jobs
 
 				var client = new HttpClient();
 				client.Timeout = TimeSpan.FromMinutes(10);
-				Task.WaitAll(WarmupBackend(cm, id, user, password, config), WarmupFrontend(config, client, cm));
+				await WarmupBackend(cm, id, user, password, config);
 
 				await Complete();
 
-				Log.LogInformation($"{DateTime.UtcNow} Warmup CM complete");
+				watch.Stop();
+				Log.LogInformation($"{DateTime.UtcNow} Warmup CM complete. Elapsed: {watch.Elapsed:m\\:ss}");
 			}
 			catch (Exception ex)
 			{
@@ -53,6 +55,7 @@ namespace Sitecore.Demo.Init.Jobs
 			}
 		}
 
+		// TODO: Decide whether we need it
 		private async Task WarmupFrontend(WarmupConfig config, HttpClient client, string cm)
 		{
 			foreach (var entry in config.xp)

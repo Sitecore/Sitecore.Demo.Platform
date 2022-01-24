@@ -22,6 +22,7 @@ namespace Sitecore.Demo.Init.Jobs
 		{
 			try
 			{
+				var watch = System.Diagnostics.Stopwatch.StartNew();
 				var skipWarmupCd = Convert.ToBoolean(Environment.GetEnvironmentVariable("SKIP_WARMUP_CD"));
 
 				if (skipWarmupCd)
@@ -56,7 +57,8 @@ namespace Sitecore.Demo.Init.Jobs
 
 				await Complete();
 
-				Log.LogInformation($"{DateTime.UtcNow} Warmup CD complete");
+				watch.Stop();
+				Log.LogInformation($"{DateTime.UtcNow} Warmup CD complete. Elapsed: {watch.Elapsed:m\\:ss}");
 			}
 			catch(Exception ex)
 			{

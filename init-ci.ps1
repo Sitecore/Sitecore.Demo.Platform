@@ -25,7 +25,7 @@ Param (
   ,
   [Parameter(
     HelpMessage = "Sitecore version")]
-    [string]$SitecoreVersion = "10.1"
+    [string]$SitecoreVersion = "10.2"
   ,
   [Parameter(
     HelpMessage = "Specify if the version of Sitecore is a pre-release version")]
@@ -45,6 +45,7 @@ Import-Module PowerShellGet
 $SitecoreGallery = Get-PSRepository | Where-Object { $_.Name -eq "SitecoreGallery" }
 if (-not $SitecoreGallery) {
   Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
   Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted -Verbose
   $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
 }

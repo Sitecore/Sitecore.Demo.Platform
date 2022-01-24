@@ -36,7 +36,7 @@ namespace Sitecore.Demo.Init.Jobs
 			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
 			var content = File.ReadAllText("data/publishingservice.json");
-			HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, "/api/publishing/jobqueue")
+			var request = new HttpRequestMessage(HttpMethod.Put, "/api/publishing/jobqueue")
 			{
 				Content = new StringContent(content, Encoding.UTF8, "application/json")
 			};
@@ -46,6 +46,17 @@ namespace Sitecore.Demo.Init.Jobs
 
 			var jobId = JsonConvert.DeserializeObject<PublishJobResponse>(contents).value;
 			await WaitForPublishToComplete(client, jobId);
+
+			var fixContent = File.ReadAllText("data/publishingservice-fix.json");
+			var fixRequest = new HttpRequestMessage(HttpMethod.Put, "/api/publishing/jobqueue")
+			{
+				Content = new StringContent(fixContent, Encoding.UTF8, "application/json")
+			};
+
+			var fixResponse = await client.SendAsync(fixRequest);
+			var fixContents = await fixResponse.Content.ReadAsStringAsync();
+			var fixJobId = JsonConvert.DeserializeObject<PublishJobResponse>(fixContents).value;
+			await WaitForPublishToComplete(client, fixJobId);
 
 			Log.LogInformation($"{response.StatusCode} {contents}");
 
@@ -74,7 +85,7 @@ namespace Sitecore.Demo.Init.Jobs
 						break;
 					}
 				}
-				catch(Exception)
+				catch (Exception)
 				{
 					// Ignore exceptions during warmup
 					Log.LogInformation($"Publishing is not ready yet, retrying...");

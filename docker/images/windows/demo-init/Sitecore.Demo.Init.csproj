@@ -8,12 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="data\publishingservice-fix.json" />
     <None Remove="data\publishingservice.json" />
     <None Remove="data\warmup-config.json" />
     <None Remove="data\xGenerator.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="data\publishingservice-fix.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="data\publishingservice.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

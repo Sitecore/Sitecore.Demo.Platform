@@ -16,7 +16,6 @@ ARG SFMCCE_ASSETS
 ARG CMP_ASSETS
 ARG HORIZON_INTEGRATION_ASSETS
 ARG XGEN_ASSETS
-ARG SITECORE_AI_ASSETS
 
 FROM ${TOOLS_ASSETS} as tools
 
@@ -33,13 +32,18 @@ FROM ${SFMCCE_ASSETS} as sfmcce_assets
 FROM ${CMP_ASSETS} as cmp_assets
 FROM ${HORIZON_INTEGRATION_ASSETS} as horizon_integration_assets
 FROM ${XGEN_ASSETS} as xgen_assets
-FROM ${SITECORE_AI_ASSETS} as sitecore_ai_assets
 
 FROM ${SOLUTION_IMAGE} as solution
 
 FROM ${BASE_IMAGE} as modules
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+# Install GIT
+WORKDIR C:\tools
+RUN Invoke-WebRequest 'https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe' -OutFile 'git.exe';
+RUN Start-Process "c:\tools\git.exe" -ArgumentList '/SP-', '/VERYSILENT', '/NORESTART', '/NOCANCEL', '/CLOSEAPPLICATIONS', '/RESTARTAPPLICATIONS' -Wait -NoNewWindow;
+WORKDIR C:\inetpub\wwwroot
 
 COPY --from=tools /tools/ /tools/
 
@@ -61,7 +65,6 @@ COPY --from=sfmcce_assets /module/cm/content /inetpub/wwwroot
 COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
 COPY --from=horizon_integration_assets /module/cm/content /inetpub/wwwroot
 COPY --from=xgen_assets /module/cm/content /inetpub/wwwroot
-COPY --from=sitecore_ai_assets /module/cm/content /inetpub/wwwroot
 
 # https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls
 # (OI) = directories object inherit, (CI) = directories container inherit, F = Full access
@@ -74,7 +77,6 @@ COPY --from=solution /solution/cm/ /inetpub/wwwroot/
 
 COPY ./hotfix/ /inetpub/wwwroot/
 COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
-COPY --from=dcrm_assets /module/transforms/cm/Web.config.xdt /inetpub/wwwroot/transforms/Web.dcrm.config.xdt
 COPY --from=dcrm_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.dcrm.config.xdt
 COPY ./tools/ /tools/
 

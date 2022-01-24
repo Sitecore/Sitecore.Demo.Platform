@@ -92,11 +92,15 @@
     <PackageReference Include="HtmlAgilityPack.CssSelectors">
       <Version>1.0.2</Version>
     </PackageReference>
-    <PackageReference Include="Sitecore.ContentSearch" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.ContentSearch" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Kernel" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Kernel" Version="10.2.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Nexus.Consumption" Version="1.4.2">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>

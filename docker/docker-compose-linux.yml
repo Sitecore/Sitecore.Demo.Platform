@@ -1,44 +1,6 @@
 version: '2.4'
 
 services:
-
-  sql:
-    image: ${REGISTRY}demo/lighthouse-mssql:${SITECORE_VERSION}-linux-${DEMO_VERSION}
-    isolation: default
-    build:
-      context: ./images/windows/demo-mssql
-      dockerfile: Dockerfile.linux
-      args:
-        BASE_IMAGE: ${REGISTRY}community/sitecore-xp0-custom-mssql:${SITECORE_VERSION}-linux
-        SPE_ASSETS: ${REGISTRY}community/modules/custom-spe-assets:6.2-linux
-        SXA_ASSETS: ${REGISTRY}community/modules/custom-sxa-xp1-assets:${SITECORE_VERSION}-linux
-        HEADLESS_ASSETS: ${REGISTRY}community/modules/custom-sitecore-headless-services-xp1-assets:16.0.0-linux
-        SPS_ASSETS: ${REGISTRY}community/modules/custom-sps-integration-xm1-assets:${SITECORE_VERSION}-linux
-        DEF_ASSETS: ${REGISTRY}community/modules/custom-def-xp0-assets:6.0.0-linux
-        SFCRM_ASSETS: ${REGISTRY}community/modules/custom-sfcrm-xp0-assets:6.0.0-linux
-        DCRM_ASSETS: ${REGISTRY}community/modules/custom-dcrmcnn-xp0-assets:6.0.0-linux
-        SFMCBDE_ASSETS: ${REGISTRY}community/modules/custom-sfmcbde-xp0-assets:6.0.0-linux
-        SFMCCE_ASSETS: ${REGISTRY}community/modules/custom-sfmcce-xp0-assets:6.0.0-linux
-        CMP_ASSETS: ${REGISTRY}community/modules/custom-cmp-xp1-assets:4.0.0-linux
-        HORIZON_INTEGRATION_ASSETS: ${REGISTRY}community/modules/custom-horizon-integration-xp1-assets:2.25-linux
-        XGEN_ASSETS:  ${REGISTRY}community/modules/custom-xgenerator-assets:${SITECORE_VERSION}-linux
-        SITECORE_AI_ASSETS: ${REGISTRY}community/modules/custom-sitecore-ai-assets:${SITECORE_VERSION}-linux
-        SITECORE_AI_DASHBOARD_ASSETS: ${REGISTRY}community/modules/custom-sitecore-ai-dashboard-assets:${SITECORE_VERSION}-linux
-    volumes:
-      - .\data\sql:/var/opt/mssql/data
-    mem_limit: 2GB
-    ports:
-      - "44010:1433"
-    environment:
-      SA_PASSWORD: ${SQL_SA_PASSWORD}
-      ACCEPT_EULA: "Y"
-      USER_PASSWORD: "b"
-      ADMIN_PASSWORD: "b"
-      ADMIN_USER_NAME: "sitecore\\superuser"
-      DISABLE_DEFAULT_ADMIN: 'FALSE'
-      EXM_BASE_URL: "http://${HOSTNAME_SUFFIX}"
-      BOOT_OVERRIDE_SCRIPTS: "Demo-Boot-Platform-Linux.ps1"
-      COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
   init:
     healthcheck:
       test: ["CMD", "powershell", "ps"]
