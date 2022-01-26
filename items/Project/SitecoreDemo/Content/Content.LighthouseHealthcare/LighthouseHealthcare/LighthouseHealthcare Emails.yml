@@ -1,0 +1,331 @@
+﻿---
+ID: "f8ba8b00-f363-43fc-b902-d532dd385042"
+Parent: "dd8d4782-fc05-4252-b507-bfcbf9a77cd9"
+Template: "cf9c8a2a-2794-4fea-980a-ef8426f3d6c3"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/LighthouseHealthcare Emails
+DB: master
+SharedFields:
+- ID: "1b963507-6176-4336-a14d-d5070c3b0286"
+  Hint: Base URL
+  Value: "https://healthcarelighthouse10.sitecoredemo.com"
+- ID: "1ec023fb-dbb4-4a7b-837d-55f9614737b8"
+  Hint: POP3 Password
+  Value: •
+- ID: "52d572ad-9678-423f-96e2-477528418ba1"
+  Hint: "Global Opt-out List"
+  Value: "0b5092d1-7a9b-4040-b95a-4c5d48da7bd5"
+- ID: "6ce2099a-ab45-40e9-bb59-7ef2f9ba7bfb"
+  Hint: Brand Logo
+  Value: 
+- ID: "826730f6-4aeb-4fa5-a55b-b02fece73c14"
+  Hint: Brand Name
+  Value: Lighthouse Lifestyle
+- ID: "afb3e366-dab4-4e10-b61f-bc3776542bb8"
+  Hint: POP3 User Name
+  Value: admin
+- ID: "bba9823e-7749-4275-92c2-2b70565207ee"
+  Hint: Preference Center Layout Html
+  Value: |
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>$title$</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <style type="text/css">
+        .logo-container {
+        text-align: left;
+        }
+        .logo-container ul, .logo-container li {
+        list-style-type: none;
+        }
+        .logo-container ul .logo-holder h3 {
+        color: #19a5a2;
+        font-weight: 300;
+        font-size: 40px;
+        line-height: 1.3;
+        white-space: nowrap;
+        margin: 12px 0 0 0;
+        }
+        .logo-container ul .logo-holder p {
+        font-size: 14px;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        padding-left: 10px;
+        color: #612c72;
+        font-weight: 600;
+        margin: 12px 0;
+        }
+        .logo-container ul .logo-holder h3 span,  .logo-container ul .logo-holder h3 font {
+        background: #19a5a2;
+        color: #fff;
+        display: inline-block;
+        line-height: 1.5;
+        padding: 0 16px;
+        }
+        * {
+        padding: 0;
+        margin: 0;
+        }
+        html,
+        body {
+        font-size: 10px;
+        font-family: "Gotham Narrow SSm A", "Gotham Narrow SSm B", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        line-height: 1.5em;
+        color: #55555a;
+        height: 100%;
+        background: #f2f2f5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        }
+        header {
+        height: 90px;
+        border-top: 4px solid #50a1ab;
+        background-color: rgba(0,0,0,.8);
+        padding: 0 15px;
+        color: #fff;
+        }
+        header h1 {
+        font-size: 2em;
+        line-height: 90px;
+        text-align: center;
+        }
+        .exmPreferenceCenter .inner {
+        max-width: 700px;
+        margin: 0 auto;
+        position: relative;
+        }
+        .logo {
+        padding:  40px 0;
+        text-align: center;
+        }
+        .logo img {
+        height: 60px;
+        width: auto;
+        }
+        .sc-applicationHeader-row {
+        height: 40px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #cccccc;
+        padding: 10px 15px;
+        z-index: 9;
+        padding-top: 12px;
+        }
+        .exmPreferenceCenter article .top-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fc6423;
+        height: 8px;
+        }
+        .exmPreferenceCenter .content-wrap {
+        padding: 0px 100px 70px 100px;
+        border: 1px solid #ddd;
+        margin-bottom: 50px;
+        text-align: center;
+        font-size: 1.6rem;
+        background: rgba(255, 255, 255, .9);
+        margin-top: 50px;
+        }
+        hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        }
+        .exmPreferenceCenter .content-wrap p {
+        line-height: 1.4em;
+        margin-bottom: 12px;
+        }
+        .exmPreferenceCenter div.intro {
+        margin-bottom: 30px;
+        }
+        .exmPreferenceCenter form div,
+        form span,
+        form label,
+        form p {
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        }
+        .exmPreferenceCenter form div.row {
+        margin-bottom: 30px;
+        }
+        .exmPreferenceCenter label {
+        cursor: pointer;
+        margin-left: 1.5em;
+        margin-top: 0.1em;
+        margin-bottom: 0.3em;
+        line-height: 1.2em;
+        display: block;
+        min-height: 12px;
+        }
+        .exmPreferenceCenter .groups.disabled label {
+        cursor: not-allowed;
+        }
+        .exmPreferenceCenter label input {
+        float: left;
+        }
+        .exmPreferenceCenter label .description {
+        padding-left: 30px;
+        }
+        .exmPreferenceCenter label .description .title {
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: #1d8c96;
+        }
+        .exmPreferenceCenter form hr {
+        margin-bottom: 30px;
+        }
+        .exmPreferenceCenter form button {
+        min-width: 300px;
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: .75rem 1.25rem;
+        font-size: 1.05em;
+        line-height: 1.4;
+        height: 40px;
+        border-radius: .5rem;
+        transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        color: #fff;
+        background-color: #50a1ab;
+        border-color: #307b84;
+        box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, .15), 0 1px 1px hsla(0, 0%, 7%, .075);
+        cursor: default;
+        outline: none;
+        }
+        .exmPreferenceCenter form button:hover {
+        background-color: #67b5bf;
+        border-color: #38868f;
+        }
+        .exmPreferenceCenter form button:active {
+        background-color: #337f88;
+        box-shadow: 0 0 0 0.2rem rgba(80, 161, 171, .6), inset 0 0.25rem 0.41666667rem rgba(80, 161, 171, .3);
+        outline: none;
+        }
+        .exmPreferenceCenter form button.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        }
+        .exmPreferenceCenter form .error {
+        background-color: #f3a9a5;
+        color: #a21d16;
+        line-height: 120%;
+        padding: 15px;
+        text-align: center;
+        display: none;
+        margin-bottom: 30px;
+        }
+        .exmPreferenceCenter div.success {
+        background-color: #50a1ab;
+        color: #fff;
+        display: none;
+        line-height: 120%;
+        padding: 15px;
+        }
+        @media only screen and (max-width: 500px) {
+        .exmPreferenceCenter .content-wrap {
+        padding: 20px 10px;
+        }
+        .exmPreferenceCenter label {
+        margin-left: 0.5em;
+        }
+        }
+    </style>
+    <header class="exmPreferenceCenter">
+    <h1>$title$</h1>
+    </header>
+    <section class="exmPreferenceCenter">
+    <article class="inner">
+    <div class="content-wrap">
+    <div class="logo-container">
+    <ul>
+        <li>
+        <div class="logo-holder">
+        <h3><span>LIGHT</span>HOUSE</h3>
+        <p>LIFESTYLE</p>
+        </div>
+        </li>
+    </ul>
+    </div>
+    <div class="intro">$intro$</div>
+    <div class="success">
+    $success$
+    </div>
+    <form method="post" data-manager-root-id="$managerRootId$" data-contact-identifier="$contactIdentifier$" data-message-id="$messageId$" data-instance-id="$instanceId$" data-message-language="$messageLanguage$" data-test-value-index="$testValueIndex$" data-email-address-history-entry-id="$emailAddressHistoryEntryId$">
+        <div class="groups">
+        $groups$
+        </div>
+        <hr />
+        <div class="row">
+        <label>
+        </label>
+        <div class="label">
+        <input type="checkbox" id="chkUnsubscribeFromAll" checked="checked" value="yes" />
+        </div>
+        <div class="description">
+        <p>$unsubscribefromall$</p>
+        </div>
+        </div>
+        <div class="error">
+        $error$
+        </div>
+        <button type="submit" id="btnSaveExmPreferences" class="disabled">$submit$</button>
+    </form>
+    </div>
+    </article>
+    </section>
+    $javascript$
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\EXM Users|pd|^*|+item:read|pe|^*|+item:read|ar|sitecore\EXM Advanced Users|pd|+item:delete|+item:admin|+item:create|+item:rename|^*|+item:read|+item:write|pe|+item:delete|+item:admin|+item:create|+item:rename|^*|+item:read|+item:write|
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{DB7A8703-C5AE-41FF-8B23-264195634B9E}"
+- ID: "ff64b61e-e68d-4be1-bfd1-aae311f4aca1"
+  Hint: Embed Images
+  Type: Checkbox
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0f383cd8-c031-4a9d-9ed0-d55217f91287"
+      Hint: From Address
+      Value: noreply@sitecoredemo.com
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191209T225422Z
+  - Version: 2
+    Fields:
+    - ID: "0f383cd8-c031-4a9d-9ed0-d55217f91287"
+      Hint: From Address
+      Value: noreply@sitecoredemo.com
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191209T225422Z
+  - Version: 3
+    Fields:
+    - ID: "0f383cd8-c031-4a9d-9ed0-d55217f91287"
+      Hint: From Address
+      Value: noreply@sitecoredemo.com
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191209T225422Z
+  - Version: 4
+    Fields:
+    - ID: "0f383cd8-c031-4a9d-9ed0-d55217f91287"
+      Hint: From Address
+      Value: noreply@sitecoredemo.com
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20191209T225422Z

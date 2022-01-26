@@ -1,0 +1,59 @@
+﻿---
+ID: "3b0e16f2-54f4-4ccc-b547-f2f16652aa25"
+Parent: "d3292aa7-ceb1-4105-9af9-6f2eb1758b67"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseHealthcare/Data/Snippets/Full Width CTA - Right"
+DB: master
+SharedFields:
+- ID: "c80e6f3c-5bcd-426b-b1eb-6d10672e985d"
+  Hint: Data Source Selection Behavior
+  Value: Copy
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{C28D8BDB-6B79-4D81-8A99-40FEACAA78DC}"
+          p:before="*"
+          s:ds="local:/Data/Full CTA Promo"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="RenderingIdentifier&amp;Styles&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;GridParameters&amp;FieldNames&amp;DynamicPlaceholderId=2&amp;Reset Caching Options"
+          s:ph="/section-content/container-1" />
+        <r
+          uid="{A83822E9-8054-4007-B80D-B2CEA0FBF56F}"
+          p:after="*[1=2]"
+          s:cnd=""
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:mvt=""
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=1&amp;BackgroundImage&amp;Reset Caching Options"
+          s:ph="section-content" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180607T133357Z
+  - Version: 2
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180607T133357Z
+  - Version: 3
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180607T133357Z
+  - Version: 4
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180607T133357Z

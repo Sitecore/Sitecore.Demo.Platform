@@ -1,0 +1,77 @@
+﻿---
+ID: "08f2530c-6d0a-4f44-afa1-03725d10e0c0"
+Parent: "51e3106e-c20d-45d7-a51f-8f7e94391369"
+Template: "c2294d82-35a6-452a-94b1-5eb5e543b602"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Data/Security/Logout
+DB: master
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "13b96afd-2685-4c98-b2ac-d44d49893807"
+      Hint: DestinationUrl
+      Value: |
+        <link id="{D7E1BB11-04EF-462F-AA9C-261844DFF676}" querystring="" target="" text="" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseHealthcare2/home" linktype="internal" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171129T135804Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8a83d191-8f06-4ab2-9600-1968bebf0805"
+      Hint: LogoutLinkCaption
+      Value: Logout
+  - Version: 2
+    Fields:
+    - ID: "13b96afd-2685-4c98-b2ac-d44d49893807"
+      Hint: DestinationUrl
+      Value: |
+        <link id="{D7E1BB11-04EF-462F-AA9C-261844DFF676}" querystring="" target="" text="" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseHealthcare2/home" linktype="internal" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171129T135804Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8a83d191-8f06-4ab2-9600-1968bebf0805"
+      Hint: LogoutLinkCaption
+      Value: Logout
+  - Version: 3
+    Fields:
+    - ID: "13b96afd-2685-4c98-b2ac-d44d49893807"
+      Hint: DestinationUrl
+      Value: |
+        <link id="{174CDF1F-414F-4E60-841B-301BB2C5DE40}" querystring="" target="" text="" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseHealthcare/home" linktype="internal" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171129T135804Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8a83d191-8f06-4ab2-9600-1968bebf0805"
+      Hint: LogoutLinkCaption
+      Value: Logout
+  - Version: 4
+    Fields:
+    - ID: "13b96afd-2685-4c98-b2ac-d44d49893807"
+      Hint: DestinationUrl
+      Value: |
+        <link id="{174CDF1F-414F-4E60-841B-301BB2C5DE40}" querystring="" target="" text="" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseHealthcare/home" linktype="internal" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171129T135804Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8a12efae-3cb2-49da-817f-9c8b159ba45a"
+      Hint: DisplayUsername
+      Type: Checkbox
+      Value: 0
+    - ID: "8a83d191-8f06-4ab2-9600-1968bebf0805"
+      Hint: LogoutLinkCaption
+      Value: Logout

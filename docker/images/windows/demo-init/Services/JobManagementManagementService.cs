@@ -30,9 +30,10 @@ namespace Sitecore.Demo.Init.Services
 		{
 			try
 			{
-				var startTime = DateTime.UtcNow;
-				logger.LogInformation($"{DateTime.UtcNow} Init started.");
+				var watch = System.Diagnostics.Stopwatch.StartNew();
+
 				await stateService.SetState(InstanceState.Initializing);
+				logger.LogInformation($"{DateTime.UtcNow} Init started.");
 
 				var deployMarketingDefinitionsAsyncJob = new DeployMarketingDefinitions(initContext);
 				var rebuildLinkDatabaseAsyncJob = new RebuildLinkDatabase(initContext);
@@ -42,8 +43,7 @@ namespace Sitecore.Demo.Init.Services
 				var restartCM = new RestartCM(initContext);
 
 				await new WaitForContextDatabase(initContext).Run();
-				await new PublishItems(initContext).Run();
-				await new PopulateManagedSchema(initContext).Run();
+				await Task.WhenAll(new PublishItems(initContext).Run(), new PopulateManagedSchema(initContext).Run());
 				await Task.WhenAll(restartCD.Run(), restartCM.Run());
 				await new ActivateCoveo(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
@@ -54,13 +54,15 @@ namespace Sitecore.Demo.Init.Services
 				await Task.WhenAll(deployMarketingDefinitionsAsyncJob.Run(), rebuildLinkDatabaseAsyncJob.Run());
 
 				await stateService.SetState(InstanceState.WarmingUp);
+				logger.LogInformation($"WarmingUp. Elapsed: {watch.Elapsed:m\\:ss}");
+
 				await Task.WhenAll(new WarmupCM(initContext).Run(), new WarmupCD(initContext).Run());
 
+				logger.LogInformation($"Preparing. Elapsed: {watch.Elapsed:m\\:ss}");
 				await stateService.SetState(InstanceState.Preparing);
 				await Task.WhenAll(indexRebuildAsyncJob.Run(), experienceGeneratorAsyncJob.Run());
 
-				logger.LogInformation($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below.");
-				logger.LogInformation($"Elapsed time: {(DateTime.UtcNow - startTime):c}");
+				logger.LogInformation($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below. Elapsed: {watch.Elapsed:m\\:ss}");
 
 				var asyncJobList = new List<TaskBase>
 				                   {
@@ -95,8 +97,8 @@ namespace Sitecore.Demo.Init.Services
 					}
 				}
 
-				logger.LogInformation($"{DateTime.UtcNow} No jobs are running. Monitoring stopped.");
 				await stateService.SetState(InstanceState.Ready);
+				logger.LogInformation($"{DateTime.UtcNow} No jobs are running. Monitoring stopped. Elapsed: {watch.Elapsed:m\\:ss}");
 			}
 			catch (Exception ex)
 			{

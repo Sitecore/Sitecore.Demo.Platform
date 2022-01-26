@@ -1,30 +1,19 @@
-# used to maintain state of the CM files in a PVC
-if (Test-Path c:\backup -PathType Container) {
-    if ((Get-ChildItem c:\backup -Exclude .gitkeep | Measure-Object).Count -gt 0) {
-        Write-Host "Backup folder found, restoring files"
-        robocopy c:\backup c:\inetpub/wwwroot /s /njh /njs /np /ns /nfl
-    }
-    else {
-        Write-Host "Nothing to restore from backup"
-    }
-
-    $BackupDirectoryParameters = @{
-        Path               = 'c:\inetpub\wwwroot'
-        Destination        = 'c:\backup'
-        ExcludeDirectories = @('logs', 'mediacache', 'FrontEnd', 'poststeps')
-        ExcludeFiles       = @('DeviceDetectionDB*')
-    }
-
-    $backupDirectoryJobName = "Backup-Directory.ps1"
-
-    Write-Host "$(Get-Date -Format $timeFormat): ENTRYPOINT: '$backupDirectoryJobName' starting..."
-
-    Start-Job -Name $backupDirectoryJobName -ArgumentList $BackupDirectoryParameters -ScriptBlock {
-        param([hashtable]$params)
-
-        & "C:\tools\scripts\Backup-Directory.ps1" @params
-
-    } | Out-Null
+$JobParameters = @{
+    Path               = 'c:\repository'
+    Destination        = 'c:\inetpub\wwwroot'
 }
 
-& "C:\LogMonitor\LogMonitor.exe" "C:\ServiceMonitor.exe" "w3svc"
+$JobName = "Git-Sync.ps1"
+
+if ([string]::IsNullOrEmpty($env:GIT_SYNC_REPO)) {
+    Write-Host "$(Get-Date -Format $timeFormat): GIT_SYNC_REPO is not defined, $JobName will not be started"
+}
+else {
+    Write-Host "$(Get-Date -Format $timeFormat): ENTRYPOINT: '$JobName' starting..."
+    Start-Job -Name $JobName -ArgumentList $JobParameters -ScriptBlock {
+        param([hashtable]$params)
+        & "C:\tools\scripts\Git-Sync.ps1" @params
+    }
+}
+
+& "C:\LogMonitor\LogMonitor.exe" "powershell" "C:\Run-W3SVCService.ps1" 

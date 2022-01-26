@@ -1,0 +1,35 @@
+﻿---
+ID: "4e65c58d-e639-46fc-bc08-2550f41cd3c2"
+Parent: "14aafaa8-1928-49ab-8e34-e20f588c4b24"
+Template: "0fc09ea4-8d87-4b0e-a5c9-8076ae863d9c"
+Path: /sitecore/system/Marketing Control Panel/Profiles/LighthouseHealthcare/Lighthouse Healthcare Topic Interest/Profile Cards/Hip Replacement
+DB: master
+SharedFields:
+- ID: "85970ab7-22ea-4206-be86-c0167178860b"
+  Hint: Profile Card Value
+  Value: |
+    <tracking>
+      <profile id="e9525575-0105-41f3-97dd-d63a0598e52f" name="Lighthouse Healthcare Topic Interest">
+        <key name="Education" value="0" />
+        <key name="Orthopedics Hip" value="7" />
+        <key name="Pain Management" value="2" />
+        <key name="Primary Care" value="0" />
+        <key name="Surgery" value="8" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "a26fc256-1db0-44aa-ba3d-1c830bf882a2"
+    Hint: Name
+    Value: Hip Replacement
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210315T215216Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser

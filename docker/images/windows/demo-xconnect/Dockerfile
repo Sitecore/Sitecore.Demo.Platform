@@ -1,19 +1,16 @@
 # escape=`
 ARG BASE_IMAGE
 ARG TOOLS_ASSETS
-ARG SITECORE_AI_ASSETS
 ARG DCRM_ASSETS
 ARG SOLUTION_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_ASSETS} as tools
-FROM ${SITECORE_AI_ASSETS} as sitecore_ai_assets
 FROM ${DCRM_ASSETS} as dcrm_assets
 
 FROM ${BASE_IMAGE} as modules
 
 COPY --from=tools /tools/ /tools/
-COPY --from=sitecore_ai_assets /module/xconnect /inetpub/wwwroot
 
 FROM modules as production
 

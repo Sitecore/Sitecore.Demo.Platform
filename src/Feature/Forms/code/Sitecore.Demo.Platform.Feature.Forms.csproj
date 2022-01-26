@@ -45,36 +45,40 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.5" />
-    <PackageReference Include="Sitecore.Analytics.Model" Version="10.1.*-*">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.14" />
+    <PackageReference Include="Sitecore.Analytics.Model" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Analytics" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Analytics" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.ExperienceForms.Client" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.ExperienceForms.Client" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.ExperienceForms.Mvc" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.ExperienceForms.Mvc" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.ExperienceForms" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.ExperienceForms" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.ExperienceForms.SubmitActions" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.ExperienceForms.SubmitActions" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Kernel" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Kernel" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Mvc" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Nexus.Consumption" Version="1.4.2">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Mvc" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>

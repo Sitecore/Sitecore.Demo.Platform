@@ -10,11 +10,7 @@ resources:
 
 variables:
   GitVersion.SemVer: ""
-  SITECORE_VERSION: "10.1"
-  # Base module version used when building 'develop' and all other branches except 'main'
-  BASE_MODULE_VERSION: "1010.0"
-  # Base module version used when building 'main' branch
-  BASE_MODULE_VERSION_MAIN: "1010.0"
+  SITECORE_VERSION: "10.2"
   GitVersion.PreReleaseLabel: ""
   tag: "$(GitVersion.SemVer)"
   additionalImageTags: ""
@@ -55,7 +51,7 @@ stages:
                 $sitecoreRegistry = "$(sitecore.container.registry)"
                 $sitecoreVersion = "$(SITECORE_VERSION)"
                 # Pre-release build is required for hotfix
-                $preRelease = $true
+                $preRelease = $false
 
                 az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
 
@@ -81,13 +77,6 @@ stages:
                 $params.Add("SitecoreVersion","$sitecoreVersion")
                 $params.Add("SolutionVersion", "$(tag)")
                 $params.add("Prerelease", $preRelease)
-
-                if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
-                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION_MAIN)")
-                }
-                else {
-                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION)")
-                }
 
                 ./init-ci.ps1 @params
 
@@ -145,37 +134,8 @@ stages:
                 $env:LTSC_NANOSERVER_VERSION="1809"
                 $env:SITECORE_VERSION="$(SITECORE_VERSION)"
                 $filePath = 'docker/docker-compose.copy.solution.yml'
-                docker-compose -f $filePath build
+                docker-compose -f $filePath build --pull
                 docker-compose -f $filePath push
-      - job: Publish_Solution_Artifacts
-        displayName: "Publish Solution Artifacts"
-        dependsOn: Build_Solution_Job
-        pool:
-          name: "docker-ltsc2019-agents"
-        variables:
-          nanoserverVersion: "1809"
-        steps:
-          - task: UseDotNet@2
-            inputs:
-              packageType: "sdk"
-              version: "3.1.x"
-              installationPath: "c:/program files/dotnet"
-              performMultiLevelLookup: true
-          - template: version.yml
-          - task: PowerShell@2
-            displayName: "Copy output from container to Artifacts"
-            inputs:
-              targetType: "inline"
-              script: |
-                docker container create --name dacpac$(tag) $(REGISTRY)build/lighthouse-solution-data:$(SITECORE_VERSION)-$(nanoserverVersion)-$(tag)
-                docker container cp dacpac$(tag):/solution/db $(Build.ArtifactStagingDirectory)/dacpacs
-                docker container rm -f dacpac$(tag)
-          - task: PublishPipelineArtifact@1
-            displayName: "Publish Dacpac Artifacts"
-            inputs:
-              targetPath: "$(Build.ArtifactStagingDirectory)/dacpacs"
-              artifact: "dacpac.$(tag)"
-              publishLocation: "pipeline"
   - stage: Docker_Windows
     dependsOn: Build_Solution
     displayName: "Build Windows Images"
@@ -236,12 +196,6 @@ stages:
                 $params.Add("SitecoreVersion","$sitecoreVersion")
                 $params.Add("DemoVersion","$(tag)")
                 $params.Add("SolutionVersion","$(tag)")
-                if ("$(Build.SourceBranch)" -eq "refs/heads/main") {
-                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION_MAIN)")
-                }
-                else {
-                  $params.add("BaseModuleVersion","$(BASE_MODULE_VERSION)")
-                }
 
                 ./init-ci.ps1 @params
 
@@ -257,7 +211,7 @@ stages:
 
                 ./init-ci.ps1 @params
 
-                docker-compose -f $(docker-compose) -f $(docker-compose-build) build --parallel
+                docker-compose -f $(docker-compose) -f $(docker-compose-build) build --pull --parallel
                 docker-compose -f $(docker-compose) -f $(docker-compose-build) push
 
                 $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
@@ -280,12 +234,6 @@ stages:
               packageType: "sdk"
               version: "3.1.x"
           - template: version.yml
-          - task: DownloadPipelineArtifact@2
-            displayName: "Download Dacpac Artifacts"
-            inputs:
-              buildType: "current"
-              artifactName: "dacpac.$(tag)"
-              targetPath: "$(Build.SourcesDirectory)/docker/images/windows/demo-mssql/data"
           - task: PowerShell@2
             displayName: "Downloading Latest Images"
             inputs:
@@ -311,16 +259,6 @@ stages:
                 $params.Add("DemoTeamRegistry","$(REGISTRY)")
                 $params.Add("SitecoreRegistry","$sitecoreRegistry")
                 $params.Add("SitecoreVersion","$sitecoreVersion")
-
-                $baseModuleVersion = "$(($sitecoreVersion -replace '\.','') + '.0')"
-
-                if ("$(Build.SourceBranch)" -eq "refs/heads/develop") {
-                  $baseModuleVersion += "-beta"
-                  $params.add("BaseModuleVersion","$baseModuleVersion")
-                }
-                elseif ("$(Build.SourceBranch)" -eq "refs/heads/main") {
-                  $params.add("BaseModuleVersion","$baseModuleVersion")
-                }
 
                 ./init-ci.ps1 @params
 
@@ -387,8 +325,8 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-vnext&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
-                Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-vnext&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-v2&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-v2&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
   - stage: Update_DEV_Portal_Databases_Stable
     displayName: "Update 'stable' version in the DEV portal database"
@@ -412,7 +350,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-vnext&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-v2&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
   - stage: Update_PROD_Portal_Database_Stable
     displayName: "Update 'stable' version in the PROD portal database"
@@ -436,7 +374,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-vnext&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=platform-xp0-v2&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
       - deployment: Update_Production_Database_Deployment
         displayName: "Update Production Database Deployment"
         environment: Production Portal Database
@@ -499,7 +437,7 @@ stages:
           - template: version.yml
           - task: XplatGenerateReleaseNotes@3
             inputs:
-              outputfile: "$(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-vnext-$(GitVersion.SemVer).md"
+              outputfile: "$(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-v2-$(GitVersion.SemVer).md"
               templateLocation: "File"
               templatefile: "release-notes-template.hb"
               dumpPayloadToConsole: true
@@ -511,7 +449,7 @@ stages:
               checkStage: false
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: "$(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-vnext-$(GitVersion.SemVer).md"
+              targetPath: "$(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-v2-$(GitVersion.SemVer).md"
               artifact: "Release Notes"
               publishLocation: "pipeline"
           - task: AzureCLI@2
@@ -520,4 +458,4 @@ stages:
               azureSubscription: "$(azure.subscription)"
               scriptType: "pscore"
               scriptLocation: "inlineScript"
-              inlineScript: "az storage file upload --account-name dockerassets  --share-name release-notes --source $(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-vnext-$(GitVersion.SemVer).md"
+              inlineScript: "az storage file upload --account-name dockerassets  --share-name release-notes --source $(Build.ArtifactStagingDirectory)/releasenotes-platform-xp0-v2-$(GitVersion.SemVer).md"

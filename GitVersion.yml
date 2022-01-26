@@ -6,6 +6,7 @@ major-version-bump-message: '\+semver:\s?(dotnotuse)'
 minor-version-bump-message: '\+semver:\s?(breaking|major)'
 patch-version-bump-message: '\+semver:\s?(feature|minor)'
 no-bump-message: '\+semver:\s?(none|skip)'
+next-version: 1020.0.0
 branches:
   develop:
     tag: beta
