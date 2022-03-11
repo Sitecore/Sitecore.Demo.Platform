@@ -4,20 +4,16 @@ ARG PARENT_IMAGE
 ARG SOLUTION_IMAGE
 ARG HEADLESS_SERVICES_IMAGE
 ARG SPE_ASSETS_IMAGE
-ARG CONTENTHUB_ASSETS_IMAGE
 
-ARG CMP_ASSETS
 ARG DCRM_ASSETS
 ARG XGEN_ASSETS
 
 FROM ${DCRM_ASSETS} as dcrm_assets
-FROM ${CMP_ASSETS} as cmp_assets
 FROM ${XGEN_ASSETS} as xgen_assets
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
 FROM ${SPE_ASSETS_IMAGE} AS spe_assets
-FROM ${CONTENTHUB_ASSETS_IMAGE} AS ch_assets
 FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -28,9 +24,7 @@ RUN Install-PackageProvider -Name NuGet -Force; `
 
 COPY --from=headless_services /module/db /jss_data
 COPY --from=spe_assets /module/db /spe_data
-COPY --from=ch_assets /module/db /ch_data
 COPY --from=dcrm_assets /module/db /dcrm_assets
-COPY --from=cmp_assets /module/db /cmp_assets
 COPY --from=xgen_assets /module/db /xgen_assets
 
 COPY --from=solution /solution/db /solution_data

@@ -16,7 +16,7 @@
           <httpProtocol>
             <customHeaders>
             <!-- CSP -->
-              <add xdt:Transform="SetAttributes" xdt:Locator="Match(name)" name="Content-Security-Policy" value="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://apps.sitecore.net https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com https://*.sitecoresandbox.cloud https://*.azureedge.net; img-src 'self' data: https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com https://*.sitecoresandbox.cloud https://*.azureedge.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' 'unsafe-inline' https://fonts.gstatic.com;"/>
+              <add xdt:Transform="SetAttributes" xdt:Locator="Match(name)" name="Content-Security-Policy" value="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://apps.sitecore.net https://*.stylelabs.io https://*.stylelabs.io:8443 https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com https://*.sitecoresandbox.cloud https://*.azureedge.net; img-src 'self' data: https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com https://*.sitecoresandbox.cloud https://*.azureedge.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' 'unsafe-inline' https://fonts.gstatic.com;"/>
             </customHeaders>
           </httpProtocol>
         </system.webServer>
