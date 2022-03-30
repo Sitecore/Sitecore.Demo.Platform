@@ -212,7 +212,7 @@ stages:
                 ./init-ci.ps1 @params
                 docker-compose -f $(docker-compose) -f $(docker-compose-build) build cm
                 docker-compose -f $(docker-compose) -f $(docker-compose-build) push cm
-                docker-compose -f $(docker-compose) -f $(docker-compose-build) build pull --parallel
+                docker-compose -f $(docker-compose) -f $(docker-compose-build) build --pull --parallel
                 docker-compose -f $(docker-compose) -f $(docker-compose-build) push
 
                 $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
