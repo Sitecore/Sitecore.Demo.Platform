@@ -48,7 +48,9 @@ function Sync {
         [Parameter(Mandatory = $false)]
         $ExcludeFiles,
         [Parameter(Mandatory = $false)]
-        $ExcludeDirectories
+        $ExcludeDirectories,
+        [Parameter(Mandatory = $false)]
+        $Role
     )
 
     if (-not (Test-Path $Path -PathType Container)) {
@@ -72,7 +74,7 @@ function Sync {
         Set-Location $Path
         git fetch
         $status = git status
-    
+
         if ($status -match "git pull") {
             Write-Information "$(Get-Date -Format $timeFormat): Detected changes..."
             git pull
@@ -82,8 +84,14 @@ function Sync {
             return
         }
     }
+    # Add some logic to validate whether or not we have a role folder
 
-    $command = @("robocopy", "`"$Path`"", "`"$Destination`"", "/E", "/MT:4", "/NJH", "/NJS", "/FP", "/NDL", "/NFL", "/NP", "/NS", "/R:5", "/W:5")
+    $sourcePath = Join-Path $path $Role
+    if (-not (Test-Path $sourcePath)) {
+        # We don't have a specific role folder, let's reset back to original path
+        $sourcePath = $Path
+    }
+    $command = @("robocopy", "`"$sourcePath`"", "`"$Destination`"", "/E", "/MT:4", "/NJH", "/NJS", "/FP", "/NDL", "/NFL", "/NP", "/NS", "/R:5", "/W:5")
 
     if ($ExcludeDirectories.Count -gt 0) {
         $command += "/XD "
@@ -128,7 +136,7 @@ Write-Information "$(Get-Date -Format $timeFormat): Watching '$Path' for changes
 # Main loop
 $timer = [System.Diagnostics.Stopwatch]::StartNew()
 while ($Timeout -eq 0 -or $timer.ElapsedMilliseconds -lt $Timeout) {
-    Sync -Path $Path -Destination $Destination -ExcludeFiles $fileRules -ExcludeDirectories $directoryRules
+    Sync -Path $Path -Destination $Destination -ExcludeFiles $fileRules -ExcludeDirectories $directoryRules -Role "cd"
 
     Start-Sleep -Milliseconds $Sleep
 }
