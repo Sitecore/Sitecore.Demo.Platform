@@ -39,7 +39,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "3.1.x"
+              version: "5.0.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -104,7 +104,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "3.1.x"
+              version: "5.0.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -164,7 +164,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "3.1.x"
+              version: "5.0.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -228,11 +228,13 @@ stages:
         displayName: "Build Linux Images"
         pool:
           name: docker-linux-agents
+        workspace:
+          clean: all
         steps:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "3.1.x"
+              version: "5.0.x"
           - template: version.yml
           - task: PowerShell@2
             displayName: "Downloading Latest Images"
@@ -317,7 +319,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "3.1.x"
+              version: "5.0.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -342,7 +344,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "3.1.x"
+              version: "5.0.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -366,7 +368,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "3.1.x"
+              version: "5.0.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
@@ -394,7 +396,7 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: "sdk"
-              version: "3.1.x"
+              version: "5.0.x"
               installationPath: "c:/program files/dotnet"
               performMultiLevelLookup: true
           - template: version.yml
