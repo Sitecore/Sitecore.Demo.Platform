@@ -210,13 +210,14 @@ stages:
                 $env:DEMO_VERSION = "$(tag)"
 
                 ./init-ci.ps1 @params
-
+                docker-compose -f $(docker-compose) -f $(docker-compose-build) build cm
                 docker-compose -f $(docker-compose) -f $(docker-compose-build) build --pull --parallel
                 docker-compose -f $(docker-compose) -f $(docker-compose-build) push
 
                 $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
                 if ($primaryBuild) {
                   $env:DEMO_VERSION = "$(additionalImageTags)"
+                  docker-compose -f $(docker-compose) -f $(docker-compose-build) build cm
                   docker-compose -f $(docker-compose) -f $(docker-compose-build) build --parallel
                   docker-compose -f $(docker-compose) -f $(docker-compose-build) push
                 }
