@@ -34,8 +34,8 @@ COPY ./tools/scripts\ .\
 
 RUN .\InstallPrerequisites.ps1;
 
-ENTRYPOINT .\StartInit.ps1 -ResourcesDirectory $env:RESOURCES_PATH -SqlServer $env:SQL_SERVER -SqlAdminUser $env:SQL_ADMIN_LOGIN -SqlAdminPassword $env:SQL_ADMIN_PASSWORD -SitecoreAdminUsername $env:SITECORE_ADMIN_USERNAME -SitecoreAdminPassword $env:sitecore_admin_password -SitecoreUserPassword $env:SITECORE_USER_PASSWORD -SqlElasticPoolName $env:SQL_ELASTIC_POOL_NAME -DatabasesToDeploy $env:DATABASES_TO_DEPLOY -PostDeploymentWaitPeriod $env:POST_DEPLOYMENT_WAIT_PERIOD `
-    -DatabaseUsers @( `
+ENTRYPOINT ["powershell.exe", ".\\StartInit.ps1", "-ResourcesDirectory $env:RESOURCES_PATH", "-SqlServer $env:SQL_SERVER", "-SqlAdminUser $env:SQL_ADMIN_LOGIN", "-SqlAdminPassword $env:SQL_ADMIN_PASSWORD", "-SitecoreAdminUsername $env:SITECORE_ADMIN_USERNAME", "-SitecoreAdminPassword $env:sitecore_admin_password", "-SitecoreUserPassword $env:SITECORE_USER_PASSWORD", "-SqlElasticPoolName $env:SQL_ELASTIC_POOL_NAME", "-DatabasesToDeploy $env:DATABASES_TO_DEPLOY", "-PostDeploymentWaitPeriod $env:POST_DEPLOYMENT_WAIT_PERIOD", `
+    "-DatabaseUsers @( `
     @{'databaseName' = 'Sitecore.Master'; 'username' = $env:Master_Database_Username; 'password' = $env:Master_Database_Password}, `
     @{'databaseName' = 'Sitecore.Core'; 'username' = $env:Core_Database_Username; 'password' = $env:Core_Database_Password}, `
     @{'databaseName' = 'Sitecore.Web'; 'username' = $env:Web_Database_Username; 'password' = $env:Web_Database_Password}, `
@@ -52,4 +52,4 @@ ENTRYPOINT .\StartInit.ps1 -ResourcesDirectory $env:RESOURCES_PATH -SqlServer $e
     @{'databaseName' = 'Sitecore.Xdb.Collection.ShardMapManager'; 'username' = $env:Collection_ShardMapManager_Database_Username; 'password' = $env:Collection_ShardMapManager_Database_Password }, `
     @{'databaseName' = 'Sitecore.Xdb.Collection.Shard0'; 'username' = $env:Collection_ShardMapManager_Database_Username; 'password' = $env:Collection_ShardMapManager_Database_Password }, `
     @{'databaseName' = 'Sitecore.Xdb.Collection.Shard1'; 'username' = $env:Collection_ShardMapManager_Database_Username; 'password' = $env:Collection_ShardMapManager_Database_Password } `
-    )
+    )"]
