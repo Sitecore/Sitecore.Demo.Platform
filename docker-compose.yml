@@ -17,8 +17,8 @@ services:
     healthcheck:
       test: ["CMD", "traefik", "healthcheck", "--ping"]
     volumes:
-      - source: \\.\pipe\docker_engine
-        target: \\.\pipe\docker_engine
+      - source: \\.\pipe\docker_engine\
+        target: \\.\pipe\docker_engine\
         type: npipe
       - ./traefik:C:/etc/traefik
     depends_on:
