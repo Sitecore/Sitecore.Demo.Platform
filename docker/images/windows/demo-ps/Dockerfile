@@ -26,3 +26,10 @@ COPY --from=standalone /res_files/ /sps/items/
 COPY --from=tools /tools/ /tools/
 
 WORKDIR /sps
+
+USER Administrator
+
+# Enable config file to allow descendents of related items to be published (Example: SXA carousel slides, Forms)
+RUN Rename-Item -Path 'C:\sps\sitecore\Sitecore.Framework.Plugin.Publishing\Config\sc.publishing.relateditems.xml.disabled' -NewName 'sc.publishing.relateditems.xml'
+
+USER ContainerUser
