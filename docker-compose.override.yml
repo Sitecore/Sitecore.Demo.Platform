@@ -34,6 +34,7 @@ services:
       SITECORE_ADMIN_USERNAME: "sitecore\\superuser"
       SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
       SITECORE_USER_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      EXM_BASE_URL: https://${CD_HOST}
       POST_DEPLOYMENT_WAIT_PERIOD: 900
     healthcheck:
       test: ["CMD", "powershell", "-command", "if ([System.Environment]::GetEnvironmentVariable('DatabasesDeploymentStatus', 'Machine') -eq 'Complete') { exit 0 } else { exit 1}"]
