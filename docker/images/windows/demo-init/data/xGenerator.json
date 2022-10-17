@@ -4,14 +4,14 @@
 	"Specification": {
 		"Segments": {
 			"Default": {
-				"Identified": 0.5,
+				"Identified": 0.4,
 				"BounceRate": 0.05,
-				"VisitCount": 2.5,
+				"VisitCount": 3,
 				"PageViews": 4,
 				"Duration": 20,
 				"StartDate": "{START_DATE}",
 				"EndDate": "{END_DATE}",
-				"YearlyTrend": 1.6800000000000002,
+				"YearlyTrend": 1,
 				"DayOfWeek": {
 					"Monday": 0.5,
 					"Tuesday": 0.5,
@@ -32,39 +32,50 @@
 					"8": 0.5,
 					"9": 0.5,
 					"10": 0.5,
-					"11": 0.8,
+					"11": 0.5,
 					"12": 0.5
 				},
 				"LandingPage": {
 					"Site": {
 						"LighthouseFinancial": 0,
+						"LighthouseHealthcare": 0,
 						"Cumulus": 0,
 						"LighthouseLifestyle": 1,
 						"Global": 0,
 						"website": 0
 					},
-					"Item": {}
+					"Item": {
+
+					}
 				},
-				"Referrer": {},
+				"Referrer": {
+
+				},
 				"InternalSearch": {
 					"Percentage": 0.5,
-					"Keywords": {}
+					"Keywords": {
+
+					}
 				},
 				"ExternalSearch": {
 					"Percentage": 0.5,
-					"Keywords": {},
+					"Keywords": {
+
+					},
 					"Engine": {
-						"google": 0.8,
+						"google": 0.5,
 						"yahoo": 0.5,
 						"bing": 0.5,
-						"lycos": 0.2,
-						"baidu": 0.1,
-						"googleppc": 0.4,
-						"yahooppc": 0.1,
-						"bingppc": 0.1
+						"lycos": 0,
+						"baidu": 0,
+						"googleppc": 0.5,
+						"yahooppc": 0.5,
+						"bingppc": 0.5
 					}
 				},
-				"Devices": {},
+				"Devices": {
+
+				},
 				"Geo": {
 					"Region": {
 						"143": 0.5,
@@ -92,11 +103,11 @@
 					}
 				},
 				"Outcomes": {
-					"{75D53206-47B3-4391-BD48-75C42E5FC2CE}": 0.15,
+					"{75D53206-47B3-4391-BD48-75C42E5FC2CE}": 0.05,
 					"{F4830B80-1BB1-4746-89C7-96EFE40DA572}": 0.05,
 					"{B4D9C749-65E7-457D-B61D-4150B9E51424}": 0.05,
 					"{5646D20E-B10A-42BA-876B-2A3BB3CBC641}": 0.05,
-					"{52054874-4767-47DC-8099-8C08BFA307AA}": 0.1,
+					"{52054874-4767-47DC-8099-8C08BFA307AA}": 0.05,
 					"{BF6B8EE3-9FFB-4C58-9CB4-301C1C710F89}": 0.05,
 					"{C2D9DFBC-E465-45FD-BA21-0A06EBE942D6}": 0.05,
 					"{9016E456-95CB-42E9-AD58-997D6D77AE83}": 0.05
@@ -208,6 +219,19 @@
 					"Weights": {
 						"{C1B27AAE-DE14-4E4A-8200-EECF3437FFFF}": 0.1,
 						"{99572572-8DCA-4EA3-B377-9AEE0700FAF8}": 0.1,
+						"{22785D0B-5E3C-4116-B387-898B103DD923}": 0.1,
+						"{BD68341B-4CCF-418A-A949-4B06E6F45390}": 0.1,
+						"{0651CE1D-AF51-487F-BBF8-A6A4D2C57DEC}": 0.1,
+						"{2C192C91-0A3D-466C-975E-A210EEE54D65}": 0.1,
+						"{CA8438EE-192A-4E48-A18E-821D2C1F0ED4}": 0.1,
+						"{682B2EA8-2078-4532-9501-1EF6B86BC0CC}": 0.1,
+						"{B7793416-4186-4B4E-960E-016757DF5A8F}": 0.1,
+						"{8C2AF4CE-A5A8-47CA-AFC8-7B4ABAB07705}": 0.1,
+						"{4FE2AC81-2B4B-4C78-AAC1-3593669C5DA2}": 0.1,
+						"{47C2B246-7FD0-4984-A177-051B4F55BB41}": 0.1,
+						"{2C9AD348-CAE6-44FE-BDC0-F0E7393B069A}": 0.1,
+						"{CF5C66D2-2C2D-415D-8276-F2F5502E9F46}": 0.1,
+						"{7F3D54DB-06A8-4146-897E-5036BCC9315A}": 0.1,
 						"{2D976C32-7D06-4F04-AA48-8B0A5C409F6E}": 0.1,
 						"{DABC3F33-3A25-45D3-98F2-675BD4035533}": 0.1,
 						"{744D6FD9-3578-47F2-9EEF-8411FC5FEF18}": 0.1,
@@ -218,9 +242,9 @@
 					}
 				},
 				"Language": {
-					"en": 1,
-					"ja-JP": 0,
-					"fr-CA": 0
+					"en": 0.8,
+					"ja-JP": 0.1,
+					"fr-CA": 0.1
 				}
 			}
 		}
