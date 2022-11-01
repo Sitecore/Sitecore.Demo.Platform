@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Sitecore.Client" Version="10.2.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="Sitecore.Kernel" Version="10.2.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
@@ -117,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\EmptyContentController.cs" />
+    <Compile Include="Hotfixes\PersonalizationForm.cs" />
     <Compile Include="Hotfixes\MImageControl.cs" />
     <Compile Include="Hotfixes\MImageCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

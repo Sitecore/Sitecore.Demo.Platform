@@ -34,6 +34,7 @@ services:
       SITECORE_ADMIN_USERNAME: "sitecore\\superuser"
       SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
       SITECORE_USER_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      EXM_BASE_URL: https://${CD_HOST}
       POST_DEPLOYMENT_WAIT_PERIOD: 900
     healthcheck:
       test: ["CMD", "powershell", "-command", "if ([System.Environment]::GetEnvironmentVariable('DatabasesDeploymentStatus', 'Machine') -eq 'Complete') { exit 0 } else { exit 1}"]
@@ -173,6 +174,11 @@ services:
       SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
       SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
       SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Commands__ItemRevision__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
+      SITECORE_Commands__Schema__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
+      SITECORE_Commands__Web__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
+      SITECORE_Commands__Web__Services__Add__TreePublishHandler__Options__PublishRelatedItemDescendants__SxaCarouselTemplate: ADD22F05-6B4C-4344-95AD-9A1A9BA6A216
+      SITECORE_Commands__Web__Services__Add__TreePublishHandler__Options__PublishRelatedItemDescendants__FormTemplate: 6ABEE1F2-4AB4-47F0-AD8B-BDB36F37F64C
     depends_on:
       - mssql
       - ps-init
@@ -191,6 +197,9 @@ services:
       SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
       SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
       SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
+      SITECORE_Commands__ItemRevision__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
+      SITECORE_Commands__Schema__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
+      SITECORE_Commands__Web__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
     command: schema upgrade --force
     depends_on:
       mssql-init:

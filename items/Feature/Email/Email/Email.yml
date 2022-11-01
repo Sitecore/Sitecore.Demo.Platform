@@ -310,7 +310,7 @@ SharedFields:
 - ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
   Hint: __Security
   Value: |
-    ar|sitecore\EXM Users|pd|^*|+item:read|pe|^*|+item:read|ar|sitecore\EXM Advanced Users|pd|+item:delete|+item:admin|+item:create|+item:rename|^*|+item:read|+item:write|pe|+item:delete|+item:admin|+item:create|+item:rename|^*|+item:read|+item:write|
+    ar|sitecore\EXM Advanced Users|pe|+item:create|+item:read|+item:rename|+item:delete|+item:write|^*|+item:admin|pd|+item:create|+item:read|+item:rename|+item:delete|+item:write|^*|+item:admin|ar|sitecore\EXM Users|pe|^*|+item:read|pd|^*|+item:read|ar|sitecore\Training Limited Content Tree|pe|-item:read|pd|-item:read|
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{DB7A8703-C5AE-41FF-8B23-264195634B9E}"

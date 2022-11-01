@@ -70,6 +70,7 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 3. Create certificates and initialize the environment file:
    - `.\init.ps1 -InitEnv -LicenseXmlPath C:\license\license.xml -AdminPassword b`
    - You can change the admin password and the license.xml file path to match your needs.
+   - **Note:** The admin username is set to "superuser" in this demo instead of the default "admin".
 
 ## Running the Demo
 
@@ -119,7 +120,7 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
    1. You should see the Lighthouse landing page with a full-width carousel.
    2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that all the "init" container jobs are completed by checking its logs.
 2. Browse to [https://cm.lighthouse.localhost/sitecore](https://cm.lighthouse.localhost/sitecore)
-   1. You should be able to login with the "admin" user and the password provided while running the `init.ps1` script.
+   1. You should be able to login with the "**superuser**" user and the password provided while running the `init.ps1` script.
 3. Browse to [http://127.0.0.1:44026/](http://127.0.0.1:44026/)
    1. You should see the SMTP container catch-all mailbox for all emails sent by EXM.
 
@@ -208,7 +209,7 @@ ERROR: Get https://<registryname>/<someimage>/manifests/<someimage>: unauthorize
 
 **Cause:**
 
-This indicates you are not logged in to your registry.
+This indicates you are not logged in to your Docker registry.
 
 **Solution:**
 
