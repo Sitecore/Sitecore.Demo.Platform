@@ -89,9 +89,6 @@ if (-not $ready) {
     # Set base URL for EXM root items - instance specific URL
     .\SetExmBaseUrl.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword
 
-    # Set hostname for SXA site definitions - instance specific URL (Needed to resolve some EXM links in 10.2+)
-    .\SetSxaHostname.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword
-
     # Create platform_init_ready database to indicate that init script is complete
     Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Query "create database platform_init_ready" -Verbose
 }
