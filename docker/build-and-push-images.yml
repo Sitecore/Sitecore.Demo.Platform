@@ -377,7 +377,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=8" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=9" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
       - deployment: Update_Production_Database_Deployment
         displayName: "Update Production Database Deployment"
         environment: Production Portal Database
