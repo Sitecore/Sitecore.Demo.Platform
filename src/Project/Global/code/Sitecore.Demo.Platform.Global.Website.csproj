@@ -122,11 +122,11 @@
     <Content Include="Utilities\Installation\poststeps\1_Smart_Publish.poststep" />
     <Content Include="Utilities\Installation\poststeps\2_Index_Deploy_Marketing_Definitions.poststep" />
     <Content Include="Utilities\Installation\poststeps\3_Index_Rebuild.poststep" />
+    <Content Include="Utilities\Publish.aspx" />
     <Content Include="Utilities\Restart.aspx" />
     <Content Include="Utilities\RebuildLinkDatabase.aspx" />
     <Content Include="web.config.xdt" />
     <Content Include="App_Config\ConnectionStrings.config.xdt" />
-    <Content Include="App_Config\Modules\PublishingService\Sitecore.Publishing.Service.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,6 +161,13 @@
     <Compile Include="Utilities\Installation\IndexRebuildPostStep.cs" />
     <Compile Include="Utilities\Installation\SmartPublishPostStep.cs" />
     <Compile Include="Utilities\Installation\UpdateHostnamePostStep.cs" />
+    <Compile Include="Utilities\Publish.aspx.cs">
+      <DependentUpon>Publish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Publish.aspx.designer.cs">
+      <DependentUpon>Publish.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Restart.aspx.cs">
       <DependentUpon>Restart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

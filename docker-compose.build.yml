@@ -49,16 +49,6 @@ services:
     depends_on:
       - solution
 
-  ps:
-    image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    isolation: ${ISOLATION}
-    build:
-      context: .\docker\images\windows\demo-ps
-      args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sps:6.0-${WINDOWSSERVERCORE_VERSION}
-        TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
-        STANDALONE_IMAGE: ${REGISTRY}demo/lighthouse-xp0-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-
   cm:
     image: ${REGISTRY}demo/lighthouse-xp0-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
@@ -69,7 +59,6 @@ services:
         SPE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
         SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xp1-assets:16.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        SPS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sps-integration-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         DEF_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-def-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         SFCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfcrm-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         DCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-dcrm-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
@@ -93,7 +82,6 @@ services:
         SPE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
         SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xp1-assets:16.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        SPS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sps-integration-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         CMP_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-assets:5.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         SFCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfcrm-xp0-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}

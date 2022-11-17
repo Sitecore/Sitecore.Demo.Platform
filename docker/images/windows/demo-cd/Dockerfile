@@ -5,7 +5,6 @@ ARG TOOLS_ASSETS
 ARG SPE_ASSETS
 ARG SXA_ASSETS
 ARG HEADLESS_ASSETS
-ARG SPS_ASSETS
 
 ARG CMP_ASSETS
 ARG SFCRM_ASSETS
@@ -17,7 +16,6 @@ FROM ${TOOLS_ASSETS} as tools
 FROM ${SPE_ASSETS} as spe_assets
 FROM ${SXA_ASSETS} as sxa_assets
 FROM ${HEADLESS_ASSETS} as headless_assets
-FROM ${SPS_ASSETS} as sps_assets
 
 FROM ${CMP_ASSETS} as cmp_assets
 FROM ${SFCRM_ASSETS} as sfcrm_assets
@@ -49,8 +47,6 @@ COPY --from=sxa_assets /module/cd/content /inetpub/wwwroot
 COPY --from=sxa_assets /module/tools /module/sxa/tools
 RUN /module/sxa/tools/Initialize-Content.ps1 -TargetPath /inetpub/wwwroot; `
     Remove-Item -Path /module -Recurse -Force;
-
-COPY --from=sps_assets /module/cm/content /inetpub/wwwroot
 
 COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
 COPY --from=sfcrm_assets /module/cm/content /inetpub/wwwroot

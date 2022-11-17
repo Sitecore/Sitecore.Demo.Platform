@@ -84,7 +84,6 @@ services:
       SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
       SITECORE_APPSETTINGS_ENV:DEFINE: Docker
       SITECORE_APPSETTINGS_UNICORN:DEFINE: Enabled
-      SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: Enabled
       SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: Salesforce
       SITECORE_APPSETTINGS_CONTENTHUB:DEFINE: Enabled
       SITECORE_CONNECTIONSTRINGS_CMP.ContentHub: ${CMP_CONTENTHUB}
@@ -102,7 +101,6 @@ services:
       EXM_RENDERER_URL: http://cm
       Sitecore_Horizon_ClientHost: https://${SH_HOST}
       HOST_CD: http://cd
-      Sitecore_Publishing_Service_Url: http://ps:5000/
       COVEO_SERVER_URL: ${COVEO_SERVER_URL}
       OPENCALAIS_ACCESSTOKEN: ${OPENCALAIS_ACCESSTOKEN}
       DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES: ${DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES}
@@ -112,8 +110,6 @@ services:
       - .\data\cm\src:C:\src
       - .\data\cm\backup:c:\backup
     depends_on:
-      ps:
-        condition: service_healthy
       id:
         condition: service_healthy
       xconnect:
@@ -160,53 +156,6 @@ services:
     networks:
       - demo
 
-  ps:
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000/healthz/live"]
-      timeout: 300s
-    image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-    isolation: ${ISOLATION}
-    environment:
-      SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      SITECORE_Publishing__ConnectionStrings__Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      SITECORE_Commands__ItemRevision__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
-      SITECORE_Commands__Schema__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
-      SITECORE_Commands__Web__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
-      SITECORE_Commands__Web__Services__Add__TreePublishHandler__Options__PublishRelatedItemDescendants__SxaCarouselTemplate: ADD22F05-6B4C-4344-95AD-9A1A9BA6A216
-      SITECORE_Commands__Web__Services__Add__TreePublishHandler__Options__PublishRelatedItemDescendants__FormTemplate: 6ABEE1F2-4AB4-47F0-AD8B-BDB36F37F64C
-    depends_on:
-      - mssql
-      - ps-init
-    ports:
-      - "44015:5000"
-    networks:
-      - demo
-
-  ps-init:
-    image: ${REGISTRY}demo/lighthouse-ps:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-    environment:
-      SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      SITECORE_Publishing__ConnectionStrings__Core: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      SITECORE_Publishing__ConnectionStrings__Master: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      SITECORE_Publishing__ConnectionStrings__Service: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Master;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      SITECORE_Publishing__ConnectionStrings__Web: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Web;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD};MultipleActiveResultSets=True
-      SITECORE_Commands__ItemRevision__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
-      SITECORE_Commands__Schema__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
-      SITECORE_Commands__Web__Services__Add__DefaultConnectionFactory__Options__Connections__Links__Options__ConnectionString: Core
-    command: schema upgrade --force
-    depends_on:
-      mssql-init:
-        condition: service_healthy
-    networks:
-      - demo
-
   cd:
     isolation: ${ISOLATION}
     image: ${REGISTRY}demo/lighthouse-xp0-cd:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
@@ -218,7 +167,6 @@ services:
       SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
       SITECORE_APPSETTINGS_ENV:DEFINE: Docker
       SITECORE_APPSETTINGS_UNICORN:DEFINE: Disabled
-      SITECORE_APPSETTINGS_PUBLISHINGSERVICE:DEFINE: Disabled
       SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
       SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: Salesforce
       Sitecore_ConnectionStrings_Security: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -232,7 +180,6 @@ services:
       Sitecore_ConnectionStrings_Xdb.MarketingAutomation.Reporting.Client: http://xconnect
       Sitecore_ConnectionStrings_Xdb.ReferenceData.Client: http://xconnect
       Sitecore_ConnectionStrings_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
-      Sitecore_Publishing_Service_Url: http://ps:5000/
       EXM_RENDERER_URL: http://cm
       COVEO_SERVER_URL: ${COVEO_SERVER_URL}
       DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES: ${DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES}
@@ -242,8 +189,6 @@ services:
       - .\data\cd\backup:c:\backup
     depends_on:
       mssql-init:
-        condition: service_healthy
-      ps:
         condition: service_healthy
       solr:
         condition: service_healthy
@@ -286,7 +231,6 @@ services:
       ADMIN_USER_NAME: "superuser"
       HOST_CD: "http://cd"
       HOST_CM: "http://cm"
-      HOST_PS: "http://ps:5000"
       HOST_ID: "http://id"
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
       SKIP_WARMUP_CD: ${SKIP_WARMUP_CD}
@@ -299,8 +243,6 @@ services:
       COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
     depends_on:
       mssql-init:
-        condition: service_healthy
-      ps:
         condition: service_healthy
       cm:
         condition: service_healthy

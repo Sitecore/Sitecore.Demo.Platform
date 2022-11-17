@@ -16,7 +16,6 @@ services:
       ADMIN_USER_NAME: "superuser"
       HOST_CD: "http://cd"
       HOST_CM: "http://cm"
-      HOST_PS: "http://ps:5000"
       HOST_ID: "http://id"
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
       COVEO_ORGANIZATION_ID: ${COVEO_ORGANIZATION_ID}

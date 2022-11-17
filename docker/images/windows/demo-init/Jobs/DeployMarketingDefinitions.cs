@@ -38,6 +38,5 @@ namespace Sitecore.Demo.Init.Jobs
 				}
 			}
 		}
-
 	}
 }
