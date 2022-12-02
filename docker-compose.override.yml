@@ -31,6 +31,8 @@ services:
       SQL_SERVER: ${SQL_SERVER}
       SQL_ADMIN_LOGIN: ${SQL_SA_LOGIN}
       SQL_ADMIN_PASSWORD: ${SQL_SA_PASSWORD}
+      SQL_DATABASE_PREFIX: ${SQL_DATABASE_PREFIX}
+      SQL_CUSTOM_DATABASE_PREFIX_UPDATE_FROM: ${SQL_CUSTOM_DATABASE_PREFIX_UPDATE_FROM}
       SITECORE_ADMIN_USERNAME: "sitecore\\superuser"
       SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
       SITECORE_USER_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
@@ -70,7 +72,6 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup2: https://${SH_HOST}|http://${SH_HOST}
       Sitecore_Sitecore__IdentityServer__Clients__CredentialsClient__ClientSecrets__TenantService: ${SITECORE_CLIENT_SECRET}
     networks:
       - demo
@@ -99,7 +100,6 @@ services:
       SITECORE_CONNECTIONSTRINGS_DCRM: ${DCRM_CONNECTIONSTRING}
       SITECORE_CONNECTIONSTRINGS_Sitecore.DataExchange.Staging: Data Source=mssql;Initial Catalog=Sitecore.DataExchange.Staging;User ID=sa;Password=${SQL_SA_PASSWORD}
       EXM_RENDERER_URL: http://cm
-      Sitecore_Horizon_ClientHost: https://${SH_HOST}
       HOST_CD: http://cd
       COVEO_SERVER_URL: ${COVEO_SERVER_URL}
       OPENCALAIS_ACCESSTOKEN: ${OPENCALAIS_ACCESSTOKEN}
@@ -248,47 +248,6 @@ services:
         condition: service_healthy
     networks:
       - demo
-
-  authoringhost:
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
-    image: ${REGISTRY}demo/lighthouse-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    isolation: ${ISOLATION}
-    volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-    environment:
-      SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      Sitecore_FederatedUI__HostBaseUrl: http://authoringhost
-      Sitecore_SitecorePlatform__ContentManagementUrl: https://${CM_HOST}
-      Sitecore_SitecorePlatform__ContentManagementInternalUrl: http://cm
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__RequireHttpsMetadata: "false"
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__Authority: https://${ID_HOST}
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__CallbackAuthority: https://${SH_HOST}
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__InternalAuthority: http://id
-      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__Authority: https://${ID_HOST}
-      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__InternalAuthority: http://id
-      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__RequireHttpsMetadata: "false"
-      Sitecore_Plugins__Filters__ExperienceAccelerator: +SXA
-      Sitecore_Plugins__Filters__ContentHub: +ContentHub
-      Sitecore_Sitecore__Logging__Serilog__MinimumLevel__Default: Debug
-    depends_on:
-      id:
-        condition: service_healthy
-      cm:
-        condition: service_started
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
-      - "traefik.http.routers.sh-secure.entrypoints=websecure"
-      - "traefik.http.routers.sh-secure.rule=Host(`${SH_HOST}`)"
-      - "traefik.http.routers.sh-secure.tls=true"
-      - "traefik.http.routers.sh-secure.middlewares=force-STS-Header"
-      - "traefik.http.services.sh.loadbalancer.server.port=80"
-    networks:
-      demo:
-        aliases:
-          - ${SH_HOST}
 
   tenantservice:
     image: ${REGISTRY}demo/lighthouse-xp0-tenant-service:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}

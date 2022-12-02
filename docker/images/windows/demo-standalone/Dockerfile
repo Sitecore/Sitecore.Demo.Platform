@@ -13,7 +13,6 @@ ARG DCRM_ASSETS
 ARG SFMCBDE_ASSETS
 ARG SFMCCE_ASSETS
 ARG CMP_ASSETS
-ARG HORIZON_INTEGRATION_ASSETS
 ARG XGEN_ASSETS
 
 FROM ${TOOLS_ASSETS} as tools
@@ -28,7 +27,6 @@ FROM ${DCRM_ASSETS} as dcrm_assets
 FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
 FROM ${SFMCCE_ASSETS} as sfmcce_assets
 FROM ${CMP_ASSETS} as cmp_assets
-FROM ${HORIZON_INTEGRATION_ASSETS} as horizon_integration_assets
 FROM ${XGEN_ASSETS} as xgen_assets
 
 FROM ${SOLUTION_IMAGE} as solution
@@ -60,7 +58,6 @@ COPY --from=dcrm_assets /module/cm/content /inetpub/wwwroot
 COPY --from=sfmcbde_assets /module/cm/content /inetpub/wwwroot
 COPY --from=sfmcce_assets /module/cm/content /inetpub/wwwroot
 COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
-COPY --from=horizon_integration_assets /module/cm/content /inetpub/wwwroot
 COPY --from=xgen_assets /module/cm/content /inetpub/wwwroot
 
 # https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls
@@ -86,9 +83,6 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 RUN Rename-Item -Path 'C:\\inetpub\\wwwroot\\App_Config\\Sitecore\\Services.GraphQL\\Sitecore.Services.GraphQL.Content.Core.config.example' -NewName 'Sitecore.Services.GraphQL.Content.Core.config'
 RUN Rename-Item -Path 'C:\\inetpub\\wwwroot\\App_Config\\Sitecore\\Services.GraphQL\\Sitecore.Services.GraphQL.Content.Master.config.example' -NewName 'Sitecore.Services.GraphQL.Content.Master.config'
 RUN Rename-Item -Path 'C:\\inetpub\\wwwroot\\App_Config\\Sitecore\\Services.GraphQL\\Sitecore.Services.GraphQL.Content.Web.config.example' -NewName 'Sitecore.Services.GraphQL.Content.Web.config'
-
-# Fix for PowerShell Console failing to open from Sitecore desktop menu - Requires PSE to be installed
-RUN Rename-Item -Path 'C:\inetpub\wwwroot\App_Config\Include\Spe\Spe.IdentityServer.config.disabled' -NewName 'Spe.IdentityServer.config'
 
 # Find transform files and do transformation
 RUN (Get-ChildItem -Path '/inetpub/wwwroot/transforms/web*.xdt' -Recurse ) | `

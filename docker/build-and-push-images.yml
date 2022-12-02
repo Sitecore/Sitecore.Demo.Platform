@@ -10,7 +10,7 @@ resources:
 
 variables:
   GitVersion.SemVer: ""
-  SITECORE_VERSION: "10.2"
+  SITECORE_VERSION: "10.3"
   GitVersion.PreReleaseLabel: ""
   tag: "$(GitVersion.SemVer)"
   additionalImageTags: ""
@@ -330,7 +330,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=16" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=17" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
   - stage: Update_DEV_Portal_Databases_Stable
     displayName: "Update 'stable' version in the DEV portal database"
     dependsOn:
@@ -353,7 +353,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=13" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=20" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
 
   - stage: Update_PROD_Portal_Database_Stable
     displayName: "Update 'stable' version in the PROD portal database"
@@ -377,7 +377,7 @@ stages:
             inputs:
               targetType: "inline"
               script: |
-                Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=9" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+                Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=11" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
       - deployment: Update_Production_Database_Deployment
         displayName: "Update Production Database Deployment"
         environment: Production Portal Database
