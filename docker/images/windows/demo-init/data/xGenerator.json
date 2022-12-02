@@ -4,11 +4,11 @@
 	"Specification": {
 		"Segments": {
 			"Default": {
-				"Identified": 0.4,
+				"Identified": 0.2,
 				"BounceRate": 0.05,
-				"VisitCount": 3,
+				"VisitCount": 5,
 				"PageViews": 4,
-				"Duration": 20,
+				"Duration": 30,
 				"StartDate": "{START_DATE}",
 				"EndDate": "{END_DATE}",
 				"YearlyTrend": 1,
@@ -37,45 +37,32 @@
 				},
 				"LandingPage": {
 					"Site": {
-						"LighthouseFinancial": 0,
-						"LighthouseHealthcare": 0,
-						"Cumulus": 0,
-						"LighthouseLifestyle": 1,
-						"Global": 0,
-						"website": 0
+						"LighthouseFinancial": 0.5,
+						"LighthouseHealthcare": 0.5,
+						"Cumulus": 0.5,
+						"LighthouseLifestyle": 0.5,
+						"Global": 0.5,
+						"website": 1
 					},
-					"Item": {
-
-					}
+					"Item": {}
 				},
-				"Referrer": {
-
-				},
-				"InternalSearch": {
-					"Percentage": 0.5,
-					"Keywords": {
-
-					}
-				},
+				"Referrer": {},
+				"InternalSearch": { "Percentage": 0.5, "Keywords": {} },
 				"ExternalSearch": {
 					"Percentage": 0.5,
-					"Keywords": {
-
-					},
+					"Keywords": {},
 					"Engine": {
 						"google": 0.5,
 						"yahoo": 0.5,
 						"bing": 0.5,
-						"lycos": 0,
-						"baidu": 0,
+						"lycos": 0.5,
+						"baidu": 0.5,
 						"googleppc": 0.5,
 						"yahooppc": 0.5,
 						"bingppc": 0.5
 					}
 				},
-				"Devices": {
-
-				},
+				"Devices": {},
 				"Geo": {
 					"Region": {
 						"143": 0.5,
@@ -241,11 +228,7 @@
 						"{86F4B51D-01D8-4372-889A-2DEAC430E01D}": 0.1
 					}
 				},
-				"Language": {
-					"en": 0.8,
-					"ja-JP": 0.1,
-					"fr-CA": 0.1
-				}
+				"Language": { "en": 0.5, "ja-JP": 0.5, "fr-CA": 0.5 }
 			}
 		}
 	}

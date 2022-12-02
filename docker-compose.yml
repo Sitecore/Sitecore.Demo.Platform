@@ -37,7 +37,7 @@ services:
     # DEMO TEAM CUSTOMIZATION - Removed default volume
   solr:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.8.2-${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.11.2-${WINDOWSSERVERCORE_VERSION}
     ports:
       - "8984:8983"
     # DEMO TEAM CUSTOMIZATION - Removed default volume
@@ -56,7 +56,7 @@ services:
         condition: service_healthy
   id:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id6:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id7:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
     environment:
       Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString: Data Source=${SQL_SERVER};Initial Catalog=Sitecore.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD}
       Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl: https://${CM_HOST}/sitecore/login?rc=1

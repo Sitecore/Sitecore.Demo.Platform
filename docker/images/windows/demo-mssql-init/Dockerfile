@@ -16,6 +16,8 @@ FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
 FROM ${SPE_ASSETS_IMAGE} AS spe_assets
 FROM ${PARENT_IMAGE}
 
+ENV SQL_DATABASE_PREFIX=Sitecore
+
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 RUN Install-PackageProvider -Name NuGet -Force; `
@@ -34,7 +36,7 @@ COPY ./tools/scripts\ .\
 
 RUN .\InstallPrerequisites.ps1;
 
-ENTRYPOINT ["powershell.exe", ".\\StartInit.ps1", "-ResourcesDirectory $env:RESOURCES_PATH", "-SqlServer $env:SQL_SERVER", "-SqlAdminUser $env:SQL_ADMIN_LOGIN", "-SqlAdminPassword $env:SQL_ADMIN_PASSWORD", "-SitecoreAdminUsername $env:SITECORE_ADMIN_USERNAME", "-SitecoreAdminPassword $env:sitecore_admin_password", "-SitecoreUserPassword $env:SITECORE_USER_PASSWORD", "-SqlElasticPoolName $env:SQL_ELASTIC_POOL_NAME", "-DatabasesToDeploy $env:DATABASES_TO_DEPLOY", "-PostDeploymentWaitPeriod $env:POST_DEPLOYMENT_WAIT_PERIOD", `
+ENTRYPOINT ["powershell.exe", ".\\StartInit.ps1", "-ResourcesDirectory $env:RESOURCES_PATH", "-SqlServer $env:SQL_SERVER", "-SqlAdminUser $env:SQL_ADMIN_LOGIN", "-SqlDatabasePrefix $env:Sql_Database_Prefix", "-SqlAdminPassword $env:SQL_ADMIN_PASSWORD", "-SitecoreAdminUsername $env:SITECORE_ADMIN_USERNAME", "-SitecoreAdminPassword $env:sitecore_admin_password", "-SitecoreUserPassword $env:SITECORE_USER_PASSWORD", "-SqlElasticPoolName $env:SQL_ELASTIC_POOL_NAME", "-DatabasesToDeploy $env:DATABASES_TO_DEPLOY", "-PostDeploymentWaitPeriod $env:POST_DEPLOYMENT_WAIT_PERIOD", `
     "-DatabaseUsers @( `
     @{'databaseName' = 'Sitecore.Master'; 'username' = $env:Master_Database_Username; 'password' = $env:Master_Database_Password}, `
     @{'databaseName' = 'Sitecore.Core'; 'username' = $env:Core_Database_Username; 'password' = $env:Core_Database_Password}, `

@@ -15,7 +15,10 @@ COPY --from=tools /tools/ /tools/
 FROM modules as production
 
 COPY --from=solution /solution/xconnect/ /inetpub/wwwroot/
-COPY --from=dcrm_assets /module/models /inetpub/wwwroot/App_Data/Models/
+
+# TODO: Enable when DRCM module is available
+#COPY --from=dcrm_assets /module/models /inetpub/wwwroot/App_Data/Models/
+
 COPY ./data/transforms/ /inetpub/wwwroot/transforms/
 
 RUN (Get-ChildItem -Path '/inetpub/wwwroot/transforms/sc.XConnect.Collection.Model.Plugins.xml.xdt' -Recurse ) | `

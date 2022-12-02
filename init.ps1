@@ -129,9 +129,6 @@ if ($InitEnv) {
     # ID_HOST
     Set-DockerComposeEnvFileVariable "ID_HOST" -Value "id.lighthouse.localhost"
 
-    # SH_HOST
-    Set-DockerComposeEnvFileVariable "SH_HOST" -Value "sh.lighthouse.localhost"
-
     # TS_HOST
     Set-DockerComposeEnvFileVariable "TS_HOST" -Value "ts.lighthouse.localhost"
 

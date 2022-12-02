@@ -48,7 +48,7 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Cors">
       <Version>5.2.6</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.14" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.6" />
     <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.6" />
@@ -58,31 +58,31 @@
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Analytics.Model" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Analytics.Model" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Analytics" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Analytics" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Analytics.XConnect" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Analytics.XConnect" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Buckets" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Buckets" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Cintel" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Cintel" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Cintel.Client" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Cintel.Client" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Client" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Client" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
@@ -102,51 +102,51 @@
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.EmailCampaign.Model" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.EmailCampaign.Model" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Kernel" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Kernel" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Nexus.Consumption" Version="1.4.2">
+    <PackageReference Include="Sitecore.Nexus.Consumption" Version="1.5.0">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Logging" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Logging" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Marketing" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Marketing" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Mvc" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Mvc" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Services.Core" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Services.Core" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Web" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.Web" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.XConnect.Client" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.XConnect.Client" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.XConnect" Version="10.2.*-*">
+    <PackageReference Include="Sitecore.XConnect" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
