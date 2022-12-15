@@ -20,10 +20,10 @@ namespace Sitecore.Demo.Init.Jobs
 			if (!this.IsCompleted())
 			{
 				indexes.AddRange(new List<string>() {
-					"sitecore_sxa_web_index",
-					"sitecore_sxa_master_index",
 					"sitecore_master_index",
 					"sitecore_web_index",
+					"sitecore_sxa_web_index",
+					"sitecore_sxa_master_index",
 					"sitecore_marketingdefinitions_master",
 					"sitecore_marketingdefinitions_web",
 					"sitecore_testing_index",
@@ -61,6 +61,8 @@ namespace Sitecore.Demo.Init.Jobs
 						Log.LogInformation($"{response.StatusCode}");
 					}
 				}
+
+				await Task.Delay(1000);
 			}
 		}
 	}

@@ -51,19 +51,17 @@ RUN /module/sxa/tools/Initialize-Content.ps1 -TargetPath /inetpub/wwwroot; `
     Remove-Item -Path /module -Recurse -Force;
 
 COPY --from=headless_assets /module/cm/content /inetpub/wwwroot
+COPY --from=headless_assets /module/db /inetpub/wwwroot/App_Data/items/core
 
 COPY --from=def_assets /module/cm/content /inetpub/wwwroot
-COPY --from=sfcrm_assets /module/cm/content /inetpub/wwwroot
+COPY --from=sfcrm_assets /module/cm/content/bin /inetpub/wwwroot/bin
 COPY --from=dcrm_assets /module/cm/content /inetpub/wwwroot
-COPY --from=sfmcbde_assets /module/cm/content /inetpub/wwwroot
-COPY --from=sfmcce_assets /module/cm/content /inetpub/wwwroot
 COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
 COPY --from=xgen_assets /module/cm/content /inetpub/wwwroot
 
 # https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls
 # (OI) = directories object inherit, (CI) = directories container inherit, F = Full access
 RUN icacls 'C:\inetpub\wwwroot' /grant 'IIS_IUSRS:(OI)(CI)F' /t | Out-Null
-
 
 FROM modules as production
 

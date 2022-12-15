@@ -49,9 +49,7 @@ RUN /module/sxa/tools/Initialize-Content.ps1 -TargetPath /inetpub/wwwroot; `
     Remove-Item -Path /module -Recurse -Force;
 
 COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
-COPY --from=sfcrm_assets /module/cm/content /inetpub/wwwroot
-COPY --from=sfmcbde_assets /module/cm/content/App_Config/Sitecore/DataExchange/SalesforceMarketingCloud /inetpub/wwwroot/App_Config/Sitecore/DataExchange/SalesforceMarketingCloud
-COPY --from=sfmcbde_assets /module/cm/content/bin/Sitecore.DataExchange.XConnect.SalesforceMarketingCloud.dll /inetpub/wwwroot/bin
+COPY --from=sfcrm_assets /module/cm/content/bin /inetpub/wwwroot/bin
 COPY --from=dcrm_assets /module/cm/content /inetpub/wwwroot
 
 # https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls

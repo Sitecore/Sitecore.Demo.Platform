@@ -37,11 +37,11 @@ namespace Sitecore.Demo.Init.Services
 
 				var indexRebuildAsyncJob = new IndexRebuild(initContext);
 				var experienceGeneratorAsyncJob = new ExperienceGenerator(initContext);
-
 				await new WaitForContextDatabase(initContext).Run();
+				await new PublishItems(initContext).Run();
 				await new DeployMarketingDefinitions(initContext).Run();
 				await new RebuildLinkDatabase(initContext).Run();
-				await Task.WhenAll(new PublishItems(initContext).Run(), new PopulateManagedSchema(initContext).Run());
+				await new PopulateManagedSchema(initContext).Run();
 				await new RestartCD(initContext).Run();
 				await new RestartCM(initContext).Run();
 				await new ActivateCoveo(initContext).Run();
