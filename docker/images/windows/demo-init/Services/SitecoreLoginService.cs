@@ -62,7 +62,7 @@ namespace Sitecore.Demo.Init.Services
 				$"code={ExtractParameter(response, "code")}&id_token={ExtractParameter(response, "id_token")}&access_token={ExtractParameter(response, "access_token")}&token_type={ExtractParameter(response, "token_type")}&expires_in={ExtractParameter(response, "expires_in")}&scope={ExtractParameter(response, "scope")}&state={ExtractParameter(response, "state")}&session_state={ExtractParameter(response, "session_state")}";
 			webClient.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
 
-			logger.LogInformation(signInData);
+			logger.LogTrace(signInData);
 
 			// Send token to /identity/signin
 			webClient.UploadData(
@@ -92,7 +92,7 @@ namespace Sitecore.Demo.Init.Services
 			var input = inputs.FirstOrDefault(node => node.GetAttributeValue("name", string.Empty) == name);
 			var result = input?.GetAttributeValue("value", string.Empty);
 
-			logger.LogInformation($"ExtractParameter result for {name}: {result}");
+			logger.LogTrace($"ExtractParameter result for {name}: {result}");
 
 			return HttpUtility.UrlEncode(result);
 		}
