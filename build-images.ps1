@@ -15,7 +15,7 @@ Param (
   [Parameter(HelpMessage = "Skips pulling the base images used by the dockerfiles.")]
   [switch]$SkipPull
   ,
-  [Parameter(HelpMessage = "Skips pulling the base images used by the dockerfiles.")]
+  [Parameter(HelpMessage = "Skips building the solution image.")]
   [switch]$SkipSolution
 )
 
