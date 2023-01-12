@@ -19,7 +19,7 @@ services:
       context:
         .\docker\images\windows\demo-solr-init
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-solr-init:${SITECORE_VERSION}-${windowsservercore_version}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-solr-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
 
   xdbsearchworker:
