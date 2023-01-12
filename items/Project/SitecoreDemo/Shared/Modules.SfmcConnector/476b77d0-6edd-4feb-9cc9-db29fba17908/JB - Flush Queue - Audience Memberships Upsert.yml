@@ -1,0 +1,39 @@
+﻿---
+ID: "7d9417e9-3ded-4ade-8743-bc53acb37834"
+Parent: "476b77d0-6edd-4feb-9cc9-db29fba17908"
+Template: "587f891a-8df6-444c-89d1-b3ab83cffb63"
+Path: "/sitecore/content/SFMC Tenant/Pipelines/Push Marketing Lists/Read Sitecore Marketing Lists/JB - Flush Queue - Audience Memberships Upsert"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "13ccd004-eb1f-42d2-8e23-35baeb70c15e"
+  Hint: ResponseHandler
+  Value: "{9EC2E21B-E4FA-4C3E-9438-FD08DC1FF80C}"
+- ID: "7914afe0-3f94-4029-8997-d7740c2ff1dc"
+  Hint: Endpoint
+  Value: "{B5518E03-2F1C-4A6B-80DB-119D93577429}"
+- ID: "9b1aedfc-7599-4040-9e5e-32debc185592"
+  Hint: Conditions
+  Type: Treelist
+  Value: "{ADBCFFE7-C3BD-47B3-96A6-0CC5EED2726B}"
+- ID: "b03c77b6-da59-451b-ac78-7a260f2840f2"
+  Hint: Request
+  Value: "{EF5FAC97-5094-49F5-BF7F-5ACCD99163A8}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 458
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{7D9417E9-3DED-4ADE-8743-BC53ACB37834}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123901Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

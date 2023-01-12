@@ -1,0 +1,36 @@
+﻿---
+ID: "458ea371-7e80-462b-b0a3-a2cfb2dd039f"
+Parent: "90f9cbde-d656-4c66-9b17-aa593e302a96"
+Template: "75ac60b4-2e0d-4a16-ac6b-35b8c0311032"
+Path: /sitecore/content/SFMC Tenant/Tenant Service Endpoints/Push SFMC Contact Status to XConnect
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "3460927e-d33b-4c09-8b9b-c074b3f6cd10"
+  Hint: PipelineContextBuilder
+  Value: "{2988D643-0D93-4577-AD06-0887026EF294}"
+- ID: "506bad49-3da6-474c-acb5-7bcb509bfbd7"
+  Hint: Enabled
+  Type: Checkbox
+  Value: 1
+- ID: "51a235b2-509a-4be6-8e96-84eecc0babbb"
+  Hint: Pipeline
+  Value: "{4122BB2B-3B7D-4B10-9AC8-F783BC808A2D}"
+- ID: "a98238ed-11ba-4d63-967e-2533be39f40a"
+  Hint: RequestValueReader
+  Value: "{7ED41FC5-BC0B-41A1-B915-4AEE7A38AD24}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{458EA371-7E80-462B-B0A3-A2CFB2DD039F}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123955Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

@@ -1,30 +1,23 @@
 ﻿---
-ID: "bd51d568-655b-4244-a9e7-328ab7dfbc30"
-Parent: "3ce02eae-63cc-47d8-9ff4-cbb984798da1"
+ID: "1c3245e4-de44-4d1b-a688-7a4a29bd0bbc"
+Parent: "b02bf680-3b63-4710-ba69-45b0afdd283c"
 Template: "075c4fbd-f54e-4e6d-bd54-d49bda0913d8"
 Path: "/sitecore/content/SFMC Tenant/Pipeline Batches/Setup - SFMC Account Infrastructure"
 DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
 SharedFields:
-- ID: "2aa5c591-ff55-411d-96c0-978bb2c58b94"
-  Hint: Log
-  Value: |
-    C:\inetpub\wwwroot\App_Data\logs\DataExchange\SFMC.Tenant\Setup.-.SFMC.Account.Infrastructure.20200407.131913.txt
-- ID: "6a2b2cbb-4338-4814-a8a9-9fecbb90456a"
-  Hint: LastRunFinished
-  Value: 20200407T131916Z
 - ID: "9061beea-df25-4b2b-a698-3f5b4e867d18"
   Hint: Pipelines
   Type: Treelist
-  Value: "{9FFB1BA1-F552-472B-97DA-335398506A5E}"
-- ID: "985ba535-0f3e-4da8-a768-a469026de9db"
-  Hint: RequestedAt
-  Value: 20200407T131913Z
+  Value: |
+    {D6F002BB-0103-4FEE-AAD6-FC6FD9431CEE}
+    {518F37C4-88A7-4A3C-85E4-A646440B0DD8}
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 100
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: "{BD51D568-655B-4244-A9E7-328AB7DFBC30}"
+  Value: "{1C3245E4-DE44-4D1B-A688-7A4A29BD0BBC}"
 Languages:
 - Language: en
   Versions:
@@ -32,7 +25,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200406T163704Z
+      Value: 20210715T123854Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

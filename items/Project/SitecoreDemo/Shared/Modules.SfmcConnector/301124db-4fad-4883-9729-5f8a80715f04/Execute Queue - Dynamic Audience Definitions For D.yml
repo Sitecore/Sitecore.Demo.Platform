@@ -1,0 +1,32 @@
+﻿---
+ID: "edbcd490-0ff6-4f93-976a-2bf241bd69d1"
+Parent: "301124db-4fad-4883-9729-5f8a80715f04"
+Template: "4a2e06c1-6a18-4e77-8653-77457422ae7e"
+Path: "/sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Contents/Data Extension Definitions/Execute Queue - Dynamic Audience Definitions For Deletion"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "3b984bc3-8de2-434e-9981-0342303a1789"
+  Hint: QueueKey
+  Value: audience_definitions_for_deletion
+- ID: "3bd83629-b06f-4a92-868e-6c3197cea5c7"
+  Hint: HeaderXElementBuilder
+  Value: "{0CA0BAC2-87F9-4B50-B984-189A5493A03C}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1075
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{EDBCD490-0FF6-4F93-976A-2BF241BD69D1}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123925Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

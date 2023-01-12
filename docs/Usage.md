@@ -7,16 +7,14 @@
 - **[Preparing Docker](#preparing-docker)**
 - **[Preparing Your Environment](#preparing-your-environment)**
 - **[Running the Demo](#running-the-demo)**
-  - [Pulling the Docker Images](#pulling-the-docker-images)
   - [Starting the Demo Containers](#starting-the-demo-containers)
   - [Validating the Deployment](#validating-the-deployment)
-  - [Optional - Enable Coveo for Sitecore](#Optional---Enable-Coveo-for-Sitecore)
 - **[Stopping the Demo](#stopping-the-demo)**
 - **[Starting Over](#starting-over)**
 - **[Building the Demo](#building-the-demo)**
 - **[Development Lifecycle](#development-lifecycle)**
-  - [Local Build Prerequisites](#Local-Build-Prerequisites)
-  - [After changes to the code](#After-changes-to-the-code)
+  - [Local Build Prerequisites](#local-build-prerequisites)
+  - [After changes to the code](#after-changes-to-the-code)
 - **[Troubleshooting](#troubleshooting)**
 
 ## Clone this Repository
@@ -57,7 +55,7 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
       }
       ```
 
-   6. Optionally, you may want to also set DNS servers in the Docker engine configuration. See the [Issue downloading nodejs](#Issue%20downloading%20nodejs) known issue for details and instructions.
+   6. Optionally, you may want to also set DNS servers in the Docker engine configuration. See the [Issue downloading nodejs](#issue-downloading-nodejs) known issue for details and instructions.
    7. Click the "Apply & Restart" button to restart your Windows Docker engine.
 
 ## Preparing Your Environment
@@ -70,18 +68,9 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 3. Create certificates and initialize the environment file:
    - `.\init.ps1 -InitEnv -LicenseXmlPath C:\license\license.xml -AdminPassword b`
    - You can change the admin password and the license.xml file path to match your needs.
+   - **Note:** The admin username is set to "superuser" in this demo instead of the default "admin".
 
 ## Running the Demo
-
-### Pulling the Docker Images
-
-[top](#table-of-contents)
-
-1. Open an elevated (as administrator) PowerShell session.
-2. Navigate to your repository clone folder:
-   - `cd C:\Projects\Sitecore.Demo.Platform`
-3. Pull the latest demo Docker images:
-   - `docker-compose pull`
 
 ### Starting the Demo Containers
 
@@ -94,9 +83,9 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
    - `iisreset /stop`
    - This is required each time you want to use the demo as the Traefik container uses port (443), which is used by IIS.
 4. Start the demo containers:
-   - `docker-compose up -d`
-   - This will pull all of the necessary images to spin up your Sitecore environment. It will take quite some time if this is the first time you execute it.
-   - After pulling the images, the Sitecore instance will be up and available within minutes, but not fully working until the init container jobs are completed. The init container runs scripts that:
+   - `.\up.ps1`
+   - This will build all of the necessary images and start your Sitecore environment. It will take quite some time if this is the first time you execute it.
+   - After starting the containers, the Sitecore instance will be up and available within minutes, but not fully working until the init container jobs are completed. The init container runs scripts that:
      - Publish the master database to the web database using Sitecore Publishing Service.
      - Warmup CM and CD pages for a fast first load.
      - Deploy Sitecore marketing definitions.
@@ -109,7 +98,7 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 5. Check the progress of the initialization by viewing the init container's logs:
    - `docker-compose logs -f init`
 6. Wait about 30 minutes until the init container logs can read `No jobs are running. Monitoring stopped.`.
-   - The init container has a known issue where it may stop itself before the jobs are all done. If you notice the init container has stopped before logging the `No jobs are running. Monitoring stopped.` message, restart the init container by running `docker-compose up -d` and continue monitoring its logs.
+   - The init container has a known issue where it may stop itself before the jobs are all done. If you notice the init container has stopped before logging the `No jobs are running. Monitoring stopped.` message, restart the init container by running `.\up.ps1 -SkipBuild` and continue monitoring its logs.
 
 ### Validating the Deployment
 
@@ -119,17 +108,9 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
    1. You should see the Lighthouse landing page with a full-width carousel.
    2. If you do not see the full-width carousel and instead see the initial Sitecore default landing page, ensure that all the "init" container jobs are completed by checking its logs.
 2. Browse to [https://cm.lighthouse.localhost/sitecore](https://cm.lighthouse.localhost/sitecore)
-   1. You should be able to login with the "admin" user and the password provided while running the `init.ps1` script.
+   1. You should be able to login with the "**superuser**" user and the password "**b**" (or the one provided while running the `init.ps1` script).
 3. Browse to [http://127.0.0.1:44026/](http://127.0.0.1:44026/)
    1. You should see the SMTP container catch-all mailbox for all emails sent by EXM.
-
-### Optional - Enable Coveo for Sitecore
-
-[top](#table-of-contents)
-
-There is an optional Coveo for Sitecore integration in the Lighthouse Demo.
-
-Once Sitecore is up and running, you can [setup Coveo for Sitecore](/docs/Setup-coveo.md) on your instance.
 
 ## Stopping the demo
 
@@ -137,9 +118,9 @@ Once Sitecore is up and running, you can [setup Coveo for Sitecore](/docs/Setup-
 
 If you want to stop the demo without losing your changes:
 
-1. Run `docker-compose stop`
+1. Run `.\down.ps1`
 
-At this point you can start the demo again with `docker-compose start` to continue your work where you left off.
+At this point you can start the demo again with `.\up.ps1 -SkipBuild` to continue your work where you left off.
 
 ## Starting Over
 
@@ -147,9 +128,9 @@ At this point you can start the demo again with `docker-compose start` to contin
 
 If you want to reset all of your changes and get a fresh instance:
 
-1. Run `docker-compose down`
+1. Run `.\down.ps1`
 2. Run `.\CleanDockerData.ps1`
-3. Start again with `docker-compose up -d` to have a fresh installation of Sitecore with no files/items deployed!
+3. Start again with `.\up.ps1` to have a fresh installation of Sitecore with no files/items deployed!
 
 ## Building the Demo
 
@@ -200,7 +181,7 @@ This will build the solutions and deploy the build output to the `.\data\*\src` 
 
 **Problem:**
 
-When running `docker-compose up -d`, you get the following error:
+When running `.\up.ps1`, you get the following error:
 
 ```text
 ERROR: Get https://<registryname>/<someimage>/manifests/<someimage>: unauthorized: authentication required
@@ -208,7 +189,7 @@ ERROR: Get https://<registryname>/<someimage>/manifests/<someimage>: unauthorize
 
 **Cause:**
 
-This indicates you are not logged in to your registry.
+This indicates you are not logged in to your Docker registry.
 
 **Solution:**
 
@@ -226,7 +207,7 @@ ERROR: Service 'mssql' failed to build : manifest for scr.sitecore.com/build/lig
 
 **Cause:**
 
-The `--pull` switch tries to pull newer versions of all the base images used by the dockerfiles. The `lighthouse-solution` image is built by the `solution` service in the `docker-compose.override.yml` file. However, it is never pushed to the public Sitecore Docker registry.
+The script tries to pull newer versions of all the base images used by the dockerfiles. The `lighthouse-solution` image is built by the `solution` service in the `docker-compose.override.yml` file. However, it is never pushed to the public Sitecore Docker registry.
 
 **Solution:**
 
@@ -236,7 +217,7 @@ Do not use the `--pull` switch with the `docker-compose build` command. Instead,
 
 **Problem:**
 
-When running `.\build-images.ps1` or `docker-compose up -d`, you get an error about downloading nodejs.
+When running `.\build-images.ps1` or `.\up.ps1`, you get an error about downloading nodejs.
 
 **Cause:**
 
@@ -296,12 +277,11 @@ In IISConfigUtil.cpp line 231 there is a 5-second timeout for APPCMD to complete
    | 19042 | 20H2 | October 20, 2020 |
    | 19043 | 21H1 | TBA |
 
-3. `docker-compose down`
+3. `.\down.ps1`
 4. In `.env` file:
    1. Change the `WINDOWSSERVERCORE_VERSION` variable value to the version that matches your host system version.
    2. Change the `ISOLATION` variable value to `process`
-5. `docker-compose pull`
-6. `docker-compose up -d`
+5. `.\up.ps1`
 
 ## Additional Settings
 
@@ -337,6 +317,6 @@ When Unicorn is active, the Content Editor will display warnings that certain it
 2. Find all occurrences of the `SITECORE_APPSETTINGS_UNICORN:DEFINE` environment variable.
 3. Update all occurences to `SITECORE_APPSETTINGS_UNICORN:DEFINE: Disabled`
 4. Save the file.
-5. Run `docker-compose up -d` again to update the containers.
+5. Run `.\up.ps1 -SkipBuild` again to update the containers.
 
 This setting is set to `Enabled` by default. Setting it to `Disabled` ensures that none of the Unicorn serialization configuration files are loaded.

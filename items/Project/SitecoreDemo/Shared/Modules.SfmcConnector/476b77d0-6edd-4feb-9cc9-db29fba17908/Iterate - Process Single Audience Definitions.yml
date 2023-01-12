@@ -1,0 +1,35 @@
+﻿---
+ID: "1ef20074-acde-413f-8910-9734f2e7383d"
+Parent: "476b77d0-6edd-4feb-9cc9-db29fba17908"
+Template: "0fd90877-c5a1-4a9a-b7d5-a8469cfa89b1"
+Path: "/sitecore/content/SFMC Tenant/Pipelines/Push Marketing Lists/Read Sitecore Marketing Lists/Iterate - Process Single Audience Definitions"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "585fe5a4-68d8-4c1e-8056-635f3d73d723"
+  Hint: Pipelines
+  Type: Treelist
+  Value: |
+    {6CA1DF5B-BC5A-4129-BD55-C273D4AFFF4A}
+    {04B05FAB-93CD-4A9F-8391-91FBD076A9D3}
+- ID: "ac22e9bf-88f9-49bc-881a-22670f53761c"
+  Hint: MaxThreadCount
+  Value: 8
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 75
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{1EF20074-ACDE-413F-8910-9734F2E7383D}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123900Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

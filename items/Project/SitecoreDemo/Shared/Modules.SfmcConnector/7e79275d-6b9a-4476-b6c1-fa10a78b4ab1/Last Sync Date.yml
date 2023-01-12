@@ -1,0 +1,33 @@
+﻿---
+ID: "62cc3be4-ad56-47bf-9ae5-c9f385832e8a"
+Parent: "7e79275d-6b9a-4476-b6c1-fa10a78b4ab1"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: "/sitecore/content/SFMC Tenant/Value Mapping Sets/Journey Builder - Sitecore into SFMC/List Membership Model - To Flat Object/Last Sync Date"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{2FCCE873-D6CE-47AB-94F7-793D9EB14DCA}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{3EF74F15-D4BF-46A4-9DE4-A962B935AF46}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{62CC3BE4-AD56-47BF-9AE5-C9F385832E8A}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123952Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

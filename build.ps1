@@ -74,6 +74,10 @@ catch {
     Write-Output 'Unable to set PowerShell to use TLS 1.2 and TLS 1.1 due to old .NET Framework installed. If you see underlying connection closed or trust errors, you may need to upgrade to .NET Framework 4.5+ and PowerShell v3'
 }
 
+Copy-Item "C:\Program Files (x86)\Microsoft Visual Studio\2022\" "C:\Program Files (x86)\Microsoft Visual Studio\2019\" -Recurse -Force
+
+$env:NUGET_EXPERIMENTAL_CHAIN_BUILD_RETRY_POLICY="10,100"
+
 [Reflection.Assembly]::LoadWithPartialName("System.Security") | Out-Null
 function MD5HashFile([string] $filePath) {
     if ([string]::IsNullOrEmpty($filePath) -or !(Test-Path $filePath -PathType Leaf)) {

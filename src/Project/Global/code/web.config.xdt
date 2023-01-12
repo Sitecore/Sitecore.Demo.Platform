@@ -15,13 +15,6 @@
 									-->
 		<add key="unicorn:define" value="Disabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 
-		<!-- PUBLISHING SERVICE MODE SUPPORTED VALUES
-										 Enabled
-										 Disabled
-									Default value: Enabled
-									-->
-		<add key="publishingservice:define" value="Enabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
-
 		<!-- CONTENT HUB MODE SUPPORTED VALUES
 										 Enabled
 										 Disabled

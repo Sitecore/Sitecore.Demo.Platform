@@ -1,0 +1,32 @@
+﻿---
+ID: "fa153b64-0c36-44a3-be1c-5b4c3e925758"
+Parent: "12a9b334-48cf-4214-9172-1559e33f82f6"
+Template: "05fe45d4-b9c7-40de-b767-7c5abe7119f9"
+Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseHealthcare/Healthcare Onboarding Newsletter/Page/Section/Submit Button/SubmitActions/Trigger Goal
+DB: master
+SharedFields:
+- ID: "5c796924-3f06-4d1f-8510-8ad9a4244477"
+  Hint: Parameters
+  Value: |
+    {"referenceId":"{098F51D0-E7A6-490E-B990-BEFEE13CDC86}"}
+- ID: "abc57b6d-5542-4ab9-a889-106225a032e6"
+  Hint: Submit Action
+  Value: "{106587B9-1B9C-4DDB-AE96-BAC8416C21B5}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20171206T194058Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8251a6fa-2e61-4e01-8832-8d99c69869b5"
+      Hint: Description
+      Value: Onboarding Newsletter Sign Up

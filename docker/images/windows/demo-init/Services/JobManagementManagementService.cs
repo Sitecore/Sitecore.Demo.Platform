@@ -30,41 +30,39 @@ namespace Sitecore.Demo.Init.Services
 		{
 			try
 			{
-				var startTime = DateTime.UtcNow;
-				logger.LogInformation($"{DateTime.UtcNow} Init started.");
-				await stateService.SetState(InstanceState.Initializing);
+				var watch = System.Diagnostics.Stopwatch.StartNew();
 
-				var deployMarketingDefinitionsAsyncJob = new DeployMarketingDefinitions(initContext);
-				var rebuildLinkDatabaseAsyncJob = new RebuildLinkDatabase(initContext);
+				await stateService.SetState(InstanceState.Initializing);
+				logger.LogInformation($"{DateTime.UtcNow} Init started.");
+
 				var indexRebuildAsyncJob = new IndexRebuild(initContext);
 				var experienceGeneratorAsyncJob = new ExperienceGenerator(initContext);
-				var restartCD = new RestartCD(initContext);
-				var restartCM = new RestartCM(initContext);
-
 				await new WaitForContextDatabase(initContext).Run();
 				await new PublishItems(initContext).Run();
+				await new DeployMarketingDefinitions(initContext).Run();
+				await new RebuildLinkDatabase(initContext).Run();
 				await new PopulateManagedSchema(initContext).Run();
-				await Task.WhenAll(restartCD.Run(), restartCM.Run());
+				await new RestartCD(initContext).Run();
+				await new RestartCM(initContext).Run();
 				await new ActivateCoveo(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
-				await new UpdateDatasourceRestrictions(initContext).Run();
+				await new DisableFallback(initContext).Run();
 				await new DeactivateMobileDeviceLayout(initContext).Run();
 				await new UpdateDamUri(initContext).Run();
-				await Task.WhenAll(deployMarketingDefinitionsAsyncJob.Run(), rebuildLinkDatabaseAsyncJob.Run());
 
 				await stateService.SetState(InstanceState.WarmingUp);
+				logger.LogInformation($"WarmingUp. Elapsed: {watch.Elapsed:m\\:ss}");
+
 				await Task.WhenAll(new WarmupCM(initContext).Run(), new WarmupCD(initContext).Run());
 
+				logger.LogInformation($"Preparing. Elapsed: {watch.Elapsed:m\\:ss}");
 				await stateService.SetState(InstanceState.Preparing);
 				await Task.WhenAll(indexRebuildAsyncJob.Run(), experienceGeneratorAsyncJob.Run());
 
-				logger.LogInformation($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below.");
-				logger.LogInformation($"Elapsed time: {(DateTime.UtcNow - startTime):c}");
+				logger.LogInformation($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below. Elapsed: {watch.Elapsed:m\\:ss}");
 
 				var asyncJobList = new List<TaskBase>
 				                   {
-					                   deployMarketingDefinitionsAsyncJob,
-					                   rebuildLinkDatabaseAsyncJob,
 					                   indexRebuildAsyncJob,
 					                   experienceGeneratorAsyncJob,
 								   };
@@ -94,8 +92,8 @@ namespace Sitecore.Demo.Init.Services
 					}
 				}
 
-				logger.LogInformation($"{DateTime.UtcNow} No jobs are running. Monitoring stopped.");
 				await stateService.SetState(InstanceState.Ready);
+				logger.LogInformation($"{DateTime.UtcNow} No jobs are running. Monitoring stopped. Elapsed: {watch.Elapsed:m\\:ss}");
 			}
 			catch (Exception ex)
 			{

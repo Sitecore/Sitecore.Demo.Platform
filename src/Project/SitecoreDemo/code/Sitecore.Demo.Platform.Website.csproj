@@ -45,27 +45,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Sitecore.Kernel" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Client" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Logging" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Kernel" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Mvc.Analytics" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Nexus.Consumption" Version="1.5.0">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Mvc" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Logging" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Update" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Mvc.Analytics" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Zip" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Mvc" Version="10.3.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Update" Version="10.3.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Connector.ContentHub.DAM" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
@@ -98,9 +106,7 @@
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.CoveoIndexing.config.demo" />
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Horizon.Patch.Delete.Hotfix.config" />
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Serialization.Training.config" />
-    <None Include="sitecore.demo.platform.version.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Hotfixes.MImageCommand.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -115,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\EmptyContentController.cs" />
+    <Compile Include="Hotfixes\PersonalizationForm.cs" />
+    <Compile Include="Hotfixes\MImageControl.cs" />
+    <Compile Include="Hotfixes\MImageCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup>

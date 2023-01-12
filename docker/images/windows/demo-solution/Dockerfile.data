@@ -34,6 +34,7 @@ COPY build-themes.ps1 .
 RUN New-Item -ItemType SymbolicLink -Path "C:\FrontEnd\Fins\node_modules" -Target "C:\FrontEnd\Lighthouse\node_modules" -Verbose
 RUN New-Item -ItemType SymbolicLink -Path "C:\FrontEnd\Financial\node_modules" -Target "C:\FrontEnd\Lighthouse\node_modules" -Verbose
 RUN New-Item -ItemType SymbolicLink -Path "C:\FrontEnd\FinancialBlue\node_modules" -Target "C:\FrontEnd\Lighthouse\node_modules" -Verbose
+RUN New-Item -ItemType SymbolicLink -Path "C:\FrontEnd\Healthcare\node_modules" -Target "C:\FrontEnd\Lighthouse\node_modules" -Verbose
 
 RUN .\build-themes.ps1
 

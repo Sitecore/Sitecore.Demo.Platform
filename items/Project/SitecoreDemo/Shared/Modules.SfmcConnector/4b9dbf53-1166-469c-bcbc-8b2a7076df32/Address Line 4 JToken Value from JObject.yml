@@ -1,0 +1,29 @@
+﻿---
+ID: "411c0d5f-11e8-4b28-a3b5-2219de2d76c3"
+Parent: "4b9dbf53-1166-469c-bcbc-8b2a7076df32"
+Template: "f47d2c01-150d-41fc-89af-b2d171497346"
+Path: /sitecore/content/SFMC Tenant/Data Access/Value Readers/Common/MA Json Contact Value Readers/Address Line 4 JToken Value from JObject
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "47a9d549-fbe8-4b17-aa5b-cc905678bdbb"
+  Hint: JsonPath
+  Value: $.Addresses.PreferredAddress.AddressLine4
+- ID: "6cbfe6a7-1876-46da-89d3-ffb8e62f74f7"
+  Hint: ConvertibleType
+  Value: "{8B04E686-C0C0-4D36-9E3C-8F7F7F90AF17}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{411C0D5F-11E8-4B28-A3B5-2219DE2D76C3}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123846Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

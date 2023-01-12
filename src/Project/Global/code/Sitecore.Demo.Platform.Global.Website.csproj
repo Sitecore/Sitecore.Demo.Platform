@@ -45,39 +45,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Sitecore.ContentSearch" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.ContentSearch" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Kernel" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Kernel" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Logging" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Nexus.Consumption" Version="1.5.0">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Marketing" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Logging" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Marketing.xMgmt" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Marketing" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Marketing.xMgmt.ReferenceData" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Marketing.xMgmt" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Update" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Marketing.xMgmt.ReferenceData" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Zip" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Update" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.XConnect.Client" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.XConnect.Client" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
@@ -107,7 +107,6 @@
     <Content Include="App_Config\Include\Project\Global.Website.CoveoIndexing.config.demo" />
     <Content Include="App_Config\Include\Project\z.DevSettings.config" />
     <Content Include="sitecore\shell\Applications\WebEdit\Dialogs\Personalization\personalization.xml" />
-    <Content Include="App_Config\Modules\PublishingService\Sitecore.Publishing.Service.config" />
     <Content Include="App_Config\Include\Project\Demo.Website.config" />
     <Content Include="App_Config\Include\Project\Demo.Website.Serialization.config" />
     <Content Include="App_Config\Include\Project\Demo.Website.SPE.config" />
@@ -116,7 +115,6 @@
     <Content Include="App_Config\Sitecore\ContentTesting\Sitecore.ContentTesting.PreemptiveScreenshot.config" />
     <Content Include="App_Config\Include\z.Feature.Overrides\z.SPE.Sync.Enabler.Gulp.config" />
     <Content Include="App_Config\Include\zz.Foundation.Overrides\Foundation.Search.Azure.config" />
-    <Content Include="sitecore\shell\override\Personalization.xml" />
     <Content Include="Utilities\DeployEmailCampaigns.aspx" />
     <Content Include="Utilities\DeployMarketingDefinitions.aspx" />
     <Content Include="Utilities\IndexRebuild.aspx" />
@@ -124,6 +122,7 @@
     <Content Include="Utilities\Installation\poststeps\1_Smart_Publish.poststep" />
     <Content Include="Utilities\Installation\poststeps\2_Index_Deploy_Marketing_Definitions.poststep" />
     <Content Include="Utilities\Installation\poststeps\3_Index_Rebuild.poststep" />
+    <Content Include="Utilities\Publish.aspx" />
     <Content Include="Utilities\Restart.aspx" />
     <Content Include="Utilities\RebuildLinkDatabase.aspx" />
     <Content Include="web.config.xdt" />
@@ -162,6 +161,13 @@
     <Compile Include="Utilities\Installation\IndexRebuildPostStep.cs" />
     <Compile Include="Utilities\Installation\SmartPublishPostStep.cs" />
     <Compile Include="Utilities\Installation\UpdateHostnamePostStep.cs" />
+    <Compile Include="Utilities\Publish.aspx.cs">
+      <DependentUpon>Publish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Publish.aspx.designer.cs">
+      <DependentUpon>Publish.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Restart.aspx.cs">
       <DependentUpon>Restart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

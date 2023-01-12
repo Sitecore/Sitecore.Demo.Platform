@@ -37,10 +37,10 @@ namespace Sitecore.Demo.Init.Jobs
 
 			// Wait for PopulateManagedSchema to complete before restarting the sites
 			var jobs = await JobStatus.Run();
-			while (jobs.Any())
+			while (jobs.Any(x => x.Title.Contains("IndexRebuild") || x.Title.Contains("Publish")))
 			{
 				Log.LogInformation($"PopulateManagedSchema still running: {DateTime.UtcNow}");
-				await Task.Delay(TimeSpan.FromMinutes(1));
+				await Task.Delay(TimeSpan.FromSeconds(30));
 				jobs = await JobStatus.Run();
 			}
 

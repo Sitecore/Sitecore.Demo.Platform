@@ -1,0 +1,39 @@
+﻿---
+ID: "89d52e8a-0762-49fa-984a-f6df422f2e45"
+Parent: "c5a537ff-77f0-4c85-83f0-83652f4b5ef4"
+Template: "50f8d545-6d71-49b8-8e6c-3df66887e8a7"
+Path: /sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Requests/Journey Builder/Journey Builder API Request
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "10320ff8-d7f5-448d-bab7-1ad835e3184a"
+  Hint: BaseUri
+  Value: "{1A13FCE4-047B-4143-B280-4395C98E89BB}"
+- ID: "1a99ac2f-43a9-46d7-9a0d-fed96dd04558"
+  Hint: Content
+  Value: "{264C1E99-3195-42CF-9F67-98DA6B104BE1}"
+- ID: "97dfbbbc-56ca-4881-acf7-d11aa300cc2f"
+  Hint: Headers
+  Type: Treelist
+  Value: "{EF4BE3FD-394B-4D7E-9C90-2AB6444027F8}"
+- ID: "a00ef673-63c4-4ee6-8260-7a6c278b3635"
+  Hint: Path
+  Value: /interaction/v1/events
+- ID: "dde3586e-85e4-4b33-8662-94062fb85298"
+  Hint: HttpMethod
+  Value: POST
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{89D52E8A-0762-49FA-984A-F6DF422F2E45}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123937Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

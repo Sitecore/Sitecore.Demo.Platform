@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -48,63 +48,70 @@
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.4" />
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.4" />
     <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.4" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.5" />
-    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="4.1.0" />
-    <PackageReference Include="Microsoft.Owin.Security.Facebook" Version="4.1.0" />
-    <PackageReference Include="Microsoft.Owin.Security.MicrosoftAccount" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Owin">
+      <Version>4.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="4.2.2" />
+    <PackageReference Include="Microsoft.Owin.Security.Facebook" Version="4.2.2" />
+    <PackageReference Include="Microsoft.Owin.Security.MicrosoftAccount" Version="4.2.2" />
     <PackageReference Include="Newtonsoft.Json">
-      <Version>11.0.2</Version>
+      <Version>13.0.1</Version>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Analytics.Core" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Analytics.Core" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Analytics.Model" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Analytics.Model" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Analytics" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Analytics" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Annotations" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Annotations" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.ExperienceEditor.Speak" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.ExperienceEditor.Speak" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.ExperienceEditor.Speak.Ribbon" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.ExperienceEditor.Speak.Ribbon" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.ExperienceExplorer.Core" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.ExperienceExplorer.Core" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.ExperienceExplorer.Web" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.ExperienceExplorer.Web" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Kernel" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Kernel" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Mvc" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Nexus.Consumption" Version="1.5.0">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Owin.Authentication" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Mvc" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Owin" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Owin.Authentication" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Sitecore.Speak.Client" Version="10.1.*-*">
+    <PackageReference Include="Sitecore.Owin" Version="10.3.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Speak.Client" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>

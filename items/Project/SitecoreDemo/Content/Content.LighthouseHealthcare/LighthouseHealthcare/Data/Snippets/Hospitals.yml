@@ -1,0 +1,34 @@
+﻿---
+ID: "e89e3abf-1159-4220-a89e-2a3fa802a0a7"
+Parent: "d3292aa7-ceb1-4105-9af9-6f2eb1758b67"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Data/Snippets/Hospitals
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Type: Layout
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{5842EDE5-DB45-4700-91B5-7215B6D8F4BE}"
+              s:ds="{393E7C56-16BC-4FB0-85A0-0B5314448722}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BB8DCE263-F093-4EF3-9B53-B4A4B919A337%7D&amp;Styles&amp;CacheClearingBehavior=Clear%20on%20publish&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="section-content" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210526T181710Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser

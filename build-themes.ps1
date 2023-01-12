@@ -4,13 +4,14 @@ Param(
   [string]$ItemsPath = ".\items"
 )
 function Update-ThemeTokens($filePath, $itemPath) {
+  Write-Host "Update-ThemeTokens for $filePath - $itemPath"
   $blob = [Convert]::ToBase64String([IO.File]::ReadAllBytes($filePath))
   $size = (Get-Item $filePath).length
-  $content = Get-Content -Path "$itemPath"
+  $content = Get-Content -Path "$itemPath" -Verbose
   $content = $content -replace '%blob%', $blob
   $content = $content -replace '%size%', $size
   $itemPath = "$itemPath" -replace '.template', ''
-  $content | Set-Content -Path "$itemPath"
+  $content | Set-Content -Path "$itemPath" -Verbose
 }
 
 Get-ChildItem $FrontEndPath -Depth 0 -Directory | ForEach-Object {

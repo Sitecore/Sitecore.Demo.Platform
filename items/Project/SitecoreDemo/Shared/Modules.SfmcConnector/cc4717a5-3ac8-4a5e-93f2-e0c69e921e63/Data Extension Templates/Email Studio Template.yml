@@ -1,0 +1,45 @@
+﻿---
+ID: "c6a3a47d-359d-4a9a-bb4b-23d931bed193"
+Parent: "03b3c3ba-c318-4a0c-ba5d-4e7b278fdb2d"
+Template: "40eca024-f6b4-46ac-8fdb-305367736d4e"
+Path: /sitecore/content/SFMC Tenant/Tenant Settings/Providers/SFMC/Object Definitions/Data Extension Templates/Email Studio Template
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "16d15b55-8d99-4ff3-87ec-56435782b8e7"
+  Hint: Name
+  Value: "{list-name}"
+- ID: "60529e21-a7a8-4c20-bada-58885f449a48"
+  Hint: ExternalKey
+  Value: "{list-id}"
+- ID: "8db4ebe1-68a0-4ebb-ad0e-6acfdb1a0b2c"
+  Hint: SendableSubscriptionFieldName
+  Value: Subscriber Key
+- ID: "8e71c6ce-2c21-4938-9bd2-05ed0556efdb"
+  Hint: SendableDataExtensionField
+  Value: "{1E7E3D0E-F01B-4171-997F-94B9EDF64BFC}"
+- ID: "a768949f-8f27-4f99-ae6c-eb14b7886889"
+  Hint: FolderPath
+  Value: /Data Extensions/Sitecore/Email
+- ID: "c0f27d85-63fe-4a02-94a3-3941f8f00a10"
+  Hint: Sendable
+  Type: Checkbox
+  Value: 1
+- ID: "c2263e47-90bb-43fa-9082-be835dd76b4e"
+  Hint: Description
+  Value: "Audience Definition For {list-name}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{C6A3A47D-359D-4A9A-BB4B-23D931BED193}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123929Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

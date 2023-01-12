@@ -1,0 +1,41 @@
+﻿---
+ID: "f43de32b-4924-4e99-b495-c0e15c2ed0fc"
+Parent: "406b1996-536f-4b50-aabf-377e0ac538be"
+Template: "a0fa5b87-6ff3-4ae7-9313-6c1f4a53984b"
+Path: /sitecore/content/SFMC Tenant/Pipelines/Push xConnect Contacts/Read xConnect Contacts/Read xConnect Contacts
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "4c84daf6-dc6a-4f7d-ac13-2e7292d8e600"
+  Hint: EndpointFrom
+  Value: "{B0E1F196-A5DE-4FD9-9D82-E0B8DC3BF044}"
+- ID: "9d248298-070e-4629-b709-9cb9c4029696"
+  Hint: ContactBatchSize
+  Value: 500
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 150
+- ID: "e33af02b-1a46-4981-a0f8-d82f2dfdf1bc"
+  Hint: ContactFacetsToRead
+  Type: Treelist
+  Value: |
+    {8873D0F9-5E13-E855-4765-F4C87026208B}
+    {1E5FFB53-CF10-0107-6C6D-E813CF0E6A25}
+    {AD4D0307-10B3-0417-5286-BA47B9089C02}
+    {2C2D1047-DF19-E8DC-B7AB-B9A5B085B879}
+    {603FC138-982E-1AAF-FAB7-AC66BB279D12}
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{F43DE32B-4924-4E99-B495-C0E15C2ED0FC}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123857Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

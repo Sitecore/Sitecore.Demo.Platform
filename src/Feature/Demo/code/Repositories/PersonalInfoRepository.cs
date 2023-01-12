@@ -168,6 +168,11 @@ namespace Sitecore.Demo.Platform.Feature.Demo.Repositories
 
         private string FormatAddress(Address address)
         {
+	        if (address == null)
+	        {
+		        return string.Empty;
+	        }
+
             var streetAddress = string.Join(Environment.NewLine, new List<string>
                                                                  {
                                                                      address.AddressLine1,

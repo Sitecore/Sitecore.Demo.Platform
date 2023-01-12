@@ -1,0 +1,37 @@
+﻿---
+ID: "8a9a9ce4-569f-4454-b9a9-ec03a6c996c1"
+Parent: "ea56d834-1c78-41c0-94b8-4fe91efb6607"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: "/sitecore/content/SFMC Tenant/Value Mapping Sets/MA Json Contact to SFMC/MA Json Contact - To Flat Object/Address Line 4"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{53945C70-D275-4313-90B0-C4FD936D54E4}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+- ID: "c33e6e51-d4ed-454c-bc9c-6337210e0f1f"
+  Hint: DoNotFailIfUnableToReadSourceValue
+  Type: Checkbox
+  Value: 1
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{CC633A70-8989-408F-B9A3-A25B432A5316}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{8A9A9CE4-569F-4454-B9A9-EC03A6C996C1}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123954Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

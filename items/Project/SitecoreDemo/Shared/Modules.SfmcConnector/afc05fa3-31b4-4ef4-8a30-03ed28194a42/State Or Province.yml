@@ -1,0 +1,40 @@
+﻿---
+ID: "32b767c3-22fc-4bb4-b9d4-2fe1d4b33ca2"
+Parent: "afc05fa3-31b4-4ef4-8a30-03ed28194a42"
+Template: "450c8f38-91c9-4896-957b-6f7daf18ccfc"
+Path: "/sitecore/content/SFMC Tenant/Value Mapping Sets/Email Studio - Sitecore into SFMC/xConnect Contact - To Flat Object/State Or Province"
+DB: master
+BranchID: "30fceba1-f89c-4419-81ac-7c91ca2e55a9"
+SharedFields:
+- ID: "95184b45-efef-447c-9089-4f2ec5df26c5"
+  Hint: SourceAccessor
+  Type: Treelist
+  Value: "{4CFC492A-436A-46F7-8286-796FDAF92C96}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 900
+- ID: "c33e6e51-d4ed-454c-bc9c-6337210e0f1f"
+  Hint: DoNotFailIfUnableToReadSourceValue
+  Type: Checkbox
+  Value: 1
+- ID: "ef84b462-7f4a-4f48-b78e-ade192d55e82"
+  Hint: TargetAccessor
+  Value: "{D37B52B1-D258-42F9-AA2C-7074C02020A1}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{32B767C3-22FC-4BB4-B9D4-2FE1D4B33CA2}"
+- ID: "fd738fc4-54b9-4aa3-bb8c-5749ba0907c4"
+  Hint: SourceValueTransformer
+  Value: "{619CF330-2D1E-4D22-AC1B-DEE3FE866345}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210715T123949Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Anonymous

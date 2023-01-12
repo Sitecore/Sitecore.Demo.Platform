@@ -1,0 +1,247 @@
+﻿---
+ID: "dde109ad-6db8-4d4e-84d9-5c7f71c76ff9"
+Parent: "abb4a93f-fca3-49c4-a8cb-c761c6e0c95e"
+Template: "568d0b5c-eccb-4a2f-a301-79c7761cda36"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseHealthcare/home/campaign-pages/facebook"
+DB: master
+SharedFields:
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Type: Tracking
+  Value: |
+    <tracking
+      ignore="1" />
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Facebook
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180316T194219Z
+    - ID: "621cfa47-d63b-4b8e-81e7-0ca5c2619909"
+      Hint: HTML Content
+      Value: |
+        <!doctype html>
+        <html class="no-js" lang="">
+            <head>
+                <meta charset="utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+                <title>Facebook - Lighthouse Health</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+        		<link rel="icon" type="image/png" href="" />
+                <link rel="apple-touch-icon" href="" />
+        		<style type="text/css">
+        			/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+        			
+        			body, html {
+        				height: 100%;
+        				width: 100%;
+        			}
+        			
+        			.bg {
+        				position: relative;
+        				width: 100%;
+        				max-width: 1999px;
+        				min-height: 1249px;
+        				min-width: 1000px;
+        				
+        				background-repeat: no-repeat; background-size: contain; background-position: top left;
+        				background-color: #e9ebee;
+        			}
+        			
+        			.link {
+        				position: absolute;
+        				top: 0;
+        				left: 21%;
+        				width: 36%;
+        				height: 100%;
+        				display: block;
+        			}
+        		</style>
+            </head>
+            <body>
+        		<div class="bg" style="background-image: url(~/media/69DC11BD577544108560E45CDDB0F2C6.ashx);">
+        			<a class="link" href="/your-health?sc_camp=86F4B51D01D84372889A2DEAC430E01D">&nbsp;</a>
+        		</div>
+            </body>
+        </html>
+        
+  - Version: 2
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180316T194219Z
+    - ID: "621cfa47-d63b-4b8e-81e7-0ca5c2619909"
+      Hint: HTML Content
+      Value: |
+        <!doctype html>
+        <html class="no-js" lang="">
+            <head>
+                <meta charset="utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+                <title>Facebook - Lighthouse Health</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+        		<link rel="icon" type="image/png" href="" />
+                <link rel="apple-touch-icon" href="" />
+        		<style type="text/css">
+        			/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+        			
+        			body, html {
+        				height: 100%;
+        				width: 100%;
+        			}
+        			
+        			.bg {
+        				position: relative;
+        				width: 100%;
+        				max-width: 1999px;
+        				min-height: 1249px;
+        				min-width: 1000px;
+        				
+        				background-repeat: no-repeat; background-size: contain; background-position: top left;
+        				background-color: #e9ebee;
+        			}
+        			
+        			.link {
+        				position: absolute;
+        				top: 0;
+        				left: 21%;
+        				width: 36%;
+        				height: 100%;
+        				display: block;
+        			}
+        		</style>
+            </head>
+            <body>
+        		<div class="bg" style="background-image: url(~/media/69DC11BD577544108560E45CDDB0F2C6.ashx);">
+        			<a class="link" href="/your-health?sc_camp=86F4B51D01D84372889A2DEAC430E01D">&nbsp;</a>
+        		</div>
+            </body>
+        </html>
+        
+  - Version: 3
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180316T194219Z
+    - ID: "621cfa47-d63b-4b8e-81e7-0ca5c2619909"
+      Hint: HTML Content
+      Value: |
+        <!doctype html>
+        <html class="no-js" lang="">
+            <head>
+                <meta charset="utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+                <title>Facebook - Lighthouse Health</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+        		<link rel="icon" type="image/png" href="" />
+                <link rel="apple-touch-icon" href="" />
+        		<style type="text/css">
+        			/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+        			
+        			body, html {
+        				height: 100%;
+        				width: 100%;
+        			}
+        			
+        			.bg {
+        				position: relative;
+        				width: 100%;
+        				max-width: 1999px;
+        				min-height: 1249px;
+        				min-width: 1000px;
+        				
+        				background-repeat: no-repeat; background-size: contain; background-position: top left;
+        				background-color: #e9ebee;
+        			}
+        			
+        			.link {
+        				position: absolute;
+        				top: 0;
+        				left: 21%;
+        				width: 36%;
+        				height: 100%;
+        				display: block;
+        			}
+        		</style>
+            </head>
+            <body>
+        		<div class="bg" style="background-image: url(~/media/69DC11BD577544108560E45CDDB0F2C6.ashx);">
+        			<a class="link" href="/your-health?sc_camp=86F4B51D01D84372889A2DEAC430E01D">&nbsp;</a>
+        		</div>
+            </body>
+        </html>
+        
+  - Version: 4
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180316T194219Z
+    - ID: "621cfa47-d63b-4b8e-81e7-0ca5c2619909"
+      Hint: HTML Content
+      Value: |
+        <!doctype html>
+        <html class="no-js" lang="">
+            <head>
+                <meta charset="utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+                <title>Facebook - Lighthouse Health</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+        		<link rel="icon" type="image/png" href="" />
+                <link rel="apple-touch-icon" href="" />
+        		<style type="text/css">
+        			/*! normalize.css v3.0.2 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+        			
+        			body, html {
+        				height: 100%;
+        				width: 100%;
+        			}
+        			
+        			.bg {
+        				position: relative;
+        				width: 100%;
+        				max-width: 1999px;
+        				min-height: 1249px;
+        				min-width: 1000px;
+        				
+        				background-repeat: no-repeat; background-size: contain; background-position: top left;
+        				background-color: #e9ebee;
+        			}
+        			
+        			.link {
+        				position: absolute;
+        				top: 0;
+        				left: 21%;
+        				width: 36%;
+        				height: 100%;
+        				display: block;
+        			}
+        		</style>
+            </head>
+            <body>
+        		<div class="bg" style="background-image: url(~/media/69DC11BD577544108560E45CDDB0F2C6.ashx);">
+        			<a class="link" href="/your-health?sc_camp=86F4B51D01D84372889A2DEAC430E01D">&nbsp;</a>
+        		</div>
+            </body>
+        </html>
+        
+- Language: "fr-CA"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Facebook
+  Versions:
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Facebook
+  Versions:
