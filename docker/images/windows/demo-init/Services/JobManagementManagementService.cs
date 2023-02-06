@@ -68,7 +68,7 @@ namespace Sitecore.Demo.Init.Services
 								   };
 
 				var runningJobs = await JobStatus.Run();
-				while (runningJobs.Any())
+				while (runningJobs.Any(x => x.Title.Contains("IndexRebuild") || x.Title.Contains("ExperienceGenerator")))
 				{
 					var completedJobs = asyncJobList.Where(
 						asyncJob => runningJobs.All(runningJob => runningJob.Title != asyncJob.TaskName)).ToList();
