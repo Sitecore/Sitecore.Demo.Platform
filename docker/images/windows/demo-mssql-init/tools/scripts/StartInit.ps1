@@ -79,6 +79,9 @@ if (-not $ready) {
     # Create custom admin user
     .\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername $SitecoreAdminUsername -SitecoreAdminPassword $SitecoreAdminPassword
 
+    # Create custom backup admin user
+    .\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername "sitecore\superadmin" -SitecoreAdminPassword $SitecoreAdminPassword
+
     # Alter demo users, and set new password
     .\ResetDemoUsers.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreUserPassword $SitecoreUserPassword
 
