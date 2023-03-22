@@ -62,14 +62,6 @@ namespace Sitecore.Demo.Init.Jobs
 			{
 				await LoadUrl(cm, entry.url, client);
 			}
-
-			if (this.AreCoveoEnvironmentVariablesSet())
-			{
-				foreach (var entry in config.coveo)
-				{
-					await LoadUrl(cm, entry.url, client);
-				}
-			}
 		}
 
 		private async Task WarmupBackend(string cm, string id, string user, string password, WarmupConfig config)

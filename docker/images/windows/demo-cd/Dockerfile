@@ -7,9 +7,6 @@ ARG SXA_ASSETS
 ARG HEADLESS_ASSETS
 
 ARG CMP_ASSETS
-ARG SFCRM_ASSETS
-ARG SFMCBDE_ASSETS
-ARG DCRM_ASSETS
 ARG SOLUTION_IMAGE
 
 FROM ${TOOLS_ASSETS} as tools
@@ -18,9 +15,6 @@ FROM ${SXA_ASSETS} as sxa_assets
 FROM ${HEADLESS_ASSETS} as headless_assets
 
 FROM ${CMP_ASSETS} as cmp_assets
-FROM ${SFCRM_ASSETS} as sfcrm_assets
-FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
-FROM ${DCRM_ASSETS} as dcrm_assets
 
 FROM ${SOLUTION_IMAGE} as solution
 
@@ -49,8 +43,6 @@ RUN /module/sxa/tools/Initialize-Content.ps1 -TargetPath /inetpub/wwwroot; `
     Remove-Item -Path /module -Recurse -Force;
 
 COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
-COPY --from=sfcrm_assets /module/cm/content/bin /inetpub/wwwroot/bin
-COPY --from=dcrm_assets /module/cm/content /inetpub/wwwroot
 
 # https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls
 # (OI) = directories object inherit, (CI) = directories container inherit, F = Full access
@@ -83,7 +75,5 @@ RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\Layers*.xdt' -Recurs
 
 # Disable custom config file for Redis in CD container
 RUN Rename-Item -Path 'C:\\inetpub\\wwwroot\\App_Config\\Include\\Sitecore.Analytics.Tracking.Containers.config' -NewName 'Sitecore.Analytics.Tracking.Containers.config.disabled'
-
-ENV COVEO_SERVER_URL=http://cd/
 
 ENTRYPOINT [ "powershell.exe", "C:\\tools\\entrypoints\\aks\\boot.ps1" ]

@@ -7,25 +7,18 @@ ARG SPE_ASSETS
 ARG SXA_ASSETS
 ARG HEADLESS_ASSETS
 
-ARG DEF_ASSETS
-ARG SFCRM_ASSETS
-ARG DCRM_ASSETS
-ARG SFMCBDE_ASSETS
-ARG SFMCCE_ASSETS
 ARG CMP_ASSETS
 ARG XGEN_ASSETS
+
+ARG MANAGEMENT_SERVICES_IMAGE
 
 FROM ${TOOLS_ASSETS} as tools
 
 FROM ${SPE_ASSETS} as spe_assets
 FROM ${SXA_ASSETS} as sxa_assets
 FROM ${HEADLESS_ASSETS} as headless_assets
+FROM ${MANAGEMENT_SERVICES_IMAGE} AS management_services
 
-FROM ${DEF_ASSETS} as def_assets
-FROM ${SFCRM_ASSETS} as sfcrm_assets
-FROM ${DCRM_ASSETS} as dcrm_assets
-FROM ${SFMCBDE_ASSETS} as sfmcbde_assets
-FROM ${SFMCCE_ASSETS} as sfmcce_assets
 FROM ${CMP_ASSETS} as cmp_assets
 FROM ${XGEN_ASSETS} as xgen_assets
 
@@ -43,6 +36,8 @@ WORKDIR C:\inetpub\wwwroot
 
 COPY --from=tools /tools/ /tools/
 
+COPY --from=management_services /module/cm/content /inetpub/wwwroot
+
 COPY --from=spe_assets /module/cm/content /inetpub/wwwroot
 
 COPY --from=sxa_assets /module/cm/content /inetpub/wwwroot
@@ -53,9 +48,6 @@ RUN /module/sxa/tools/Initialize-Content.ps1 -TargetPath /inetpub/wwwroot; `
 COPY --from=headless_assets /module/cm/content /inetpub/wwwroot
 COPY --from=headless_assets /module/db /inetpub/wwwroot/App_Data/items/core
 
-COPY --from=def_assets /module/cm/content /inetpub/wwwroot
-COPY --from=sfcrm_assets /module/cm/content/bin /inetpub/wwwroot/bin
-COPY --from=dcrm_assets /module/cm/content /inetpub/wwwroot
 COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
 COPY --from=xgen_assets /module/cm/content /inetpub/wwwroot
 
@@ -69,11 +61,7 @@ COPY --from=solution /solution/cm/ /inetpub/wwwroot/
 
 COPY ./hotfix/ /inetpub/wwwroot/
 COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
-COPY --from=dcrm_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.dcrm.config.xdt
 COPY ./tools/ /tools/
-
-# Fix for missing file in asset image
-COPY JourneyListDialog.xml /inetpub/wwwroot/sitecore/shell/Applications/Dialogs/DataExchangeFramework/JourneyListDialog.xml
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
@@ -96,7 +84,6 @@ RUN (Get-ChildItem -Path '/inetpub/wwwroot/transforms/Layers*.xdt' -Recurse ) | 
     -XdtDllPath '/tools/bin/Microsoft.Web.XmlTransform.dll'; };
 
 ENV HOST_CD=http://cd
-ENV COVEO_SERVER_URL=http://cm/
 
 RUN	C:\windows\System32\inetsrv\appcmd.exe set config -section:system.applicationHost/applicationPools /applicationPoolDefaults.processModel.loadUserProfile:"true" /commit:apphost;
 

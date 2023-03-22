@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.202
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{9846C4BE-2108-479E-AA17-4A96052CCCE0}"
 EndProject
@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".configuration", ".configur
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		build.cake = build.cake
-		cake-config.json = cake-config.json
 		nuget.config = nuget.config
 		README.md = README.md
 	EndProjectSection
@@ -84,10 +82,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Platform.Foun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Platform.Foundation.Workflow", "src\Foundation\Workflow\code\Sitecore.Demo.Platform.Foundation.Workflow.csproj", "{5D1C63AD-D212-4DD0-89BB-7ABF00AC2D13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Platform.Feature.CRM", "src\Feature\CRM\code\Sitecore.Demo.Platform.Feature.CRM.csproj", "{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRM", "CRM", "{53D32728-D07F-452A-ADA9-34072FE13B0D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraphQL", "GraphQL", "{7451CE06-38B5-4A1B-B25F-447DB6E91189}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Platform.Foundation.GraphQL", "src\Foundation\GraphQL\code\Sitecore.Demo.Platform.Foundation.GraphQL.csproj", "{96FB0E35-F610-4370-B05D-09863036A856}"
@@ -95,14 +89,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{13893DB5-3753-4800-A304-D4A56478DC0A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Platform.Feature.Resources", "src\Feature\Resources\code\Sitecore.Demo.Platform.Feature.Resources.csproj", "{7773FB50-6A7C-4C16-A0B1-823F1FC41F4F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoveoIndexing", "CoveoIndexing", "{B1787444-AA4B-4551-8375-CA8B8F534B33}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Platform.Foundation.CoveoIndexing", "src\Foundation\CoveoIndexing\code\Sitecore.Demo.Platform.Foundation.CoveoIndexing.csproj", "{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoveoSearch", "CoveoSearch", "{580A7264-5694-47C6-83A8-ACDBB149BDDE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Platform.Feature.CoveoSearch", "src\Feature\CoveoSearch\code\Sitecore.Demo.Platform.Feature.CoveoSearch.csproj", "{B3B8FB12-64E7-439D-B3D7-7656511EA72E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -339,20 +325,6 @@ Global
 		{5D1C63AD-D212-4DD0-89BB-7ABF00AC2D13}.Package-CM|Any CPU.Build.0 = Local|Any CPU
 		{5D1C63AD-D212-4DD0-89BB-7ABF00AC2D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D1C63AD-D212-4DD0-89BB-7ABF00AC2D13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.DockerDeploy|Any CPU.ActiveCfg = Debug|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.DockerDeploy|Any CPU.Build.0 = Debug|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Local|Any CPU.ActiveCfg = Local|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Local|Any CPU.Build.0 = Local|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.NoDeploy|Any CPU.ActiveCfg = Local|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.NoDeploy|Any CPU.Build.0 = Local|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Package-CD|Any CPU.ActiveCfg = Local|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Package-CD|Any CPU.Build.0 = Local|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Package-CM|Any CPU.ActiveCfg = Local|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Package-CM|Any CPU.Build.0 = Local|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96FB0E35-F610-4370-B05D-09863036A856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96FB0E35-F610-4370-B05D-09863036A856}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96FB0E35-F610-4370-B05D-09863036A856}.DockerDeploy|Any CPU.ActiveCfg = DockerDeploy|Any CPU
@@ -381,34 +353,6 @@ Global
 		{7773FB50-6A7C-4C16-A0B1-823F1FC41F4F}.Package-CM|Any CPU.Build.0 = Debug|Any CPU
 		{7773FB50-6A7C-4C16-A0B1-823F1FC41F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7773FB50-6A7C-4C16-A0B1-823F1FC41F4F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.DockerDeploy|Any CPU.ActiveCfg = Debug|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.DockerDeploy|Any CPU.Build.0 = Debug|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.Local|Any CPU.ActiveCfg = Local|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.Local|Any CPU.Build.0 = Local|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.NoDeploy|Any CPU.ActiveCfg = Local|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.NoDeploy|Any CPU.Build.0 = Local|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.Package-CD|Any CPU.ActiveCfg = Local|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.Package-CD|Any CPU.Build.0 = Local|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.Package-CM|Any CPU.ActiveCfg = Local|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.Package-CM|Any CPU.Build.0 = Local|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.DockerDeploy|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.DockerDeploy|Any CPU.Build.0 = Debug|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.Local|Any CPU.ActiveCfg = Local|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.Local|Any CPU.Build.0 = Local|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.NoDeploy|Any CPU.ActiveCfg = Local|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.NoDeploy|Any CPU.Build.0 = Local|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.Package-CD|Any CPU.ActiveCfg = Local|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.Package-CD|Any CPU.Build.0 = Local|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.Package-CM|Any CPU.ActiveCfg = Local|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.Package-CM|Any CPU.Build.0 = Local|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -446,19 +390,13 @@ Global
 		{22A2B11A-B41B-426C-9202-AEBB6C9B5CA6} = {9B58DB04-47B7-4FB5-B55B-76569E22998D}
 		{1C7B40C7-AEA6-4038-9D45-0F5440908929} = {2B609A3D-163D-4A93-9A1B-51CD94613C17}
 		{5D1C63AD-D212-4DD0-89BB-7ABF00AC2D13} = {E039079C-7452-4C00-B888-C14052AB6770}
-		{D224E1A9-BE7E-4B93-95F4-5F6E1E80CD04} = {53D32728-D07F-452A-ADA9-34072FE13B0D}
-		{53D32728-D07F-452A-ADA9-34072FE13B0D} = {37394D96-A276-41B7-BFC0-E0897AFE4690}
 		{7451CE06-38B5-4A1B-B25F-447DB6E91189} = {DF6B2506-3CDA-4F09-A383-59D03F8CC59F}
 		{96FB0E35-F610-4370-B05D-09863036A856} = {7451CE06-38B5-4A1B-B25F-447DB6E91189}
 		{13893DB5-3753-4800-A304-D4A56478DC0A} = {37394D96-A276-41B7-BFC0-E0897AFE4690}
 		{7773FB50-6A7C-4C16-A0B1-823F1FC41F4F} = {13893DB5-3753-4800-A304-D4A56478DC0A}
-		{B1787444-AA4B-4551-8375-CA8B8F534B33} = {DF6B2506-3CDA-4F09-A383-59D03F8CC59F}
-		{28F5B0DD-5224-4A2E-A879-5FEED35CCE12} = {B1787444-AA4B-4551-8375-CA8B8F534B33}
-		{580A7264-5694-47C6-83A8-ACDBB149BDDE} = {37394D96-A276-41B7-BFC0-E0897AFE4690}
-		{B3B8FB12-64E7-439D-B3D7-7656511EA72E} = {580A7264-5694-47C6-83A8-ACDBB149BDDE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
+		SolutionGuid = {25D35D77-3A23-45B8-BF1A-F9EB5B3B318F}
 	EndGlobalSection
 EndGlobal

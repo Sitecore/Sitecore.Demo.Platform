@@ -12,14 +12,8 @@
         //Header
         var $nav = $('.top-nav, #footer'),
             $languageSelector = $('.language-selector'),
-            $expandableSearch = $nav.find('.coveo-expandable-searchbox'),
-            $footerExpandableSearch = $("#footer").find('.coveo-expandable-searchbox'),
-            $demoSearchToggler = $nav.find(".demo-search-toggler"),
-            cookieName = "search-provider",
-            activeClass = "active",
-            cookieExpirationDays = 7,
-            $coveoSelector = $nav.find(".coveo-search-placeholder, .demo-coveosearch-label"),
-            $sxaSelector = $nav.find(".sxa-search-placeholder, .demo-sxasearch-label");
+            $expandableSearch = $nav.find('.expandable-searchbox'),
+            $footerExpandableSearch = $("#footer").find('.expandable-searchbox');
 
         initLanguageSelector();
         initSearchbox();
@@ -71,54 +65,6 @@
         function initSearchbox() {
             initFooterSearchbox();
             initSearchButton($expandableSearch);
-            if (!$($demoSearchToggler) || $($demoSearchToggler).length === 0) {
-                return;
-            }
-            var activeSearchProvider = getCookie(cookieName);
-            if (activeSearchProvider === "coveo") {
-                $($demoSearchToggler).prop("checked", true);
-            } else {
-                $($demoSearchToggler).prop("checked", false);
-            }
-
-            setSearchState();
-
-            $($demoSearchToggler).change(function() {
-                setCookie(cookieName, $($demoSearchToggler)[0].checked ? "coveo" : "sxa", cookieExpirationDays);
-                setSearchState();
-            });
-        }
-
-        function setSearchState() {
-            if ($($demoSearchToggler).length > 0 && $($demoSearchToggler)[0].checked) {
-                $($coveoSelector).addClass(activeClass);
-                $($sxaSelector).removeClass(activeClass);
-            } else {
-                $($coveoSelector).removeClass(activeClass);
-                $($sxaSelector).addClass(activeClass);
-            }
-        }
-
-        function setCookie(name, value, days) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-
-        function getCookie(name) {
-            var nameAndEqualSign = name + "=";
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].trim();
-                if (cookie.indexOf(nameAndEqualSign) == 0) {
-                    return cookie.substring(nameAndEqualSign.length, cookie.length);
-                }
-            }
-            return null;
         }
     });
 }(window.jQuery));

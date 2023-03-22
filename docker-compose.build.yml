@@ -30,7 +30,6 @@ services:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xdbsearchworker:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
-        SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp0-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
     depends_on:
       - solution
 
@@ -44,7 +43,6 @@ services:
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:21.0-1809
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.4-${SITECORE_ASSET_NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
-        DCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-dcrm-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         XGEN_ASSETS:  adoprog/custom-xgenerator-assets:10.1-${NANOSERVER_VERSION}
     depends_on:
       - solution
@@ -59,14 +57,10 @@ services:
         SPE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.4-${SITECORE_ASSET_NANOSERVER_VERSION}
         SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xp1-assets:21.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        DEF_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-def-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        SFCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfcrm-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        DCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-dcrm-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        SFMCCE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcce-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         CMP_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-assets:5.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         XGEN_ASSETS:  adoprog/custom-xgenerator-assets:10.1-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
+        MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:5.1-${SITECORE_ASSET_NANOSERVER_VERSION}
     depends_on:
       - solution
 
@@ -82,9 +76,6 @@ services:
         SXA_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sxa-xp1-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xp1-assets:21.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         CMP_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-assets:5.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        SFCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfcrm-xp0-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        DCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-dcrm-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
     depends_on:
       - solution
@@ -97,7 +88,6 @@ services:
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
         BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xp0-xconnect:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
-        DCRM_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-dcrm-xp1-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}
     depends_on:
       - solution
 
@@ -119,11 +109,3 @@ services:
       args:
         BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
         BASE_IMAGE: mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-${NANOSERVER_VERSION}
-
-  tenantservice:
-    image: ${REGISTRY}demo/lighthouse-xp0-tenant-service:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    build:
-      context: .\docker\images\windows\demo-tenantservice
-      args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-tenant-service:7.0-${WINDOWSSERVERCORE_VERSION}
-        SFMCBDE_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-sfmcbde-xp0-assets:7.0-${SITECORE_ASSET_NANOSERVER_VERSION}

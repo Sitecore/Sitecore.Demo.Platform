@@ -1,12 +1,10 @@
 # escape=`
 ARG BASE_IMAGE
 ARG TOOLS_ASSETS
-ARG DCRM_ASSETS
 ARG SOLUTION_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_ASSETS} as tools
-FROM ${DCRM_ASSETS} as dcrm_assets
 
 FROM ${BASE_IMAGE} as modules
 
@@ -15,9 +13,6 @@ COPY --from=tools /tools/ /tools/
 FROM modules as production
 
 COPY --from=solution /solution/xconnect/ /inetpub/wwwroot/
-
-# TODO: Enable when DRCM module is available
-#COPY --from=dcrm_assets /module/models /inetpub/wwwroot/App_Data/Models/
 
 COPY ./data/transforms/ /inetpub/wwwroot/transforms/
 

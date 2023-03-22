@@ -13,7 +13,6 @@
 - **[Starting Over](#starting-over)**
 - **[Building the Demo](#building-the-demo)**
 - **[Development Lifecycle](#development-lifecycle)**
-  - [Local Build Prerequisites](#local-build-prerequisites)
   - [After changes to the code](#after-changes-to-the-code)
 - **[Troubleshooting](#troubleshooting)**
 
@@ -151,27 +150,55 @@ If you want to reset all of your changes and get a fresh instance:
 
 ## Development Lifecycle
 
-### Local Build Prerequisites
-
-[top](#table-of-contents)
-
-When building locally from Visual Studio or using the `.\build.ps1` script, you need some DLLs that are not available in NuGet packages. We created a script to pull them from Docker assets images.
-
-1. Open an elevated (as administrator) PowerShell session.
-2. Navigate to your repository clone folder:
-   - `cd C:\Projects\Sitecore.Demo.Platform`
-3. `.\pull-build-libraries.ps1`
-
 ### After changes to the code
 
 [top](#table-of-contents)
 
+1. Open an elevated (as administrator) "Developer PowerShell for VS 2019/2022" session.
+   1. Regular PowerShell cannot run the msbuild command.
+2. Navigate to your repository clone folder:
+   - `cd C:\Projects\Sitecore.Demo.Platform`
+3. `msbuild Sitecore.Demo.Platform.sln /t:restore,build /p:DeployOnBuild=true /p:PublishProfile=Local`
+
+This will restore the NuGet packages, build the solutions, and deploy the build output to the `.\data\cm\src` and `.\data\xconnect\src` folders. The containers have volumes mounted to these `src` folders and are deploying any modified file directly to their `C:\inetpub\wwwroot` folders. Sitecore will shut down due to file changes. The container will still continue to run. The next HTTP request will restart Sitecore with the new DLLs and configuration files.
+
+### Deploying to the CD container
+
+The `Local` msbuild publish profile only deploys to the CM and xConnect containers. To deploy to the CD container:
+
+1. Deploy to the CM container by executing the steps above in [After changes to the code](#after-changes-to-the-code).
+2. Delete the content of the `.\data\cd\src` folder.
+3. Copy the content of the `.\data\cm\src` folder into the `.\data\cd\src` folder.
+
+The CD container have a volume mounted to this `.\data\cd\src` folder and is deploying any modified file directly to its `C:\inetpub\wwwroot` folder. Sitecore will shut down due to file changes. The container will still continue to run. The next HTTP request will restart Sitecore with the new DLLs and configuration files.
+
+### After changes to the xConnect files
+
+While the xConnect container gets published files, the xdbsearchworker container does not get them. When you do changes to any xConnect model or settings, do the following:
+
 1. Open an elevated (as administrator) PowerShell session.
 2. Navigate to your repository clone folder:
    - `cd C:\Projects\Sitecore.Demo.Platform`
-3. `.\build.ps1 -DeploymentTarget Docker`
+3. Rebuild the solution Docker image:
+   - `.\build-images.ps1 -Services solution -Memory 8G`
+4. Rebuild xconnect and xdb related Docker images:
+   - `.\build-images.ps1 -Services xconnect,xdbsearchworker,xdbautomationworker -Memory 8G`
+5. Restart the containers using the newly built Docker images:
+   - `docker-compose up -d`
 
-This will build the solutions and deploy the build output to the `.\data\*\src` folders. The containers have volumes mounted to these `src` folders and are deploying any modified file directly to their `C:\inetpub\wwwroot` folders. Sitecore will shut down due to file changes. The container will still continue to run. The next HTTP request will restart Sitecore with the new DLLs and configuration files.
+### After change to the XDT files
+
+XML files are not transformed inside the containers after new XDT files are published to them. You must rebuild the CM and CD Docker images when modifying XDT files:
+
+1. Open an elevated (as administrator) PowerShell session.
+2. Navigate to your repository clone folder:
+   - `cd C:\Projects\Sitecore.Demo.Platform`
+3. Rebuild the solution Docker image:
+   - `.\build-images.ps1 -Services solution -Memory 8G`
+4. Rebuild the CM and CD Docker images:
+   - `.\build-images.ps1 -Services cm,cd -Memory 8G`
+5. Restart the containers using the newly built Docker images:
+   - `docker-compose up -d`
 
 ## Troubleshooting
 
@@ -282,32 +309,6 @@ In IISConfigUtil.cpp line 231 there is a 5-second timeout for APPCMD to complete
    1. Change the `WINDOWSSERVERCORE_VERSION` variable value to the version that matches your host system version.
    2. Change the `ISOLATION` variable value to `process`
 5. `.\up.ps1`
-
-## Additional Settings
-
-### Cake build settings explained
-
-The following is a list of default values / assumptions for settings in `cake-config-containers.json`.
-
-| Parameter | Description | Default Value |
-|-|-|-|
-| PublishWebFolder | Location of the CM build output in the build containers. | `"c:\\out\\demo-standalone"` |
-| PublishWebFolderCD | Location of the CD build output in the build containers. | `"c:\\out\\demo-cd"` |
-| PublishxConnectFolder | Location of the xConnect build output in the build containers. | `"c:\\out\\demo-xconnect"` |
-| PublishxConnectIndexWorkerFolder | Location of the xConnect index worker build output in the build containers. | `"c:\\out\\demo-indexworker"` |
-| SolutionName | Name of the Visual Studio solution file. | `"Sitecore.Demo.Platform.sln"` |
-| ProjectFolder | Location of the Visual Studio solution file in the build containers. | `"C:"` |
-| UnicornSerializationFolder | Location of the Unicorn serialized files in the mssql build container. | `"C:\\items"` |
-| BuildConfiguration | Can be `Debug` or `Release`. | `"Debug"` |
-| BuildToolVersions | Version of the Microsoft Visual Studio build tools that are used to build. | `"VS2019"` |
-| RunCleanBuilds | Whether to clean the build output for every build. | `false` |
-| MessageStatisticsApiKey | API key for the message statistics. | `"97CC4FC13A814081BF6961A3E2128C5B"` |
-| MarketingDefinitionsApiKey | API key for the marketing definitions. | `"DF7D20E837254C6FBFA2B854C295CB61"` |
-| DeployExmTimeout | The timeout, in seconds, to wait for the deployment of EXM. | `60` |
-| PublishTempFolder | Location of the temporary build publishing folder in the build containers. | `"c:\\publishTemp"` |
-| version | Version of Sitecore being targeted. Must match official 3-digit version. | `"10.0.1"` |
-| IsContentHubEnabled | Whether Content Hub should be enabled. | `"false"` |
-| SitecoreAzureToolkitPath | The location of the Sitecore Azure Toolkit files on the host computer. | `"c:\\sat"` |
 
 ### Disable Unicorn Serialization
 

@@ -1,0 +1,46 @@
+{
+  "$schema": "./.sitecore/schemas/RootConfigurationFile.schema.json",
+  "modules": [
+    "src/*.module.json"
+  ],
+  "plugins": [
+    "Sitecore.DevEx.Extensibility.Serialization@5.2.61",
+    "Sitecore.DevEx.Extensibility.Publishing@5.2.61",
+    "Sitecore.DevEx.Extensibility.Indexing@5.2.61",
+    "Sitecore.DevEx.Extensibility.ResourcePackage@5.2.61",
+    "Sitecore.DevEx.Extensibility.Database@5.2.61"
+  ],
+  "serialization": {
+    "defaultMaxRelativeItemPathLength": 100,
+    "defaultModuleRelativeSerializationPath": "serialization",
+    "removeOrphansForRoles": true,
+    "continueOnItemFailure": false,
+    "excludedFields": []
+  },
+  "settings": {
+    "telemetryEnabled": false,
+    "versionComparisonEnabled": true,
+    "excludedFields": [
+      {
+        "fieldId": "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a",
+        "description": "__Updated by"
+      },
+      {
+        "fieldId": "d9cf14b1-fa16-4ba6-9288-e8a174d4d522",
+        "description": "__Updated"
+      },
+      {
+        "fieldId": "5dd74568-4d4b-44c1-b513-0af5f4cda34f",
+        "description": "__Created by"
+      },
+      {
+        "fieldId": "25bed78c-4957-4165-998a-ca1b52f67497",
+        "description": "__Created"
+      },
+      {
+        "fieldId": "{52807595-0F8F-4B20-8D2A-CB71D28C6103}",
+        "description": "__Owner"
+      }
+    ]
+  }
+}

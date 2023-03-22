@@ -24,11 +24,9 @@
 
 		<!-- THIRD PARTY INTEGRATIONS: SUPPORTED VALUES
 										 None (disables all)
-										 Dynamics (CRM integration with Data Exchange Framework)
-										 Salesforce (CRM integration with Data Exchange Framework)
 										 Facebook (Fed Auth with Facebook)
 										 MS (Fed Auth with Microsoft)
-										 example: <add key="integrations:define" value="Dynamics,Salesforce,Facebook,MS" />
+										 example: <add key="integrations:define" value="Facebook,MS" />
 
 								   Default value: None
 									-->

@@ -43,6 +43,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc">
+      <Version>5.2.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.Razor">
+      <Version>3.2.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebPages">
+      <Version>3.2.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Web.Infrastructure">
+      <Version>1.0.0</Version>
+    </PackageReference>
     <PackageReference Include="Sitecore.Kernel" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
@@ -52,6 +64,14 @@
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
     <PackageReference Include="Sitecore.ContentSearch" Version="10.3.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Mvc" Version="10.3.*-*">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.XA.Foundation.Mvc" Version="10.3.*-*">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
@@ -78,9 +98,12 @@
   <ItemGroup>
     <Content Include="Views\Link\Link.cshtml" />
     <Content Include="App_Config\Include\Feature\Sitecore.Demo.Platform.Feature.ExperienceAcceleratorExtensions.Serialization.config" />
+    <Content Include="Views\ExpandableSearchbox\ExpandableSearchbox.cshtml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ExpandableSearchboxController.cs" />
+    <Compile Include="Models\ExpandableSearchboxModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
