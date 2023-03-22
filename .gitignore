@@ -36,3 +36,9 @@ items/project/Global/Themes/Demo SXA Sites/*/scripts/pre-optimized-min.yml
 /out
 /Deploy
 FrontEnd/*/scripts/pre-optimized-min.js
+
+# may contain OAuth secrets, do not commit
+.sitecore/user.json
+
+# NuGet cache for Sitecore CLI
+.sitecore/package-cache/

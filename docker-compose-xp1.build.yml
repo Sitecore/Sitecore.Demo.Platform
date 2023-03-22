@@ -52,6 +52,7 @@ services:
         CMP_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-assets:5.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         XGEN_ASSETS:  adoprog/custom-xgenerator-assets:10.1-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
+        MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:5.1-${SITECORE_ASSET_NANOSERVER_VERSION}
     depends_on:
       - solution
 

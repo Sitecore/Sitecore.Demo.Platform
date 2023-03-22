@@ -10,11 +10,14 @@ ARG HEADLESS_ASSETS
 ARG CMP_ASSETS
 ARG XGEN_ASSETS
 
+ARG MANAGEMENT_SERVICES_IMAGE
+
 FROM ${TOOLS_ASSETS} as tools
 
 FROM ${SPE_ASSETS} as spe_assets
 FROM ${SXA_ASSETS} as sxa_assets
 FROM ${HEADLESS_ASSETS} as headless_assets
+FROM ${MANAGEMENT_SERVICES_IMAGE} AS management_services
 
 FROM ${CMP_ASSETS} as cmp_assets
 FROM ${XGEN_ASSETS} as xgen_assets
@@ -32,6 +35,8 @@ RUN Start-Process "c:\tools\git.exe" -ArgumentList '/SP-', '/VERYSILENT', '/NORE
 WORKDIR C:\inetpub\wwwroot
 
 COPY --from=tools /tools/ /tools/
+
+COPY --from=management_services /module/cm/content /inetpub/wwwroot
 
 COPY --from=spe_assets /module/cm/content /inetpub/wwwroot
 
