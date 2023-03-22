@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Sitecore.Demo.Init.Jobs
 {
-	class IndexRebuild : CoveoTaskBase
+	class IndexRebuild : TaskBase
 	{
 		public IndexRebuild(InitContext initContext)
 			: base(initContext)
@@ -28,14 +28,6 @@ namespace Sitecore.Demo.Init.Jobs
 					"sitecore_marketingdefinitions_web",
 					"sitecore_testing_index",
 					"sitecore_personalization_index"
-				});
-			}
-
-			if (this.AreCoveoEnvironmentVariablesSet() && this.HaveSettingsChanged())
-			{
-				indexes.AddRange(new List<string>() {
-					"Coveo_master_index",
-					"Coveo_web_index"
 				});
 			}
 

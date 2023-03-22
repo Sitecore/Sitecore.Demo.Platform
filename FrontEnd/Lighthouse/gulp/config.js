@@ -197,7 +197,7 @@ module.exports = {
         type: 'login',
         name: 'login',
         message: 'Enter your login',
-        default: 'sitecore\\admin'
+        default: 'sitecore\\superuser'
     },
     {
         type: 'password',
@@ -208,7 +208,7 @@ module.exports = {
     ],
 
 
-    user: { login: 'sitecore\\admin', password: 'b' },
+    user: { login: 'sitecore\\superuser', password: 'b' },
 
     init: function () {
         extend(this.serverOptions, configUtils.getConf().serverOptions);

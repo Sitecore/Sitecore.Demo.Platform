@@ -2,7 +2,6 @@
 using Sitecore.Analytics.Model;
 using Sitecore.Analytics.Tracking;
 using Sitecore.Analytics.XConnect.Facets;
-using Sitecore.Demo.Platform.Foundation.Accounts.Models.Facets;
 using Sitecore.Demo.Platform.Foundation.DependencyInjection;
 using Sitecore.XConnect;
 using Sitecore.XConnect.Collection.Model;
@@ -29,10 +28,6 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Providers
         public ConsentInformation CommunicationProfile => GetFacet<ConsentInformation>(ConsentInformation.DefaultFacetKey);
 
         public PhoneNumberList PhoneNumbers => GetFacet<PhoneNumberList>(PhoneNumberList.DefaultFacetKey);
-
-        public SportType SportType => GetFacet<SportType>(SportType.DefaultKey);
-
-        public SportName SportName => GetFacet<SportName>(SportName.DefaultKey);
 
         public Analytics.Tracking.Contact Contact
         {

@@ -85,7 +85,6 @@ services:
       SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
       SITECORE_APPSETTINGS_ENV:DEFINE: Docker
       SITECORE_APPSETTINGS_UNICORN:DEFINE: Enabled
-      SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: Salesforce
       SITECORE_APPSETTINGS_CONTENTHUB:DEFINE: Enabled
       SITECORE_CONNECTIONSTRINGS_CMP.ContentHub: ${CMP_CONTENTHUB}
       SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusEntityPathIn: ${CMP_SERVICEBUSENTITYPATHIN}
@@ -93,15 +92,9 @@ services:
       SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusEntityPathOut: ${CMP_SERVICEBUSENTITYPATHOUT}
       SITECORE_CONNECTIONSTRINGS_DAM.ContentHub: URI=${DAM_URL}
       SITECORE_CONNECTIONSTRINGS_DAM.SearchPage: ${DAM_URL}/en-us/sitecore-dam-connect/approved-assets
-      SITECORE_CONNECTIONSTRINGS_SFMC: ${SFMC_CONNECTIONSTRING}
-      SITECORE_CONNECTIONSTRINGS_SFDC: ${SFDC_CONNECTIONSTRING}
       SITECORE_CONNECTIONSTRINGS_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
-      SITECORE_CONNECTIONSTRINGS_tenantservice: http://tenantservice
-      SITECORE_CONNECTIONSTRINGS_DCRM: ${DCRM_CONNECTIONSTRING}
-      SITECORE_CONNECTIONSTRINGS_Sitecore.DataExchange.Staging: Data Source=mssql;Initial Catalog=Sitecore.DataExchange.Staging;User ID=sa;Password=${SQL_SA_PASSWORD}
       EXM_RENDERER_URL: http://cm
       HOST_CD: http://cd
-      COVEO_SERVER_URL: ${COVEO_SERVER_URL}
       OPENCALAIS_ACCESSTOKEN: ${OPENCALAIS_ACCESSTOKEN}
       DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES: ${DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES}
     volumes:
@@ -168,7 +161,6 @@ services:
       SITECORE_APPSETTINGS_ENV:DEFINE: Docker
       SITECORE_APPSETTINGS_UNICORN:DEFINE: Disabled
       SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
-      SITECORE_APPSETTINGS_INTEGRATIONS:DEFINE: Salesforce
       Sitecore_ConnectionStrings_Security: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Web: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Messaging: Data Source=mssql;Initial Catalog=Sitecore.Messaging;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -181,7 +173,6 @@ services:
       Sitecore_ConnectionStrings_Xdb.ReferenceData.Client: http://xconnect
       Sitecore_ConnectionStrings_Sitecore.Services.Token.SecurityKey: key=${SITECORE_SERVICES_TOKEN_SECURITYKEY}
       EXM_RENDERER_URL: http://cm
-      COVEO_SERVER_URL: ${COVEO_SERVER_URL}
       DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES: ${DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
@@ -235,45 +226,11 @@ services:
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
       SKIP_WARMUP_CD: ${SKIP_WARMUP_CD}
       INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
-      COVEO_ORGANIZATION_ID: ${COVEO_ORGANIZATION_ID}
-      COVEO_REGION: ${COVEO_REGION}
-      COVEO_API_KEY: ${COVEO_API_KEY}
-      COVEO_SEARCH_API_KEY: ${COVEO_SEARCH_API_KEY}
-      COVEO_FARM_NAME: ${COVEO_FARM_NAME}
-      COVEO_ADMIN_USER_NAME: ${COVEO_ADMIN_USER_NAME}
     depends_on:
       mssql-init:
         condition: service_healthy
       cm:
         condition: service_healthy
-    networks:
-      - demo
-
-  tenantservice:
-    image: ${REGISTRY}demo/lighthouse-xp0-tenant-service:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    depends_on:
-      id:
-        condition: service_healthy
-      cm:
-        condition: service_healthy
-    environment:
-      TenantService_ConnectionStrings_sitecore: database=master;tenant id=${SITECORE_TENANT_ID};host=http://cm;timeout=20;auth endpoint=http://id/;client secret=${SITECORE_CLIENT_SECRET};client id=${SITECORE_CLIENT_ID}
-      TenantService_ConnectionStrings_xconnect.collection: http://xconnect
-      TenantService_ConnectionStrings_Xdb.ReferenceData.Client: http://xconnect
-      TenantService_ConnectionStrings_sfmc: ${SFMC_CONNECTIONSTRING}
-      TenantService_SfmcJourney_ExecuteUrl: ${TENANT_SERVICE_CONFIG_EXECUTE_URL}
-    healthcheck:
-      test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
-      timeout: 300s
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
-      - "traefik.http.routers.ts-secure.entrypoints=websecure"
-      - "traefik.http.routers.ts-secure.rule=Host(`${TS_HOST}`)"
-      - "traefik.http.routers.ts-secure.tls=true"
-      - "traefik.http.routers.ts-secure.middlewares=force-STS-Header"
-      - "traefik.http.services.ts.loadbalancer.server.port=80"
     networks:
       - demo
 

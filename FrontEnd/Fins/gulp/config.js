@@ -8,7 +8,7 @@ module.exports = {
     sassSourceMap: false,
     // Please configure
     serverOptions: {
-        server: 'http://127.0.0.1:44001', //need to be changed
+        server: 'https://cm.lighthouse.localhost', //need to be changed
         removeScriptPath: '/-/script/v2/master/RemoveMedia',
         uploadScriptPath: '/sitecore modules/PowerShell/Services/RemoteScriptCall.ashx',
         updateTemplatePath: '/-/script/v2/master/ChangeTemplate',
@@ -197,7 +197,7 @@ module.exports = {
         type: 'login',
         name: 'login',
         message: 'Enter your login',
-        default: 'sitecore\\admin'
+        default: 'sitecore\\superuser'
     },
     {
         type: 'password',
@@ -208,7 +208,7 @@ module.exports = {
     ],
 
 
-    user: { login: 'sitecore\\admin', password: 'b' },
+    user: { login: 'sitecore\\superuser', password: 'b' },
 
     init: function () {
         extend(this.serverOptions, configUtils.getConf().serverOptions);

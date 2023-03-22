@@ -1,0 +1,14 @@
+﻿@using Sitecore.Mvc
+@model Sitecore.Demo.Platform.Feature.ExperienceAccelerator.Models.ExpandableSearchboxModel
+
+@{
+	string editorClass = Model.IsExperienceEditor ? "edit-mode" : "normal-mode";
+}
+
+<div class="component expandable-searchbox @editorClass">
+	<div class="component-content-open">
+		<div class="search-placeholder sxa-search-placeholder">
+			@Html.Sitecore().DynamicPlaceholder("search-box-placeholder", seed: 200)
+		</div>
+	</div>
+</div>

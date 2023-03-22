@@ -12,6 +12,5 @@ namespace Sitecore.Demo.Init.Model
     public IList<Url> sitecore { get; set; }
     public IList<Url> xp { get; set; }
     public IList<Url> xc { get; set; }
-    public IList<Url> coveo { get; set; }
   }
 }

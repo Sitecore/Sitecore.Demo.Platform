@@ -1,7 +1,0 @@
-<layers xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-    <layer name="Custom" xdt:Locator="Match(name)">
-        <loadOrder xdt:Transform="InsertIfMissing">
-            <add xdt:Transform="InsertBefore(*[1])" path="Coveo" type="Folder" />
-        </loadOrder>
-    </layer>
-</layers>

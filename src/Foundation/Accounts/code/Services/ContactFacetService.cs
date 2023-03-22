@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 using Sitecore.Analytics;
 using Sitecore.Analytics.Model;
 using Sitecore.Demo.Platform.Foundation.Accounts.Models;
-using Sitecore.Demo.Platform.Foundation.Accounts.Models.Facets;
 using Sitecore.Demo.Platform.Foundation.Accounts.Providers;
 using Sitecore.Demo.Platform.Foundation.DependencyInjection;
 using Sitecore.Diagnostics;
@@ -29,9 +28,7 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             ConsentInformation.DefaultFacetKey,
             PhoneNumberList.DefaultFacetKey,
             Avatar.DefaultFacetKey,
-            EngagementMeasures.DefaultFacetKey,
-            SportName.DefaultKey,
-            SportType.DefaultKey
+            EngagementMeasures.DefaultFacetKey
         };
 
         public ContactFacetService(IContactFacetsProvider contactFacetsProvider, IExportFileService exportFileService)
@@ -78,15 +75,6 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
                             {
                                 data.PhoneNumber = phones.PreferredPhoneNumber?.Number;
                             }
-
-                            if (contact.Facets.ContainsKey(SportType.DefaultKey))
-                            {
-                                data.SportType = ((SportType)contact.Facets[SportType.DefaultKey]).Value;
-                            }
-                            if (contact.Facets.ContainsKey(SportName.DefaultKey))
-                            {
-                                data.SportName = ((SportName)contact.Facets[SportName.DefaultKey]).Value;
-                            }
                         }
                     }
                     catch (XdbExecutionException ex)
@@ -121,7 +109,6 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
                     changed |= this.SetPhone(data, contact, client);
                     changed |= this.SetEmail(data, contact, client);
                     changed |= this.SetAvatar(data, contact, client);
-                    changed |= SetSportsInterests(data, contact, client);
 
                     if (changed)
                     {
@@ -319,43 +306,6 @@ namespace Sitecore.Demo.Platform.Foundation.Accounts.Services
             }
             client.SetFacet(contact, PersonalInformation.DefaultFacetKey, personalInfo);
             return true;
-        }
-
-        private static bool SetSportsInterests(ContactFacetData data, Contact contact, XConnectClient client)
-        {
-            bool changed = false;
-
-            if (contact.Facets.ContainsKey(SportName.DefaultKey))
-            {
-                SportName facet = (SportName)contact.Facets[SportName.DefaultKey];
-                if (!string.IsNullOrEmpty(data.SportName) && facet.Value != data.SportName)
-                {
-                    changed = true;
-                    facet.Value = data.SportName;
-                    client.SetFacet(contact, SportName.DefaultKey, facet);
-                }
-            }
-            else
-            {
-                client.SetFacet(contact, SportName.DefaultKey, new SportName { Value = data.SportName });
-            }
-
-            if (contact.Facets.ContainsKey(SportType.DefaultKey))
-            {
-                SportType facet = (SportType)contact.Facets[SportType.DefaultKey];
-                if (!string.IsNullOrEmpty(data.SportType) && facet.Value != data.SportType)
-                {
-                    changed = true;
-                    facet.Value = data.SportType;
-                    client.SetFacet(contact, SportType.DefaultKey, facet);
-                }
-            }
-            else
-            {
-                client.SetFacet(contact, SportType.DefaultKey, new SportType { Value = data.SportType });
-            }
-
-            return changed;
         }
 
         private static bool SetLanguage(ContactFacetData data, PersonalInformation personalInfo)

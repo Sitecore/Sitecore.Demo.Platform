@@ -44,7 +44,6 @@ namespace Sitecore.Demo.Init.Services
 				await new PopulateManagedSchema(initContext).Run();
 				await new RestartCD(initContext).Run();
 				await new RestartCM(initContext).Run();
-				await new ActivateCoveo(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
 				await new DisableFallback(initContext).Run();
 				await new DeactivateMobileDeviceLayout(initContext).Run();

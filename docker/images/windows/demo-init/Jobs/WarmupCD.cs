@@ -47,14 +47,6 @@ namespace Sitecore.Demo.Init.Jobs
 					await LoadUrl(cd, entry.url, client);
 				}
 
-				if (this.AreCoveoEnvironmentVariablesSet())
-				{
-					foreach (var entry in config.coveo)
-					{
-						await LoadUrl(cd, entry.url, client);
-					}
-				}
-
 				await Complete();
 
 				watch.Stop();
