@@ -24,8 +24,7 @@ namespace Sitecore.Demo.Platform.Global.Website.Utilities
 				// Ignore on CD
 			}
 
-			Caching.CacheManager.ClearAllCaches();
-			GC.Collect();
+			Sitecore.Install.Installer.RestartServer();
 		}
 	}
 }
