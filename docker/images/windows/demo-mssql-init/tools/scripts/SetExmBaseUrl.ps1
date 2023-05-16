@@ -18,19 +18,19 @@ $fieldParamExmRoot = ("FieldId='1B963507-6176-4336-A14D-D5070C3B0286'")
 $valueParamExmRoot = ("Value='" + $env:EXM_BASE_URL + "'")
 $paramsExmRoot = $itemParamExmRoot, $fieldParamExmRoot, $valueParamExmRoot
 
-Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsExmRoot -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Verbose
+Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsExmRoot -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -TrustServerCertificate -Verbose
 Write-Host "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
 
 # /sitecore/content/Demo SXA Sites/LighthouseFinancial/LighthouseFinancial Emails
 $itemParamExmRootFinancial = ("ItemId='422A7377-107D-43BC-99DE-C6F14C3FBF0E'")
 $paramsExmRootFinancial = $itemParamExmRootFinancial, $fieldParamExmRoot, $valueParamExmRoot
 
-Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsExmRootFinancial -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Verbose
+Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsExmRootFinancial -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -TrustServerCertificate -Verbose
 Write-Host "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
 
 # /sitecore/content/Demo SXA Sites/LighthouseHealthcare/LighthouseHealthcare Emails
 $itemParamExmRootHealthcare = ("ItemId='F8BA8B00-F363-43FC-B902-D532DD385042'")
 $paramsExmRootHealthcare = $itemParamExmRootHealthcare, $fieldParamExmRoot, $valueParamExmRoot
 
-Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsExmRootHealthcare -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Verbose
+Invoke-Sqlcmd -InputFile "C:\sql\SetSharedFieldValue.sql" -Variable $paramsExmRootHealthcare -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -TrustServerCertificate -Verbose
 Write-Host "$(Get-Date -Format $timeFormat): Invoke SetSharedFieldValue.sql"
