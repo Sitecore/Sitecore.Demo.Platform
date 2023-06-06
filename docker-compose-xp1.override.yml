@@ -1,4 +1,3 @@
-version: "2.4"
 services:
   traefik:
     ports:
@@ -184,5 +183,5 @@ services:
 
 networks:
   demo:
-    external:
-      name: nat
+    external: true
+    name: nat

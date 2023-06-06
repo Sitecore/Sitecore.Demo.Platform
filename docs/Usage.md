@@ -32,7 +32,8 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 - Windows 1809 or higher. Version 1909 is preferred.
 - At least 16 Gb of memory. 32 Gb or more is preferred.
 - A valid Sitecore 10 license file located at `C:\license\license.xml`
-- The latest [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows/).
+- [Docker Desktop](https://docs.docker.com/desktop/release-notes/#4180) version 4.18.0 maximum.
+  - Note: Docker Desktop v4.19.0+ contains Docker Engine v23.0+ which does not have the experimental support for Linux containers on Windows (LCOW) anymore. This demo uses this Docker Engine feature. Source: [https://docs.docker.com/engine/deprecated/#linux-containers-on-windows-lcow-experimental](https://docs.docker.com/engine/deprecated/#linux-containers-on-windows-lcow-experimental)
 
 ## Preparing Docker
 
@@ -56,6 +57,12 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 
    6. Optionally, you may want to also set DNS servers in the Docker engine configuration. See the [Issue downloading nodejs](#issue-downloading-nodejs) known issue for details and instructions.
    7. Click the "Apply & Restart" button to restart your Windows Docker engine.
+3. Ensure that Docker Compose V2 is enabled:
+   1. From the Docker Desktop taskbar icon contextual menu (right click), choose "Settings".
+   2. In the left tab group, navigate to the "General" tab.
+   3. Ensure that the "Use Docker Compose V2" option is checked.
+   4. Click the "Apply & Restart" button to restart your Windows Docker engine.
+
 
 ## Preparing Your Environment
 
@@ -95,7 +102,7 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
      - Some Content Editor features and other admin pages relying on search indexes may not work.
      - The search page and search based components may not work on the CD.
 5. Check the progress of the initialization by viewing the init container's logs:
-   - `docker-compose logs -f init`
+   - `docker compose logs -f init`
 6. Wait about 30 minutes until the init container logs can read `No jobs are running. Monitoring stopped.`.
    - The init container has a known issue where it may stop itself before the jobs are all done. If you notice the init container has stopped before logging the `No jobs are running. Monitoring stopped.` message, restart the init container by running `.\up.ps1 -SkipBuild` and continue monitoring its logs.
 
@@ -139,14 +146,11 @@ If you want to reset all of your changes and get a fresh instance:
 2. Navigate to your repository clone folder:
    - `cd C:\Projects\Sitecore.Demo.Platform`
 3. Build your Docker images:
-   - `.\build-images.ps1 -Memory 8G`
+   - `.\build-images.ps1`
    - This command will:
      - Pull all the base images required by the dockerfiles.
        - You can use the `-SkipPull` switch to skip this step.
-     - Build the demo images using the memory limit passed in the `-Memory` argument.
-       - Adjust the number based on your available free memory.
-       - The format is a number followed by the letter `G` for Gb. Same as the `--memory` argument of the `docker-compose build` command.
-       - The `-Memory` argument is optional.
+     - Build the demo images.
 
 ## Development Lifecycle
 
@@ -180,11 +184,11 @@ While the xConnect container gets published files, the xdbsearchworker container
 2. Navigate to your repository clone folder:
    - `cd C:\Projects\Sitecore.Demo.Platform`
 3. Rebuild the solution Docker image:
-   - `.\build-images.ps1 -Services solution -Memory 8G`
+   - `.\build-images.ps1 -Services solution`
 4. Rebuild xconnect and xdb related Docker images:
-   - `.\build-images.ps1 -Services xconnect,xdbsearchworker,xdbautomationworker -Memory 8G`
+   - `.\build-images.ps1 -Services xconnect,xdbsearchworker,xdbautomationworker`
 5. Restart the containers using the newly built Docker images:
-   - `docker-compose up -d`
+   - `docker compose up -d`
 
 ### After change to the XDT files
 
@@ -194,11 +198,11 @@ XML files are not transformed inside the containers after new XDT files are publ
 2. Navigate to your repository clone folder:
    - `cd C:\Projects\Sitecore.Demo.Platform`
 3. Rebuild the solution Docker image:
-   - `.\build-images.ps1 -Services solution -Memory 8G`
+   - `.\build-images.ps1 -Services solution`
 4. Rebuild the CM and CD Docker images:
-   - `.\build-images.ps1 -Services cm,cd -Memory 8G`
+   - `.\build-images.ps1 -Services cm,cd`
 5. Restart the containers using the newly built Docker images:
-   - `docker-compose up -d`
+   - `docker compose up -d`
 
 ## Troubleshooting
 
@@ -226,7 +230,7 @@ Run `az acr login --name <registryname>` (or the equivalent `docker login`) and 
 
 **Problem:**
 
-When running `docker-compose build --pull`, you get the following error:
+When running `docker compose build --pull`, you get the following error:
 
 ```text
 ERROR: Service 'mssql' failed to build : manifest for scr.sitecore.com/build/lighthouse-solution:10.0.1-1001.0 not found: manifest unknown: manifest tagged by "10.0.1-1001.0" is not found
@@ -238,7 +242,7 @@ The script tries to pull newer versions of all the base images used by the docke
 
 **Solution:**
 
-Do not use the `--pull` switch with the `docker-compose build` command. Instead, use the `.\build-images.ps1` script as instructed in this documentation. This script will pull the required base images first, then build the Docker images without the `--pull` switch.
+Do not use the `--pull` switch with the `docker compose build` command. Instead, use the `.\build-images.ps1` script as instructed in this documentation. This script will pull the required base images first, then build the Docker images without the `--pull` switch.
 
 ### Issue downloading nodejs
 

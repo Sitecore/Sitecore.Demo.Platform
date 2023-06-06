@@ -11,7 +11,7 @@ Param (
 $ErrorActionPreference = "Stop";
 
 # Double check whether init has been run
-$envCheckVariable = "HOST_LICENSE_FOLDER"
+$envCheckVariable = "REPORTING_API_KEY"
 $envCheck = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
 if (-not $envCheck) {
     # DEMO TEAM CUSTOMIZATION - Auto run init.ps1 if not run.
@@ -35,7 +35,7 @@ if (-not $envCheck) {
 if (-not $SkipBuild) {
     # Build all containers in the Sitecore instance, forcing a pull of latest base containers
     Write-Host "Building containers..." -ForegroundColor Green
-    .\build-images.ps1 -Memory 8G
+    .\build-images.ps1
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Container build failed, see errors above."
     }
@@ -44,7 +44,7 @@ if (-not $SkipBuild) {
 
 # Start the Sitecore instance
 Write-Host "Starting Sitecore environment..." -ForegroundColor Green
-docker-compose up -d
+docker compose up -d
 
 # Wait for Traefik to expose CM route
 Write-Host "Waiting for CM to become available..." -ForegroundColor Green
