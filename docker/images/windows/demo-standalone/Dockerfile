@@ -11,6 +11,7 @@ ARG CMP_ASSETS
 ARG XGEN_ASSETS
 
 ARG MANAGEMENT_SERVICES_IMAGE
+ARG DELTA_ASSET_IMAGE
 
 FROM ${TOOLS_ASSETS} as tools
 
@@ -18,6 +19,7 @@ FROM ${SPE_ASSETS} as spe_assets
 FROM ${SXA_ASSETS} as sxa_assets
 FROM ${HEADLESS_ASSETS} as headless_assets
 FROM ${MANAGEMENT_SERVICES_IMAGE} AS management_services
+FROM ${DELTA_ASSET_IMAGE} as deltaAssetImage
 
 FROM ${CMP_ASSETS} as cmp_assets
 FROM ${XGEN_ASSETS} as xgen_assets
@@ -56,6 +58,9 @@ COPY --from=xgen_assets /module/cm/content /inetpub/wwwroot
 RUN icacls 'C:\inetpub\wwwroot' /grant 'IIS_IUSRS:(OI)(CI)F' /t | Out-Null
 
 FROM modules as production
+
+# Copy Product Hotfixes
+COPY --from=deltaAssetImage /platform/cm/inetpub/wwwroot/ /inetpub/wwwroot/
 
 COPY --from=solution /solution/cm/ /inetpub/wwwroot/
 
