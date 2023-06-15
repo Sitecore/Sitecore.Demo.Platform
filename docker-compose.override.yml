@@ -8,17 +8,13 @@ services:
     networks:
       - demo
 
-  # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
-  # module data added. See Dockerfile for details.
+  # Mount our SQL data folder
   mssql:
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    healthcheck:
-      test: ["CMD", "dir"]
     mem_limit: 2GB
     volumes:
       - type: bind
         source: .\data\mssql-data
-        target: /var/opt/mssql/data
+        target: c:\data
     networks:
       - demo
 
@@ -199,8 +195,7 @@ services:
           - "${CD_HOST}"
 
   smtp:
-    image: maildev/maildev
-    command: ["--smtp", "25", "--web", "80"]
+    image: rnwood/smtp4dev
     isolation: ${SMTP_ISOLATION}
     ports:
       - "44025:25"

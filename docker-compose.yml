@@ -27,7 +27,7 @@ services:
         condition: service_healthy
   mssql:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/mssql-developer:2017-${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/mssql-developer:2017-${WINDOWSSERVERCORE_VERSION}
     environment:
       SA_PASSWORD: ${SQL_SA_PASSWORD}
       ACCEPT_EULA: "Y"
