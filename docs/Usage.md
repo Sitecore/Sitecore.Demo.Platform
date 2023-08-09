@@ -32,7 +32,7 @@ Clone the Sitecore.Demo.Platform repository locally - defaults are configured fo
 - Windows 1809 or higher. Version 1909 is preferred.
 - At least 16 Gb of memory. 32 Gb or more is preferred.
 - A valid Sitecore 10 license file located at `C:\license\license.xml`
-- The latest [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows/).
+- The [Docker Desktop](https://docs.docker.com/desktop/release-notes/#4180) v4.18.0 or v4.17.* - because of using LCOW Docker engine feature to run Windows and Linux containers simultaneously.
 
 ## Preparing Docker
 
