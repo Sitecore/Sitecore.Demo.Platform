@@ -59,7 +59,7 @@ services:
         XGEN_ASSETS:  adoprog/custom-xgenerator-assets:10.1-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}
         MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:5.1-${SITECORE_ASSET_NANOSERVER_VERSION}
-        DELTA_ASSET_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp-pre/sitecore-xp1-assets:10.3.1.009093.381-10.0.17763.4131-1809
+        DELTA_ASSET_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp-pre/sitecore-xp1-assets:10.3.1.009332.420-10.0.17763.4377-1809
     depends_on:
       - solution
 
@@ -76,7 +76,7 @@ services:
         HEADLESS_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xp1-assets:21.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         CMP_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-assets:5.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         TOOLS_ASSETS: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${TOOLS_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
-        DELTA_ASSET_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp-pre/sitecore-xp1-assets:10.3.1.009093.381-10.0.17763.4131-1809
+        DELTA_ASSET_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp-pre/sitecore-xp1-assets:10.3.1.009332.420-10.0.17763.4377-1809
     depends_on:
       - solution
 
