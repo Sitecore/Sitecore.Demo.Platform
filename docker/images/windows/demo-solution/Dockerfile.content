@@ -19,7 +19,7 @@ RUN Copy-Item ./build/* .
 
 RUN nuget restore Sitecore.Demo.Platform.sln
 
-RUN msbuild Sitecore.Demo.Platform.sln /p:DeployOnBuild=true /p:PublishProfile=DockerBuild
+RUN msbuild Sitecore.Demo.Platform.sln /p:DeployOnBuild=true /p:PublishProfile=DockerBuild /p:Configuration=Release
 
 RUN (Get-Content "C:\src\Project\Global\code\App_Config\Include\Project\z.DevSettings.config").replace('C:\Projects\Sitecore.Demo.Platform\items', 'C:\items') | Set-Content "C:\src\Project\Global\code\App_Config\Include\Project\z.DevSettings.config"
 

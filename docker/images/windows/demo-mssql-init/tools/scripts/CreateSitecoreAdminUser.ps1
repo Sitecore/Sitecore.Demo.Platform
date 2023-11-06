@@ -22,5 +22,5 @@ $UserNameParamAdmin = ("UserName='" + $SitecoreAdminUsername + "'")
 $EMailParamAdmin = ("EMail='noreply@sitecoredemo.com'")
 $paramsAdmin = $passwordParamAdmin, $saltParamAdmin, $UserNameParamAdmin, $EMailParamAdmin
 
-Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\CreateSitecoreAdminUser.sql" -Variable $paramsAdmin
+Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\CreateSitecoreAdminUser.sql" -TrustServerCertificate -Variable $paramsAdmin
 Write-Host "$(Get-Date -Format $timeFormat): Invoke CreateSitecoreAdminUser.sql for $SitecoreAdminUsername"

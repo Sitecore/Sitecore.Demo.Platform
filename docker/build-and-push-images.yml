@@ -202,7 +202,7 @@ stages:
                 az login -u $(sitecore.container.registry.username) -p $(sitecore.container.registry.password)
                 az acr login -n $(container.registry.short)
 
-                ./pull-build-images.ps1
+                ./pull-build-images.ps1 -CI
 
                 docker-compose -f docker-compose.build.solution.yml pull
 

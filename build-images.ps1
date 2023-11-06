@@ -3,10 +3,7 @@ Param (
   [ValidateSet("xp0", "xp1")]
   [string]$Topology = "xp0"
   ,
-  [Parameter(HelpMessage = "Set memory limit for the build container. Passed to the docker-compose build command as --memory <Value>")]
-  [string]$Memory
-  ,
-  [Parameter(HelpMessage = "Set Docker Compose services to build. Passed to the docker-compose build command.")]
+  [Parameter(HelpMessage = "Set Docker Compose services to build. Passed to the docker compose build command.")]
   [string[]]$Services
   ,
   [Parameter(HelpMessage = "Set whether to build images in parallel ")]
@@ -17,17 +14,21 @@ Param (
   ,
   [Parameter(HelpMessage = "Skips building the solution image.")]
   [switch]$SkipSolution
+  ,
+  [Parameter(HelpMessage = "Runs in the context of a CI pipeline.")]
+  [switch]$CI
 )
+
+$dockerComposeBaseCommand = "docker compose"
+if ($CI) {
+  $dockerComposeBaseCommand = "docker-compose"
+}
 
 function Invoke-BuildSolutionAssets {
   # Build the solution images
 
-  $dockerComposeCommand = "docker-compose"
+  $dockerComposeCommand = $dockerComposeBaseCommand
   $dockerComposeCommand += " -f docker-compose.build.solution.yml build"
-
-  if (-not [string]::IsNullOrEmpty($Memory)) {
-    $dockerComposeCommand += " --memory $Memory"
-  }
 
   if ($Parallel) {
     $dockerComposeCommand += " --parallel"
@@ -38,13 +39,9 @@ function Invoke-BuildSolutionAssets {
 
   $LASTEXITCODE -ne 0 | Where-Object { $_ } | ForEach-Object { throw "Failed." }
 
-  $dockerComposeCommand = "docker-compose"
+  $dockerComposeCommand = $dockerComposeBaseCommand
   $dockerComposeCommand += " --env-file .env"
   $dockerComposeCommand += " -f docker/docker-compose.copy.solution.yml build"
-
-  if (-not [string]::IsNullOrEmpty($Memory)) {
-    $dockerComposeCommand += " --memory $Memory"
-  }
 
   if ($Parallel) {
     $dockerComposeCommand += " --parallel"
@@ -57,8 +54,12 @@ function Invoke-BuildSolutionAssets {
 }
 
 if (-not $SkipPull) {
-  # Pulling the base images as a separate step because "docker-compose build --pull" fails with the "lighthouse-solution" image which is never pushed to the Docker registry.
-  .\pull-build-images.ps1 -Topology $Topology
+  # Pulling the base images as a separate step because "docker compose build --pull" fails with the "lighthouse-solution" image which is never pushed to the Docker registry.
+  if ($CI) {
+    .\pull-build-images.ps1 -Topology $Topology -CI
+  } else {
+    .\pull-build-images.ps1 -Topology $Topology
+  }
 }
 
 if ($null -eq $Services) {
@@ -71,12 +72,8 @@ if (-not $SkipSolution) {
 $fileSuffix = $(if ("$Topology" -eq "xp0") { "" } else { "-xp1" })
 
 # Build the service images
-$dockerComposeCommand = "docker-compose"
+$dockerComposeCommand = $dockerComposeBaseCommand
 $dockerComposeCommand += " -f docker-compose$($fileSuffix).yml -f docker-compose$fileSuffix.build.yml build"
-
-if (-not [string]::IsNullOrEmpty($Memory)) {
-  $dockerComposeCommand += " --memory $Memory"
-}
 
 if ($Parallel) {
   $dockerComposeCommand += " --parallel"
