@@ -60,7 +60,7 @@ RUN icacls 'C:\inetpub\wwwroot' /grant 'IIS_IUSRS:(OI)(CI)F' /t | Out-Null
 FROM modules as production
 
 # Copy Product Hotfixes
-COPY --from=deltaAssetImage /platform/cm/inetpub/wwwroot/ /inetpub/wwwroot/
+# COPY --from=deltaAssetImage /platform/cm/inetpub/wwwroot/ /inetpub/wwwroot/
 
 COPY --from=solution /solution/cm/ /inetpub/wwwroot/
 
