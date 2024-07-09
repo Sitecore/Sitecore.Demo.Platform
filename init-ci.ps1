@@ -25,7 +25,7 @@ Param (
   ,
   [Parameter(
     HelpMessage = "Sitecore version")]
-    [string]$SitecoreVersion = "10.3"
+    [string]$SitecoreVersion = "10.4"
   ,
   [Parameter(
     HelpMessage = "Specify if the version of Sitecore is a pre-release version")]

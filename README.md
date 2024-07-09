@@ -4,7 +4,7 @@
 
 Lighthouse Demo and the tools and processes in it is a Sitecore&reg; solution example built using Sitecore Experience Accelerator&trade; (SXA) on Sitecore Experience Platform&trade; (XP) following the Helix architecture principles.
 
-The latest Lighthouse demo is built to support **[Sitecore Experience Platform 10.3](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/103/Sitecore_Experience_Platform_103.aspx)** using **[Sitecore Experience Accelerator (SXA) 10.3](https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/10x/Sitecore_Experience_Accelerator_1030.aspx)**. It can only be deployed inside Docker containers.
+The latest Lighthouse demo is built to support **[Sitecore Experience Platform 10.4](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/103/Sitecore_Experience_Platform_103.aspx)** using **[Sitecore Experience Accelerator (SXA) 10.4](https://dev.sitecore.net/Downloads/Sitecore_Experience_Accelerator/10x/Sitecore_Experience_Accelerator_1030.aspx)**. It can only be deployed inside Docker containers.
 
 ## Important notice
 
