@@ -10,7 +10,7 @@ services:
 
   # Mount our SQL data folder
   mssql:
-    mem_limit: 2GB
+    mem_limit: 6GB
     volumes:
       - type: bind
         source: .\data\mssql-data
@@ -20,6 +20,7 @@ services:
 
   # Custom mssql init
   mssql-init:
+    mem_limit: 12GB
     image: ${REGISTRY}demo/lighthouse-xp0-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     environment:
       SQL_SERVER: ${SQL_SERVER}
