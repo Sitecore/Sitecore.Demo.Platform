@@ -1,0 +1,32 @@
+﻿---
+ID: "e59a6d1f-ba96-45dd-9637-24273a161bb3"
+Parent: "d2984834-5d85-4502-b43b-fd306e226589"
+Template: "0fc09ea4-8d87-4b0e-a5c9-8076ae863d9c"
+Path: /sitecore/system/Marketing Control Panel/Profiles/Cumulus/Cumulus Finserv Topic Interest/Profile Cards/Investing
+SharedFields:
+- ID: "85970ab7-22ea-4206-be86-c0167178860b"
+  Hint: Profile Card Value
+  Value: |
+    <tracking>
+      <profile id="d387e7ed-61a7-4d4a-b85b-93bb3a6a598a" name="Cumulus Finserv Topic Interest">
+        <key name="Banking" value="0" />
+        <key name="Borrowing" value="0" />
+        <key name="Corporate Banking" value="0" />
+        <key name="Credit Cards" value="0" />
+        <key name="Insurance" value="0" />
+        <key name="Investing" value="10" />
+        <key name="Personal Banking" value="0" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "a26fc256-1db0-44aa-ba3d-1c830bf882a2"
+    Hint: Name
+    Value: Investing
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2e6753c2-4cbd-4167-87a6-e808c9e7ece9"

@@ -1,0 +1,31 @@
+﻿---
+ID: "e39e3ee9-dff0-47df-869c-208cb2b59f5c"
+Parent: "6454c507-a85f-4d5f-9748-07ce22957457"
+Template: "8fcd3cfe-8b3b-423e-8176-6a7c72cb43fc"
+Path: /sitecore/content/Demo SXA Sites/Global/Presentation/Rendering Variants/Hero/Hero with Video/Scriban
+SharedFields:
+- ID: "936e68b4-5346-4adb-9b77-79771d0b40dc"
+  Hint: Template
+  Value: |
+    <video autoplay muted loop class="video-background">
+      <source src="{{ i_item.HeroVideo.target.media_url }}" type="video/mp4">
+    </video>
+    <div class="hero-content-wrapper">
+      <div class="field-herosupertitle">
+        {{ i_item.HeroSupertitle}}
+      </div>
+      <div class="field-herotitle">
+        {{ i_item.HeroTitle}}
+      </div>
+      <div class="field-herolink">
+          {{ i_item.HeroLink }}
+      </div>
+    </div>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9ebea8c0-a311-4bfa-a56b-772f1e71094d"

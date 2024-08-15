@@ -1,0 +1,28 @@
+﻿---
+ID: "fb81a757-6390-4904-94c7-806a5f9c877d"
+Parent: "ba3bb9a8-0d6e-437b-80e4-58bf6562d4fb"
+Template: "0fc09ea4-8d87-4b0e-a5c9-8076ae863d9c"
+Path: /sitecore/system/Marketing Control Panel/Profiles/LighthouseLifestyle/Health Location/Profile Cards/At Home
+SharedFields:
+- ID: "85970ab7-22ea-4206-be86-c0167178860b"
+  Hint: Profile Card Value
+  Value: |
+    <tracking>
+      <profile id="f72f3d3c-b4ca-4256-86a1-1ab13ee68ed2" name="Health Location">
+        <key name="At Home" value="10" />
+        <key name="At Work" value="0" />
+        <key name="On the Go" value="0" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "a26fc256-1db0-44aa-ba3d-1c830bf882a2"
+    Hint: Name
+    Value: At Home
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d1f525d5-5134-4391-99f3-1f81de91110e"

@@ -1,0 +1,50 @@
+﻿---
+ID: "b3f08ed2-cd64-4ca2-b7e0-1ed453b4f5a9"
+Parent: "323b17d4-9c9f-4103-9854-817644b9068b"
+Template: "a6ddac75-7d24-4bdb-b3f6-5f47fbb21379"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/scenarios/onboarding-customer-journey/Data/Scenario Steps/Step 4"
+BranchID: "bab1fb9b-58a3-4df8-9f05-204b25ddb8e0"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{09BD444B-FABC-47EA-981D-2C8271655469}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B5423143A-760D-4F0E-BA4D-0B02E649A778%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-title"
+          uid="{37268523-B0DA-44AB-B826-D5A523358B05}" />
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-content"
+          uid="{E45CE4B4-10E0-41B4-AAA6-F414B9EC0F15}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D957D258-35AD-4302-966C-49D5AF64BAC5}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "5a236869-e375-49c0-a92d-0c2f1db7788f"
+      Hint: Content
+      Value: |
+        <p>In this step the visitor clicks a link in one of the emails and is taken to a marketing landing page. The landing page has a single call-to-action that is currently in an active A/B test.</p>
+        <p>There are 3 active variations of the content and image used in the call-to-action. Sitecore collects visitor data to determine which test variant is most effective. In this scenario, effectiveness is determined by how many visitors complete the 3-step questionnaire per test variant.</p>
+    - ID: "7240053b-9140-48ac-acea-abfccd7761a1"
+      Hint: Heading
+      Value: "<strong>Step 4</strong>&nbsp;- A/B and Multivariate Testing"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5fe769bf-f875-4e7f-b9c7-1d07b71b44fd"

@@ -1,0 +1,28 @@
+﻿---
+ID: "17bda8c5-683e-4dd9-af41-486d00701563"
+Parent: "2b6546aa-302f-45d0-84a0-85a4f0a850d9"
+Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
+Path: /sitecore/content/Demo SXA Sites/Global/Presentation/Rendering Variants/Page Content/Resource CTA/Video Section
+SharedFields:
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Value: |
+    <ruleset>
+      <rule
+        uid="{73D23371-83A5-4D7B-9027-1B5DA94C58DF}">
+        <conditions>
+          <condition
+            id="{D0810F9D-734C-452D-BBB6-4730368D68F1}"
+            uid="5B9CEC8D319E45C3BE9F19B82F8F52AD"
+            templateid="{45895139-6F97-4981-A720-81994FD68A44}" />
+        </conditions>
+      </rule>
+    </ruleset>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b8c2a8db-87e8-4a1a-bcb0-c3262f261e94"

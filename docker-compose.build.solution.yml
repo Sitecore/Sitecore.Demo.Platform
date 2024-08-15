@@ -13,16 +13,6 @@ services:
         INTERNAL_NUGET_SOURCE_PASSWORD: ${INTERNAL_NUGET_SOURCE_PASSWORD}
         PRERELEASE: ${PRERELEASE}
 
-  solution-data:
-    image: ${REGISTRY}build/lighthouse-solution-data:${SITECORE_VERSION}-${LTSC_NANOSERVER_VERSION}-${SOLUTION_VERSION}
-    isolation: ${ISOLATION}
-    build:
-      context: .
-      dockerfile: .\docker\images\windows\demo-solution\Dockerfile.data
-      args:
-        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019
-        BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${LTSC_NANOSERVER_VERSION}
-
   solution-xconnect:
     image: ${REGISTRY}build/lighthouse-solution-xconnect:${SITECORE_VERSION}-${LTSC_NANOSERVER_VERSION}-${SOLUTION_VERSION}
     isolation: ${ISOLATION}

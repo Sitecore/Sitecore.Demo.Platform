@@ -1,0 +1,39 @@
+﻿---
+ID: "e1a1e78a-0295-4eb6-a74b-1871306befd5"
+Parent: "1f970b18-c50a-4572-95fb-72e0a2639913"
+Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Links/Header/Megadrop Links/Lighthouse Health/Shop Links/Fitness Trackers
+SharedFields:
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "62441927-7a43-4678-8f1e-b4a24642b1f6"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Fitness Trackers" linktype="rel" url="/shop/fitness-activity-trackers" anchor="" />
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4a3e135c-cc25-45cd-9537-88d2a5a6c054"
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "caedd76d-fecc-45ca-87d9-5f09728c6994"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Fitness Trackers" linktype="rel" url="/shop/fitness-activity-trackers" anchor="" />

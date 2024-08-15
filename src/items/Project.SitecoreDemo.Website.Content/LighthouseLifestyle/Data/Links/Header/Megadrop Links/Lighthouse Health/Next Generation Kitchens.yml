@@ -1,0 +1,43 @@
+﻿---
+ID: "1f9a5316-80c7-4872-a736-a765543c3b2b"
+Parent: "b35b2ce5-31b2-4cbe-b803-100243f43234"
+Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Links/Header/Megadrop Links/Lighthouse Health/Next Generation Kitchens
+SharedFields:
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5f84389c-c811-4293-adeb-e2b846b0c798"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{FDFC0B0D-7B3A-4753-BBC5-E17C508398FA}" querystring="" text="Next Generation Kitchens" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/kitchen-appliances" title="" class="" linktype="internal" />
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "19c1c3e3-42df-4b4d-87eb-9e0f76edddaf"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 次世代キッチン
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4c1ea2bd-e8bb-4248-b594-7c72609cb568"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{FDFC0B0D-7B3A-4753-BBC5-E17C508398FA}" querystring="" linktype="internal" text="次世代キッチン" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/kitchen-appliances" title="" class="" target="|Custom" />

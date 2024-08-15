@@ -1,0 +1,288 @@
+﻿---
+ID: "19ce179f-a92b-43c4-9401-4af532c211a2"
+Parent: "64f922b1-d57d-4afa-ae26-9d59502f69a6"
+Template: "e255d331-aea1-4f66-a5e7-4ab2e26408e0"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/articles/recipes-for-your-smart-stove"
+SharedFields:
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: 20191121T140000Z
+- ID: "7bd35dcd-61bb-42e0-8bf5-07803af6eede"
+  Hint: Author
+  Value: "{6991E232-7E09-4CF8-BB77-90D45AA781A9}"
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: Demo.Content.RecipesforYourSmartStove
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="01cef8a9-a5d1-40cd-9462-809fdbc0def7"
+        name="Stage of Life"
+        presets="young professional|100||">
+        <key
+          name="Young Professional"
+          value="10" />
+        <key
+          name="Newlywed"
+          value="0" />
+        <key
+          name="Family with Kids"
+          value="0" />
+        <key
+          name="Empty Nester"
+          value="0" />
+        <key
+          name="Retired"
+          value="0" />
+      </profile>
+      <profile
+        id="3b752260-57e2-488c-9d84-95a8a5171af8"
+        name="Health Focus"
+        presets="foodie|100||">
+        <key
+          name="Children"
+          value="0" />
+        <key
+          name="Cooking"
+          value="10" />
+        <key
+          name="Exercise"
+          value="0" />
+        <key
+          name="Fitness Tech"
+          value="0" />
+        <key
+          name="Mental Health"
+          value="0" />
+        <key
+          name="Nutrition"
+          value="5" />
+      </profile>
+      <profile
+        id="f72f3d3c-b4ca-4256-86a1-1ab13ee68ed2"
+        name="Health Location"
+        presets="at home|100||">
+        <key
+          name="At Home"
+          value="10" />
+        <key
+          name="At Work"
+          value="0" />
+        <key
+          name="On the Go"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1175
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        <r
+          uid="{58858822-9F0A-44CC-877E-07A49113E34E}"
+          id="{0FA50A16-13DF-4722-9357-C7D157638ACA}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          ph="/main/sxa-article-content/container-1/column-2-2/container-4" />
+        <r
+          uid="{0CB9F526-C892-4F67-A043-B30C21ADCCAF}"
+          ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          ph="/main/sxa-recommended-content/container-1" />
+        <r
+          uid="{5B71B7D7-9A95-42F3-BF2C-C47276A17B02}"
+          ds="{B8B17220-5408-483E-BD00-AFA82E1D66A8}"
+          id="{3C84ED23-7591-45E0-8850-1AE96D1342B1}"
+          par="Reset Caching Options&amp;GridParameters&amp;Styles=%7B28C65397-7759-49B0-B39F-AFBC6F5D508A%7D&amp;RenderingIdentifier"
+          ph="/main/sxa-article-content/container-1/container-2" />
+        <r
+          uid="{33A18287-F717-4A2A-957D-F9D3B7BBE518}"
+          ds=""
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="DynamicPlaceholderId=2"
+          ph="/main/sxa-article-content/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Recipes for Your Smart Stove
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{D5B98824-B2DC-4319-9DC8-49F4FF0D86F7}" />
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: A Recipe for Your Smart Stove
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: To take advantage of the new smart stoves on the market, we are showcasing a fantastic recipe that will be fun to make and satisfying to eat. It offers home chefs the chance to use the exciting features available in the connected stove.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Recipes for Your Smart Stove
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: To take advantage of the new smart stoves on the market, we are showcasing a fantastic recipe that will be fun to make and satisfying to eat. It offers home chefs the chance to use the exciting features available in the connected stove.
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: <p>The connected home was a fantasy just a decade ago. A home that can respond to your demands and adjust to your preferences sounds more like the premise of an awesome “Twilight Zone” episode. But with the introduction of smart technology into everyday appliances, the completely connected home is now a reality.<br><br>Products like Nest, which allow users to control their thermostat via their mobile phone, and other smart technology, such as the Cinder Sensing Cooker, a skillet which uses smart sensors to adjust cooking temperature based on the food and desired result (such as rare versus medium rare), the connected home is ushering in a new era of convenience for homeowners.<br><br>To take advantage of the new smart stoves on the market, we are showcasing a fantastic recipe that will be fun to make and satisfying to eat. It offers home chefs the chance to use the exciting features available in the connected stove.</p>
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: smart stove, recipe, kitchen appliances, smart home, beef wellington, recipe video
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: To take advantage of the new smart stoves on the market, we are showcasing a fantastic recipe that will be fun to make and satisfying to eat. It offers home chefs the chance to use the exciting features available in the connected stove.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: A Recipe for Your Smart Stove
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: "<h2>The Ultimate Beef Wellington</h2><h3>Ingredients</h3><p><i>Serves 12</i></p><ul><li>3 lb center-cut beef tenderloin</li><li>kosher salt, to taste</li><li>black pepper, to taste</li><li>2 tablespoons canola oil</li><li>¼ cup English mustard</li><li>1 tablespoon butter</li><li>2 shallots, minced</li><li>2 lb cremini mushroom, minced</li><li>5 cloves garlic, minced</li><li>½ lb prosciutto, thinly sliced, or ham</li><li>1 sheet puff pastry</li><li>2 eggs, beaten</li></ul><h3>Preparation</h3><ol><li>Preheat oven to 400°F (200°C).</li><li>Let the beef tenderloin come to room temperature. Season with kosher salt and pepper on all sides.</li><li>Add canola oil to a large pan on high heat. Once the oil is hot, add the tenderloin. Without moving the tenderloin, cook until a dark brown crust forms, about 3 minutes. Repeat searing on all sides, including the tenderloin ends.</li><li>Remove the tenderloin from the pan and transfer to a cutting board or wire rack and remove ties.</li><li>Brush the mustard on all sides of the meat while it’s still warm. Let the meat rest for while making the duxelles (mushrooms cooked and reduced until dry).</li><li>To the same pan, add the butter, mushrooms, minced shallot, and minced garlic over medium heat. Cook, stirring occasionally until all the liquid evaporates and the mushroom mixture becomes a thick, dry-like paste.</li><li>Remove the mushrooms from the pan and let cool completely.</li><li>Place a large layer of overlapping sheets of plastic wrap on your work surface that is twice the length and width of the tenderloin.</li><li>Lay overlapping strips of prosciutto on the plastic into an even square layer.</li><li>Spread a layer of the mushrooms evenly over the prosciutto.</li><li>Tightly and evenly wrap the tenderloin with the prosciutto, using the plastic wrap to wrap it even tighter and seal ends. Tie the ends of the plastic wrap together to hold the Wellington’s shape.</li><li>Place in the refrigerator for 15 minutes.</li><li>Place a new layer of plastic wrap on the work surface and lay a sheet of puff pastry over it. Unwrap the prosciutto-wrapped beef tenderloin onto the puff pastry, wrapping until the ends meet.</li><li>Cut off any extra puff pastry, making sure there is no overlap.</li><li>Wrap the puff pastry in plastic wrap, tying the ends together to form a log shape. Place in the refrigerator for 15 minutes.</li><li>Place the beef Wellington on a greased, parchment paper-lined baking sheet. Brush the surface with the beaten eggs. With a fork, score a decorative design onto the surface of the puff pastry.</li><li>Decorate with additional pastry (optional). Sprinkle with kosher salt.</li><li>Bake for 40 minutes or until the puff pastry is a dark golden brown and the internal temperature of the beef is 135°F (57°C) for medium-rare.</li><li>Enjoy!</li></ol>"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "65d9d768-b6f4-4dbb-b1ae-b35b76b3f395"
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: Impressive and faster than you would think. Dazzle your friends and family with this delicious recipe straight from our experts.
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Beef Wellington
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{C8776A82-BB4C-4509-9D64-DAF6F10F7717}" />
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Une recette pour votre cuisinière intelligente
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Pour profiter des nouveaux poêles intelligents sur le marché, nous présentons une recette fantastique qui sera amusante à faire et satisfaisante à manger. Elle offre aux cuisiniers à domicile la possibilité d'utiliser les fonctionnalités intéressantes disponibles dans le poêle connecté.
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Recettes pour cuisinière intelligente
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Pour profiter des nouveaux poêles intelligents sur le marché, nous présentons une recette fantastique qui sera amusante à faire et satisfaisante à manger. Elle offre aux cuisiniers à domicile la possibilité d'utiliser les fonctionnalités intéressantes disponibles dans le poêle connecté.
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>La maison connect&eacute;e &eacute;tait un fantasme il y a une dizaine d'ann&eacute;es. Une maison qui peut r&eacute;pondre &agrave; vos demandes et s'adapter &agrave; vos pr&eacute;f&eacute;rences ressemble plus &agrave; la pr&eacute;misse d'un &eacute;pisode g&eacute;nial "Twilight Zone". Mais avec l'introduction de la technologie intelligente dans les appareils m&eacute;nagers, la maison compl&egrave;tement branch&eacute;e est maintenant une r&eacute;alit&eacute;.</p>
+        <p>
+        Des produits comme Nest, qui permettent aux utilisateurs de contr&ocirc;ler leur thermostat via leur t&eacute;l&eacute;phone portable, et d'autres technologies intelligentes, telles que Cinder Sensing Cooker, une cuisini&egrave;re qui utilise des capteurs intelligents pour ajuster la temp&eacute;rature de cuisson en fonction de la nourriture et du r&eacute;sultat souhait&eacute; (m&eacute;dium ou bien cuit), la maison connect&eacute;e inaugure une nouvelle &egrave;re de commodit&eacute; pour les propri&eacute;taires.&nbsp;</p>
+        <p>
+        Pour profiter des nouveaux po&ecirc;les intelligents sur le march&eacute;, nous pr&eacute;sentons une recette fantastique qui sera amusante &agrave; faire et satisfaisante &agrave; manger. Elle offre aux cuisiniers &agrave; domicile la possibilit&eacute; d'utiliser les fonctionnalit&eacute;s int&eacute;ressantes disponibles dans le po&ecirc;le connect&eacute;.</p>
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Pour profiter des nouveaux poêles intelligents sur le marché, nous présentons une recette fantastique qui sera amusante à faire et satisfaisante à manger. Elle offre aux cuisiniers à domicile la possibilité d'utiliser les fonctionnalités intéressantes disponibles dans le poêle connecté.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Une recette pour votre cuisinière intelligente
+    - ID: "87241a2b-d20a-4624-a439-07f4d9afea6e"
+      Hint: Additional Content
+      Value: |
+        <h1>Le boeuf wellington ultime</h1>
+        <p><a href="-/media/7BC92BB8C37F4837867E2F4AC4E91DB2.ashx">Download a PDF of the recipe here</a>.</p>
+        <h3>Ingr&eacute;dients</h3>
+        <p><em>12 portions</em></p>
+        <ul>
+            <li>3 lb center-cut beef tenderloin</li>
+            <li>kosher salt, to taste</li>
+            <li>black pepper, to taste</li>
+            <li>2 tablespoons canola oil</li>
+            <li>&frac14; cup English mustard</li>
+            <li>1 tablespoon butter</li>
+            <li>2 shallots, minced</li>
+            <li>2 lb cremini mushroom, minced</li>
+            <li>5 cloves garlic, minced</li>
+            <li>&frac12; lb prosciutto, thinly sliced, or ham</li>
+            <li>1 sheet puff pastry</li>
+            <li>2 eggs, beaten<br />
+            <br />
+            </li>
+        </ul>
+        <h3>Pr&eacute;paration</h3>
+        <ol>
+            <li>Preheat oven to 400&deg;F (200&deg;C).</li>
+            <li>Let the beef tenderloin come to room temperature. Season with kosher salt and pepper on all sides.</li>
+            <li>Add canola oil to a large pan on high heat. Once the oil is hot, add the tenderloin. Without moving the tenderloin, cook until a dark brown crust forms, about 3 minutes. Repeat searing on all sides, including the tenderloin ends.</li>
+            <li>Remove the tenderloin from the pan and transfer to a cutting board or wire rack and remove ties.</li>
+            <li>Brush the mustard on all sides of the meat while it&rsquo;s still warm. Let the meat rest for while making the duxelles (mushrooms cooked and reduced until dry).</li>
+            <li>To the same pan, add the butter, mushrooms, minced shallot, and minced garlic over medium heat. Cook, stirring occasionally until all the liquid evaporates and the mushroom mixture becomes a thick, dry-like paste.</li>
+            <li>Remove the mushrooms from the pan and let cool completely.</li>
+            <li>Place a large layer of overlapping sheets of plastic wrap on your work surface that is twice the length and width of the tenderloin.</li>
+            <li>Lay overlapping strips of prosciutto on the plastic into an even square layer.</li>
+            <li>Spread a layer of the mushrooms evenly over the prosciutto.</li>
+            <li>Tightly and evenly wrap the tenderloin with the prosciutto, using the plastic wrap to wrap it even tighter and seal ends. Tie the ends of the plastic wrap together to hold the Wellington&rsquo;s shape.</li>
+            <li>Place in the refrigerator for 15 minutes.</li>
+            <li>Place a new layer of plastic wrap on the work surface and lay a sheet of puff pastry over it. Unwrap the prosciutto-wrapped beef tenderloin onto the puff pastry, wrapping until the ends meet.</li>
+            <li>Cut off any extra puff pastry, making sure there is no overlap.</li>
+            <li>Wrap the puff pastry in plastic wrap, tying the ends together to form a log shape. Place in the refrigerator for 15 minutes.</li>
+            <li>Place the beef Wellington on a greased, parchment paper-lined baking sheet. Brush the surface with the beaten eggs. With a fork, score a decorative design onto the surface of the puff pastry.</li>
+            <li>Decorate with additional pastry (optional). Sprinkle with kosher salt.</li>
+            <li>Bake for 40 minutes or until the puff pastry is a dark golden brown and the internal temperature of the beef is 135&deg;F (57&deg;C) for medium-rare.</li>
+            <li>Enjoy!</li>
+        </ol>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "aef33aa4-e363-4258-a9e5-e6c5c32dade6"
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: Impressionnante et plus rapide que vous ne le pensez. &Eacute;blouissez vos amis et votre famille avec cette d&eacute;licieuse recette propos&eacute;e par nos experts.
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Une recette pour votre cuisinière intelligente
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Recipes for Your Smart Stove
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{C8776A82-BB4C-4509-9D64-DAF6F10F7717}" />
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: スマートストーブのレシピ
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5c957d16-5dde-4888-8518-878378786157"
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: 市場で新しいスマートストーブを利用するために、私たちは食べることが楽しく満足できる幻想的なレシピを紹介しています。 家庭のシェフには、接続されたコンロで利用可能なエキサイティングな機能を使用するチャンスがあります。
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: スマートストーブのレシピ

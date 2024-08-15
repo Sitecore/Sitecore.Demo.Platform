@@ -27,8 +27,6 @@ stages:
           matrix:
             content:
               serviceName: 'solution-content'
-            data:
-              serviceName: 'solution-data'
             xconnect:
               serviceName: 'solution-xconnect'
         pool:
@@ -223,96 +221,11 @@ stages:
                   docker-compose -f $(docker-compose) -f $(docker-compose-build) build --parallel
                   docker-compose -f $(docker-compose) -f $(docker-compose-build) push
                 }
-  - stage: Docker_Linux
-    dependsOn: Build_Solution
-    displayName: "Build Linux Images"
-    jobs:
-      - job: Build_Linux_Images
-        displayName: "Build Linux Images"
-        pool:
-          name: docker-linux-agents
-        workspace:
-          clean: all
-        steps:
-          - task: UseDotNet@2
-            inputs:
-              packageType: "sdk"
-              version: "5.0.x"
-          - template: version.yml
-          - task: PowerShell@2
-            displayName: "Downloading Latest Images"
-            inputs:
-              targetType: "inline"
-              script: |
-                $params = @{}
-
-                $sitecoreRegistry = "$(sitecore.container.registry)"
-
-                az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
-
-                if ("$(Build.SourceBranch)" -match "upgrade/(?<version>\d+\.\d+\.\d+)") {
-                    $sitecoreRegistry = "$(sitecore.internal.container.registry)"
-                }
-
-                if ("$sitecoreRegistry" -ne "scr.sitecore.com/"){
-                  az acr login -n "$sitecoreRegistry"
-                }
-                az acr login -n "$(container.registry.short)"
-
-                $sitecoreVersion = "$(SITECORE_VERSION)"
-
-                $params.Add("DemoTeamRegistry","$(REGISTRY)")
-                $params.Add("SitecoreRegistry","$sitecoreRegistry")
-                $params.Add("SitecoreVersion","$sitecoreVersion")
-
-                ./init-ci.ps1 @params
-
-                ./pull-linux-build-images.ps1
-              pwsh: true
-          - task: DockerCompose@0
-            displayName: "Docker Compose Build"
-            inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: "$(azure.subscription)"
-              azureContainerRegistry: "$(container.registry)"
-              dockerComposeFile: "docker/docker-compose-linux.yml"
-              dockerComposeFileArgs: |
-                DEMO_VERSION=$(tag)
-                REGISTRY=$(REGISTRY)
-                SITECORE_VERSION=$(SITECORE_VERSION)
-                SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
-                SITECORE_LICENSE=$(SITECORE_LICENSE)
-                TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
-                OPENCALAIS_ACCESSTOKEN=$(OpenCalais.AccessToken)
-                HOSTNAME_SUFFIX=
-              qualifyImageNames: false
-              action: "Build services"
-              additionalImageTags: "$(SITECORE_VERSION)-linux-$(additionalImageTags)"
-              arguments: "$(no.cache)"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
-          - task: DockerCompose@0
-            displayName: "Push Images"
-            inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: $(azure.subscription)
-              azureContainerRegistry: $(container.registry)
-              dockerComposeFile: "docker/docker-compose-linux.yml"
-              dockerComposeFileArgs: |
-                REGISTRY=$(REGISTRY)
-                DEMO_VERSION=$(tag)
-                SITECORE_VERSION=$(SITECORE_VERSION)
-                SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
-                SITECORE_LICENSE=$(SITECORE_LICENSE)
-                TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
-                HOSTNAME_SUFFIX=
-              action: "Push services"
-              additionalImageTags: "$(SITECORE_VERSION)-linux-$(additionalImageTags)"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
   - stage: Update_Portal_Databases_Nightly
     displayName: "Update 'nightly' version in portal databases"
     dependsOn:
       - Release_Notes
-    condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
     pool:
       vmImage: 'ubuntu-latest'
     jobs:
@@ -335,7 +248,7 @@ stages:
     displayName: "Update 'stable' version in the DEV portal database"
     dependsOn:
       - Release_Notes
-    condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
     pool:
       vmImage: 'ubuntu-latest'
     jobs:
@@ -359,7 +272,7 @@ stages:
     displayName: "Update 'stable' version in the PROD portal database"
     dependsOn:
       - Release_Notes
-    condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
     pool:
       vmImage: 'ubuntu-latest'
     jobs:
@@ -386,8 +299,7 @@ stages:
     displayName: "Create Release Notes"
     dependsOn:
       - Docker_Windows
-      - Docker_Linux
-    condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
+    condition: and(succeeded('Docker_Windows'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
     pool:
       vmImage: 'ubuntu-latest'
     jobs:

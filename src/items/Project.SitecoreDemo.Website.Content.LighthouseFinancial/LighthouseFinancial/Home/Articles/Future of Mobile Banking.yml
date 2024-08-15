@@ -1,0 +1,111 @@
+﻿---
+ID: "78c7bae2-9290-4981-9783-23d995f94c11"
+Parent: "1844ae8e-7e12-4011-9abc-fee5d9bd0f18"
+Template: "8c4f0517-9de4-40c0-9f5f-c46772f44269"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Home/Articles/Future of Mobile Banking
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "03462135-1c76-4ff2-a67c-50cbaa443cf1"
+      Hint: FinCategory
+      Value: Personal
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{15990178-11AA-48C4-9D8A-79125A9A39CD}"
+              s:ds="{47609752-379D-495C-9321-8222BCAC5EC8}"
+              s:id="{2E991AA4-4B08-43D2-AD2B-17C11E69A499}"
+              s:par="SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;Reset Caching Options&amp;ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B34147B89-B9E1-4705-9F8D-55529C7C0F2C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-article-content/container-1/container-6">
+              <rls>
+                <ruleset
+                  s:pet="false">
+                  <rule
+                    uid="{7E36454E-A467-4A93-90C4-DA08EA97D4C4}"
+                    s:name="Retail Client">
+                    <conditions>
+                      <condition
+                        uid="051E642F802D4758B04C6A78E28D501E"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Financial Client"
+                        s:PatternName="Retail Client" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="55CEEC4587D548CCAB7C97689536CAF9"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{CF48D23E-DD49-4E4B-937C-AD0D917BDE11}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{8A220C04-CC37-419D-8543-5C688702C82C}"
+                    s:name="Wealth Management">
+                    <conditions>
+                      <condition
+                        uid="4849B5DEC7A245A280A3B8EE4A268B86"
+                        s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                        s:ProfileName="Financial Client"
+                        s:PatternName="Investor" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="7CAC4C1D37A9406893B0860E8B458320"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{2801AF59-8B75-4142-B351-1F19177D0DFA}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="A16DA6ABB6114B5F96C4532AB5DA8EDB"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                    <actions />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+          </d>
+        </r>
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{CE2CA155-74BE-41F9-BC8B-34864295D1CE}" />
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Future of Mobile Banking
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h3>A New Generation</h3>
+        <p>Banking is a rapidly changing industry, and the biggest paradigm shift that has occurred is the move to digital-only banks.</p>
+        <p>Millennials are moving more frequently toward digital banking. And as a result, they're walking into their banks' traditional brick-and-mortar branches less often than ever before.</p>
+        <p>This generation represents the greatest share of the U.S. population at 26% and the employed population at 34%, so it's clear that their behaviors and preferences will have a profound effect on the future of the banking industry, particularly with regard to the way banks interact with their customers.</p>
+        <p>This shift to digital banking has come in many forms. Traditional powers such as Bank of America, JPMorgan Chase, Wells Fargo, and more have released mobile banking apps to let customers manage their accounts from their smartphones. And some startups have taken this approach one step further by creating digital-only banks that completely remove the need for a physical branch.</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5af54f07-c36c-4da8-ad49-23d9a9a909e8"
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: |
+        <p>The future is now. Learn about how banking is changing.</p>
+        <strong></strong>
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Future of Mobile Banking

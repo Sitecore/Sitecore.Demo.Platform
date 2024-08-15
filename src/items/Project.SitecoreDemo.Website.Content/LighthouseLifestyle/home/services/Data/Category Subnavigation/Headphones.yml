@@ -1,0 +1,40 @@
+﻿---
+ID: "192226d6-4206-48f6-9c28-363c06756caf"
+Parent: "ee848959-21a4-49ed-ac89-4aa6ad904595"
+Template: "ddb08f92-1cc2-43e2-b5c1-fe7f98e32ec9"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/services/Data/Category Subnavigation/Headphones
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "12e43282-2b7e-4419-a659-49634c55f90a"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{02A55A46-C9F5-4B80-A042-CCE7CC507048}" />
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{10293B8D-EE06-41A8-B8F6-0A7B22E9488E}" querystring="" target="" text="Home Installation" url="/Demo SXA Sites/LighthouseLifestyle/home/services/home-installation-schedule-request-form" linktype="internal" />
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ヘッドフォン
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4960edb9-1ca2-46fc-8f3c-21c1cf66b071"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{02A55A46-C9F5-4B80-A042-CCE7CC507048}" />
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{10293B8D-EE06-41A8-B8F6-0A7B22E9488E}" querystring="" target="|Custom" text="ホーム インストレーション" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseLifestyle/home/services/home-installation-schedule-request-form" linktype="internal" />

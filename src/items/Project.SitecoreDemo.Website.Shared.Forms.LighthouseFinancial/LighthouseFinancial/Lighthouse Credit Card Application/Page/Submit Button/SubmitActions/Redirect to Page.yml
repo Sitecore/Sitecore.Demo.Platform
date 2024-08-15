@@ -1,0 +1,27 @@
+﻿---
+ID: "12d09562-91f6-496e-afa9-95688bbc76dc"
+Parent: "3adec965-39d7-4fef-955d-9ff1c09408df"
+Template: "05fe45d4-b9c7-40de-b767-7c5abe7119f9"
+Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseFinancial/Lighthouse Credit Card Application/Page/Submit Button/SubmitActions/Redirect to Page
+SharedFields:
+- ID: "5c796924-3f06-4d1f-8510-8ad9a4244477"
+  Hint: Parameters
+  Value: |
+    {"referenceId":"{5F6276DB-F968-4BBC-A307-F3F0FBC69F5D}"}
+- ID: "abc57b6d-5542-4ab9-a889-106225a032e6"
+  Hint: Submit Action
+  Value: "{3F3E2093-9DEA-4199-86CA-44FC69EF624D}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8251a6fa-2e61-4e01-8832-8d99c69869b5"
+      Hint: Description
+      Value: Home
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "df018d7f-c2bb-4248-899a-e36ccd4fcd1a"

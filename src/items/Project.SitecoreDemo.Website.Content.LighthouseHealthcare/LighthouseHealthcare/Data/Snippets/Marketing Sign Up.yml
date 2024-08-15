@@ -1,0 +1,109 @@
+﻿---
+ID: "a7da4d5c-9d2c-4852-869e-301fbedb8b5a"
+Parent: "d3292aa7-ceb1-4105-9af9-6f2eb1758b67"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Data/Snippets/Marketing Sign Up
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{B7AA5409-2968-4533-9990-EBE49CCEE78A}"
+          p:before="*"
+          s:ds=""
+          s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
+          s:par="RenderingIdentifier&amp;DynamicPlaceholderId=1&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;Styles=%7b460B5E75-23EF-430C-94C4-F86DB2DB5EDF%7d"
+          s:ph="/section-content/container-2">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{8F91609B-123E-4936-9950-C843C8026855}"
+                s:name="Form Completed">
+                <conditions>
+                  <condition
+                    uid="BD039D23F02942A3A2039D7FEB3825E6"
+                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
+                    s:GoalId="{ECC7FA00-8B66-47E4-AAD2-5477E6C9D8B7}"
+                    s:NumberOfElapsedDays="35"
+                    s:NumberOfElapsedDaysOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfPastInteractions="1" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="460199F466C44C998F3EC51B3923450C"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="EF3DDA2E2CDD441DA81BF4AAFCE4E33B"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{22CCF0C6-ACB1-424A-B51B-A345A9F0969B}"
+          p:after="r[@uid='{B7AA5409-2968-4533-9990-EBE49CCEE78A}']"
+          s:ds="{7493C92D-DA35-44A7-B8D8-CB3A6BF9D561}"
+          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+          s:par=""
+          s:ph="/section-content/container-2/sitecoreFormsWrapper-1" />
+        <r
+          uid="{B28AA270-E2AE-4D9B-8F97-D37C8A0CCC90}"
+          p:after="*[1=2]"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b92D5AED9-B973-47FF-9C9B-6621CEFCE400%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=2&amp;BackgroundImage&amp;Reset Caching Options"
+          s:ph="section-content" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8d593889-15e3-49e5-a9ca-60c62ba24d91"
+  - Version: 2
+    Fields:
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f2432861-6fd5-4602-b00a-d7e2d93d5358"
+  - Version: 3
+    Fields:
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6086e425-0c64-4494-b302-4e213d37ccdb"
+  - Version: 4
+    Fields:
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cb03e23b-1eca-4240-8bec-fb33dbd1e0d3"

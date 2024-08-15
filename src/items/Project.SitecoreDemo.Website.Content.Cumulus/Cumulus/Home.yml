@@ -1,0 +1,241 @@
+﻿---
+ID: "813ce1d0-61e4-422f-9a3a-657bc47f60ab"
+Parent: "6e5d7315-8780-4e2d-be71-be9942f95377"
+Template: "2c6679f9-65b4-4437-8a4c-be4c790b16e0"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Home
+BranchID: "b90549b5-c997-4d6b-b102-c9ab82528974"
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {BD74A392-DACD-4C23-853A-D520762B33A1}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+- ID: "db51d4e9-c24d-4670-af0e-62c8aa08e2b6"
+  Hint: LocalData
+  Value: "{60B6AD82-81E1-4F34-8E8F-931505483EEF}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        p:after="*[1=2]">
+        <r
+          uid="{096989B8-993F-492E-A96C-2BA0B1E1AC3F}"
+          p:before="*"
+          s:ds="{6E2CBA9C-4930-4357-A47C-5D09058B9D00}"
+          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B28AB9708-03FA-4220-97A9-BC475F45C78E%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=17"
+          s:ph="/main/sxa-content-container/container-28" />
+        <r
+          uid="{18E45936-86AA-470D-B727-DD196403F622}"
+          p:after="r[@uid='{096989B8-993F-492E-A96C-2BA0B1E1AC3F}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Reset Caching Options&amp;GridParameters&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=28"
+          s:ph="/main/sxa-content-container" />
+        <r
+          uid="{145EBAF8-C1BB-42C8-80DF-33889C9AC30C}"
+          p:after="r[@uid='{18E45936-86AA-470D-B727-DD196403F622}']"
+          s:ds="{C39A4BBB-DFE4-40C5-A79C-C0F311FFA358}"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B23A83242-7265-41CB-9595-6D938A333D90%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-content-container/container-28" />
+        <r
+          uid="{571FB746-2DD2-4A55-969A-5706D369F221}"
+          p:after="r[@uid='{145EBAF8-C1BB-42C8-80DF-33889C9AC30C}']"
+          s:ds="{F02C2FF1-792C-44C3-B520-BF9027A97BCD}"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B0DE29451-BF5B-46EF-BA69-77CE70FCBF6E%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=11"
+          s:ph="/main/sxa-content-container/container-28" />
+        <r
+          uid="{8B54A2DF-F800-4978-A9AC-755BD6564493}"
+          p:after="r[@uid='{571FB746-2DD2-4A55-969A-5706D369F221}']"
+          s:ds="{A26D8098-B42D-4628-A119-2283747E3F99}"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7BE25FF98B-5DA9-454A-9046-58AF608ECBCB%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=13"
+          s:ph="/main/sxa-content-container/container-28" />
+        <r
+          uid="{10DBE094-D650-48CA-A812-BD1509EDF2C4}"
+          p:after="r[@uid='{8B54A2DF-F800-4978-A9AC-755BD6564493}']"
+          s:ds="{8483B12F-9C72-4442-9CF1-CD96E1220D9A}"
+          s:id="{5A21C781-8E74-4DD0-8261-8CCDA1BF0454}"
+          s:par="Navigation=%7B848DFE42-2B13-430E-A0B9-89CE25730A06%7D&amp;Transition=%7BD4B706CC-7EEC-4DB9-A87D-123B29803490%7D&amp;Timeout=40000&amp;PauseOnHover=1&amp;Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=27"
+          s:ph="/main/sxa-content-container" />
+        <r
+          uid="{678FD48F-D64D-4DBB-8938-0C8721B857F8}"
+          p:after="*[1=2]"
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Reset Caching Options&amp;GridParameters&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=29"
+          s:ph="" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{92EB9EFB-88D4-4089-82BE-AAD92D4FA24E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{FFE51D2C-C171-4ADD-B36C-DCAF4454729E}"
+              p:before="*"
+              s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
+              s:par="GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=34"
+              s:ph="/main/sxa-content-container/container-33" />
+            <r
+              uid="{096989B8-993F-492E-A96C-2BA0B1E1AC3F}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B292F9A86-3B80-450D-B340-E26F4C717C53%7D&amp;Styles=%7BAFC0C94E-6914-40DB-A12E-37A38C2289B7%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=17"
+              s:pt=""
+              s:uid="{096989B8-993F-492E-A96C-2BA0B1E1AC3F}">
+              <rls>
+                <ruleset
+                  s:pet="false">
+                  <rule
+                    uid="{CC72EA2E-4115-4CC1-82A1-F5455A1B1E32}"
+                    s:name="Looking at Credit Cards">
+                    <conditions>
+                      <condition
+                        uid="E56005ECFA5E46C6B84FB328F5FB7891"
+                        s:id="{BE334DF8-9A0F-4FF3-A6D8-C396EC713809}"
+                        s:PageId="{051A71C2-95B0-4131-B373-E005BFCED460}" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="8CF6CE67B0FD4DA8952123A65B4EE9E9"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{2E2C60CB-D908-4BB3-B8EF-28F5C8EFD2C8}" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="CBFC5E64CC8446108E67E8A8392AE811"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                    <actions />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{18E45936-86AA-470D-B727-DD196403F622}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=28" />
+            <r
+              uid="{678FD48F-D64D-4DBB-8938-0C8721B857F8}"
+              p:after="r[@uid='{18E45936-86AA-470D-B727-DD196403F622}']"
+              s:ds=""
+              s:par="Reset Caching Options&amp;GridParameters&amp;BackgroundImage&amp;Styles=%7BFA592E54-19CA-4BD3-90B0-6AF5838DB2B2%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=29"
+              s:ph="/main/sxa-content-container" />
+            <r
+              uid="{145EBAF8-C1BB-42C8-80DF-33889C9AC30C}"
+              s:ds="{9D8060D6-7A13-421C-8D5F-32621C15E967}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7BAC336034-CCA6-4356-9807-C887495F9360%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+              s:pt=""
+              s:uid="{145EBAF8-C1BB-42C8-80DF-33889C9AC30C}">
+              <rls>
+                <ruleset
+                  s:pet="false">
+                  <rule
+                    uid="{1C57B361-D43F-4C84-BC04-ED1BE1D7EA4A}"
+                    s:name="Specify name...">
+                    <actions>
+                      <action
+                        uid="D8BCC8CE88C941A2B16D84C44F042E4D"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="{E8F1A56F-AF84-4614-A956-CB5159CAA04A}" />
+                    </actions>
+                    <conditions>
+                      <and
+                        uid="E5905B148A044B8B9FB475862E84A455">
+                        <condition
+                          uid="5381ED4D81CF41429A7DB8DDF1B037B4"
+                          s:id="{4D290FF3-1587-4FEE-AB37-88768766A9D9}"
+                          s:GoalId="{E361986C-288B-4F6D-BF4F-CF14CE3C8CB3}" />
+                        <condition
+                          uid="0B30E7E8975E46C08010446E38BC3A62"
+                          s:id="{BE334DF8-9A0F-4FF3-A6D8-C396EC713809}"
+                          s:PageId="{051A71C2-95B0-4131-B373-E005BFCED460}" />
+                      </and>
+                    </conditions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="76CD7806B2D742F3B0CCC7951F846CEA"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                    <actions />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{571FB746-2DD2-4A55-969A-5706D369F221}"
+              s:ds="{B0EEDEE6-24BC-4AFC-8950-B0A23AB95522}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B586AFA32-AE33-420D-9BC7-6D38A12E5C96%7D&amp;Styles=%7B76A409B7-2892-4205-BD88-643D5DA359B5%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=11"
+              s:ph="/main/sxa-content-container/container-29" />
+            <r
+              uid="{8B54A2DF-F800-4978-A9AC-755BD6564493}"
+              s:ds="{4ABC6FA3-AA60-4D35-BEAA-BAC2318AB9C2}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B586AFA32-AE33-420D-9BC7-6D38A12E5C96%7D&amp;Styles=%7B76A409B7-2892-4205-BD88-643D5DA359B5%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=13"
+              s:ph="/main/sxa-content-container/container-29" />
+            <r
+              uid="{10DBE094-D650-48CA-A812-BD1509EDF2C4}">
+              <p:d />
+            </r>
+            <r
+              uid="{155C15AC-0561-4E2E-A93D-5D009C10ED6F}"
+              p:after="r[@uid='{8B54A2DF-F800-4978-A9AC-755BD6564493}']"
+              s:ds="{B5172E77-FF5A-4318-8214-5CA4C67B5508}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames=%7B586AFA32-AE33-420D-9BC7-6D38A12E5C96%7D&amp;Styles=%7B76A409B7-2892-4205-BD88-643D5DA359B5%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=30"
+              s:ph="/main/sxa-content-container/container-29" />
+            <r
+              uid="{B8875FC9-D4EA-4DF0-8FE1-63520418077D}"
+              p:after="r[@uid='{155C15AC-0561-4E2E-A93D-5D009C10ED6F}']"
+              s:ds="{C9785AB0-7EB5-4C20-81FF-CD7020CE4656}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames=%7B586AFA32-AE33-420D-9BC7-6D38A12E5C96%7D&amp;Styles=%7B76A409B7-2892-4205-BD88-643D5DA359B5%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=31"
+              s:ph="/main/sxa-content-container/container-29" />
+            <r
+              uid="{FD0D3363-4EC8-49B6-89D4-9A864496C198}"
+              p:after="r[@uid='{B8875FC9-D4EA-4DF0-8FE1-63520418077D}']"
+              s:ds="{FC78D357-61C6-40EA-B5A1-16FD4722D93E}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames=%7B586AFA32-AE33-420D-9BC7-6D38A12E5C96%7D&amp;Styles=%7B76A409B7-2892-4205-BD88-643D5DA359B5%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=32"
+              s:ph="/main/sxa-content-container/container-29" />
+            <r
+              uid="{596EC05F-419B-4AC6-B36A-F0C3DE6627C3}"
+              p:after="*[1=2]"
+              s:ds=""
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="Reset Caching Options&amp;GridParameters&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=33"
+              s:ph="/main/sxa-content-container" />
+          </d>
+        </r>
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Cumulus
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Cumulus
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c045a3b2-b090-4e6e-98a7-3996ab00f3e5"
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Cumulus

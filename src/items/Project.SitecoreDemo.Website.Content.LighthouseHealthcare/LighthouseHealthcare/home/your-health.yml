@@ -1,0 +1,1390 @@
+﻿---
+ID: "a63b941d-6d80-489a-ba43-2dd3e2cea103"
+Parent: "174cdf1f-414f-4e60-841b-301bb2c5de40"
+Template: "69dd5f28-429f-46b6-b55c-9da3500a7369"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseHealthcare/home/your-health"
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {E3B950BB-1B55-4CDD-819F-031B3BE1A66C}
+    {C14B6289-8AC2-439C-9E5B-40DE9F820C3F}
+- ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
+  Hint: SxaTags
+  Value: "{E244C518-B06E-48F0-860F-C73546FAEB32}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 150
+- ID: "db51d4e9-c24d-4670-af0e-62c8aa08e2b6"
+  Hint: LocalData
+  Value: "{060C6CDE-1AF9-48E4-A2E7-1AF1BE618EF1}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{05B7145C-3B80-48C3-BADB-D5078F12E1AE}"
+          p:before="*"
+          s:ds=""
+          s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
+          s:pt="{CC6AFB19-C1FD-4F43-BA5A-3246B030EE39}"
+          s:par="RenderingIdentifier&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;DynamicPlaceholderId=12&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;Styles=%7b460B5E75-23EF-430C-94C4-F86DB2DB5EDF%7d"
+          s:ph="/main/sxa-content-container/container-1/container-21">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="FBE9E5C3D32248FBA0FB2809BA27582B"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{79236A15-7C25-4CF2-ACE2-FE6869DEEEDB}"
+          p:after="r[@uid='{05B7145C-3B80-48C3-BADB-D5078F12E1AE}']"
+          s:ds=""
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b6C6DCD16-6835-4C2B-BC30-B19AF38AAB21%7d&amp;DynamicPlaceholderId=20&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1/container-19" />
+        <r
+          uid="{4E745665-EE15-4652-8CF0-6EEFCA029C08}"
+          p:after="r[@uid='{79236A15-7C25-4CF2-ACE2-FE6869DEEEDB}']"
+          s:ds="{2C290562-9A28-4FF5-AF78-907C74D83D8E}"
+          s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+          s:par=""
+          s:ph="/main/sxa-content-container/container-1/container-21/sitecoreFormsWrapper-12" />
+        <r
+          uid="{CE607538-624F-43DE-A3B5-635D2151A804}"
+          p:after="r[@uid='{4E745665-EE15-4652-8CF0-6EEFCA029C08}']"
+          s:ds="local:/Data/Hero"
+          s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+          s:pt="{CC6AFB19-C1FD-4F43-BA5A-3246B030EE39}"
+          s:par="RenderingIdentifier&amp;Styles&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7bC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7d&amp;DynamicPlaceholderId=1&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{03544570-8F36-4BB4-B123-28B16D6F5756}"
+                s:name="Hero - Foodie"
+                s:test="true">
+                <actions>
+                  <action
+                    uid="08FA9178B9304AE99D2726B45DACF8E2"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Hero - Foodie" />
+                </actions>
+                <conditions>
+                  <or
+                    uid="D1921C800DD44A3C86A2C71EBA3A554C">
+                    <or
+                      uid="A95134F4BEC04D8FBBB406B9D5A17E3C">
+                      <condition
+                        uid="2CBF0CAD966C4277ADDF06774133C7EA"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
+                      <condition
+                        uid="5AA863DD6A24468AA739F2D28DC4E6F2"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="958B66119F5546E9ABD106C3DCFC5D5A"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{A66C87F0-C704-46D5-A649-B7972794D6F6}"
+                s:name="Hero - Fitness"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="71FD775567344D52B638FFEF8FDCD412">
+                    <or
+                      uid="AE7DB6342EE843898ABC8E1052E7AB88">
+                      <condition
+                        uid="9B9CD6AE929D4C33A999E93E10AC073F"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}" />
+                      <condition
+                        uid="8B0B3AD5FF784AF0B3904705A0E8C956"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{38D5EEFC-52CB-4DD8-8B4A-75F0CA461E9E}" />
+                    </or>
+                    <condition
+                      uid="1A7978D6B77C4ACC86EBE2C8B9775452"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Fitness Fanatic" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="CC2A5699C04242F3BDBEB6D1DABF817A"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Hero - Fitness" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="BE9D6973B8CB4F6EABCACFC4C9FD9716"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{807D306C-5F71-40F4-9F38-AC9D1B521239}"
+          p:after="r[@uid='{CE607538-624F-43DE-A3B5-635D2151A804}']"
+          s:ds="local:/Data/Promo - Smart Health"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:pt="{CC6AFB19-C1FD-4F43-BA5A-3246B030EE39}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7d&amp;DynamicPlaceholderId=3&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{4C8EEAEA-0245-4508-8C3E-8396AF93E401}"
+                s:name="Social - Foodie"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="7B77B0CF50B149AD83D38D8852EC08C7">
+                    <or
+                      uid="167A796482254B73865661ACF71F864E">
+                      <condition
+                        uid="99AB5D046A43498185EFBF35AA642B01"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
+                      <condition
+                        uid="3E8163A31DE94ADF9F2159EE80F47CA9"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="943549CEC96D4886B76E8142C3757962"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="3DAA3161CF5D4DD4B87377872538FFF3"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo - Social Foodie" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="485941D428004CB5A419455B4F9618C1"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{569FC41D-EB71-4854-88E5-C245C0C2281A}"
+          p:after="r[@uid='{807D306C-5F71-40F4-9F38-AC9D1B521239}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b92D5AED9-B973-47FF-9C9B-6621CEFCE400%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=21&amp;BackgroundImage&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{1AE5EB16-C842-40BF-95F1-BABA0C907695}"
+                s:name="HIDE Foodie Feast Sign Up ">
+                <actions>
+                  <action
+                    uid="B646621259234A3B9C96A4B1378A8E6A"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+                <conditions>
+                  <condition
+                    uid="90CEBA1EF6254AD2AC5B7BF9E96438A6"
+                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
+                    s:GoalId="{2A2EBECC-D066-4FBC-8701-BBA74AAC9F2E}"
+                    s:NumberOfElapsedDaysOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfElapsedDays="1"
+                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfPastInteractions="1" />
+                </conditions>
+              </rule>
+              <rule
+                uid="{F45BFAB5-B562-4E02-AF2D-19CD359735D5}"
+                s:name="SHOW Foodie Feast Form">
+                <conditions>
+                  <or
+                    uid="9B78A83EF83B448DA1F1517E1E9B584F">
+                    <or
+                      uid="006C3D6A763E4C1DA649F77B57F3968E">
+                      <condition
+                        uid="23862EBFBFD64C4E9CD8C4DE3159FCB3"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
+                      <condition
+                        uid="7114B8B4B9F745FAB95F3E9A2A439020"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="8CD8E592864E48AB9BC0B15FFAEAF63B"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="BDA6D82B18E9462883CA2B6387EEE367"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="5F0742CCCA7B413186DDEFD9B88D5612"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{5B548513-9243-4460-93B2-B58566281362}"
+          p:after="r[@uid='{569FC41D-EB71-4854-88E5-C245C0C2281A}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=19&amp;BackgroundImage=%3cimage+mediaid%3d%22%7b2F919521-63A6-40AA-99EA-6C2B4489DFBD%7d%22+%3e%3b&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{141C9951-BA8C-4C86-ACBB-D71CCE926956}"
+                s:name="Show when Foodie Feast Complete">
+                <conditions>
+                  <condition
+                    uid="36B84E3A82DB43D4BC66E3F61679A02D"
+                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
+                    s:GoalId="{2A2EBECC-D066-4FBC-8701-BBA74AAC9F2E}"
+                    s:NumberOfElapsedDaysOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfElapsedDays="1"
+                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfPastInteractions="1" />
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="10DB598999B845628B9DA2887D6FC759"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="658C82732E31422E87F7795F9F95B04A"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{B950B0FF-8581-45FB-BC08-0CA25414C611}"
+          p:after="r[@uid='{5B548513-9243-4460-93B2-B58566281362}']"
+          s:ds=""
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:pt="{CC6AFB19-C1FD-4F43-BA5A-3246B030EE39}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7bF8C8F184-053D-4947-840B-A96495DB434C%7d&amp;DynamicPlaceholderId=4&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{0EDA3A3E-26A0-4027-8C5A-538E305F8B05}"
+                s:name="Search - Fitness"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="6B9EB0B0026F4453A23BC790DACD0396">
+                    <or
+                      uid="48FD08C51E6A4C9F84DDF4AE28444548">
+                      <condition
+                        uid="6354D33527E64D0A8DB7DD28E8995F27"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}" />
+                      <condition
+                        uid="8B6FD857EAE044C39345C90C049C7E5A"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{38D5EEFC-52CB-4DD8-8B4A-75F0CA461E9E}" />
+                    </or>
+                    <condition
+                      uid="89F07640C1444FDE9F6D3DF419B70640"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Fitness Fanatic" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="FB084133CDF84E59AFC0866B842EC766"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo - Fitness Equipment" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="18557BC7778E4B58A0CA38F58981A804"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{B27113BF-612F-4507-99D4-059C68D7848B}"
+          p:after="r[@uid='{B950B0FF-8581-45FB-BC08-0CA25414C611}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:pt="{CC6AFB19-C1FD-4F43-BA5A-3246B030EE39}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=14&amp;BackgroundImage&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{5C1BD1A9-6FAE-44F2-8680-1D52346DCDF0}"
+                s:name="Show For Foodie"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="6075B03859774EF3AB8DE2A342AC2F37">
+                    <or
+                      uid="35FB9F5A489F44C083808B32EE9EC25E">
+                      <condition
+                        uid="CA58A0A77E574D94B76FFBFC91CC4574"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}" />
+                      <condition
+                        uid="ACD177A2E84B4378BF61DD9F66FE66A7"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="34D630D768884F8C9C107977543A5E40"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="99C2D46BC4F2410985A0D265E4B72D7A"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="672DA44C93F84BF6B992E9FC1E01B82B"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{47413929-4892-48C8-AAD7-29472C6BB44F}"
+          p:after="r[@uid='{B27113BF-612F-4507-99D4-059C68D7848B}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=18&amp;BackgroundImage&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{460866CF-97A1-43D0-B55D-76097403A666}"
+                s:name="Show For Fitness">
+                <conditions>
+                  <condition
+                    uid="EE5B9F5A991E4FCAB1D1BA2D4C180A86"
+                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
+                    s:GoalId="{A39866FF-6B67-49A1-9D42-34890ABB4815}"
+                    s:NumberOfElapsedDaysOperatorId="{2E1FC840-5919-4C66-8182-A33A1039EDBF}"
+                    s:NumberOfElapsedDays="365"
+                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfPastInteractions="1" />
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="55D343F0D01A4AB3961E0869D46C6E85"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="89FB0149A6964ABC86BBA538F46A0903"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{8E2E788A-E650-444F-9A84-FA47DC476BE8}"
+          p:after="r[@uid='{47413929-4892-48C8-AAD7-29472C6BB44F}']"
+          s:ds=""
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:pt="{CC6AFB19-C1FD-4F43-BA5A-3246B030EE39}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b184DC7A4-FDBB-446F-94BE-30B44B12C2AD%7d&amp;DynamicPlaceholderId=5&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{E16AB914-A2F8-4892-868D-5982976BAE01}"
+                s:name="Social - Foodie"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="F700A682BFC8420EB3C502E97D06727E">
+                    <or
+                      uid="B007E85BC66E4B0C834C4163A0C7DEDF">
+                      <condition
+                        uid="581FB4DCB7CA4782923D3E40C01ED2AE"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="BB8E9F1027984A68A644C10E30CE4CA9"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="A5E94C4C25524E5190E60BE89ED76309"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="C52F74D466A242EF9AE07E289E80D430"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo - Social Foodie Cooking" />
+                </actions>
+              </rule>
+              <rule
+                uid="{EE782199-BE9E-485E-936A-0C72FAFF0E06}"
+                s:name="Search - Fitness"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="9631C25E21224196A3D77C38797B0D8D">
+                    <or
+                      uid="BA09A13FEDF940FBB83A6DD44D07EBF5">
+                      <condition
+                        uid="E2FD870A7AA64291B176B86BECA88A6A"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="8F4039E0061449E681A333F3E915CE52"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{38D5EEFC-52CB-4DD8-8B4A-75F0CA461E9E}" />
+                    </or>
+                    <condition
+                      uid="1A088566A41747AF8F7620D706E046F6"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Fitness Fanatic" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="61B82BF30EC54E40B3DF2CEEAA12650C"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo - Smart Home Gym" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="A32A7BC9D0DC4A069723EE14B33CE9B3"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{A540AD71-F883-4E13-966F-B407058520E7}"
+          p:after="r[@uid='{8E2E788A-E650-444F-9A84-FA47DC476BE8}']"
+          s:ds="local:/Data/Promo - New Trainer"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7bF8C8F184-053D-4947-840B-A96495DB434C%7d&amp;DynamicPlaceholderId=13&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{5229C084-DD26-456A-AE67-2810D67CE6D6}"
+                s:name="Search - Fitness">
+                <conditions>
+                  <condition
+                    uid="19651F7D18B14527870A53BB1276AD4A"
+                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
+                    s:GoalId="{A39866FF-6B67-49A1-9D42-34890ABB4815}"
+                    s:NumberOfElapsedDaysOperatorId="{2E1FC840-5919-4C66-8182-A33A1039EDBF}"
+                    s:NumberOfElapsedDays="365"
+                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfPastInteractions="1" />
+                </conditions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="54D470DD1F17428BB16B84CF0DC6447E"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="CBEE8CFF8F4F45EA90A2C1C47C6B0F69"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{7317C239-24E6-498C-BB50-DBA7187E7FB0}"
+          p:after="r[@uid='{A540AD71-F883-4E13-966F-B407058520E7}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:pt="{CC6AFB19-C1FD-4F43-BA5A-3246B030EE39}"
+          s:par="RenderingIdentifier&amp;Styles=%7b37959667-EE0C-4E0F-8A37-5687BB143510%7d&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;DynamicPlaceholderId=11&amp;BackgroundImage&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{1ADE00C6-EFDD-45F5-80A7-3D455ED74130}"
+                s:name="Trainer Finder completed"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="9088C210D5914DDF8C88AA811134068B"
+                    s:id="{C1DA0D65-C9C7-4526-91BB-E0390A7D3833}"
+                    s:GoalId="{A39866FF-6B67-49A1-9D42-34890ABB4815}"
+                    s:NumberOfElapsedDaysOperatorId="{2E1FC840-5919-4C66-8182-A33A1039EDBF}"
+                    s:NumberOfElapsedDays="365"
+                    s:NumberOfPastInteractionsOperatorId="{814EF7D0-1639-44FD-AEEF-735B5AC14425}"
+                    s:NumberOfPastInteractions="1" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="F9380264BD134C8FACE57B20844D9665"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{716F1D32-8255-4232-A428-B88A417CBD82}"
+                s:name="HIDE for Foodie"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="763F72C9AE5D446880C204CFF59B959C">
+                    <or
+                      uid="16A35CA0E57D4DAC9133E950BF9B74D5">
+                      <condition
+                        uid="D2829BAEDF2C4FD797FC7FE099DB1F28"
+                        s:id="{0290AA90-B948-4C8C-B576-F3C17F9DE389}"
+                        s:CampaignsList="{86F4B51D-01D8-4372-889A-2DEAC430E01D}" />
+                      <condition
+                        uid="8FEE9AAE81764ABCBA461D3DAEF1F399"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="69B7F1AE08AC4CB283FB1CBCC2E4C404"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="547DE5D9EFA24B80A420D3FDDDE2A532"
+                    s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="0511968CDD4748D1BB707BAD5D0B19EA"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{EFA2EB26-5BCA-4D7F-A607-805347DFE054}"
+          p:after="r[@uid='{7317C239-24E6-498C-BB50-DBA7187E7FB0}']"
+          s:ds="local:/Data/Promo - Trainer"
+          s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          s:pt="{CC6AFB19-C1FD-4F43-BA5A-3246B030EE39}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters&amp;FieldNames=%7b3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7d&amp;DynamicPlaceholderId=6&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1/container-11">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{016C10C2-2313-4922-8500-C5DC90DABEF9}"
+                s:name="Social - Foodie"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="5F89E7E7A6CC47FCB602F5FA4414B662">
+                    <or
+                      uid="08B0E73ECF1443A7BB588BABEDC6748B">
+                      <condition
+                        uid="CAD1A53A7A39444091BD1A110D3C9560"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="493F88D6708D4D22BE7D6BF0E46E9946"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="C1B4DA2F427C4BE48AFDA2B8DCD15AA2"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="DBF6EBAF617E47889B49CCEA2A77D728"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="local:/Data/Promo - Social Foodie Cooking" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="6218ED03346545888C2380070D342D7E"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{133BCAF3-C1E2-4728-B435-2866E3456D27}"
+          p:after="r[@uid='{EFA2EB26-5BCA-4D7F-A607-805347DFE054}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="RenderingIdentifier&amp;Styles=%7bB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7d%7c%7b9CB76B6C-2B77-4728-8508-CF7041C7B69C%7d&amp;GridParameters=%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d&amp;DynamicPlaceholderId=7&amp;BackgroundImage&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{326CFC73-5A94-4202-AE7D-BF7396761FFC}"
+          p:after="r[@uid='{133BCAF3-C1E2-4728-B435-2866E3456D27}']"
+          s:ds=""
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="DynamicPlaceholderId=8&amp;ColumnWidth6&amp;Styles4&amp;Caching=0%7c0%7c0%7c0%7c0%7c0%7c0%7c0&amp;ColumnWidth3&amp;Reset Caching Options&amp;Styles7&amp;ColumnWidth1=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d%7c%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d%7c%7b2040C827-8640-4E61-907E-D3D5A25696C3%7d%7c%7bF58A39D5-1B62-4A8A-95AD-65B3878BB873%7d&amp;ColumnWidth4&amp;Styles3&amp;EnabledPlaceholders=1%2c2&amp;Styles1&amp;ColumnWidth8&amp;Styles2&amp;ColumnWidth7&amp;Styles6&amp;Styles5&amp;ColumnWidth2=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d%7c%7bF2FCE948-4F77-44AF-A188-B2030061F793%7d%7c%7b2040C827-8640-4E61-907E-D3D5A25696C3%7d%7c%7bF58A39D5-1B62-4A8A-95AD-65B3878BB873%7d&amp;Styles8&amp;ColumnWidth5"
+          s:ph="/main/sxa-content-container/container-1/container-7" />
+        <r
+          uid="{6193009E-B1D0-4708-AEEF-334B46A9C08A}"
+          p:after="r[@uid='{326CFC73-5A94-4202-AE7D-BF7396761FFC}']"
+          s:ds="{6953D3F8-C14A-4DF1-9AF3-554FBCCFD60F}"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:pt="{CC6AFB19-C1FD-4F43-BA5A-3246B030EE39}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b27992E19-7C79-40E3-B861-85CA324956C9%7d&amp;DynamicPlaceholderId=9&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1/container-7/column-1-8">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{46C0CCBD-3A4A-48A5-BEB4-2E9F6163D997}"
+                s:name="Foodie"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="E6FE772AAE5C403C88CF95AA72CE563A">
+                    <or
+                      uid="241C397BA3404CA4AA6DDA64E493DE85">
+                      <condition
+                        uid="CF9230EB171441368AB40D6F2FA9ACFA"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="02A5ACBF76FE4483BAA52FC9CF2DA008"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="AB254D27878E44AD91EE8372168E8BCA"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="4810B216221E4B4B92D19E9C9B7B9E04"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{C04A12CB-9A97-4158-9840-32DF11B216CE}"
+                s:name="Search - Fitness"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="F9EBBFF892944E43BD826E9C87F3FBEA">
+                    <or
+                      uid="74CFF0A30B8C4B2A9C854ECB1A2C8E49">
+                      <condition
+                        uid="DE4784808EBE4F8E81960F3093D4377E"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="ECCBCA4FBF7F41B5A71E7731D7944394"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{38D5EEFC-52CB-4DD8-8B4A-75F0CA461E9E}" />
+                    </or>
+                    <condition
+                      uid="5FC2BC7309A04E9384489386B3905972"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Fitness Fanatic" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="4C5CAA258A584F8C979D85B44D19522C"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{9C154DB2-08C6-4C3F-BD3E-D04D47769394}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="9415C6774C09428E8B0C7BE12984C7A5"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="FBD369AC65194FE6BDB86FC7A415C6B2"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{CEE6768D-88B1-42CA-8AB6-AD0739FC2719}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{D4A90CC7-42BD-45A5-B34D-7B5D62273264}"
+          p:after="*[1=2]"
+          s:ds=""
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:pt="{CC6AFB19-C1FD-4F43-BA5A-3246B030EE39}"
+          s:par="RenderingIdentifier&amp;Styles&amp;GridParameters=%7b113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7d&amp;FieldNames=%7b27992E19-7C79-40E3-B861-85CA324956C9%7d&amp;DynamicPlaceholderId=10&amp;Reset Caching Options"
+          s:ph="/main/sxa-content-container/container-1/container-7/column-2-8">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{26848BAD-958F-4798-9970-DC6994B9A5FD}"
+                s:name="Foodie"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="8A0A55944A0A4F38B93CDB28AA9DB539">
+                    <or
+                      uid="CA54E2648B5447F881F8AC92AD497FC9">
+                      <condition
+                        uid="1E0DC91F725D4701A414E12828F21AF2"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{67BA62FE-7F1A-4BA1-B244-79160A0893C4}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="15B835ADAFA54D9F8E7D83285D30AA63"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{88351AC0-6650-4356-8B0E-3E0857C5644E}" />
+                    </or>
+                    <condition
+                      uid="6C50E1AF8C3342B699CF047CC2330BA6"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Foodie" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="B5667322A4BA4A62AAE8D7F8B3E1C0D1"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{6953D3F8-C14A-4DF1-9AF3-554FBCCFD60F}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{27C95C68-7E46-43B6-999A-EDFF4844B6A4}"
+                s:name="Search - Fitness"
+                s:test="true">
+                <conditions>
+                  <or
+                    uid="870C5393F5B845F4B543CED80DC397ED">
+                    <or
+                      uid="492B4D09A6C5424997110F0EEB199D56">
+                      <condition
+                        uid="5E3D6C3F2036420F989EABD6947E3753"
+                        s:id="{A0CDF81A-7727-4418-B331-E1AEC80EFAB0}"
+                        s:ExpectedAncestorTaxonId="{AE285F4B-3E9D-4DBC-968C-364EF5854205}"
+                        s:CustomFieldId="{336BA862-E974-4CD6-BE4D-4BFDD78994E1}" />
+                      <condition
+                        uid="D925316C93F24FE198C2070FD5E770AC"
+                        s:id="{08A70C4F-93B5-409E-9967-3892AAEB3BC2}"
+                        s:PatternList="{38D5EEFC-52CB-4DD8-8B4A-75F0CA461E9E}" />
+                    </or>
+                    <condition
+                      uid="68D134A9BAA841F29C9A0527D5A61700"
+                      s:id="{E00DB4F0-B206-4544-AD90-25D201CFB62C}"
+                      s:ProfileName="Health Focus"
+                      s:PatternName="Fitness Fanatic" />
+                  </or>
+                </conditions>
+                <actions>
+                  <action
+                    uid="99EE4E298E734E879D8B6513FB9D64D9"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{0667F348-6DE0-4C89-8183-086C2574D485}" />
+                </actions>
+              </rule>
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="8F31653761AE47A9809F5EE30816005B"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions>
+                  <action
+                    uid="5078B714B3ED4E628186FAA5A11F0258"
+                    s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                    s:DataSource="{C88C10CE-B6CC-46E9-B68C-E7978104D2DD}" />
+                </actions>
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Your Health
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Your Health
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: 
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Your Health
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment.
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: fitness, cardio, subscription, wearable
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Your Health
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f79e55cf-1a31-4825-a589-f23536cf80af"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: 
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Your Health
+  - Version: 2
+    Fields:
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Your Health
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: 
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Your Health
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment.
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: fitness, cardio, subscription, wearable
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Your Health
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b1f678f4-af8e-48c9-b4b5-240ca281235d"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: 
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Your Health
+  - Version: 3
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{4E745665-EE15-4652-8CF0-6EEFCA029C08}">
+              <p:d />
+            </r>
+            <r
+              uid="{CE607538-624F-43DE-A3B5-635D2151A804}">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{03544570-8F36-4BB4-B123-28B16D6F5756}">
+                    <actions>
+                      <action
+                        uid="08FA9178B9304AE99D2726B45DACF8E2"
+                        s:DataSource="local:/Data/Hero - Fitness - Cycling - Outdoors" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="34C5DACB84444837B6F13360DB410671"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Hero" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{807D306C-5F71-40F4-9F38-AC9D1B521239}">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="1AAABA04162F41D0BBA0CE0723B0EF04"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Promo - Smart Health" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{569FC41D-EB71-4854-88E5-C245C0C2281A}">
+              <p:d />
+            </r>
+            <r
+              uid="{5B548513-9243-4460-93B2-B58566281362}">
+              <p:d />
+            </r>
+            <r
+              uid="{B950B0FF-8581-45FB-BC08-0CA25414C611}"
+              s:ds="local:/Data/Promo - Healthy Brain Function"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BF8C8F184-053D-4947-840B-A96495DB434C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{0EDA3A3E-26A0-4027-8C5A-538E305F8B05}">
+                    <actions>
+                      <action
+                        uid="FB084133CDF84E59AFC0866B842EC766"
+                        s:DataSource="local:/Data/Promo - Smart Home Gym" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="BC2CAF5B98284EA29EF5628E85939C18"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Promo - Healthy Brain Function" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{B27113BF-612F-4507-99D4-059C68D7848B}">
+              <p:d />
+            </r>
+            <r
+              uid="{EFA2EB26-5BCA-4D7F-A607-805347DFE054}"
+              p:after="r[@uid='{B950B0FF-8581-45FB-BC08-0CA25414C611}']"
+              s:par="Reset Caching Options&amp;GridParameters&amp;FieldNames=%7B3CE8F6E1-8BDC-445A-8472-D5952EE65E03%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="0DE06349AC734167B324063932E06015"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Promo - Trainer" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{47413929-4892-48C8-AAD7-29472C6BB44F}">
+              <p:d />
+            </r>
+            <r
+              uid="{8E2E788A-E650-444F-9A84-FA47DC476BE8}">
+              <p:d />
+            </r>
+            <r
+              uid="{A540AD71-F883-4E13-966F-B407058520E7}">
+              <p:d />
+            </r>
+            <r
+              uid="{7317C239-24E6-498C-BB50-DBA7187E7FB0}">
+              <p:d />
+            </r>
+            <r
+              uid="{133BCAF3-C1E2-4728-B435-2866E3456D27}">
+              <p:d />
+            </r>
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Your Health
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: 
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Your Health
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment.
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: fitness, cardio, subscription, wearable
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Your Health
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9fc0813b-14d9-4a53-899e-734bb10837a2"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{4BB603D1-035B-4B0E-9597-7137BF7730DE}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Your Health
+  - Version: 4
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{05B7145C-3B80-48C3-BADB-D5078F12E1AE}"
+              s:par="RenderingIdentifier=&amp;Caching=0|0|0|0|0|0|0|0&amp;DynamicPlaceholderId=12&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;Styles={460B5E75-23EF-430C-94C4-F86DB2DB5EDF}">
+              <p:da
+                name="ds" />
+            </r>
+            <r
+              uid="{79236A15-7C25-4CF2-ACE2-FE6869DEEEDB}"
+              s:par="RenderingIdentifier=&amp;Styles=&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={6C6DCD16-6835-4C2B-BC30-B19AF38AAB21}&amp;DynamicPlaceholderId=20&amp;Reset Caching Options=">
+              <p:da
+                name="ds" />
+            </r>
+            <r
+              uid="{4E745665-EE15-4652-8CF0-6EEFCA029C08}">
+              <p:d />
+            </r>
+            <r
+              uid="{CE607538-624F-43DE-A3B5-635D2151A804}"
+              s:par="RenderingIdentifier=&amp;Styles=&amp;Caching=0|0|0|0|0|0|0|0&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={C7A7E725-BC84-45AE-AD50-0659F9AB7F98}&amp;DynamicPlaceholderId=1&amp;Reset Caching Options=">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{03544570-8F36-4BB4-B123-28B16D6F5756}">
+                    <actions>
+                      <action
+                        uid="08FA9178B9304AE99D2726B45DACF8E2"
+                        s:DataSource="local:/Data/Hero - Fitness - Cycling - Outdoors" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="34C5DACB84444837B6F13360DB410671"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Hero" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{807D306C-5F71-40F4-9F38-AC9D1B521239}">
+              <p:d />
+            </r>
+            <r
+              uid="{569FC41D-EB71-4854-88E5-C245C0C2281A}">
+              <p:d />
+            </r>
+            <r
+              uid="{5B548513-9243-4460-93B2-B58566281362}">
+              <p:d />
+            </r>
+            <r
+              uid="{B950B0FF-8581-45FB-BC08-0CA25414C611}"
+              s:ds="local:/Data/Promo - Healthy Brain Function"
+              s:par="Reset Caching Options=&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={F8C8F184-053D-4947-840B-A96495DB434C}&amp;Styles=&amp;RenderingIdentifier=&amp;DynamicPlaceholderId=4">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{0EDA3A3E-26A0-4027-8C5A-538E305F8B05}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="BC2CAF5B98284EA29EF5628E85939C18"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Promo - Healthy Brain Function" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{B27113BF-612F-4507-99D4-059C68D7848B}">
+              <p:d />
+            </r>
+            <r
+              uid="{EFA2EB26-5BCA-4D7F-A607-805347DFE054}"
+              p:after="r[@uid='{B950B0FF-8581-45FB-BC08-0CA25414C611}']"
+              s:par="Reset Caching Options=&amp;GridParameters=&amp;FieldNames={3CE8F6E1-8BDC-445A-8472-D5952EE65E03}&amp;Styles=&amp;RenderingIdentifier=&amp;DynamicPlaceholderId=6">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}">
+                    <actions>
+                      <action
+                        uid="0DE06349AC734167B324063932E06015"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="local:/Data/Promo - Trainer" />
+                    </actions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{47413929-4892-48C8-AAD7-29472C6BB44F}">
+              <p:d />
+            </r>
+            <r
+              uid="{8E2E788A-E650-444F-9A84-FA47DC476BE8}">
+              <p:d />
+            </r>
+            <r
+              uid="{A540AD71-F883-4E13-966F-B407058520E7}">
+              <p:d />
+            </r>
+            <r
+              uid="{7317C239-24E6-498C-BB50-DBA7187E7FB0}">
+              <p:d />
+            </r>
+            <r
+              uid="{133BCAF3-C1E2-4728-B435-2866E3456D27}">
+              <p:d />
+            </r>
+            <r
+              uid="{326CFC73-5A94-4202-AE7D-BF7396761FFC}"
+              s:par="DynamicPlaceholderId=8&amp;ColumnWidth6=&amp;Styles4=&amp;Caching=0|0|0|0|0|0|0|0&amp;ColumnWidth3=&amp;Reset Caching Options=&amp;Styles7=&amp;ColumnWidth1={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{F2FCE948-4F77-44AF-A188-B2030061F793}|{2040C827-8640-4E61-907E-D3D5A25696C3}|{F58A39D5-1B62-4A8A-95AD-65B3878BB873}&amp;ColumnWidth4=&amp;Styles3=&amp;EnabledPlaceholders=1,2&amp;Styles1=&amp;ColumnWidth8=&amp;Styles2=&amp;ColumnWidth7=&amp;Styles6=&amp;Styles5=&amp;ColumnWidth2={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}|{F2FCE948-4F77-44AF-A188-B2030061F793}|{2040C827-8640-4E61-907E-D3D5A25696C3}|{F58A39D5-1B62-4A8A-95AD-65B3878BB873}&amp;Styles8=&amp;ColumnWidth5=">
+              <p:da
+                name="ds" />
+            </r>
+            <r
+              uid="{6193009E-B1D0-4708-AEEF-334B46A9C08A}"
+              s:par="RenderingIdentifier=&amp;Styles=&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={27992E19-7C79-40E3-B861-85CA324956C9}&amp;DynamicPlaceholderId=9&amp;Reset Caching Options=" />
+            <r
+              uid="{D4A90CC7-42BD-45A5-B34D-7B5D62273264}"
+              s:par="RenderingIdentifier=&amp;Styles=&amp;GridParameters={113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2}&amp;FieldNames={27992E19-7C79-40E3-B861-85CA324956C9}&amp;DynamicPlaceholderId=10&amp;Reset Caching Options=">
+              <p:da
+                name="ds" />
+            </r>
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "48a66e40-d164-4c8e-bc06-172ecc6769ec"
+      Hint: TwitterTitle
+      Value: Your Health
+    - ID: "4c2f221f-9426-45ed-9eeb-c79bb3169565"
+      Hint: StickyNotes
+      Value: 
+    - ID: "4d263b95-322f-4003-adbd-70920facf823"
+      Hint: TwitterDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Your Health
+    - ID: "528986cc-6ff9-4383-8bee-514f0e8172cf"
+      Hint: MetaDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment.
+    - ID: "5e650555-c7f0-456a-8185-f69388169cbc"
+      Hint: MetaKeywords
+      Value: fitness, cardio, subscription, wearable
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Meet your fitness goals faster and realize the incredible advantages to a healthy home environment.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Your Health
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6729977a-a302-4ff7-9f9b-12bd32e1edab"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{4BB603D1-035B-4B0E-9597-7137BF7730DE}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Your Health

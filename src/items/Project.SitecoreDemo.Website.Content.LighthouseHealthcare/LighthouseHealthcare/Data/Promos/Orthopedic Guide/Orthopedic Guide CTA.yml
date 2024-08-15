@@ -1,0 +1,62 @@
+﻿---
+ID: "beaaaab1-a181-4a57-be8f-0b98b128474d"
+Parent: "e7ba310b-1eb5-40f8-9b65-074f520ee8cf"
+Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Data/Promos/Orthopedic Guide/Orthopedic Guide CTA
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: |
+        <h2 class="section-heading underline-title" style="margin-top: -5px; font-weight: 800; font-family: SharpSans, Arial, sans-serif; color: #008fbe; font-size: 36px;  font-style: normal;">Knee replacement surgery guide</h2>
+        <div id="fpCE_version" style="display:none;">8.6.1</div>
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image stylelabs-content-type="Image" mediaid="" src="https://healthcarelighthouse341.stylelabs.io/api/public/content/5ebc28c003364202a928040d95639fd1?v=4f6af2fe" height="378" alt="senior-female-smiling-cane_500.jpg" stylelabs-content-id="36765" width="436" thumbnailsrc="https://healthcarelighthouse341.stylelabs.io/api/gateway/36765/thumbnail" />
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "98e518fb-4034-45c6-a43f-0ea09cb3029c"
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: |
+        <span style="color: rgb(62, 62, 62); font-family: SharpSans, Arial, sans-serif; font-size: 16px; font-style: normal; font-weight: 600; background-color: rgb(247, 247, 247);">Depending on the type of procedure, a patient could experience side effects from anesthesia. Some of the most common effects could include dizziness, vomiting, drowsiness and a sore throat.</span>
+    - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
+      Hint: PromoLink
+      Value: |
+        <link linktype="external" text="Read Guide" url="" anchor="" target="" />
+  - Version: 2
+    Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: |
+        <h2 class="section-heading underline-title" style="margin-top: -5px; font-weight: 800; font-family: SharpSans, Arial, sans-serif; color: #008fbe; font-size: 36px;  font-style: normal;">Knee replacement surgery guide</h2>
+        <div id="fpCE_version" style="display:none;">8.6.1</div>
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{DE407E2A-ED6B-4000-9B2C-76B2F93D61E7}" ></image>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3b5aac1a-ddab-40b5-8244-280b8f04ace5"
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: |
+        <span style="color: rgb(62, 62, 62); font-family: SharpSans, Arial, sans-serif; font-size: 16px; font-style: normal; font-weight: 600; background-color: rgb(247, 247, 247);">Depending on the type of procedure, a patient could experience side effects from anesthesia. Some of the most common effects could include dizziness, vomiting, drowsiness and a sore throat.</span>
+    - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
+      Hint: PromoLink
+      Value: |
+        <link linktype="external" text="Read Guide" url="" anchor="" target="" />

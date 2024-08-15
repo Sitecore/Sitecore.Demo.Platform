@@ -1,0 +1,47 @@
+﻿---
+ID: "92d03d3f-7a5e-42c3-9f4d-c83324c6109d"
+Parent: "b35b2ce5-31b2-4cbe-b803-100243f43234"
+Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Links/Header/Megadrop Links/Lighthouse Health/Find A Virtual Fitness Trainer
+SharedFields:
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{6E59BA7F-0622-4DD3-829F-9C4FD2A81F02}" />
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1d86cfee-a7a0-4bd3-962d-bfc04fdae16d"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}" querystring="" text="Find A Virtual Fitness Trainer" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseLifestyle/home/your-health/trainer-finder" linktype="internal" />
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cb7ebeeb-34bc-4006-ab6b-66fd8b28548f"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: フィットネストレーナーを見つける
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8f7e29be-122a-46b8-83e2-8710b736a434"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}" querystring="" target="|Custom" text="フィットネストレーナーを見つける" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseLifestyle/home/your-health/trainer-finder" linktype="internal" />

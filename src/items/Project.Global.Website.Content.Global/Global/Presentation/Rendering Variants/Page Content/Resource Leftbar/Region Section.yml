@@ -1,0 +1,35 @@
+﻿---
+ID: "829cf69f-c97b-44cb-99bf-a7c585609b08"
+Parent: "029624fa-bf31-4a99-b2ae-b7a16551aa39"
+Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
+Path: /sitecore/content/Demo SXA Sites/Global/Presentation/Rendering Variants/Page Content/Resource Leftbar/Region Section
+SharedFields:
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Value: |
+    <ruleset>
+      <rule
+        uid="{4B224B35-1DA5-4FC4-97D7-919F8B8D2E01}">
+        <conditions>
+          <condition
+            id="{DA0D1AEA-0144-4A40-9AF0-3123526C9163}"
+            uid="4A68B508258147B391FA5A517CF44E50"
+            except="true"
+            fieldname="Region" />
+        </conditions>
+      </rule>
+    </ruleset>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
+  Hint: CssClass
+  Value: "tag-section"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "364d08a8-70ab-4944-97ce-d541d4db55ec"

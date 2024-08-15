@@ -1,0 +1,71 @@
+﻿---
+ID: "6cc111e6-a7d5-40d4-a600-07ab6af38366"
+Parent: "b3e975eb-ccb7-4265-9076-af6257aa89e9"
+Template: "bd74a392-dacd-4c23-853a-d520762b33a1"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Presentation/Page Branches/Landing/Landing Page/$name
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "db51d4e9-c24d-4670-af0e-62c8aa08e2b6"
+  Hint: LocalData
+  Value: "{0A3DAFE5-70B4-4AD9-A3BC-826902D36F7F}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{0B4A31C9-712D-4578-A396-2DDC0F34B63A}"
+        l="{72C595AD-68BB-44BC-B5CD-2A857039515F}" />
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{BCFC7537-EFF4-434C-96F5-BF4F55FD175B}">
+        <r
+          uid="{A330CB74-F606-4117-B7E0-63C72FBF3407}"
+          ds="local:/Data/Page Hero"
+          id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+          par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+          ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{4DC92E0E-3E2C-4C52-AD09-8F903F4780E0}"
+          ds=""
+          id="{99A633FC-B9A9-44A0-B78A-BCBB08DD02C9}"
+          par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BF40C5936-DD7A-4C36-B456-20CFFAAA0F4C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
+          ph="/main/sxa-content-container/container-1/container-5" />
+        <r
+          uid="{832D82C1-0A35-4D0D-9FF8-B08F33F01D73}"
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=7"
+          ph="/main/sxa-content-container/container-1/container-5" />
+        <r
+          uid="{542F41F8-553E-4FC1-9C83-A030A1D5F001}"
+          ds=""
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{B93784D8-A4FA-41E5-8E00-32DF95D1F856}"
+          ds="local:/Data/Sample Promo 1"
+          id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+          par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BB8DCE263-F093-4EF3-9B53-B4A4B919A337%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          ph="/main/sxa-content-container/container-1/container-2" />
+        <r
+          uid="{3E3B93D9-BC9F-4D3B-93B7-FD6A2F5D253C}"
+          ds=""
+          id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          par="Reset Caching Options&amp;GridParameters&amp;BackgroundImage&amp;Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+          ph="/main/sxa-content-container/container-1" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "27fe7438-a334-40a2-b716-07beac2b14fe"

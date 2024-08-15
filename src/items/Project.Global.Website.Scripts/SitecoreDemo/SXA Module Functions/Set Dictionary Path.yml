@@ -1,0 +1,34 @@
+﻿---
+ID: "d9dfc464-b617-498d-9ac4-a8bd6cacbd4c"
+Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/SitecoreDemo/SXA Module Functions/Set Dictionary Path
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    function Invoke-ModuleScriptBody {}
+    function Invoke-Step {}
+    
+    Import-Function Get-SiteItem
+    $Root = Get-SiteItem $Site
+    
+    $dictionaryPath = "$($Root.Paths.Path)/$($Root.Name) Dictionary"
+    $encodedDictionaryPath = [System.Uri]::EscapeDataString($dictionaryPath)
+    
+    $siteGrouping = Get-Item -Path "master://$($Root.Paths.Path)/Settings/Site Grouping/$($Root.Name)"
+    $siteGrouping.Locking.Unlock()
+    $siteGrouping.Editing.BeginEdit()
+    $siteGrouping.Fields['OtherProperties'].Value = $siteGrouping.Fields['OtherProperties'].Value + "&dictionaryPath=" + $encodedDictionaryPath 
+    $siteGrouping.Editing.EndEdit()
+    
+    
+    
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d40c548f-e19d-4abf-8862-5e858d76e495"

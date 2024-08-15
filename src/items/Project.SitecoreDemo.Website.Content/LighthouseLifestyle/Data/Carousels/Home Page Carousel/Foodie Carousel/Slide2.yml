@@ -1,0 +1,89 @@
+﻿---
+ID: "19bfb301-d3cf-490b-940a-6ec9e7ae59ad"
+Parent: "c531430c-246d-4ac0-86d2-61b834f07269"
+Template: "142e5fc1-ec62-4540-bad9-cd88f337cd2e"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Carousels/Home Page Carousel/Foodie Carousel/Slide2
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B8AB7438-FF88-41A2-B0FD-493FB644E1B2}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B7C5FEDFB-F002-4136-99B0-5ED23040938B%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-content"
+          uid="{2D555CD6-925C-4FF9-9D07-D815EB29224C}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{5FC96F57-A6C1-4BCB-AEA1-8E7694CB493B}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{B7810CAE-B609-4EC9-9353-9CE53C275253}"></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        A Healthy Lifestyle<br />
+        Starts in the Kitchen
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8686c074-b20e-4489-b0b8-86d317833476"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link id="{19CE179F-A92B-43C4-9401-4AF532C211A2}" querystring="" linktype="internal" text="Healthy Recipes" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/recipes-for-your-smart-stove" title="" class="" target="" />
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{B7810CAE-B609-4EC9-9353-9CE53C275253}"></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        Un mode de vie sain<br />
+        commence dans la cuisine
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8ee1488a-8bcc-4442-9ee0-592539c41f20"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link id="{19CE179F-A92B-43C4-9401-4AF532C211A2}" querystring="" text="Lire maintenant" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/recipes-for-your-smart-stove" title="" class="" linktype="internal" />
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: スライド2
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{B7810CAE-B609-4EC9-9353-9CE53C275253}"></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        健康的なライフスタイルは<br />
+        キッチンから
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1191d446-e87e-40ed-aa5f-d86f5b46da27"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link id="{19CE179F-A92B-43C4-9401-4AF532C211A2}" querystring="" linktype="internal" text="Healthy Recipes" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/recipes-for-your-smart-stove" title="" class="" target="" />

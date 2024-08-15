@@ -1,0 +1,42 @@
+﻿---
+ID: "c2f9c207-4bac-4034-b9fd-0cece2e48d4f"
+Parent: "9c54f6a1-a340-442d-8132-9d9fe502b711"
+Template: "05fe45d4-b9c7-40de-b767-7c5abe7119f9"
+Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseLifestyle/Trainer Finder Form/Page 3/Buttons Wrapper/Submit/SubmitActions/Redirect to Page
+SharedFields:
+- ID: "5c796924-3f06-4d1f-8510-8ad9a4244477"
+  Hint: Parameters
+  Value: |
+    {"referenceId":"{0E123BEC-A931-4A71-A3A9-8BB69F9CE5AF}"}
+- ID: "abc57b6d-5542-4ab9-a889-106225a032e6"
+  Hint: Submit Action
+  Value: "{3F3E2093-9DEA-4199-86CA-44FC69EF624D}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3b2fffe7-8770-4d52-bebf-22899ba89557"
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a3425ee1-38ca-4aff-8f4b-207a0c52baf8"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ページのリダイレクト
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9ecde4ca-69c0-4eaa-9ecb-772d108afd4c"

@@ -1,0 +1,56 @@
+﻿---
+ID: "2182ea4a-14f0-477b-8cdf-2aca3f5fab14"
+Parent: "da18e93a-cbd2-43a2-a145-f375fc9168cd"
+Template: "c645dd63-2462-470c-a48d-8b55757a2db3"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Presentation/Rendering Variants/POI/Default/Template
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{22F88A7E-2BAB-431E-909D-D0A213B25C85}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5fc713fc-266a-433e-8863-cf578097f5aa"
+    - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
+      Hint: Template
+      Value: |
+        #if($geospatial.Distance)
+        Distance: $numberTool.Format($geospatial.Distance, "0") $geospatial.Unit
+        #end
+  - Version: 2
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8a31078d-ffce-4b4c-a1e5-fef4a85d40f1"
+    - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
+      Hint: Template
+      Value: |
+        #if($geospatial.Distance)
+        Distance: $numberTool.Format($geospatial.Distance, "0") $geospatial.Unit
+        #end
+  - Version: 3
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "694e5066-2e8d-402f-9ce8-a7a952417ee2"
+    - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
+      Hint: Template
+      Value: |
+        #if($geospatial.Distance)
+        Distance: $numberTool.Format($geospatial.Distance, "0") $geospatial.Unit
+        #end
+  - Version: 4
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "20f000a0-f529-4776-b117-ed3f5cd63429"
+    - ID: "d90f5d1a-19e1-48cc-b673-47d6b5d9b3ed"
+      Hint: Template
+      Value: |
+        #if($geospatial.Distance)
+        Distance: $numberTool.Format($geospatial.Distance, "0") $geospatial.Unit
+        #end

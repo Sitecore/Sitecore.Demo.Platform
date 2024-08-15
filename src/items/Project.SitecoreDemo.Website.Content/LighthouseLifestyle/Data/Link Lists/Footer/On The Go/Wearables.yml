@@ -1,0 +1,36 @@
+﻿---
+ID: "94100dcd-e48f-4a81-8855-c9261b2878a9"
+Parent: "ee51cf0b-be94-468c-ba00-d40672fb17c7"
+Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Link Lists/Footer/On The Go/Wearables
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 175
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6e3c3694-f0b6-48ea-9857-fa46ea514ab9"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{DC2D421A-6AB9-4907-8E1E-8C4F36BA4259}" querystring="" text="Wearables" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseLifestyle/home/on-the-go" linktype="internal" />
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ウェアラブル
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b08095c8-55f8-4462-8998-a41755819075"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{DC2D421A-6AB9-4907-8E1E-8C4F36BA4259}" querystring="" target="|Custom" text="ウェアラブル" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseLifestyle/home/on-the-go" linktype="internal" />

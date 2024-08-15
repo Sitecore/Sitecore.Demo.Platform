@@ -6,7 +6,6 @@ services:
       context: ./images/windows/demo-solution
       dockerfile: Dockerfile.CI
       args:
-        SOLUTION_DATA_IMAGE: ${REGISTRY}build/lighthouse-solution-data:${SITECORE_VERSION}-${LTSC_NANOSERVER_VERSION}-${SOLUTION_VERSION}
         SOLUTION_XCONNECT_IMAGE: ${REGISTRY}build/lighthouse-solution-xconnect:${SITECORE_VERSION}-${LTSC_NANOSERVER_VERSION}-${SOLUTION_VERSION}
         SOLUTION_CONTENT_IMAGE: ${REGISTRY}build/lighthouse-solution-content:${SITECORE_VERSION}-${LTSC_NANOSERVER_VERSION}-${SOLUTION_VERSION}
         BASE_IMAGE:  mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}

@@ -1,0 +1,39 @@
+﻿---
+ID: "83a9df9a-d7d9-4b73-bae0-4f77b4935462"
+Parent: "0c21f083-63e7-4cdf-aeed-e029996b088b"
+Template: "475e9026-333f-432d-a4dc-52e03b75cb6b"
+Path: /sitecore/system/Marketing Control Panel/Goals/SitecoreDemo/Delete Profile
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Applications/32x32/stop.png
+- ID: "1398896a-b1aa-420f-b5ba-693841e37a55"
+  Hint: IsLiveEvent
+  Value: 1
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+- ID: "e4d0faf3-61e7-44d4-a921-ce5c606a8da8"
+  Hint: IsSystem
+  Value: 
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Delete Profile
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "797466f5-763b-4299-b6ad-e4192bf21222"
+      Hint: Description
+      Value: User requested to delete profile
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "58e53284-b352-4dc8-a768-23bbae6de313"
+    - ID: "ac6ba888-4213-43bd-b787-d8da2b6b881f"
+      Hint: Name
+      Value: Delete Profile

@@ -1,0 +1,59 @@
+﻿---
+ID: "52165208-dc78-4b8e-afe5-d39623014c43"
+Parent: "66c5c3bc-274b-4943-889d-4da3091b866c"
+Template: "2ad23d55-aecd-43dd-ae0d-72d2ebcba60f"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Data/Plain HTML/Cumulus footer
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "24cce27c-05db-4473-a1ed-e69b1725ff1c"
+      Hint: HtmlCode
+      Value: |
+        <footer class="footer">
+            <div class="newsletter">
+              <div class="container">
+                <div class="newsletter-icon"></div>
+                <p>Sign-up for the latest financial news, right to your inbox:</p>
+                <div class="form-group">
+                  <input id="footer-newsletter-input" type="text" class="form-control" placeholder="Email">
+                </div>
+                <button id="footer-newsletter-submit" type="submit" class="btn blue-btn btn-sm">Submit</button>
+              </div>
+            </div>
+            <div class="footer-branding">
+              <div class="container">
+                <div class="footer-logo"></div>
+                <ul class="nav navbar-nav social-links">
+                  <li><a id="nav-footer-facebook" class="facebook" href="https://www.facebook.com/pages/Cumulus-Financial-Services/419538588200243?ref=br_tf" target="_blank"></a></li>
+                  <li><a id="nav-footer-twitter" class="twitter" href="https://twitter.com/CumulusFinServ" target="_blank"></a></li>
+                  <li><a id="nav-footer-email" class="mail" href="#"></a></li>
+                </ul>
+                <ul class="nav navbar-nav text-links">
+                  <li><a href="/interaction-studio" target="_blank">ATM Experience</a></li>
+                  <li><a href="/interaction-studio-insurance" target="_blank">Auto Experience</a></li>
+                  <li><a href="/sapling" target="_blank">Sapling Banking</a></li>
+                  <li><a href="/sapling-insurance" target="_blank">Sapling Insurance</a></li>
+                  <li><a href="/sapling-mortgage" target="_blank">Sapling Mortgage</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="disclaimer">
+              <div class="row justify-content-between">
+                <div class="demo-site small">This is a demo site for <a href="/end-demo" class="text-muted">Salesforce demo</a> purposes only.</div>
+                <div class="disclaimer-spacing">&nbsp;</div>
+                <div class="disclaimer-spacing">&nbsp;</div>
+                <div class="disclaimer-nav">
+                  <ul class="list-inline">
+                    <li class="list-inline-item small"><a id="nav-footer-privacy-policy" href="#" title="Privacy Preferences" data-toggle="modal" data-target="#cookie-preferences">Privacy Preferences</a></li>
+                    <li class="list-inline-item small"><a id="nav-footer-terms-and-conditions" href="/company/terms-and-conditions">Terms &amp; Conditions</a></li>
+                    <li class="list-inline-item small"><a id="nav-footer-terms-and-conditions" href="/company/privacy-policy">Privacy Policy</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </footer>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5be4933b-d0a4-4fd1-b701-51832542fb26"

@@ -1,0 +1,60 @@
+﻿---
+ID: "445731dd-8f98-4919-a0ca-53f078b6ee4b"
+Parent: "46404c72-8886-4da3-af43-f2d124614d0f"
+Template: "46404c72-8886-4da3-af43-f2d124614d0f"
+Path: /sitecore/templates/Project/Demo Shared SXA Sites/SitecoreDemo/Fins/Verticals/Fins/ServicesPage/__Standard Values
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Applications/32x32/window_gear.png
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "2a1e1a37-a198-4f24-a4fe-1e6ad5191d4c"
+      Hint: Features
+      Value: |
+        <div>
+          <h4>Features and Benefits</h4>
+          <ul>
+            <li>Free transactions at over 7,200 ATMs</li>
+            <li>Unlimited check-writing</li>
+            <li>Bonus rates on select CDs and IRA CDs</li>
+            <li>Free Overdraft Protection set up and transfers</li>
+          </ul>
+        </div>
+    - ID: "47a7cd4b-e4e1-4046-88e7-5378c9a5b315"
+      Hint: Details
+      Value: |
+        <div class="sidebar">
+              <h4>Standard Savings Details</h4>
+              <h5>Minimum Deposit</h5>
+              <p>$25</p>
+              <h5>Monthly Service Charge</h5>
+              <p>$15 if the minimum deposit is not met</p>
+              <h5>ATM Fees</h5>
+              <p>$0 per transaction at Cumulus Bank ATMs</p>
+            </div>
+    - ID: "51634430-f816-43c6-b8ac-aed07ed3a900"
+      Hint: Services
+      Value: |
+        <h4>Services</h4>
+        <p><strong>Direct Deposit:</strong> Sign up to have your payroll, pension, Social Security, or any regularly received income deposited directly to your account.</p>
+        <p><strong>Overdraft Protection:</strong> Safeguard your checking account by linking it to a Protecting Account - another Cumulus checking, savings, money market, credit card or line of credit. When there are insufficient funds in your account to pay for an item, funds can automatically transfer from the Protecting Account to cover your payments.</p>
+    - ID: "7b69e094-fd16-4989-8758-c80100548db7"
+      Hint: Requirements
+      Value: |
+        <div>
+                  <div class="extraColPadding">
+                    <h4>Requirements</h4>
+                    <ul>
+                      <li>$2,000 or greater, total qualifying direct deposits per statement period</li>
+                      <li>OR, $2,000 average monthly balance in checking</li>
+                      <li>OR, $15,000 combined average monthly balance in Cumulus consumer deposits, loans and/or investments</li>
+                    </ul>
+                  </div>
+                </div>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "27be0597-fe68-4060-8322-687f0efeaa56"

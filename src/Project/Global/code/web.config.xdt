@@ -8,13 +8,6 @@
 									-->
 		<add key="env:define" value="Production" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 
-		<!-- UNICORN MODE SUPPORTED VALUES
-										 On
-										 Off
-									Default value: On
-									-->
-		<add key="unicorn:define" value="Disabled" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
-
 		<!-- CONTENT HUB MODE SUPPORTED VALUES
 										 Enabled
 										 Disabled

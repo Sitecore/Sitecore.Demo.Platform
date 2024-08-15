@@ -139,5 +139,6 @@ services:
     build:
       context: .\docker\images\windows\demo-init
       args:
-        BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
-        BASE_IMAGE: mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-${NANOSERVER_VERSION}
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:6.0-nanoserver-${NANOSERVER_VERSION}
+        BASE_IMAGE: mcr.microsoft.com/dotnet/sdk:6.0-nanoserver-${NANOSERVER_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}build/lighthouse-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${SOLUTION_VERSION}

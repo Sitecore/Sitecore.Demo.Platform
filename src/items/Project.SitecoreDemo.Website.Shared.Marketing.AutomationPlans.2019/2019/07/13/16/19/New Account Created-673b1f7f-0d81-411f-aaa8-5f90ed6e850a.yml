@@ -1,0 +1,39 @@
+﻿---
+ID: "8f779a17-be1d-4558-887c-1a139395e30b"
+Parent: "8049230b-f048-40b5-9384-f446e0b9602e"
+Template: "d4d43c33-3661-4630-af63-0754cab7b110"
+Path: "/sitecore/system/Marketing Control Panel/Automation Plans/2019/07/13/16/19/New Account Created-673b1f7f-0d81-411f-aaa8-5f90ed6e850a"
+SharedFields:
+- ID: "1766652d-080b-409c-abbf-3a90e0f801f5"
+  Hint: Start Date
+  Value: 00010101T000000Z
+- ID: "2c41a32f-86a9-4f43-8550-bf0af266e3f2"
+  Hint: End Date
+  Value: 20310101T213300Z
+- ID: "394d49b2-b579-43aa-ab32-b4010b18fd07"
+  Hint: Marketing Theme
+  Value: "00000000-0000-0000-0000-000000000000"
+- ID: "3fb918c8-08ec-4879-8062-088bbf71ee72"
+  Hint: Plan Data
+  Value: |
+    {"ReentryMode":1,"ContextKeyFactoryType":null,"EntryActivityId":"162dd9c5-bf4c-d6e9-5c26-51602e27d9ac","NewEnrollmentRegulatorType":"Sitecore.Xdb.MarketingAutomation.Processing.Plan.MaximumCountNewEnrollmentRegulator, Sitecore.Xdb.MarketingAutomation","NewEnrollmentRegulatorParameters":{"MaxEnrollmentsCount":1},"PlanEntrySchedule":null,"ScheduledContactListId":null,"Alias":"New Account Created-673b1f7f-0d81-411f-aaa8-5f90ed6e850a","IgnoreIsActiveProperty":true,"Activities":{"162dd9c5-bf4c-d6e9-5c26-51602e27d9ac":{"Paths":{"default":"e40a2c38-eebb-7d45-3cf8-be298b3f8da9"},"Id":"162dd9c5-bf4c-d6e9-5c26-51602e27d9ac","ActivityTypeId":"8c92d3c1-2c38-4e8a-92d1-9590e17cce89","Parameters":{"EventIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"GoalIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["8ffb183b-da1a-4c74-8f3a-9729e9fcff6a"]},"OutcomeIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"TestOperation":0,"UseCondition":false}},"e40a2c38-eebb-7d45-3cf8-be298b3f8da9":{"Paths":{"false":"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba","true":"33bce6a9-33ae-c7da-1911-23b98a8aef7b"},"Id":"e40a2c38-eebb-7d45-3cf8-be298b3f8da9","ActivityTypeId":"bb714802-ce83-491f-963f-16fb11c61bf2","Parameters":{"Goals":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["8ffb183b-da1a-4c74-8f3a-9729e9fcff6a"]},"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":null,"WaitUntil":null},"MatchAll":false,"Name":"Is the contact registered"}},"33bce6a9-33ae-c7da-1911-23b98a8aef7b":{"Paths":{"false":"95f90566-8898-a37f-d698-e1b69294fee2","true":"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba"},"Id":"33bce6a9-33ae-c7da-1911-23b98a8aef7b","ActivityTypeId":"e16592de-c9cd-4926-8f39-beb3db067d0a","Parameters":{"Condition":{"$type":"Sitecore.Marketing.Rules.Rule[], Sitecore.Marketing","$values":[{"Id":"5f498da8-31de-4774-a941-8ab5434c9eda","Name":" ","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=14.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"$type":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing","Id":"faf16ac9-1079-4288-bf60-506e0dc34196","DescriptorId":"7fe12c36-5ffe-4744-853f-4b54583be4ee","Properties":{"$type":"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String, mscorlib]], mscorlib","CampaignId":"{4FE2AC81-2B4B-4C78-AAC1-3593669C5DA2}"}}}]},"Name":"Was the contact sent the email already"}},"95f90566-8898-a37f-d698-e1b69294fee2":{"Paths":{"default":"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba"},"Id":"95f90566-8898-a37f-d698-e1b69294fee2","ActivityTypeId":"51774db5-b90b-4189-9613-104039723a0b","Parameters":{"MessageId":"4b4d7517-89a2-4bd0-91f4-81ec97daad24"}},"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba":{"Paths":{},"Id":"bcbd07ae-b1d2-a232-9b77-a9e3bb673eba","ActivityTypeId":"a47371c2-8921-421f-8902-f3eccd229d56","Parameters":{}}},"UniversalActivities":{}}
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: New Account Created
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f0bc569b-989c-472e-bb3e-0db9b6776257"

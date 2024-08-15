@@ -1,0 +1,169 @@
+﻿---
+ID: "bd13a5df-9432-4794-82d7-c7d5b4121ffb"
+Parent: "cf48d23e-dd49-4e4b-937c-ad0d917bde11"
+Template: "459a510b-5e2c-425f-a321-1d9423937eb0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Home/Personal/Checking
+SharedFields:
+- ID: "1fbc6a49-6281-48ee-87e9-a3970b145adb"
+  Hint: NavigationFilter
+  Value: 
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{16923AF2-95E8-48A2-91B9-F60F972FE9FA}"
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: 20200413T000000Z
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="3a0f2ec6-1346-434d-8df1-1c576628c7fa"
+        name="Financial Client"
+        presets="retail client|100||">
+        <key
+          name="Checking"
+          value="10" />
+        <key
+          name="Mortgage"
+          value="10" />
+        <key
+          name="IRA"
+          value="3" />
+        <key
+          name="Mutual Funds"
+          value="2" />
+        <key
+          name="Business Account"
+          value="0" />
+        <key
+          name="SBA Lending"
+          value="0" />
+        <key
+          name="Monetary Exchange Rate"
+          value="0" />
+        <key
+          name="Corporate Lending"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{C62705F4-4091-4201-B795-8F7E6B46DEED}"
+              s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+              s:par="BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD85BD5A8-A6B6-4209-8693-AE0414CBF0AC%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-article-content/container-1/column-2-2/container-4" />
+          </d>
+        </r>
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{5BBB9432-DCD8-4451-A608-ACE80D87957E}" ></image>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Checking
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h2>Checking Accounts</h2>
+        Sometimes a one-size-fits-all approach doesn&rsquo;t fit your unique needs. That&rsquo;s why, when it comes to personal checking, we love the term &ldquo;options.&rdquo; And you&rsquo;ll discover a comprehensive suite of them when you sit down with one of our experienced bankers who&rsquo;ll explain the ins and outs of each one. You will discover the right option with all the right features to fit your banking needs.<br />
+        <h3>Habitat Financial Elite Checking</h3>
+        <h4>Earn peak interest with Elite Checking.</h4>
+        Getting the most out of your money takes smart solutions. In addition to a full range of checking account benefits, you may also qualify to earn monthly interest rewards of up to 1.00% APY*.<br />
+        <h3>Relationship Checking</h3>
+        <h4>Preferred checking with all the bells and whistles.</h4>
+        <p>Searching for a competitive rate shouldn&rsquo;t require endless shopping around. As one of our most valued customers, you&rsquo;ll qualify for it instantly, when you open a Habitat Financial Preferred Checking account. You&rsquo;ll combine all of the smart features of our regular checking account and enjoy exclusive benefits such as better rates on certificates of deposit. Plus, you can earn a higher interest rate by keeping a higher balance in your account. That&rsquo;s a win-win relationship you can bank on.</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7b9cca19-303e-4fae-b9bc-8c7234a8d103"
+    - ID: "b7c8dbcf-14cf-485c-88ba-af35e0a9460a"
+      Hint: isFeatured
+      Value: 1
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>We are here to help you build you financial success. Learn about the advantages of opening a personal checking account with Habitat Financial.</p>
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Checking
+  - Version: 2
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{C62705F4-4091-4201-B795-8F7E6B46DEED}"
+              s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+              s:par="BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD85BD5A8-A6B6-4209-8693-AE0414CBF0AC%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-article-content/container-1/column-2-2/container-4" />
+          </d>
+        </r>
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{5BBB9432-DCD8-4451-A608-ACE80D87957E}" ></image>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Checking
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h2>Checking Accounts</h2>
+        Sometimes a one-size-fits-all approach doesn&rsquo;t fit your unique needs. That&rsquo;s why, when it comes to personal checking, we love the term &ldquo;options.&rdquo; And you&rsquo;ll discover a comprehensive suite of them when you sit down with one of our experienced bankers who&rsquo;ll explain the ins and outs of each one. You will discover the right option with all the right features to fit your banking needs.<br />
+        <h3>Habitat Financial Elite Checking</h3>
+        <h4>Earn peak interest with Elite Checking.</h4>
+        Getting the most out of your money takes smart solutions. In addition to a full range of checking account benefits, you may also qualify to earn monthly interest rewards of up to 1.00% APY*.<br />
+        <h3>Relationship Checking</h3>
+        <h4>Preferred checking with all the bells and whistles.</h4>
+        <p>Searching for a competitive rate shouldn&rsquo;t require endless shopping around. As one of our most valued customers, you&rsquo;ll qualify for it instantly, when you open a Habitat Financial Preferred Checking account. You&rsquo;ll combine all of the smart features of our regular checking account and enjoy exclusive benefits such as better rates on certificates of deposit. Plus, you can earn a higher interest rate by keeping a higher balance in your account. That&rsquo;s a win-win relationship you can bank on.</p>
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: We are here to help you build you financial success. Learn about the advantages of opening a personal checking account with Lighthouse Financial.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Checking
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d66f8a84-06d8-486f-899a-c409eeeacbcc"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{EB9A28F6-3F7C-4A4E-BBCB-1DD816825F56}" />
+    - ID: "b7c8dbcf-14cf-485c-88ba-af35e0a9460a"
+      Hint: isFeatured
+      Value: 1
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>We are here to help you build you financial success. Learn about the advantages of opening a personal checking account with Lighthouse Financial.</p>
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Checking
+    - ID: "eb2d62c0-062b-4a82-bc4e-46e7d1513ace"
+      Hint: FinCategory
+      Value: Personal

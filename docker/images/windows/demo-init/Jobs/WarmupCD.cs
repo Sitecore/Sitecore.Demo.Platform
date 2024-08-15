@@ -22,6 +22,14 @@ namespace Sitecore.Demo.Init.Jobs
 		{
 			try
 			{
+				var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
+				if (string.IsNullOrEmpty(ns))
+				{
+					Log.LogWarning(
+						$"{this.GetType().Name} will not execute this time, RELEASE_NAMESPACE is not configured - this job is only required on AKS");
+					return;
+				}
+
 				var watch = System.Diagnostics.Stopwatch.StartNew();
 				var skipWarmupCd = Convert.ToBoolean(Environment.GetEnvironmentVariable("SKIP_WARMUP_CD"));
 

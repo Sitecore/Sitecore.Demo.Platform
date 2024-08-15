@@ -167,6 +167,10 @@ if ($InitEnv) {
 
     # SITECORE_CLIENT_SECRET = random 64 chars
     Set-DockerComposeEnvFileVariable "SITECORE_CLIENT_SECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
+
+    # DEMO TEAM CUSTOMIZATION - Non-interactive CLI login
+    $clientSecret = Get-SitecoreRandomString 64 -DisallowSpecial
+    Set-EnvFileVariable "ID_SERVER_DEMO_CLIENT_SECRET" -Value $clientSecret
 }
 
 Write-Host "Done!" -ForegroundColor Green

@@ -1,0 +1,44 @@
+﻿---
+ID: "a543f267-e725-4383-93a0-a334275b3e93"
+Parent: "eae6e38f-a05d-4554-904a-b22fb6ab0db2"
+Template: "142e5fc1-ec62-4540-bad9-cd88f337cd2e"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/at-home/healthy-eating/Data/Carousel/Slide2"
+BranchID: "c9bbf597-0836-46cc-810e-9a3246396e4e"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B8AB7438-FF88-41A2-B0FD-493FB644E1B2}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B7C5FEDFB-F002-4136-99B0-5ED23040938B%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-content"
+          uid="{61D42707-EBA8-442E-B0CD-F0C1FE690E44}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{AAC3E356-303F-4D63-B1E9-6E1B9BDE9FFD}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{C8776A82-BB4C-4509-9D64-DAF6F10F7717}" ></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: Meal Prep Will Be Your New Best Friend
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "330cfd71-8383-46fc-9047-c17c880e3112"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link id="{19CE179F-A92B-43C4-9401-4AF532C211A2}" querystring="" text="Read More" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/recipes-for-your-smart-stove" linktype="internal" />

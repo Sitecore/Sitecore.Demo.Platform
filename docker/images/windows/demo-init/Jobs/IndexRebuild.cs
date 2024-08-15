@@ -15,6 +15,14 @@ namespace Sitecore.Demo.Init.Jobs
 
 		public async Task Run()
 		{
+			var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
+			if (string.IsNullOrEmpty(ns))
+			{
+				Log.LogWarning(
+					$"{this.GetType().Name} will not execute this time, RELEASE_NAMESPACE is not configured - this job is only required on AKS");
+				return;
+			}
+
 			var indexes = new List<string>();
 
 			if (!this.IsCompleted())

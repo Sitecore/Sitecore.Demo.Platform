@@ -1,0 +1,82 @@
+﻿---
+ID: "fe56cb15-1ce4-4ec2-81a7-e3e521fc928a"
+Parent: "9182c53a-69c9-4588-97b1-8b5245803984"
+Template: "142e5fc1-ec62-4540-bad9-cd88f337cd2e"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Carousels/Home Page Carousel/Fitness Carousel/Slide3
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B8AB7438-FF88-41A2-B0FD-493FB644E1B2}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B7C5FEDFB-F002-4136-99B0-5ED23040938B%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-content"
+          uid="{7196E8E0-E366-446B-B4E4-156C3E1ECC0F}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{A7C5267D-4B44-4A50-B1E2-994E9CD5E327}"></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        The Importance<br />
+        of Stretching
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8995685d-6da8-45bf-841a-ef78389f7c98"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link id="{5A805BBD-5D74-4DFD-996F-F2943290E20F}" querystring="" linktype="internal" text="Read More" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/importance-of-stretching" title="" class="" target="" />
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{A7C5267D-4B44-4A50-B1E2-994E9CD5E327}"></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        L'importance<br />
+        de l'&eacute;tirement
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "51ada597-973e-4919-a4c4-6b78caf264a4"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link id="{5A805BBD-5D74-4DFD-996F-F2943290E20F}" querystring="" linktype="internal" text="Lire plus" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/importance-of-stretching" title="" class="" target="" />
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{A7C5267D-4B44-4A50-B1E2-994E9CD5E327}"></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        ストレッチは&nbsp;<br />
+        重要です&nbsp;
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "980b5871-385e-4147-8a87-411eb8c077ee"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link id="{5A805BBD-5D74-4DFD-996F-F2943290E20F}" querystring="" linktype="internal" text="Read More" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/importance-of-stretching" title="" class="" target="" />

@@ -1,0 +1,140 @@
+﻿---
+ID: "8c1d48b4-f3bd-41ee-acd4-200e423727cb"
+Parent: "dc2d421a-6ab9-4907-8e1e-8c4f36ba4259"
+Template: "e3b950bb-1b55-4cdd-819f-031b3be1a66c"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/on-the-go/fitness-trackers"
+BranchID: "c9bbf597-0836-46cc-810e-9a3246396e4e"
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="3b752260-57e2-488c-9d84-95a8a5171af8"
+        name="Health Focus"
+        presets="fitness fanatic|100||">
+        <key
+          name="Children"
+          value="0" />
+        <key
+          name="Cooking"
+          value="0" />
+        <key
+          name="Exercise"
+          value="10" />
+        <key
+          name="Fitness Tech"
+          value="10" />
+        <key
+          name="Mental Health"
+          value="5" />
+        <key
+          name="Nutrition"
+          value="10" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 150
+- ID: "db51d4e9-c24d-4670-af0e-62c8aa08e2b6"
+  Hint: LocalData
+  Value: "{757E8DBC-B301-4A16-B1CE-39E41A3289E3}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        p:after="*[1=2]">
+        <r
+          uid="{FA0AAC35-6442-48A1-8BBF-40FB3DE794B0}"
+          p:before="*"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{3DFA2658-29E2-4B60-9F80-E59C3EB63683}"
+          p:after="r[@uid='{FA0AAC35-6442-48A1-8BBF-40FB3DE794B0}']"
+          s:ds=""
+          s:id="{5B9272A5-E147-4C16-B9F7-41CCDCB4CB5D}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B28C65397-7759-49B0-B39F-AFBC6F5D508A%7D&amp;RenderingIdentifier"
+          s:ph="/main/sxa-content-container/container-1/container-6" />
+        <r
+          uid="{02231914-A476-422D-A07C-8E925E9D6188}"
+          p:after="r[@uid='{3DFA2658-29E2-4B60-9F80-E59C3EB63683}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles=%7BB32CF8A3-6E9B-4D8B-992C-91B8C667FFFA%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=7"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{595FC14A-60E4-4FAE-8699-8F1FACBA904A}"
+          p:after="r[@uid='{02231914-A476-422D-A07C-8E925E9D6188}']"
+          s:ds=""
+          s:id="{5B9272A5-E147-4C16-B9F7-41CCDCB4CB5D}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B4EB7D89A-D559-4519-9775-031E2E39C91C%7D&amp;RenderingIdentifier"
+          s:ph="/main/sxa-content-container/container-1/container-10" />
+        <r
+          uid="{7DEBB9A1-EA45-4650-BA4E-9532CE17333D}"
+          p:after="r[@uid='{595FC14A-60E4-4FAE-8699-8F1FACBA904A}']"
+          s:ds="local:/Data/Below the Fold Text"
+          s:id="{DCEE78E1-1843-4456-A13A-F10A12191630}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B7EEB8FEA-78CB-4571-8F1C-BC86415BF502%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=9"
+          s:ph="/main/sxa-content-container/container-1/container-10" />
+        <r
+          uid="{0E65C686-F9CF-4713-B522-041B27F15C7D}"
+          p:after="r[@uid='{7DEBB9A1-EA45-4650-BA4E-9532CE17333D}']"
+          s:ds=""
+          s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=10"
+          s:ph="/main/sxa-content-container/container-1" />
+        <r
+          uid="{E987B7EF-BB85-4318-9971-99329B2E3162}"
+          p:after="r[@uid='{0E65C686-F9CF-4713-B522-041B27F15C7D}']"
+          s:ds="local:/Data/Carousel"
+          s:id="{5A21C781-8E74-4DD0-8261-8CCDA1BF0454}"
+          s:par="Navigation=%7B525AD16D-7E59-44A3-8024-9422DC149C5F%7D&amp;Transition=%7BC33D1C03-14B9-4683-835E-8E517A18CC41%7D&amp;Timeout=0&amp;PauseOnHover&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7BA5261A4F-54F7-45A0-B5AF-6EA6A862AD61%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=8"
+          s:ph="/main/sxa-content-container/container-1/container-7" />
+        <r
+          uid="{4D04A438-D749-451B-84BC-142437C7E869}"
+          p:after="*[1=2]"
+          s:ds="{7128D032-83F5-48CF-A27A-59A6AB00E982}"
+          s:id="{00E2C7CF-2247-4596-B878-E6BB3850A77F}"
+          s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+          s:ph="/main/sxa-content-container/container-1" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{C302BF98-80CB-4A69-BDFB-BA355491EDB8}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Fitness Trackers
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Fitness Trackers
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <p>Lorem ipsum dolor sit amet, ex liber persecuti delicatissimi vis, at eros eius paulo eum. Platonem definitionem sed ea, ei qui vivendo singulis. Doctus utroque molestiae te duo, pri ex quodsi oportere. Hinc aliquando te per, vix ad expetendis contentiones. An postea invidunt usu, ad error regione sed, et ignota recusabo imperdiet vix. Detraxit scriptorem reprehendunt eos cu.</p>
+        <p>Lorem ipsum dolor sit amet, ex liber persecuti delicatissimi vis, at eros eius paulo eum. Platonem definitionem sed ea, ei qui vivendo singulis. Doctus utroque molestiae te duo, pri ex quodsi oportere. Hinc aliquando te per, vix ad expetendis contentiones. An postea invidunt usu, ad error regione sed, et ignota recusabo imperdiet vix. Detraxit scriptorem reprehendunt eos cu.</p>
+        <p>Lorem ipsum dolor sit amet, ex liber persecuti delicatissimi vis, at eros eius paulo eum. Platonem definitionem sed ea, ei qui vivendo singulis. Doctus utroque molestiae te duo, pri ex quodsi oportere. Hinc aliquando te per, vix ad expetendis contentiones. An postea invidunt usu, ad error regione sed, et ignota recusabo imperdiet vix. Detraxit scriptorem reprehendunt eos cu.</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "eb41519f-903a-498e-a47c-6968ec5cfbaa"
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Fitness Trackers

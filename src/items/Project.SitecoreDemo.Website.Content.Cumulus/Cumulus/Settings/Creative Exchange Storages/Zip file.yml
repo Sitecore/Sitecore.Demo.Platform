@@ -1,0 +1,34 @@
+﻿---
+ID: "e55ff85e-31f2-46e8-8e96-6b79fc23121e"
+Parent: "3943e831-0f22-4474-96ff-683aa20e3432"
+Template: "c7109945-bd76-4b3d-b09b-db80cbf515c0"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Settings/Creative Exchange Storages/Zip file
+BranchID: "aab15f53-cc56-44e0-bfc6-1ed18ff81ffb"
+SharedFields:
+- ID: "15d142e5-e484-458d-8a66-317baafee28f"
+  Hint: ImportType
+  Value: Sitecore.XA.Feature.CreativeExchange.Storage.Import.ZipImportStorage, Sitecore.XA.Feature.CreativeExchange
+- ID: "18ee0052-accd-42ad-8d80-d60cb88d9950"
+  Hint: Name
+  Value: Zip file
+- ID: "52e8de18-7f21-4036-a6da-2b6c71eea601"
+  Hint: ExportType
+  Value: Sitecore.XA.Feature.CreativeExchange.Storage.Export.ZipExportStorage, Sitecore.XA.Feature.CreativeExchange
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 150
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D6FA3049-D3F8-4E60-97A2-41510818C6A4}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Zip file
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ed1c8232-e89e-490c-a0c2-72a85a57e9e3"

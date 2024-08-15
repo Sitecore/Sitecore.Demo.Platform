@@ -295,15 +295,3 @@ In IISConfigUtil.cpp line 231 there is a 5-second timeout for APPCMD to complete
    1. Change the `WINDOWSSERVERCORE_VERSION` variable value to the version that matches your host system version.
    2. Change the `ISOLATION` variable value to `process`
 5. `.\up.ps1`
-
-### Disable Unicorn Serialization
-
-When Unicorn is active, the Content Editor will display warnings that certain items are controlled by Unicorn. If you wish to disable Unicorn serialization:
-
-1. Open the `docker-compose.override.yml` file in your repository clone.
-2. Find all occurrences of the `SITECORE_APPSETTINGS_UNICORN:DEFINE` environment variable.
-3. Update all occurences to `SITECORE_APPSETTINGS_UNICORN:DEFINE: Disabled`
-4. Save the file.
-5. Run `.\up.ps1 -SkipBuild` again to update the containers.
-
-This setting is set to `Enabled` by default. Setting it to `Disabled` ensures that none of the Unicorn serialization configuration files are loaded.

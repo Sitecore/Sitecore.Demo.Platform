@@ -1,0 +1,48 @@
+﻿---
+ID: "3bdc06de-022c-48b2-893b-6c8995dbb456"
+Parent: "89d55340-d278-4880-b526-58938e1a73fa"
+Template: "eda823fc-bc7e-4ef6-b498-cd09ec6fdaef"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Settings/Site Grouping/LighthouseFinancial
+BranchID: "b90549b5-c997-4d6b-b102-c9ab82528974"
+SharedFields:
+- ID: "1ee576af-ba8e-4312-9fbd-2ccf8395baa1"
+  Hint: StartItem
+  Value: "{5F6276DB-F968-4BBC-A307-F3F0FBC69F5D}"
+- ID: "301e719a-6f65-4874-b565-a953a7b5ac83"
+  Hint: OtherProperties
+  Value: "formsRoot=%7B143ADA7C-8E5F-4ECF-9243-BE1A3EF5DB4E%7D&dictionaryPath=%2Fsitecore%2Fcontent%2FDemo%20SXA%20Sites%2FGlobal%2FData%2FDictionary"
+- ID: "475031d8-724d-463c-80b2-90839dd1ad98"
+  Hint: VirtualFolder
+  Value: /financial
+- ID: "602ab79d-fc25-4c5b-89d3-27aaef3bb37c"
+  Hint: LoginPage
+  Value: "{44708AA0-BC86-44F9-9D2B-1C6E8BF6F557}"
+- ID: "6e6da5b0-8d01-4514-b7dd-1940aff3e8cd"
+  Hint: FieldLanguageFallback
+  Value: 1
+- ID: "85f47095-7e58-449c-9773-b0aeb925ad1f"
+  Hint: Indexes
+  Value: master/*=sitecore_sxa_master_index&web/*=sitecore_sxa_web_index
+- ID: "8c436235-b85d-4097-89cf-d5a4fa70cc0a"
+  Hint: ItemLanguageFallback
+  Value: 1
+- ID: "8e0dd914-9afb-4d45-bf8b-7ff5d6e5337e"
+  Hint: HostName
+  Value: 
+- ID: "cb4e9e2e-2b66-43dc-ad3f-9caf363d28d3"
+  Hint: SiteName
+  Value: LighthouseFinancial
+- ID: "da06d09e-02b6-464a-80fc-9d8d7fc875e3"
+  Hint: Environment
+  Value: *
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{0EF8CB53-535D-41FE-8704-2C014D60D2DD}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ea5c5fa0-34db-4115-8a50-0aef1a34cc95"

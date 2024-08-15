@@ -1,0 +1,188 @@
+﻿---
+ID: "47609752-379d-495c-9321-8222bcac5ec8"
+Parent: "5f6276db-f968-4bbc-a307-f3f0fbc69f5d"
+Template: "26745e9d-be97-4902-993d-1982b47b64bf"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Home/Small Business
+SharedFields:
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{C028BDDE-13CC-4407-B418-4BD7C7D6AAD0}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="3a0f2ec6-1346-434d-8df1-1c576628c7fa"
+        name="Financial Client"
+        presets="business owner|100||">
+        <key
+          name="Checking"
+          value="0" />
+        <key
+          name="Mortgage"
+          value="0" />
+        <key
+          name="IRA"
+          value="3" />
+        <key
+          name="Mutual Funds"
+          value="2" />
+        <key
+          name="Business Account"
+          value="10" />
+        <key
+          name="SBA Lending"
+          value="10" />
+        <key
+          name="Monetary Exchange Rate"
+          value="0" />
+        <key
+          name="Corporate Lending"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{BA1DC74E-8E67-49D7-8B93-0BEFEA7C08D3}"
+              p:before="*"
+              s:id="{2E991AA4-4B08-43D2-AD2B-17C11E69A499}"
+              s:par="SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;Reset Caching Options&amp;ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B34147B89-B9E1-4705-9F8D-55529C7C0F2C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+              s:ph="/main/sxa-content-container/container-1/row-3-1" />
+            <r
+              uid="{AF921773-FB1B-4DD5-94CA-978FD20F204B}"
+              p:after="r[@uid='{BA1DC74E-8E67-49D7-8B93-0BEFEA7C08D3}']"
+              s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1/row-2-1/container-3" />
+            <r
+              uid="{E971D022-785E-4E52-BB1A-DA66506D8A48}"
+              p:after="r[@uid='{AF921773-FB1B-4DD5-94CA-978FD20F204B}']"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1/row-2-1" />
+            <r
+              uid="{3453FCA2-D348-4F75-8311-7DEC24A174FC}"
+              p:after="r[@uid='{E971D022-785E-4E52-BB1A-DA66506D8A48}']"
+              s:ds="{3A737701-717F-4649-9346-011FC4DC75CF}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1/row-1-1" />
+            <r
+              uid="{45AF6CB4-C3AA-40F1-80F4-656CC7C8889A}"
+              p:after="*[1=2]"
+              s:ds=""
+              s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+              s:par="Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2%2C3%2C4&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Small Business
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h3>YOUR ANYWHERE BANK. WHEREVER YOU LIVE.</h3>
+        Habitat Financial offers every micro and small business personal attention, free mobile banking and convenient card products, regardless of where in the US your business is located, registered, or doing business.<br />
+        Personal service for every business customer, no matter how small. Secure and convenient mobile business banking, at a great value. Open and simple application processes for new accounts and basic services. These are the things you expect, and which we expect ourselves to provide all our customers.
+        <p>Our clients are micro and small business owners who need the support and value only a true small business bank can offer. One whose purpose, mission and focus are aimed at making small &amp; micro business banking needs its top priority.</p>
+        <p>Join the thousands of micros, sole props, and small LLCs and Corps who&rsquo;ve already switched to Habitat Financial, where all we do is your business.</p>
+        <p>&nbsp;</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "aff0d613-adc5-4498-a0ef-92c10fbfbc46"
+    - ID: "c617f679-0ef6-4b52-9877-3f2afe2a9ca0"
+      Hint: image
+      Value: |
+        <image mediaid="{052CAFC9-1348-469A-BE2E-28AE5ADD89C1}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Small Business
+  - Version: 2
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{BA1DC74E-8E67-49D7-8B93-0BEFEA7C08D3}"
+              p:before="*"
+              s:id="{2E991AA4-4B08-43D2-AD2B-17C11E69A499}"
+              s:par="SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;Reset Caching Options&amp;ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B34147B89-B9E1-4705-9F8D-55529C7C0F2C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+              s:ph="/main/sxa-content-container/container-1/row-3-1" />
+            <r
+              uid="{AF921773-FB1B-4DD5-94CA-978FD20F204B}"
+              p:after="r[@uid='{BA1DC74E-8E67-49D7-8B93-0BEFEA7C08D3}']"
+              s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1/row-2-1/container-3" />
+            <r
+              uid="{E971D022-785E-4E52-BB1A-DA66506D8A48}"
+              p:after="r[@uid='{AF921773-FB1B-4DD5-94CA-978FD20F204B}']"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1/row-2-1" />
+            <r
+              uid="{3453FCA2-D348-4F75-8311-7DEC24A174FC}"
+              p:after="r[@uid='{E971D022-785E-4E52-BB1A-DA66506D8A48}']"
+              s:ds="{3A737701-717F-4649-9346-011FC4DC75CF}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1/row-1-1" />
+            <r
+              uid="{45AF6CB4-C3AA-40F1-80F4-656CC7C8889A}"
+              p:after="*[1=2]"
+              s:ds=""
+              s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+              s:par="Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2%2C3%2C4&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Small Business
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h3>YOUR ANYWHERE BANK. WHEREVER YOU LIVE.</h3>
+        Habitat Financial offers every micro and small business personal attention, free mobile banking and convenient card products, regardless of where in the US your business is located, registered, or doing business.<br />
+        Personal service for every business customer, no matter how small. Secure and convenient mobile business banking, at a great value. Open and simple application processes for new accounts and basic services. These are the things you expect, and which we expect ourselves to provide all our customers.
+        <p>Our clients are micro and small business owners who need the support and value only a true small business bank can offer. One whose purpose, mission and focus are aimed at making small &amp; micro business banking needs its top priority.</p>
+        <p>Join the thousands of micros, sole props, and small LLCs and Corps who&rsquo;ve already switched to Habitat Financial, where all we do is your business.</p>
+        <p>&nbsp;</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9e4f5481-ea69-4024-8dd2-5f79a909da2f"
+    - ID: "c617f679-0ef6-4b52-9877-3f2afe2a9ca0"
+      Hint: image
+      Value: |
+        <image mediaid="{052CAFC9-1348-469A-BE2E-28AE5ADD89C1}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Small Business

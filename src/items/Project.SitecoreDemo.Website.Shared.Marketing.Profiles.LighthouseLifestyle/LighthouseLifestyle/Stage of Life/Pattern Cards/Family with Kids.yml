@@ -1,0 +1,33 @@
+﻿---
+ID: "87e34899-445a-49a1-831b-c0a04b2504b5"
+Parent: "c54b9aef-4159-46eb-89b1-4042f9c1c665"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/LighthouseLifestyle/Stage of Life/Pattern Cards/Family with Kids
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="01cef8a9-a5d1-40cd-9462-809fdbc0def7" name="Stage of Life">
+        <key name="Young Professional" value="0" />
+        <key name="Newlywed" value="0" />
+        <key name="Family with Kids" value="10" />
+        <key name="Empty Nester" value="0" />
+        <key name="Retired" value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+Languages:
+- Language: en
+  Fields:
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Family with Kids
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "af5398a3-6c96-4877-b733-93fa13adb31c"
