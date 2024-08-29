@@ -13,6 +13,7 @@ ARG XGEN_ASSETS
 ARG MANAGEMENT_SERVICES_IMAGE
 ARG DELTA_ASSET_IMAGE
 ARG EXPERIENCE_EDGE_ASSETS_IMAGE
+ARG GP_IMAGE
 
 FROM ${TOOLS_ASSETS} as tools
 
@@ -22,6 +23,7 @@ FROM ${HEADLESS_ASSETS} as headless_assets
 FROM ${MANAGEMENT_SERVICES_IMAGE} AS management_services
 FROM ${DELTA_ASSET_IMAGE} as deltaAssetImage
 FROM ${EXPERIENCE_EDGE_ASSETS_IMAGE} AS edge_assets
+FROM ${GP_IMAGE} AS gp
 
 FROM ${CMP_ASSETS} as cmp_assets
 FROM ${XGEN_ASSETS} as xgen_assets
@@ -56,6 +58,8 @@ COPY --from=edge_assets C:\module\cm\xdt C:\module\xdt
 COPY --from=headless_assets /module/cm/content /inetpub/wwwroot
 COPY --from=headless_assets /module/db /inetpub/wwwroot/App_Data/items/core
 COPY --from=headless_assets /module/tools /module/tools
+
+COPY --from=gp /module/cm/content C:\inetpub\wwwroot
 
 RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
     C:\module\tools\xdt\Invoke-XdtTransformations.ps1 -TargetPath C:\inetpub\wwwroot -XdtPath C:\module\xdt; `
