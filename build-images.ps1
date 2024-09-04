@@ -20,9 +20,6 @@ Param (
 )
 
 $dockerComposeBaseCommand = "docker compose"
-if ($CI) {
-  $dockerComposeBaseCommand = "docker-compose"
-}
 
 function Invoke-BuildSolutionAssets {
   # Build the solution images
