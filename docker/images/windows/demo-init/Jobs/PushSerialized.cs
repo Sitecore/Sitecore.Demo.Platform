@@ -44,17 +44,13 @@ namespace Sitecore.Demo.Init.Jobs
             }
 
             var cmd = new WindowsCommandLine("C:\\app");
-            Console.WriteLine(cmd.Run(
-                $"dotnet sitecore login --client-credentials true --auth {id} --cm {cm} --allow-write true --client-id \"Demo_Automation\" --client-secret \"{token}\" -t"));
+            cmd.Run($"dotnet sitecore login --client-credentials true --auth {id} --cm {cm} --allow-write true --client-id \"Demo_Automation\" --client-secret \"{token}\" -t");
 
-			// Run once without logging, to suppress excessive logs
+			// Run without logging, to suppress excessive logs
+            Console.WriteLine("START: dotnet sitecore ser push // Run without logging, to suppress excessive logs");
             cmd.Run($"dotnet sitecore ser push");
-            Console.WriteLine(cmd.Run($"dotnet sitecore ser push"));
+            Console.WriteLine("END: dotnet sitecore ser push // Run without logging, to suppress excessive logs");
             Console.WriteLine(cmd.Run($"dotnet sitecore publish"));
-
-            // Publish twice to ensure all items are published correctly. There's been a few cases when API key did not get published.
-            Console.WriteLine(cmd.Run($"dotnet sitecore publish"));
-
             await Complete();
 		}
 	}
