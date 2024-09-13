@@ -27,12 +27,10 @@ stages:
           matrix:
             content:
               serviceName: 'solution-content'
-            data:
-              serviceName: 'solution-data'
             xconnect:
               serviceName: 'solution-xconnect'
         pool:
-          name: 'docker-ltsc2019-agents'
+          vmImage: "windows-2019"
         workspace:
           clean: all
         steps:
@@ -85,21 +83,25 @@ stages:
                 $env:INTERNAL_NUGET_SOURCE_PASSWORD="$(INTERNAL_NUGET_SOURCE_PASSWORD)"
                 $env:LTSC_NANOSERVER_VERSION="1809"
 
-                docker-compose -f docker-compose.build.solution.yml build $(serviceName)
-                docker-compose -f docker-compose.build.solution.yml push $(serviceName)
+                docker compose -f docker-compose.build.solution.yml build $(serviceName)
+                docker compose -f docker-compose.build.solution.yml push $(serviceName)
       - job: Copy_Solution_Job
         displayName: "Copy solution assets to additional OS versions"
         dependsOn: Build_Solution_Job
         strategy:
           matrix:
             ltsc2019:
-              poolName: "docker-ltsc2019-agents"
+              vmImage: "windows-2019"
               osVersion: "ltsc2019"
               nanoserverVersion: "1809"
+            ltsc2022:
+              vmImage: "windows-2022"
+              osVersion: "ltsc2022"
+              nanoserverVersion: "ltsc2022"
         workspace:
           clean: all
         pool:
-          name: "$(poolName)"
+          vmImage: "$(vmImage)"
         steps:
           - task: UseDotNet@2
             inputs:
@@ -134,8 +136,8 @@ stages:
                 $env:LTSC_NANOSERVER_VERSION="1809"
                 $env:SITECORE_VERSION="$(SITECORE_VERSION)"
                 $filePath = 'docker/docker-compose.copy.solution.yml'
-                docker-compose -f $filePath build --pull
-                docker-compose -f $filePath push
+                docker compose -f $filePath build --pull
+                docker compose -f $filePath push
   - stage: Docker_Windows
     dependsOn: Build_Solution
     displayName: "Build Windows Images"
@@ -144,22 +146,29 @@ stages:
         strategy:
           matrix:
             ltsc2019-xp0:
-              poolName: "docker-ltsc2019-agents"
+              vmImage: "windows-2019"
               osVersion: "ltsc2019"
               nanoserverVersion: "1809"
               docker-compose: 'docker-compose.yml'
               docker-compose-build: 'docker-compose.build.yml'
               topology: 'xp0'
             ltsc2019-xp1:
-              poolName: "docker-ltsc2019-agents"
+              vmImage: "windows-2019"
               osVersion: "ltsc2019"
               nanoserverVersion: "1809"
               docker-compose: 'docker-compose-xp1.yml'
               docker-compose-build: 'docker-compose-xp1.build.yml'
               topology: 'xp1'
+            ltsc2022-xp0:
+              vmImage: "windows-2022"
+              osVersion: "ltsc2022"
+              nanoserverVersion: "ltsc2022"
+              docker-compose: 'docker-compose.yml'
+              docker-compose-build: 'docker-compose.build.yml'
+              topology: 'xp0'
         displayName: "Build Windows Docker Images"
         pool:
-          name: $(poolName)
+          vmImage: $(vmImage)
         steps:
           - task: UseDotNet@2
             inputs:
@@ -204,115 +213,30 @@ stages:
 
                 ./pull-build-images.ps1 -CI
 
-                docker-compose -f docker-compose.build.solution.yml pull
+                docker compose -f docker-compose.build.solution.yml pull
 
                 # Reset demo version to correct tag without build id
                 $env:DEMO_VERSION = "$(tag)"
 
                 ./init-ci.ps1 @params
-                docker-compose -f $(docker-compose) -f $(docker-compose-build) build cm
-                docker-compose -f $(docker-compose) -f $(docker-compose-build) push cm
-                docker-compose -f $(docker-compose) -f $(docker-compose-build) build --pull --parallel
-                docker-compose -f $(docker-compose) -f $(docker-compose-build) push
+                docker compose -f $(docker-compose) -f $(docker-compose-build) build cm
+                docker compose -f $(docker-compose) -f $(docker-compose-build) push cm
+                docker compose -f $(docker-compose) -f $(docker-compose-build) build --pull
+                docker compose -f $(docker-compose) -f $(docker-compose-build) push
 
                 $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
                 if ($primaryBuild) {
                   $env:DEMO_VERSION = "$(additionalImageTags)"
-                  docker-compose -f $(docker-compose) -f $(docker-compose-build) build cm
-                  docker-compose -f $(docker-compose) -f $(docker-compose-build) push cm
-                  docker-compose -f $(docker-compose) -f $(docker-compose-build) build --parallel
-                  docker-compose -f $(docker-compose) -f $(docker-compose-build) push
+                  docker compose -f $(docker-compose) -f $(docker-compose-build) build cm
+                  docker compose -f $(docker-compose) -f $(docker-compose-build) push cm
+                  docker compose -f $(docker-compose) -f $(docker-compose-build) build
+                  docker compose -f $(docker-compose) -f $(docker-compose-build) push
                 }
-  - stage: Docker_Linux
-    dependsOn: Build_Solution
-    displayName: "Build Linux Images"
-    jobs:
-      - job: Build_Linux_Images
-        displayName: "Build Linux Images"
-        pool:
-          name: docker-linux-agents
-        workspace:
-          clean: all
-        steps:
-          - task: UseDotNet@2
-            inputs:
-              packageType: "sdk"
-              version: "5.0.x"
-          - template: version.yml
-          - task: PowerShell@2
-            displayName: "Downloading Latest Images"
-            inputs:
-              targetType: "inline"
-              script: |
-                $params = @{}
-
-                $sitecoreRegistry = "$(sitecore.container.registry)"
-
-                az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
-
-                if ("$(Build.SourceBranch)" -match "upgrade/(?<version>\d+\.\d+\.\d+)") {
-                    $sitecoreRegistry = "$(sitecore.internal.container.registry)"
-                }
-
-                if ("$sitecoreRegistry" -ne "scr.sitecore.com/"){
-                  az acr login -n "$sitecoreRegistry"
-                }
-                az acr login -n "$(container.registry.short)"
-
-                $sitecoreVersion = "$(SITECORE_VERSION)"
-
-                $params.Add("DemoTeamRegistry","$(REGISTRY)")
-                $params.Add("SitecoreRegistry","$sitecoreRegistry")
-                $params.Add("SitecoreVersion","$sitecoreVersion")
-
-                ./init-ci.ps1 @params
-
-                ./pull-linux-build-images.ps1
-              pwsh: true
-          - task: DockerCompose@0
-            displayName: "Docker Compose Build"
-            inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: "$(azure.subscription)"
-              azureContainerRegistry: "$(container.registry)"
-              dockerComposeFile: "docker/docker-compose-linux.yml"
-              dockerComposeFileArgs: |
-                DEMO_VERSION=$(tag)
-                REGISTRY=$(REGISTRY)
-                SITECORE_VERSION=$(SITECORE_VERSION)
-                SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
-                SITECORE_LICENSE=$(SITECORE_LICENSE)
-                TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
-                OPENCALAIS_ACCESSTOKEN=$(OpenCalais.AccessToken)
-                HOSTNAME_SUFFIX=
-              qualifyImageNames: false
-              action: "Build services"
-              additionalImageTags: "$(SITECORE_VERSION)-linux-$(additionalImageTags)"
-              arguments: "$(no.cache)"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
-          - task: DockerCompose@0
-            displayName: "Push Images"
-            inputs:
-              containerregistrytype: "Azure Container Registry"
-              azureSubscription: $(azure.subscription)
-              azureContainerRegistry: $(container.registry)
-              dockerComposeFile: "docker/docker-compose-linux.yml"
-              dockerComposeFileArgs: |
-                REGISTRY=$(REGISTRY)
-                DEMO_VERSION=$(tag)
-                SITECORE_VERSION=$(SITECORE_VERSION)
-                SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
-                SITECORE_LICENSE=$(SITECORE_LICENSE)
-                TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
-                HOSTNAME_SUFFIX=
-              action: "Push services"
-              additionalImageTags: "$(SITECORE_VERSION)-linux-$(additionalImageTags)"
-              currentWorkingDirectory: "$(Build.SourcesDirectory)"
   - stage: Update_Portal_Databases_Nightly
     displayName: "Update 'nightly' version in portal databases"
     dependsOn:
       - Release_Notes
-    condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
     pool:
       vmImage: 'ubuntu-latest'
     jobs:
@@ -335,7 +259,7 @@ stages:
     displayName: "Update 'stable' version in the DEV portal database"
     dependsOn:
       - Release_Notes
-    condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
     pool:
       vmImage: 'ubuntu-latest'
     jobs:
@@ -359,7 +283,7 @@ stages:
     displayName: "Update 'stable' version in the PROD portal database"
     dependsOn:
       - Release_Notes
-    condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
     pool:
       vmImage: 'ubuntu-latest'
     jobs:
@@ -386,8 +310,7 @@ stages:
     displayName: "Create Release Notes"
     dependsOn:
       - Docker_Windows
-      - Docker_Linux
-    condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
+    condition: and(succeeded('Docker_Windows'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
     pool:
       vmImage: 'ubuntu-latest'
     jobs:

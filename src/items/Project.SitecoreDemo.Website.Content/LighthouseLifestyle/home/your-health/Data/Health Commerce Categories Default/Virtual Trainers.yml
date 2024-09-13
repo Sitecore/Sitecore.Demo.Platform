@@ -1,0 +1,40 @@
+﻿---
+ID: "42fb3908-58f8-4e96-9b01-3354b98b8bb0"
+Parent: "b7be6c71-c208-48cb-ba6b-5af0a766b93a"
+Template: "ddb08f92-1cc2-43e2-b5c1-fe7f98e32ec9"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/your-health/Data/Health Commerce Categories Default/Virtual Trainers"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2f12c5bc-c6f0-454c-a213-e42bad19e9f9"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{EEBBA754-E4F3-4148-A3EB-A32AE7F61703}" />
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Trainers" linktype="rel" url="/shop/Digital-Subscriptions" anchor="" />
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2f81138c-c0ee-42c5-9be8-178710a93e97"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{EEBBA754-E4F3-4148-A3EB-A32AE7F61703}" />
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Trainers" linktype="rel" url="/shop/Digital-Subscriptions" anchor="" />

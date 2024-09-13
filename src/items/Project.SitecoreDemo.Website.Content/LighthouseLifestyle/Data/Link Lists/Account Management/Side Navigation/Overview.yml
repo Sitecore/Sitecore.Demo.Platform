@@ -1,0 +1,36 @@
+﻿---
+ID: "058c9d5c-2025-402d-8f95-db37c7b297b7"
+Parent: "1a4422bd-dd8c-4ad1-bdf3-0a2dac18e296"
+Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Link Lists/Account Management/Side Navigation/Overview
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3621fc89-26dc-4beb-a44b-2d7507b9d8c4"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{C8121F23-0CED-4828-8F8B-994D27F1CC7E}" querystring="" text="Overview" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/account/portal" title="" class="" linktype="internal" />
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 概要
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "75ea477d-1fef-4dc8-b97d-445b05b8a015"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{C8121F23-0CED-4828-8F8B-994D27F1CC7E}" querystring="" linktype="internal" text="概要" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/account/portal" title="" class="" target="|Custom" />

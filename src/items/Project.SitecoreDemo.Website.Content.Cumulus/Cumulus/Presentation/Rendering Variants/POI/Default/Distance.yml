@@ -1,0 +1,27 @@
+﻿---
+ID: "0300ebc1-f3a1-4626-a0f1-fc7cf4baf4b2"
+Parent: "0076287b-7817-42b0-be4f-826282f19c83"
+Template: "8fcd3cfe-8b3b-423e-8176-6a7c72cb43fc"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Presentation/Rendering Variants/POI/Default/Distance
+BranchID: "0f31020c-79af-47c9-b8e6-c98720ae8a13"
+SharedFields:
+- ID: "8a85a595-3298-4eb1-96dd-c882ee5802ae"
+  Hint: Tag
+  Value: "{18C8C889-C723-452A-970C-7CE4D41EE371}"
+- ID: "936e68b4-5346-4adb-9b77-79771d0b40dc"
+  Hint: Template
+  Value: |
+    {{ if o_geospatial }}
+    Distance: {{ o_geospatial.distance | math.round 1 }} {{ o_geospatial.unit }}
+    {{end}}
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{D2968AE1-7D7B-4F38-8D7C-9A5FD08633AD}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e8a47932-88da-4306-baa5-9907cad555be"

@@ -1,0 +1,24 @@
+﻿---
+ID: "d3d5feb9-3e41-4f25-b44c-48a0a4c2f6c4"
+Parent: "422a7377-107d-43bc-99de-c6f14c3fbf0e"
+Template: "fe8d604d-26f6-426d-a3e2-e4edff091b47"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/LighthouseFinancial Emails/Message Types
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\EXM Users|pd|+item:delete|+item:admin|+item:create|+item:rename|^*|+item:read|+item:write|pe|+item:delete|+item:admin|+item:create|+item:rename|^*|+item:read|+item:write|
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{7B23FF40-CBFE-4B7B-A2CC-051632E1CB01}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "537a5562-9ee1-4ac0-84aa-f35aeadb8e5a"

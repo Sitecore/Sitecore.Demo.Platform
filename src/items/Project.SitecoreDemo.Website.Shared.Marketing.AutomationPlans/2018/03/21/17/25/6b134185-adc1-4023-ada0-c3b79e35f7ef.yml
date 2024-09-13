@@ -1,0 +1,55 @@
+﻿---
+ID: "6b134185-adc1-4023-ada0-c3b79e35f7ef"
+Parent: "92d4fedf-3a33-40cc-bc7c-e9aca1ba9011"
+Template: "d4d43c33-3661-4630-af63-0754cab7b110"
+Path: "/sitecore/system/Marketing Control Panel/Automation Plans/2018/03/21/17/25/6b134185-adc1-4023-ada0-c3b79e35f7ef"
+SharedFields:
+- ID: "1766652d-080b-409c-abbf-3a90e0f801f5"
+  Hint: Start Date
+  Value: 20180321T172500Z
+- ID: "2c41a32f-86a9-4f43-8550-bf0af266e3f2"
+  Hint: End Date
+  Value: 20240801T140500Z
+- ID: "394d49b2-b579-43aa-ab32-b4010b18fd07"
+  Hint: Marketing Theme
+  Value: 
+- ID: "3fb918c8-08ec-4879-8062-088bbf71ee72"
+  Hint: Plan Data
+  Value: |
+    {"ReentryMode":0,"ContextKeyFactoryType":null,"EntryActivityId":"5ab0c215-5fba-655d-054a-87b23f4c6b67","NewEnrollmentRegulatorType":null,"NewEnrollmentRegulatorParameters":null,"PlanEntrySchedule":null,"ScheduledContactListId":null,"Alias":"6b134185-adc1-4023-ada0-c3b79e35f7ef","IgnoreIsActiveProperty":true,"Activities":{"5ab0c215-5fba-655d-054a-87b23f4c6b67":{"Paths":{"default":"494c88ca-1e49-4675-c12b-67e92469a54f"},"Id":"5ab0c215-5fba-655d-054a-87b23f4c6b67","ActivityTypeId":"8c92d3c1-2c38-4e8a-92d1-9590e17cce89","Parameters":{"EventIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"GoalIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":["2a2ebecc-d066-4fbc-8701-bba74aac9f2e"]},"OutcomeIds":{"$type":"System.Collections.Generic.List`1[[System.Guid, mscorlib]], mscorlib","$values":[]},"TestOperation":0,"UseCondition":false}},"494c88ca-1e49-4675-c12b-67e92469a54f":{"Paths":{"default":"95835e19-7463-079d-52ac-0c60baec1be6"},"Id":"494c88ca-1e49-4675-c12b-67e92469a54f","ActivityTypeId":"9046a4aa-07d9-4377-8a6e-1db27765b2ba","Parameters":{"Name":"Delay","ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"00:01:00","WaitUntil":null}}},"95835e19-7463-079d-52ac-0c60baec1be6":{"Paths":{"default":"ad32b046-b2dd-addd-b6f3-e04546ea9aca"},"Id":"95835e19-7463-079d-52ac-0c60baec1be6","ActivityTypeId":"51774db5-b90b-4189-9613-104039723a0b","Parameters":{"MessageId":"caf67df7-5ec9-4480-9cd5-5346648b55eb"}},"ad32b046-b2dd-addd-b6f3-e04546ea9aca":{"Paths":{"false":"84147324-7519-9a9c-dac1-3989721b2ce2","true":"72318961-136f-0bb3-420d-619d622b3451"},"Id":"ad32b046-b2dd-addd-b6f3-e04546ea9aca","ActivityTypeId":"37d0918f-255a-417a-9205-100bbd1bdf0d","Parameters":{"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"6.00:00:00","WaitUntil":null},"Name":"Visit listener"}},"72318961-136f-0bb3-420d-619d622b3451":{"Paths":{"default":"84147324-7519-9a9c-dac1-3989721b2ce2"},"Id":"72318961-136f-0bb3-420d-619d622b3451","ActivityTypeId":"743489a2-8bd0-49ed-b284-5534ac59685a","Parameters":{"EngagementValue":10}},"84147324-7519-9a9c-dac1-3989721b2ce2":{"Paths":{"false":"6567f75c-6540-ad7a-4634-88e91b36e27c","true":"2c41015e-1e3d-be62-7af8-10eeaefef1f7"},"Id":"84147324-7519-9a9c-dac1-3989721b2ce2","ActivityTypeId":"7fca5e5b-4796-4d7e-abec-28f376e4d7e2","Parameters":{"Condition":{"$type":"Sitecore.Marketing.Rules.Rule[], Sitecore.Marketing","$values":[{"Id":"aba5c0c7-6d30-4c89-b838-f00995c69401","Name":" ","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=14.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"$type":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing","Id":"f18af4e2-d9b6-43b4-8a10-2ae451282507","DescriptorId":"399fd11a-c87a-4076-a834-c14ef591361e","Properties":{"$type":"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String, mscorlib]], mscorlib"}}}]},"ListenerDelay":{"$type":"Sitecore.Marketing.Automation.Models.ListenerDelay, Sitecore.Marketing.Automation.Models","Delay":"6.00:00:00","WaitUntil":null},"Name":"Custom listener"}},"6567f75c-6540-ad7a-4634-88e91b36e27c":{"Paths":{"default":"60581e6c-7cf7-4729-78c3-2ff62e62a750"},"Id":"6567f75c-6540-ad7a-4634-88e91b36e27c","ActivityTypeId":"fef847a8-540e-408d-9cf1-3d8a133c3de0","Parameters":{}},"2c41015e-1e3d-be62-7af8-10eeaefef1f7":{"Paths":{"default":"60581e6c-7cf7-4729-78c3-2ff62e62a750"},"Id":"2c41015e-1e3d-be62-7af8-10eeaefef1f7","ActivityTypeId":"743489a2-8bd0-49ed-b284-5534ac59685a","Parameters":{"EngagementValue":15}},"60581e6c-7cf7-4729-78c3-2ff62e62a750":{"Paths":{},"Id":"60581e6c-7cf7-4729-78c3-2ff62e62a750","ActivityTypeId":"a47371c2-8921-421f-8902-f3eccd229d56","Parameters":{}}},"UniversalActivities":{}}
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: "Foodie - Foodie Feast Sign Up"
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5a885c4a-93b3-44ae-beb0-0503f3f5f305"
+    - ID: "e259e500-b38e-41fe-82db-8b604bcf9e75"
+      Hint: Description
+      Value: Completed the Foodie Feast form on the Your Health page
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: "????? - ???"
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "fe5e50c5-b344-4d84-990a-45078b365def"

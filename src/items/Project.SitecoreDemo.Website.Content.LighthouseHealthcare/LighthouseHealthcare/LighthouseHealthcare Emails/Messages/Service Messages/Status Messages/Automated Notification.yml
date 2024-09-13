@@ -1,0 +1,108 @@
+﻿---
+ID: "13e4493d-a1a3-40e7-bc3d-35f2b016ca16"
+Parent: "213f787b-66bf-41e5-9c78-b26d683ed456"
+Template: "ecf0a9c8-fe56-45d8-b750-6bde3a34a532"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/LighthouseHealthcare Emails/Messages/Service Messages/Status Messages/Automated Notification
+SharedFields:
+- ID: "0934bec4-325a-427b-95bb-46f78cea9591"
+  Hint: Message Type
+  Value: "{B2F77E26-C5AC-4A6B-BBB3-F290100EB3D8}"
+- ID: "22e8644c-99ea-43a4-aadd-aba96804c154"
+  Hint: Exclude From Reports
+  Value: 1
+- ID: "af0fe26a-a78b-491d-885c-03d95bc17342"
+  Hint: State
+  Value: Active
+- ID: "e2d1d8a4-24aa-4536-a420-7eadd8719cf6"
+  Hint: Service Message
+  Value: 1
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{A74817EB-726E-46DB-B151-AB5E6AC3F6F4}">
+        <r
+          cac="0"
+          cnd=""
+          mvt=""
+          ds=""
+          id="{D169744B-6343-45D8-831E-658E8560E9CB}"
+          par=""
+          ph="msg-body"
+          uid="{8F02FAEB-8C45-4437-B2FC-88A74F0BF7E2}"
+          vbd="0"
+          vbdev="0"
+          vbl="0"
+          vbp="0"
+          vbqs="0"
+          vbu="0" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{29FA138B-909F-4134-8275-BD1F0FCC6810}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Triggered Message Notification
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1e5221d9-a813-4ee1-bada-33f70028a709"
+      Hint: AlternateText
+      Value: The $message$ message is $status$.
+    - ID: "89b7628a-3564-4c9a-8116-dcb15f692573"
+      Hint: Body
+      Value: <div>The $message$ message is $status$.</div>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0f766c8f-5864-40d4-8471-7b43d9d8e34d"
+    - ID: "8e6b1f0c-1267-4651-bfaa-affd48a799ee"
+      Hint: Subject
+      Value: Message is $status$
+  - Version: 2
+    Fields:
+    - ID: "1e5221d9-a813-4ee1-bada-33f70028a709"
+      Hint: AlternateText
+      Value: The $message$ message is $status$.
+    - ID: "89b7628a-3564-4c9a-8116-dcb15f692573"
+      Hint: Body
+      Value: <div>The $message$ message is $status$.</div>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6b8f8868-d615-42ef-a3a1-70c4d1303b2e"
+    - ID: "8e6b1f0c-1267-4651-bfaa-affd48a799ee"
+      Hint: Subject
+      Value: Message is $status$
+  - Version: 3
+    Fields:
+    - ID: "1e5221d9-a813-4ee1-bada-33f70028a709"
+      Hint: AlternateText
+      Value: The $message$ message is $status$.
+    - ID: "89b7628a-3564-4c9a-8116-dcb15f692573"
+      Hint: Body
+      Value: <div>The $message$ message is $status$.</div>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1cb8bd04-37e5-4597-b680-5ba5b18283e6"
+    - ID: "8e6b1f0c-1267-4651-bfaa-affd48a799ee"
+      Hint: Subject
+      Value: Message is $status$
+  - Version: 4
+    Fields:
+    - ID: "1e5221d9-a813-4ee1-bada-33f70028a709"
+      Hint: AlternateText
+      Value: The $message$ message is $status$.
+    - ID: "89b7628a-3564-4c9a-8116-dcb15f692573"
+      Hint: Body
+      Value: <div>The $message$ message is $status$.</div>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1770f187-e0d5-4ee1-9b44-d8d50d08dbeb"
+    - ID: "8e6b1f0c-1267-4651-bfaa-affd48a799ee"
+      Hint: Subject
+      Value: Message is $status$

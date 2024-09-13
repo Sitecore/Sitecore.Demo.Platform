@@ -72,6 +72,22 @@
             "type": "string"
           }
         },
+        "expiresIn": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Preserves access token lifetime. Set during the login operation. Related to LastUpdated property. System use only.",
+          "format": "int32"
+        },
+        "lastUpdated": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Preserve date and time when environment was updated during the login. System use only.",
+          "format": "date-time"
+        },
         "clientId": {
           "type": "string",
           "description": "OAuth client ID for this endpoint",
@@ -93,7 +109,7 @@
             "boolean",
             "null"
           ],
-          "description": "If true, allows cli to use http protocol to communicate with Identity Service Authority. "
+          "description": "If true, allows cli to use http protocol to communicate with Identity Service Authority."
         },
         "audience": {
           "type": "string",

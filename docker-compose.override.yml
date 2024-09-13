@@ -20,7 +20,7 @@ services:
 
   # Custom mssql init
   mssql-init:
-    mem_limit: 12GB
+    mem_limit: 6GB
     image: ${REGISTRY}demo/lighthouse-xp0-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     environment:
       SQL_SERVER: ${SQL_SERVER}
@@ -68,18 +68,18 @@ services:
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       Sitecore_Sitecore__IdentityServer__Clients__CredentialsClient__ClientSecrets__TenantService: ${SITECORE_CLIENT_SECRET}
+      ID_SERVER_DEMO_CLIENT_SECRET: ${ID_SERVER_DEMO_CLIENT_SECRET}
     networks:
       - demo
 
   cm:
     image: ${REGISTRY}demo/lighthouse-xp0-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('C:\\src\\Web.config'); }"
-    mem_limit: 4G
+    mem_limit: 6G
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
       SITECORE_APPSETTINGS_ENV:DEFINE: Docker
-      SITECORE_APPSETTINGS_UNICORN:DEFINE: Enabled
       SITECORE_APPSETTINGS_CONTENTHUB:DEFINE: Enabled
       SITECORE_CONNECTIONSTRINGS_CMP.ContentHub: ${CMP_CONTENTHUB}
       SITECORE_CONNECTIONSTRINGS_CMP.ServiceBusEntityPathIn: ${CMP_SERVICEBUSENTITYPATHIN}
@@ -94,7 +94,6 @@ services:
       DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES: ${DEPENDENCY_INJECTION_IGNORED_ASSEMBLIES}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
-      - .\items:c:\items
       - .\data\cm\src:C:\src
       - .\data\cm\backup:c:\backup
     depends_on:
@@ -154,7 +153,6 @@ services:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       SITECORE_APPSETTINGS_SXAXM:DEFINE: sxaxconnect
       SITECORE_APPSETTINGS_ENV:DEFINE: Docker
-      SITECORE_APPSETTINGS_UNICORN:DEFINE: Disabled
       SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
       Sitecore_ConnectionStrings_Security: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Web: Data Source=mssql;Initial Catalog=Sitecore.Web;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -219,7 +217,8 @@ services:
       HOST_ID: "http://id"
       MARKETING_DEFINITIONS_APIKEY: ${MARKETING_DEFINITIONS_APIKEY}
       SKIP_WARMUP_CD: ${SKIP_WARMUP_CD}
-      INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
+      INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD};TrustServerCertificate=Yes;
+      ID_SERVER_DEMO_CLIENT_SECRET: ${ID_SERVER_DEMO_CLIENT_SECRET}
     depends_on:
       mssql-init:
         condition: service_healthy

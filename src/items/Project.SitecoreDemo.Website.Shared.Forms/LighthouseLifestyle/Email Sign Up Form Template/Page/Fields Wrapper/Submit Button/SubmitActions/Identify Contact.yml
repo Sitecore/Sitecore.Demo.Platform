@@ -1,0 +1,42 @@
+﻿---
+ID: "794a2bb3-5761-4591-849c-a90319e77705"
+Parent: "d6ed101b-8334-4de7-8603-30f468e809d9"
+Template: "05fe45d4-b9c7-40de-b767-7c5abe7119f9"
+Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseLifestyle/Email Sign Up Form Template/Page/Fields Wrapper/Submit Button/SubmitActions/Identify Contact
+SharedFields:
+- ID: "5c796924-3f06-4d1f-8510-8ad9a4244477"
+  Hint: Parameters
+  Value: |
+    {"referenceId":"{CE043087-5E8D-487B-B4C2-1EA1412938D7}"}
+- ID: "abc57b6d-5542-4ab9-a889-106225a032e6"
+  Hint: Submit Action
+  Value: "{1DABF0F7-3E82-4E47-BA57-8CEB4F9D0184}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7463aefd-76e4-4a40-9484-933617e6bed0"
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "78daffc2-cc25-4c03-9663-a234da19e967"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: コンタクトの精査
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1adc654a-b8ec-4978-bfda-17715a6bb794"

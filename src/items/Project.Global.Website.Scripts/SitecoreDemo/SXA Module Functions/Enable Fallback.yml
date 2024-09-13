@@ -1,0 +1,29 @@
+﻿---
+ID: "5827e15c-f730-4092-b39d-5f03cffc65a7"
+Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/SitecoreDemo/SXA Module Functions/Enable Fallback
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    function Invoke-ModuleScriptBody {}
+    function Invoke-Step {}
+    
+    Import-Function Get-SiteItem
+    $Root = Get-SiteItem $Site
+    
+    $siteGrouping = Get-Item -Path "master://$($Root.Paths.Path)/Settings/Site Grouping/$($Root.Name)"
+    $siteGrouping.Locking.Unlock()
+    $siteGrouping.Editing.BeginEdit()
+    $siteGrouping.Fields['FieldLanguageFallback'].Value = "1"
+    $siteGrouping.Fields['ItemLanguageFallback'].Value = "1"
+    $siteGrouping.Editing.EndEdit()
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "dd3eeb9d-e2b1-42b7-a11a-90218a6f07d3"

@@ -1,0 +1,51 @@
+﻿---
+ID: "ffee7e71-d577-48fa-8387-968f8ae3996a"
+Parent: "a19f9186-8332-49a0-b940-aa2f257179d7"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/SitecoreDemo/SXA Module Functions/Set Search Page on Footer
+SharedFields:
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    function Invoke-ModuleScriptBody {
+        [CmdletBinding()]
+        param(
+        [Parameter(Mandatory=$true, Position=0 )]
+        [Item]$Root,
+        [Parameter(Mandatory=$true, Position=1 )]        
+        [Item[]]$TenantTemplates
+        )
+        begin {
+            Write-Verbose "Cmdlet Set Search Page on Footer - Begin"
+        }
+        process {
+            Write-Verbose "Cmdlet Set Search Page on Footer - Process"
+    
+            $footer = Get-Item -Path "master://$($Root.Paths.Path)/Presentation/Partial Designs/Footer"
+            $searchPage = Get-Item -Path "master://$($Root.Paths.Path)/Home/Search"
+            $searchPageID = [System.Web.HttpUtility]::UrlEncode($searchPage.ID)
+    
+            $footer.Locking.Unlock()
+            $footer.Editing.BeginEdit()
+            $footer.Fields['__Renderings'].Value = $footer.Fields['__Renderings'].Value.replace("SearchResultPage=%7b74A89460-3E7A-4A64-887A-2D766706ACAE%7d&amp;", "SearchResultPage=$searchPageID&amp;")
+            $footer.Editing.EndEdit()
+        }
+        end {
+            Write-Verbose "Cmdlet Set Search Page on Footer - End"
+        }
+    }
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "54f56ce5-dbba-42a1-ba1f-58d568eb0f2b"
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "029f7eb7-46eb-4321-878e-ff596701d4af"

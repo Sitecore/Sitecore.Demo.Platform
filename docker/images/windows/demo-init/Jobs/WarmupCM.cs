@@ -23,6 +23,14 @@ namespace Sitecore.Demo.Init.Jobs
 		{
 			try
 			{
+				var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
+				if (string.IsNullOrEmpty(ns))
+				{
+					Log.LogWarning(
+						$"{this.GetType().Name} will not execute this time, RELEASE_NAMESPACE is not configured - this job is only required on AKS");
+					return;
+				}
+
 				var watch = System.Diagnostics.Stopwatch.StartNew();
 				var content = File.ReadAllText("data/warmup-config.json");
 				var config = JsonConvert.DeserializeObject<WarmupConfig>(content);

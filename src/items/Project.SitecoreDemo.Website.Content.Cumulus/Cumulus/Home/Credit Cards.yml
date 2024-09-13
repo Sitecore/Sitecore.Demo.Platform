@@ -1,0 +1,169 @@
+﻿---
+ID: "748fccdb-a956-41c5-8d10-6c24ee88c425"
+Parent: "813ce1d0-61e4-422f-9a3a-657bc47f60ab"
+Template: "26745e9d-be97-4902-993d-1982b47b64bf"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Home/Credit Cards
+SharedFields:
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="d387e7ed-61a7-4d4a-b85b-93bb3a6a598a"
+        name="Cumulus Finserv Topic Interest"
+        presets="credit card services|100||">
+        <key
+          name="Banking"
+          value="0" />
+        <key
+          name="Borrowing"
+          value="0" />
+        <key
+          name="Corporate Banking"
+          value="0" />
+        <key
+          name="Credit Card Services"
+          value="10" />
+        <key
+          name="Insurance"
+          value="0" />
+        <key
+          name="Investing"
+          value="0" />
+        <key
+          name="Personal Banking"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{DC0A4DAE-F45A-459C-A475-78BB8FE3C1D0}"
+              p:before="*"
+              s:ds="{F69D4CCB-5B8C-4573-9484-2CA0225BAF13}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7B292F9A86-3B80-450D-B340-E26F4C717C53%7D&amp;Styles=%7BAFC0C94E-6914-40DB-A12E-37A38C2289B7%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1" />
+            <r
+              uid="{27848356-592E-4832-BDD7-E673F20ABC58}"
+              p:after="r[@uid='{DC0A4DAE-F45A-459C-A475-78BB8FE3C1D0}']"
+              s:ds="{B0EC90D8-6100-4703-8975-5D986D65D73C}"
+              s:id="{51C13F03-8364-4F61-B860-2EC6CA7439B3}"
+              s:mvt="{296A0B1E-F61C-4DC4-8C79-9105D395CC20}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;FieldNames=%7BFC6A1A4D-91C6-4908-9B94-DF03ED671FD8%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1" />
+            <r
+              uid="{1FFA69E1-4F65-4E5B-B8C6-7EE92BB79D9F}"
+              p:after="*[1=2]"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B908E2BC6-C110-4ED7-AF39-7EEACBB31A34%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Credit Cards
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <div class="gray-background-content">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-4 offset-sm-2">
+        <h4>Cloud Travel Card&reg;</h4>
+        <p>Our premier travel card to earn you flight and hotel rewards.</p>
+        <button class="btn btn-primary" type="submit">Learn More</button>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+        <h4>Benefits Include:</h4>
+        <ul>
+            <li>$0 Introductory annual fee for the first year</li>
+            <li>Miles never expire</li>
+            <li>Enjoy priority boarding privileges</li>
+            <li>Use miles for any seat, any time</li>
+            <li>Enjoy luxury hotel and resort privileges</li>
+            <li><a href="~/link.aspx?_id=7492EA53F8E94C16944D058D0CE64050&amp;_z=z">Cloud Travel Card</a></li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="white-background-content">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-4 offset-sm-2">
+        <h4>Cloud Plus Card&reg;</h4>
+        <p>Build up points to redeem for cash, airline tickets, gift cards, and more.</p>
+        <button class="btn btn-primary" type="submit">Learn More</button>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+        <h4>Benefits Include:</h4>
+        <ul>
+            <li>Earn 4 points for every $1 in qualifying purchases*</li>
+            <li>Redeem your points for hundreds of valuable rewards &mdash; including cash, name brand merchandise, travel, and more</li>
+            <li>No monthly service fees</li>
+            <li><a href="~/link.aspx?_id=7E11A837DF58471BB4CFD4A4C470E453&amp;_z=z">Cloud Plus Card</a></li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="gray-background-content">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-4 offset-sm-2">
+        <h4>Cumulus Freedom&reg;</h4>
+        <p>Our most popular rewards card.</p>
+        <button class="btn btn-primary" type="submit">Learn More</button>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+        <h4>Benefits Include:</h4>
+        <ul>
+            <li>Earn a $100 New Cardmember Bonus after you spend $500 on purchases in your first 3 months from account opening</li>
+            <li>5% cash back on up to $1,500 in combined purchases in bonus categories each quarter and unlimited 1% cash back on all other purchases</li>
+            <li>No Annual Fee<sup>&dagger;&nbsp;</sup></li>
+            <li><a href="~/link.aspx?_id=051A71C295B04131B373E005BFCED460&amp;_z=z">Cumulus Freedom</a></li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="white-background-content">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-4 offset-sm-2">
+        <h4>Student Rewards Card</h4>
+        <p>Start building credit while you are a student.</p>
+        <button class="btn btn-primary" type="submit">Learn More</button>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+        <h4>Benefits Include:</h4>
+        <ul>
+            <li>Double your rewards at gas stations and restaurants with 2% cash back on up to $1,000 in combined purchases each quarter</li>
+            <li>Get non stop cash back every time you use your card. Earn 1% cash back on all other credit card purchases.</li>
+            <li>Redeem your cash back any time as a statement credit, a deposit to your bank account or pay at Amazon.com</li>
+            <li><a href="~/link.aspx?_id=EC340B4C50E74DBD93F329EB3EA1C2EB&amp;_z=z">Student Rewards Card</a></li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "56698e66-4ae4-47ad-b3ea-e31184beb643"
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Credit Cards

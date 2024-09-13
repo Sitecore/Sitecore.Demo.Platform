@@ -1,0 +1,201 @@
+﻿---
+ID: "8cc325d5-88fe-4412-8d28-08c3121b9883"
+Parent: "5f6276db-f968-4bbc-a307-f3f0fbc69f5d"
+Template: "26745e9d-be97-4902-993d-1982b47b64bf"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Home/Commercial
+SharedFields:
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{C028BDDE-13CC-4407-B418-4BD7C7D6AAD0}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="3a0f2ec6-1346-434d-8df1-1c576628c7fa"
+        name="Financial Client"
+        presets="cfo|100||">
+        <key
+          name="Checking"
+          value="0" />
+        <key
+          name="Mortgage"
+          value="0" />
+        <key
+          name="IRA"
+          value="2" />
+        <key
+          name="Mutual Funds"
+          value="3" />
+        <key
+          name="Business Account"
+          value="5" />
+        <key
+          name="SBA Lending"
+          value="2" />
+        <key
+          name="Monetary Exchange Rate"
+          value="10" />
+        <key
+          name="Corporate Lending"
+          value="10" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{FC847D31-6608-4C50-9134-0052A0BF74C6}"
+              p:before="*"
+              s:id="{2E991AA4-4B08-43D2-AD2B-17C11E69A499}"
+              s:par="SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;Reset Caching Options&amp;ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B34147B89-B9E1-4705-9F8D-55529C7C0F2C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
+              s:ph="/main/sxa-content-container/container-1/row-4-1" />
+            <r
+              uid="{AF8F6102-08AC-49B6-915B-90DED75C9F31}"
+              p:after="r[@uid='{FC847D31-6608-4C50-9134-0052A0BF74C6}']"
+              s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+              s:ph="/main/sxa-content-container/container-1/row-3-1/container-4" />
+            <r
+              uid="{3C430B74-F60E-4465-97BF-B119DD5A79FE}"
+              p:after="r[@uid='{AF8F6102-08AC-49B6-915B-90DED75C9F31}']"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1/row-3-1" />
+            <r
+              uid="{2E52B3F3-D42C-47BC-B49A-6261B3B6D6C4}"
+              p:after="r[@uid='{3C430B74-F60E-4465-97BF-B119DD5A79FE}']"
+              s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+              s:par="BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD85BD5A8-A6B6-4209-8693-AE0414CBF0AC%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1/row-2-1" />
+            <r
+              uid="{9DA99BA6-A0AC-4CDA-9149-08EDE711A750}"
+              p:after="r[@uid='{2E52B3F3-D42C-47BC-B49A-6261B3B6D6C4}']"
+              s:ds="{A134FF73-B9C8-48F3-9068-09C544E3046E}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1/row-1-1" />
+            <r
+              uid="{96C07CCB-56A4-49A0-BFF8-0891FA744F83}"
+              p:after="*[1=2]"
+              s:ds=""
+              s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+              s:par="Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2%2C3%2C4%2C5&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Commercial
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h2>READY TO HELP</h2>
+        We're ready to respond in a changing environment. Ready to help you meet challenges and seize opportunities.<br />
+        <br />
+        You're made ready. And so are we.<br />
+        <h3>Bank on in-depth industry expertise</h3>
+        <p>Working from a foundation of deep industry knowledge, our Commercial Banking experts understand the dynamics and challenges that drive change and impact your company&rsquo;s business. Our specialized teams are here to provide tailored solutions and guidance in a broad range of industry sectors.</p>
+        <p>&nbsp;</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "71ec1f38-5b6b-4dc7-86cd-73e78bcff9fd"
+    - ID: "c617f679-0ef6-4b52-9877-3f2afe2a9ca0"
+      Hint: image
+      Value: |
+        <image mediaid="{79981E8C-AD34-4848-A13F-850805C8F3B4}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Commercial
+  - Version: 2
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{FC847D31-6608-4C50-9134-0052A0BF74C6}"
+              p:before="*"
+              s:id="{2E991AA4-4B08-43D2-AD2B-17C11E69A499}"
+              s:par="SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;Reset Caching Options&amp;ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B34147B89-B9E1-4705-9F8D-55529C7C0F2C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
+              s:ph="/main/sxa-content-container/container-1/row-4-1" />
+            <r
+              uid="{AF8F6102-08AC-49B6-915B-90DED75C9F31}"
+              p:after="r[@uid='{FC847D31-6608-4C50-9134-0052A0BF74C6}']"
+              s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+              s:ph="/main/sxa-content-container/container-1/row-3-1/container-4" />
+            <r
+              uid="{3C430B74-F60E-4465-97BF-B119DD5A79FE}"
+              p:after="r[@uid='{AF8F6102-08AC-49B6-915B-90DED75C9F31}']"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1/row-3-1" />
+            <r
+              uid="{2E52B3F3-D42C-47BC-B49A-6261B3B6D6C4}"
+              p:after="r[@uid='{3C430B74-F60E-4465-97BF-B119DD5A79FE}']"
+              s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+              s:par="BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD85BD5A8-A6B6-4209-8693-AE0414CBF0AC%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1/row-2-1" />
+            <r
+              uid="{9DA99BA6-A0AC-4CDA-9149-08EDE711A750}"
+              p:after="r[@uid='{2E52B3F3-D42C-47BC-B49A-6261B3B6D6C4}']"
+              s:ds="{A134FF73-B9C8-48F3-9068-09C544E3046E}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1/row-1-1" />
+            <r
+              uid="{96C07CCB-56A4-49A0-BFF8-0891FA744F83}"
+              p:after="*[1=2]"
+              s:ds=""
+              s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+              s:par="Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2%2C3%2C4%2C5&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Commercial
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h2>READY TO HELP</h2>
+        <p>We're ready to respond in a changing environment. Ready to help you meet challenges and seize opportunities.</p>
+        <p>You're made ready. And so are we.</p>
+        <h3>Bank on in-depth industry expertise</h3>
+        <p>Working from a foundation of deep industry knowledge, our Commercial Banking experts understand the dynamics and challenges that drive change and impact your company&rsquo;s business. Our specialized teams are here to provide tailored solutions and guidance in a broad range of industry sectors.</p>
+        <p>&nbsp;</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "641c8b8c-ce15-4c5b-a78f-3883d37472f3"
+    - ID: "c617f679-0ef6-4b52-9877-3f2afe2a9ca0"
+      Hint: image
+      Value: |
+        <image mediaid="{79981E8C-AD34-4848-A13F-850805C8F3B4}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Commercial

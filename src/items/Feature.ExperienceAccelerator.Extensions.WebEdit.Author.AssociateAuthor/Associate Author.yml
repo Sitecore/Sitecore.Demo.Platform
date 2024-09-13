@@ -1,0 +1,84 @@
+﻿---
+ID: "539371fc-edf9-4d06-9b5d-7c93a5b3e2d4"
+Parent: "db662edf-5965-4848-ad14-ba6bf0d55d1e"
+Template: "1ab4f9ad-b004-413c-8924-3e07143a614b"
+Path: /sitecore/content/Applications/WebEdit/Custom Experience Buttons/Associate Author
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/genius.png
+- ID: "4431914a-c40b-437c-8add-d2ed12cc8cc3"
+  Hint: Icon
+  Value: Office/32x32/genius.png
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1000
+- ID: "cf738220-908d-4c3f-9482-32e625daf13c"
+  Hint: Fields
+  Value: Author
+Languages:
+- Language: da
+  Fields:
+  - ID: "108d3a63-baaa-4560-86d8-3a112ed84717"
+    Hint: Header
+    Value: Rediger billede
+  - ID: "5f0812af-d370-4292-afee-f26a39b7406d"
+    Hint: Tooltip
+    Value: Rediger billedegenskaber
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Rediger billede
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "720d08ca-936a-47cd-9952-273392f20fc9"
+- Language: "de-DE"
+  Fields:
+  - ID: "108d3a63-baaa-4560-86d8-3a112ed84717"
+    Hint: Header
+    Value: Bild bearbeiten
+  - ID: "5f0812af-d370-4292-afee-f26a39b7406d"
+    Hint: Tooltip
+    Value: Bildeigenschaften bearbeiten
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Bild bearbeiten
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f97dbd0e-ce01-4545-853a-71869359fc8a"
+- Language: en
+  Fields:
+  - ID: "108d3a63-baaa-4560-86d8-3a112ed84717"
+    Hint: Header
+    Value: Associate / Change Author
+  - ID: "5f0812af-d370-4292-afee-f26a39b7406d"
+    Hint: Tooltip
+    Value: Select Author
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7bd72c62-a61a-401f-a41e-d5813db0962b"
+- Language: "ja-JP"
+  Fields:
+  - ID: "108d3a63-baaa-4560-86d8-3a112ed84717"
+    Hint: Header
+    Value: 画像を編集
+  - ID: "5f0812af-d370-4292-afee-f26a39b7406d"
+    Hint: Tooltip
+    Value: 画像プロパティを編集します
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 画像を編集
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "538795a7-5850-45f0-a13a-51b0ec746309"

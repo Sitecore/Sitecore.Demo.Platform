@@ -1,0 +1,342 @@
+﻿---
+ID: "7d04e838-2dc1-410b-bb1c-9c6395f5b532"
+Parent: "31fc6d3f-342d-4e97-80e0-a9bdcc40090f"
+Template: "2b35e65c-137a-4641-b683-d223ca7cfac0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Data/Snippets/Two Column Snippets for Home and L1 pages/A Wide Array of Guide Interests
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{D26E6B1B-1108-4238-AAA4-85C65E22093C}"
+          p:before="*"
+          s:ds=""
+          s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+          s:par="SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;ColumnWidth1=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth2=%7BF6DC722E-15DB-4826-920B-ACCFDA772432%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;DynamicPlaceholderId=2"
+          s:ph="section-content" />
+        <r
+          uid="{E84563C1-E7DE-432E-8BEF-06C21F338C2D}"
+          p:after="r[@uid='{D26E6B1B-1108-4238-AAA4-85C65E22093C}']"
+          s:ds="{C88C10CE-B6CC-46E9-B68C-E7978104D2DD}"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:pt="{E312B859-DB3C-46C9-B554-FBAA11593F2D}"
+          s:par="Reset Caching Options=1&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+          s:ph="/section-content/column-2-2"
+          s:ccb="Clear on publish">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default"
+                s:test="true">
+                <conditions>
+                  <condition
+                    uid="7F13742842E8404EB77C1DAB6FA7FA80"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+        <r
+          uid="{4EF9A41F-3AE5-4367-9514-D2A39B2E418F}"
+          p:after="*[1=2]"
+          s:ds="{0667F348-6DE0-4C89-8183-086C2574D485}"
+          s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+          s:pt=""
+          s:par="Reset Caching Options=1&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+          s:ph="/section-content/column-1-2"
+          s:ccb="Clear on publish">
+          <rls>
+            <ruleset
+              s:pet="false">
+              <rule
+                uid="{00000000-0000-0000-0000-000000000000}"
+                s:name="Default">
+                <conditions>
+                  <condition
+                    uid="0EF88B187DB64651BD9E1BE22FFE654D"
+                    s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                </conditions>
+                <actions />
+              </rule>
+            </ruleset>
+          </rls>
+        </r>
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{E84563C1-E7DE-432E-8BEF-06C21F338C2D}">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{7764D894-F965-429E-AC49-435D403294B0}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{F74024A8-FDAE-4D42-AF0A-9C5F4537B0ED}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{0CC11035-3124-42A8-8277-3C8099854C22}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{4EF9A41F-3AE5-4367-9514-D2A39B2E418F}">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{2BF2A864-A4A1-400B-AA78-342E27653B78}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{5DB1A95D-A044-4C5B-8555-AC1CCABD5F71}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{54561250-08AE-44B3-81AB-E3CDBF7A036F}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9e8dda83-61f7-4273-8d85-2990ffbf9dde"
+  - Version: 2
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{E84563C1-E7DE-432E-8BEF-06C21F338C2D}">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{7764D894-F965-429E-AC49-435D403294B0}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{F74024A8-FDAE-4D42-AF0A-9C5F4537B0ED}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{0CC11035-3124-42A8-8277-3C8099854C22}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{4EF9A41F-3AE5-4367-9514-D2A39B2E418F}">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{2BF2A864-A4A1-400B-AA78-342E27653B78}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{5DB1A95D-A044-4C5B-8555-AC1CCABD5F71}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{54561250-08AE-44B3-81AB-E3CDBF7A036F}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "412171f1-f259-4229-a655-0c5093bbf22a"
+  - Version: 3
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{D26E6B1B-1108-4238-AAA4-85C65E22093C}">
+              <p:d />
+            </r>
+            <r
+              uid="{CC5CF92B-F9CF-43A2-A237-ACEF2ADB8375}"
+              p:before="*"
+              s:ds="/sitecore/content/Demo SXA Sites/LighthouseHealthcare/home/articles/Healthy Brain Function"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B4CB5F534-AE7E-46CE-83E4-A64001502722%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=17"
+              s:ph="/section-content/column-2-16" />
+            <r
+              uid="{5A6A930F-E0DC-433D-9553-2B7DCB77E4F4}"
+              p:after="r[@uid='{CC5CF92B-F9CF-43A2-A237-ACEF2ADB8375}']"
+              s:ds=""
+              s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+              s:par="ColumnWidth1=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth2=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=16"
+              s:ph="section-content" />
+            <r
+              uid="{E84563C1-E7DE-432E-8BEF-06C21F338C2D}">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{7764D894-F965-429E-AC49-435D403294B0}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{F74024A8-FDAE-4D42-AF0A-9C5F4537B0ED}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{0CC11035-3124-42A8-8277-3C8099854C22}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{4EF9A41F-3AE5-4367-9514-D2A39B2E418F}">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{2BF2A864-A4A1-400B-AA78-342E27653B78}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{5DB1A95D-A044-4C5B-8555-AC1CCABD5F71}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{54561250-08AE-44B3-81AB-E3CDBF7A036F}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4d364f1c-5e71-4b99-aa44-4f1e56e13c7d"
+  - Version: 4
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{D26E6B1B-1108-4238-AAA4-85C65E22093C}">
+              <p:d />
+            </r>
+            <r
+              uid="{CC5CF92B-F9CF-43A2-A237-ACEF2ADB8375}"
+              p:before="*"
+              s:ds="{EB7EFE34-CE1A-4BF2-9FAD-DEF63F152089}"
+              s:id="{162AB463-0CE1-4295-8F7E-2E2E969984ED}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B4CB5F534-AE7E-46CE-83E4-A64001502722%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=17"
+              s:ph="/section-content/column-2-16"
+              s:ccb="Clear on publish" />
+            <r
+              uid="{5A6A930F-E0DC-433D-9553-2B7DCB77E4F4}"
+              p:after="r[@uid='{CC5CF92B-F9CF-43A2-A237-ACEF2ADB8375}']"
+              s:ds=""
+              s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+              s:par="ColumnWidth1=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth2=%7BFB140AEF-DE33-4088-9F1D-406C6BA32A8E%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=16"
+              s:ph="section-content"
+              s:ccb="Clear on publish" />
+            <r
+              uid="{E84563C1-E7DE-432E-8BEF-06C21F338C2D}"
+              s:ccb="Clear on publish"
+              s:ds="{C88C10CE-B6CC-46E9-B68C-E7978104D2DD}"
+              s:par="Reset Caching Options=1&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B27992E19-7C79-40E3-B861-85CA324956C9%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{7764D894-F965-429E-AC49-435D403294B0}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{F74024A8-FDAE-4D42-AF0A-9C5F4537B0ED}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{0CC11035-3124-42A8-8277-3C8099854C22}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{4EF9A41F-3AE5-4367-9514-D2A39B2E418F}"
+              s:ccb="Clear on publish"
+              s:ds="{0667F348-6DE0-4C89-8183-086C2574D485}">
+              <rls>
+                <ruleset>
+                  <rule
+                    uid="{2BF2A864-A4A1-400B-AA78-342E27653B78}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{5DB1A95D-A044-4C5B-8555-AC1CCABD5F71}">
+                    <p:d />
+                  </rule>
+                  <rule
+                    uid="{54561250-08AE-44B3-81AB-E3CDBF7A036F}">
+                    <p:d />
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d1f1a544-646b-4c52-8bb2-63a17c31c7ee"

@@ -1,0 +1,40 @@
+﻿---
+ID: "52656ea3-efa9-4170-8336-26689b0f8efb"
+Parent: "b47badb8-ea34-4319-bd81-d6c6db82b104"
+Template: "8fcd3cfe-8b3b-423e-8176-6a7c72cb43fc"
+Path: /sitecore/content/Demo SXA Sites/Global/Presentation/Rendering Variants/Page Content/Resource CTA/Audio Section/Audio
+SharedFields:
+- ID: "936e68b4-5346-4adb-9b77-79771d0b40dc"
+  Hint: Template
+  Value: |
+    <div class="resource-media">
+    <audio controls class="audio-background">
+      <source src="{{if i_item.Media
+                        if i_item.Media.target
+                            i_item.Media.target.media_url
+                        end
+                    end}}" type="audio/ogg">
+      <source src="{{if i_item.Media
+                        if i_item.Media.target
+                            i_item.Media.target.media_url
+                        end
+                    end}}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+    <div class="hero-content-wrapper">
+      <div class="field-mediatitle">
+        {{ i_item.mediatitle}}
+      </div>
+      <div class="field-mediacaption">
+        {{ i_item.mediacaption}}
+      </div>
+    </div>
+    </div>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "da0fb36a-ef28-46f7-8938-ff9d575c2a58"

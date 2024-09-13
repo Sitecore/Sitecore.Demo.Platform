@@ -1,0 +1,45 @@
+﻿---
+ID: "357ba8e3-f980-4580-98ce-b56a616d6d52"
+Parent: "4c471a38-6cde-4fe4-8d87-49f23bfa740d"
+Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Presentation/Rendering Variants/Navigation/Megadrop Navigation/SCW
+SharedFields:
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Value: |
+    <ruleset>
+      <rule
+        uid="{43957E4D-A63D-4684-A2D6-C261440335BE}">
+        <conditions />
+      </rule>
+    </ruleset>
+- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
+  Hint: CssClass
+  Value: "megadrop-secondary-content"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Secondary Content Wrapper
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a8fcedcd-e799-4b69-bf22-997f8afef678"
+  - Version: 2
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "179bf586-298c-4fa2-9b89-bee84d328949"
+  - Version: 3
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a8a8b4fa-4d79-4514-b9f3-5466ba6e64e6"
+  - Version: 4
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4507fcfa-8877-457a-b851-4230413feda3"

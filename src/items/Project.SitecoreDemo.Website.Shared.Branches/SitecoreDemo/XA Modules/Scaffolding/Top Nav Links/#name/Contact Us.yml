@@ -1,0 +1,21 @@
+﻿---
+ID: "fab9f45b-bf85-447f-9685-71e54261f65e"
+Parent: "473810e6-84e1-4c4f-8407-ffadb3c88f3e"
+Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
+Path: /sitecore/templates/Branches/Project/Demo Shared SXA Sites/SitecoreDemo/XA Modules/Scaffolding/Top Nav Links/$name/Contact Us
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ec89cc38-b71c-4195-85a0-7e838d20b6f5"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Contact Us" linktype="external" url="/contactus" anchor="" target="" />

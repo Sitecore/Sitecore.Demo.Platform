@@ -1,0 +1,56 @@
+﻿---
+ID: "e88c93ff-1291-414a-89f1-d3060845b038"
+Parent: "08a28434-3d0e-4cd7-8afb-f6cea64646ed"
+Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Presentation/Rendering Variants/Navigation/Megadrop Navigation/SCW/IW/SM
+SharedFields:
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Value: |
+    <ruleset>
+      <rule
+        uid="{513B09A2-E41F-4719-ACDD-343BA051CF9E}">
+        <conditions>
+          <condition
+            id="{5DE6D53E-EA62-4D17-8BDD-FEBCD80AC07B}"
+            uid="0CAABBBDAF984D62B2637695A21A2235"
+            templateid="{69DD5F28-429F-46B6-B55C-9DA3500A7369}" />
+        </conditions>
+      </rule>
+    </ruleset>
+- ID: "a4d004e6-2a4b-4c53-a4f3-9c481df71cdc"
+  Hint: Tag
+  Value: "{B2EA310B-EB7F-48C9-82AB-B8F76B658596}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
+  Hint: CssClass
+  Value: "megadrop-secondary-main clearfix"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Secondary Menu
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "65cc587d-d0ca-4c1c-bbc3-ee0605c06e94"
+  - Version: 2
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "737c2cfe-26e3-44ee-8399-7b1cac84461b"
+  - Version: 3
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b1d7a715-6227-4881-9984-df8fddb807d5"
+  - Version: 4
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d89cc369-003b-4a6f-9799-af9bad6601cc"

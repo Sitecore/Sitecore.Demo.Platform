@@ -1,0 +1,30 @@
+﻿---
+ID: "533802f5-6f56-43e8-86a3-96b65b05b288"
+Parent: "cb4b0bcf-f9a3-46ef-bef1-eb84542f4fb0"
+Template: "8cddb194-f456-4a75-89b7-346f8f39f95c"
+Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseHealthcare/Healthcare Weekly Class Signup Form/Page/Section/RunningTypeSection
+SharedFields:
+- ID: "589a7ade-81d4-4a60-b9e2-7eaf6ae8a563"
+  Hint: Field Type
+  Value: "{447AA745-6D29-4B65-A5A3-8173AA8AF548}"
+- ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
+  Hint: Conditions
+  Value: |
+    {"fieldConditions":[{"matchTypeId":"{365C94DA-C1CD-4783-A91D-0D17A16C7117}","conditions":[{"fieldId":"B28BCFF5AB5648E9BBE5CD5A8033DF6D","operatorId":"{1D38B217-A2EE-4E7B-B6ED-13E751462FEB}","value":"Running"}],"actions":[{"fieldId":"B35BC11B3F174E8E870A0BB0A9668F3F","actionTypeId":"{AAE07A52-46A4-49EF-98B0-C2595BAC2382}","value":null}]},{"matchTypeId":"{365C94DA-C1CD-4783-A91D-0D17A16C7117}","conditions":[{"fieldId":"B28BCFF5AB5648E9BBE5CD5A8033DF6D","operatorId":"{49F47E77-E8C5-46F9-BF39-78D6B0D40B48}","value":"Running"}],"actions":[{"fieldId":"B35BC11B3F174E8E870A0BB0A9668F3F","actionTypeId":"{7F58C8DD-D7C0-4FB7-BB44-8EC6B5E1C3D9}","value":null}]}]}
+- ID: "7abaa3f6-6ec0-4b65-a463-7919bfae55aa"
+  Hint: Css Class
+  Value: 
+- ID: "84ece662-5034-40cb-9c60-744db64bb294"
+  Hint: Field Key
+  Value: B35BC11B3F174E8E870A0BB0A9668F3F
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 700
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "728124b1-f9e7-4572-a93d-cbc95e4dba0d"

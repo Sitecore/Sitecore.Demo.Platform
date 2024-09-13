@@ -1,0 +1,39 @@
+﻿---
+ID: "2d68e95f-0a79-4e2a-8088-51e2845c3ced"
+Parent: "26cf9f14-cd81-413f-9408-9c7ba27f77e1"
+Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Presentation/Rendering Variants/Search Results/Store Locator Result/Text/Title
+SharedFields:
+- ID: "4753764c-c05a-4623-841b-97f85135241c"
+  Hint: FieldName
+  Value: Title
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Value: |
+    <ruleset>
+      <rule
+        uid="{637BE801-9D9D-4168-95CC-21A7B7897987}">
+        <conditions>
+          <condition
+            id="{61C016A2-5210-4F1D-A663-BDA18BE487F6}"
+            uid="E4B7DEF745EC4EE282D828A64C75D702"
+            fieldname="Title"
+            operatorid="{A6AC5A6B-F409-48B0-ACE7-C3E8C5EC6406}"
+            value="$name" />
+        </conditions>
+      </rule>
+    </ruleset>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+- ID: "db805bdc-8eec-4238-b174-2427b6f1f077"
+  Hint: Tag
+  Value: "{10CDAEA8-DD82-4A45-A4C6-85D03E5FC725}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "518a08b8-5015-43f3-b9fc-6ab2cf03e864"

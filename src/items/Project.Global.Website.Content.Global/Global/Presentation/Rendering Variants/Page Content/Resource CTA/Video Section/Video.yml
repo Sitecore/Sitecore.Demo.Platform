@@ -1,0 +1,34 @@
+﻿---
+ID: "57b9be0b-6170-479b-a6da-da945568634d"
+Parent: "17bda8c5-683e-4dd9-af41-486d00701563"
+Template: "8fcd3cfe-8b3b-423e-8176-6a7c72cb43fc"
+Path: /sitecore/content/Demo SXA Sites/Global/Presentation/Rendering Variants/Page Content/Resource CTA/Video Section/Video
+SharedFields:
+- ID: "936e68b4-5346-4adb-9b77-79771d0b40dc"
+  Hint: Template
+  Value: |
+    <div class="resource-media">
+    <video autoplay muted loop controls class="video-background">
+      <source src="{{if i_item.Media
+                        if i_item.Media.target
+                            i_item.Media.target.media_url
+                        end
+                    end}}" type="video/mp4">
+    </video>
+    <div class="hero-content-wrapper">
+      <div class="field-mediatitle">
+        {{ i_item.mediatitle}}
+      </div>
+      <div class="field-mediacaption">
+        {{ i_item.mediacaption}}
+      </div>
+    </div>
+    </div>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "db9982eb-5557-4ea7-ae2a-2cbee5e2659f"

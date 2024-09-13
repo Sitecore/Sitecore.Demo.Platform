@@ -1,0 +1,32 @@
+﻿---
+ID: "96e0b460-00f0-4f19-b82a-28e55a2354bc"
+Parent: "b6cd7d67-7fb0-49d2-9212-3e91fdec1c2d"
+Template: "349cda24-cab7-4991-ba2e-86116017995c"
+Path: /sitecore/system/Settings/Content Testing/End Test Behavior/Is Mv Test/Duration Reached
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "48747fde-21c1-44c8-9b40-ee2571f9f2f9"
+      Hint: Rule
+      Value: |
+        <ruleset>
+          <rule
+            uid="{E806FED7-ABA7-419D-B2D7-4B0B72A78874}">
+            <conditions>
+              <condition
+                id="{0FFF246F-E743-475F-9E60-CB7FC38E7B3F}"
+                uid="9CDC6A93D1784D74933828785CB8ABEA" />
+            </conditions>
+            <actions>
+              <action
+                id="{F24DF43F-E4D4-4189-A5B0-86C79FBA951F}"
+                uid="A42B99A63A654363BABD3C43AEB36AE9"
+                EmailId="NoWinner" />
+            </actions>
+          </rule>
+        </ruleset>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6d594f0e-8711-4ade-8a7c-6111f0b58227"

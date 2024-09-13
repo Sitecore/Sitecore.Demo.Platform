@@ -1,0 +1,36 @@
+﻿---
+ID: "0df6797e-ee1b-4bfd-9262-0471b1add438"
+Parent: "cd304d58-d53b-420c-9d1a-c83255af1554"
+Template: "95d4ed35-1e47-48e9-95db-de0614a0e86c"
+Path: "/sitecore/system/Marketing Control Panel/Segments/Mobile Phone-0df6797e-ee1b-4bfd-9262-0471b1add438"
+SharedFields:
+- ID: "621d7a1f-c6a3-4a2f-8fcd-7dd1fd893c9c"
+  Hint: Custom Values
+  Value: "{}"
+- ID: "75af2497-ada0-4271-80da-84f9dd2e4075"
+  Hint: Rules
+  Value: |
+    [{"Id":"8c0ad60e-d045-40c9-a31f-7bb47cedefed","Name":"Specify name...","ConditionType":"Sitecore.Marketing.Rules.ConditionNode, Sitecore.Marketing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=null","_condition":{"Id":"8e812f36-a699-4b44-b5a6-0cf78de72eaa","DescriptorId":"c5b7e4d8-9598-4e36-aa33-828698a2d773","Properties":{"DeviceType":"MobilePhone"}}}]
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{689E2994-4656-4C58-9112-7826CB46EE69}"
+- ID: "c538bfee-8a38-4551-b57a-d4422f33874e"
+  Hint: DeployDate
+  Value: 20191202T052525Z
+- ID: "deb7070e-39a2-411c-82ea-e288efcad8e2"
+  Hint: UseAsAnalyticsFilter
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "365f1971-b028-4065-bc11-ce1f471452af"
+      Hint: Name
+      Value: Mobile Phone
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{EDCBB550-BED3-490F-82B8-7B2F14CCD26E}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c6ddeaef-88cf-405f-b715-0c7346865dd8"

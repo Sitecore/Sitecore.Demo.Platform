@@ -1,0 +1,79 @@
+﻿---
+ID: "c694ea5f-eda1-4219-87fb-581a8e3b5dda"
+Parent: "4d8f283e-a161-4ee9-9904-a1f2b6c8bfbe"
+Template: "3de7aa7e-961a-4b90-98f2-01ac2be92ec5"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Settings/Social Media Groups/Default/Twitter
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{30D5794E-95E8-4E30-A378-BEAABE5B3257}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "31b5c056-cfd5-4331-950d-25453a808d7c"
+      Hint: ButtonCode
+      Value: |
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="%ShareText%" data-lang="en">Tweet</a>
+    - ID: "3a453560-042a-4df9-945f-5750ea7c4a46"
+      Hint: OnlyOnceCode
+      Value: |
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    - ID: "66509977-761c-499c-ac9b-65830516ee11"
+      Hint: ShareTextProperty
+      Value: Title
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "923033c2-02af-4a2d-9a88-e367df9c20d9"
+  - Version: 2
+    Fields:
+    - ID: "31b5c056-cfd5-4331-950d-25453a808d7c"
+      Hint: ButtonCode
+      Value: |
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="%ShareText%" data-lang="en">Tweet</a>
+    - ID: "3a453560-042a-4df9-945f-5750ea7c4a46"
+      Hint: OnlyOnceCode
+      Value: |
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    - ID: "66509977-761c-499c-ac9b-65830516ee11"
+      Hint: ShareTextProperty
+      Value: Title
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d24d0f81-4ef7-4528-a46d-cbbeb3a5f4b8"
+  - Version: 3
+    Fields:
+    - ID: "31b5c056-cfd5-4331-950d-25453a808d7c"
+      Hint: ButtonCode
+      Value: |
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="%ShareText%" data-lang="en">Tweet</a>
+    - ID: "3a453560-042a-4df9-945f-5750ea7c4a46"
+      Hint: OnlyOnceCode
+      Value: |
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    - ID: "66509977-761c-499c-ac9b-65830516ee11"
+      Hint: ShareTextProperty
+      Value: Title
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f9167a23-a24b-4e34-9d93-e4a93a4209e6"
+  - Version: 4
+    Fields:
+    - ID: "31b5c056-cfd5-4331-950d-25453a808d7c"
+      Hint: ButtonCode
+      Value: |
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="%ShareText%" data-lang="en">Tweet</a>
+    - ID: "3a453560-042a-4df9-945f-5750ea7c4a46"
+      Hint: OnlyOnceCode
+      Value: |
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    - ID: "66509977-761c-499c-ac9b-65830516ee11"
+      Hint: ShareTextProperty
+      Value: Title
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "96e8567f-5572-47f7-9936-cbb0a5224e94"

@@ -1,0 +1,45 @@
+﻿---
+ID: "d8b1b524-7be5-48ec-8246-74d59b99c0fc"
+Parent: "a32a0de7-95a9-47d4-9161-585deae23fb2"
+Template: "7d659ee9-d487-4d40-8a92-10c6d68844c8"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Data/Forms/Form Content Tokens/Trainer Finder/question 1/Strength
+SharedFields:
+- ID: "02f6fb63-fe92-44e8-afa2-20747c893502"
+  Hint: Key
+  Value: strength
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="2a7fc1aa-5734-42d1-82a5-63683208c3f4"
+        name="Fitness and Trainers"
+        presets="sydney cummings|100||">
+        <key
+          name="Cardio"
+          value="5" />
+        <key
+          name="High Intensity"
+          value="10" />
+        <key
+          name="Weight"
+          value="5" />
+        <key
+          name="Workout Length"
+          value="7" />
+        <key
+          name="Yoga"
+          value="2" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1b9d1028-c20c-407b-9dcd-affe86a6f793"
+      Hint: Value
+      Value: Strength
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6e28ecc7-645f-470a-9d20-3a6c90c9b3da"

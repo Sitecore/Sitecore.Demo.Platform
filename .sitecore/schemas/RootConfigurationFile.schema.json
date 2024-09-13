@@ -64,6 +64,11 @@
           "description": "Specifies remove orphans functionality for roles serialization",
           "default": true
         },
+        "removeOrphansForUsers": {
+          "type": "boolean",
+          "description": "Specifies remove orphans functionality for users serialization",
+          "default": true
+        },
         "continueOnItemFailure": {
           "type": "boolean",
           "description": "Specifies behavior when item synchronization fails",
@@ -97,12 +102,23 @@
         "telemetryEnabled": {
           "type": "boolean",
           "description": "Determines if telemetry is enabled in cli.",
-          "default": false
+          "default": true
+        },
+        "cacheAuthenticationToken": {
+          "type": "boolean",
+          "description": "Determines if CLI should cache authentication token.",
+          "default": true
         },
         "versionComparisonEnabled": {
           "type": "boolean",
           "description": "Determines if CLI\\SMS version comparison is enabled.",
           "default": true
+        },
+        "apiClientTimeoutInMinutes": {
+          "type": "integer",
+          "description": "Determines timeout for Sitecore Api client.",
+          "format": "int32",
+          "default": 5
         }
       }
     }

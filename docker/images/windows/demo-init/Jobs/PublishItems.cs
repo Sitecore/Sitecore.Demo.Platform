@@ -20,6 +20,14 @@ namespace Sitecore.Demo.Init.Jobs
 				return;
 			}
 
+			var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
+			if (string.IsNullOrEmpty(ns))
+			{
+				Log.LogWarning(
+					$"{this.GetType().Name} will not execute this time, RELEASE_NAMESPACE is not configured - this job is only required on AKS");
+				return;
+			}
+
 			var hostCM = Environment.GetEnvironmentVariable("HOST_CM");
 			Log.LogInformation($"PublishItems() started {hostCM}");
 

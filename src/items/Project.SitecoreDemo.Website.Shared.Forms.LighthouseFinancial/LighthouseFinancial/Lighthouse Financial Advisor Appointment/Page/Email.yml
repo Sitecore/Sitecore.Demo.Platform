@@ -1,0 +1,45 @@
+﻿---
+ID: "08ab2337-4fb5-461f-b537-1c7b8497fd6f"
+Parent: "410df2d8-3f23-4002-8a0d-b0f16b238bed"
+Template: "886adec1-abf8-40e1-9926-d9189c4e8e1b"
+Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseFinancial/Lighthouse Financial Advisor Appointment/Page/Email
+SharedFields:
+- ID: "5d09f88a-0e2a-4f87-8151-af4a2aa26ec3"
+  Hint: Value Provider
+  Value: "{B9572B47-4D42-42F3-B417-517ACD33C64B}"
+- ID: "71061c01-a495-4bf3-a52c-d378346bfae2"
+  Hint: Max Length
+  Value: 50
+- ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
+  Hint: Conditions
+  Value: |
+    {"fieldConditions":[]}
+- ID: "84ece662-5034-40cb-9c60-744db64bb294"
+  Hint: Field Key
+  Value: AAE492624A7E4CCEA5B41D3D1C466DA6
+- ID: "8a43af61-0812-4b37-a343-96cde3f12bb1"
+  Hint: Required
+  Value: 1
+- ID: "9f7da002-7b86-436b-8dda-7efe5837b88e"
+  Hint: Min Length
+  Value: 0
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "f6696439-2dac-4183-8f3d-1979188d8336"
+  Hint: Value Provider Parameters
+  Value: Email
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
+      Hint: Title
+      Value: Email
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "23e44860-ad0f-41cd-8441-5eddd8e11a09"
+    - ID: "a6972f08-cbb5-4830-a8c9-8a0ae34650d1"
+      Hint: Placeholder Text
+      Value: 

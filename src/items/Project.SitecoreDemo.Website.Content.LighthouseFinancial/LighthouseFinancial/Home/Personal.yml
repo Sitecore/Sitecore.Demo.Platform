@@ -1,0 +1,203 @@
+﻿---
+ID: "cf48d23e-dd49-4e4b-937c-ad0d917bde11"
+Parent: "5f6276db-f968-4bbc-a307-f3f0fbc69f5d"
+Template: "26745e9d-be97-4902-993d-1982b47b64bf"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Home/Personal
+SharedFields:
+- ID: "21f74f6e-42d4-42a2-a4b4-4cefbcfbd2bb"
+  Hint: __Facets
+  Value: "{A8AAAB96-53D4-47F5-9F61-982B07F5F5D1}"
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{C028BDDE-13CC-4407-B418-4BD7C7D6AAD0}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="3a0f2ec6-1346-434d-8df1-1c576628c7fa"
+        name="Financial Client"
+        presets="retail client|100||">
+        <key
+          name="Checking"
+          value="10" />
+        <key
+          name="Mortgage"
+          value="10" />
+        <key
+          name="IRA"
+          value="3" />
+        <key
+          name="Mutual Funds"
+          value="2" />
+        <key
+          name="Business Account"
+          value="0" />
+        <key
+          name="SBA Lending"
+          value="0" />
+        <key
+          name="Monetary Exchange Rate"
+          value="0" />
+        <key
+          name="Corporate Lending"
+          value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{7A135B5B-D29D-4DA3-93FF-CE970FC94265}"
+              p:before="*"
+              s:id="{2E991AA4-4B08-43D2-AD2B-17C11E69A499}"
+              s:par="SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;Reset Caching Options&amp;ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B34147B89-B9E1-4705-9F8D-55529C7C0F2C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
+              s:ph="/main/sxa-content-container/container-1/row-3-1" />
+            <r
+              uid="{82260556-F4AD-4304-989A-4E5461AEDEF0}"
+              p:after="r[@uid='{7A135B5B-D29D-4DA3-93FF-CE970FC94265}']"
+              s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1/row-2-1/container-3" />
+            <r
+              uid="{31709786-882F-47D7-AD0E-C504788A48DE}"
+              p:after="r[@uid='{82260556-F4AD-4304-989A-4E5461AEDEF0}']"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1/row-2-1" />
+            <r
+              uid="{8487C91B-43A4-422C-AE8E-9F572CE31707}"
+              p:after="r[@uid='{31709786-882F-47D7-AD0E-C504788A48DE}']"
+              s:ds="{A5C65E1D-E27E-4B6E-8036-1E2466E2E29E}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1/row-1-1" />
+            <r
+              uid="{E9A09CBE-78B6-4DFC-82F8-2FD39625AF02}"
+              p:after="r[@uid='{8487C91B-43A4-422C-AE8E-9F572CE31707}']"
+              s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+              s:par="BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD85BD5A8-A6B6-4209-8693-AE0414CBF0AC%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+              s:ph="/main/sxa-content-container/container-1/row-1-1" />
+            <r
+              uid="{FC48B80C-5728-412D-A22C-1DCF0C82C8AF}"
+              p:after="*[1=2]"
+              s:ds=""
+              s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+              s:par="Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2%2C3%2C4&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Personal
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: "<h2>Build your financial confidence</h2><br />The right combination of financial products that best fits your needs and goals can put you at an advantage. Habitat Financial solutions can help you budget, build your savings, and pave the way for success now and in the future.<br /><br /><h3>Checking Accounts</h3><br /><p>Manage your money with confidence, online or on the go. Find out how to earn rewards and more.</p><br /><h3>Savings Accounts</h3><br /><p>Plan for big-ticket items, cover unexpected expenses and earn rewards with savings, money market, and CD savings options.</p><br /><h3>Credit Cards</h3><br /><p>Apply for the lowest interest rates in the industry along with loyalty points to redeem great benefits.</p><br /><h3>Digital Banking Services</h3><br /><p>Bank on the move with digital banking solutions. View accounts, move money and pay bills anytime with Online and Mobile Banking. Deposit cash or checks at the ATM.</p><br /><p>&nbsp;</p>"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "452c02d6-83da-4d7b-bcf2-2f156afce228"
+    - ID: "c617f679-0ef6-4b52-9877-3f2afe2a9ca0"
+      Hint: image
+      Value: |
+        <image mediaid="{9E9D1873-69B1-438B-8F31-51AEDA75AA5F}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Personal
+  - Version: 2
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{7A135B5B-D29D-4DA3-93FF-CE970FC94265}"
+              p:before="*"
+              s:id="{2E991AA4-4B08-43D2-AD2B-17C11E69A499}"
+              s:par="SourceType=%7B90105CB9-2CFD-4151-9FA8-6CDF92B158C2%7D&amp;Reset Caching Options&amp;ListSignature&amp;PageSize&amp;Offset&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B34147B89-B9E1-4705-9F8D-55529C7C0F2C%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=6"
+              s:ph="/main/sxa-content-container/container-1/row-3-1" />
+            <r
+              uid="{82260556-F4AD-4304-989A-4E5461AEDEF0}"
+              p:after="r[@uid='{7A135B5B-D29D-4DA3-93FF-CE970FC94265}']"
+              s:id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B2D27F43E-F2E8-4AA5-99A5-6AB0D7CEEB74%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1/row-2-1/container-3" />
+            <r
+              uid="{31709786-882F-47D7-AD0E-C504788A48DE}"
+              p:after="r[@uid='{82260556-F4AD-4304-989A-4E5461AEDEF0}']"
+              s:id="{896A2C68-1362-4E88-8BA0-1805AE6D4837}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1/row-2-1" />
+            <r
+              uid="{8487C91B-43A4-422C-AE8E-9F572CE31707}"
+              p:after="r[@uid='{31709786-882F-47D7-AD0E-C504788A48DE}']"
+              s:ds="{A5C65E1D-E27E-4B6E-8036-1E2466E2E29E}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1/row-1-1" />
+            <r
+              uid="{E9A09CBE-78B6-4DFC-82F8-2FD39625AF02}"
+              p:after="r[@uid='{8487C91B-43A4-422C-AE8E-9F572CE31707}']"
+              s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+              s:par="BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD85BD5A8-A6B6-4209-8693-AE0414CBF0AC%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+              s:ph="/main/sxa-content-container/container-1/row-1-1" />
+            <r
+              uid="{FC48B80C-5728-412D-A22C-1DCF0C82C8AF}"
+              p:after="*[1=2]"
+              s:ds=""
+              s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+              s:par="Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2%2C3%2C4&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Personal
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h2>Build your financial confidence</h2>
+        <p>The right combination of financial products that best fits your needs and goals can put you at an advantage. Lighthouse Financial solutions can help you budget, build your savings, and pave the way for success now and in the future.</p>
+        <h3>Checking Accounts</h3>
+        <p>Manage your money with confidence, online or on the go. Find out how to earn rewards and more.</p>
+        <h3>Savings Accounts</h3>
+        <p>Plan for big-ticket items, cover unexpected expenses and earn rewards with savings, money market, and CD savings options.</p>
+        <h3>Credit Cards</h3>
+        <p>Apply for the lowest interest rates in the industry along with loyalty points to redeem great benefits.</p>
+        <h3>Digital Banking Services</h3>
+        <p>Bank on the move with digital banking solutions. View accounts, move money and pay bills anytime with Online and Mobile Banking. Deposit cash or checks at the ATM.</p>
+        <br />
+        <br />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "048fe8c8-eb8d-45c4-8aba-7da9ea8c4c25"
+    - ID: "c617f679-0ef6-4b52-9877-3f2afe2a9ca0"
+      Hint: image
+      Value: |
+        <image mediaid="{9E9D1873-69B1-438B-8F31-51AEDA75AA5F}" />
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Personal

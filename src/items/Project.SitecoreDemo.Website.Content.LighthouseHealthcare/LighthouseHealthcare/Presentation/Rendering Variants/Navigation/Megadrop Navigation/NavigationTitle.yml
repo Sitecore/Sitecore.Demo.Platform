@@ -1,0 +1,62 @@
+﻿---
+ID: "50075b60-4280-4480-a6c4-8a59d3b362c2"
+Parent: "4c471a38-6cde-4fe4-8d87-49f23bfa740d"
+Template: "fcd285da-9ab2-4c8d-b185-5a7487a9ba1b"
+Path: /sitecore/content/Demo SXA Sites/LighthouseHealthcare/Presentation/Rendering Variants/Navigation/Megadrop Navigation/NavigationTitle
+SharedFields:
+- ID: "4753764c-c05a-4623-841b-97f85135241c"
+  Hint: FieldName
+  Value: NavigationTitle
+- ID: "7495124d-09b5-4cb3-b4a6-fe77a95827da"
+  Hint: CssClass
+  Value: "megadrop-secondary-title-link"
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Value: |
+    <ruleset>
+      <rule
+        uid="{4A542D56-7C67-4F7F-BB4D-5852C7F7A95E}">
+        <conditions>
+          <or
+            uid="7CDBF4C3D3A340209954D6F7012A75F7">
+            <condition
+              id="{5DE6D53E-EA62-4D17-8BDD-FEBCD80AC07B}"
+              uid="E32ED44A01DF4D7798896BCDBF2DF3E6"
+              templateid="{69DD5F28-429F-46B6-B55C-9DA3500A7369}" />
+            <condition
+              id="{5DE6D53E-EA62-4D17-8BDD-FEBCD80AC07B}"
+              uid="982BAD8320CC402ABF2961D13CBA74B7"
+              templateid="{BD74A392-DACD-4C23-853A-D520762B33A1}" />
+          </or>
+        </conditions>
+      </rule>
+    </ruleset>
+- ID: "dcb05e5e-7151-4226-a3b0-108c5e2f05b5"
+  Hint: IsLink
+  Value: 1
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{3CCF3804-687D-46A5-BE3D-920E6D4E0EA7}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "481ddc86-ebd4-4068-827c-b3dbb7a0815d"
+  - Version: 2
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4e578d0d-e841-4e7c-86de-d29f12cffeb3"
+  - Version: 3
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d08cf7c3-45c7-49b3-ae73-76530bfea9a5"
+  - Version: 4
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2f78edb0-2e84-4562-9602-2cfdff22d4ad"

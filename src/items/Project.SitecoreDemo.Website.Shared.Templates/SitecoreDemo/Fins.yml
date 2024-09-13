@@ -1,0 +1,18 @@
+﻿---
+ID: "78a549b7-082f-4a12-b4e3-d07a3faede90"
+Parent: "bfabb69f-21d1-4b1d-8a92-51943fef1f08"
+Template: "0437fee2-44c9-46a6-abe9-28858d9fee8c"
+Path: /sitecore/templates/Project/Demo Shared SXA Sites/SitecoreDemo/Fins
+SharedFields:
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\Tenant Designer|pe|+item:read|+item:create|pd|+item:rename|+item:create|+item:delete|+item:read|+item:write|ar|sitecore\Tenant Admin|pe|+item:create|+item:read|+item:rename|+item:delete|+item:write|+item:admin|pd|+item:create|+item:read|+item:rename|+item:delete|+item:write|+item:admin|
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "999b6b48-745a-4abc-9a24-190ef9d75f73"

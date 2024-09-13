@@ -1,0 +1,173 @@
+﻿---
+ID: "5b1aad21-d979-46a0-83e0-14fa457eb382"
+Parent: "5f6276db-f968-4bbc-a307-f3f0fbc69f5d"
+Template: "bd74a392-dacd-4c23-853a-d520762b33a1"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Home/Financial Advisor Appointment
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: applications/32x32/form_yellow_edit.png
+- ID: "1fbc6a49-6281-48ee-87e9-a3970b145adb"
+  Hint: NavigationFilter
+  Value: |
+    {D063E9D1-C7B5-4B1E-B31E-69886C9C59F5}
+    {A0E7FF57-6994-4B09-AA21-104239628D5A}
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{C028BDDE-13CC-4407-B418-4BD7C7D6AAD0}"
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 250
+- ID: "db51d4e9-c24d-4670-af0e-62c8aa08e2b6"
+  Hint: LocalData
+  Value: 
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{708FB909-9948-41D9-BF78-3633CDE5D52D}"
+              p:before="*"
+              s:id="{5B9272A5-E147-4C16-B9F7-41CCDCB4CB5D}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B82B6EAC3-1245-4579-8EC4-96B13CAD511F%7D%7C%7B812655E3-534D-4B70-88B7-DC919C38A90D%7D&amp;RenderingIdentifier"
+              s:ph="/main/sxa-content-container/container-1/row-3-1" />
+            <r
+              uid="{FB4A8D28-8A59-4987-AA92-488D1C18DB25}"
+              p:after="r[@uid='{708FB909-9948-41D9-BF78-3633CDE5D52D}']"
+              s:ds="{DD049182-6E4C-41F6-93C1-21EF6E52C1D7}"
+              s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+              s:par=""
+              s:ph="/main/sxa-content-container/container-1/row-2-1/column-2-3/sitecoreFormsWrapper-5" />
+            <r
+              uid="{8F49C85D-974F-4764-8458-C2838295A4DA}"
+              p:after="r[@uid='{FB4A8D28-8A59-4987-AA92-488D1C18DB25}']"
+              s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
+              s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+              s:ph="/main/sxa-content-container/container-1/row-2-1/column-2-3" />
+            <r
+              uid="{62EFF8B1-C341-4D75-B087-0788B62EF880}"
+              p:after="r[@uid='{8F49C85D-974F-4764-8458-C2838295A4DA}']"
+              s:ds="local:/Data/Image 2"
+              s:id="{4A0D4E0B-BC20-4F2E-BD84-A4BD35834E86}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B5EAE2CCE-D47C-4BF3-B32A-117BA41831D4%7D&amp;Styles=%7BD3CC7A7D-1C3D-48CD-9B01-55DDBA9C5013%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1/row-2-1/column-1-3" />
+            <r
+              uid="{EBD0B926-1BF9-4E2F-A504-425A9336AE3B}"
+              p:after="r[@uid='{62EFF8B1-C341-4D75-B087-0788B62EF880}']"
+              s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+              s:par="ColumnWidth1=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D%7C%7B2040C827-8640-4E61-907E-D3D5A25696C3%7D&amp;ColumnWidth2=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D%7C%7B2040C827-8640-4E61-907E-D3D5A25696C3%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1/row-2-1" />
+            <r
+              uid="{90AC2E70-544B-4475-AB2A-72DE5E73459F}"
+              p:after="r[@uid='{EBD0B926-1BF9-4E2F-A504-425A9336AE3B}']"
+              s:ds="{B35746A6-2E7D-4D64-B3D0-E6FF6A3D69E5}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1/row-1-1" />
+            <r
+              uid="{50B5229C-B1F8-4B12-8F66-BE8AE9A0EBC3}"
+              p:after="*[1=2]"
+              s:ds=""
+              s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+              s:par="Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2%2C3&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Newsletter Signup
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: "<p>Complete the newsletter sign-up form to stay informed on the latest trends in financial services.</p>"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6d9accd6-bf1a-4d81-ad8f-34eb302ebbe8"
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Newsletter Signup
+  - Version: 2
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{E8AC0923-D333-43F7-A567-AEB8988165DB}"
+              p:before="*"
+              s:ds="{D8299AB9-56CC-479E-8BBF-37C3B63B70D9}"
+              s:id="{6B5B0FE6-5C85-4487-BA7E-F8C2ECC186A8}"
+              s:par=""
+              s:ph="/main/sxa-content-container/container-1/row-2-1/column-2-3/sitecoreFormsWrapper-5" />
+            <r
+              uid="{708FB909-9948-41D9-BF78-3633CDE5D52D}"
+              p:after="r[@uid='{E8AC0923-D333-43F7-A567-AEB8988165DB}']"
+              s:id="{5B9272A5-E147-4C16-B9F7-41CCDCB4CB5D}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B82B6EAC3-1245-4579-8EC4-96B13CAD511F%7D%7C%7B812655E3-534D-4B70-88B7-DC919C38A90D%7D&amp;RenderingIdentifier"
+              s:ph="/main/sxa-content-container/container-1/row-3-1" />
+            <r
+              uid="{8F49C85D-974F-4764-8458-C2838295A4DA}"
+              p:after="r[@uid='{708FB909-9948-41D9-BF78-3633CDE5D52D}']"
+              s:id="{6AB4EE29-CB78-4DCE-A316-3E6C3D5513F5}"
+              s:par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;Styles=%7B0CC74E1D-658E-460C-8D9F-DB5C73E078FD%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=5"
+              s:ph="/main/sxa-content-container/container-1/row-2-1/column-2-3" />
+            <r
+              uid="{62EFF8B1-C341-4D75-B087-0788B62EF880}"
+              p:after="r[@uid='{8F49C85D-974F-4764-8458-C2838295A4DA}']"
+              s:ds="local:/Data/Image 2"
+              s:id="{4A0D4E0B-BC20-4F2E-BD84-A4BD35834E86}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B5EAE2CCE-D47C-4BF3-B32A-117BA41831D4%7D&amp;Styles=%7BD3CC7A7D-1C3D-48CD-9B01-55DDBA9C5013%7D&amp;RenderingIdentifier&amp;DynamicPlaceholderId=4"
+              s:ph="/main/sxa-content-container/container-1/row-2-1/column-1-3" />
+            <r
+              uid="{EBD0B926-1BF9-4E2F-A504-425A9336AE3B}"
+              p:after="r[@uid='{62EFF8B1-C341-4D75-B087-0788B62EF880}']"
+              s:id="{C25766C8-9AFD-4D28-87FE-147774F6806D}"
+              s:par="ColumnWidth1=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D%7C%7B2040C827-8640-4E61-907E-D3D5A25696C3%7D&amp;ColumnWidth2=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D%7C%7B2040C827-8640-4E61-907E-D3D5A25696C3%7D&amp;ColumnWidth3&amp;ColumnWidth4&amp;ColumnWidth5&amp;ColumnWidth6&amp;ColumnWidth7&amp;ColumnWidth8&amp;Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=3"
+              s:ph="/main/sxa-content-container/container-1/row-2-1" />
+            <r
+              uid="{90AC2E70-544B-4475-AB2A-72DE5E73459F}"
+              p:after="r[@uid='{EBD0B926-1BF9-4E2F-A504-425A9336AE3B}']"
+              s:ds="{459187EA-4670-452B-AA1D-256DC67E392F}"
+              s:id="{6BCF8D8E-0A28-4844-BFB4-96C852BAD2DC}"
+              s:par="Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BC7A7E725-BC84-45AE-AD50-0659F9AB7F98%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=2"
+              s:ph="/main/sxa-content-container/container-1/row-1-1" />
+            <r
+              uid="{50B5229C-B1F8-4B12-8F66-BE8AE9A0EBC3}"
+              p:after="*[1=2]"
+              s:ds=""
+              s:id="{2DA9B139-FB9C-4FD7-BE84-CB066B2D7CC3}"
+              s:par="Reset Caching Options&amp;SplitterSize=2&amp;EnabledPlaceholders=1%2C2%2C3&amp;Styles1&amp;Styles2&amp;Styles3&amp;Styles4&amp;Styles5&amp;Styles6&amp;Styles7&amp;Styles8&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-content-container/container-1" />
+          </d>
+        </r>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Financial Advisor Appointment
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: <p>Schedule an appointment with a Lighthouse Financial Advisor.</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a1954441-83a2-4813-8597-1f74a21b641d"
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Financial Advisor Appointment

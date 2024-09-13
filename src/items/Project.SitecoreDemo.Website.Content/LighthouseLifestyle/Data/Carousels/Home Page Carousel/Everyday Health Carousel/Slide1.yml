@@ -1,0 +1,87 @@
+﻿---
+ID: "f53d5ded-a5b1-4952-a14a-946f2a96481d"
+Parent: "658e89f6-3f0c-4072-88ca-50ce81757a9d"
+Template: "142e5fc1-ec62-4540-bad9-cd88f337cd2e"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Carousels/Home Page Carousel/Everyday Health Carousel/Slide1
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B8AB7438-FF88-41A2-B0FD-493FB644E1B2}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7B7C5FEDFB-F002-4136-99B0-5ED23040938B%7D&amp;Styles&amp;Reset Caching Options&amp;RenderingIdentifier"
+          ph="section-content"
+          uid="{3571AE66-F89F-4804-8290-A58E5C2C90ED}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{35B145AB-48A1-4621-91CD-EFBAD228D5D1}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{E768E690-E2BA-4BA3-A2F6-A5C309F7A542}" ></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        Your Health <br />
+        Your Way
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f0a28673-45ad-4950-8afc-3ed5165907e8"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{055766BE-D42E-4E94-B53B-3F6D223EC3D5}" />
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{E768E690-E2BA-4BA3-A2F6-A5C309F7A542}"></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: |
+        Votre sant&eacute;<br />
+        &agrave; votre fa&ccedil;on
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d3d567ef-c51f-4370-820e-648a0494cc4b"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link text="Votre santé" anchor="" linktype="internal" class="" title=""  querystring="" id="{055766BE-D42E-4E94-B53B-3F6D223EC3D5}" />
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: スライド 1
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{751A24EF-79B8-41DD-A34E-B1B22E89BE6D}" ></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: デザイン <br />シンプルな生活を支える
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "626def9a-bed2-4000-a26f-f4270c394fe4"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link id="{97CCF2EE-2242-4FB5-8A86-1C525FC6EBCD}" querystring="" linktype="internal" text="Learn More" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/articles/design-your-connected-home" title="" class="" target="" />

@@ -1,0 +1,36 @@
+﻿---
+ID: "25e98b57-ef94-4de2-b630-ad9374d99e4d"
+Parent: "f32e30f8-129a-486a-ad3e-2d07c8ac6004"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/LighthouseFinancial/Financial Client/Pattern Cards/Investor
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="3a0f2ec6-1346-434d-8df1-1c576628c7fa" name="Financial Client">
+        <key name="Checking" value="3" />
+        <key name="Mortgage" value="2" />
+        <key name="IRA" value="10" />
+        <key name="Mutual Funds" value="10" />
+        <key name="Business Account" value="0" />
+        <key name="SBA Lending" value="0" />
+        <key name="Monetary Exchange Rate" value="0" />
+        <key name="Corporate Lending" value="0" />
+      </profile>
+    </tracking>
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+Languages:
+- Language: en
+  Fields:
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: Investor
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "86125242-98dc-4a91-a586-d357f52192b5"

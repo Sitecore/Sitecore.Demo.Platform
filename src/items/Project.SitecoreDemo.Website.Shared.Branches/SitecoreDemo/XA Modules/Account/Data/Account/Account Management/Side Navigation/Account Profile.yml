@@ -1,0 +1,36 @@
+﻿---
+ID: "2b271840-9a93-4bf5-b258-6035f660adb5"
+Parent: "3551f19f-cb24-4c72-9843-2293b6e2c3ce"
+Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
+Path: /sitecore/templates/Branches/Project/Demo Shared SXA Sites/SitecoreDemo/XA Modules/Account/Data/Account/Account Management/Side Navigation/Account Profile
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "93ad6afb-5396-4f65-97a9-828778a353f0"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Account Profile" linktype="external" url="/accountmanagement/editprofile" anchor="" target="" />
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: アカウントプロファイル
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "22cac178-2d65-498f-b8f4-9c5425907aab"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{ED673E80-64F4-479F-BFA4-6E4C94539D17}" querystring="" linktype="internal" text="アカウント プロファイル" anchor="" url="/Demo SXA Sites/LighthouseLifestyle/home/account/portal/editprofile" title="" class="" target="|Custom" />

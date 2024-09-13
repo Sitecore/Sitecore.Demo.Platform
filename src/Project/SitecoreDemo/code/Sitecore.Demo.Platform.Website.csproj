@@ -97,14 +97,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.config" />
-    <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Serialization.config" />
-    <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Serialization.ContentHub.config" />
-    <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Serialization.Shared.config" />
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Indexing.ContentDelivery.config" />
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Indexing.config" />
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Horizon.Patch.Delete.Hotfix.config" />
-    <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Serialization.Training.config" />
     <Content Include="App_Config\Include\Project\Sitecore.Demo.Platform.Website.Hotfixes.MImageCommand.config" />
+    <Content Include="App_Config\Include\Project\Sitecore.Owin.Authentication.ClientCredentialsMapping.Mvp.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -65,6 +65,65 @@ if (-not $status.status -eq "enabled") {
     Write-Error "Timeout waiting for Sitecore CM to become available via Traefik proxy. Check CM container logs."
 }
 
+try {
+    # DEMO TEAM CUSTOMIZATION - Added restore command for computers without the Sitecore CLI already installed.
+    Write-Host "Restoring Sitecore CLI..." -ForegroundColor Green
+    dotnet tool restore
+    # END CUSTOMIZATION
+    # DEMO TEAM CUSTOMIZATION - Install the CLI plugins
+    Write-Host "Installing Sitecore CLI Plugins..."
+    dotnet sitecore --help | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Unexpected error installing Sitecore CLI Plugins"
+    }
+    # END CUSTOMIZATION
+
+    # DEMO TEAM CUSTOMIZATION - Custom hostname
+    dotnet sitecore login --cm https://cm.lighthouse.localhost/ --auth https://id.lighthouse.localhost/ --allow-write true
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Unable to log into Sitecore, did the Sitecore environment start correctly? See logs above."
+    }
+
+    # Populate Solr managed schemas to avoid errors during item deploy
+    Write-Host "Populating Solr managed schema..." -ForegroundColor Green
+    # DEMO TEAM CUSTOMIZATION - Populate Solr managed schemas using Sitecore CLI.
+    dotnet sitecore index schema-populate
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Populating Solr managed schema failed, see errors above."
+    }
+    # END CUSTOMIZATION
+
+    # DEMO TEAM CUSTOMIZATION - Removed initial JSS app items deployment and serialization. We are developing in Sitecore-first mode.
+    # Push the serialized items
+    Write-Host "Pushing items to Sitecore..." -ForegroundColor Green
+    dotnet sitecore ser push
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Serialization push failed, see errors above."
+    }
+    # DEMO TEAM CUSTOMIZATION - Split pushing and publishing operations.
+    dotnet sitecore publish
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Serialization publish failed, see errors above."
+    }
+    # END CUSTOMIZATION
+
+    # DEMO TEAM CUSTOMIZATION - Rebuild indexes using Sitecore CLI.
+    # Rebuild indexes
+    Write-Host "Rebuilding indexes ..." -ForegroundColor Green
+    dotnet sitecore index rebuild
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Rebuild indexes failed, see errors above."
+    }
+    # END CUSTOMIZATION
+}
+catch {
+    Write-Error "An error occurred while attempting to log into Sitecore, populate the Solr managed schema, or pushing website items to Sitecore: $_"
+}
+finally {
+    Pop-Location
+}
+
 Write-Host "Opening sites..." -ForegroundColor Green
 
 Start-Process https://cm.lighthouse.localhost/sitecore
+Start-Process https://cd.lighthouse.localhost

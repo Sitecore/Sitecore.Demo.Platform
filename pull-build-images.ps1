@@ -11,9 +11,6 @@ Param (
 Write-Host "Pulling base images..." -ForegroundColor Green
 
 $dockerComposeBaseCommand = "docker compose"
-if ($CI) {
-  $dockerComposeBaseCommand = "docker-compose"
-}
 
 $dockerComposeCommand = $dockerComposeBaseCommand
 

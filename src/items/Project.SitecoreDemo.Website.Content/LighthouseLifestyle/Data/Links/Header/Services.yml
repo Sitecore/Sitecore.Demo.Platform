@@ -1,0 +1,32 @@
+﻿---
+ID: "bdd1fde9-0b56-4ece-a556-b043ebe11b51"
+Parent: "4d50fe28-2e35-4bf9-bca9-e9c62d029fb8"
+Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Links/Header/Services
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bcd955e3-f058-49a9-bad3-a0bc48448d8f"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Services" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{3E54A390-BFFD-40E6-9AF7-E951A806E691}" />
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: サポート
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "acbfe303-9950-46d6-8a6d-8aac18ca44a2"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link id="{FD27A69C-2AFD-461D-8C59-73554C376648}" querystring="" text="サポート" url="/Demo SXA Sites/LighthouseLifestyle/home/company/contact" linktype="internal" target="" />

@@ -21,6 +21,14 @@ namespace Sitecore.Demo.Init.Jobs
 				return;
 			}
 
+			var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
+			if (string.IsNullOrEmpty(ns))
+			{
+				Log.LogWarning(
+					$"{this.GetType().Name} will not execute this time, RELEASE_NAMESPACE is not configured - this job is only required on AKS");
+				return;
+			}
+
 			var cm = Environment.GetEnvironmentVariable("HOST_CM");
 			var user = Environment.GetEnvironmentVariable("ADMIN_USER_NAME");
 			var password = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
@@ -28,11 +36,14 @@ namespace Sitecore.Demo.Init.Jobs
 			var authenticatedClient = new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
 
 			Log.LogInformation($"PopulateManagedSchema() starting {cm}");
-			var status = await authenticatedClient.DownloadStringTaskAsync($"{cm}/sitecore/admin/PopulateManagedSchema.aspx?indexes=all");
+			var status =
+				await authenticatedClient.DownloadStringTaskAsync(
+					$"{cm}/sitecore/admin/PopulateManagedSchema.aspx?indexes=all");
 			Log.LogInformation($"PopulateManagedSchema() status: {status}");
 
 			// Run PopulateManagedSchema second time as sometimes it does not update Solr properly from the first time
-			status = await authenticatedClient.DownloadStringTaskAsync($"{cm}/sitecore/admin/PopulateManagedSchema.aspx?indexes=all");
+			status = await authenticatedClient.DownloadStringTaskAsync(
+				         $"{cm}/sitecore/admin/PopulateManagedSchema.aspx?indexes=all");
 			Log.LogInformation($"PopulateManagedSchema() status: {status}");
 
 			// Wait for PopulateManagedSchema to complete before restarting the sites

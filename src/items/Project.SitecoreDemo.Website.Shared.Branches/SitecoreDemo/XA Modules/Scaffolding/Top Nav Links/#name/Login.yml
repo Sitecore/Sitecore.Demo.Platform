@@ -1,0 +1,39 @@
+﻿---
+ID: "e8f8d141-9a89-4541-a7f7-88b5e28020e1"
+Parent: "473810e6-84e1-4c4f-8407-ffadb3c88f3e"
+Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
+Path: /sitecore/templates/Branches/Project/Demo Shared SXA Sites/SitecoreDemo/XA Modules/Scaffolding/Top Nav Links/$name/Login
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e0485a20-a097-46c8-b079-bb0fe700afbc"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Login" linktype="external" url="/login" anchor="" target="" />
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0310b310-7d7c-4083-9033-3cd926276c59"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Ouvrir une session" linktype="external" url="/login" anchor="" target="" />
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "08e866fc-8e9d-4707-b2bc-47a2832f6319"
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="ログイン" linktype="external" url="/login" anchor="" target="" />

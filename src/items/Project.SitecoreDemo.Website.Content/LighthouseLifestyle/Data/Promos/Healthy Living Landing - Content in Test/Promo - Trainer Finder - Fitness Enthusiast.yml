@@ -1,0 +1,41 @@
+﻿---
+ID: "c24727c9-633a-47ca-8c70-82720c23793f"
+Parent: "454669b3-4663-41a9-9171-231cc3f81b9d"
+Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Promos/Healthy Living Landing - Content in Test/Promo - Trainer Finder - Fitness Enthusiast"
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: "<p>Personalize your Journey Now!</p>"
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{B5D2FE02-A7FC-4990-8094-761B36F02CB9}" />
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3ae3b238-c314-4f09-9dce-0d7789979fe4"
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: "<p>Take the test to find the best fit!</p>"
+    - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
+      Hint: PromoLink
+      Value: |
+        <link id="{3B26DAB2-CD1D-4E12-8FF8-FB8603213B8D}" querystring="" target="" text="Take the Test" url="/Demo SXA Sites/LighthouseLifestyle/home/your-health/trainer-finder" linktype="internal" />
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "637f39fc-2754-4e09-9c26-ea9f86fa92c8"

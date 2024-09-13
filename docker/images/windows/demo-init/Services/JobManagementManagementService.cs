@@ -38,12 +38,11 @@ namespace Sitecore.Demo.Init.Services
 				var indexRebuildAsyncJob = new IndexRebuild(initContext);
 				var experienceGeneratorAsyncJob = new ExperienceGenerator(initContext);
 				await new WaitForContextDatabase(initContext).Run();
+				await new PushSerialized(initContext).Run();
 				await new PublishItems(initContext).Run();
 				await new DeployMarketingDefinitions(initContext).Run();
 				await new RebuildLinkDatabase(initContext).Run();
 				await new PopulateManagedSchema(initContext).Run();
-				await new RestartCD(initContext).Run();
-				await new RestartCM(initContext).Run();
 				await new WaitForSitecoreToStart(initContext).Run();
 				await new DisableFallback(initContext).Run();
 				await new DeactivateMobileDeviceLayout(initContext).Run();

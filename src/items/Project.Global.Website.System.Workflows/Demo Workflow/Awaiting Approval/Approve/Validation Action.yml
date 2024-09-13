@@ -1,0 +1,62 @@
+﻿---
+ID: "c272c664-de21-44a1-96f0-72fcb42ade11"
+Parent: "08d7311c-1cea-4db3-9466-a24721647071"
+Template: "419f8ffb-2713-4cec-86a7-7585a727fe25"
+Path: /sitecore/system/Workflows/Demo Workflow/Awaiting Approval/Approve/Validation Action
+SharedFields:
+- ID: "202f2a2c-6274-467f-a9c8-3ec4585a3060"
+  Hint: Critical Error
+  Value: You cannot approve an item with validation errors.
+- ID: "281ab75c-db54-4471-9675-c01fb380fb62"
+  Hint: Error
+  Value: You cannot approve an item with validation errors.
+- ID: "322164dc-27ac-404e-b7dc-b74c13cdba1e"
+  Hint: Type
+  Value: Sitecore.Workflows.Simple.ValidatorsAction, Sitecore.Kernel
+- ID: "95fd25aa-742d-41d2-8d04-6406bba8c60d"
+  Hint: Max Result
+  Value: Warning
+- ID: "a50d7933-f230-4434-9538-29c802f0ce23"
+  Hint: Fatal Error
+  Value: You cannot approve an item with validation errors.
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Valideringshandling
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a0a82732-fd3e-4150-b6bf-066d248e77b9"
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Validierungsaktion
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2790b3e3-34e0-4ca6-ad9b-ed50b439dea3"
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ede958bd-d0fe-400b-8705-a46ed6e9604f"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 監査チェック
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "77839932-28ce-4c3b-af96-31061208bca2"

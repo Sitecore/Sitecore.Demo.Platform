@@ -1,0 +1,34 @@
+﻿---
+ID: "dc291d60-9131-4b81-8cee-c8fff0a2be67"
+Parent: "3943e831-0f22-4474-96ff-683aa20e3432"
+Template: "bca27de4-a869-4282-b3fb-4fbd7ba1b87b"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Settings/Creative Exchange Storages/Folder on server
+BranchID: "aab15f53-cc56-44e0-bfc6-1ed18ff81ffb"
+SharedFields:
+- ID: "15d142e5-e484-458d-8a66-317baafee28f"
+  Hint: ImportType
+  Value: Sitecore.XA.Feature.CreativeExchange.Storage.Import.FileImportStorage,Sitecore.XA.Feature.CreativeExchange
+- ID: "18ee0052-accd-42ad-8d80-d60cb88d9950"
+  Hint: Name
+  Value: Folder on server
+- ID: "52e8de18-7f21-4036-a6da-2b6c71eea601"
+  Hint: ExportType
+  Value: Sitecore.XA.Feature.CreativeExchange.Storage.Export.FileExportStorage,Sitecore.XA.Feature.CreativeExchange
+- ID: "5f32188e-d73c-47b8-97d4-7097070d8f46"
+  Hint: Destination Path
+  Value: $(creativeExchangeFolder)/FileStorage/Fins
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{A2F805C7-0D57-47F0-B67E-D9FA8AE3E664}"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Folder on server
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bd8a9bca-4975-4600-b66f-d940fa4ba752"

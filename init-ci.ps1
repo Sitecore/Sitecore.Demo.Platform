@@ -100,6 +100,7 @@ Set-DockerComposeEnvFileVariable "SMTP_CONTAINERS_COUNT" -Value 0
 Set-DockerComposeEnvFileVariable "ISOLATION" -Value $IsolationMode
 Set-DockerComposeEnvFileVariable "WINDOWSSERVERCORE_VERSION" -Value $WindowsVersion
 Set-DockerComposeEnvFileVariable "NANOSERVER_VERSION" -Value $NanoserverVersion
+Set-DockerComposeEnvFileVariable "SITECORE_ASSET_NANOSERVER_VERSION" -Value $NanoserverVersion
 Set-DockerComposeEnvFileVariable "SITECORE_VERSION" -Value $SitecoreVersion
 if ($Prerelease) { Set-DockerComposeEnvFileVariable "PRERELEASE" -Value $true }
 

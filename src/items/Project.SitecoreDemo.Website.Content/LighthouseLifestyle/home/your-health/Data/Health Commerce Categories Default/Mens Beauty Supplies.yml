@@ -1,0 +1,40 @@
+﻿---
+ID: "0a91248f-9234-4b49-a80f-ed18e224f81b"
+Parent: "b7be6c71-c208-48cb-ba6b-5af0a766b93a"
+Template: "ddb08f92-1cc2-43e2-b5c1-fe7f98e32ec9"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/your-health/Data/Health Commerce Categories Default/Mens Beauty Supplies"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "475044c3-16ad-4019-9f45-da7b64d2534e"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{D9CA5BE4-9FAA-4CBD-8BDC-342FACAD9289}" />
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Men's Grooming" linktype="rel" url="/shop/electric-shaver" anchor="" />
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cc2fbc9a-01ea-46c4-936e-a85df1d78c6b"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{D9CA5BE4-9FAA-4CBD-8BDC-342FACAD9289}" />
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Men's Grooming" linktype="rel" url="/shop/electric-shaver" anchor="" />

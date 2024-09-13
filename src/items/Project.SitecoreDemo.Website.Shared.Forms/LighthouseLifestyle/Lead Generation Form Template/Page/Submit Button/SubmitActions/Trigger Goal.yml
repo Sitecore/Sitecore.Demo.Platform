@@ -1,0 +1,42 @@
+﻿---
+ID: "8560a43c-f4cb-44b1-86b8-f3a41769bd96"
+Parent: "e56e080c-2cc4-42ff-8b8c-dd26bef3c6d9"
+Template: "05fe45d4-b9c7-40de-b767-7c5abe7119f9"
+Path: /sitecore/Forms/Demo Shared SXA Sites/LighthouseLifestyle/Lead Generation Form Template/Page/Submit Button/SubmitActions/Trigger Goal
+SharedFields:
+- ID: "5c796924-3f06-4d1f-8510-8ad9a4244477"
+  Hint: Parameters
+  Value: |
+    {"referenceId":"{D9A6C542-9EAF-4408-B379-E7376DE939E1}"}
+- ID: "abc57b6d-5542-4ab9-a889-106225a032e6"
+  Hint: Submit Action
+  Value: "{106587B9-1B9C-4DDB-AE96-BAC8416C21B5}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1da5096b-8c8a-44cf-8d7f-26faefeebe88"
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "70954af7-dd9e-407d-a8f6-71eb165c8cfc"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ゴールをトリガー
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "08f1fe38-7966-4803-995f-0ec05fe91f40"

@@ -1,0 +1,27 @@
+﻿---
+ID: "eac9d244-e721-4b80-919a-097c9493072d"
+Parent: "0c92aaa3-256d-447b-8933-86e1b9697c4c"
+Template: "b7f764a3-ad45-4666-a169-0c5a836d8ae2"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Feeds/Wearables Feed
+SharedFields:
+- ID: "ce0fae5a-7e2c-48be-aa15-12f0d55c582f"
+  Hint: ItemsNumber
+  Value: 6
+- ID: "ed0adccf-7ed0-407e-b42a-f3f8766ae53f"
+  Hint: CacheInterval
+  Value: 15
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "2d52a3f9-29c6-4ac1-a0a4-5693acb3db48"
+      Hint: FeedUrl
+      Value: |
+        <link linktype="external" url="http://wareable.com/rss" anchor="" target="" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "910d909b-4a3f-4b51-896d-d2807f5ef030"
+    - ID: "fefb37df-0883-4714-b7fc-607b5ada8908"
+      Hint: Title
+      Value: Wearables News Feed

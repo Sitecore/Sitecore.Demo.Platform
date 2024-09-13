@@ -1,0 +1,63 @@
+﻿---
+ID: "c81a5b22-ed05-4d1c-b86b-b04a88141d62"
+Parent: "6757297d-bd05-420b-8b92-a69344d55654"
+Template: "4a6a7e36-2481-438f-a9ba-0453ecc638fa"
+Path: /sitecore/system/Marketing Control Panel/Profiles/LighthouseLifestyle/Product Interests/Pattern Cards/On The Go
+SharedFields:
+- ID: "6da71ad3-5849-4482-9317-d21390e5a348"
+  Hint: Pattern
+  Value: |
+    <tracking>
+      <profile id="54d63273-947a-4927-b21a-0022625315e1" name="Product Interests">
+        <key name="Appliances" value="0" />
+        <key name="Audio" value="0" />
+        <key name="Cameras" value="0" />
+        <key name="Computers" value="2" />
+        <key name="Fitness Tech" value="0" />
+        <key name="Games" value="0" />
+        <key name="Phones" value="3" />
+        <key name="Tablets" value="5" />
+        <key name="TVs" value="0" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{1A9D27AB-04E9-4376-9706-4B4B7CBB2051}" />
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: On The Go
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ed74c04c-fb37-4584-82f7-b5e15a507f29"
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bb545991-cdab-4381-a8d0-67c0d5973a49"
+- Language: "ja-JP"
+  Fields:
+  - ID: "98535f26-6c9d-4fd7-a7e2-392c7cb82d65"
+    Hint: Image
+    Value: |
+      <image mediaid="{1A9D27AB-04E9-4376-9706-4B4B7CBB2051}" />
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "????"
+  - ID: "fe732790-2ddb-4657-a882-c2fce1fbf0c9"
+    Hint: Name
+    Value: "????"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8b1c6149-021a-4823-a33f-4d419b8c080b"

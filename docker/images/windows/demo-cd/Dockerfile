@@ -5,16 +5,18 @@ ARG TOOLS_ASSETS
 ARG SPE_ASSETS
 ARG SXA_ASSETS
 ARG HEADLESS_ASSETS
-ARG DELTA_ASSET_IMAGE
+#ARG DELTA_ASSET_IMAGE
 
 ARG CMP_ASSETS
 ARG SOLUTION_IMAGE
+ARG GP_IMAGE
 
 FROM ${TOOLS_ASSETS} as tools
 FROM ${SPE_ASSETS} as spe_assets
 FROM ${SXA_ASSETS} as sxa_assets
 FROM ${HEADLESS_ASSETS} as headless_assets
-FROM ${DELTA_ASSET_IMAGE} as deltaAssetImage
+#FROM ${DELTA_ASSET_IMAGE} as deltaAssetImage
+FROM ${GP_IMAGE} AS gp
 
 FROM ${CMP_ASSETS} as cmp_assets
 
@@ -44,6 +46,7 @@ COPY --from=sxa_assets /module/tools /module/sxa/tools
 RUN /module/sxa/tools/Initialize-Content.ps1 -TargetPath /inetpub/wwwroot; `
     Remove-Item -Path /module -Recurse -Force;
 
+COPY --from=gp /module/cm/content C:\inetpub\wwwroot
 COPY --from=cmp_assets /module/cm/content /inetpub/wwwroot
 
 # https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls

@@ -1,0 +1,63 @@
+﻿---
+ID: "e7a97a92-55ed-4132-aabc-274fa8fef18c"
+Parent: "08a28434-3d0e-4cd7-8afb-f6cea64646ed"
+Template: "aca5c9a3-cda0-49b6-893f-1d4a7cb595b0"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseHealthcare/Presentation/Rendering Variants/Navigation/Megadrop Navigation/SCW/IW/SML2-Auth"
+SharedFields:
+- ID: "9649a336-0dc1-4133-89ed-6d76beb4c32e"
+  Hint: EnableRule
+  Value: |
+    <ruleset>
+      <rule
+        uid="{513B09A2-E41F-4719-ACDD-343BA051CF9E}">
+        <conditions>
+          <and
+            uid="8E47D379C5E1488394498702CA0BA6BD">
+            <condition
+              id="{5DE6D53E-EA62-4D17-8BDD-FEBCD80AC07B}"
+              uid="0CAABBBDAF984D62B2637695A21A2235"
+              templateid="{E3B950BB-1B55-4CDD-819F-031B3BE1A66C}" />
+            <condition
+              id="{EA0642FA-500B-4B2F-B264-765E771C516F}"
+              uid="914739BA562B46CFBEF9A253395770B7"
+              except="true" />
+          </and>
+        </conditions>
+      </rule>
+    </ruleset>
+- ID: "a4d004e6-2a4b-4c53-a4f3-9c481df71cdc"
+  Hint: Tag
+  Value: "{B2EA310B-EB7F-48C9-82AB-B8F76B658596}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+- ID: "bea2740e-90d1-4b16-bd1d-7a7cc8605d2d"
+  Hint: CssClass
+  Value: "megadrop-secondary-main"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Secondary Menu Level 2 - Authenticated"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5d8284a1-18c3-4f31-ad82-5849ccdcb9d8"
+  - Version: 2
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "87b9b24d-1165-49c1-adac-85086385d02e"
+  - Version: 3
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1dd00bc7-3123-4445-9812-c9940e946819"
+  - Version: 4
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9a466bad-e6f7-4816-a013-a0503283a386"

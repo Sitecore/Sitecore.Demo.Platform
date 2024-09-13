@@ -1,0 +1,226 @@
+﻿---
+ID: "cbfda16b-043b-4bd7-8231-4e3689ed3b98"
+Parent: "8cc325d5-88fe-4412-8d28-08c3121b9883"
+Template: "459a510b-5e2c-425f-a321-1d9423937eb0"
+Path: /sitecore/content/Demo SXA Sites/LighthouseFinancial/Home/Commercial/Cash Management
+SharedFields:
+- ID: "1fbc6a49-6281-48ee-87e9-a3970b145adb"
+  Hint: NavigationFilter
+  Value: 
+- ID: "24171bf1-c0e1-480e-be76-4c0a1876f916"
+  Hint: Page Design
+  Value: "{16923AF2-95E8-48A2-91B9-F60F972FE9FA}"
+- ID: "4d71857f-c77d-44fa-8899-c671a0458d7f"
+  Hint: Publish Date
+  Value: 20200716T000000Z
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{C6EBE5E6-BCE3-4BAB-A5F9-16382F8369FE}"
+- ID: "b0a67b2a-8b07-4e0b-8809-69f751709806"
+  Hint: __Tracking
+  Value: |
+    <tracking>
+      <profile
+        id="3a0f2ec6-1346-434d-8df1-1c576628c7fa"
+        name="Financial Client"
+        presets="cfo|100||">
+        <key
+          name="Checking"
+          value="0" />
+        <key
+          name="Mortgage"
+          value="0" />
+        <key
+          name="IRA"
+          value="2" />
+        <key
+          name="Mutual Funds"
+          value="3" />
+        <key
+          name="Business Account"
+          value="5" />
+        <key
+          name="SBA Lending"
+          value="2" />
+        <key
+          name="Monetary Exchange Rate"
+          value="10" />
+        <key
+          name="Corporate Lending"
+          value="10" />
+      </profile>
+    </tracking>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{E18D1B93-AE48-4074-8830-C792FC25E103}"
+              s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+              s:par="BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD85BD5A8-A6B6-4209-8693-AE0414CBF0AC%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-article-content/container-1/column-2-2/container-4" />
+          </d>
+        </r>
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{B4CE11CC-FAD2-4401-AED2-21156424DB76}" ></image>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Cash Management
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h2>Streamline Your Cash Management</h2>
+        Accelerate collections, control payments and manage transactions and reporting using specialists and Financial&rsquo;s web-based banking platform designed specifically for companies like yours. Here&rsquo;s how it works:
+        <h3>Payments</h3>
+        <ul>
+            <li>Domestic and International Wire Transfer &mdash; Move funds domestically and internationally in any of 135 currencies.</li>
+            <br />
+            <li>ACH origination &mdash; Originate credits and debits for payments such as payroll, vendor payments and taxes through the Automated Clearing House.</li>
+            <br />
+            <li>Debit Blocks and Filters&mdash;Prevent fraudulent debits to your account by blocking all ACH debits (blocks) or allowing only those you admin.<br />
+            <br />
+            </li>
+            <li>Payroll Manager &mdash; Manage all aspects of your business' payroll process including payment and employee direct deposit, and tax filing. Employees can access payroll statements from a dedicated payroll portal.<br />
+            <br />
+            </li>
+            <li>Corporate Card &mdash; Simplify expense management with a single card program for all your business purchases. Powerful management tools and access to account activity and reports are available 24/7.</li>
+        </ul>
+        <h3>Receivables</h3>
+        <ul>
+            <li>Remote Check Deposit &mdash; Capture electronic images of paper checks at your business site for deposit to your Financial Business account. Use a scanner or your mobile phone to securely transmit check images via the web.<br />
+            <br />
+            </li>
+            <li>Currency Services &mdash; Send and receive cash, coin, and check deposits securely between your business location and a Commercial Bank Vault.<br />
+            <br />
+            </li>
+            <li>ACH/EDI Addenda Reporting &mdash; Electronic Data Interchange (EDI) receive detailed reports of remittance information from trading partners today via website or mobile app.</li>
+        </ul>
+        <h3>Information</h3>
+        Business Portal &mdash; Increase your efficiency and control by using the Business Portal&mdash;a secure, web-based online platform designed for businesses, to access Treasury Services including cash management, trade finance, and foreign exchange. Manage escrow accounts and other specialized deposit account services. Optional cash manager suite of services provides real-time reporting and extensive wire transfer functionality.
+        <h3>Deposit Accounts Options</h3>
+        <p>InstaChecking &mdash; For businesses and professional organizations with few cash management requirements.</p>
+        <p>FlexChecking &mdash; Primarily for growing business and professional organizations with some cash management requirements.</p>
+        <p>LLC-Checking &mdash; Designed to meet the needs of corporations, partnerships, sole proprietorships, not-for-profit organizations that require a range of cash management and other bank services.</p>
+        <p>Interest Checking &mdash; An interest-earning checking account designed for businesses looking to maintain a liquid reserve and earn interest on checking balances.</p>
+        <p>BizChecking Plus &mdash; A revolving line of credit linked to a business checking account for overdraft and uncollected funds protection.</p>
+        <h4>Investment Options</h4>
+        <p>Sweep Accounts &mdash; Earn interest on demand deposit funds by automatically sweeping end-of-day account balances over a pre-determined amount to a linked account offshore.</p>
+        <p>Short-term Investing &mdash; Invest in short term instruments including commercial paper, repurchase agreement and Nassau or Puerto Rico time deposits through our web-based investment portal accessible through Portal Online.</p>
+        <p>&nbsp;</p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "adb34822-a45d-4c62-b48d-ea8664d699a9"
+    - ID: "b7c8dbcf-14cf-485c-88ba-af35e0a9460a"
+      Hint: isFeatured
+      Value: 1
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>Let Habitat help your corporation optimize your cash flow.</p>
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Cash Management
+  - Version: 2
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{E18D1B93-AE48-4074-8830-C792FC25E103}"
+              s:id="{BFBD9DE2-3ABF-4078-BBCB-C95C5B2D863F}"
+              s:par="BreadcrumbRoot&amp;Separator=%3E&amp;IsNavigation&amp;Filter&amp;Reset Caching Options&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D&amp;FieldNames=%7BD85BD5A8-A6B6-4209-8693-AE0414CBF0AC%7D&amp;Styles&amp;RenderingIdentifier&amp;DynamicPlaceholderId=1"
+              s:ph="/main/sxa-article-content/container-1/column-2-2/container-4" />
+          </d>
+        </r>
+    - ID: "23aa5741-fa6a-4add-9e79-7a752af6deb1"
+      Hint: Image
+      Value: |
+        <image mediaid="{B4CE11CC-FAD2-4401-AED2-21156424DB76}" ></image>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{E93E190F-3398-489D-B3A3-A3B0D9BB33C5}"
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Cash Management
+    - ID: "5a0b08e5-7f6c-48dc-929a-5d6cfda45e1d"
+      Hint: Content
+      Value: |
+        <h2>Streamline Your Cash Management</h2>
+        Accelerate collections, control payments and manage transactions and reporting using specialists and Financial&rsquo;s web-based banking platform designed specifically for companies like yours. Here&rsquo;s how it works:
+        <h3>Payments</h3>
+        <ul>
+            <li>Domestic and International Wire Transfer &mdash; Move funds domestically and internationally in any of 135 currencies.</li>
+            <br />
+            <li>ACH origination &mdash; Originate credits and debits for payments such as payroll, vendor payments and taxes through the Automated Clearing House.</li>
+            <br />
+            <li>Debit Blocks and Filters&mdash;Prevent fraudulent debits to your account by blocking all ACH debits (blocks) or allowing only those you admin.<br />
+            <br />
+            </li>
+            <li>Payroll Manager &mdash; Manage all aspects of your business' payroll process including payment and employee direct deposit, and tax filing. Employees can access payroll statements from a dedicated payroll portal.<br />
+            <br />
+            </li>
+            <li>Corporate Card &mdash; Simplify expense management with a single card program for all your business purchases. Powerful management tools and access to account activity and reports are available 24/7.</li>
+        </ul>
+        <h3>Receivables</h3>
+        <ul>
+            <li>Remote Check Deposit &mdash; Capture electronic images of paper checks at your business site for deposit to your Financial Business account. Use a scanner or your mobile phone to securely transmit check images via the web.<br />
+            <br />
+            </li>
+            <li>Currency Services &mdash; Send and receive cash, coin, and check deposits securely between your business location and a Commercial Bank Vault.<br />
+            <br />
+            </li>
+            <li>ACH/EDI Addenda Reporting &mdash; Electronic Data Interchange (EDI) receive detailed reports of remittance information from trading partners today via website or mobile app.</li>
+        </ul>
+        <h3>Information</h3>
+        Business Portal &mdash; Increase your efficiency and control by using the Business Portal&mdash;a secure, web-based online platform designed for businesses, to access Treasury Services including cash management, trade finance, and foreign exchange. Manage escrow accounts and other specialized deposit account services. Optional cash manager suite of services provides real-time reporting and extensive wire transfer functionality.
+        <h3>Deposit Accounts Options</h3>
+        <p>InstaChecking &mdash; For businesses and professional organizations with few cash management requirements.</p>
+        <p>FlexChecking &mdash; Primarily for growing business and professional organizations with some cash management requirements.</p>
+        <p>LLC-Checking &mdash; Designed to meet the needs of corporations, partnerships, sole proprietorships, not-for-profit organizations that require a range of cash management and other bank services.</p>
+        <p>Interest Checking &mdash; An interest-earning checking account designed for businesses looking to maintain a liquid reserve and earn interest on checking balances.</p>
+        <p>BizChecking Plus &mdash; A revolving line of credit linked to a business checking account for overdraft and uncollected funds protection.</p>
+        <h4>Investment Options</h4>
+        <p>Sweep Accounts &mdash; Earn interest on demand deposit funds by automatically sweeping end-of-day account balances over a pre-determined amount to a linked account offshore.</p>
+        <p>Short-term Investing &mdash; Invest in short term instruments including commercial paper, repurchase agreement and Nassau or Puerto Rico time deposits through our web-based investment portal accessible through Portal Online.</p>
+        <p>&nbsp;</p>
+    - ID: "7bddc8b8-1f77-46d8-9d7f-46e20e041f74"
+      Hint: OpenGraphDescription
+      Value: Let Lighthouse help your corporation optimize your cash flow.
+    - ID: "7d988161-3991-465a-a88c-280bc65542a0"
+      Hint: OpenGraphTitle
+      Value: Commercial Cash Management
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5075dd73-f37d-43b3-9cd5-922e5c0cd5ec"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{2BDC5470-F3B3-4E4E-BD52-7D9646D3E1B3}" />
+    - ID: "b7c8dbcf-14cf-485c-88ba-af35e0a9460a"
+      Hint: isFeatured
+      Value: 1
+    - ID: "ca65aca5-4323-418a-aa72-a5037f606d2a"
+      Hint: Introduction
+      Value: <p>Let Habitat help your corporation optimize your cash flow.</p>
+    - ID: "e2a634fd-5177-46de-b629-5393caed77d7"
+      Hint: Title
+      Value: Cash Management
+    - ID: "eb2d62c0-062b-4a82-bc4e-46e7d1513ace"
+      Hint: FinCategory
+      Value: Commercial

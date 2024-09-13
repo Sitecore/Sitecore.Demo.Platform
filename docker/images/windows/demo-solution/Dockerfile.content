@@ -35,7 +35,10 @@ RUN Copy-Item /out/demo-standalone/App_Config/Layers.config.project.website.xdt 
 
 COPY FrontEnd/ /out/demo-standalone/App_Data/FrontEnd
 
+COPY src/ /out/src
+
 FROM ${BASE_IMAGE} as asset
 
 COPY --from=build /out/demo-standalone /solution/cm
 COPY --from=build /out/demo-standalone /solution/cd
+COPY --from=build /out/src /solution/src

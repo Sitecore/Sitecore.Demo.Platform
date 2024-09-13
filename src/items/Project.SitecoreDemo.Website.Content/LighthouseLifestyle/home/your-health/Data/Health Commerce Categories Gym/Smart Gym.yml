@@ -1,0 +1,40 @@
+﻿---
+ID: "9958d60b-d632-416f-8eca-9031b5060a51"
+Parent: "f9b7f64c-dc30-4885-a82f-2c0b2de57d45"
+Template: "ddb08f92-1cc2-43e2-b5c1-fe7f98e32ec9"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/your-health/Data/Health Commerce Categories Gym/Smart Gym"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3dabe921-9940-4f6f-8ce5-d45a9adaf1e8"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{30E7F3DC-E24F-4DEA-BF8C-0AF8042420D5}" />
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Home Gym" linktype="rel" url="/shop/Smart-Sports-Equipment" anchor="" />
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "01bb9998-2bb2-4e49-8d62-4c09147fae8f"
+    - ID: "a3555ef5-6619-441d-b4db-da3fd5f9c770"
+      Hint: Navigation Image
+      Value: |
+        <image mediaid="{30E7F3DC-E24F-4DEA-BF8C-0AF8042420D5}" />
+    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
+      Hint: Link
+      Value: |
+        <link text="Home Gym" linktype="rel" url="/shop/Smart-Sports-Equipment" anchor="" />

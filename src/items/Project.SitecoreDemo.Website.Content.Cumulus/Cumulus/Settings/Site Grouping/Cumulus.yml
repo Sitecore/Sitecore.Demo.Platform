@@ -1,0 +1,48 @@
+﻿---
+ID: "6d3dbefe-e525-4fba-8ae7-83796e8abe3b"
+Parent: "a1203156-fe13-4a93-963f-36e2e58b1d50"
+Template: "eda823fc-bc7e-4ef6-b498-cd09ec6fdaef"
+Path: /sitecore/content/Demo SXA Sites/Cumulus/Settings/Site Grouping/Cumulus
+BranchID: "b90549b5-c997-4d6b-b102-c9ab82528974"
+SharedFields:
+- ID: "1ee576af-ba8e-4312-9fbd-2ccf8395baa1"
+  Hint: StartItem
+  Value: "{813CE1D0-61E4-422F-9A3A-657BC47F60AB}"
+- ID: "301e719a-6f65-4874-b565-a953a7b5ac83"
+  Hint: OtherProperties
+  Value: "formsRoot=%7BF6575AC1-FEDC-4ABD-8B6C-55C1B373A425%7D&dictionaryPath=%2Fsitecore%2Fcontent%2FDemo%20SXA%20Sites%2FGlobal%2FData%2FDictionary"
+- ID: "475031d8-724d-463c-80b2-90839dd1ad98"
+  Hint: VirtualFolder
+  Value: /cumulus
+- ID: "6e6da5b0-8d01-4514-b7dd-1940aff3e8cd"
+  Hint: FieldLanguageFallback
+  Value: 1
+- ID: "85f47095-7e58-449c-9773-b0aeb925ad1f"
+  Hint: Indexes
+  Value: master/*=sitecore_sxa_master_index&web/*=sitecore_sxa_web_index
+- ID: "8c436235-b85d-4097-89cf-d5a4fa70cc0a"
+  Hint: ItemLanguageFallback
+  Value: 1
+- ID: "8e0dd914-9afb-4d45-bf8b-7ff5d6e5337e"
+  Hint: HostName
+  Value: 
+- ID: "a7803a5d-cd03-4eda-abed-1d9af4bf6660"
+  Hint: Database
+  Value: web
+- ID: "cb4e9e2e-2b66-43dc-ad3f-9caf363d28d3"
+  Hint: SiteName
+  Value: Cumulus
+- ID: "da06d09e-02b6-464a-80fc-9d8d7fc875e3"
+  Hint: Environment
+  Value: *
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{0EF8CB53-535D-41FE-8704-2C014D60D2DD}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4a0ab65c-018a-4771-95f3-5f6de25240cf"

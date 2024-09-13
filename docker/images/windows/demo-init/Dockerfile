@@ -4,7 +4,9 @@
 #For more information, please see https://aka.ms/containercompat
 ARG BUILD_IMAGE
 ARG BASE_IMAGE
+ARG SOLUTION_IMAGE
 
+FROM ${SOLUTION_IMAGE} as solution
 FROM ${BASE_IMAGE} AS base
 
 WORKDIR /app
@@ -29,8 +31,9 @@ RUN dotnet publish "Sitecore.Demo.Init.csproj" -c Release -o /app/publish
 
 FROM base AS final
 
-ENV DOTNET_RUNNING_IN_CONTAINER=true
+USER ContainerAdministrator
 
+ENV DOTNET_RUNNING_IN_CONTAINER=true
 ENV HOST_CD=placeholder
 ENV HOST_CM=placeholder
 ENV HOST_PS=placeholder
@@ -40,6 +43,14 @@ ENV ADMIN_USER_NAME=placeholder
 ENV ADMIN_PASSWORD=placeholder
 
 WORKDIR /app
+
+COPY --from=solution /solution/src/ ./src
+
+COPY ./sitecore.json .
+
+RUN dotnet new tool-manifest
+RUN dotnet nuget add source https://nuget.sitecore.com/resources/v3/index.json --name "Sitecore-Public-Nuget-Feed"
+RUN dotnet tool install --add-source=https://nuget.sitecore.com/resources/v3/index.json sitecore.cli --version 5.2.113
 
 COPY --from=publish /app/publish .
 RUN mkdir status

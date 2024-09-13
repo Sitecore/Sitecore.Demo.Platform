@@ -1,0 +1,62 @@
+﻿---
+ID: "d8ab10f7-39f0-4b99-8f0b-b0e2539cc8a2"
+Parent: "c341b656-5743-4a7f-86c7-8181f536d428"
+Template: "aa697a95-4189-4015-8a0b-da76d6a83589"
+Path: /sitecore/client/Applications/FormsBuilder/Components/Layouts/Actions/Assign Pattern Card/PageSettings/ItemTreeView
+SharedFields:
+- ID: "0cc7f24b-2013-46c6-8ae3-5233d094ff7c"
+  Hint: StaticData
+  Value: "{11111111-1111-1111-1111-111111111111}"
+- ID: "4cec56f0-9fe2-4980-8085-62b0a0ab51ec"
+  Hint: Database
+  Value: $context_contentdatabase
+- ID: "e0f5c2e5-ea32-4463-aef5-925d4194b4a2"
+  Hint: IsCheckModeEnabled
+  Value: 
+- ID: "e46cf3aa-5ad6-4a61-ad2b-d9d5d6698b7d"
+  Hint: CheckMode
+  Value: Single
+- ID: "f2a83648-50d1-44b3-bea0-0f6124bf211c"
+  Hint: ShowHiddenItems
+  Value: 1
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ItemTreeView
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "66168487-f28b-4618-8676-5c779ff0411b"
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ItemTreeAnsicht
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3d6cc33d-e8b4-4da4-b296-fb0ca01d4785"
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "16d01ee5-5e33-40cb-83ab-ee352016124f"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: ツリー ビュー
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6e82e9c8-7886-4f27-92b7-a308bbc0cb04"

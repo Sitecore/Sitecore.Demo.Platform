@@ -1,0 +1,44 @@
+﻿---
+ID: "5f9d6a19-953e-4278-9614-df89c2bce3f1"
+Parent: "2bdcf82d-477f-48ff-95cd-4f5f83b38418"
+Template: "142e5fc1-ec62-4540-bad9-cd88f337cd2e"
+Path: "/sitecore/content/Demo SXA Sites/LighthouseLifestyle/home/at-work/corporate-wellness/Data/Carousel/Slide1"
+BranchID: "c9bbf597-0836-46cc-810e-9a3246396e4e"
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B8AB7438-FF88-41A2-B0FD-493FB644E1B2}">
+        <r
+          ds=""
+          id="{8B0393E9-EE25-4F0B-A5FD-777B3AD2C737}"
+          par="FieldNames=%7B7C5FEDFB-F002-4136-99B0-5ED23040938B%7D&amp;Styles&amp;GridParameters=%7B113BEF7C-97E6-46CA-8CF3-916F7FAA8DE2%7D"
+          ph="section-content"
+          uid="{2AB5CA94-BC51-4C99-AF46-BEDDEAB46142}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{1F57F377-D66E-4DC8-BE10-CF7E120762A8}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "427ec0bd-3bf2-45b9-880f-bdb0054e7925"
+      Hint: SlideImage
+      Value: |
+        <image mediaid="{7367FFA5-A84E-49F7-A025-A040A9ABA72E}" ></image>
+    - ID: "7209159d-6b3e-4281-983e-f7f82104fa1b"
+      Hint: SlideText
+      Value: Lorem ipsum dolor sit amet
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2c5269e5-50ea-4b71-baef-2233141a4ce4"
+    - ID: "b31d5ddd-1eda-4b22-b97d-ff71fc8e72bc"
+      Hint: SlideLink
+      Value: |
+        <link text="Read More" anchor="" linktype="internal" class="" title=""  querystring="" id="{10083CA0-5093-4D67-99DB-2579ABB421D3}" />

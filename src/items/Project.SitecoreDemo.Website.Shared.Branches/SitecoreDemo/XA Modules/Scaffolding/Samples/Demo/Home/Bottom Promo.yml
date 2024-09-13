@@ -1,0 +1,31 @@
+﻿---
+ID: "8bb80c09-ac94-4403-a470-174a30926d21"
+Parent: "2a91a1e2-975e-4267-9881-65070bd8e9ab"
+Template: "324733cf-afec-4281-9a18-03b6cfc4e535"
+Path: /sitecore/templates/Branches/Project/Demo Shared SXA Sites/SitecoreDemo/XA Modules/Scaffolding/Samples/Demo/Home/Bottom Promo
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "14023dd5-30e7-4e3c-bf31-d835f3a87410"
+      Hint: PromoText
+      Value: <p>Nemo enim voluptatem quia voluptas</p>
+    - ID: "18f9beb8-0116-40fd-b47e-fd0a2327d7e0"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="{ADAEA3F4-CA53-48CA-A3D5-DFC53695E937}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4e293b47-c957-422f-86ef-a467a0e02abf"
+    - ID: "b59adc09-32a3-46f2-aede-b0c633979263"
+      Hint: PromoText2
+      Value: "<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea.</p>"
+    - ID: "b8c1a9d2-de76-4519-aff4-1442525f32b0"
+      Hint: PromoLink
+      Value: |
+        <link text="Start Here" linktype="anchor" url="#" anchor="" title="" class="" />
