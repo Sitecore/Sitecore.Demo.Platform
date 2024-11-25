@@ -72,6 +72,9 @@ if ($deployDatabases) {
 $ready = Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Query "select name from sys.databases where name = 'platform_init_ready'" -TrustServerCertificate
 if (-not $ready) {
 
+    # Set memory limit, as a workaround to prevent SQL Server from consuming all memory in AKS (cgroupv2)
+    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\SetMemoryLimit.sql" -TrustServerCertificate -Verbose
+
     # Disable sitecore\admin
     Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\DisableSitecoreAdminUser.sql" -TrustServerCertificate -Verbose
 
