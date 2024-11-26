@@ -1,212 +1,219 @@
 @import "vars";
 @import "mixins";
 .promo {
-    &.promo-video {
-        float: none;
-        margin-top: 0;
-        margin-bottom: 2em;
-        overflow-y: hidden;
-        height: 200px;
+	&.promo-video {
+		float: none;
+		margin-top: 0;
+		margin-bottom: 2em;
+		overflow-y: hidden;
+		height: 200px;
 
-        @include respond-to(tablet) {
-            height: 300px;
-        }
+		@include respond-to(tablet) {
+			height: 300px;
+		}
 
-        @include respond-to(desktop) {
-            height: 500px;
-        }
+		@include respond-to(desktop) {
+			height: 500px;
+		}
 
-        @include respond-to(desktop-large) {
-            height: 600px;
-        }
+		@include respond-to(desktop-large) {
+			height: 600px;
+		}
 
-        >.component-content {
-            padding: 0;
-            height: 100%;
-            >div {
-                float: none;
-                width: 100%;
-            }
-        }
-    
-        video {
-            width: 100%;
-        }
+		> .component-content {
+			padding: 0;
+			height: 100%;
+			> div {
+				float: none;
+				width: 100%;
+			}
+		}
 
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            min-width: 100%;
-          }
+		video {
+			width: 100%;
+		}
 
-        .hero-content-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin: 0 auto;
-            padding: 0 15px;
-            max-width: $max-content-width;
-            height: 100%;
-            position: relative;
-        }
+		.video-background {
+			position: absolute;
+			top: 0;
+			left: 0;
+			min-width: 100%;
+		}
 
-        .field-herosupertitle {
-            @include proxima-font;
-            font-size: 1em;
-            text-transform: uppercase;            
-            color: $promo-hero-video-secondary-text-color;
-        }
+		.hero-content-wrapper {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin: 0 auto;
+			padding: 0 15px;
+			max-width: $max-content-width;
+			height: 100%;
+			position: relative;
+		}
 
-        .field-herotitle {
-            font-size: 2em;
-            line-height: 0.9;
-            font-weight: bold;
-            margin-bottom: 0.25em;
-            color: $promo-hero-video-text-color;
-    
-            @include respond-to(tablet) {
-                font-size: 5em;
-            }
-        }
+		.field-herosupertitle {
+			@include proxima-font;
+			font-size: 1em;
+			text-transform: uppercase;
+			color: $promo-hero-video-secondary-text-color;
+		}
 
-        .field-herolink {
-            a {
-                @include btn-primary;
-                font-size: 1em;
-                min-width: 300px;
-                display: none;
+		.field-herotitle {
+			font-size: 2em;
+			line-height: 0.9;
+			font-weight: bold;
+			margin-bottom: 0.25em;
+			color: $promo-hero-video-text-color;
 
-                @include respond-to(tablet) {
-                    display: inline;
-                }        
-            }        
-        }
-    }
+			@include respond-to(tablet) {
+				font-size: 5em;
+			}
+		}
 
-    &.promo-hero {
-        float: none;
-        position: relative;
-        height: $hero-height;
-        overflow-y: hidden;
-        margin-top: 0;
-        margin-bottom: 2em;
-    
-        >.component-content {
-            padding: 0;
-            height: 100%;
-            >div {
-                float: none;
-                width: 100%;
-            }
-        }
-    
-        .field-promoicon {
-            padding: 0;
-            position: absolute;
-            img {
-                display: block;
-            }
-    
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0,0,0,0.25);
-            }
-        }
-    
-        .hero-wrapper {
-            height: 100%;
-        }
-    
-        .hero-content-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin: 0 auto;
-            padding: 0 15px;
-            max-width: $max-content-width;
-            height: 100%;
-            position: relative;
-        }
-    
-        .field-heroimage {
-            height: 100%;
-            width: inherit;
-            display: flex;
-    
-            img {
-                @include object-fit;
-            }
-        }
-    
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: $promo-hero-text-color;
-            text-align: left;
-        }
-    
-        .field-herosupertitle {
-            @include proxima-font;
-            font-size: 1.25em;
-            text-transform: uppercase;            
-            color: $promo-hero-secondary-text-color;
-        }
-        .field-herotitle {
-            font-size: 3em;
-            line-height: 0.9;
-            font-weight: bold;
-            margin-bottom: 0.25em;
-            color: $promo-hero-text-color;
-    
-            @include respond-to(tablet) {
-                font-size: 5em;
-            }
-        }
-    
-        .field-herolink {
-            a {
-                @include btn-primary;
-                font-size: 1em;
-                min-width: 300px;
-            }        
-        }
-    }
+		.field-herolink {
+			a {
+				@include btn-primary;
+				font-size: 1em;
+				min-width: 300px;
+				display: none;
 
-    &.image-top .field-heroimage img{        
-        @include object-fit(cover, top);
-    }
+				@include respond-to(tablet) {
+					display: inline;
+				}
+			}
+		}
+	}
 
-    &.image-center .field-heroimage img{
-        @include object-fit(cover, center);
-    }
+	&.promo-hero {
+		float: none;
+		position: relative;
+		min-height: $hero-height;
+		overflow-y: hidden;
+		margin-top: 0;
+		margin-bottom: 2em;
 
-    &.image-bottom .field-heroimage img{
-        @include object-fit(cover, bottom);
-    }
+		> .component-content {
+			padding: 0;
+			height: 100%;
 
-    &.hero-large {
-        height: 500px;
+			> div {
+				float: none;
+				width: 100%;
+				flex-basis: 100%;
+			}
+		}
 
-        .field-promoicon {
-            &:before {
-                display: none;
-            }
-        }
-    }
+		.field-promoicon {
+			padding: 0;
+			position: absolute;
+			inset: 0;
+
+			img {
+				display: block;
+			}
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+		}
+
+		.hero-wrapper {
+			height: 100%;
+			padding: 128px 15px !important;
+		}
+
+		.hero-content-wrapper {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin: 0 auto;
+			padding: 0 45px;
+			max-width: $max-content-width;
+			height: 100%;
+			position: relative;
+		}
+
+		.field-heroimage {
+			height: 100%;
+			width: inherit;
+			display: flex;
+
+			img {
+				@include object-fit;
+			}
+		}
+
+		.hero-content {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			color: $promo-hero-text-color;
+			text-align: left;
+		}
+
+		.field-herosupertitle {
+			@include proxima-font;
+			font-size: 1.6rem;
+			margin-bottom: 1em;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			color: $promo-hero-secondary-text-color;
+		}
+
+		.field-herotitle {
+			@include proxima-font(bold);
+			font-size: 5rem;
+			line-height: 1;
+			color: $promo-hero-text-color;
+
+			@include respond-to(tablet) {
+				font-size: 8rem;
+			}
+		}
+
+		.field-herolink {
+			a {
+				@include btn-primary;
+				font-size: 1em;
+				min-width: 300px;
+			}
+		}
+	}
+
+	&.image-top .field-heroimage img {
+		@include object-fit(cover, top);
+	}
+
+	&.image-center .field-heroimage img {
+		@include object-fit(cover, center);
+	}
+
+	&.image-bottom .field-heroimage img {
+		@include object-fit(cover, bottom);
+	}
+
+	&.hero-large {
+		height: 500px;
+
+		.field-promoicon {
+			&:before {
+				display: none;
+			}
+		}
+	}
 }
 .on-page-editor {
-    .promo-hero {
-        .field-promoicon {
-            &:before {
-                content: none;
-            }
-        }
-    }
+	.promo-hero {
+		.field-promoicon {
+			&:before {
+				content: none;
+			}
+		}
+	}
 }

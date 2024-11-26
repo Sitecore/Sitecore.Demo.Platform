@@ -8,195 +8,241 @@ $break-mobile: 380px;
 $break-mobile-horizontal: 640px;
 $break-mobile-large: 786px;
 @mixin wrapper() {
-    max-width: 960px;
-    margin: 0 auto !important;
+	max-width: 960px;
+	margin: 0 auto !important;
 }
 @mixin clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
 }
-    @mixin headings($from: 1, $to: 6) {
-        @for $i from $from through $to {
-            h#{$i} {
-                @content
-            }
-        }
-    }
+@mixin headings($from: 1, $to: 6) {
+	@for $i from $from through $to {
+		h#{$i} {
+			@content;
+		}
+	}
+}
 @mixin font-size($sizeValue: 1.6) {
-    font-size: ($sizeValue * 10) + px;
-    font-size: $sizeValue + rem;
+	font-size: ($sizeValue * 10) + px;
+	font-size: $sizeValue + rem;
 }
-@mixin proxima-font($weight:standard) {
-    @if($weight==standard) {
-        font-family: "AvenirNextW05-Regular", arial, helvetica, sans-serif;
-    }
-    @if($weight==semibold) {
-        font-family: "AvenirNextW05-Demi", arial, helvetica, sans-serif;
-    }
-    @else if($weight==light) {
-        font-family: "AvenirNextW05-Light", arial, helvetica, sans-serif;
-    }
+@mixin proxima-font($weight: standard) {
+	@if ($weight==standard) {
+		font-family: "AvenirNextW05-Regular", arial, helvetica, sans-serif;
+	}
+	@if ($weight==semibold) {
+		font-family: "AvenirNextW05-Demi", arial, helvetica, sans-serif;
+	}
+	@if ($weight==bold) {
+		font-family: "AvenirNextW05-Bold", arial, helvetica, sans-serif;
+	} @else if($weight==light) {
+		font-family: "AvenirNextW05-Light", arial, helvetica, sans-serif;
+	}
 }
 @mixin loading-gif() {
-    background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJibGFjayI+DQogIDxwYXRoICBvcGFjaXR5PSIuMjUiIGQ9Ik0xNiAwIEExNiAxNiAwIDAgMCAxNiAzMiBBMTYgMTYgMCAwIDAgMTYgMCBNMTYgNCBBMTIgMTIgMCAwIDEgMTYgMjggQTEyIDEyIDAgMCAxIDE2IDQiLz4NCiAgPHBhdGggZmlsbD0nIzFhODBiNicgZD0iTTE2IDAgQTE2IDE2IDAgMCAxIDMyIDE2IEwyOCAxNiBBMTIgMTIgMCAwIDAgMTYgNHoiPg0KICAgIDxhbmltYXRlVHJhbnNmb3JtIGF0dHJpYnV0ZU5hbWU9InRyYW5zZm9ybSIgdHlwZT0icm90YXRlIiBmcm9tPSIwIDE2IDE2IiB0bz0iMzYwIDE2IDE2IiBkdXI9IjAuOHMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPg0KICA8L3BhdGg+DQo8L3N2Zz4NCg==);
-    background-position: center center;
-    background-repeat: no-repeat;
+	background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJibGFjayI+DQogIDxwYXRoICBvcGFjaXR5PSIuMjUiIGQ9Ik0xNiAwIEExNiAxNiAwIDAgMCAxNiAzMiBBMTYgMTYgMCAwIDAgMTYgMCBNMTYgNCBBMTIgMTIgMCAwIDEgMTYgMjggQTEyIDEyIDAgMCAxIDE2IDQiLz4NCiAgPHBhdGggZmlsbD0nIzFhODBiNicgZD0iTTE2IDAgQTE2IDE2IDAgMCAxIDMyIDE2IEwyOCAxNiBBMTIgMTIgMCAwIDAgMTYgNHoiPg0KICAgIDxhbmltYXRlVHJhbnNmb3JtIGF0dHJpYnV0ZU5hbWU9InRyYW5zZm9ybSIgdHlwZT0icm90YXRlIiBmcm9tPSIwIDE2IDE2IiB0bz0iMzYwIDE2IDE2IiBkdXI9IjAuOHMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPg0KICA8L3BhdGg+DQo8L3N2Zz4NCg==);
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 @mixin respond-to($media) {
-    @if $media==mobile {
-        @media only screen and (max-width: $break-mobile) {
-            @content;
-        }
-    }
-    @else if $media==mobile-horizontal {
-        @media only screen and (max-width: $break-mobile-horizontal - 1) {
-            @content;
-        }
-    }
-    @else if $media==mobile-large {
-        @media only screen and (max-width: $break-mobile-large) {
-            @content;
-        }
-    }
-    @else if $media==tablet {
-        @media only screen and (min-width: $break-mobile-large) {
-            @content;
-        }
-    }
-    @else if $media==all-mobile {
-        @media only screen and (max-width: $break-desktop - 1) {
-            @content;
-        }
-    }
-    @else if $media==desktop {
-        @media only screen and (min-width: $break-desktop) {
-            @content;
-        }
-    }
-    @else if $media==desktop-large {
-        @media only screen and (min-width: $break-desktop-large) {
-            @content;
-        }
-    }
+	@if $media==mobile {
+		@media only screen and (max-width: $break-mobile) {
+			@content;
+		}
+	} @else if $media==mobile-horizontal {
+		@media only screen and (max-width: $break-mobile-horizontal - 1) {
+			@content;
+		}
+	} @else if $media==mobile-large {
+		@media only screen and (max-width: $break-mobile-large) {
+			@content;
+		}
+	} @else if $media==tablet {
+		@media only screen and (min-width: $break-mobile-large) {
+			@content;
+		}
+	} @else if $media==all-mobile {
+		@media only screen and (max-width: $break-desktop - 1) {
+			@content;
+		}
+	} @else if $media==desktop {
+		@media only screen and (min-width: $break-desktop) {
+			@content;
+		}
+	} @else if $media==desktop-large {
+		@media only screen and (min-width: $break-desktop-large) {
+			@content;
+		}
+	}
 }
-@mixin border-basic($position:all, $border-color:$border-gray, $border-width:1px) {
-    @if($position!=all) {
-        border-#{$position}-width: $border-width;
-        border-#{$position}-style: solid;
-        border-#{$position}-color: $border-color;
-    }
-    @else {
-        border-width: $border-width;
-            border-style: solid;
-            border-color: $border-color;
-    }
+@mixin border-basic(
+	$position: all,
+	$border-color: $border-basic-color,
+	$border-width: 1px
+) {
+	@if ($position!=all) {
+		border-#{$position}-width: $border-width;
+		border-#{$position}-style: solid;
+		border-#{$position}-color: $border-color;
+	} @else {
+		border-width: $border-width;
+		border-style: solid;
+		border-color: $border-color;
+	}
 }
-@mixin fixed-bg($pos, $min-height:240px) {
-    background-position: $pos;
-    background-attachment: fixed;
-    min-height: $min-height;
+@mixin fixed-bg($pos, $min-height: 240px) {
+	background-position: $pos;
+	background-attachment: fixed;
+	min-height: $min-height;
 }
 @mixin linear-gradient($direction, $color-stops...) {
-    // Direction has been omitted and happens to be a color-stop
-    @if is-direction($direction)==false {
-        $color-stops: $direction, $color-stops;
-        $direction: 180deg;
-    }
-    background: nth(nth($color-stops, 1), 1);
-    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
-    background: linear-gradient($direction, $color-stops);
+	// Direction has been omitted and happens to be a color-stop
+	@if is-direction($direction) ==false {
+		$color-stops: $direction, $color-stops;
+		$direction: 180deg;
+	}
+	background: nth(nth($color-stops, 1), 1);
+	background: -webkit-linear-gradient(
+		legacy-direction($direction),
+		$color-stops
+	);
+	background: linear-gradient($direction, $color-stops);
 }
 
 //Since container is a class atomatically added to some component, we need the ability to strip some of its styles
-@mixin uncontainer {    
-    padding: 0;
-    @media (min-width: 1200px) {
-        width: auto;
-    }
-    @media (min-width: 992px) {
-        width: auto;
-    }
-    @media (min-width: 768px) {
-        width: auto;
-    }    
+@mixin uncontainer {
+	padding: 0;
+	@media (min-width: 1200px) {
+		width: auto;
+	}
+	@media (min-width: 992px) {
+		width: auto;
+	}
+	@media (min-width: 768px) {
+		width: auto;
+	}
 }
 
 @mixin container {
-    width: auto;
-    max-width: $max-content-width;
+	width: auto;
+	max-width: $max-content-width;
 
-    @media (min-width: 768px) {
-        width: auto;
-    }
-    @media (min-width: 768px) {
-        float: none;
-    }        
-    @media (min-width: 1200px) {
-        width: auto;
-    }
-    @media (min-width: 992px) {
-        width: auto;
-    }
-    @media (min-width: 768px) {
-        width: auto;;
-    }  
+	@media (min-width: 768px) {
+		width: auto;
+	}
+	@media (min-width: 768px) {
+		float: none;
+	}
+	@media (min-width: 1200px) {
+		width: auto;
+	}
+	@media (min-width: 992px) {
+		width: auto;
+	}
+	@media (min-width: 768px) {
+		width: auto;
+	}
 }
 
 @mixin btn-default {
-    display: inline-block;
-    padding: 0.65em 2em;
-    text-decoration: none;
-    font-size: 0.75em;    
-    font-weight: bold;
-    text-align: center;
+	display: inline-block;
+	padding: 14px 32px 12px;
+	text-decoration: none;
+	font-size: 1.4rem;
+	line-height: 1;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	transition: all 0.2s ease-in-out;
 }
 
-@mixin btn-primary {  
-    @include btn-default;
-    color: $btn-primary; 
-    background-color: $btn-primary-bg !important;
-    border: 1px solid $btn-primary-bg;    
-    transition: opacity 0.3s ease;
-    border-radius: 4px 4px 4px 4px;
-    text-decoration: none;
-    
-    &:hover {
-        color: $btn-primary-active; 
-        background-color: $btn-primary-active-bg !important;
-        border: 1px solid $btn-primary-active-border;    
-    }
+@mixin btn-primary {
+	@include btn-default;
+	color: $btn-primary;
+	background-color: $btn-primary-bg !important;
+	border: 1px solid $btn-primary-bg !important;
+	text-decoration: none;
+
+	&:hover {
+		color: $btn-primary-active;
+		background-color: $btn-primary-active-bg !important;
+		border: 1px solid $btn-primary-active-border;
+	}
 }
 
-@mixin btn-secondary {    
-    @include btn-default;
-    color: $btn-secondary;      
-    background-color: $btn-secondary-bg !important;
-    border: 1px solid $btn-secondary;
-    border-radius: 4px;
+@mixin btn-primary-light {
+	@include btn-default;
+	color: $btn-primary-light;
+	background-color: $btn-primary-light-bg !important;
+	border: 1px solid $btn-primary-light-bg !important;
 
-    &:hover {
-        color: $btn-secondary-active; 
-        background-color: $btn-secondary-active-bg !important;
-        border: 1px solid $btn-secondary-active-border;    
-    }
+	&:hover {
+		color: $btn-primary-light-active;
+		background-color: $btn-primary-light-active-bg !important;
+		border: 1px solid $btn-primary-light-active-border !important;
+	}
+}
+
+@mixin btn-secondary {
+	@include btn-default;
+	color: $btn-secondary;
+	background-color: $btn-secondary-bg !important;
+	border: 1px solid $btn-secondary;
+
+	&:hover {
+		color: $btn-secondary-active;
+		background-color: $btn-secondary-active-bg !important;
+		border: 1px solid $btn-secondary-active-border;
+	}
+}
+
+@mixin btn-secondary-light {
+	@include btn-default;
+	color: $btn-secondary-light;
+	background-color: $btn-secondary-light-bg !important;
+	border: 1px solid $btn-secondary-light;
+
+	&:hover {
+		color: $btn-secondary-light-active;
+		background-color: $btn-secondary-light-active-bg !important;
+		border: 1px solid $btn-secondary-light-active-border;
+	}
+}
+
+@mixin btn-arrow($size) {
+	display: block;
+	font-size: 0;
+	border: 0px solid transparent !important;
+	padding: 0;
+	width: $size;
+	min-width: $size;
+	height: $size;
+	background-image: url("data:image/png;base64,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");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: transparent !important;
+
+	&:hover {
+		background-color: transparent !important;
+	}
 }
 
 @mixin full-width-container {
-    max-width: none !important;
-    width: 100vw !important;
-    position: relative;
-    left: 50% !important;
-    right: 50% !important;
-    margin-left: -50vw !important;
-    margin-right: -50vw !important;
-    padding: 0;
+	max-width: none !important;
+	width: 100vw !important;
+	position: relative;
+	left: 50% !important;
+	right: 50% !important;
+	margin-left: -50vw !important;
+	margin-right: -50vw !important;
+	padding: 0;
 }
 
-@mixin object-fit($size: cover, $position:center) {
-    object-fit: $size;
-    object-position: $position;
-	font-family: 'object-fit: #{$size}; object-position: #{$position};';
+@mixin object-fit($size: cover, $position: center) {
+	object-fit: $size;
+	object-position: $position;
+	font-family: "object-fit: #{$size}; object-position: #{$position};";
 }

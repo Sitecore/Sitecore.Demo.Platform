@@ -1,36 +1,36 @@
 @import "mixins";
 @import "vars";
 .top-nav {
-    max-width: none !important;
-    width: 100vw !important;
-    height: $primary-nav-height;
-    background-color: $top-nav-bg;
-    border-top: 4px solid $primary-nav-border-color;
+	max-width: none !important;
+	width: 100vw !important;
+	height: $primary-nav-height;
+	background-color: $top-nav-bg;
+	border-top: 4px solid $primary-nav-border-color;
 
-    >.component-content >.component {
-        float: right;
-        padding-top: 4px;
+	> .component-content > .component {
+		float: right;
+		padding-top: 4px;
 
-        >.component-content >div >a {
-            text-decoration: none;
-            text-transform: uppercase;
-            padding: 10px 15px;
-            color: $text-passive;
-            height: 100%;
-            display: block;
-            font-size: $navigation-font-small;
-            border-bottom: none;
+		> .component-content > div > a {
+			text-decoration: none;
+			text-transform: uppercase;
+			padding: 10px 15px;
+			color: $text-passive;
+			height: 100%;
+			display: block;
+			font-size: $navigation-font-small;
+			letter-spacing: 2px;
+			border-bottom: none;
 
-            &:before {
-                display: none;
-            }
+			&:before {
+				display: none;
+			}
 
-            &:hover {
-                border-bottom: none;
-                text-decoration: none;
-                color: $on-primary;
-            }
-        }
-    }
-
+			&:hover {
+				border-bottom: none;
+				text-decoration: none;
+				color: $on-primary;
+			}
+		}
+	}
 }

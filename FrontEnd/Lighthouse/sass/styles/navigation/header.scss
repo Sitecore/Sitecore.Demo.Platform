@@ -1,81 +1,81 @@
-
 #header > .row {
-    margin: 0;
+	margin: 0;
 }
 
-.header-container-outer {    
-    @include respond-to(all-mobile) {
-        display: none;
-    }
+.header-container-outer {
+	@include respond-to(all-mobile) {
+		display: none;
+	}
 
-    .link a:before{
-        display: none;
-    }
+	.link a:before {
+		display: none;
+	}
 
-    .language-selector,
-    .link {
-        display: none;
-    } 
+	.language-selector,
+	.link {
+		display: none;
+	}
 
-    background-color: $primary-nav-bg;
-    padding: 0;
-    max-width: none !important;        
-    width: 100vw !important;
+	background-color: $primary-nav-bg;
+	padding: 0;
+	max-width: none !important;
+	width: 100vw !important;
 
-    &.overlay-header {
-        position: absolute;        
-        z-index: 999;
-    }
+	&.overlay-header {
+		position: absolute;
+		z-index: 999;
+	}
 
-    @include respond-to(tablet) {
-        .language-selector,
-        .link {
-            display: block;
-        }
-    }
+	@include respond-to(tablet) {
+		.language-selector,
+		.link {
+			display: block;
+		}
+	}
 }
 
 .mobile-header {
-    max-width: none!important;
-    width: 100vw!important;
-    padding-left: 0px;
+	max-width: none !important;
+	width: 100vw !important;
+	padding-left: 0px;
 
-    display: none;
-    @include respond-to(all-mobile) {
-        display: block;
-    }
+	display: none;
+	@include respond-to(all-mobile) {
+		display: block;
+	}
 
-    .menu-icon {
-        float: right;
-        cursor: pointer;
-    }
+	.menu-icon {
+		float: right;
+		cursor: pointer;
+	}
 
-    .menu-icon {
-        &:before {
-            @include fa-icon();
-            content: $fa-var-bars;
-            display: block;
-            font-size: 34px;
-            padding-top: 38px;
-            color: $primary-color;
-            @include respond-to(all-mobile) {
-                padding-right: 8px;
-            }
-        }
+	.menu-icon {
+		&:before {
+			@include fa-icon();
+			content: $fa-var-bars;
+			display: block;
+			font-size: 34px;
+			padding-top: 38px;
+			color: $primary-color;
+			@include respond-to(all-mobile) {
+				padding-right: 8px;
+			}
+		}
 
-        &.open {
-            &:before {
-                content: $fa-var-times;
-            }
-        }
-    }
-
+		&.open {
+			&:before {
+				content: $fa-var-times;
+			}
+		}
+	}
 }
 
 .primary-nav-container {
-    width: auto;
-    & > .component-content {
-        display: flex;
-        justify-content: flex-end;
-    }
+	width: auto;
+
+	& > .component-content {
+		display: flex;
+		justify-content: flex-end;
+		margin-right: 45px;
+	}
 }

@@ -2,26 +2,32 @@
 @import "mixins";
 @import "vars";
 .container {
+	@media (min-width: 1500px) {
+		width: 1440px;
+	}
+
 	.component-content {
-        @include clearfix();
-    }
+		@include clearfix();
+	}
 
-    &.col-sm-12,
-    &.col-xs-12 {
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
-        width: auto;
-        @include container;    
-    }
+	&.col-sm-12,
+	&.col-xs-12 {
+		&:not(.promo) {
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
+			width: auto;
+			@include container;
+		}
+	}
 
-    .full-width-container {
-        @include full-width-container;
+	.full-width-container {
+		@include full-width-container;
 
-        .column-splitter {
-            max-width: 80%;
-            margin-left: 10%;
-        }
-    }
+		.column-splitter {
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
 }
-

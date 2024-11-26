@@ -1,8 +1,12 @@
 ﻿---
-ID: "275bda4b-c4d8-4458-90a6-97edb49d9aba"
-Parent: "5545e611-f912-4ee7-991e-8ad7990e2b9d"
+ID: "6eb2d94c-9b83-43bc-b48f-6af49e2f4037"
+Parent: "746ec8b6-a02c-4195-a533-5028ed2a2e5c"
 Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
-Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Link Lists/Footer/Other Column/Services
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Link Lists/Footer/Pages Column/Contact
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
 Languages:
 - Language: en
   Versions:
@@ -10,22 +14,22 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4a578540-354a-423d-a01d-0601a6c48849"
+      Value: "7c0f6fd7-1391-4390-bb2e-ab54c9424255"
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |
-        <link text="Services" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{3E54A390-BFFD-40E6-9AF7-E951A806E691}" />
+        <link text="Contact" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{FD27A69C-2AFD-461D-8C59-73554C376648}" />
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: サポート
+    Value: サービス
   Versions:
   - Version: 1
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9effd52b-dd16-4ca2-9f9b-d5523d063eac"
+      Value: "fa74f5af-ce7f-4227-b0b2-5b9ebbf92c21"
     - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
       Hint: Link
       Value: |

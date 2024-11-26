@@ -40,19 +40,16 @@ jQuery(window).bind("load", function() {
         $(document).on('click', '[data-toggle="tab"]', function(e){
             e.preventDefault();
             var href = $(this).attr('href');
-
-            var $navTabs = $(this).parents('.nav-tabs'),
-                $tabContent = $navTabs.siblings('.tab-content');
                 
             if($(this).parent().hasClass('active')){
                 return;
             }
             
-            $navTabs.find('.active').removeClass('active');
+            $(this).parents('.nav-tabs').find('.active').removeClass('active');
             $(this).parent().addClass('active');
 
-            $tabContent.find('.active').removeClass('active');
-            $tabContent.find(href).addClass('active');
+            $(this).parents('.nav-tabs').siblings('.tab-content').find('.active').removeClass('active');
+            $(this).parents('.nav-tabs').siblings('.tab-content').find(href).addClass('active');
         });        
     }
  });
