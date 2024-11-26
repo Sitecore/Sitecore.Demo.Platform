@@ -1,12 +1,12 @@
 ﻿---
-ID: "974e6d6d-1992-4bb5-aa05-3ba3c2b302fa"
-Parent: "5545e611-f912-4ee7-991e-8ad7990e2b9d"
-Template: "e24e0789-a058-48bf-abb6-c69c0e60b6b7"
-Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Link Lists/Footer/Other Column/Company
+ID: "746ec8b6-a02c-4195-a533-5028ed2a2e5c"
+Parent: "f61676a8-97da-4f0c-8e6a-373eed878ee8"
+Template: "f7561ffc-c0d8-477f-b53d-2703a4060be1"
+Path: /sitecore/content/Demo SXA Sites/LighthouseLifestyle/Data/Link Lists/Footer/Pages Column
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 85
+  Value: 500
 Languages:
 - Language: en
   Versions:
@@ -14,11 +14,10 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a03bbb76-b3cb-480d-8b21-ddae8e5d42c4"
-    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
-      Hint: Link
-      Value: |
-        <link text="Company" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{CD923BB2-CD93-49F6-87C9-B4A2B54D073D}" />
+      Value: "b8fbce1b-30eb-49e9-b0e7-dfa44263e40f"
+    - ID: "aa9c8d1c-b210-4efa-86db-83e8fa32c672"
+      Hint: Title
+      Value: Pages
 - Language: "fr-CA"
   Fields:
   - ID: "41c6cc0e-389f-4d51-9990-fe35417b6666"
@@ -50,9 +49,12 @@ Languages:
       Value: 
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e53a2f66-4b86-47c1-ab95-11da33d9b8fa"
+      Value: "da7fbba3-e32d-41c7-b2ef-68fc63e06f54"
     - ID: "a14f1b0c-4384-49ec-8790-28a440f3670c"
       Hint: __Semantics
+      Value: 
+    - ID: "aa9c8d1c-b210-4efa-86db-83e8fa32c672"
+      Hint: Title
       Value: 
     - ID: "b8f42732-9cb8-478d-ae95-07e25345fb0f"
       Hint: __Hide version
@@ -60,22 +62,14 @@ Languages:
     - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
       Hint: __Valid from
       Value: 
-    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
-      Hint: Link
-      Value: |
-        <link text="Compagnie" anchor="" linktype="internal" class="" title=""  querystring="" id="{CD923BB2-CD93-49F6-87C9-B4A2B54D073D}" />
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: 設置
+    Value: その他
   Versions:
   - Version: 1
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8035ac07-0b93-4d64-8f71-e7d9c4a995e6"
-    - ID: "dd05144a-bd66-4ea3-956a-4b7104daaba3"
-      Hint: Link
-      Value: |
-        <link id="{10293B8D-EE06-41A8-B8F6-0A7B22E9488E}" querystring="" target="" text="設置" anchor="" title="" class="" url="/Demo SXA Sites/LighthouseLifestyle/home/services/home-installation-schedule-request-form" linktype="internal" />
+      Value: "062ca9ec-902f-42ab-9b0a-3d3f9779f101"

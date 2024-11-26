@@ -1,237 +1,367 @@
 @import "vars";
 @import "mixins";
-.promo {    
-    line-height: 1.6;
-    margin: 8em auto;
-    float: none;
+.promo {
+	line-height: 1.6;
+	margin: 8rem auto;
+	float: none;
 
-    >.component-content {
-        padding: 0;
-        background-color: $surface;
+	// TODO
+	&::after,
+	&::before {
+		display: none;
+	}
 
-        @include proxima-font;
+	> .component-content {
+		@include proxima-font;
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		padding: 0;
+		color: $secondary-color;
 
-        >div {
-            @include respond-to(tablet){
-                float: left;
-                width: 50%;
-                text-align: left;
-            }
-        }
+		@include respond-to(tablet) {
+			flex-direction: row;
+		}
 
-        p {
-            color: $text-light;
-            font-size: 1.25em;
-        }
-        @include respond-to(tablet) {
-            padding: 0 2em;  
-        }
+		> div {
+			@include respond-to(tablet) {
+				flex-basis: calc(50% - 15px);
+				flex-shrink: 0;
 
-        @include respond-to (desktop) {
-            padding: 0 8em;
-        }
-    }
+				&:not(.field-promoicon) {
+					padding: 10rem 0 10rem 10rem;
+				}
+			}
+		}
 
-    .field-promotext {
-        margin: $extrasmall-margin 0;
-        p{
-            font-size: 1;
-            margin: 0;     
-            color: $text-heading-color;
+		p {
+			font-size: 2rem;
+		}
 
-            @include respond-to(tablet) {
-                font-size: 2em;
-            }
-        }
-    } 
+		// TODO
+		&::after,
+		&::before {
+			display: none;
+		}
+	}
 
-    .field-introduction {
-        p {
-            margin: 0.5em;
-            font-weight: 300;
-        }        
-    }
+	.field-promotext {
+		@include proxima-font(bold);
+		margin-top: 0;
 
-    .field-promotext3 {
-        p {
-            color: $text-black;
-            text-transform: uppercase;
-            font-size: 0.85em;
-            font-weight: bold;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-    }
+		p {
+			font-size: 4rem;
+			line-height: 1.4;
+			margin: 0;
 
-    .field-promoicon {
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+			@include respond-to(tablet) {
+				font-size: 4.8rem;
+			}
+		}
+	}
 
-        @include respond-to (tablet) {
-            padding: 0 60px 0 0;
-        }
+	.field-title {
+		@include proxima-font(bold);
 
-        @include respond-to (desktop) {
-            padding: 0 120px 0 0;
-        }
-    }
+		font-size: 3.2rem;
+		margin-top: 0;
+	}
 
-    .field-promolink {
-        a {
-            @include btn-secondary;
-            min-width: 200px;
-            margin-top: 0.25em;
-            display: inline-block;
-            width: auto;
-        }
-        
-        &.cta {
-            a {
-                  @include btn-primary;
-            }
-            
-        }
-    }
+	.field-introduction {
+		font-size: 1.6rem;
 
-    &.promo-left {
-        .field-promoicon {        
+		p {
+			margin: 0.5em;
+			font-weight: 300;
+		}
+	}
 
-            @include respond-to(tablet) {
-                padding: 0 0 0 60px;
-                float: right; 
-            }
-            @include respond-to(desktop) {
-                padding: 0 0 0 120px;
-            }
-        }
-    }
+	.field-promotext3,
+	.field-promotext3 .field-subtitle,
+	.field-promotext3 p {
+		color: $primary-color;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		font-size: 1.4rem;
+		margin-top: 0;
 
-    &.promo-top {
-        >.component-content{
-            width: 100%;
-            padding: 0 0 3em 0;
-            border-radius: 4px;
-            box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1),	0 0 8px 0 rgba(0, 0, 0, 0.06);
+		p {
+			letter-spacing: inherit;
+			margin: 0;
+		}
+	}
 
-            .field-promoicon {
-                padding: 0;
-            }
+	.field-promoicon {
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
 
-            >div {
-                float: none;
-                width: 100%;
-                text-align: center;
-            }
-        }
-    }
+	.field-promolink {
+		margin-top: 40px;
 
-    &.promo-text {
-        >.component-content{
-            width: 100%;
-            padding: 0 0 3em 0;
+		a {
+			@include btn-secondary;
+		}
 
-            >div {
-                float: none;
-                width: 100%;
-                text-align: center;
-            }
-        }
-    }
+		&.cta {
+			a {
+				@include btn-primary;
+			}
+		}
+	}
 
-    &.promo-top-icon {
-        margin: 4em auto 2em auto;
+	&.promo-left {
+		> .component-content {
+			@include respond-to(tablet) {
+				flex-direction: row-reverse;
 
-        >.component-content{
-            width: 100%;
-            padding: 0 0 3em 0;
-            border-radius: 4px;
+				> div:not(.field-promoicon) {
+					padding: 10rem 10rem 10rem 0;
+				}
+			}
+		}
+	}
 
-            .field-promoicon {
-                padding: 0;
+	&.promo-top {
+		> .component-content {
+			position: relative;
+			width: 100%;
+			height: 60rem;
 
-                img {
-                    width: auto;
-                    display: inline;
-                }
-            }
+			.field-promoicon {
+				position: relative;
+				flex-basis: 100%;
+				padding: 0;
 
-            >div {
-                float: none;
-                width: 100%;
-                text-align: center;
-            }
-        }
-    }
+				img {
+					position: absolute;
+					inset: 0;
+					width: 100%;
+					height: 100%;
+				}
+			}
 
-    @import "variants/promo/*";
-    @import "base/richtext/richtext";
+			> div:not(.field-promoicon) {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 33%;
+				padding: 48px 48px 32px 32px;
+				background-color: $background-color;
+
+				.container-gray-background & {
+					background-color: $bg-light-gray;
+				}
+			}
+
+			.field-promotext,
+			.field-promotext p {
+				font-size: 3.2rem;
+			}
+
+			.field-promotext2,
+			.field-promotext2 p {
+				font-size: 1.6rem;
+			}
+		}
+
+		.field-promolink {
+			margin-top: 2rem;
+		}
+	}
+
+	&.promo-text {
+		> .component-content {
+			width: 100%;
+			padding: 0 0 3em 0;
+
+			> div {
+				float: none;
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+
+	&.promo-top-icon {
+		margin: 4em auto 2em auto;
+
+		> .component-content {
+			width: 100%;
+			padding: 0 0 3em 0;
+			border-radius: 4px;
+
+			.field-promoicon {
+				padding: 0;
+
+				img {
+					width: auto;
+					display: inline;
+				}
+			}
+
+			> div {
+				float: none;
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+
+	&:not(.promo-top).page-teaser {
+		position: static;
+
+		> .component-content {
+			> div:not(.field-promoicon) {
+				flex-basis: 100% !important;
+				width: 100% !important;
+				text-align: center;
+
+				> * {
+					max-width: 900px;
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				.field-promolink {
+					margin-top: 40px;
+				}
+			}
+		}
+	}
+
+	@import "variants/promo/*";
+	@import "base/richtext/richtext";
 }
 
 .full-width-promo {
-    @include full-width-container;
-    padding: 0;
+	@include full-width-container;
+	padding: 0;
 
-    .promo {
-        margin: 0 auto;
+	.promo {
+		margin: 0 auto;
 
-        > .component-content {
-            padding: 90px 0;
-            display: flex;
+		> .component-content {
+			display: flex;
+			padding: 90px 0;
+			color: $text-white;
 
-            @include respond-to(tablet) {
-                padding: 180px 0;  
-            }   
+			@include respond-to(tablet) {
+				padding: 120px 0;
+			}
 
-            p {
-                color: $fw-promo-text;
-            }
+			p {
+				color: $text-white;
+			}
 
-            .field-promotext {
-                p {
-                    color: $fw-promo-headline;
-                }
-            }
+			.field-promotext {
+				margin: 0;
 
-            > div {
-                float: none;
-                width: 100%;
-                position: relative;
-                z-index: 20;
-                background: rgba(255,255,255,0.75);
-                padding: 2em;                
-                width: 100%;
+				p {
+					font-size: 6.4rem;
+					color: $text-white;
+				}
+			}
 
-                @include respond-to(tablet) {
-                    width: 500px;    
-                }                
+			> div {
+				float: none;
+				position: relative;
+				z-index: 20;
+				border: 1px solid white;
+				padding: 5rem;
 
-                &.field-promoicon {
-                    padding: 0;
-                    position: absolute;
-                    z-index: 10;
-                    display: flex;
-                    width: 100%;
-                    height: 100%;
-                    left: 0;
-                    top: 0;
+				&:not(.field-promoicon) {
+					padding: 5rem;
 
-                    img {
-                        @include object-fit;
-                    }
-                }
-            }
-        }
+					@include respond-to(tablet) {
+						width: calc(50% - 15px);
+						flex-basis: calc(50% - 15px);
+						flex-grow: 0;
+					}
+				}
 
-        &.promo-right {
-            >.component-content {
-                justify-content: flex-end;
-            }
-        }
-        
-    }
+				&.field-promoicon {
+					padding: 0;
+					position: absolute;
+					z-index: 10;
+					display: flex;
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+
+					&::after {
+						content: "";
+						background-color: rgba(0, 0, 0, 0.5);
+						position: absolute;
+						inset: 0;
+						z-index: 11;
+					}
+
+					img {
+						@include object-fit;
+					}
+				}
+			}
+		}
+
+		&.full-width-content {
+			.component-content > div:not(.field-promoicon) {
+				width: 100%;
+				flex-basis: 100%;
+			}
+		}
+
+		&.page-teaser {
+			.field-promolink a {
+				@include btn-secondary-light;
+			}
+		}
+
+		&:not(.page-teaser) {
+			> .component-content {
+				> div {
+					transition: all 0.3s ease-in-out;
+
+					&:hover {
+						background-color: $primary-color;
+					}
+				}
+				.field-promolink {
+					display: flex;
+					justify-content: flex-end;
+					margin-top: 10rem;
+
+					a {
+						@include btn-arrow(74px);
+					}
+				}
+			}
+		}
+
+		&.promo-right {
+			> .component-content {
+				flex-direction: row-reverse;
+			}
+		}
+
+		&.promo-left {
+			> .component-content {
+				flex-direction: row;
+			}
+		}
+
+		&.promo-full {
+			> .component-content {
+				> div {
+					flex-basis: 100%;
+				}
+			}
+		}
+	}
 }
 
 @import "styles/promo/*";

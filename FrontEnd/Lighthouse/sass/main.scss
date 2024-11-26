@@ -6,32 +6,32 @@
 @import "privacy-warning";
 
 html {
-    font-size: 62.5%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin-bottom: 0px;
+	font-size: 62.5%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin-bottom: 0px;
 }
 
 body {
-    @include proxima-font();
-    position: relative;
-    overflow: auto;
-    color: $text-basic;
-    font-size: $font-medium;
-    background: $page-bg;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    &.on-page-editor {
-        background: $page-bg-editor !important;
-    }
+	@include proxima-font();
+	position: relative;
+	overflow: auto;
+	color: $text-basic;
+	font-size: $font-medium;
+	background: $page-bg;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	&.on-page-editor {
+		background: $page-bg-editor !important;
+	}
 }
 
 a {
-    color: $text-basic;
-    cursor: pointer;
-    font-size: 0.85em;
-    &:hover {
-        color: $text-basic-active;
-    }
+	color: $text-basic;
+	cursor: pointer;
+	font-size: 0.85em;
+	&:hover {
+		color: $text-basic-active;
+	}
 }
 
 h1,
@@ -40,208 +40,240 @@ h3,
 h4,
 h5,
 h6 {
-    color: $primary-color;
-} 
+	color: $primary-color;
+}
 
-h1, h2, h3, h4 {color: $text-heading-color;}
-h5, h6 {color: $text-basic;}
-h1, h2 { margin: $middle-margin 0;}
-h3, h4, p {margin: $middle-margin 0;}
-h5, h6 {margin: $extrasmall-margin 0 0;}
+h1,
+h2,
+h3,
+h4 {
+	color: $text-heading-color;
+}
+h5,
+h6 {
+	color: $text-basic;
+}
+h1,
+h2 {
+	margin: $middle-margin 0;
+}
+h3,
+h4,
+p {
+	margin: $middle-margin 0;
+}
+h5,
+h6 {
+	margin: $extrasmall-margin 0 0;
+}
 
-h1 {font-size: 3.5em;}
-h2 {font-size: 2em;}
-h3 {font-size: 1.5em;}
-h4 {font-size: 1.1em;}
-h5 {font-size: 1em;}
-h6 {font-size: 0.8em;} 
+h1 {
+	font-size: 3.5em;
+}
+h2 {
+	font-size: 2em;
+}
+h3 {
+	font-size: 1.5em;
+}
+h4 {
+	font-size: 1.1em;
+}
+h5 {
+	font-size: 1em;
+}
+h6 {
+	font-size: 0.8em;
+}
 
 p {
-    font-size: $font-medium;
+	font-size: $font-medium;
 }
 
 .alert {
-    p {
-        font-size: $font-normal;
-        margin: 0 0.5em;
-    }
+	p {
+		font-size: $font-normal;
+		margin: 0 0.5em;
+	}
 }
 
 //Forms
 
-input, select, textarea {
-    border: 1px solid $form-control-border;
-    background-color: $form-control-bg;
-    color: $form-control-color;
+input,
+select,
+textarea {
+	border: 1px solid $form-control-border;
+	background-color: $form-control-bg;
+	color: $form-control-color;
 
-    &:active,
-    &:focus {
-        border-color: $form-control-border-active;
-    }
+	&:active,
+	&:focus {
+		border-color: $form-control-border-active;
+	}
 }
 
 .account-management-page {
-    .field-title {
-        color: $primary-color;
-        font-weight: bold;
-        font-size: 1.5em;
-        margin: 1em 0 0.5em 0;
-    }
+	.field-title {
+		color: $primary-color;
+		font-weight: bold;
+		font-size: 1.5em;
+		margin: 1em 0 0.5em 0;
+	}
 
-    .account-summary {
-        padding-bottom: 5em;
-        
-        .link-list h3 {
-            border: 0;
-        }
-    
-        .link-list {
-            margin-bottom: 0;            
-        }
-        
-        .logout,
-        .link-list > .component-content li {
-            padding-right: 2em;
-            margin: 0;
+	.account-summary {
+		padding-bottom: 5em;
 
-            a {
-                padding: 1em;
-                border-top: 1px solid #D8D9D5;
-                display: block;
-                font-weight: bold;
-                border-bottom: 0;
-        
-                &:before {
-                    content: '';
-                }                
-            }
-   
-            &.active {
-                a {
-                    color: #1d8c96;
-                }
-            }
-        } 
+		.link-list h3 {
+			border: 0;
+		}
 
-        .rich-text { 
-            margin: 0;
-            padding-right: 40px;
-        }
-        .rich-text h4 {
-            font-size: 20px;
-            line-height: 1.3;
-            font-weight: 700;
-            padding-bottom: 0.3125em;
-            border-bottom: 1px solid #D8D9D5;
-            margin-bottom: 2.25em;
-        }
+		.link-list {
+			margin-bottom: 0;
+		}
 
-        .cxa-addresslist-component,
-        .cxa-profileview-component {
-            margin-top: 0;
-        }
+		.logout,
+		.link-list > .component-content li {
+			padding-right: 2em;
+			margin: 0;
 
-        .edit-profile {
-            color: #ADAFA8;
-        }
-        .edit-profile-text{
-            display: none;
-        }
-    }
+			a {
+				padding: 1em;
+				border-top: 1px solid #d8d9d5;
+				display: block;
+				font-weight: bold;
+				border-bottom: 0;
 
-    input[type="submit"] {
-        width: auto;
-        float: right;
-        margin-top: 1em;
-        @include btn-primary();
-        padding: 1em 2em;
-    }
-    
+				&:before {
+					content: "";
+				}
+			}
+
+			&.active {
+				a {
+					color: #1d8c96;
+				}
+			}
+		}
+
+		.rich-text {
+			margin: 0;
+			padding-right: 40px;
+		}
+		.rich-text h4 {
+			font-size: 20px;
+			line-height: 1.3;
+			font-weight: 700;
+			padding-bottom: 0.3125em;
+			border-bottom: 1px solid #d8d9d5;
+			margin-bottom: 2.25em;
+		}
+
+		.cxa-addresslist-component,
+		.cxa-profileview-component {
+			margin-top: 0;
+		}
+
+		.edit-profile {
+			color: #adafa8;
+		}
+		.edit-profile-text {
+			display: none;
+		}
+	}
+
+	input[type="submit"] {
+		width: auto;
+		float: right;
+		margin-top: 1em;
+		@include btn-primary();
+		padding: 1em 2em;
+	}
 }
 
-.privacy-warning, .cookie-notification {  
-    background: $bg-black;
-    color: $text-white;
-    
-    .close {
-      a {
-        color: $text-white;
-      }
-    }
+.privacy-warning,
+.cookie-notification {
+	background: $bg-black;
+	color: $text-white;
+
+	.close {
+		a {
+			color: $text-white;
+		}
+	}
 }
 
 .xa-variable {
-    border: 0px;
-    padding: 1px;
-    margin: 0px;
-    background-color: #ebebe4;
-    color: #545454;
-    user-select: none;
-    pointer-events: none;
+	border: 0px;
+	padding: 1px;
+	margin: 0px;
+	background-color: #ebebe4;
+	color: #545454;
+	user-select: none;
+	pointer-events: none;
 }
 
-//Navigation Bar fix 
+//Navigation Bar fix
 #breadcrumbMenuSubcontrol_context_menu * {
-    box-sizing: initial;
+	box-sizing: initial;
 }
 //End navigation bar fix
 
 .gray-background-content {
-    background-color: $bg-light-gray;
-    margin-top: 2em;
-    margin-bottom: 2em;
+	background-color: $bg-light-gray;
+	margin-top: 2em;
+	margin-bottom: 2em;
 }
 
 .white-background-content {
-    margin-top: 2em;
-    margin-bottom: 2em;
+	margin-top: 2em;
+	margin-bottom: 2em;
 }
 
 .inside-intro-content {
-    background: url(https://cumulus-fs.s3.amazonaws.com/images/bg-diamond.png);
-    text-align: center;
-    padding: 50px 0;
-    padding-top: 0px;
+	background: url(https://cumulus-fs.s3.amazonaws.com/images/bg-diamond.png);
+	text-align: center;
+	padding: 50px 0;
+	padding-top: 0px;
 
-    >div{
-        display: flex;
+	> div {
+		display: flex;
 
-        .field-promoicon {
-            height: auto !important;
-        }
+		.field-promoicon {
+			height: auto !important;
+		}
 
-        img {
-            width: auto !important;
-            height: auto !important;
-        }
-    }
+		img {
+			width: auto !important;
+			height: auto !important;
+		}
+	}
 }
 
 #related-guides {
-    li {
-        max-width: 32%;
-        width: 100%;
-        display: inline-block;
-        position: relative;
-        flex: 0 0 32%;
-        padding: 0 1.25em;
-        border-bottom: none;
+	li {
+		max-width: 32%;
+		width: 100%;
+		display: inline-block;
+		position: relative;
+		flex: 0 0 32%;
+		padding: 0 1.25em;
+		border-bottom: none;
 
-        .product-item-image {
-            img {
-            max-width: 150px;
-            max-height: 150px;
-            }
-        }
-    }
+		.product-item-image {
+			img {
+				max-width: 150px;
+				max-height: 150px;
+			}
+		}
+	}
 }
 
 /*equalized content in promo and side by side promo's*/
-.equal{
-    flex:1;
-    text-align:center;
+.equal {
+	flex: 1;
+	text-align: center;
 }
 
 .field-requirements {
-    padding-right: 15px;
+	padding-right: 15px;
 }

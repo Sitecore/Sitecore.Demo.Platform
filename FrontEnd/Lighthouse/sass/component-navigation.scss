@@ -5,8 +5,6 @@
 .primary-nav-container {
 	margin: 30px 0px;
 	padding-right: 0px;
-	font-family: 'AvenirNextW05-Medium';
-	font-weight: 500;
 
 	.component-content {
 		float: right;
@@ -15,23 +13,18 @@
 	nav {
 		float: right;
 		line-height: 22px;
+		text-transform: uppercase;
+		letter-spacing: 2px;
 
 		.rel-level1 {
 			padding-top: 12px;
 			padding-bottom: 12px;
 
 			&.last {
-				background-color: $primary-color;
-				width: 159px;
-				border-radius: 4px 0 0 4px;
-
-				div {
-					text-align: center;
-				}
-
-				>div {
-					>a {
-						color: $on-primary !important;
+				> div {
+					> a {
+						@include btn-primary;
+						font-weight: 400 !important;
 					}
 				}
 			}

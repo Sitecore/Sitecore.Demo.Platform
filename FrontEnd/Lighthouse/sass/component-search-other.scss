@@ -1,54 +1,58 @@
 @import "vars";
 @import "mixins";
-.facet-component, .facet-summary {
-    box-sizing: border-box;
-    background: transparent;
-    @import "base/reset/inputs";
-    @include clearfix();
-    .bottom-filter-button {
-        float: right;
-    }
-    .facet-heading {
-        @include border-basic(bottom, $search-title-border);
-        padding: 0 0 5px 0;
-        margin: 0 0 5px 0;
-        position: relative;
-        .facet-title {
-            display: inline-block;
-            vertical-align: middle;
-            color: $search-title-color;
-            padding-right: 25px;
-        }
-        .clear-filter {
-            display: inline-block;
-            vertical-align: middle;
-            border-radius: 15px;
-            font-size: 10px;
-            text-align: center !important;
-            width: 15px;
-            cursor: pointer;
-            position: absolute;
-            color: $search-filter;
-            right: 3px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: $search-btn-bg;
-            &:hover {
-                background: $search-btn-active-bg;
-                border-color: $search-btn-active-border;
-                text-decoration: none;
-                color: $search-filter;
-            }
-            &.has-active-facet {
-                background: $search-btn-active-bg;
-                color: $search-filter;
-                &:hover {
-                    background: $search-btn-active-bg;
-                    color: $search-filter;
-                }
-            }
-        }
-    }
+.facet-component,
+.facet-summary {
+	box-sizing: border-box;
+	background: transparent;
+	@import "base/reset/inputs";
+	@include clearfix();
+	.bottom-filter-button {
+		float: right;
+	}
+	.filterButton {
+		@include btn-secondary;
+	}
+	.facet-heading {
+		@include border-basic(bottom, $search-title-border);
+		padding: 0 0 5px 0;
+		margin: 0 0 5px 0;
+		position: relative;
+		.facet-title {
+			display: inline-block;
+			vertical-align: middle;
+			color: $search-title-color;
+			padding-right: 25px;
+		}
+		.clear-filter {
+			display: inline-block;
+			vertical-align: middle;
+			border-radius: 15px;
+			font-size: 10px;
+			text-align: center !important;
+			width: 15px;
+			cursor: pointer;
+			position: absolute;
+			color: $search-filter;
+			right: 3px;
+			top: 50%;
+			transform: translateY(-50%);
+			background: $search-btn-bg;
+			&:hover {
+				background: $search-btn-active-bg;
+				border-color: $search-btn-active-border;
+				text-decoration: none;
+				color: $search-filter;
+			}
+			&.has-active-facet {
+				background: $search-btn-active-bg;
+				color: $search-filter;
+				&:hover {
+					background: $search-btn-active-bg;
+					color: $search-filter;
+				}
+			}
+		}
+	}
 }
 @import "base/search/component-filter-checklist";
 @import "base/search/component-facet-summary";
@@ -70,85 +74,86 @@
 @import "base/search/component-sort-results";
 
 .search-box.main-search {
-    position: relative;
-    padding: 0;
+	position: relative;
+	padding: 0;
 
-    .component-content {
-        display: none;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        transform: translateY(100%);
-        width: $main-search-width;
-        z-index: 100;
-        background-color: $bg-basic-color;
-        padding: 1.5em;
-        box-shadow: 0 2px 9px 0px #b3b3b3;
+	.component-content {
+		display: none;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		transform: translateY(100%);
+		width: $main-search-width;
+		z-index: 100;
+		background-color: $bg-basic-color;
+		padding: 1.5em;
+		box-shadow: 0 2px 9px 0px #b3b3b3;
 
-        input, >button {
-            display: block;
-            margin: 0;
-            height: 44px;
-            width: 100%;
-            font-size: $navigation-font-basic;
-        }
+		input,
+		> button {
+			display: block;
+			margin: 0;
+			height: 44px;
+			width: 100%;
+			font-size: $navigation-font-basic;
+		}
 
-        >button {
-            background-color: $btn-primary-bg !important;
-            border: 1px solid $btn-primary-bg;
-            color: $btn-primary;
-        }
+		> button {
+			background-color: $btn-primary-bg !important;
+			border: 1px solid $btn-primary-bg;
+			color: $btn-primary;
+		}
 
-        input {
-            box-shadow: none;
-            background-color: $search-box-bg !important;
-            color: $text-basic;
-        }
+		input {
+			box-shadow: none;
+			background-color: $search-box-bg !important;
+			color: $text-basic;
+		}
 
-        >label {
-            display: none;
-        }
+		> label {
+			display: none;
+		}
 
-        >.twitter-typeahead {
-            margin: 0;
-            .search-box-input.tt-input {
-                margin-bottom: 0.5em;
-            }
+		> .twitter-typeahead {
+			margin: 0;
+			.search-box-input.tt-input {
+				margin-bottom: 0.5em;
+			}
 
-            .tt-dropdown-menu {
-                width: 100%;
-                margin-top: 0;
-                max-height: none;
-                overflow-y: auto;
-            }
-        }
-    }
+			.tt-dropdown-menu {
+				width: 100%;
+				margin-top: 0;
+				max-height: none;
+				overflow-y: auto;
+			}
+		}
+	}
 
-    &:before {
-        @include fa-icon();
-        height: $primary-nav-height - 8px;
-        display: flex;
-        align-items: center;
-        color: $text-passive;
-        font-size: $navigation-icon-size;
-        content: $fa-var-search;
-        padding: 0 1.25em;
-        cursor: pointer;
-        position: relative;
-        border-top: 4px solid transparent;
-        line-height: $primary-nav-height - 8px;
-        padding-bottom: 12px;
-    }
+	&:before {
+		@include fa-icon();
+		height: $primary-nav-height - 8px;
+		display: flex;
+		align-items: center;
+		color: $text-passive;
+		font-size: $navigation-icon-size;
+		content: $fa-var-search;
+		padding: 0 1.25em;
+		cursor: pointer;
+		position: relative;
+		border-top: 4px solid transparent;
+		line-height: $primary-nav-height - 8px;
+		padding-bottom: 12px;
+	}
 
-    &.open {
-        &:before {
-            background-color: $nav-submenu-bg;
-            color: $primary-color;
-            z-index: 400;
-        }
+	&.open {
+		&:before {
+			background-color: $nav-submenu-bg;
+			color: $primary-color;
+			z-index: 400;
+		}
 
-        & > .component-content {
-            display: block;
-        }
-    }
+		& > .component-content {
+			display: block;
+		}
+	}
 }

@@ -1,83 +1,83 @@
 .login-panel {
-    left: 0;
-    padding: 0 0 80px;
+	left: 0;
+	padding: 0 0 80px;
 
-    @include respond-to(tablet) {
-        left: 16.66666667%;
-    }
+	@include respond-to(tablet) {
+		left: 16.66666667%;
+	}
 
-    .title {
-        padding: 0;
-        font-size: 2em;
-        font-weight: bold;
-        margin: 1em 0;
-        color: $text-heading-color;
-    }
+	.title {
+		padding: 0;
+		font-size: 2em;
+		font-weight: bold;
+		margin: 1em 0;
+		color: $text-heading-color;
+	}
 
-    .article-content {
-        padding: 0;
-    }
+	.article-content {
+		padding: 0;
+	}
 
-    .rich-text {
-        h4 {
-            font-size: 30px;
-        }        
-    }
+	.rich-text {
+		h4 {
+			font-size: 30px;
+		}
+	}
 
-    .promo {
-        padding: 0;
-        margin: 0;
+	.promo {
+		padding: 0;
+		margin: 0;
 
-        > .component-content {
-            padding: 0;
+		> .component-content {
+			padding: 0;
 
-            > div {
-                width: 100%;
-            }
+			> div:not(.field-promoicon) {
+				width: 100%;
+				padding: 0;
+			}
 
-            p {
-                color: $text-basic;
-                font-size: 1em;
-                font-weight: 400;
-            }
-        }
+			p {
+				color: $text-basic;
+				font-size: 1em;
+				font-weight: 400;
+			}
+		}
 
-        .field-promotext {
-            font-size: 30px;
-            margin: 1em 0;
-        }
-        
-    }
+		.field-promotext {
+			font-size: 30px;
+			margin: 1em 0;
+		}
+	}
 
-    .col-sm-6:first-child {
-        padding: 0 2em;
+	.col-sm-6:first-child {
+		padding: 0 2em;
 
-        @include respond-to(tablet) {
-            border-right: 1px solid $border-gray;
-            padding: 0 2em 0 0;
-        }
-    }
-    .col-sm-6:last-child {
-        padding: 0 2em;
+		@include respond-to(tablet) {
+			border-right: 1px solid $border-gray;
+			padding: 0 2em 0 0;
+		}
+	}
+	.col-sm-6:last-child {
+		padding: 0 2em;
 
-        @include respond-to(tablet) {
-            padding: 0 0 0 2em;
-        }
-    }
+		@include respond-to(tablet) {
+			padding: 0 0 0 2em;
+		}
+	}
 
-    .col-sm-6 {
-        width: 100%;
-        @include respond-to(tablet) {
-            width: 50%;
-        }
-    }
+	.col-sm-6 {
+		width: 100%;
+		@include respond-to(tablet) {
+			width: 50%;
+		}
+	}
 
-    .form-signin {
-        padding: 0 0 1em;
-        max-width: none;
-    }
+	.form-signin {
+		padding: 0 0 1em;
+		max-width: none;
+	}
 
-    .m-t-1 {
-        margin: 1em 0;
-    }
+	.m-t-1 {
+		margin: 1em 0;
+	}
 }

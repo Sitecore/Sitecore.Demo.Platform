@@ -1,6 +1,6 @@
 #footer {
-	margin: 0 0 0 0;
-	padding: 3em 0 0em 0;
+	margin: 0;
+	padding: 0;
 	background-color: $bg-charcoal;
 
 	.image img {
@@ -12,15 +12,6 @@
 			float: none;
 		}
 
-		.component-content {
-			display: flex;
-			flex-wrap: wrap;
-
-			@include respond-to(tablet) {
-				flex-wrap: nowrap;
-			}
-		}
-
 		.row {
 			> div {
 				@include clearfix;
@@ -28,8 +19,16 @@
 		}
 
 		.link-list {
-			flex-shrink: 1;
-			flex-grow: 1;
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				@include proxima-font(bold);
+				color: $on-secondary;
+				font-size: 2rem;
+			}
 
 			li {
 				a {
@@ -38,47 +37,13 @@
 				}
 			}
 
-			@include respond-to(tablet) {
-				flex-basis: 0;
-			}
-
-			width: 50%;
-
-			ul {
-				width: 100%;
-			}
-
 			a {
 				display: inline-block;
-				color: #747474;
-				position: relative;
-				padding: 0.5em 0;
-				font-size: 1em;
-				text-decoration: none;
-				@include proxima-font;
+				color: $on-secondary;
 
 				&:before {
 					display: none;
 				}
-
-				&:hover {
-					color: white;
-					border: 0;
-				}
-			}
-
-			&:last-child a,
-			.first a {
-				color: white;
-				font-weight: bold;
-				display: block;
-				border-bottom: 1px solid $primary-color;
-			}
-		}
-
-		@include respond-to(tablet) {
-			.link-list {
-				width: auto;
 			}
 		}
 	}
@@ -91,13 +56,21 @@
 				font-size: 0;
 				&:before {
 					font-size: 20px;
-					padding: 5px;
+					padding: 0;
 				}
 			}
 		}
 
 		h3 {
-			display: none;
+			color: $on-secondary;
+			font-size: 1.4rem;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+		}
+
+		h3,
+		ul {
+			text-align: right;
 		}
 
 		a {
@@ -113,7 +86,9 @@
 			&:before {
 				font: normal normal normal 14px/1 FontAwesome;
 				font-size: 20px;
-				color: $social-media-color;
+				color: $on-primary;
+				right: 0;
+				left: unset;
 			}
 
 			&.social-links-facebook:before {
@@ -129,17 +104,11 @@
 				content: "\f167";
 			}
 		}
-
-		ul {
-			padding: 1em 0;
-			margin: 1em 0;
-		}
-		li {
-			display: inline-block;
-		}
 	}
 
 	.search-box {
+		padding: 0;
+
 		.component-content {
 			> .twitter-typeahead {
 				margin: 0;
@@ -151,23 +120,40 @@
 		}
 
 		button {
-			border: 0;
-			background-color: $btn-primary-bg !important;
-			color: $btn-primary;
-			font-size: $navigation-font-basic;
-			height: 44px;
-			padding-left: 30px;
-			padding-right: 30px;
+			@include btn-secondary-light;
 		}
 
 		input[type="text"] {
-			border: 0;
-			height: 44px;
+			@include border-basic(all, $on-primary, 1px);
 			font-size: $navigation-font-basic;
 			box-shadow: none;
 			background-color: $search-box-bg !important;
-			border: 1px solid #757575;
-			color: $text-light;
+			color: $on-secondary;
+
+			&::placeholder {
+				color: $on-secondary;
+			}
+		}
+	}
+
+	.logo-container {
+		ul {
+			margin: 0;
+
+			.logo {
+				h3 {
+					color: $on-secondary;
+
+					span {
+						background-color: $on-secondary;
+						color: $bg-charcoal;
+					}
+				}
+
+				p {
+					color: $on-secondary;
+				}
+			}
 		}
 	}
 }

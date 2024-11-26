@@ -1,45 +1,43 @@
 @import "vars";
 @import "mixins";
 .list-pagination {
-    background: $list-pagination-bg;
-    margin: 30px;
+	background: $list-pagination-bg;
+	margin: 30px;
 
-    nav {
-        font-size: $font-normal;
-        >span, >a {
-            display: inline-block;
-            color: $list-pagination-inactive-color;
-            background: $list-pagination-bg-inactive;
-            margin: 2px 1px 2px 0;
-            padding: 6px 10px;
-            @include border-basic();
-            font-size: $navigation-font-basic;
-            font-weight: 500;
-            border-radius: 2px;
+	nav {
+		font-size: $font-normal;
+		> span,
+		> a {
+			display: inline-block;
+			color: $list-pagination-inactive-color;
+			background: $list-pagination-bg-inactive;
+			margin: 2px 1px 2px 0;
+			padding: 6px 10px;
+			@include border-basic();
+			font-size: $navigation-font-basic;
+			font-weight: 500;
 
-            &:hover {
-                color: $list-pagination-active-color;
-                background: $list-pagination-active-bg;
-                text-decoration: none;
-                font-weight: bolder;
-            }
-            &:focus {
-                text-decoration: none;
-                color: $list-pagination-active-color;
-            }
-        }
-        >span.active {
-            font-weight: bold;
-            background: $list-pagination-inactive-color;
-            color: $list-pagination-bg-inactive;
-        }
-        >span.inactive {
-            display: none;
-            color: $text-disabled;
-            &:hover {
-                background: none;
-                @include border-basic();
-            }
-        }
-    }
+			&:hover {
+				color: $list-pagination-active-color;
+				background: $list-pagination-active-bg;
+				text-decoration: none;
+			}
+			&:focus {
+				text-decoration: none;
+				color: $list-pagination-active-color;
+			}
+		}
+		> span.active {
+			background: $list-pagination-inactive-color;
+			color: $list-pagination-bg-inactive;
+		}
+		> span.inactive {
+			display: none;
+			color: $text-disabled;
+			&:hover {
+				background: none;
+				@include border-basic();
+			}
+		}
+	}
 }

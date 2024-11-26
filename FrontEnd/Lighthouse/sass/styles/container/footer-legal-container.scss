@@ -1,22 +1,29 @@
 .footer-legal-container {
-    background-color: $bg-black;
-    min-height: 44px;
-    max-width: none !important;        
-    width: 100vw !important;
-    padding-left: 0px;
-    padding-right: 0px;
+	min-height: 44px;
+	max-width: none !important;
+	width: 100vw !important;
+	padding-left: 0px;
+	padding-right: 0px;
 
-    .copyrights {
-        color: $nav-footer-legal;
-        padding: 15px 30px;
-        font-size: 1em;
+	> .component-content {
+		margin: auto;
+		padding: 0 15px;
+		max-width: 1500px;
+	}
 
-        p {
-            font-size: $navigation-font-small;
-        }
+	.copyrights {
+		color: $nav-footer-legal;
+		padding: 2rem 0;
+		font-size: 1.4rem;
+		border-top: 1px solid $nav-footer-legal;
 
-        a {
-            color: $nav-footer-legal;
-        }
-    }
+		p {
+			font-size: $navigation-font-small;
+			margin: 0;
+		}
+
+		a {
+			color: $nav-footer-legal;
+		}
+	}
 }

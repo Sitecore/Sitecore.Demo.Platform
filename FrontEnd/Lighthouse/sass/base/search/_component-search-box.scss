@@ -1,50 +1,97 @@
 .column-header-search {
-    .search-box {
-        margin: 0;
-        padding: 2px 10px 0 10px;
-    }
+	.search-box {
+		margin: 0;
+		padding: 2px 10px 0 10px;
+	}
 }
 .search-box {
-    @import "../reset/inputs";
-    @import "../typehead/typehead";
-    position: relative;
-    padding-right: 10px;
-    box-sizing: border-box;
-    &.hide-button {
-        .search-box-button {
-            display: none;
-        }
-    }
-    .component-content {
-        display: flex;
-        >label, >input, >button {
-            display: inline-block;
-        }
-        >label, >button {
-            flex-grow: 1;
-        }
-        >input {
-            width: auto;
-            flex-grow: 10;
-            margin: 0 5px;
-        }
-        >label {
-            align-self: center;
-            text-align: center;
-        }
-        >.twitter-typeahead {
-            flex-grow: 10;
-            margin: 0 5px;
-            .search-box-input.tt-input {
-                margin-bottom: 0;
-            }
-        }
-    }
-    .search-box-input {
-        position: relative;
-        align-self: center;
-        &.tt-hint {
-            margin-top: 0;
-        }
-    }
+	@import "../reset/inputs";
+	@import "../typehead/typehead";
+	position: relative;
+	box-sizing: border-box;
+	&.hide-button {
+		.search-box-button {
+			display: none;
+		}
+	}
+
+	.search-box-button {
+		@include btn-primary;
+	}
+
+	.search-box-button-with-redirect {
+		@include btn-secondary;
+	}
+
+	.component-content {
+		display: flex;
+		> label,
+		> input,
+		> button {
+			display: inline-block;
+		}
+		> label {
+			flex-grow: 1;
+		}
+		> .autoComplete_wrapper {
+			flex-grow: 1;
+			position: relative;
+		}
+		> input {
+			width: auto;
+			flex-grow: 10;
+			margin: 0 5px;
+		}
+		> label {
+			align-self: center;
+			text-align: center;
+		}
+		> .twitter-typeahead {
+			flex-grow: 10;
+			margin: 0 5px;
+			.search-box-input.tt-input {
+				margin-bottom: 0;
+			}
+		}
+	}
+	input.search-box-input {
+		@include border-basic;
+
+		position: relative;
+		align-self: center;
+		height: 100%;
+		letter-spacing: 1px;
+
+		&::placeholder {
+			text-transform: lowercase;
+			letter-spacing: 1px;
+		}
+
+		&.tt-hint {
+			margin-top: 0;
+		}
+	}
+	.autocomplete-menu,
+	.autocomplete-menu__absolute {
+		@include border-basic;
+
+		position: absolute;
+		background-color: white;
+		color: $on-surface;
+		top: calc(100% - 1px);
+		left: 0;
+		right: 0;
+		padding: 1.6rem;
+
+		span {
+			display: block;
+			a {
+				color: $on-surface;
+			}
+
+			&:not(:first-child) {
+				margin-top: 1em;
+			}
+		}
+	}
 }
